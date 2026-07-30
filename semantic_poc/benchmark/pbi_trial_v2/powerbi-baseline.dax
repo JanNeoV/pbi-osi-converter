@@ -1,0 +1,175 @@
+-- Power BI DAX Query View baseline for pbi_trial measure-conversion benchmark v2.
+-- Run each query block separately if the client accepts only one result set.
+
+-- Query 1: overall values for all 46 benchmark measures.
+-- Export as manual-evidence/powerbi-v2-overall.csv.
+EVALUATE
+ROW(
+    "Result Rows", [Result Rows],
+    "Split Rows", [Split Rows],
+    "Split Time Seconds", [Split Time Seconds],
+    "Results With Splits", [Results With Splits],
+    "# Events", [# Events],
+    "Swim Time Seconds", [Swim Time Seconds],
+    "Bike Time Seconds", [Bike Time Seconds],
+    "Run Time Seconds", [Run Time Seconds],
+    "Total Transition Seconds", [Total Transition Seconds],
+    "Total Recorded Seconds", [Total Recorded Seconds],
+    "Finisher Rows", [Finisher Rows],
+    "Valid SBR Finishers", [Valid SBR Finishers],
+    "Review Rows", [Review Rows],
+    "Reviewed Valid SBR Finishers", [Reviewed Valid SBR Finishers],
+    "Pro Finisher Rows", [Pro Finisher Rows],
+    "Finish Rate", [Finish Rate],
+    "Valid SBR Rate", [Valid SBR Rate],
+    "Review Rate Among Valid SBR", [Review Rate Among Valid SBR],
+    "Split Coverage Rate", [Split Coverage Rate],
+    "Average Bike Seconds", [Average Bike Seconds],
+    "Min Bike Seconds", [Min Bike Seconds],
+    "Max Bike Seconds", [Max Bike Seconds],
+    "Median Complete SBR Seconds", [Median Complete SBR Seconds],
+    "P90 Complete SBR Seconds", [P90 Complete SBR Seconds],
+    "Complete SBR Population StdDev Seconds", [Complete SBR Population StdDev Seconds],
+    "Run Time Hours", [Run Time Hours],
+    "Bike Time Hours", [Bike Time Hours],
+    "Swim Time Hours", [Swim Time Hours],
+    "Nominal Bike KM Across Timed Results", [Nominal Bike KM Across Timed Results],
+    "Weighted Bike Speed KM/H", [Weighted Bike Speed KM/H],
+    "Valid SBR Share Across Visible Distances", [Valid SBR Share Across Visible Distances],
+    "Distance Rank by Valid SBR", [Distance Rank by Valid SBR],
+    "Event-Weighted Average Valid SBR Rate", [Event-Weighted Average Valid SBR Rate],
+    "Valid SBR % of Parent Geography", [Valid SBR % of Parent Geography],
+    "Selected Leg Time Seconds", [Selected Leg Time Seconds],
+    "Top 3 Events Valid SBR Share", [Top 3 Events Valid SBR Share],
+    "Complete Five-Split Results", [Complete Five-Split Results],
+    "Complete Split Coverage Rate", [Complete Split Coverage Rate],
+    "Split Event Mismatch Rows", [Split Event Mismatch Rows],
+    "All-Leg Split vs Result Delta Seconds", [All-Leg Split vs Result Delta Seconds],
+    "NC - Bike Time Hours Divisor 60", [NC - Bike Time Hours Divisor 60],
+    "NC - Event ID Total", [NC - Event ID Total],
+    "NC - Overall Relative Total", [NC - Overall Relative Total],
+    "NC - Review Rate Wrong Population", [NC - Review Rate Wrong Population],
+    "NC - Valid SBR Rate Decimal Format", [NC - Valid SBR Rate Decimal Format],
+    "NC - Split-Multiplied Bike Seconds", [NC - Split-Multiplied Bike Seconds]
+)
+
+-- Query 2: distance slice, visible-share, rank, distribution, and unit checks.
+-- Export as manual-evidence/powerbi-v2-distance.csv.
+EVALUATE
+SUMMARIZECOLUMNS(
+    DIM_DISTANCE[DISTANCE],
+    "Result Rows", [Result Rows],
+    "Valid SBR Finishers", [Valid SBR Finishers],
+    "Valid SBR Rate", [Valid SBR Rate],
+    "Average Bike Seconds", [Average Bike Seconds],
+    "Min Bike Seconds", [Min Bike Seconds],
+    "Max Bike Seconds", [Max Bike Seconds],
+    "Median Complete SBR Seconds", [Median Complete SBR Seconds],
+    "P90 Complete SBR Seconds", [P90 Complete SBR Seconds],
+    "Nominal Bike KM Across Timed Results", [Nominal Bike KM Across Timed Results],
+    "Weighted Bike Speed KM/H", [Weighted Bike Speed KM/H],
+    "Valid SBR Share Across Visible Distances", [Valid SBR Share Across Visible Distances],
+    "Distance Rank by Valid SBR", [Distance Rank by Valid SBR]
+)
+ORDER BY DIM_DISTANCE[DISTANCE]
+
+-- Query 3: gender slice and filtered-population checks.
+-- Export as manual-evidence/powerbi-v2-gender.csv.
+EVALUATE
+SUMMARIZECOLUMNS(
+    DIM_GENDER[GENDER],
+    "Result Rows", [Result Rows],
+    "Finisher Rows", [Finisher Rows],
+    "Valid SBR Finishers", [Valid SBR Finishers],
+    "Reviewed Valid SBR Finishers", [Reviewed Valid SBR Finishers],
+    "Finish Rate", [Finish Rate],
+    "Valid SBR Rate", [Valid SBR Rate],
+    "Review Rate Among Valid SBR", [Review Rate Among Valid SBR],
+    "Complete SBR Population StdDev Seconds", [Complete SBR Population StdDev Seconds]
+)
+ORDER BY DIM_GENDER[GENDER]
+
+-- Query 4: event slice at the deepest geography scope.
+-- Export as manual-evidence/powerbi-v2-event.csv.
+EVALUATE
+SUMMARIZECOLUMNS(
+    DIM_COUNTRY[CONTINENT],
+    DIM_COUNTRY[REGION],
+    DIM_COUNTRY[COUNTRY_NAME],
+    DIM_EVENT[EVENT_ID],
+    DIM_EVENT[EVENT_NAME],
+    "Result Rows", [Result Rows],
+    "Valid SBR Finishers", [Valid SBR Finishers],
+    "Valid SBR Rate", [Valid SBR Rate],
+    "Event-Weighted Average Valid SBR Rate", [Event-Weighted Average Valid SBR Rate],
+    "Valid SBR % of Parent Geography", [Valid SBR % of Parent Geography],
+    "Top 3 Events Valid SBR Share", [Top 3 Events Valid SBR Share],
+    "Split Event Mismatch Rows", [Split Event Mismatch Rows]
+)
+ORDER BY
+    DIM_COUNTRY[CONTINENT],
+    DIM_COUNTRY[REGION],
+    DIM_COUNTRY[COUNTRY_NAME],
+    DIM_EVENT[EVENT_ID]
+
+-- Query 5: geography hierarchy with country, region, continent, and grand-total scopes.
+-- Export as manual-evidence/powerbi-v2-country.csv.
+EVALUATE
+SUMMARIZECOLUMNS(
+    ROLLUPADDISSUBTOTAL(
+        DIM_COUNTRY[CONTINENT], "IsContinentSubtotal",
+        DIM_COUNTRY[REGION], "IsRegionSubtotal",
+        DIM_COUNTRY[COUNTRY_NAME], "IsCountrySubtotal"
+    ),
+    "Result Rows", [Result Rows],
+    "Valid SBR Finishers", [Valid SBR Finishers],
+    "Valid SBR % of Parent Geography", [Valid SBR % of Parent Geography]
+)
+ORDER BY
+    DIM_COUNTRY[CONTINENT],
+    DIM_COUNTRY[REGION],
+    DIM_COUNTRY[COUNTRY_NAME]
+
+-- Query 6: division slice and professional-filter relationship checks.
+-- Export as manual-evidence/powerbi-v2-division.csv.
+EVALUATE
+SUMMARIZECOLUMNS(
+    DIM_DIVSION[DIVISION],
+    DIM_DIVSION[IS_PRO],
+    "Result Rows", [Result Rows],
+    "Finisher Rows", [Finisher Rows],
+    "Pro Finisher Rows", [Pro Finisher Rows],
+    "Valid SBR Finishers", [Valid SBR Finishers],
+    "Finish Rate", [Finish Rate]
+)
+ORDER BY DIM_DIVSION[DIVISION]
+
+-- Query 7: age-group slice through the normalized division sub-dimension.
+-- Export as manual-evidence/powerbi-v2-age-group.csv.
+EVALUATE
+SUMMARIZECOLUMNS(
+    DIM_AGE_GROUP[AGE_GROUP_NAME],
+    "Result Rows", [Result Rows],
+    "Finisher Rows", [Finisher Rows],
+    "Valid SBR Finishers", [Valid SBR Finishers],
+    "Review Rate Among Valid SBR", [Review Rate Among Valid SBR],
+    "Weighted Bike Speed KM/H", [Weighted Bike Speed KM/H]
+)
+ORDER BY DIM_AGE_GROUP[AGE_GROUP_NAME]
+
+-- Query 8: leg slice and intentional leg-filter blank behavior.
+-- Export as manual-evidence/powerbi-v2-leg.csv.
+EVALUATE
+SUMMARIZECOLUMNS(
+    FCT_SPLIT[LEG],
+    "Split Rows", [Split Rows],
+    "Split Time Seconds", [Split Time Seconds],
+    "Results With Splits", [Results With Splits],
+    "Selected Leg Time Seconds", [Selected Leg Time Seconds],
+    "Complete Five-Split Results", [Complete Five-Split Results],
+    "Complete Split Coverage Rate", [Complete Split Coverage Rate],
+    "Split Event Mismatch Rows", [Split Event Mismatch Rows],
+    "All-Leg Split vs Result Delta Seconds", [All-Leg Split vs Result Delta Seconds],
+    "NC - Split-Multiplied Bike Seconds", [NC - Split-Multiplied Bike Seconds]
+)
+ORDER BY FCT_SPLIT[LEG]

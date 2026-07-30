@@ -1,0 +1,13 @@
+flowchart TD
+  A[Discover source without edits] --> B[Classify every object]
+  B --> C[Compare generated and imported targets]
+  C --> D{Blocking semantic finding?}
+  D -- yes --> E[BLOCKED_PENDING_REVIEW]
+  E --> F[Accept, correct, or reject each finding]
+  D -- no --> G[READY_FOR_REVIEW]
+  F --> H[Regenerate from typed canonical IR]
+  H --> I[Run equivalence checks]
+  I --> J{All candidate checks pass?}
+  J -- no --> K[NOT_ACCEPTED]
+  J -- yes --> L[READY_FOR_GOVERNED_FINALIZATION]
+  L --> M[Separate final human approval]

@@ -1,0 +1,168 @@
+{
+  "decisions": [
+    {
+      "action": "ACCEPT",
+      "actor": "benchmark-reviewer",
+      "after_sha256": "ebeb1acab7de272c03bf5beabb4ee0062c2857133ed2b772c18713ce9cb25250",
+      "before_sha256": "6faabb79177ac77568fdfa2b87a7818d0965f7a2e92cab6fc3528384a3d2ca2c",
+      "canonical_metric": "athlete_rows",
+      "change_id": null,
+      "finding_id": "fnd_714568395d9ca6d6",
+      "fixture_id": "A_SUPPORTED",
+      "lifecycle_state": "DECISION_RECORDED",
+      "mapping_file_sha256": null,
+      "rationale": "EXACT_MAPPING_CONFIRMED",
+      "source": {
+        "kind": "REPOSITORY_CANONICAL_MAPPING"
+      },
+      "source_object": "Measures[Athlete Rows]",
+      "timestamp": "2026-07-18T20:00:00Z"
+    },
+    {
+      "action": "ACCEPT",
+      "actor": "benchmark-reviewer",
+      "after_sha256": "7c47f6c2e95ad138f81fdc983e6de9caf1e9bc5d9a6e888a52e8bc92f0abf39d",
+      "before_sha256": "3fc9080a1aca4fbaf5d61efb4b702ee41726a2494c0d5698b60a34fcf2ddb90a",
+      "canonical_metric": "distinct_athletes",
+      "change_id": null,
+      "finding_id": "fnd_91542ddfe1a943f8",
+      "fixture_id": "A_SUPPORTED",
+      "lifecycle_state": "DECISION_RECORDED",
+      "mapping_file_sha256": null,
+      "rationale": "EXACT_MAPPING_CONFIRMED",
+      "source": {
+        "kind": "REPOSITORY_CANONICAL_MAPPING"
+      },
+      "source_object": "Measures[Distinct Athletes]",
+      "timestamp": "2026-07-18T20:00:00Z"
+    },
+    {
+      "action": "ACCEPT",
+      "actor": "benchmark-reviewer",
+      "after_sha256": "2fdc09f0a0625436370612a0514b32e539470f9b84a78a9b5c0b50f3c58c70c1",
+      "before_sha256": "6c1df3afaae9e8e4ac7976a133043c2375d17ae1d7f7dacff8393d07f9d21fbf",
+      "canonical_metric": "total_amount",
+      "change_id": null,
+      "finding_id": "fnd_abca7439f52c0be2",
+      "fixture_id": "A_SUPPORTED",
+      "lifecycle_state": "DECISION_RECORDED",
+      "mapping_file_sha256": null,
+      "rationale": "EXACT_MAPPING_CONFIRMED",
+      "source": {
+        "kind": "REPOSITORY_CANONICAL_MAPPING"
+      },
+      "source_object": "Measures[Total Amount]",
+      "timestamp": "2026-07-18T20:00:00Z"
+    },
+    {
+      "action": "ACCEPT",
+      "actor": "benchmark-reviewer",
+      "after_sha256": "f90b0bb7e378ccf0ffaf83966672b3ce499ccb9fc752927e6beec93a4b24bf11",
+      "before_sha256": "c99f05c16feb09fa8316895576fedd0300551c797d1543d703a79158da87553a",
+      "canonical_metric": "valid_rate",
+      "change_id": null,
+      "finding_id": "fnd_a42b506ac1e13add",
+      "fixture_id": "A_SUPPORTED",
+      "lifecycle_state": "DECISION_RECORDED",
+      "mapping_file_sha256": null,
+      "rationale": "EXACT_MAPPING_CONFIRMED",
+      "source": {
+        "kind": "REPOSITORY_CANONICAL_MAPPING"
+      },
+      "source_object": "Measures[Valid Rate]",
+      "timestamp": "2026-07-18T20:00:00Z"
+    },
+    {
+      "action": "ACCEPT",
+      "actor": "benchmark-reviewer",
+      "after_sha256": "b53644f668a04bcd3ae68924af94103b6cd240a1f7d97afca224bb7df0aa24ed",
+      "before_sha256": "4ed56b2b84e39f5f0c669f44fb718560c959a602a40dcd4f87a002cf9626c0c7",
+      "canonical_metric": "valid_rows",
+      "change_id": null,
+      "finding_id": "fnd_9343f578e5d0ed6d",
+      "fixture_id": "A_SUPPORTED",
+      "lifecycle_state": "DECISION_RECORDED",
+      "mapping_file_sha256": null,
+      "rationale": "EXACT_MAPPING_CONFIRMED",
+      "source": {
+        "kind": "REPOSITORY_CANONICAL_MAPPING"
+      },
+      "source_object": "Measures[Valid Rows]",
+      "timestamp": "2026-07-18T20:00:00Z"
+    },
+    {
+      "action": "ACCEPT",
+      "actor": "benchmark-reviewer",
+      "after_sha256": "e315dfac8314f6af42571ee44079bccb053cf84850d203216c3e0d69d751cf37",
+      "before_sha256": "a523509bbd9571052a999752f959f8e2496090cea48d94ff4712784802af9f0b",
+      "canonical_metric": "valid_rate",
+      "change_id": null,
+      "finding_id": "fnd_c25ee9e28605c6b5",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "lifecycle_state": "DECISION_RECORDED",
+      "mapping_file_sha256": null,
+      "rationale": "EXACT_MAPPING_CONFIRMED",
+      "source": {
+        "kind": "REPOSITORY_CANONICAL_MAPPING"
+      },
+      "source_object": "Measures[Bad Percent]",
+      "timestamp": "2026-07-18T20:00:00Z"
+    },
+    {
+      "action": "ACCEPT",
+      "actor": "benchmark-reviewer",
+      "after_sha256": "44571b2d372b1566926468bbe8e2f030aa12101a403d56b37a60c96bf4f2b067",
+      "before_sha256": "2b9f90bcfb5c5089f107c34492de80101e5b2b44abe191e7e13407e08b6bd894",
+      "canonical_metric": "rows",
+      "change_id": null,
+      "finding_id": "fnd_801bdf33651ee972",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "lifecycle_state": "DECISION_RECORDED",
+      "mapping_file_sha256": null,
+      "rationale": "EXACT_MAPPING_CONFIRMED",
+      "source": {
+        "kind": "REPOSITORY_CANONICAL_MAPPING"
+      },
+      "source_object": "Measures[Rows]",
+      "timestamp": "2026-07-18T20:00:00Z"
+    },
+    {
+      "action": "ACCEPT",
+      "actor": "benchmark-reviewer",
+      "after_sha256": "bdce2efcb571f5ab8045142af3783d51f8e2047f40f030608253a0778c6ab1de",
+      "before_sha256": "f563770d771f62b511b9f9e5948ea202be9fccc29e45d55002d58fd965ec556b",
+      "canonical_metric": "valid_rows",
+      "change_id": null,
+      "finding_id": "fnd_9343f578e5d0ed6d",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "lifecycle_state": "DECISION_RECORDED",
+      "mapping_file_sha256": null,
+      "rationale": "EXACT_MAPPING_CONFIRMED",
+      "source": {
+        "kind": "REPOSITORY_CANONICAL_MAPPING"
+      },
+      "source_object": "Measures[Valid Rows]",
+      "timestamp": "2026-07-18T20:00:00Z"
+    },
+    {
+      "action": "ACCEPT",
+      "actor": "benchmark-reviewer",
+      "after_sha256": "41aa2e631bd937e38fc1cf3e378c796f8f3d06f0471a5270119280118ae9baad",
+      "before_sha256": "e89299f8973f2a34fd502466426a3b7e4e77fa69014b6e8799caec45b8852804",
+      "canonical_metric": "base_rows",
+      "change_id": null,
+      "finding_id": "fnd_eebf513b262f17ea",
+      "fixture_id": "C_UNSUPPORTED",
+      "lifecycle_state": "DECISION_RECORDED",
+      "mapping_file_sha256": null,
+      "rationale": "EXACT_MAPPING_CONFIRMED",
+      "source": {
+        "kind": "REPOSITORY_CANONICAL_MAPPING"
+      },
+      "source_object": "Measures[Base Rows]",
+      "timestamp": "2026-07-18T20:00:00Z"
+    }
+  ],
+  "evidence_kind": "DETERMINISTIC_FIXTURE_REVIEW",
+  "schema_version": 1
+}

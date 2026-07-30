@@ -1,0 +1,45 @@
+actor: poc-demo-fixture
+application_state: NOT_REQUESTED
+approval_state: NOT_REQUESTED
+bound_input_hashes:
+  canonical_baseline_sha256: 12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4
+  canonical_candidate_sha256: 12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4
+  powerbi_source_tree_sha256: e5eb52ccae18081afd338760b101750145613aef0c659f15a2c77b3e70d44879
+  proposal_sha256: d46b94959cad21ec2b3074f355a1e3dc14fe668fe988139d12331fd030d70d25
+  snowflake_environment_sha256: 10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79
+decision_id: review_decision_guided_sync_demo_v1
+deployment_authorized: false
+evidence_references:
+- evidence_id: evidence_queue
+  finding_id: fnd_96fc798625d42d3a8129e23f
+  kind: PREVIEW_ARTIFACT
+  path: .tmp/guided-sync-demo/work/hours-preview/validation-queue.json
+  sha256: 78cf5a43aa89c1e4f88f82c06b76e783798ad9002de9387d421b8980ed632324
+- evidence_id: evidence_rule
+  finding_id: fnd_96fc798625d42d3a8129e23f
+  kind: REVIEW_RULE
+  path: semantic_poc/review_memory/accepted/unit_conversion_seconds_to_hours.yml
+  sha256: af996d6a1d96e5f8a75b0b34baf567f0b47788523d2722057d877eef9e451e4a
+finding_id: fnd_96fc798625d42d3a8129e23f
+human_confirmation: RECORDED
+preview_id: prv_db9d5587a40f27fc3c2be7dc
+preview_manifest_sha256: edaf7a4b0a85d6ee72524743de70beb13e999d704042d55db3ebfe8931bb71cc
+propose_review_rule: false
+rationale: The exact registered unit rule remains applicable.
+recorded_at: '2026-07-18T19:10:00Z'
+schema_version: 1
+selected_answer:
+  answer_id: CONFIRM_REGISTERED_REVIEW_RULE
+  parameters:
+    rule_id: review_unit_conversion_seconds_to_hours_v1
+    semantic_signature_sha256: 7be299ab2c4c0765ed51f905c4e95e709f3f467532934eac65682faa6b0c2c7f
+    sha256: af996d6a1d96e5f8a75b0b34baf567f0b47788523d2722057d877eef9e451e4a
+suggested_rule:
+  rule_id: review_unit_conversion_seconds_to_hours_v1
+  sha256: af996d6a1d96e5f8a75b0b34baf567f0b47788523d2722057d877eef9e451e4a
+recorded_result: REVIEW_RECORDED
+resolved_structured_operation:
+  kind: USE_CANONICAL_SCALED_SUM
+  canonical_metric: duration_hours
+  source_field: duration_seconds
+  scale_divisor: '3600'

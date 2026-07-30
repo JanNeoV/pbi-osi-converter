@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "tools": [
+    {"tool_id":"inspect-source","request_schema":"tools/inspect-source.schema.json"},
+    {"tool_id":"audit-conversion","request_schema":"tools/audit-conversion.schema.json"},
+    {"tool_id":"list-findings","request_schema":"tools/list-findings.schema.json"},
+    {"tool_id":"propose-supported","request_schema":"tools/propose-supported.schema.json"},
+    {"tool_id":"preview-sync","request_schema":"tools/preview-sync.schema.json"},
+    {"tool_id":"suggest-review","request_schema":"tools/suggest-review.schema.json"},
+    {"tool_id":"record-review","request_schema":"tools/record-review.schema.json"}
+  ]
+}

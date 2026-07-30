@@ -1,0 +1,82 @@
+table FCT_SPLIT
+	lineageTag: f1b44165-9d79-4924-8d67-1a30aa3a22b9
+
+	column SPLIT_ID
+		dataType: string
+		lineageTag: 047c423e-965a-48da-bc71-1016a4181313
+		summarizeBy: none
+		sourceColumn: SPLIT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESULT_ID
+		dataType: string
+		lineageTag: a6c8bb05-1719-4501-979a-fcdc2e2cc288
+		summarizeBy: none
+		sourceColumn: RESULT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EVENT_ID
+		dataType: double
+		lineageTag: a760f4de-8a8d-482a-9b8c-709d9faac7ef
+		summarizeBy: count
+		sourceColumn: EVENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LEG
+		dataType: string
+		lineageTag: 59540569-f574-4073-8fa3-b55a77094ebc
+		summarizeBy: none
+		sourceColumn: LEG
+
+		annotation SummarizationSetBy = Automatic
+
+	column SPLIT_SECONDS
+		dataType: double
+		lineageTag: 311af1b7-6b59-42ba-b899-e73bdf0635aa
+		summarizeBy: sum
+		sourceColumn: SPLIT_SECONDS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SPLIT_RANK
+		dataType: double
+		lineageTag: f19141c5-0ecb-4b84-b0ff-9a3d7da8dd4c
+		summarizeBy: sum
+		sourceColumn: SPLIT_RANK
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SPLIT_REL
+		dataType: double
+		lineageTag: 2a1c35e9-22cb-411c-a13f-ef1d5811efe5
+		summarizeBy: sum
+		sourceColumn: SPLIT_REL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FCT_SPLIT = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("SANITIZED_ACCOUNT","SANITIZED_WAREHOUSE",[Implementation="2.0"]),
+				    SANITIZED_DATABASE_Database = Source{[Name="SANITIZED_DATABASE",Kind="Database"]}[Data],
+				    SANITIZED_SCHEMA_Schema = SANITIZED_DATABASE_Database{[Name="SANITIZED_SCHEMA",Kind="Schema"]}[Data],
+				    FCT_SPLIT_Table = SANITIZED_SCHEMA_Schema{[Name="FCT_SPLIT",Kind="Table"]}[Data]
+				in
+				    FCT_SPLIT_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

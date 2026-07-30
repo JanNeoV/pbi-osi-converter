@@ -1,0 +1,9 @@
+table fact
+	column value
+		dataType: double
+		sourceColumn: value
+
+	partition fact = m
+		mode: import
+		source =
+			let Source = #table({"value"}, {}) in Source

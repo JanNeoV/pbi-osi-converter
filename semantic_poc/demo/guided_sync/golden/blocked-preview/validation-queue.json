@@ -1,0 +1,279 @@
+{
+  "blocking_count": 2,
+  "findings": [
+    {
+      "affected_targets": [
+        "POWER_BI",
+        "SNOWFLAKE"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": true,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "powerbi_source_tree_sha256": "335c9964ed056547b0920346c852ef9efa1ce5e51f170b38076d9d19695c1774",
+        "proposal_sha256": "51b50e9a07542afbadfa6ae99063325c24c55f895bf416269d805f625d443cf3",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": null,
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {},
+      "current_disposition": "BLOCKED",
+      "dependency_ids": [],
+      "evidence_available": [],
+      "evidence_required": [
+        "DETERMINISTIC_COMPILER_SUPPORT"
+      ],
+      "finding_id": "fnd_3a754614594a07385a09671a",
+      "finding_identity_payload": {
+        "canonical_object_id": "UNRESOLVED",
+        "dependency_ids": [],
+        "preview_id": "prv_c7f23970624e1f2ed7a559dc",
+        "primary_reason_code": "DAX_UNSAFE_TRANSITIVE_DEPENDENCY",
+        "review_class": "FORMULA_REVIEW_REQUIRED",
+        "target_ids": [
+          "POWER_BI",
+          "SNOWFLAKE"
+        ]
+      },
+      "object_type": "POWERBI_OBJECT",
+      "preview_id": "prv_c7f23970624e1f2ed7a559dc",
+      "reason_codes": [
+        "DAX_UNSAFE_TRANSITIVE_DEPENDENCY",
+        "IMPORT_MAPPING_MISSING"
+      ],
+      "review_class": "FORMULA_REVIEW_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": null,
+        "grain": null,
+        "population": null,
+        "relationship_context": null,
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": null,
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "1430048c14fb9c7820251deec3206ba7908852119d29a4e4c467d2c889d94aa9",
+      "source_identifier": "pbi_measure_eab46556806f75fc",
+      "source_location": "tables/Measures.tmdl",
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "target_identifiers": [
+        "POWER_BI",
+        "SNOWFLAKE"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": null,
+        "grain": null,
+        "population": null,
+        "relationship_context": null,
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": null,
+        "typed_parameter_roles": {}
+      },
+      "typed_pattern_signature_sha256": "1430048c14fb9c7820251deec3206ba7908852119d29a4e4c467d2c889d94aa9"
+    },
+    {
+      "affected_targets": [
+        "POWER_BI",
+        "SNOWFLAKE"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": true,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "powerbi_source_tree_sha256": "335c9964ed056547b0920346c852ef9efa1ce5e51f170b38076d9d19695c1774",
+        "proposal_sha256": "51b50e9a07542afbadfa6ae99063325c24c55f895bf416269d805f625d443cf3",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": null,
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {},
+      "current_disposition": "BLOCKED",
+      "dependency_ids": [],
+      "evidence_available": [],
+      "evidence_required": [
+        "DETERMINISTIC_RELATIONSHIP_SUPPORT"
+      ],
+      "finding_id": "fnd_ad2c549e53bd84a812c20d41",
+      "finding_identity_payload": {
+        "canonical_object_id": "UNRESOLVED",
+        "dependency_ids": [],
+        "preview_id": "prv_c7f23970624e1f2ed7a559dc",
+        "primary_reason_code": "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+        "review_class": "MODEL_RELATIONSHIP_REVIEW_REQUIRED",
+        "target_ids": [
+          "POWER_BI",
+          "SNOWFLAKE"
+        ]
+      },
+      "object_type": "POWERBI_OBJECT",
+      "preview_id": "prv_c7f23970624e1f2ed7a559dc",
+      "reason_codes": [
+        "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+        "PBI_INACTIVE_RELATIONSHIP_DEPENDENCY"
+      ],
+      "review_class": "MODEL_RELATIONSHIP_REVIEW_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": null,
+        "grain": null,
+        "population": null,
+        "relationship_context": null,
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": null,
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "1430048c14fb9c7820251deec3206ba7908852119d29a4e4c467d2c889d94aa9",
+      "source_identifier": "pbi_measure_eab46556806f75fc",
+      "source_location": "tables/Measures.tmdl",
+      "status": "MANUAL_REVIEW_REQUIRED",
+      "target_identifiers": [
+        "POWER_BI",
+        "SNOWFLAKE"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": null,
+        "grain": null,
+        "population": null,
+        "relationship_context": null,
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": null,
+        "typed_parameter_roles": {}
+      },
+      "typed_pattern_signature_sha256": "1430048c14fb9c7820251deec3206ba7908852119d29a4e4c467d2c889d94aa9"
+    }
+  ],
+  "preview_id": "prv_c7f23970624e1f2ed7a559dc",
+  "review_classes": [
+    "DATA_VALIDATION_REQUIRED",
+    "FORMULA_REVIEW_REQUIRED",
+    "METADATA_REVIEW_REQUIRED",
+    "MODEL_RELATIONSHIP_REVIEW_REQUIRED"
+  ],
+  "schema_version": 1
+}

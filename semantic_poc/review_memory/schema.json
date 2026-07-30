@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/semantic-poc/accepted-review-memory-v1.schema.json",
+  "title": "AcceptedReviewMemoryEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "rule_id",
+    "status",
+    "finding_category",
+    "source_pattern",
+    "applicability",
+    "expected_transformation",
+    "unsafe_observed_transformation",
+    "structured_canonical_operation",
+    "evidence_references",
+    "human_rationale",
+    "approval_provenance",
+    "fixture_source_signature",
+    "match_signature_sha256",
+    "version",
+    "supersession_status",
+    "superseded_by"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "rule_id": {"const": "review_unit_conversion_seconds_to_hours_v1"},
+    "status": {"const": "ACCEPTED"},
+    "finding_category": {"const": "UNIT_CONVERSION_MISMATCH"},
+    "source_pattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pattern", "expression_shape", "aggregation", "source_table", "source_field", "observed_operator", "observed_divisor"],
+      "properties": {
+        "pattern": {"const": "SCALED_SUM"},
+        "expression_shape": {"const": "DIVIDE_SUM_COLUMN_BY_LITERAL"},
+        "aggregation": {"const": "SUM"},
+        "source_table": {"const": "fact_traps"},
+        "source_field": {"const": "duration_seconds"},
+        "observed_operator": {"const": "DIVIDE"},
+        "observed_divisor": {"const": "60"}
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["match_mode", "source_platform", "source_object", "source_unit", "target_semantic_label", "target_unit", "relationship_context", "relationship_signature_sha256"],
+      "properties": {
+        "match_mode": {"const": "EXACT"},
+        "source_platform": {"const": "POWER_BI_TMDL"},
+        "source_object": {"const": "Measures[Hours]"},
+        "source_unit": {"const": "seconds"},
+        "target_semantic_label": {"const": "Hours"},
+        "target_unit": {"const": "hours"},
+        "relationship_context": {"const": "ACTIVE_ONLY"},
+        "relationship_signature_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "expected_transformation": {"$ref": "#/$defs/divide3600"},
+    "unsafe_observed_transformation": {"$ref": "#/$defs/divide60"},
+    "structured_canonical_operation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "canonical_metric", "source_field", "scale_divisor"],
+      "properties": {
+        "kind": {"const": "USE_CANONICAL_SCALED_SUM"},
+        "canonical_metric": {"const": "duration_hours"},
+        "source_field": {"const": "duration_seconds"},
+        "scale_divisor": {"const": "3600"}
+      }
+    },
+    "evidence_references": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "human_rationale": {"type": "string", "minLength": 1},
+    "approval_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_id", "actor", "accepted_at", "decision_path", "decision_sha256"],
+      "properties": {
+        "decision_id": {"const": "review_decision_unit_conversion_seconds_to_hours_v1"},
+        "actor": {"type": "string", "minLength": 1},
+        "accepted_at": {"type": "string", "format": "date-time"},
+        "decision_path": {"const": "semantic_poc/end_to_end/review-decision.accepted.yml"},
+        "decision_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "fixture_source_signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fixture_id", "source_snapshot_sha256", "source_object_id", "semantic_signature_sha256"],
+      "properties": {
+        "fixture_id": {"const": "B_SEMANTIC_TRAPS"},
+        "source_snapshot_sha256": {"$ref": "#/$defs/sha256"},
+        "source_object_id": {"const": "pbi_measure_a6591b649bbf476e"},
+        "semantic_signature_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "match_signature_sha256": {"$ref": "#/$defs/sha256"},
+    "version": {"const": 1},
+    "supersession_status": {"const": "CURRENT"},
+    "superseded_by": {"type": "null"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "divide3600": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operator", "divisor"],
+      "properties": {"operator": {"const": "DIVIDE"}, "divisor": {"const": "3600"}}
+    },
+    "divide60": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operator", "divisor"],
+      "properties": {"operator": {"const": "DIVIDE"}, "divisor": {"const": "60"}}
+    }
+  }
+}

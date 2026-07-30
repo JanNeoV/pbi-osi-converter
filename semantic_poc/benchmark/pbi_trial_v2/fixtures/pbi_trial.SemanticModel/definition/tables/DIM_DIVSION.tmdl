@@ -1,0 +1,63 @@
+table DIM_DIVSION
+	lineageTag: 9b2c9c52-b0b8-49d6-a0d3-e861ae2b69a6
+
+	column AGE_GROUP
+		dataType: string
+		lineageTag: ca87c78f-b800-4209-8ab9-d370613f5033
+		summarizeBy: none
+		sourceColumn: AGE_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVISION
+		dataType: string
+		lineageTag: 0d904376-fc5c-477f-8390-f27d435ad677
+		summarizeBy: none
+		sourceColumn: DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVISION_ID
+		dataType: string
+		lineageTag: 8a77f506-04a9-425e-81d9-b373e4cc7fd8
+		summarizeBy: none
+		sourceColumn: DIVISION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER_DEFAULT_IF_PARSEABLE
+		dataType: string
+		lineageTag: 8bcf4000-22c4-40ed-8a60-8662056975b7
+		summarizeBy: none
+		sourceColumn: GENDER_DEFAULT_IF_PARSEABLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_PRO
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: aef1787f-3df2-402b-9906-02aaa85950b8
+		summarizeBy: none
+		sourceColumn: IS_PRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGE_GROUP_ID
+		dataType: string
+		lineageTag: 49ce698c-d3e5-466c-bfeb-a5e406c7a620
+		summarizeBy: none
+		sourceColumn: AGE_GROUP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_DIVSION = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("SANITIZED_ACCOUNT","SANITIZED_WAREHOUSE",[Implementation="2.0"]),
+				    SANITIZED_DATABASE_Database = Source{[Name="SANITIZED_DATABASE",Kind="Database"]}[Data],
+				    SANITIZED_SCHEMA_Schema = SANITIZED_DATABASE_Database{[Name="SANITIZED_SCHEMA",Kind="Schema"]}[Data],
+				    DIM_DIVSION_Table = SANITIZED_SCHEMA_Schema{[Name="DIM_DIVSION",Kind="Table"]}[Data]
+				in
+				    DIM_DIVSION_Table
+

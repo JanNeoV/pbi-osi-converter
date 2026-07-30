@@ -1,0 +1,4 @@
+relationship inactive_date
+	fromColumn: fact_unsupported.alternate_date_id
+	toColumn: dim_date.date_id
+	isActive: false

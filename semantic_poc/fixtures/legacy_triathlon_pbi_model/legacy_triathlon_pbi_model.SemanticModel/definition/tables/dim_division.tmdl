@@ -1,0 +1,62 @@
+/// Division dimension containing athlete category information such as age group
+/// and professional status where available.
+table dim_division
+	lineageTag: f5109964-a7ae-47a7-a30e-38689ecc8378
+
+	/// Identifier for athlete division or category.
+	column division_id
+		dataType: string
+		lineageTag: 800888de-5e1e-4270-a96c-337716e8006f
+		summarizeBy: none
+		sourceColumn: division_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Display label for the athlete division or category.
+	column division
+		dataType: string
+		lineageTag: 87745816-c4a6-4e6b-8744-9b812d4115f1
+		summarizeBy: none
+		sourceColumn: division
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True when the division represents professional athletes.
+	column is_pro
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8dbb7808-13c0-4e29-87e5-3288ac68e1a5
+		summarizeBy: none
+		sourceColumn: is_pro
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Age-group label parsed from the division where available.
+	column age_group
+		dataType: string
+		lineageTag: d3f0c157-949e-4f99-ac26-7698b78b7f73
+		summarizeBy: none
+		sourceColumn: age_group
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Default gender inferred from the division label where parseable.
+	column gender_default_if_parseable
+		dataType: string
+		lineageTag: ca721326-ef9b-4700-9cac-10be4dd9861e
+		summarizeBy: none
+		sourceColumn: gender_default_if_parseable
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_division = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SANITIZED_HOST", "SANITIZED_WAREHOUSE"),
+				    dbo_mart_dim_division = Source{[Schema="SANITIZED_SCHEMA",Item="SANITIZED_TABLE"]}[Data]
+				in
+				    dbo_mart_dim_division
+
+	annotation PBI_ResultType = Table
+

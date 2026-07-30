@@ -1,0 +1,4890 @@
+{
+  "blocking_count": 0,
+  "findings": [
+    {
+      "affected_targets": [
+        "POWER_BI:tri_measures.Individual Profile Rate",
+        "SNOWFLAKE:results.individual_profile_rate"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "CONFIRM_TYPED_SEMANTICS"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "semantic_signature_sha256": {
+                    "const": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5"
+                  }
+                },
+                "required": [
+                  "semantic_signature_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "SUPPLY_HASH_BOUND_EVIDENCE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "evidence_kind": {
+                    "enum": [
+                      "DATA_RESULTS",
+                      "MODEL_METADATA"
+                    ]
+                  },
+                  "evidence_path": {
+                    "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\x00\\\\]+$",
+                    "type": "string"
+                  },
+                  "finding_id": {
+                    "const": "fnd_073b7c143ba741b360f36363"
+                  },
+                  "sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "evidence_kind",
+                  "evidence_path",
+                  "finding_id",
+                  "sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": false,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+        "existing_snowflake_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+        "powerbi_source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "proposal_sha256": "74bbf337787f0ae73ce18b33d82f87526abeb67efd37858458e86c7f9a0bc8fc",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": "individual_profile_rate",
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {
+        "$RELATED_TABLE_1": {
+          "canonical_object_id": "triathlon_results:dim_distance",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_distance"
+        },
+        "$RELATED_TABLE_2": {
+          "canonical_object_id": "triathlon_results:dim_division",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_division"
+        },
+        "$RELATED_TABLE_3": {
+          "canonical_object_id": "triathlon_results:dim_event",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_event"
+        },
+        "$RELATED_TABLE_4": {
+          "canonical_object_id": "triathlon_results:dim_gender",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_gender"
+        },
+        "$RELATIONSHIP_1": {
+          "canonical_object_id": "triathlon_results:results_to_distances",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_distances"
+        },
+        "$RELATIONSHIP_2": {
+          "canonical_object_id": "triathlon_results:results_to_divisions",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_divisions"
+        },
+        "$RELATIONSHIP_3": {
+          "canonical_object_id": "triathlon_results:results_to_events",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_events"
+        },
+        "$RELATIONSHIP_4": {
+          "canonical_object_id": "triathlon_results:results_to_genders",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_genders"
+        },
+        "$RELATIONSHIP_FIELD_1": {
+          "canonical_object_id": "triathlon_results:distance_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "distance_id"
+        },
+        "$RELATIONSHIP_FIELD_2": {
+          "canonical_object_id": "triathlon_results:division_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "division_id"
+        },
+        "$RELATIONSHIP_FIELD_3": {
+          "canonical_object_id": "triathlon_results:event_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "event_id"
+        },
+        "$RELATIONSHIP_FIELD_4": {
+          "canonical_object_id": "triathlon_results:gender_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "gender_id"
+        },
+        "$SOURCE_TABLE_1": {
+          "canonical_object_id": "individual_profile_rate",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "fct_result"
+        }
+      },
+      "current_disposition": "OPEN_NON_BLOCKING",
+      "dependency_ids": [
+        "valid_sbr_finishers"
+      ],
+      "evidence_available": [],
+      "evidence_required": [
+        "HASH_BOUND_DATA_RESULTS"
+      ],
+      "finding_id": "fnd_073b7c143ba741b360f36363",
+      "finding_identity_payload": {
+        "canonical_object_id": "individual_profile_rate",
+        "dependency_ids": [
+          "valid_sbr_finishers"
+        ],
+        "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+        "primary_reason_code": "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "review_class": "DATA_VALIDATION_REQUIRED",
+        "target_ids": [
+          "POWER_BI:tri_measures.Individual Profile Rate",
+          "SNOWFLAKE:results.individual_profile_rate"
+        ]
+      },
+      "object_type": "METRIC",
+      "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+      "reason_codes": [
+        "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "TRANSITIVE_DEPENDENCY_RISK"
+      ],
+      "review_class": "DATA_VALIDATION_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "event_id",
+            "from_table": "fct_result",
+            "name": "results_to_events",
+            "to_column": "event_id",
+            "to_table": "dim_event"
+          },
+          {
+            "from_column": "division_id",
+            "from_table": "fct_result",
+            "name": "results_to_divisions",
+            "to_column": "division_id",
+            "to_table": "dim_division"
+          },
+          {
+            "from_column": "gender_id",
+            "from_table": "fct_result",
+            "name": "results_to_genders",
+            "to_column": "gender_id",
+            "to_table": "dim_gender"
+          },
+          {
+            "from_column": "distance_id",
+            "from_table": "fct_result",
+            "name": "results_to_distances",
+            "to_column": "distance_id",
+            "to_table": "dim_distance"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "fct_result"
+        },
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5",
+      "source_identifier": "individual_profile_rate",
+      "source_location": "models/semantic/triathlon_semantic.yml",
+      "status": "NOT_AVAILABLE",
+      "target_identifiers": [
+        "POWER_BI:tri_measures.Individual Profile Rate",
+        "SNOWFLAKE:results.individual_profile_rate"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "$RELATIONSHIP_FIELD_3",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_3",
+            "to_column": "$RELATIONSHIP_FIELD_3",
+            "to_table": "$RELATED_TABLE_3"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_2",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_2",
+            "to_column": "$RELATIONSHIP_FIELD_2",
+            "to_table": "$RELATED_TABLE_2"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_4",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_4",
+            "to_column": "$RELATIONSHIP_FIELD_4",
+            "to_table": "$RELATED_TABLE_4"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_1",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_1",
+            "to_column": "$RELATIONSHIP_FIELD_1",
+            "to_table": "$RELATED_TABLE_1"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "$SOURCE_TABLE_1"
+        },
+        "typed_parameter_roles": {
+          "$RELATED_TABLE_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATIONSHIP_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_FIELD_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$SOURCE_TABLE_1": {
+            "aggregation_role": "ROWSET",
+            "allowed_binding_constraints": [
+              "EXACT_SOURCE_CONTEXT"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "SOURCE_TABLE"
+          }
+        }
+      },
+      "typed_pattern_signature_sha256": "f57f0b4a7985b3276b69045dfe637f12e11f433f6c6f4f1b6a26bec0b48501ef"
+    },
+    {
+      "affected_targets": [
+        "POWER_BI:None.None",
+        "SNOWFLAKE:None.None"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "CONFIRM_TYPED_SEMANTICS"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "semantic_signature_sha256": {
+                    "const": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5"
+                  }
+                },
+                "required": [
+                  "semantic_signature_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "SUPPLY_HASH_BOUND_EVIDENCE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "evidence_kind": {
+                    "enum": [
+                      "DATA_RESULTS",
+                      "MODEL_METADATA"
+                    ]
+                  },
+                  "evidence_path": {
+                    "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\x00\\\\]+$",
+                    "type": "string"
+                  },
+                  "finding_id": {
+                    "const": "fnd_0aa75e3a5e768d9b6e4fe4ee"
+                  },
+                  "sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "evidence_kind",
+                  "evidence_path",
+                  "finding_id",
+                  "sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": false,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+        "existing_snowflake_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+        "powerbi_source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "proposal_sha256": "74bbf337787f0ae73ce18b33d82f87526abeb67efd37858458e86c7f9a0bc8fc",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": "review_flag_rate",
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {
+        "$RELATED_TABLE_1": {
+          "canonical_object_id": "triathlon_results:dim_distance",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_distance"
+        },
+        "$RELATED_TABLE_2": {
+          "canonical_object_id": "triathlon_results:dim_division",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_division"
+        },
+        "$RELATED_TABLE_3": {
+          "canonical_object_id": "triathlon_results:dim_event",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_event"
+        },
+        "$RELATED_TABLE_4": {
+          "canonical_object_id": "triathlon_results:dim_gender",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_gender"
+        },
+        "$RELATIONSHIP_1": {
+          "canonical_object_id": "triathlon_results:results_to_distances",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_distances"
+        },
+        "$RELATIONSHIP_2": {
+          "canonical_object_id": "triathlon_results:results_to_divisions",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_divisions"
+        },
+        "$RELATIONSHIP_3": {
+          "canonical_object_id": "triathlon_results:results_to_events",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_events"
+        },
+        "$RELATIONSHIP_4": {
+          "canonical_object_id": "triathlon_results:results_to_genders",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_genders"
+        },
+        "$RELATIONSHIP_FIELD_1": {
+          "canonical_object_id": "triathlon_results:distance_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "distance_id"
+        },
+        "$RELATIONSHIP_FIELD_2": {
+          "canonical_object_id": "triathlon_results:division_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "division_id"
+        },
+        "$RELATIONSHIP_FIELD_3": {
+          "canonical_object_id": "triathlon_results:event_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "event_id"
+        },
+        "$RELATIONSHIP_FIELD_4": {
+          "canonical_object_id": "triathlon_results:gender_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "gender_id"
+        },
+        "$SOURCE_TABLE_1": {
+          "canonical_object_id": "review_flag_rate",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "fct_result"
+        }
+      },
+      "current_disposition": "OPEN_NON_BLOCKING",
+      "dependency_ids": [
+        "valid_sbr_finishers"
+      ],
+      "evidence_available": [],
+      "evidence_required": [
+        "HASH_BOUND_DATA_RESULTS"
+      ],
+      "finding_id": "fnd_0aa75e3a5e768d9b6e4fe4ee",
+      "finding_identity_payload": {
+        "canonical_object_id": "review_flag_rate",
+        "dependency_ids": [
+          "valid_sbr_finishers"
+        ],
+        "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+        "primary_reason_code": "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "review_class": "DATA_VALIDATION_REQUIRED",
+        "target_ids": [
+          "POWER_BI:None.None",
+          "SNOWFLAKE:None.None"
+        ]
+      },
+      "object_type": "METRIC",
+      "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+      "reason_codes": [
+        "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "TRANSITIVE_DEPENDENCY_RISK"
+      ],
+      "review_class": "DATA_VALIDATION_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "event_id",
+            "from_table": "fct_result",
+            "name": "results_to_events",
+            "to_column": "event_id",
+            "to_table": "dim_event"
+          },
+          {
+            "from_column": "division_id",
+            "from_table": "fct_result",
+            "name": "results_to_divisions",
+            "to_column": "division_id",
+            "to_table": "dim_division"
+          },
+          {
+            "from_column": "gender_id",
+            "from_table": "fct_result",
+            "name": "results_to_genders",
+            "to_column": "gender_id",
+            "to_table": "dim_gender"
+          },
+          {
+            "from_column": "distance_id",
+            "from_table": "fct_result",
+            "name": "results_to_distances",
+            "to_column": "distance_id",
+            "to_table": "dim_distance"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "fct_result"
+        },
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5",
+      "source_identifier": "review_flag_rate",
+      "source_location": "models/semantic/triathlon_semantic.yml",
+      "status": "NOT_AVAILABLE",
+      "target_identifiers": [
+        "POWER_BI:None.None",
+        "SNOWFLAKE:None.None"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "$RELATIONSHIP_FIELD_3",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_3",
+            "to_column": "$RELATIONSHIP_FIELD_3",
+            "to_table": "$RELATED_TABLE_3"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_2",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_2",
+            "to_column": "$RELATIONSHIP_FIELD_2",
+            "to_table": "$RELATED_TABLE_2"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_4",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_4",
+            "to_column": "$RELATIONSHIP_FIELD_4",
+            "to_table": "$RELATED_TABLE_4"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_1",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_1",
+            "to_column": "$RELATIONSHIP_FIELD_1",
+            "to_table": "$RELATED_TABLE_1"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "$SOURCE_TABLE_1"
+        },
+        "typed_parameter_roles": {
+          "$RELATED_TABLE_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATIONSHIP_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_FIELD_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$SOURCE_TABLE_1": {
+            "aggregation_role": "ROWSET",
+            "allowed_binding_constraints": [
+              "EXACT_SOURCE_CONTEXT"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "SOURCE_TABLE"
+          }
+        }
+      },
+      "typed_pattern_signature_sha256": "f57f0b4a7985b3276b69045dfe637f12e11f433f6c6f4f1b6a26bec0b48501ef"
+    },
+    {
+      "affected_targets": [
+        "CANONICAL_DEPENDENT:event_context_rate",
+        "CANONICAL_DEPENDENT:individual_hard_flag_rate",
+        "CANONICAL_DEPENDENT:individual_profile_rate",
+        "CANONICAL_DEPENDENT:model_residual_rate",
+        "CANONICAL_DEPENDENT:record_integrity_rate",
+        "CANONICAL_DEPENDENT:review_flag_rate",
+        "POWER_BI:tri_measures.Valid SBR Finishers",
+        "SNOWFLAKE:results.valid_sbr_finishers"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "CONFIRM_TYPED_SEMANTICS"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "semantic_signature_sha256": {
+                    "const": "badc478c259e4430221b5571e580ca0dd3c035c89a91da3ac53a9d69c7ff56c9"
+                  }
+                },
+                "required": [
+                  "semantic_signature_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "SUPPLY_HASH_BOUND_EVIDENCE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "evidence_kind": {
+                    "enum": [
+                      "DATA_RESULTS",
+                      "MODEL_METADATA"
+                    ]
+                  },
+                  "evidence_path": {
+                    "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\x00\\\\]+$",
+                    "type": "string"
+                  },
+                  "finding_id": {
+                    "const": "fnd_372a9ff620def1e2a36943cb"
+                  },
+                  "sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "evidence_kind",
+                  "evidence_path",
+                  "finding_id",
+                  "sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": false,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+        "existing_snowflake_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+        "powerbi_source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "proposal_sha256": "74bbf337787f0ae73ce18b33d82f87526abeb67efd37858458e86c7f9a0bc8fc",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": "valid_sbr_finishers",
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {
+        "$FILTER_FIELD_1": {
+          "canonical_object_id": "valid_sbr_finishers:finish_status",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "finish_status"
+        },
+        "$FILTER_FIELD_2": {
+          "canonical_object_id": "valid_sbr_finishers:is_valid_sbr_finisher",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "is_valid_sbr_finisher"
+        },
+        "$RELATED_TABLE_1": {
+          "canonical_object_id": "triathlon_results:dim_distance",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_distance"
+        },
+        "$RELATED_TABLE_2": {
+          "canonical_object_id": "triathlon_results:dim_division",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_division"
+        },
+        "$RELATED_TABLE_3": {
+          "canonical_object_id": "triathlon_results:dim_event",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_event"
+        },
+        "$RELATED_TABLE_4": {
+          "canonical_object_id": "triathlon_results:dim_gender",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_gender"
+        },
+        "$RELATIONSHIP_1": {
+          "canonical_object_id": "triathlon_results:results_to_distances",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_distances"
+        },
+        "$RELATIONSHIP_2": {
+          "canonical_object_id": "triathlon_results:results_to_divisions",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_divisions"
+        },
+        "$RELATIONSHIP_3": {
+          "canonical_object_id": "triathlon_results:results_to_events",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_events"
+        },
+        "$RELATIONSHIP_4": {
+          "canonical_object_id": "triathlon_results:results_to_genders",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_genders"
+        },
+        "$RELATIONSHIP_FIELD_1": {
+          "canonical_object_id": "triathlon_results:distance_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "distance_id"
+        },
+        "$RELATIONSHIP_FIELD_2": {
+          "canonical_object_id": "triathlon_results:division_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "division_id"
+        },
+        "$RELATIONSHIP_FIELD_3": {
+          "canonical_object_id": "triathlon_results:event_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "event_id"
+        },
+        "$RELATIONSHIP_FIELD_4": {
+          "canonical_object_id": "triathlon_results:gender_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "gender_id"
+        },
+        "$SOURCE_TABLE_1": {
+          "canonical_object_id": "valid_sbr_finishers",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "fct_result"
+        }
+      },
+      "current_disposition": "OPEN_NON_BLOCKING",
+      "dependency_ids": [],
+      "evidence_available": [],
+      "evidence_required": [
+        "HASH_BOUND_DATA_RESULTS"
+      ],
+      "finding_id": "fnd_372a9ff620def1e2a36943cb",
+      "finding_identity_payload": {
+        "canonical_object_id": "valid_sbr_finishers",
+        "dependency_ids": [],
+        "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+        "primary_reason_code": "OPTIONAL_RUNTIME_EVIDENCE_NOT_AVAILABLE",
+        "review_class": "DATA_VALIDATION_REQUIRED",
+        "target_ids": [
+          "CANONICAL_DEPENDENT:event_context_rate",
+          "CANONICAL_DEPENDENT:individual_hard_flag_rate",
+          "CANONICAL_DEPENDENT:individual_profile_rate",
+          "CANONICAL_DEPENDENT:model_residual_rate",
+          "CANONICAL_DEPENDENT:record_integrity_rate",
+          "CANONICAL_DEPENDENT:review_flag_rate",
+          "POWER_BI:tri_measures.Valid SBR Finishers",
+          "SNOWFLAKE:results.valid_sbr_finishers"
+        ]
+      },
+      "object_type": "METRIC",
+      "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+      "reason_codes": [
+        "OPTIONAL_RUNTIME_EVIDENCE_NOT_AVAILABLE"
+      ],
+      "review_class": "DATA_VALIDATION_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": [
+            {
+              "field": "finish_status",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "is_valid_sbr_finisher",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ]
+        },
+        "grain": "result",
+        "population": [
+          {
+            "field": "finish_status",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": "FIN"
+          },
+          {
+            "field": "is_valid_sbr_finisher",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": true
+          }
+        ],
+        "relationship_context": [
+          {
+            "from_column": "event_id",
+            "from_table": "fct_result",
+            "name": "results_to_events",
+            "to_column": "event_id",
+            "to_table": "dim_event"
+          },
+          {
+            "from_column": "division_id",
+            "from_table": "fct_result",
+            "name": "results_to_divisions",
+            "to_column": "division_id",
+            "to_table": "dim_division"
+          },
+          {
+            "from_column": "gender_id",
+            "from_table": "fct_result",
+            "name": "results_to_genders",
+            "to_column": "gender_id",
+            "to_table": "dim_gender"
+          },
+          {
+            "from_column": "distance_id",
+            "from_table": "fct_result",
+            "name": "results_to_distances",
+            "to_column": "distance_id",
+            "to_table": "dim_distance"
+          }
+        ],
+        "source_units": "COUNT",
+        "target_units": "COUNT",
+        "typed_expression": {
+          "aggregation": "COUNT",
+          "filters": [
+            {
+              "field": "finish_status",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "is_valid_sbr_finisher",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ],
+          "metric_references": [],
+          "pattern": "FILTERED_COUNT",
+          "source_field": "*",
+          "source_table": "fct_result"
+        },
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "badc478c259e4430221b5571e580ca0dd3c035c89a91da3ac53a9d69c7ff56c9",
+      "source_identifier": "valid_sbr_finishers",
+      "source_location": "models/semantic/triathlon_semantic.yml",
+      "status": "NOT_AVAILABLE",
+      "target_identifiers": [
+        "CANONICAL_DEPENDENT:event_context_rate",
+        "CANONICAL_DEPENDENT:individual_hard_flag_rate",
+        "CANONICAL_DEPENDENT:individual_profile_rate",
+        "CANONICAL_DEPENDENT:model_residual_rate",
+        "CANONICAL_DEPENDENT:record_integrity_rate",
+        "CANONICAL_DEPENDENT:review_flag_rate",
+        "POWER_BI:tri_measures.Valid SBR Finishers",
+        "SNOWFLAKE:results.valid_sbr_finishers"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": [
+            {
+              "field": "$FILTER_FIELD_1",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "$FILTER_FIELD_2",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ]
+        },
+        "grain": "result",
+        "population": [
+          {
+            "field": "finish_status",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": "FIN"
+          },
+          {
+            "field": "is_valid_sbr_finisher",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": true
+          }
+        ],
+        "relationship_context": [
+          {
+            "from_column": "$RELATIONSHIP_FIELD_3",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_3",
+            "to_column": "$RELATIONSHIP_FIELD_3",
+            "to_table": "$RELATED_TABLE_3"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_2",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_2",
+            "to_column": "$RELATIONSHIP_FIELD_2",
+            "to_table": "$RELATED_TABLE_2"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_4",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_4",
+            "to_column": "$RELATIONSHIP_FIELD_4",
+            "to_table": "$RELATED_TABLE_4"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_1",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_1",
+            "to_column": "$RELATIONSHIP_FIELD_1",
+            "to_table": "$RELATED_TABLE_1"
+          }
+        ],
+        "source_units": "COUNT",
+        "target_units": "COUNT",
+        "typed_expression": {
+          "aggregation": "COUNT",
+          "filters": [
+            {
+              "field": "$FILTER_FIELD_1",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "$FILTER_FIELD_2",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ],
+          "metric_references": [],
+          "pattern": "FILTERED_COUNT",
+          "source_field": "*",
+          "source_table": "$SOURCE_TABLE_1"
+        },
+        "typed_parameter_roles": {
+          "$FILTER_FIELD_1": {
+            "aggregation_role": "FILTER",
+            "allowed_binding_constraints": [
+              "EXACT_TYPE",
+              "EXACT_OPERATOR"
+            ],
+            "data_type": "STRING",
+            "semantic_role": "FILTER_FIELD"
+          },
+          "$FILTER_FIELD_2": {
+            "aggregation_role": "FILTER",
+            "allowed_binding_constraints": [
+              "EXACT_TYPE",
+              "EXACT_OPERATOR"
+            ],
+            "data_type": "BOOLEAN",
+            "semantic_role": "FILTER_FIELD"
+          },
+          "$RELATED_TABLE_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATIONSHIP_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_FIELD_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$SOURCE_TABLE_1": {
+            "aggregation_role": "ROWSET",
+            "allowed_binding_constraints": [
+              "EXACT_SOURCE_CONTEXT"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "SOURCE_TABLE"
+          }
+        }
+      },
+      "typed_pattern_signature_sha256": "d7cab8b116ae05128b72d0fc35f5b27a38adf10ba2ee465b8cbb44278c8f39d8"
+    },
+    {
+      "affected_targets": [
+        "POWER_BI:tri_measures.Record Integrity Rate",
+        "SNOWFLAKE:results.record_integrity_rate"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "CONFIRM_TYPED_SEMANTICS"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "semantic_signature_sha256": {
+                    "const": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5"
+                  }
+                },
+                "required": [
+                  "semantic_signature_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "SUPPLY_HASH_BOUND_EVIDENCE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "evidence_kind": {
+                    "enum": [
+                      "DATA_RESULTS",
+                      "MODEL_METADATA"
+                    ]
+                  },
+                  "evidence_path": {
+                    "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\x00\\\\]+$",
+                    "type": "string"
+                  },
+                  "finding_id": {
+                    "const": "fnd_454e90eff4163cc74d0ff874"
+                  },
+                  "sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "evidence_kind",
+                  "evidence_path",
+                  "finding_id",
+                  "sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": false,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+        "existing_snowflake_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+        "powerbi_source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "proposal_sha256": "74bbf337787f0ae73ce18b33d82f87526abeb67efd37858458e86c7f9a0bc8fc",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": "record_integrity_rate",
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {
+        "$RELATED_TABLE_1": {
+          "canonical_object_id": "triathlon_results:dim_distance",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_distance"
+        },
+        "$RELATED_TABLE_2": {
+          "canonical_object_id": "triathlon_results:dim_division",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_division"
+        },
+        "$RELATED_TABLE_3": {
+          "canonical_object_id": "triathlon_results:dim_event",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_event"
+        },
+        "$RELATED_TABLE_4": {
+          "canonical_object_id": "triathlon_results:dim_gender",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_gender"
+        },
+        "$RELATIONSHIP_1": {
+          "canonical_object_id": "triathlon_results:results_to_distances",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_distances"
+        },
+        "$RELATIONSHIP_2": {
+          "canonical_object_id": "triathlon_results:results_to_divisions",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_divisions"
+        },
+        "$RELATIONSHIP_3": {
+          "canonical_object_id": "triathlon_results:results_to_events",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_events"
+        },
+        "$RELATIONSHIP_4": {
+          "canonical_object_id": "triathlon_results:results_to_genders",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_genders"
+        },
+        "$RELATIONSHIP_FIELD_1": {
+          "canonical_object_id": "triathlon_results:distance_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "distance_id"
+        },
+        "$RELATIONSHIP_FIELD_2": {
+          "canonical_object_id": "triathlon_results:division_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "division_id"
+        },
+        "$RELATIONSHIP_FIELD_3": {
+          "canonical_object_id": "triathlon_results:event_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "event_id"
+        },
+        "$RELATIONSHIP_FIELD_4": {
+          "canonical_object_id": "triathlon_results:gender_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "gender_id"
+        },
+        "$SOURCE_TABLE_1": {
+          "canonical_object_id": "record_integrity_rate",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "fct_result"
+        }
+      },
+      "current_disposition": "OPEN_NON_BLOCKING",
+      "dependency_ids": [
+        "valid_sbr_finishers"
+      ],
+      "evidence_available": [],
+      "evidence_required": [
+        "HASH_BOUND_DATA_RESULTS"
+      ],
+      "finding_id": "fnd_454e90eff4163cc74d0ff874",
+      "finding_identity_payload": {
+        "canonical_object_id": "record_integrity_rate",
+        "dependency_ids": [
+          "valid_sbr_finishers"
+        ],
+        "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+        "primary_reason_code": "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "review_class": "DATA_VALIDATION_REQUIRED",
+        "target_ids": [
+          "POWER_BI:tri_measures.Record Integrity Rate",
+          "SNOWFLAKE:results.record_integrity_rate"
+        ]
+      },
+      "object_type": "METRIC",
+      "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+      "reason_codes": [
+        "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "TRANSITIVE_DEPENDENCY_RISK"
+      ],
+      "review_class": "DATA_VALIDATION_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "event_id",
+            "from_table": "fct_result",
+            "name": "results_to_events",
+            "to_column": "event_id",
+            "to_table": "dim_event"
+          },
+          {
+            "from_column": "division_id",
+            "from_table": "fct_result",
+            "name": "results_to_divisions",
+            "to_column": "division_id",
+            "to_table": "dim_division"
+          },
+          {
+            "from_column": "gender_id",
+            "from_table": "fct_result",
+            "name": "results_to_genders",
+            "to_column": "gender_id",
+            "to_table": "dim_gender"
+          },
+          {
+            "from_column": "distance_id",
+            "from_table": "fct_result",
+            "name": "results_to_distances",
+            "to_column": "distance_id",
+            "to_table": "dim_distance"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "fct_result"
+        },
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5",
+      "source_identifier": "record_integrity_rate",
+      "source_location": "models/semantic/triathlon_semantic.yml",
+      "status": "NOT_AVAILABLE",
+      "target_identifiers": [
+        "POWER_BI:tri_measures.Record Integrity Rate",
+        "SNOWFLAKE:results.record_integrity_rate"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "$RELATIONSHIP_FIELD_3",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_3",
+            "to_column": "$RELATIONSHIP_FIELD_3",
+            "to_table": "$RELATED_TABLE_3"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_2",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_2",
+            "to_column": "$RELATIONSHIP_FIELD_2",
+            "to_table": "$RELATED_TABLE_2"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_4",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_4",
+            "to_column": "$RELATIONSHIP_FIELD_4",
+            "to_table": "$RELATED_TABLE_4"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_1",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_1",
+            "to_column": "$RELATIONSHIP_FIELD_1",
+            "to_table": "$RELATED_TABLE_1"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "$SOURCE_TABLE_1"
+        },
+        "typed_parameter_roles": {
+          "$RELATED_TABLE_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATIONSHIP_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_FIELD_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$SOURCE_TABLE_1": {
+            "aggregation_role": "ROWSET",
+            "allowed_binding_constraints": [
+              "EXACT_SOURCE_CONTEXT"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "SOURCE_TABLE"
+          }
+        }
+      },
+      "typed_pattern_signature_sha256": "f57f0b4a7985b3276b69045dfe637f12e11f433f6c6f4f1b6a26bec0b48501ef"
+    },
+    {
+      "affected_targets": [
+        "POWER_BI:tri_measures.Model Residual Rate",
+        "SNOWFLAKE:results.model_residual_rate"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "CONFIRM_TYPED_SEMANTICS"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "semantic_signature_sha256": {
+                    "const": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5"
+                  }
+                },
+                "required": [
+                  "semantic_signature_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "SUPPLY_HASH_BOUND_EVIDENCE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "evidence_kind": {
+                    "enum": [
+                      "DATA_RESULTS",
+                      "MODEL_METADATA"
+                    ]
+                  },
+                  "evidence_path": {
+                    "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\x00\\\\]+$",
+                    "type": "string"
+                  },
+                  "finding_id": {
+                    "const": "fnd_9e8dfce1723850a952689db9"
+                  },
+                  "sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "evidence_kind",
+                  "evidence_path",
+                  "finding_id",
+                  "sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": false,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+        "existing_snowflake_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+        "powerbi_source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "proposal_sha256": "74bbf337787f0ae73ce18b33d82f87526abeb67efd37858458e86c7f9a0bc8fc",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": "model_residual_rate",
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {
+        "$RELATED_TABLE_1": {
+          "canonical_object_id": "triathlon_results:dim_distance",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_distance"
+        },
+        "$RELATED_TABLE_2": {
+          "canonical_object_id": "triathlon_results:dim_division",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_division"
+        },
+        "$RELATED_TABLE_3": {
+          "canonical_object_id": "triathlon_results:dim_event",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_event"
+        },
+        "$RELATED_TABLE_4": {
+          "canonical_object_id": "triathlon_results:dim_gender",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_gender"
+        },
+        "$RELATIONSHIP_1": {
+          "canonical_object_id": "triathlon_results:results_to_distances",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_distances"
+        },
+        "$RELATIONSHIP_2": {
+          "canonical_object_id": "triathlon_results:results_to_divisions",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_divisions"
+        },
+        "$RELATIONSHIP_3": {
+          "canonical_object_id": "triathlon_results:results_to_events",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_events"
+        },
+        "$RELATIONSHIP_4": {
+          "canonical_object_id": "triathlon_results:results_to_genders",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_genders"
+        },
+        "$RELATIONSHIP_FIELD_1": {
+          "canonical_object_id": "triathlon_results:distance_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "distance_id"
+        },
+        "$RELATIONSHIP_FIELD_2": {
+          "canonical_object_id": "triathlon_results:division_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "division_id"
+        },
+        "$RELATIONSHIP_FIELD_3": {
+          "canonical_object_id": "triathlon_results:event_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "event_id"
+        },
+        "$RELATIONSHIP_FIELD_4": {
+          "canonical_object_id": "triathlon_results:gender_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "gender_id"
+        },
+        "$SOURCE_TABLE_1": {
+          "canonical_object_id": "model_residual_rate",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "fct_result"
+        }
+      },
+      "current_disposition": "OPEN_NON_BLOCKING",
+      "dependency_ids": [
+        "valid_sbr_finishers"
+      ],
+      "evidence_available": [],
+      "evidence_required": [
+        "HASH_BOUND_DATA_RESULTS"
+      ],
+      "finding_id": "fnd_9e8dfce1723850a952689db9",
+      "finding_identity_payload": {
+        "canonical_object_id": "model_residual_rate",
+        "dependency_ids": [
+          "valid_sbr_finishers"
+        ],
+        "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+        "primary_reason_code": "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "review_class": "DATA_VALIDATION_REQUIRED",
+        "target_ids": [
+          "POWER_BI:tri_measures.Model Residual Rate",
+          "SNOWFLAKE:results.model_residual_rate"
+        ]
+      },
+      "object_type": "METRIC",
+      "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+      "reason_codes": [
+        "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "TRANSITIVE_DEPENDENCY_RISK"
+      ],
+      "review_class": "DATA_VALIDATION_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "event_id",
+            "from_table": "fct_result",
+            "name": "results_to_events",
+            "to_column": "event_id",
+            "to_table": "dim_event"
+          },
+          {
+            "from_column": "division_id",
+            "from_table": "fct_result",
+            "name": "results_to_divisions",
+            "to_column": "division_id",
+            "to_table": "dim_division"
+          },
+          {
+            "from_column": "gender_id",
+            "from_table": "fct_result",
+            "name": "results_to_genders",
+            "to_column": "gender_id",
+            "to_table": "dim_gender"
+          },
+          {
+            "from_column": "distance_id",
+            "from_table": "fct_result",
+            "name": "results_to_distances",
+            "to_column": "distance_id",
+            "to_table": "dim_distance"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "fct_result"
+        },
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5",
+      "source_identifier": "model_residual_rate",
+      "source_location": "models/semantic/triathlon_semantic.yml",
+      "status": "NOT_AVAILABLE",
+      "target_identifiers": [
+        "POWER_BI:tri_measures.Model Residual Rate",
+        "SNOWFLAKE:results.model_residual_rate"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "$RELATIONSHIP_FIELD_3",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_3",
+            "to_column": "$RELATIONSHIP_FIELD_3",
+            "to_table": "$RELATED_TABLE_3"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_2",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_2",
+            "to_column": "$RELATIONSHIP_FIELD_2",
+            "to_table": "$RELATED_TABLE_2"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_4",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_4",
+            "to_column": "$RELATIONSHIP_FIELD_4",
+            "to_table": "$RELATED_TABLE_4"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_1",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_1",
+            "to_column": "$RELATIONSHIP_FIELD_1",
+            "to_table": "$RELATED_TABLE_1"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "$SOURCE_TABLE_1"
+        },
+        "typed_parameter_roles": {
+          "$RELATED_TABLE_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATIONSHIP_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_FIELD_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$SOURCE_TABLE_1": {
+            "aggregation_role": "ROWSET",
+            "allowed_binding_constraints": [
+              "EXACT_SOURCE_CONTEXT"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "SOURCE_TABLE"
+          }
+        }
+      },
+      "typed_pattern_signature_sha256": "f57f0b4a7985b3276b69045dfe637f12e11f433f6c6f4f1b6a26bec0b48501ef"
+    },
+    {
+      "affected_targets": [
+        "SNOWFLAKE"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "CONFIRM_METADATA"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "value_sha256": {
+                    "const": "e0e04932a81a8b147e87a74537fd6ea92cc2aabe5bebeb40518e840f97f9a018"
+                  }
+                },
+                "required": [
+                  "value_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": false,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+        "existing_snowflake_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+        "powerbi_source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "proposal_sha256": "74bbf337787f0ae73ce18b33d82f87526abeb67efd37858458e86c7f9a0bc8fc",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": "valid_sbr_finishers",
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {
+        "$FILTER_FIELD_1": {
+          "canonical_object_id": "valid_sbr_finishers:finish_status",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "finish_status"
+        },
+        "$FILTER_FIELD_2": {
+          "canonical_object_id": "valid_sbr_finishers:is_valid_sbr_finisher",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "is_valid_sbr_finisher"
+        },
+        "$RELATED_TABLE_1": {
+          "canonical_object_id": "triathlon_results:dim_distance",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_distance"
+        },
+        "$RELATED_TABLE_2": {
+          "canonical_object_id": "triathlon_results:dim_division",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_division"
+        },
+        "$RELATED_TABLE_3": {
+          "canonical_object_id": "triathlon_results:dim_event",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_event"
+        },
+        "$RELATED_TABLE_4": {
+          "canonical_object_id": "triathlon_results:dim_gender",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_gender"
+        },
+        "$RELATIONSHIP_1": {
+          "canonical_object_id": "triathlon_results:results_to_distances",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_distances"
+        },
+        "$RELATIONSHIP_2": {
+          "canonical_object_id": "triathlon_results:results_to_divisions",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_divisions"
+        },
+        "$RELATIONSHIP_3": {
+          "canonical_object_id": "triathlon_results:results_to_events",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_events"
+        },
+        "$RELATIONSHIP_4": {
+          "canonical_object_id": "triathlon_results:results_to_genders",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_genders"
+        },
+        "$RELATIONSHIP_FIELD_1": {
+          "canonical_object_id": "triathlon_results:distance_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "distance_id"
+        },
+        "$RELATIONSHIP_FIELD_2": {
+          "canonical_object_id": "triathlon_results:division_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "division_id"
+        },
+        "$RELATIONSHIP_FIELD_3": {
+          "canonical_object_id": "triathlon_results:event_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "event_id"
+        },
+        "$RELATIONSHIP_FIELD_4": {
+          "canonical_object_id": "triathlon_results:gender_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "gender_id"
+        },
+        "$SOURCE_TABLE_1": {
+          "canonical_object_id": "valid_sbr_finishers",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "fct_result"
+        }
+      },
+      "current_disposition": "OPEN_NON_BLOCKING",
+      "dependency_ids": [],
+      "evidence_available": [
+        {
+          "kind": "PROPOSED_METADATA",
+          "sha256": "e0e04932a81a8b147e87a74537fd6ea92cc2aabe5bebeb40518e840f97f9a018"
+        }
+      ],
+      "evidence_required": [],
+      "finding_id": "fnd_a3a0b0110adc77ea0c57318b",
+      "finding_identity_payload": {
+        "canonical_object_id": "valid_sbr_finishers",
+        "dependency_ids": [],
+        "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+        "primary_reason_code": "SNOWFLAKE_FORMAT_METADATA_NOT_REPRESENTABLE",
+        "review_class": "METADATA_REVIEW_REQUIRED",
+        "target_ids": [
+          "SNOWFLAKE"
+        ]
+      },
+      "object_type": "METRIC",
+      "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+      "reason_codes": [
+        "SNOWFLAKE_FORMAT_METADATA_NOT_REPRESENTABLE"
+      ],
+      "review_class": "METADATA_REVIEW_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": [
+            {
+              "field": "finish_status",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "is_valid_sbr_finisher",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ]
+        },
+        "grain": "result",
+        "population": [
+          {
+            "field": "finish_status",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": "FIN"
+          },
+          {
+            "field": "is_valid_sbr_finisher",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": true
+          }
+        ],
+        "relationship_context": [
+          {
+            "from_column": "event_id",
+            "from_table": "fct_result",
+            "name": "results_to_events",
+            "to_column": "event_id",
+            "to_table": "dim_event"
+          },
+          {
+            "from_column": "division_id",
+            "from_table": "fct_result",
+            "name": "results_to_divisions",
+            "to_column": "division_id",
+            "to_table": "dim_division"
+          },
+          {
+            "from_column": "gender_id",
+            "from_table": "fct_result",
+            "name": "results_to_genders",
+            "to_column": "gender_id",
+            "to_table": "dim_gender"
+          },
+          {
+            "from_column": "distance_id",
+            "from_table": "fct_result",
+            "name": "results_to_distances",
+            "to_column": "distance_id",
+            "to_table": "dim_distance"
+          }
+        ],
+        "source_units": "COUNT",
+        "target_units": "COUNT",
+        "typed_expression": {
+          "aggregation": "COUNT",
+          "filters": [
+            {
+              "field": "finish_status",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "is_valid_sbr_finisher",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ],
+          "metric_references": [],
+          "pattern": "FILTERED_COUNT",
+          "source_field": "*",
+          "source_table": "fct_result"
+        },
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "badc478c259e4430221b5571e580ca0dd3c035c89a91da3ac53a9d69c7ff56c9",
+      "source_identifier": "valid_sbr_finishers",
+      "source_location": "models/semantic/triathlon_semantic.yml",
+      "status": "REVIEW_REQUIRED",
+      "target_identifiers": [
+        "SNOWFLAKE"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": [
+            {
+              "field": "$FILTER_FIELD_1",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "$FILTER_FIELD_2",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ]
+        },
+        "grain": "result",
+        "population": [
+          {
+            "field": "finish_status",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": "FIN"
+          },
+          {
+            "field": "is_valid_sbr_finisher",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": true
+          }
+        ],
+        "relationship_context": [
+          {
+            "from_column": "$RELATIONSHIP_FIELD_3",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_3",
+            "to_column": "$RELATIONSHIP_FIELD_3",
+            "to_table": "$RELATED_TABLE_3"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_2",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_2",
+            "to_column": "$RELATIONSHIP_FIELD_2",
+            "to_table": "$RELATED_TABLE_2"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_4",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_4",
+            "to_column": "$RELATIONSHIP_FIELD_4",
+            "to_table": "$RELATED_TABLE_4"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_1",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_1",
+            "to_column": "$RELATIONSHIP_FIELD_1",
+            "to_table": "$RELATED_TABLE_1"
+          }
+        ],
+        "source_units": "COUNT",
+        "target_units": "COUNT",
+        "typed_expression": {
+          "aggregation": "COUNT",
+          "filters": [
+            {
+              "field": "$FILTER_FIELD_1",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "$FILTER_FIELD_2",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ],
+          "metric_references": [],
+          "pattern": "FILTERED_COUNT",
+          "source_field": "*",
+          "source_table": "$SOURCE_TABLE_1"
+        },
+        "typed_parameter_roles": {
+          "$FILTER_FIELD_1": {
+            "aggregation_role": "FILTER",
+            "allowed_binding_constraints": [
+              "EXACT_TYPE",
+              "EXACT_OPERATOR"
+            ],
+            "data_type": "STRING",
+            "semantic_role": "FILTER_FIELD"
+          },
+          "$FILTER_FIELD_2": {
+            "aggregation_role": "FILTER",
+            "allowed_binding_constraints": [
+              "EXACT_TYPE",
+              "EXACT_OPERATOR"
+            ],
+            "data_type": "BOOLEAN",
+            "semantic_role": "FILTER_FIELD"
+          },
+          "$RELATED_TABLE_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATIONSHIP_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_FIELD_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$SOURCE_TABLE_1": {
+            "aggregation_role": "ROWSET",
+            "allowed_binding_constraints": [
+              "EXACT_SOURCE_CONTEXT"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "SOURCE_TABLE"
+          }
+        }
+      },
+      "typed_pattern_signature_sha256": "d7cab8b116ae05128b72d0fc35f5b27a38adf10ba2ee465b8cbb44278c8f39d8"
+    },
+    {
+      "affected_targets": [
+        "POWER_BI:tri_measures.Event Context Rate",
+        "SNOWFLAKE:results.event_context_rate"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "CONFIRM_TYPED_SEMANTICS"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "semantic_signature_sha256": {
+                    "const": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5"
+                  }
+                },
+                "required": [
+                  "semantic_signature_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "SUPPLY_HASH_BOUND_EVIDENCE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "evidence_kind": {
+                    "enum": [
+                      "DATA_RESULTS",
+                      "MODEL_METADATA"
+                    ]
+                  },
+                  "evidence_path": {
+                    "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\x00\\\\]+$",
+                    "type": "string"
+                  },
+                  "finding_id": {
+                    "const": "fnd_c471380f46ed97ab3b6dc843"
+                  },
+                  "sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "evidence_kind",
+                  "evidence_path",
+                  "finding_id",
+                  "sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": false,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+        "existing_snowflake_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+        "powerbi_source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "proposal_sha256": "74bbf337787f0ae73ce18b33d82f87526abeb67efd37858458e86c7f9a0bc8fc",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": "event_context_rate",
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {
+        "$RELATED_TABLE_1": {
+          "canonical_object_id": "triathlon_results:dim_distance",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_distance"
+        },
+        "$RELATED_TABLE_2": {
+          "canonical_object_id": "triathlon_results:dim_division",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_division"
+        },
+        "$RELATED_TABLE_3": {
+          "canonical_object_id": "triathlon_results:dim_event",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_event"
+        },
+        "$RELATED_TABLE_4": {
+          "canonical_object_id": "triathlon_results:dim_gender",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_gender"
+        },
+        "$RELATIONSHIP_1": {
+          "canonical_object_id": "triathlon_results:results_to_distances",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_distances"
+        },
+        "$RELATIONSHIP_2": {
+          "canonical_object_id": "triathlon_results:results_to_divisions",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_divisions"
+        },
+        "$RELATIONSHIP_3": {
+          "canonical_object_id": "triathlon_results:results_to_events",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_events"
+        },
+        "$RELATIONSHIP_4": {
+          "canonical_object_id": "triathlon_results:results_to_genders",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_genders"
+        },
+        "$RELATIONSHIP_FIELD_1": {
+          "canonical_object_id": "triathlon_results:distance_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "distance_id"
+        },
+        "$RELATIONSHIP_FIELD_2": {
+          "canonical_object_id": "triathlon_results:division_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "division_id"
+        },
+        "$RELATIONSHIP_FIELD_3": {
+          "canonical_object_id": "triathlon_results:event_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "event_id"
+        },
+        "$RELATIONSHIP_FIELD_4": {
+          "canonical_object_id": "triathlon_results:gender_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "gender_id"
+        },
+        "$SOURCE_TABLE_1": {
+          "canonical_object_id": "event_context_rate",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "fct_result"
+        }
+      },
+      "current_disposition": "OPEN_NON_BLOCKING",
+      "dependency_ids": [
+        "valid_sbr_finishers"
+      ],
+      "evidence_available": [],
+      "evidence_required": [
+        "HASH_BOUND_DATA_RESULTS"
+      ],
+      "finding_id": "fnd_c471380f46ed97ab3b6dc843",
+      "finding_identity_payload": {
+        "canonical_object_id": "event_context_rate",
+        "dependency_ids": [
+          "valid_sbr_finishers"
+        ],
+        "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+        "primary_reason_code": "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "review_class": "DATA_VALIDATION_REQUIRED",
+        "target_ids": [
+          "POWER_BI:tri_measures.Event Context Rate",
+          "SNOWFLAKE:results.event_context_rate"
+        ]
+      },
+      "object_type": "METRIC",
+      "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+      "reason_codes": [
+        "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "TRANSITIVE_DEPENDENCY_RISK"
+      ],
+      "review_class": "DATA_VALIDATION_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "event_id",
+            "from_table": "fct_result",
+            "name": "results_to_events",
+            "to_column": "event_id",
+            "to_table": "dim_event"
+          },
+          {
+            "from_column": "division_id",
+            "from_table": "fct_result",
+            "name": "results_to_divisions",
+            "to_column": "division_id",
+            "to_table": "dim_division"
+          },
+          {
+            "from_column": "gender_id",
+            "from_table": "fct_result",
+            "name": "results_to_genders",
+            "to_column": "gender_id",
+            "to_table": "dim_gender"
+          },
+          {
+            "from_column": "distance_id",
+            "from_table": "fct_result",
+            "name": "results_to_distances",
+            "to_column": "distance_id",
+            "to_table": "dim_distance"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "fct_result"
+        },
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5",
+      "source_identifier": "event_context_rate",
+      "source_location": "models/semantic/triathlon_semantic.yml",
+      "status": "NOT_AVAILABLE",
+      "target_identifiers": [
+        "POWER_BI:tri_measures.Event Context Rate",
+        "SNOWFLAKE:results.event_context_rate"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "$RELATIONSHIP_FIELD_3",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_3",
+            "to_column": "$RELATIONSHIP_FIELD_3",
+            "to_table": "$RELATED_TABLE_3"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_2",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_2",
+            "to_column": "$RELATIONSHIP_FIELD_2",
+            "to_table": "$RELATED_TABLE_2"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_4",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_4",
+            "to_column": "$RELATIONSHIP_FIELD_4",
+            "to_table": "$RELATED_TABLE_4"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_1",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_1",
+            "to_column": "$RELATIONSHIP_FIELD_1",
+            "to_table": "$RELATED_TABLE_1"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "$SOURCE_TABLE_1"
+        },
+        "typed_parameter_roles": {
+          "$RELATED_TABLE_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATIONSHIP_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_FIELD_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$SOURCE_TABLE_1": {
+            "aggregation_role": "ROWSET",
+            "allowed_binding_constraints": [
+              "EXACT_SOURCE_CONTEXT"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "SOURCE_TABLE"
+          }
+        }
+      },
+      "typed_pattern_signature_sha256": "f57f0b4a7985b3276b69045dfe637f12e11f433f6c6f4f1b6a26bec0b48501ef"
+    },
+    {
+      "affected_targets": [
+        "POWER_BI"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "CONFIRM_METADATA"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "value_sha256": {
+                    "const": "3065d399f9245190da472689212cf9b8f0d28de319cb68fe6411ef53a7090e16"
+                  }
+                },
+                "required": [
+                  "value_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": false,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+        "existing_snowflake_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+        "powerbi_source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "proposal_sha256": "74bbf337787f0ae73ce18b33d82f87526abeb67efd37858458e86c7f9a0bc8fc",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": "valid_sbr_finishers",
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {
+        "$FILTER_FIELD_1": {
+          "canonical_object_id": "valid_sbr_finishers:finish_status",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "finish_status"
+        },
+        "$FILTER_FIELD_2": {
+          "canonical_object_id": "valid_sbr_finishers:is_valid_sbr_finisher",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "is_valid_sbr_finisher"
+        },
+        "$RELATED_TABLE_1": {
+          "canonical_object_id": "triathlon_results:dim_distance",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_distance"
+        },
+        "$RELATED_TABLE_2": {
+          "canonical_object_id": "triathlon_results:dim_division",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_division"
+        },
+        "$RELATED_TABLE_3": {
+          "canonical_object_id": "triathlon_results:dim_event",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_event"
+        },
+        "$RELATED_TABLE_4": {
+          "canonical_object_id": "triathlon_results:dim_gender",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_gender"
+        },
+        "$RELATIONSHIP_1": {
+          "canonical_object_id": "triathlon_results:results_to_distances",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_distances"
+        },
+        "$RELATIONSHIP_2": {
+          "canonical_object_id": "triathlon_results:results_to_divisions",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_divisions"
+        },
+        "$RELATIONSHIP_3": {
+          "canonical_object_id": "triathlon_results:results_to_events",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_events"
+        },
+        "$RELATIONSHIP_4": {
+          "canonical_object_id": "triathlon_results:results_to_genders",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_genders"
+        },
+        "$RELATIONSHIP_FIELD_1": {
+          "canonical_object_id": "triathlon_results:distance_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "distance_id"
+        },
+        "$RELATIONSHIP_FIELD_2": {
+          "canonical_object_id": "triathlon_results:division_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "division_id"
+        },
+        "$RELATIONSHIP_FIELD_3": {
+          "canonical_object_id": "triathlon_results:event_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "event_id"
+        },
+        "$RELATIONSHIP_FIELD_4": {
+          "canonical_object_id": "triathlon_results:gender_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "gender_id"
+        },
+        "$SOURCE_TABLE_1": {
+          "canonical_object_id": "valid_sbr_finishers",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "fct_result"
+        }
+      },
+      "current_disposition": "OPEN_NON_BLOCKING",
+      "dependency_ids": [],
+      "evidence_available": [
+        {
+          "kind": "PROPOSED_METADATA",
+          "sha256": "3065d399f9245190da472689212cf9b8f0d28de319cb68fe6411ef53a7090e16"
+        }
+      ],
+      "evidence_required": [],
+      "finding_id": "fnd_e799053d6f95d257de45570b",
+      "finding_identity_payload": {
+        "canonical_object_id": "valid_sbr_finishers",
+        "dependency_ids": [],
+        "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+        "primary_reason_code": "POWERBI_DISPLAY_FOLDER_NOT_CANONICALLY_SPECIFIED",
+        "review_class": "METADATA_REVIEW_REQUIRED",
+        "target_ids": [
+          "POWER_BI"
+        ]
+      },
+      "object_type": "METRIC",
+      "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+      "reason_codes": [
+        "POWERBI_DISPLAY_FOLDER_NOT_CANONICALLY_SPECIFIED"
+      ],
+      "review_class": "METADATA_REVIEW_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": [
+            {
+              "field": "finish_status",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "is_valid_sbr_finisher",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ]
+        },
+        "grain": "result",
+        "population": [
+          {
+            "field": "finish_status",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": "FIN"
+          },
+          {
+            "field": "is_valid_sbr_finisher",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": true
+          }
+        ],
+        "relationship_context": [
+          {
+            "from_column": "event_id",
+            "from_table": "fct_result",
+            "name": "results_to_events",
+            "to_column": "event_id",
+            "to_table": "dim_event"
+          },
+          {
+            "from_column": "division_id",
+            "from_table": "fct_result",
+            "name": "results_to_divisions",
+            "to_column": "division_id",
+            "to_table": "dim_division"
+          },
+          {
+            "from_column": "gender_id",
+            "from_table": "fct_result",
+            "name": "results_to_genders",
+            "to_column": "gender_id",
+            "to_table": "dim_gender"
+          },
+          {
+            "from_column": "distance_id",
+            "from_table": "fct_result",
+            "name": "results_to_distances",
+            "to_column": "distance_id",
+            "to_table": "dim_distance"
+          }
+        ],
+        "source_units": "COUNT",
+        "target_units": "COUNT",
+        "typed_expression": {
+          "aggregation": "COUNT",
+          "filters": [
+            {
+              "field": "finish_status",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "is_valid_sbr_finisher",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ],
+          "metric_references": [],
+          "pattern": "FILTERED_COUNT",
+          "source_field": "*",
+          "source_table": "fct_result"
+        },
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "badc478c259e4430221b5571e580ca0dd3c035c89a91da3ac53a9d69c7ff56c9",
+      "source_identifier": "MEASURES_[Valid SBR Finishers]",
+      "source_location": "models/semantic/triathlon_semantic.yml",
+      "status": "REVIEW_REQUIRED",
+      "target_identifiers": [
+        "POWER_BI"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": [
+            {
+              "field": "$FILTER_FIELD_1",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "$FILTER_FIELD_2",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ]
+        },
+        "grain": "result",
+        "population": [
+          {
+            "field": "finish_status",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": "FIN"
+          },
+          {
+            "field": "is_valid_sbr_finisher",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": true
+          }
+        ],
+        "relationship_context": [
+          {
+            "from_column": "$RELATIONSHIP_FIELD_3",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_3",
+            "to_column": "$RELATIONSHIP_FIELD_3",
+            "to_table": "$RELATED_TABLE_3"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_2",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_2",
+            "to_column": "$RELATIONSHIP_FIELD_2",
+            "to_table": "$RELATED_TABLE_2"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_4",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_4",
+            "to_column": "$RELATIONSHIP_FIELD_4",
+            "to_table": "$RELATED_TABLE_4"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_1",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_1",
+            "to_column": "$RELATIONSHIP_FIELD_1",
+            "to_table": "$RELATED_TABLE_1"
+          }
+        ],
+        "source_units": "COUNT",
+        "target_units": "COUNT",
+        "typed_expression": {
+          "aggregation": "COUNT",
+          "filters": [
+            {
+              "field": "$FILTER_FIELD_1",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "$FILTER_FIELD_2",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ],
+          "metric_references": [],
+          "pattern": "FILTERED_COUNT",
+          "source_field": "*",
+          "source_table": "$SOURCE_TABLE_1"
+        },
+        "typed_parameter_roles": {
+          "$FILTER_FIELD_1": {
+            "aggregation_role": "FILTER",
+            "allowed_binding_constraints": [
+              "EXACT_TYPE",
+              "EXACT_OPERATOR"
+            ],
+            "data_type": "STRING",
+            "semantic_role": "FILTER_FIELD"
+          },
+          "$FILTER_FIELD_2": {
+            "aggregation_role": "FILTER",
+            "allowed_binding_constraints": [
+              "EXACT_TYPE",
+              "EXACT_OPERATOR"
+            ],
+            "data_type": "BOOLEAN",
+            "semantic_role": "FILTER_FIELD"
+          },
+          "$RELATED_TABLE_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATIONSHIP_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_FIELD_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$SOURCE_TABLE_1": {
+            "aggregation_role": "ROWSET",
+            "allowed_binding_constraints": [
+              "EXACT_SOURCE_CONTEXT"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "SOURCE_TABLE"
+          }
+        }
+      },
+      "typed_pattern_signature_sha256": "d7cab8b116ae05128b72d0fc35f5b27a38adf10ba2ee465b8cbb44278c8f39d8"
+    },
+    {
+      "affected_targets": [
+        "POWER_BI"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "CONFIRM_METADATA"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "value_sha256": {
+                    "const": "a0f2615def6fddf27a9d9029da1f34aa79dead8322b01a9b2c0bfb57ad195e73"
+                  }
+                },
+                "required": [
+                  "value_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": false,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+        "existing_snowflake_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+        "powerbi_source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "proposal_sha256": "74bbf337787f0ae73ce18b33d82f87526abeb67efd37858458e86c7f9a0bc8fc",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": "valid_sbr_finishers",
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {
+        "$FILTER_FIELD_1": {
+          "canonical_object_id": "valid_sbr_finishers:finish_status",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "finish_status"
+        },
+        "$FILTER_FIELD_2": {
+          "canonical_object_id": "valid_sbr_finishers:is_valid_sbr_finisher",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "is_valid_sbr_finisher"
+        },
+        "$RELATED_TABLE_1": {
+          "canonical_object_id": "triathlon_results:dim_distance",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_distance"
+        },
+        "$RELATED_TABLE_2": {
+          "canonical_object_id": "triathlon_results:dim_division",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_division"
+        },
+        "$RELATED_TABLE_3": {
+          "canonical_object_id": "triathlon_results:dim_event",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_event"
+        },
+        "$RELATED_TABLE_4": {
+          "canonical_object_id": "triathlon_results:dim_gender",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_gender"
+        },
+        "$RELATIONSHIP_1": {
+          "canonical_object_id": "triathlon_results:results_to_distances",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_distances"
+        },
+        "$RELATIONSHIP_2": {
+          "canonical_object_id": "triathlon_results:results_to_divisions",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_divisions"
+        },
+        "$RELATIONSHIP_3": {
+          "canonical_object_id": "triathlon_results:results_to_events",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_events"
+        },
+        "$RELATIONSHIP_4": {
+          "canonical_object_id": "triathlon_results:results_to_genders",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_genders"
+        },
+        "$RELATIONSHIP_FIELD_1": {
+          "canonical_object_id": "triathlon_results:distance_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "distance_id"
+        },
+        "$RELATIONSHIP_FIELD_2": {
+          "canonical_object_id": "triathlon_results:division_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "division_id"
+        },
+        "$RELATIONSHIP_FIELD_3": {
+          "canonical_object_id": "triathlon_results:event_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "event_id"
+        },
+        "$RELATIONSHIP_FIELD_4": {
+          "canonical_object_id": "triathlon_results:gender_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "gender_id"
+        },
+        "$SOURCE_TABLE_1": {
+          "canonical_object_id": "valid_sbr_finishers",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "fct_result"
+        }
+      },
+      "current_disposition": "OPEN_NON_BLOCKING",
+      "dependency_ids": [],
+      "evidence_available": [
+        {
+          "kind": "PROPOSED_METADATA",
+          "sha256": "a0f2615def6fddf27a9d9029da1f34aa79dead8322b01a9b2c0bfb57ad195e73"
+        }
+      ],
+      "evidence_required": [],
+      "finding_id": "fnd_f29a8f131cb3c60281fdc742",
+      "finding_identity_payload": {
+        "canonical_object_id": "valid_sbr_finishers",
+        "dependency_ids": [],
+        "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+        "primary_reason_code": "POWERBI_SOURCE_TARGET_TABLE_DIFFER",
+        "review_class": "METADATA_REVIEW_REQUIRED",
+        "target_ids": [
+          "POWER_BI"
+        ]
+      },
+      "human_question": "Does the recorded source-to-target table mapping match the intended Power BI copy?",
+      "object_type": "METRIC",
+      "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+      "reason_codes": [
+        "POWERBI_SOURCE_TARGET_TABLE_DIFFER"
+      ],
+      "review_class": "METADATA_REVIEW_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": [
+            {
+              "field": "finish_status",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "is_valid_sbr_finisher",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ]
+        },
+        "grain": "result",
+        "population": [
+          {
+            "field": "finish_status",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": "FIN"
+          },
+          {
+            "field": "is_valid_sbr_finisher",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": true
+          }
+        ],
+        "relationship_context": [
+          {
+            "from_column": "event_id",
+            "from_table": "fct_result",
+            "name": "results_to_events",
+            "to_column": "event_id",
+            "to_table": "dim_event"
+          },
+          {
+            "from_column": "division_id",
+            "from_table": "fct_result",
+            "name": "results_to_divisions",
+            "to_column": "division_id",
+            "to_table": "dim_division"
+          },
+          {
+            "from_column": "gender_id",
+            "from_table": "fct_result",
+            "name": "results_to_genders",
+            "to_column": "gender_id",
+            "to_table": "dim_gender"
+          },
+          {
+            "from_column": "distance_id",
+            "from_table": "fct_result",
+            "name": "results_to_distances",
+            "to_column": "distance_id",
+            "to_table": "dim_distance"
+          }
+        ],
+        "source_units": "COUNT",
+        "target_units": "COUNT",
+        "typed_expression": {
+          "aggregation": "COUNT",
+          "filters": [
+            {
+              "field": "finish_status",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "is_valid_sbr_finisher",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ],
+          "metric_references": [],
+          "pattern": "FILTERED_COUNT",
+          "source_field": "*",
+          "source_table": "fct_result"
+        },
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "badc478c259e4430221b5571e580ca0dd3c035c89a91da3ac53a9d69c7ff56c9",
+      "source_identifier": "MEASURES_",
+      "source_location": "models/semantic/triathlon_semantic.yml",
+      "status": "REVIEW_REQUIRED",
+      "target_identifiers": [
+        "POWER_BI"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": [
+            {
+              "field": "$FILTER_FIELD_1",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "$FILTER_FIELD_2",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ]
+        },
+        "grain": "result",
+        "population": [
+          {
+            "field": "finish_status",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": "FIN"
+          },
+          {
+            "field": "is_valid_sbr_finisher",
+            "keep_filters": false,
+            "operator": "EQ",
+            "value": true
+          }
+        ],
+        "relationship_context": [
+          {
+            "from_column": "$RELATIONSHIP_FIELD_3",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_3",
+            "to_column": "$RELATIONSHIP_FIELD_3",
+            "to_table": "$RELATED_TABLE_3"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_2",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_2",
+            "to_column": "$RELATIONSHIP_FIELD_2",
+            "to_table": "$RELATED_TABLE_2"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_4",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_4",
+            "to_column": "$RELATIONSHIP_FIELD_4",
+            "to_table": "$RELATED_TABLE_4"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_1",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_1",
+            "to_column": "$RELATIONSHIP_FIELD_1",
+            "to_table": "$RELATED_TABLE_1"
+          }
+        ],
+        "source_units": "COUNT",
+        "target_units": "COUNT",
+        "typed_expression": {
+          "aggregation": "COUNT",
+          "filters": [
+            {
+              "field": "$FILTER_FIELD_1",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": "FIN"
+            },
+            {
+              "field": "$FILTER_FIELD_2",
+              "keep_filters": false,
+              "operator": "EQ",
+              "value": true
+            }
+          ],
+          "metric_references": [],
+          "pattern": "FILTERED_COUNT",
+          "source_field": "*",
+          "source_table": "$SOURCE_TABLE_1"
+        },
+        "typed_parameter_roles": {
+          "$FILTER_FIELD_1": {
+            "aggregation_role": "FILTER",
+            "allowed_binding_constraints": [
+              "EXACT_TYPE",
+              "EXACT_OPERATOR"
+            ],
+            "data_type": "STRING",
+            "semantic_role": "FILTER_FIELD"
+          },
+          "$FILTER_FIELD_2": {
+            "aggregation_role": "FILTER",
+            "allowed_binding_constraints": [
+              "EXACT_TYPE",
+              "EXACT_OPERATOR"
+            ],
+            "data_type": "BOOLEAN",
+            "semantic_role": "FILTER_FIELD"
+          },
+          "$RELATED_TABLE_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATIONSHIP_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_FIELD_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$SOURCE_TABLE_1": {
+            "aggregation_role": "ROWSET",
+            "allowed_binding_constraints": [
+              "EXACT_SOURCE_CONTEXT"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "SOURCE_TABLE"
+          }
+        }
+      },
+      "typed_pattern_signature_sha256": "d7cab8b116ae05128b72d0fc35f5b27a38adf10ba2ee465b8cbb44278c8f39d8"
+    },
+    {
+      "affected_targets": [
+        "POWER_BI:tri_measures.Individual Hard Flag Rate",
+        "SNOWFLAKE:results.individual_hard_flag_rate"
+      ],
+      "allowed_answer_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "CONFIRM_TYPED_SEMANTICS"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "semantic_signature_sha256": {
+                    "const": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5"
+                  }
+                },
+                "required": [
+                  "semantic_signature_sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "SUPPLY_HASH_BOUND_EVIDENCE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "evidence_kind": {
+                    "enum": [
+                      "DATA_RESULTS",
+                      "MODEL_METADATA"
+                    ]
+                  },
+                  "evidence_path": {
+                    "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\x00\\\\]+$",
+                    "type": "string"
+                  },
+                  "finding_id": {
+                    "const": "fnd_f56c62cdb851b9c049db814a"
+                  },
+                  "sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "evidence_kind",
+                  "evidence_path",
+                  "finding_id",
+                  "sha256"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "DEFER_MANUAL_REVIEW"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "EVIDENCE_NOT_AVAILABLE",
+                      "IMPLEMENTATION_SUPPORT_REQUIRED",
+                      "REVIEW_DEFERRED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "answer_id": {
+                "const": "REJECT_CHANGE"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reason_code": {
+                    "enum": [
+                      "SEMANTIC_CHANGE_REJECTED",
+                      "UNSUPPORTED_CHANGE_REJECTED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason_code"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "answer_id",
+              "parameters"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "blocking": false,
+      "bound_input_hashes": {
+        "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+        "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+        "existing_snowflake_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+        "powerbi_source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "proposal_sha256": "74bbf337787f0ae73ce18b33d82f87526abeb67efd37858458e86c7f9a0bc8fc",
+        "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+      },
+      "canonical_metric": "individual_hard_flag_rate",
+      "canonical_source_file": "models/semantic/triathlon_semantic.yml",
+      "concrete_role_bindings": {
+        "$RELATED_TABLE_1": {
+          "canonical_object_id": "triathlon_results:dim_distance",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_distance"
+        },
+        "$RELATED_TABLE_2": {
+          "canonical_object_id": "triathlon_results:dim_division",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_division"
+        },
+        "$RELATED_TABLE_3": {
+          "canonical_object_id": "triathlon_results:dim_event",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_event"
+        },
+        "$RELATED_TABLE_4": {
+          "canonical_object_id": "triathlon_results:dim_gender",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "dim_gender"
+        },
+        "$RELATIONSHIP_1": {
+          "canonical_object_id": "triathlon_results:results_to_distances",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_distances"
+        },
+        "$RELATIONSHIP_2": {
+          "canonical_object_id": "triathlon_results:results_to_divisions",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_divisions"
+        },
+        "$RELATIONSHIP_3": {
+          "canonical_object_id": "triathlon_results:results_to_events",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_events"
+        },
+        "$RELATIONSHIP_4": {
+          "canonical_object_id": "triathlon_results:results_to_genders",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "results_to_genders"
+        },
+        "$RELATIONSHIP_FIELD_1": {
+          "canonical_object_id": "triathlon_results:distance_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "distance_id"
+        },
+        "$RELATIONSHIP_FIELD_2": {
+          "canonical_object_id": "triathlon_results:division_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "division_id"
+        },
+        "$RELATIONSHIP_FIELD_3": {
+          "canonical_object_id": "triathlon_results:event_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "event_id"
+        },
+        "$RELATIONSHIP_FIELD_4": {
+          "canonical_object_id": "triathlon_results:gender_id",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "gender_id"
+        },
+        "$SOURCE_TABLE_1": {
+          "canonical_object_id": "individual_hard_flag_rate",
+          "source_location": "models/semantic/triathlon_semantic.yml",
+          "source_object_id": "fct_result"
+        }
+      },
+      "current_disposition": "OPEN_NON_BLOCKING",
+      "dependency_ids": [
+        "valid_sbr_finishers"
+      ],
+      "evidence_available": [],
+      "evidence_required": [
+        "HASH_BOUND_DATA_RESULTS"
+      ],
+      "finding_id": "fnd_f56c62cdb851b9c049db814a",
+      "finding_identity_payload": {
+        "canonical_object_id": "individual_hard_flag_rate",
+        "dependency_ids": [
+          "valid_sbr_finishers"
+        ],
+        "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+        "primary_reason_code": "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "review_class": "DATA_VALIDATION_REQUIRED",
+        "target_ids": [
+          "POWER_BI:tri_measures.Individual Hard Flag Rate",
+          "SNOWFLAKE:results.individual_hard_flag_rate"
+        ]
+      },
+      "object_type": "METRIC",
+      "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+      "reason_codes": [
+        "BLANK_NULL_REPRESENTATION_JSON_NULL",
+        "TRANSITIVE_DEPENDENCY_RISK"
+      ],
+      "review_class": "DATA_VALIDATION_REQUIRED",
+      "semantic_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "event_id",
+            "from_table": "fct_result",
+            "name": "results_to_events",
+            "to_column": "event_id",
+            "to_table": "dim_event"
+          },
+          {
+            "from_column": "division_id",
+            "from_table": "fct_result",
+            "name": "results_to_divisions",
+            "to_column": "division_id",
+            "to_table": "dim_division"
+          },
+          {
+            "from_column": "gender_id",
+            "from_table": "fct_result",
+            "name": "results_to_genders",
+            "to_column": "gender_id",
+            "to_table": "dim_gender"
+          },
+          {
+            "from_column": "distance_id",
+            "from_table": "fct_result",
+            "name": "results_to_distances",
+            "to_column": "distance_id",
+            "to_table": "dim_distance"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "fct_result"
+        },
+        "typed_parameter_roles": {}
+      },
+      "semantic_signature_sha256": "0b1b054e0b9fa647a277dafe20293cb780d5175a15bbe06a4af6cf2e798264d5",
+      "source_identifier": "individual_hard_flag_rate",
+      "source_location": "models/semantic/triathlon_semantic.yml",
+      "status": "NOT_AVAILABLE",
+      "target_identifiers": [
+        "POWER_BI:tri_measures.Individual Hard Flag Rate",
+        "SNOWFLAKE:results.individual_hard_flag_rate"
+      ],
+      "typed_pattern_signature_payload": {
+        "filter_context": {
+          "behavior": "REPLACE_OR_ADD",
+          "filters": []
+        },
+        "grain": "result",
+        "population": [],
+        "relationship_context": [
+          {
+            "from_column": "$RELATIONSHIP_FIELD_3",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_3",
+            "to_column": "$RELATIONSHIP_FIELD_3",
+            "to_table": "$RELATED_TABLE_3"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_2",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_2",
+            "to_column": "$RELATIONSHIP_FIELD_2",
+            "to_table": "$RELATED_TABLE_2"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_4",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_4",
+            "to_column": "$RELATIONSHIP_FIELD_4",
+            "to_table": "$RELATED_TABLE_4"
+          },
+          {
+            "from_column": "$RELATIONSHIP_FIELD_1",
+            "from_table": "$SOURCE_TABLE_1",
+            "name": "$RELATIONSHIP_1",
+            "to_column": "$RELATIONSHIP_FIELD_1",
+            "to_table": "$RELATED_TABLE_1"
+          }
+        ],
+        "source_units": null,
+        "target_units": null,
+        "typed_expression": {
+          "aggregation": "RATIO",
+          "filters": [],
+          "metric_references": [],
+          "pattern": "RATIO",
+          "source_field": null,
+          "source_table": "$SOURCE_TABLE_1"
+        },
+        "typed_parameter_roles": {
+          "$RELATED_TABLE_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATED_TABLE_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "RELATED_TABLE"
+          },
+          "$RELATIONSHIP_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY"
+            ],
+            "data_type": "RELATIONSHIP",
+            "semantic_role": "RELATIONSHIP_ID"
+          },
+          "$RELATIONSHIP_FIELD_1": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_2": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_3": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$RELATIONSHIP_FIELD_4": {
+            "aggregation_role": "RELATIONSHIP",
+            "allowed_binding_constraints": [
+              "EXACT_RELATIONSHIP_TOPOLOGY",
+              "EXACT_COLUMN_ROLE"
+            ],
+            "data_type": "UNKNOWN",
+            "semantic_role": "RELATIONSHIP_FIELD"
+          },
+          "$SOURCE_TABLE_1": {
+            "aggregation_role": "ROWSET",
+            "allowed_binding_constraints": [
+              "EXACT_SOURCE_CONTEXT"
+            ],
+            "data_type": "TABLE",
+            "semantic_role": "SOURCE_TABLE"
+          }
+        }
+      },
+      "typed_pattern_signature_sha256": "f57f0b4a7985b3276b69045dfe637f12e11f433f6c6f4f1b6a26bec0b48501ef"
+    }
+  ],
+  "preview_id": "prv_f9ce5930a7ee7c5c5cd0a156",
+  "review_classes": [
+    "DATA_VALIDATION_REQUIRED",
+    "FORMULA_REVIEW_REQUIRED",
+    "METADATA_REVIEW_REQUIRED",
+    "MODEL_RELATIONSHIP_REVIEW_REQUIRED"
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,4 @@
+table Metrics
+	/// Cross-object positive with the same reviewed seconds-to-hours typed pattern.
+	measure Hours = SUM(fact_other[elapsed_seconds]) / 60
+		formatString: 0.00

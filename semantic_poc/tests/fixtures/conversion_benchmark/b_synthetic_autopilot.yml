@@ -1,0 +1,34 @@
+benchmark_metadata:
+  evidence_kind: SYNTHETIC_TEST_FIXTURE
+  purpose: Exercise normalization and trap detection without claiming Snowflake provenance.
+name: semantic_traps_trial
+description: Synthetic benchmark-only Autopilot-shaped output.
+tables:
+  - name: traps
+    base_table:
+      database: BENCHMARK
+      schema: PUBLIC
+      table: FACT_TRAPS
+    dimensions:
+      - name: Bad Percent
+        expr: success_rate
+        description: This likely represents a useful percentage.
+    facts:
+      - name: numeric_id
+        expr: numeric_id
+      - name: Total Measure
+        expr: total_measure
+    metrics:
+      - name: duration_hours
+        expr: SUM(duration_seconds) / 60
+        description: Total duration in hours.
+      - name: sum_of_success_rate
+        expr: SUM(success_rate)
+        description: Possibly the combined success rate.
+relationships:
+  - name: inactive_dimension
+    left_table: traps
+    right_table: dimensions
+    relationship_columns:
+      - left_column: alternate_dimension_id
+        right_column: dimension_id

@@ -1,0 +1,393 @@
+{
+  "findings": [
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "GENERATED_DESCRIPTION_UNVERIFIED",
+      "evidence": [
+        "Uncertain generated-description terms: likely"
+      ],
+      "finding_id": "fnd_53e19af120db604e",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "success_rate",
+      "generated_object": "Bad Percent",
+      "recommended_correction": "Use the reviewed canonical description; do not promote uncertain generated prose.",
+      "rule_id": "LINT_GENERATED_DESCRIPTION_UNCERTAIN",
+      "severity": "WARNING",
+      "source_expression": null,
+      "source_object": "Autopilot dimension Bad Percent",
+      "source_object_id": "autopilot:dimensions:traps:Bad Percent",
+      "source_support": "AUTOPILOT_EVIDENCE"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "AGGREGATION_MISMATCH",
+      "evidence": [
+        "Generated object name 'sum_of_success_rate' uses SUM_OF naming."
+      ],
+      "finding_id": "fnd_1f14ae9f7f8e13b1",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "SUM(success_rate)",
+      "generated_object": "sum_of_success_rate",
+      "recommended_correction": "Confirm additivity and use the exact canonical target name.",
+      "rule_id": "LINT_AUTOPILOT_SUM_OF_NAME",
+      "severity": "WARNING",
+      "source_expression": null,
+      "source_object": "Autopilot metric sum_of_success_rate",
+      "source_object_id": "autopilot:metrics:traps:sum_of_success_rate",
+      "source_support": "AUTOPILOT_EVIDENCE"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "GENERATED_DESCRIPTION_UNVERIFIED",
+      "evidence": [
+        "Uncertain generated-description terms: possibly"
+      ],
+      "finding_id": "fnd_5ab4566e744842fe",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "SUM(success_rate)",
+      "generated_object": "sum_of_success_rate",
+      "recommended_correction": "Use the reviewed canonical description; do not promote uncertain generated prose.",
+      "rule_id": "LINT_GENERATED_DESCRIPTION_UNCERTAIN",
+      "severity": "WARNING",
+      "source_expression": null,
+      "source_object": "Autopilot metric sum_of_success_rate",
+      "source_object_id": "autopilot:metrics:traps:sum_of_success_rate",
+      "source_support": "AUTOPILOT_EVIDENCE"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "SEMANTIC_ROLE_MISMATCH",
+      "evidence": [
+        "A Power BI measure was emitted as a Snowflake dimension."
+      ],
+      "finding_id": "fnd_ab2e701fdd17d6bd",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "success_rate",
+      "generated_object": "Bad Percent",
+      "recommended_correction": "Map the object to a deterministic canonical metric.",
+      "rule_id": "LINT_NUMERIC_MEASURE_AS_DIMENSION",
+      "severity": "BLOCKING",
+      "source_expression": "DIVIDE([Valid Rows], [Rows])",
+      "source_object": "Autopilot dimension Bad Percent",
+      "source_object_id": "autopilot:dimensions:traps:Bad Percent",
+      "source_support": "AUTOPILOT_EVIDENCE"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "SEMANTIC_ROLE_MISMATCH",
+      "evidence": [
+        "Identifier column 'numeric_id' was emitted as an additive fact."
+      ],
+      "finding_id": "fnd_254ac9fd7b0565a5",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "numeric_id",
+      "generated_object": "numeric_id",
+      "recommended_correction": "Use the canonical key/dimension role and exclude the generated fact mapping.",
+      "rule_id": "LINT_AUTOPILOT_FACT_ROLE",
+      "severity": "BLOCKING",
+      "source_expression": null,
+      "source_object": "Autopilot fact numeric_id",
+      "source_object_id": "autopilot:facts:traps:numeric_id",
+      "source_support": "AUTOPILOT_EVIDENCE"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "TYPE_MISMATCH",
+      "evidence": [
+        "Text column 'Total Measure' was emitted as a fact."
+      ],
+      "finding_id": "fnd_024aaaae65a8a394",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "total_measure",
+      "generated_object": "Total Measure",
+      "recommended_correction": "Use the canonical key/dimension role and exclude the generated fact mapping.",
+      "rule_id": "LINT_AUTOPILOT_FACT_ROLE",
+      "severity": "BLOCKING",
+      "source_expression": null,
+      "source_object": "Autopilot fact Total Measure",
+      "source_object_id": "autopilot:facts:traps:Total Measure",
+      "source_support": "AUTOPILOT_EVIDENCE"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": "valid_rate",
+      "category": "OMITTED_OBJECT",
+      "evidence": [
+        "A supported source measure is absent from the supplied Autopilot YAML."
+      ],
+      "finding_id": "fnd_d230c8efd5ff5299",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": null,
+      "generated_object": "valid_rate",
+      "recommended_correction": "Use the governed repository mapping or correct the exported Autopilot definition.",
+      "rule_id": "LINT_AUTOPILOT_OMITTED_SUPPORTED_MEASURE",
+      "severity": "BLOCKING",
+      "source_expression": null,
+      "source_object": "Measures[Bad Percent]",
+      "source_object_id": "pbi_measure_7362ee25377caef4",
+      "source_support": "SUPPORTED_EXACT"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": "valid_rate",
+      "category": "FORMAT_MISMATCH",
+      "evidence": [
+        "The measure is a ratio/percentage by AST or name.",
+        "Observed Power BI format string: 0.00."
+      ],
+      "finding_id": "fnd_089bb2b76c6d0b57",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "traps.valid_rows / NULLIF(traps.rows, 0)",
+      "generated_object": "valid_rate",
+      "recommended_correction": "Map to a canonical percentage format and regenerate both targets.",
+      "rule_id": "LINT_PERCENTAGE_FORMAT",
+      "severity": "BLOCKING",
+      "source_expression": "DIVIDE([Valid Rows], [Rows])",
+      "source_object": "Measures[Bad Percent]",
+      "source_object_id": "pbi_measure_7362ee25377caef4",
+      "source_support": "SUPPORTED_EXACT"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": "duration_hours",
+      "category": "UNIT_CONVERSION_MISMATCH",
+      "evidence": [
+        "The source field/expression is seconds while the measure is labelled as hours.",
+        "Observed divisor: 60; required seconds-to-hours divisor: 3600."
+      ],
+      "finding_id": "fnd_15fe871fa1b58924",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "SUM(duration_seconds) / 3600",
+      "generated_object": "duration_hours",
+      "recommended_correction": "Create or map to a canonical scaled-sum metric with divisor 3600.",
+      "rule_id": "LINT_TIME_UNIT_CONVERSION",
+      "severity": "BLOCKING",
+      "source_expression": "SUM(fact_traps[duration_seconds]) / 60",
+      "source_object": "Measures[Hours]",
+      "source_object_id": "pbi_measure_a6591b649bbf476e",
+      "source_support": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": "identifier_count",
+      "category": "SEMANTIC_ROLE_MISMATCH",
+      "evidence": [
+        "Column 'numeric_id' has identifier/key naming but is summed."
+      ],
+      "finding_id": "fnd_406ee6d2ec577e9b",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "COUNT(DISTINCT numeric_id) + IFF(COUNT_IF(numeric_id IS NULL) > 0, 1, 0)",
+      "generated_object": "identifier_count",
+      "recommended_correction": "Map the identifier as a dimension/key or use an explicit count metric.",
+      "rule_id": "LINT_IDENTIFIER_AS_FACT",
+      "severity": "BLOCKING",
+      "source_expression": "SUM(fact_traps[numeric_id])",
+      "source_object": "Measures[Identifier Total]",
+      "source_object_id": "pbi_measure_20707064b0d8f2fd",
+      "source_support": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "AGGREGATION_MISMATCH",
+      "evidence": [
+        "A percentage/rate is exposed through additive SUM semantics."
+      ],
+      "finding_id": "fnd_2d5137650f86900f",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "SUM(success_rate)",
+      "generated_object": "rate_total",
+      "recommended_correction": "Represent the value as a canonical ratio or explicit non-additive metric.",
+      "rule_id": "LINT_NON_ADDITIVE_RATIO",
+      "severity": "BLOCKING",
+      "source_expression": "SUM(fact_traps[success_rate])",
+      "source_object": "Measures[Rate Total]",
+      "source_object_id": "pbi_measure_f6439145a19e94e6",
+      "source_support": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "FORMAT_MISMATCH",
+      "evidence": [
+        "The measure is a ratio/percentage by AST or name.",
+        "Observed Power BI format string: 0.00."
+      ],
+      "finding_id": "fnd_4a9cdee4b245ee13",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": "SUM(success_rate)",
+      "generated_object": "rate_total",
+      "recommended_correction": "Map to a canonical percentage format and regenerate both targets.",
+      "rule_id": "LINT_PERCENTAGE_FORMAT",
+      "severity": "BLOCKING",
+      "source_expression": "SUM(fact_traps[success_rate])",
+      "source_object": "Measures[Rate Total]",
+      "source_object_id": "pbi_measure_f6439145a19e94e6",
+      "source_support": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": "rows",
+      "category": "OMITTED_OBJECT",
+      "evidence": [
+        "A supported source measure is absent from the supplied Autopilot YAML."
+      ],
+      "finding_id": "fnd_a903d541229b54e5",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": null,
+      "generated_object": "rows",
+      "recommended_correction": "Use the governed repository mapping or correct the exported Autopilot definition.",
+      "rule_id": "LINT_AUTOPILOT_OMITTED_SUPPORTED_MEASURE",
+      "severity": "BLOCKING",
+      "source_expression": null,
+      "source_object": "Measures[Rows]",
+      "source_object_id": "pbi_measure_c5f6cf421788986a",
+      "source_support": "SUPPORTED_EXACT"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": "valid_rows",
+      "category": "OMITTED_OBJECT",
+      "evidence": [
+        "A supported source measure is absent from the supplied Autopilot YAML."
+      ],
+      "finding_id": "fnd_b2c14cf131a75c63",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": null,
+      "generated_object": "valid_rows",
+      "recommended_correction": "Use the governed repository mapping or correct the exported Autopilot definition.",
+      "rule_id": "LINT_AUTOPILOT_OMITTED_SUPPORTED_MEASURE",
+      "severity": "BLOCKING",
+      "source_expression": null,
+      "source_object": "Measures[Valid Rows]",
+      "source_object_id": "pbi_measure_96527f69a5aeaf1d",
+      "source_support": "SUPPORTED_EXACT"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "RELATIONSHIP_MISMATCH",
+      "evidence": [
+        "PBI_INACTIVE_RELATIONSHIP_DEPENDENCY",
+        "Inactive relationship inactive_dimension is referenced by: Inactive Rows."
+      ],
+      "finding_id": "fnd_c42f805a6176f258",
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "generated_expression": null,
+      "generated_object": "pbi_relationship_e318163415397e0a",
+      "recommended_correction": "Resolve the relationship against an exact canonical relationship or explicitly exclude the dependent object.",
+      "rule_id": "LINT_RELATIONSHIP_DRIFT",
+      "severity": "BLOCKING",
+      "source_expression": null,
+      "source_object": "pbi_relationship_e318163415397e0a",
+      "source_object_id": "pbi_relationship_e318163415397e0a",
+      "source_support": "INACTIVE_RELATIONSHIP_DEPENDENCY"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "OMITTED_OBJECT",
+      "evidence": [
+        "One or more DAX measure dependencies did not resolve to inventory object IDs."
+      ],
+      "finding_id": "fnd_9ffc67ceeb1470ad",
+      "fixture_id": "C_UNSUPPORTED",
+      "generated_expression": null,
+      "generated_object": null,
+      "recommended_correction": "Resolve every dependency exactly before generating or accepting the metric.",
+      "rule_id": "LINT_MISSING_MEASURE_DEPENDENCY",
+      "severity": "BLOCKING",
+      "source_expression": "DIVIDE([Missing Measure], [Base Rows])",
+      "source_object": "Measures[Broken Dependency]",
+      "source_object_id": "pbi_measure_dde8e1310d169bd1",
+      "source_support": "UNSUPPORTED"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "FORMAT_MISMATCH",
+      "evidence": [
+        "The measure is a ratio/percentage by AST or name.",
+        "Observed Power BI format string: <missing>."
+      ],
+      "finding_id": "fnd_52265520a50fb59b",
+      "fixture_id": "C_UNSUPPORTED",
+      "generated_expression": null,
+      "generated_object": null,
+      "recommended_correction": "Map to a canonical percentage format and regenerate both targets.",
+      "rule_id": "LINT_PERCENTAGE_FORMAT",
+      "severity": "BLOCKING",
+      "source_expression": "DIVIDE([Missing Measure], [Base Rows])",
+      "source_object": "Measures[Broken Dependency]",
+      "source_object_id": "pbi_measure_dde8e1310d169bd1",
+      "source_support": "UNSUPPORTED"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "FORMAT_MISMATCH",
+      "evidence": [
+        "The measure is a ratio/percentage by AST or name.",
+        "Observed Power BI format string: <missing>."
+      ],
+      "finding_id": "fnd_fbd1862b9bfed93c",
+      "fixture_id": "C_UNSUPPORTED",
+      "generated_expression": "__REQUIRES_MAPPING__.base_rows / NULLIF(__REQUIRES_MAPPING__.iterator_total, 0)",
+      "generated_object": "dependency_level_1",
+      "recommended_correction": "Map to a canonical percentage format and regenerate both targets.",
+      "rule_id": "LINT_PERCENTAGE_FORMAT",
+      "severity": "BLOCKING",
+      "source_expression": "DIVIDE([Base Rows], [Iterator Total])",
+      "source_object": "Measures[Dependency Level 1]",
+      "source_object_id": "pbi_measure_ed06471d9ab57459",
+      "source_support": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "FORMAT_MISMATCH",
+      "evidence": [
+        "The measure is a ratio/percentage by AST or name.",
+        "Observed Power BI format string: <missing>."
+      ],
+      "finding_id": "fnd_387e9ff17029e479",
+      "fixture_id": "C_UNSUPPORTED",
+      "generated_expression": "__REQUIRES_MAPPING__.dependency_level_1 / NULLIF(__REQUIRES_MAPPING__.base_rows, 0)",
+      "generated_object": "dependency_level_2",
+      "recommended_correction": "Map to a canonical percentage format and regenerate both targets.",
+      "rule_id": "LINT_PERCENTAGE_FORMAT",
+      "severity": "BLOCKING",
+      "source_expression": "DIVIDE([Dependency Level 1], [Base Rows])",
+      "source_object": "Measures[Dependency Level 2]",
+      "source_object_id": "pbi_measure_9d2ae4c1dccdcb8a",
+      "source_support": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "automatic_correction_safe": false,
+      "canonical_metric": null,
+      "category": "RELATIONSHIP_MISMATCH",
+      "evidence": [
+        "PBI_INACTIVE_RELATIONSHIP_DEPENDENCY",
+        "Inactive relationship inactive_date is referenced by: Inactive Relationship."
+      ],
+      "finding_id": "fnd_52c8cf6a4b2b9acd",
+      "fixture_id": "C_UNSUPPORTED",
+      "generated_expression": null,
+      "generated_object": "pbi_relationship_dbdc07ba375ba17b",
+      "recommended_correction": "Resolve the relationship against an exact canonical relationship or explicitly exclude the dependent object.",
+      "rule_id": "LINT_RELATIONSHIP_DRIFT",
+      "severity": "BLOCKING",
+      "source_expression": null,
+      "source_object": "pbi_relationship_dbdc07ba375ba17b",
+      "source_object_id": "pbi_relationship_dbdc07ba375ba17b",
+      "source_support": "INACTIVE_RELATIONSHIP_DEPENDENCY"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,212 @@
+# Generated file. Do not edit manually.
+# Canonical source: models/semantic/triathlon_semantic.yml
+name: TRIATHLON_ANALYTICS
+description: Generated Snowflake Semantic View YAML from dbt semantic definitions. Review before deployment.
+tables:
+- name: results
+  description: Athlete result fact table.
+  base_table:
+    database: TRIATHLON
+    schema: MART
+    table: FCT_RESULT
+  dimensions:
+  - name: result_id
+    expr: result_id
+    data_type: VARCHAR
+  - name: event_id
+    expr: event_id
+    data_type: VARCHAR
+  - name: division_id
+    expr: division_id
+    data_type: VARCHAR
+  - name: gender_id
+    expr: gender_id
+    data_type: VARCHAR
+  - name: distance_id
+    expr: distance_id
+    data_type: VARCHAR
+  facts:
+  - name: is_valid_sbr_finisher
+    expr: is_valid_sbr_finisher
+    data_type: BOOLEAN
+    access_modifier: private_access
+  - name: event_context_flag
+    expr: event_context_flag
+    data_type: BOOLEAN
+    access_modifier: private_access
+  - name: record_integrity_flag
+    expr: record_integrity_flag
+    data_type: BOOLEAN
+    access_modifier: private_access
+  - name: individual_profile_flag
+    expr: individual_profile_flag
+    data_type: BOOLEAN
+    access_modifier: private_access
+  - name: model_residual_flag
+    expr: model_residual_flag
+    data_type: BOOLEAN
+    access_modifier: private_access
+  - name: individual_hard_flag
+    expr: individual_hard_flag
+    data_type: BOOLEAN
+    access_modifier: private_access
+  - name: any_review_flag
+    expr: any_review_flag
+    data_type: BOOLEAN
+    access_modifier: private_access
+  metrics:
+  - name: valid_sbr_finishers
+    expr: COUNT_IF(finish_status = 'FIN' AND is_valid_sbr_finisher)
+    description: Number of finishers with valid gender and complete swim, bike, and run splits.
+    synonyms:
+    - valid finishers
+    - complete swim bike run finishers
+    access_modifier: public_access
+  - name: event_context_rows
+    expr: COUNT_IF(event_context_flag)
+    description: Number of result rows affected by event-leg course-context flags.
+    synonyms:
+    - course context rows
+    - altered course rows
+    access_modifier: public_access
+  - name: record_integrity_rows
+    expr: COUNT_IF(record_integrity_flag)
+    description: Number of result rows with strict row-level timing or arithmetic integrity issues.
+    synonyms: []
+    access_modifier: private_access
+  - name: individual_profile_rows
+    expr: COUNT_IF(individual_profile_flag)
+    description: Number of result rows with unusual swim-bike-run profile spread after course-context handling.
+    synonyms: []
+    access_modifier: private_access
+  - name: model_residual_rows
+    expr: COUNT_IF(model_residual_flag)
+    description: Number of result rows with model residual review flags.
+    synonyms: []
+    access_modifier: private_access
+  - name: individual_hard_flag_rows
+    expr: COUNT_IF(individual_hard_flag)
+    description: Number of rows that remain individual hard-flag candidates after likely course-context cases are separated.
+    synonyms: []
+    access_modifier: private_access
+- name: events
+  description: Race event dimension.
+  base_table:
+    database: TRIATHLON
+    schema: MART
+    table: DIM_EVENT
+  dimensions:
+  - name: event_id
+    expr: event_id
+    data_type: VARCHAR
+  - name: race_name
+    expr: race_name
+    data_type: VARCHAR
+  time_dimensions:
+  - name: event_year
+    expr: year
+    data_type: NUMBER
+- name: divisions
+  description: Athlete division dimension.
+  base_table:
+    database: TRIATHLON
+    schema: MART
+    table: DIM_DIVISION
+  dimensions:
+  - name: division_id
+    expr: division_id
+    data_type: VARCHAR
+  - name: division
+    expr: division
+    data_type: VARCHAR
+  - name: is_pro
+    expr: is_pro
+    data_type: BOOLEAN
+- name: genders
+  description: Gender dimension.
+  base_table:
+    database: TRIATHLON
+    schema: MART
+    table: DIM_GENDER
+  dimensions:
+  - name: gender_id
+    expr: gender_id
+    data_type: VARCHAR
+  - name: gender
+    expr: gender
+    data_type: VARCHAR
+- name: distances
+  description: Nominal race distance dimension.
+  base_table:
+    database: TRIATHLON
+    schema: MART
+    table: DIM_DISTANCE
+  dimensions:
+  - name: distance_id
+    expr: distance_id
+    data_type: VARCHAR
+  - name: distance
+    expr: distance
+    data_type: VARCHAR
+relationships:
+- name: results_to_events
+  left_table: results
+  right_table: events
+  relationship_columns:
+  - left_column: event_id
+    right_column: event_id
+- name: results_to_divisions
+  left_table: results
+  right_table: divisions
+  relationship_columns:
+  - left_column: division_id
+    right_column: division_id
+- name: results_to_genders
+  left_table: results
+  right_table: genders
+  relationship_columns:
+  - left_column: gender_id
+    right_column: gender_id
+- name: results_to_distances
+  left_table: results
+  right_table: distances
+  relationship_columns:
+  - left_column: distance_id
+    right_column: distance_id
+metrics:
+- name: event_context_rate
+  expr: results.event_context_rows / NULLIF(results.valid_sbr_finishers, 0)
+  description: Share of valid SBR finishers affected by event-leg course-context flags.
+  synonyms:
+  - course context rate
+  - altered course rate
+  access_modifier: public_access
+- name: record_integrity_rate
+  expr: results.record_integrity_rows / NULLIF(results.valid_sbr_finishers, 0)
+  description: Share of valid SBR finishers with strict row-level timing or arithmetic integrity issues.
+  synonyms:
+  - record quality rate
+  - timing integrity rate
+  access_modifier: public_access
+- name: individual_profile_rate
+  expr: results.individual_profile_rows / NULLIF(results.valid_sbr_finishers, 0)
+  description: Share of valid SBR finishers with unusual swim-bike-run profile spread after course-context handling.
+  synonyms:
+  - split profile rate
+  - individual review profile rate
+  access_modifier: public_access
+- name: model_residual_rate
+  expr: results.model_residual_rows / NULLIF(results.valid_sbr_finishers, 0)
+  description: Share of valid SBR finishers with model residual review flags.
+  synonyms:
+  - residual review rate
+  - model review rate
+  access_modifier: public_access
+- name: individual_hard_flag_rate
+  expr: results.individual_hard_flag_rows / NULLIF(results.valid_sbr_finishers, 0)
+  description: Share of valid SBR finishers that remain individual hard-flag candidates after likely course-context cases are separated.
+  synonyms:
+  - hard flag rate
+  - individual hard review rate
+  access_modifier: public_access
+unsupported_metrics: []

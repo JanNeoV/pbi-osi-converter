@@ -1,0 +1,18 @@
+{
+  "comparison": {
+    "blank_null_representation": "JSON_NULL",
+    "decimal_absolute_tolerance": 1e-09,
+    "decimal_relative_tolerance": 1e-09,
+    "integer": "EXACT"
+  },
+  "profile": "PBI_TRIAL_V2_AUDIT",
+  "results": [],
+  "schema_version": 1,
+  "subject_hashes": {
+    "behavioral_baseline_sha256": "98405395d9724b64196ffed7b5af5c43c5d0cc6b6c8e67febaa87e4a478f4400",
+    "benchmark_spec_sha256": "93c060de6ab00068682e8bf8a60713d4a1e97880511c36a4304d18917200d42c",
+    "powerbi_model_tree_sha256": "a9042f554c8c500fdce0f75885322affdda7550f3b2c559c3ddc45b4699581e1",
+    "snowflake_query_pack_sha256": "8dd908957dc11b0b6e83775d6a30385a4a132dc8025fa219dd568393038c27d6",
+    "snowflake_yaml_sha256": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751"
+  }
+}

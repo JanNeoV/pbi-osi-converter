@@ -1,0 +1,106 @@
+{
+  "_generated": {
+    "notice": "Generated file. Do not edit manually.",
+    "canonical_source": "models/semantic/triathlon_semantic.yml"
+  },
+  "source": "models/semantic/triathlon_semantic.yml",
+  "target": "pbi/triathlon_pbi_model.SemanticModel/definition",
+  "read_only": true,
+  "allowed_operations": [
+    "set_measure_description",
+    "set_measure_format",
+    "set_measure_display_folder",
+    "set_table_description",
+    "set_column_description",
+    "set_column_hidden"
+  ],
+  "operations": [
+    {
+      "operation": "set_measure_format",
+      "table": "tri_measures",
+      "measure": "Event Context Rate",
+      "current": null,
+      "proposed": "0.0%",
+      "source": "event_context_rate"
+    },
+    {
+      "operation": "set_measure_display_folder",
+      "table": "tri_measures",
+      "measure": "Event Context Rate",
+      "current": null,
+      "proposed": "03 Rates",
+      "source": "event_context_rate"
+    },
+    {
+      "operation": "set_measure_format",
+      "table": "tri_measures",
+      "measure": "Record Integrity Rate",
+      "current": null,
+      "proposed": "0.0%",
+      "source": "record_integrity_rate"
+    },
+    {
+      "operation": "set_measure_display_folder",
+      "table": "tri_measures",
+      "measure": "Record Integrity Rate",
+      "current": null,
+      "proposed": "03 Rates",
+      "source": "record_integrity_rate"
+    },
+    {
+      "operation": "set_measure_format",
+      "table": "tri_measures",
+      "measure": "Individual Profile Rate",
+      "current": null,
+      "proposed": "0.0%",
+      "source": "individual_profile_rate"
+    },
+    {
+      "operation": "set_measure_display_folder",
+      "table": "tri_measures",
+      "measure": "Individual Profile Rate",
+      "current": null,
+      "proposed": "03 Rates",
+      "source": "individual_profile_rate"
+    },
+    {
+      "operation": "set_measure_format",
+      "table": "tri_measures",
+      "measure": "Model Residual Rate",
+      "current": null,
+      "proposed": "0.0%",
+      "source": "model_residual_rate"
+    },
+    {
+      "operation": "set_measure_display_folder",
+      "table": "tri_measures",
+      "measure": "Model Residual Rate",
+      "current": null,
+      "proposed": "03 Rates",
+      "source": "model_residual_rate"
+    },
+    {
+      "operation": "set_measure_format",
+      "table": "tri_measures",
+      "measure": "Individual Hard Flag Rate",
+      "current": null,
+      "proposed": "0.0%",
+      "source": "individual_hard_flag_rate"
+    },
+    {
+      "operation": "set_measure_display_folder",
+      "table": "tri_measures",
+      "measure": "Individual Hard Flag Rate",
+      "current": null,
+      "proposed": "03 Rates",
+      "source": "individual_hard_flag_rate"
+    }
+  ],
+  "skipped": [
+    {
+      "item": "fct_result.distance_id -> dim_distance.distance_id",
+      "reason": "structural changes are outside the safe patch scope",
+      "source": "results_to_distances"
+    }
+  ]
+}

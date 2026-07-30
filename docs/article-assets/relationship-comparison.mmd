@@ -1,0 +1,40 @@
+flowchart LR
+  subgraph PBI["Power BI TMDL"]
+    direction TB
+    P_COUNTRY[DIM_COUNTRY]
+    P_EVENT[DIM_EVENT]
+    P_AGE[DIM_AGE_GROUP]
+    P_DIV[DIM_DIVSION]
+    P_DISTANCE[DIM_DISTANCE]
+    P_GENDER[DIM_GENDER]
+    P_RESULT[FCT_RESULT<br/>race grain]
+    P_SPLIT[FCT_SPLIT<br/>leg grain]
+    P_COUNTRY -->|1:*| P_EVENT
+    P_AGE -->|1:*| P_DIV
+    P_EVENT -->|1:*| P_RESULT
+    P_DIV -->|1:*| P_RESULT
+    P_DISTANCE -->|1:*| P_RESULT
+    P_GENDER -->|1:*| P_RESULT
+    P_RESULT -->|1:*| P_SPLIT
+  end
+
+  subgraph SF["Snowflake semantic-view YAML"]
+    direction TB
+    S_COUNTRY[DIM_COUNTRY]
+    S_EVENT[DIM_EVENT]
+    S_AGE[DIM_AGE_GROUP]
+    S_DIV[DIM_DIVSION]
+    S_DISTANCE[DIM_DISTANCE]
+    S_GENDER[DIM_GENDER]
+    S_RESULT[FCT_RESULT<br/>race grain]
+    S_SPLIT[FCT_SPLIT<br/>leg grain]
+    S_COUNTRY -->|1:*| S_EVENT
+    S_AGE -->|1:*| S_DIV
+    S_EVENT -->|1:*| S_RESULT
+    S_DIV -->|1:*| S_RESULT
+    S_DISTANCE -->|1:*| S_RESULT
+    S_GENDER -->|1:*| S_RESULT
+    S_RESULT -->|1:*| S_SPLIT
+  end
+
+  PBI -.->|7 of 7 endpoints matched| SF

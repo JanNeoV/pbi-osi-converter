@@ -1,0 +1,24 @@
+{
+  "bound_hashes": {
+    "canonical_baseline_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+    "canonical_candidate_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+    "powerbi_source_tree_sha256": "335c9964ed056547b0920346c852ef9efa1ce5e51f170b38076d9d19695c1774",
+    "proposal_sha256": "51b50e9a07542afbadfa6ae99063325c24c55f895bf416269d805f625d443cf3",
+    "snowflake_environment_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79"
+  },
+  "change_id": "chg_20260718T190400Z_d0b7dea7",
+  "executable_artifacts_emitted": false,
+  "finding_ids": [
+    "fnd_3a754614594a07385a09671a",
+    "fnd_ad2c549e53bd84a812c20d41"
+  ],
+  "operations": [],
+  "preview_id": "prv_c7f23970624e1f2ed7a559dc",
+  "reason_codes": [
+    "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+    "DAX_UNSAFE_TRANSITIVE_DEPENDENCY",
+    "IMPORT_MAPPING_MISSING",
+    "PBI_INACTIVE_RELATIONSHIP_DEPENDENCY"
+  ],
+  "schema_version": 1
+}

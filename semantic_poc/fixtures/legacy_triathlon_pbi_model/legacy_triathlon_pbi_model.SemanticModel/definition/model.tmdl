@@ -1,0 +1,26 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-DE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["fct_review_flag","fct_result","fct_event_leg_context","dim_review_flag","dim_gender","dim_event","dim_division","dim_distance","tri_measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table fct_review_flag
+ref table fct_result
+ref table fct_event_leg_context
+ref table dim_review_flag
+ref table dim_gender
+ref table dim_event
+ref table dim_division
+ref table dim_distance
+ref table tri_measures
+
+ref cultureInfo en-US
+

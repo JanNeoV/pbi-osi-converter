@@ -1,0 +1,432 @@
+{
+  "$defs": {
+    "applicability": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_object_id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parameter_role_constraints": {
+          "additionalProperties": false,
+          "patternProperties": {
+            "^\\$[A-Z][A-Z0-9_]{0,63}$": {
+              "$ref": "#/$defs/roleConstraint"
+            }
+          },
+          "type": "object"
+        },
+        "semantic_signature_payload": {
+          "$ref": "#/$defs/signature"
+        },
+        "semantic_signature_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "source_identifier": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "typed_pattern_signature_payload": {
+          "$ref": "#/$defs/signature"
+        },
+        "typed_pattern_signature_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "canonical_object_id",
+        "source_identifier",
+        "semantic_signature_payload",
+        "semantic_signature_sha256",
+        "typed_pattern_signature_payload",
+        "typed_pattern_signature_sha256",
+        "parameter_role_constraints"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "$ref": "#/$defs/safeId"
+        },
+        "finding_id": {
+          "pattern": "^fnd_[0-9a-f]{24}$",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "PREVIEW_ARTIFACT",
+            "DATA_RESULTS",
+            "MODEL_METADATA",
+            "DOCUMENTATION",
+            "REVIEW_RULE"
+          ]
+        },
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "kind",
+        "path",
+        "sha256",
+        "finding_id"
+      ],
+      "type": "object"
+    },
+    "fixture": {
+      "additionalProperties": false,
+      "properties": {
+        "fixture_id": {
+          "$ref": "#/$defs/safeId"
+        },
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "fixture_id",
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "canonical_source_file": {
+          "const": "models/semantic/triathlon_semantic.yml"
+        },
+        "concrete_role_bindings": {
+          "additionalProperties": false,
+          "patternProperties": {
+            "^\\$[A-Z][A-Z0-9_]{0,63}$": {
+              "additionalProperties": false,
+              "patternProperties": {
+                "^[A-Za-z][A-Za-z0-9_]{0,63}$": {}
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "decision_id": {
+          "$ref": "#/$defs/safeId"
+        },
+        "decision_path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "decision_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "evidence_references": {
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "fixture_evidence": {
+          "additionalProperties": false,
+          "properties": {
+            "near_misses": {
+              "items": {
+                "$ref": "#/$defs/fixture"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "positive": {
+              "items": {
+                "$ref": "#/$defs/fixture"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "positive",
+            "near_misses"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "recorded_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_snapshot_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "decision_id",
+        "decision_path",
+        "decision_sha256",
+        "actor",
+        "recorded_at",
+        "rationale",
+        "canonical_source_file",
+        "source_snapshot_sha256",
+        "concrete_role_bindings",
+        "evidence_references",
+        "fixture_evidence"
+      ],
+      "type": "object"
+    },
+    "relativePath": {
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\u0000\\\\]+$",
+      "type": "string"
+    },
+    "roleConstraint": {
+      "additionalProperties": false,
+      "properties": {
+        "aggregation_role": {},
+        "allowed_binding_constraints": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "data_type": {},
+        "semantic_role": {}
+      },
+      "required": [
+        "aggregation_role",
+        "allowed_binding_constraints",
+        "data_type",
+        "semantic_role"
+      ],
+      "type": "object"
+    },
+    "safeId": {
+      "pattern": "^[a-z][a-z0-9_]{2,127}$",
+      "type": "string"
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "signature": {
+      "additionalProperties": false,
+      "properties": {
+        "filter_context": {},
+        "grain": {},
+        "population": {},
+        "relationship_context": {},
+        "source_units": {},
+        "target_units": {},
+        "typed_expression": {},
+        "typed_parameter_roles": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "typed_expression",
+        "typed_parameter_roles",
+        "source_units",
+        "target_units",
+        "population",
+        "grain",
+        "filter_context",
+        "relationship_context"
+      ],
+      "type": "object"
+    },
+    "structuredAnswer": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "answer_id": {
+              "const": "CONFIRM_TYPED_SEMANTICS"
+            },
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "semantic_signature_sha256": {
+                  "$ref": "#/$defs/sha256"
+                }
+              },
+              "required": [
+                "semantic_signature_sha256"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "answer_id",
+            "parameters"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "answer_id": {
+              "const": "SELECT_EXACT_MAPPING"
+            },
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "canonical_metric": {
+                  "$ref": "#/$defs/safeId"
+                }
+              },
+              "required": [
+                "canonical_metric"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "answer_id",
+            "parameters"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "answer_id": {
+              "const": "CONFIRM_METADATA"
+            },
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "value_sha256": {
+                  "$ref": "#/$defs/sha256"
+                }
+              },
+              "required": [
+                "value_sha256"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "answer_id",
+            "parameters"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "https://example.invalid/semantic-poc/review-memory-v2.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "applicability": {
+      "$ref": "#/$defs/applicability"
+    },
+    "applicability_scope": {
+      "enum": [
+        "EXACT_OBJECT",
+        "EXACT_TYPED_PATTERN"
+      ]
+    },
+    "confirmation_required": {
+      "const": true
+    },
+    "finding_reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "lifecycle": {
+      "enum": [
+        "CURRENT",
+        "SUPERSEDED"
+      ]
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "review_class": {
+      "enum": [
+        "FORMULA_REVIEW_REQUIRED",
+        "MODEL_RELATIONSHIP_REVIEW_REQUIRED",
+        "DATA_VALIDATION_REQUIRED",
+        "METADATA_REVIEW_REQUIRED"
+      ]
+    },
+    "rule_id": {
+      "$ref": "#/$defs/safeId"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "status": {
+      "enum": [
+        "PROPOSED",
+        "ACCEPTED"
+      ]
+    },
+    "structured_answer": {
+      "$ref": "#/$defs/structuredAnswer"
+    },
+    "superseded_by": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/safeId"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "version": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "rule_id",
+    "status",
+    "version",
+    "lifecycle",
+    "superseded_by",
+    "applicability_scope",
+    "review_class",
+    "finding_reason_codes",
+    "applicability",
+    "structured_answer",
+    "provenance",
+    "confirmation_required"
+  ],
+  "title": "Generalized governed review-memory rule",
+  "type": "object"
+}

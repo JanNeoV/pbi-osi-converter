@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Captured Power BI to Snowflake conversion funnel</title>
+  <desc id="desc">Of 46 Power BI measures, 21 were emitted and 25 omitted. Of the 21 emitted, 13 were structurally equivalent, four confirmed incorrect, and four potentially incorrect. Seven of seven reviewed relationship endpoints matched; runtime evidence is unavailable.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f7f8fa}.title{font:700 34px Arial,sans-serif;fill:#15202b}.sub{font:18px Arial,sans-serif;fill:#52606d}
+      .box{stroke-width:2;rx:18}.big{font:700 42px Arial,sans-serif}.label{font:700 22px Arial,sans-serif}.small{font:17px Arial,sans-serif}
+      .line{fill:none;stroke:#7b8794;stroke-width:5}.source{fill:#173f5f;stroke:#173f5f}.emit{fill:#dff3ea;stroke:#24936e}.omit{fill:#fce8e6;stroke:#c74440}
+      .eq{fill:#e7f4ed;stroke:#24936e}.wrong{fill:#f9d7d5;stroke:#c74440}.risk{fill:#fff1cc;stroke:#c58a00}.white{fill:#fff}.dark{fill:#15202b}
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#7b8794"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="675"/>
+  <text class="title" x="60" y="65">What survived the captured conversion?</text>
+  <text class="sub" x="60" y="98">Static, hash-bound comparison of pbi_trial v2; runtime equivalence remains unavailable</text>
+  <rect class="box source" x="60" y="245" width="245" height="160"/>
+  <text class="big white" x="182" y="315" text-anchor="middle">46</text>
+  <text class="label white" x="182" y="355" text-anchor="middle">Power BI measures</text>
+  <path class="line" marker-end="url(#arrow)" d="M305 295 C350 295 370 215 420 215"/>
+  <path class="line" marker-end="url(#arrow)" d="M305 355 C350 355 370 475 420 475"/>
+  <rect class="box emit" x="430" y="145" width="250" height="140"/>
+  <text class="big dark" x="555" y="205" text-anchor="middle">21</text>
+  <text class="label dark" x="555" y="245" text-anchor="middle">emitted metrics</text>
+  <rect class="box omit" x="430" y="405" width="250" height="140"/>
+  <text class="big dark" x="555" y="465" text-anchor="middle">25</text>
+  <text class="label dark" x="555" y="505" text-anchor="middle">omitted measures</text>
+  <path class="line" marker-end="url(#arrow)" d="M680 185 C730 185 750 155 805 155"/>
+  <path class="line" marker-end="url(#arrow)" d="M680 215 C730 215 750 315 805 315"/>
+  <path class="line" marker-end="url(#arrow)" d="M680 245 C730 245 750 475 805 475"/>
+  <rect class="box eq" x="815" y="95" width="325" height="120"/>
+  <text class="big dark" x="875" y="165" text-anchor="middle">13</text>
+  <text class="label dark" x="915" y="145">structurally</text>
+  <text class="label dark" x="915" y="177">equivalent</text>
+  <rect class="box wrong" x="815" y="255" width="325" height="120"/>
+  <text class="big dark" x="875" y="325" text-anchor="middle">4</text>
+  <text class="label dark" x="915" y="305">confirmed</text>
+  <text class="label dark" x="915" y="337">incorrect</text>
+  <rect class="box risk" x="815" y="415" width="325" height="120"/>
+  <text class="big dark" x="875" y="485" text-anchor="middle">4</text>
+  <text class="label dark" x="915" y="465">potentially</text>
+  <text class="label dark" x="915" y="497">incorrect</text>
+  <text class="small sub" x="60" y="620">All 7 reviewed relationship endpoints matched. Runtime evidence is NOT_AVAILABLE.</text>
+</svg>
+

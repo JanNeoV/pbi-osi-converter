@@ -1,0 +1,105 @@
+/// Event dimension containing race-level context such as race name, year,
+/// distance, and nominal split distances.
+table dim_event
+	lineageTag: 6aa825ed-d630-4118-87ec-f64895f52367
+
+	/// Identifier for a race event.
+	column event_id
+		dataType: string
+		lineageTag: 93dd97f3-77c7-4bd0-817b-0918fb3d93b4
+		summarizeBy: none
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Display name for the race event.
+	column race_name
+		dataType: string
+		lineageTag: e21f2405-fd4b-483c-ad15-b675806fc822
+		summarizeBy: none
+		sourceColumn: race_name
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Calendar year of the race event.
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b3a456b-ba0c-4bd4-badc-54f3c619fff2
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nominal triathlon distance category for the race event.
+	column distance
+		dataType: string
+		lineageTag: 257ca5e6-daa1-42bb-a71f-00516a09ca87
+		summarizeBy: none
+		sourceColumn: distance
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Source file name from which the event was loaded.
+	column source_file_name
+		dataType: string
+		lineageTag: fc2b3afd-7c66-482a-be34-628f9f7d576e
+		summarizeBy: none
+		sourceColumn: source_file_name
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nominal swim distance for the event in kilometers.
+	column nominal_swim_km
+		dataType: double
+		lineageTag: 7f7dcd32-c8d9-419a-b5e3-e876d9c7db40
+		summarizeBy: sum
+		sourceColumn: nominal_swim_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Nominal bike distance for the event in kilometers.
+	column nominal_bike_km
+		dataType: double
+		lineageTag: 3b5efc27-6f3a-4226-b594-e57eacd24940
+		summarizeBy: sum
+		sourceColumn: nominal_bike_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Nominal run distance for the event in kilometers.
+	column nominal_run_km
+		dataType: double
+		lineageTag: 43a40980-1eb8-4021-90a1-994020fc98cd
+		summarizeBy: sum
+		sourceColumn: nominal_run_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// True when at least one event-leg context row indicates likely course context.
+	column event_has_context_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 09a30add-6d8b-469d-81a8-90c59be02ba2
+		summarizeBy: none
+		sourceColumn: event_has_context_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_event = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SANITIZED_HOST", "SANITIZED_WAREHOUSE"),
+				    dbo_mart_dim_event = Source{[Schema="SANITIZED_SCHEMA",Item="SANITIZED_TABLE"]}[Data]
+				in
+				    dbo_mart_dim_event
+
+	annotation PBI_ResultType = Table
+

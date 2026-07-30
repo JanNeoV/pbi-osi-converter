@@ -1,0 +1,284 @@
+{
+  "$defs": {
+    "comparison": {
+      "additionalProperties": false,
+      "properties": {
+        "blank_null_representation": {
+          "const": "JSON_NULL"
+        },
+        "decimal_absolute_tolerance": {
+          "const": 1e-09
+        },
+        "decimal_relative_tolerance": {
+          "const": 1e-09
+        },
+        "integer": {
+          "const": "EXACT"
+        }
+      },
+      "required": [
+        "blank_null_representation",
+        "decimal_absolute_tolerance",
+        "decimal_relative_tolerance",
+        "integer"
+      ],
+      "type": "object"
+    },
+    "endpoint": {
+      "additionalProperties": false,
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "result_sha256": {
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/$defs/row"
+          },
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "AVAILABLE",
+            "NOT_AVAILABLE"
+          ]
+        }
+      },
+      "required": [
+        "complete",
+        "result_sha256",
+        "rows",
+        "status"
+      ],
+      "type": "object"
+    },
+    "result": {
+      "additionalProperties": false,
+      "properties": {
+        "power_bi": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "slice": {
+          "enum": [
+            "AGE_GROUP",
+            "COUNTRY",
+            "DISTANCE",
+            "DIVISION",
+            "EVENT",
+            "GENDER",
+            "LEG",
+            "OVERALL"
+          ]
+        },
+        "snowflake": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "source_measure": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "value_type": {
+          "enum": [
+            "DECIMAL",
+            "INTEGER"
+          ]
+        }
+      },
+      "required": [
+        "power_bi",
+        "slice",
+        "snowflake",
+        "source_measure",
+        "value_type"
+      ],
+      "type": "object"
+    },
+    "row": {
+      "additionalProperties": false,
+      "properties": {
+        "coordinates": {
+          "additionalProperties": {
+            "type": [
+              "boolean",
+              "number",
+              "string",
+              "null"
+            ]
+          },
+          "propertyNames": {
+            "pattern": "^[A-Z0-9_]+\\.[A-Z0-9_]+$"
+          },
+          "type": "object"
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "coordinates",
+        "value"
+      ],
+      "type": "object"
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "auditSubjectHashes": {
+      "additionalProperties": false,
+      "properties": {
+        "behavioral_baseline_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "benchmark_spec_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "powerbi_model_tree_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "snowflake_query_pack_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "snowflake_yaml_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "behavioral_baseline_sha256",
+        "benchmark_spec_sha256",
+        "powerbi_model_tree_sha256",
+        "snowflake_query_pack_sha256",
+        "snowflake_yaml_sha256"
+      ],
+      "type": "object"
+    },
+    "previewSubjectHashes": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_baseline_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "canonical_candidate_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "powerbi_copy_plan_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "powerbi_source_tree_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "proposal_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "snowflake_candidate_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "snowflake_environment_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "snowflake_query_pack_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "canonical_baseline_sha256",
+        "canonical_candidate_sha256",
+        "powerbi_copy_plan_sha256",
+        "powerbi_source_tree_sha256",
+        "proposal_sha256",
+        "snowflake_candidate_sha256",
+        "snowflake_environment_sha256",
+        "snowflake_query_pack_sha256"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://example.invalid/semantic-poc/result-evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "comparison": {
+      "$ref": "#/$defs/comparison"
+    },
+    "profile": {
+      "enum": [
+        "PBI_TRIAL_V2_AUDIT",
+        "PREVIEW_SYNC_V1"
+      ]
+    },
+    "results": {
+      "items": {
+        "$ref": "#/$defs/result"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "subject_hashes": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "comparison",
+    "profile",
+    "results",
+    "schema_version",
+    "subject_hashes"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "profile": {
+            "const": "PBI_TRIAL_V2_AUDIT"
+          }
+        },
+        "required": [
+          "profile"
+        ]
+      },
+      "then": {
+        "properties": {
+          "subject_hashes": {
+            "$ref": "#/$defs/auditSubjectHashes"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "profile": {
+            "const": "PREVIEW_SYNC_V1"
+          }
+        },
+        "required": [
+          "profile"
+        ]
+      },
+      "then": {
+        "properties": {
+          "subject_hashes": {
+            "$ref": "#/$defs/previewSubjectHashes"
+          }
+        }
+      }
+    }
+  ],
+  "title": "Reusable deterministic semantic result evidence",
+  "type": "object"
+}

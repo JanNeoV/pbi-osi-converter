@@ -1,0 +1,50 @@
+table DIM_AGE_GROUP
+	lineageTag: 3a2f48e5-1081-4707-93e1-d279662baf22
+
+	column AGE_GROUP_ID
+		dataType: string
+		lineageTag: 9682914f-6ba5-4a25-98ac-0a7d0180cc29
+		summarizeBy: none
+		sourceColumn: AGE_GROUP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGE_GROUP_NAME
+		dataType: string
+		lineageTag: 55715115-16da-4586-be62-6d49b61b1570
+		summarizeBy: none
+		sourceColumn: AGE_GROUP_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column MIN_AGE
+		dataType: double
+		lineageTag: 858d6b46-e54b-4510-9665-f8604454eef7
+		summarizeBy: none
+		sourceColumn: MIN_AGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MAX_AGE
+		dataType: double
+		lineageTag: a716ba63-4a21-45c7-92ec-5092464305ed
+		summarizeBy: none
+		sourceColumn: MAX_AGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_AGE_GROUP = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("SANITIZED_ACCOUNT","SANITIZED_WAREHOUSE",[Implementation="2.0"]),
+				    SANITIZED_DATABASE_Database = Source{[Name="SANITIZED_DATABASE",Kind="Database"]}[Data],
+				    SANITIZED_SCHEMA_Schema = SANITIZED_DATABASE_Database{[Name="SANITIZED_SCHEMA",Kind="Schema"]}[Data],
+				    DIM_AGE_GROUP_Table = SANITIZED_SCHEMA_Schema{[Name="DIM_AGE_GROUP",Kind="Table"]}[Data]
+				in
+				    DIM_AGE_GROUP_Table
+

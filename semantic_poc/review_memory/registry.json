@@ -1,0 +1,13 @@
+{
+  "rules": [
+    {
+      "lifecycle": "CURRENT",
+      "path": "semantic_poc/review_memory/accepted/unit_conversion_seconds_to_hours.yml",
+      "rule_id": "review_unit_conversion_seconds_to_hours_v1",
+      "schema_version": 1,
+      "sha256": "af996d6a1d96e5f8a75b0b34baf567f0b47788523d2722057d877eef9e451e4a",
+      "status": "ACCEPTED"
+    }
+  ],
+  "schema_version": 1
+}

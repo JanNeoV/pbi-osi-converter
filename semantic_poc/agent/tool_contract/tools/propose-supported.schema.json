@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,"required":["import_ref"],"properties":{"import_ref":{"type":"string","pattern":"^imp_[A-Za-z0-9_:-]+$"}}}

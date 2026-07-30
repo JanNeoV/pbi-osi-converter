@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "fixture_id": "B_SEMANTIC_TRAPS",
+  "findings": [
+    {"finding_id":"fnd_c25ee9e28605c6b5","rule_id":"COMPARE_SUPPORTED_SEMANTICS","severity":"INFO","category":"EXACT_MATCH","source_object":"Measures[Bad Percent]","generated_object":"valid_rate","canonical_metric":"valid_rate"},
+    {"finding_id":"fnd_801bdf33651ee972","rule_id":"COMPARE_SUPPORTED_SEMANTICS","severity":"INFO","category":"EXACT_MATCH","source_object":"Measures[Rows]","generated_object":"rows","canonical_metric":"rows"},
+    {"finding_id":"fnd_9343f578e5d0ed6d","rule_id":"COMPARE_SUPPORTED_SEMANTICS","severity":"INFO","category":"EXACT_MATCH","source_object":"Measures[Valid Rows]","generated_object":"valid_rows","canonical_metric":"valid_rows"},
+    {"finding_id":"fnd_53e19af120db604e","rule_id":"LINT_GENERATED_DESCRIPTION_UNCERTAIN","severity":"WARNING","category":"GENERATED_DESCRIPTION_UNVERIFIED","source_object":"Autopilot dimension Bad Percent","generated_object":"Bad Percent","canonical_metric":null},
+    {"finding_id":"fnd_1f14ae9f7f8e13b1","rule_id":"LINT_AUTOPILOT_SUM_OF_NAME","severity":"WARNING","category":"AGGREGATION_MISMATCH","source_object":"Autopilot metric sum_of_success_rate","generated_object":"sum_of_success_rate","canonical_metric":null},
+    {"finding_id":"fnd_5ab4566e744842fe","rule_id":"LINT_GENERATED_DESCRIPTION_UNCERTAIN","severity":"WARNING","category":"GENERATED_DESCRIPTION_UNVERIFIED","source_object":"Autopilot metric sum_of_success_rate","generated_object":"sum_of_success_rate","canonical_metric":null},
+    {"finding_id":"fnd_ab2e701fdd17d6bd","rule_id":"LINT_NUMERIC_MEASURE_AS_DIMENSION","severity":"BLOCKING","category":"SEMANTIC_ROLE_MISMATCH","source_object":"Autopilot dimension Bad Percent","generated_object":"Bad Percent","canonical_metric":null},
+    {"finding_id":"fnd_254ac9fd7b0565a5","rule_id":"LINT_AUTOPILOT_FACT_ROLE","severity":"BLOCKING","category":"SEMANTIC_ROLE_MISMATCH","source_object":"Autopilot fact numeric_id","generated_object":"numeric_id","canonical_metric":null},
+    {"finding_id":"fnd_024aaaae65a8a394","rule_id":"LINT_AUTOPILOT_FACT_ROLE","severity":"BLOCKING","category":"TYPE_MISMATCH","source_object":"Autopilot fact Total Measure","generated_object":"Total Measure","canonical_metric":null},
+    {"finding_id":"fnd_d230c8efd5ff5299","rule_id":"LINT_AUTOPILOT_OMITTED_SUPPORTED_MEASURE","severity":"BLOCKING","category":"OMITTED_OBJECT","source_object":"Measures[Bad Percent]","generated_object":"valid_rate","canonical_metric":"valid_rate"},
+    {"finding_id":"fnd_089bb2b76c6d0b57","rule_id":"LINT_PERCENTAGE_FORMAT","severity":"BLOCKING","category":"FORMAT_MISMATCH","source_object":"Measures[Bad Percent]","generated_object":"valid_rate","canonical_metric":"valid_rate"},
+    {"finding_id":"fnd_62f44c322ef197a6","rule_id":"COMPARE_FORMULA_AST","severity":"BLOCKING","category":"FORMULA_MISMATCH","source_object":"Measures[Hours]","generated_object":"duration_hours","canonical_metric":"duration_hours"},
+    {"finding_id":"fnd_15fe871fa1b58924","rule_id":"LINT_TIME_UNIT_CONVERSION","severity":"BLOCKING","category":"UNIT_CONVERSION_MISMATCH","source_object":"Measures[Hours]","generated_object":"duration_hours","canonical_metric":"duration_hours"},
+    {"finding_id":"fnd_610b35db41295a2d","rule_id":"COMPARE_FORMULA_AST","severity":"BLOCKING","category":"FORMULA_MISMATCH","source_object":"Measures[Identifier Total]","generated_object":"identifier_count","canonical_metric":"identifier_count"},
+    {"finding_id":"fnd_406ee6d2ec577e9b","rule_id":"LINT_IDENTIFIER_AS_FACT","severity":"BLOCKING","category":"SEMANTIC_ROLE_MISMATCH","source_object":"Measures[Identifier Total]","generated_object":"identifier_count","canonical_metric":"identifier_count"},
+    {"finding_id":"fnd_08ef87d4c78aace4","rule_id":"COMPARE_UNSUPPORTED_DAX","severity":"BLOCKING","category":"UNSUPPORTED_SOURCE_CONSTRUCT","source_object":"Measures[Inactive Rows]","generated_object":null,"canonical_metric":null},
+    {"finding_id":"fnd_fce410c6502bac21","rule_id":"COMPARE_MAPPING_UNRESOLVED","severity":"BLOCKING","category":"MANUAL_REVIEW_REQUIRED","source_object":"Measures[Rate Total]","generated_object":"rate_total","canonical_metric":null},
+    {"finding_id":"fnd_2d5137650f86900f","rule_id":"LINT_NON_ADDITIVE_RATIO","severity":"BLOCKING","category":"AGGREGATION_MISMATCH","source_object":"Measures[Rate Total]","generated_object":"rate_total","canonical_metric":null},
+    {"finding_id":"fnd_4a9cdee4b245ee13","rule_id":"LINT_PERCENTAGE_FORMAT","severity":"BLOCKING","category":"FORMAT_MISMATCH","source_object":"Measures[Rate Total]","generated_object":"rate_total","canonical_metric":null},
+    {"finding_id":"fnd_a903d541229b54e5","rule_id":"LINT_AUTOPILOT_OMITTED_SUPPORTED_MEASURE","severity":"BLOCKING","category":"OMITTED_OBJECT","source_object":"Measures[Rows]","generated_object":"rows","canonical_metric":"rows"},
+    {"finding_id":"fnd_b2c14cf131a75c63","rule_id":"LINT_AUTOPILOT_OMITTED_SUPPORTED_MEASURE","severity":"BLOCKING","category":"OMITTED_OBJECT","source_object":"Measures[Valid Rows]","generated_object":"valid_rows","canonical_metric":"valid_rows"},
+    {"finding_id":"fnd_c42f805a6176f258","rule_id":"LINT_RELATIONSHIP_DRIFT","severity":"BLOCKING","category":"RELATIONSHIP_MISMATCH","source_object":"pbi_relationship_e318163415397e0a","generated_object":"pbi_relationship_e318163415397e0a","canonical_metric":null}
+  ]
+}

@@ -1,0 +1,5 @@
+schema_version: 1
+fixture_id: exact_object_positive
+scope: EXACT_OBJECT
+model_path: semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel
+source_identifier: Measures[Hours]

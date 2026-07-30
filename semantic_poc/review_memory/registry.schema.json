@@ -1,0 +1,63 @@
+{
+  "$defs": {
+    "entry": {
+      "additionalProperties": false,
+      "properties": {
+        "lifecycle": {
+          "const": "CURRENT"
+        },
+        "path": {
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*$",
+          "type": "string"
+        },
+        "rule_id": {
+          "pattern": "^[a-z][a-z0-9_]{2,127}$",
+          "type": "string"
+        },
+        "schema_version": {
+          "enum": [
+            1,
+            2
+          ],
+          "type": "integer"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "status": {
+          "const": "ACCEPTED"
+        }
+      },
+      "required": [
+        "rule_id",
+        "path",
+        "schema_version",
+        "sha256",
+        "status",
+        "lifecycle"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://example.invalid/semantic-poc/review-memory-registry-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "rules": {
+      "items": {
+        "$ref": "#/$defs/entry"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "rules"
+  ],
+  "title": "Accepted review-memory registry",
+  "type": "object"
+}

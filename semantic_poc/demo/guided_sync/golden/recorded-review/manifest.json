@@ -1,0 +1,43 @@
+{
+  "application_performed": false,
+  "approval_performed": false,
+  "artifact_hashes": {
+    "review-decision.yml": "377496316a1003c6b580f7ee205ddd9e32b64b9e9c855bc8b30512c3a5b67c8c",
+    "review-session.md": "aca2b2ca24615fa209c9d962e27b84ad5e7323d22e76b34706ab3427ebea3e82"
+  },
+  "decision_input_path": ".tmp/guided-sync-demo/work/hours-decision.yml",
+  "decision_input_sha256": "518e2c5aca867402b7bd45541b51a2ede42a33155a0ce3dcbdcf529a18fb4590",
+  "decision_schema_path": "semantic_poc/agent/review_decision.schema.json",
+  "decision_schema_sha256": "effc727ba9a4c08d3f963ce697b000b5db136023aa247fa43bf42f3ad6dc8b90",
+  "deployment_performed": false,
+  "finding_id": "fnd_96fc798625d42d3a8129e23f",
+  "implementation_files": [
+    {
+      "path": "semantic_poc/agent/preview_sync.py",
+      "sha256": "d203ce38882106f855d19e9efd9102f49591a120a179293e9dfe66d8eb0b71dd"
+    },
+    {
+      "path": "semantic_poc/agent/review_recording.py",
+      "sha256": "033532e603909936183903274b118b8799342eb07e43b58e80a0271363209bfb"
+    },
+    {
+      "path": "semantic_poc/review_memory.py",
+      "sha256": "7e66e1619ddc5abd7ed61a7784e2ec984661e5103003f9fd8d57ba82edb11500"
+    }
+  ],
+  "preview_id": "prv_db9d5587a40f27fc3c2be7dc",
+  "preview_manifest_path": ".tmp/guided-sync-demo/work/hours-preview/manifest.json",
+  "preview_manifest_sha256": "edaf7a4b0a85d6ee72524743de70beb13e999d704042d55db3ebfe8931bb71cc",
+  "registry_path": "semantic_poc/review_memory/registry.json",
+  "registry_schema_path": "semantic_poc/review_memory/registry.schema.json",
+  "registry_schema_sha256": "3ff8867dcc356ca32ab0a6c69dbe1ed477e4dcf8c5b9db23610e0766240a8cac",
+  "registry_sha256": "a937d544572ecad0ab76fc62fde8c79dd38d387803d1099fa8b26095ba2a7dd6",
+  "result_status": "REVIEW_RECORDED",
+  "review_rule_schema_path": "semantic_poc/review_memory/schema-v2.json",
+  "review_rule_schema_sha256": "54879eb95daa1a6d239d9480e9571a2cc336e4d5beff735910aa730d77a36072",
+  "schema_version": 1,
+  "source_modified": false,
+  "tool": "semantic-agent record-review",
+  "validation_queue_schema_path": "semantic_poc/agent/preview_sync_validation_queue.schema.json",
+  "validation_queue_schema_sha256": "9b28bce65e73568e5447018a81df8df06e22fb6523c05926a8331a68025d9baf"
+}

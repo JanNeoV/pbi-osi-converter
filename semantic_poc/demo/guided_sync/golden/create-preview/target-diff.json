@@ -1,0 +1,451 @@
+{
+  "additions": [
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "distance",
+        "name": "distance"
+      },
+      "object_id": "dimension:distances.distance"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "distance_id",
+        "name": "distance_id"
+      },
+      "object_id": "dimension:distances.distance_id"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "division",
+        "name": "division"
+      },
+      "object_id": "dimension:divisions.division"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "division_id",
+        "name": "division_id"
+      },
+      "object_id": "dimension:divisions.division_id"
+    },
+    {
+      "after": {
+        "data_type": "BOOLEAN",
+        "expr": "is_pro",
+        "name": "is_pro"
+      },
+      "object_id": "dimension:divisions.is_pro"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "event_id",
+        "name": "event_id"
+      },
+      "object_id": "dimension:events.event_id"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "race_name",
+        "name": "race_name"
+      },
+      "object_id": "dimension:events.race_name"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "gender",
+        "name": "gender"
+      },
+      "object_id": "dimension:genders.gender"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "gender_id",
+        "name": "gender_id"
+      },
+      "object_id": "dimension:genders.gender_id"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "distance_id",
+        "name": "distance_id"
+      },
+      "object_id": "dimension:results.distance_id"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "division_id",
+        "name": "division_id"
+      },
+      "object_id": "dimension:results.division_id"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "event_id",
+        "name": "event_id"
+      },
+      "object_id": "dimension:results.event_id"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "gender_id",
+        "name": "gender_id"
+      },
+      "object_id": "dimension:results.gender_id"
+    },
+    {
+      "after": {
+        "data_type": "VARCHAR",
+        "expr": "result_id",
+        "name": "result_id"
+      },
+      "object_id": "dimension:results.result_id"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "data_type": "BOOLEAN",
+        "expr": "any_review_flag",
+        "name": "any_review_flag"
+      },
+      "object_id": "fact:results.any_review_flag"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "data_type": "BOOLEAN",
+        "expr": "event_context_flag",
+        "name": "event_context_flag"
+      },
+      "object_id": "fact:results.event_context_flag"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "data_type": "BOOLEAN",
+        "expr": "individual_hard_flag",
+        "name": "individual_hard_flag"
+      },
+      "object_id": "fact:results.individual_hard_flag"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "data_type": "BOOLEAN",
+        "expr": "individual_profile_flag",
+        "name": "individual_profile_flag"
+      },
+      "object_id": "fact:results.individual_profile_flag"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "data_type": "BOOLEAN",
+        "expr": "is_valid_sbr_finisher",
+        "name": "is_valid_sbr_finisher"
+      },
+      "object_id": "fact:results.is_valid_sbr_finisher"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "data_type": "BOOLEAN",
+        "expr": "model_residual_flag",
+        "name": "model_residual_flag"
+      },
+      "object_id": "fact:results.model_residual_flag"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "data_type": "BOOLEAN",
+        "expr": "record_integrity_flag",
+        "name": "record_integrity_flag"
+      },
+      "object_id": "fact:results.record_integrity_flag"
+    },
+    {
+      "after": {
+        "base_table": {
+          "database": "TRIATHLON",
+          "schema": "MART",
+          "table": "DIM_DISTANCE"
+        },
+        "description": "Nominal race distance dimension.",
+        "name": "distances"
+      },
+      "object_id": "logical_table:distances"
+    },
+    {
+      "after": {
+        "base_table": {
+          "database": "TRIATHLON",
+          "schema": "MART",
+          "table": "DIM_DIVISION"
+        },
+        "description": "Athlete division dimension.",
+        "name": "divisions"
+      },
+      "object_id": "logical_table:divisions"
+    },
+    {
+      "after": {
+        "base_table": {
+          "database": "TRIATHLON",
+          "schema": "MART",
+          "table": "DIM_EVENT"
+        },
+        "description": "Race event dimension.",
+        "name": "events"
+      },
+      "object_id": "logical_table:events"
+    },
+    {
+      "after": {
+        "base_table": {
+          "database": "TRIATHLON",
+          "schema": "MART",
+          "table": "DIM_GENDER"
+        },
+        "description": "Gender dimension.",
+        "name": "genders"
+      },
+      "object_id": "logical_table:genders"
+    },
+    {
+      "after": {
+        "base_table": {
+          "database": "TRIATHLON",
+          "schema": "MART",
+          "table": "FCT_RESULT"
+        },
+        "description": "Athlete result fact table.",
+        "name": "results"
+      },
+      "object_id": "logical_table:results"
+    },
+    {
+      "after": {
+        "access_modifier": "public_access",
+        "description": "Share of valid SBR finishers affected by event-leg course-context flags.",
+        "expr": "results.event_context_rows / NULLIF(results.valid_sbr_finishers, 0)",
+        "name": "event_context_rate",
+        "synonyms": [
+          "course context rate",
+          "altered course rate"
+        ]
+      },
+      "object_id": "metric:event_context_rate"
+    },
+    {
+      "after": {
+        "access_modifier": "public_access",
+        "description": "Share of valid SBR finishers that remain individual hard-flag candidates after likely course-context cases are separated.",
+        "expr": "results.individual_hard_flag_rows / NULLIF(results.valid_sbr_finishers, 0)",
+        "name": "individual_hard_flag_rate",
+        "synonyms": [
+          "hard flag rate",
+          "individual hard review rate"
+        ]
+      },
+      "object_id": "metric:individual_hard_flag_rate"
+    },
+    {
+      "after": {
+        "access_modifier": "public_access",
+        "description": "Share of valid SBR finishers with unusual swim-bike-run profile spread after course-context handling.",
+        "expr": "results.individual_profile_rows / NULLIF(results.valid_sbr_finishers, 0)",
+        "name": "individual_profile_rate",
+        "synonyms": [
+          "split profile rate",
+          "individual review profile rate"
+        ]
+      },
+      "object_id": "metric:individual_profile_rate"
+    },
+    {
+      "after": {
+        "access_modifier": "public_access",
+        "description": "Share of valid SBR finishers with model residual review flags.",
+        "expr": "results.model_residual_rows / NULLIF(results.valid_sbr_finishers, 0)",
+        "name": "model_residual_rate",
+        "synonyms": [
+          "residual review rate",
+          "model review rate"
+        ]
+      },
+      "object_id": "metric:model_residual_rate"
+    },
+    {
+      "after": {
+        "access_modifier": "public_access",
+        "description": "Share of valid SBR finishers with strict row-level timing or arithmetic integrity issues.",
+        "expr": "results.record_integrity_rows / NULLIF(results.valid_sbr_finishers, 0)",
+        "name": "record_integrity_rate",
+        "synonyms": [
+          "record quality rate",
+          "timing integrity rate"
+        ]
+      },
+      "object_id": "metric:record_integrity_rate"
+    },
+    {
+      "after": {
+        "access_modifier": "public_access",
+        "description": "Number of result rows affected by event-leg course-context flags.",
+        "expr": "COUNT_IF(event_context_flag)",
+        "name": "event_context_rows",
+        "synonyms": [
+          "course context rows",
+          "altered course rows"
+        ]
+      },
+      "object_id": "metric:results.event_context_rows"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "description": "Number of rows that remain individual hard-flag candidates after likely course-context cases are separated.",
+        "expr": "COUNT_IF(individual_hard_flag)",
+        "name": "individual_hard_flag_rows",
+        "synonyms": []
+      },
+      "object_id": "metric:results.individual_hard_flag_rows"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "description": "Number of result rows with unusual swim-bike-run profile spread after course-context handling.",
+        "expr": "COUNT_IF(individual_profile_flag)",
+        "name": "individual_profile_rows",
+        "synonyms": []
+      },
+      "object_id": "metric:results.individual_profile_rows"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "description": "Number of result rows with model residual review flags.",
+        "expr": "COUNT_IF(model_residual_flag)",
+        "name": "model_residual_rows",
+        "synonyms": []
+      },
+      "object_id": "metric:results.model_residual_rows"
+    },
+    {
+      "after": {
+        "access_modifier": "private_access",
+        "description": "Number of result rows with strict row-level timing or arithmetic integrity issues.",
+        "expr": "COUNT_IF(record_integrity_flag)",
+        "name": "record_integrity_rows",
+        "synonyms": []
+      },
+      "object_id": "metric:results.record_integrity_rows"
+    },
+    {
+      "after": {
+        "access_modifier": "public_access",
+        "description": "Number of finishers with valid gender and complete swim, bike, and run splits.",
+        "expr": "COUNT_IF(finish_status = 'FIN' AND is_valid_sbr_finisher)",
+        "name": "valid_sbr_finishers",
+        "synonyms": [
+          "valid finishers",
+          "complete swim bike run finishers"
+        ]
+      },
+      "object_id": "metric:results.valid_sbr_finishers"
+    },
+    {
+      "after": {
+        "left_table": "results",
+        "name": "results_to_distances",
+        "relationship_columns": [
+          {
+            "left_column": "distance_id",
+            "right_column": "distance_id"
+          }
+        ],
+        "right_table": "distances"
+      },
+      "object_id": "relationship:results_to_distances"
+    },
+    {
+      "after": {
+        "left_table": "results",
+        "name": "results_to_divisions",
+        "relationship_columns": [
+          {
+            "left_column": "division_id",
+            "right_column": "division_id"
+          }
+        ],
+        "right_table": "divisions"
+      },
+      "object_id": "relationship:results_to_divisions"
+    },
+    {
+      "after": {
+        "left_table": "results",
+        "name": "results_to_events",
+        "relationship_columns": [
+          {
+            "left_column": "event_id",
+            "right_column": "event_id"
+          }
+        ],
+        "right_table": "events"
+      },
+      "object_id": "relationship:results_to_events"
+    },
+    {
+      "after": {
+        "left_table": "results",
+        "name": "results_to_genders",
+        "relationship_columns": [
+          {
+            "left_column": "gender_id",
+            "right_column": "gender_id"
+          }
+        ],
+        "right_table": "genders"
+      },
+      "object_id": "relationship:results_to_genders"
+    },
+    {
+      "after": {
+        "description": "Generated Snowflake Semantic View YAML from dbt semantic definitions. Review before deployment.",
+        "name": "TRIATHLON_ANALYTICS"
+      },
+      "object_id": "semantic_view:TRIATHLON_ANALYTICS"
+    },
+    {
+      "after": {
+        "data_type": "NUMBER",
+        "expr": "year",
+        "name": "event_year"
+      },
+      "object_id": "time_dimension:events.event_year"
+    }
+  ],
+  "changes": [],
+  "normalized": true,
+  "removals": [],
+  "schema_version": 1,
+  "summary": {
+    "additions": 43,
+    "changes": 0,
+    "removals": 0
+  },
+  "target_mode": "create"
+}

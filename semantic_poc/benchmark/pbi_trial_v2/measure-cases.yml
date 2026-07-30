@@ -1,0 +1,984 @@
+schema_version: 2
+benchmark_name: pbi_trial_measure_conversion_v2
+source_project:
+  project_file: pbi_trial.pbip
+  semantic_model_dir: pbi_trial.SemanticModel
+  report_dir: pbi_trial.Report
+  measure_table: MEASURES_
+  measure_file: definition/tables/MEASURES_.tmdl
+expected_measure_count: 46
+comparison:
+  integer_tolerance: EXACT
+  decimal_tolerance: DECIMAL_1E-9
+  required_slices:
+    - OVERALL
+    - DISTANCE
+    - GENDER
+    - EVENT
+    - COUNTRY
+    - DIVISION
+    - AGE_GROUP
+    - LEG
+review_categories:
+  - EXACT_CONVERSION
+  - SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+  - SEMANTIC_TRAP
+  - SNOWFLAKE_UNSUPPORTED
+  - RELATIONSHIP_OR_CONTEXT_REVIEW
+  - MANUAL_REVIEW_REQUIRED
+measures:
+  - case_id: pbiv2_001
+    name: Result Rows
+    operation: ADD
+    dax: COUNTROWS(FCT_RESULT)
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Number of race-result rows under the current filter context.
+    display_folder: 01 Core Controls
+    format_string: "#,0"
+    source_unit: row
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_002
+    name: Split Rows
+    operation: ADD
+    dax: COUNTROWS(FCT_SPLIT)
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Number of leg-level split rows under the current filter context.
+    display_folder: 01 Core Controls
+    format_string: "#,0"
+    source_unit: row
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_003
+    name: Split Time Seconds
+    operation: ADD
+    dax: SUM(FCT_SPLIT[SPLIT_SECONDS])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Total recorded leg-level split time in seconds.
+    display_folder: 01 Core Controls
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_004
+    name: Results With Splits
+    operation: ADD
+    dax: DISTINCTCOUNT(FCT_SPLIT[RESULT_ID])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Distinct race results represented by at least one visible split row.
+    display_folder: 01 Core Controls
+    format_string: "#,0"
+    source_unit: identifier
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_005
+    name: "# Events"
+    operation: UPDATE
+    dax: DISTINCTCOUNT(FCT_RESULT[EVENT_ID])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Distinct events having race-result rows under the current filter context.
+    display_folder: 01 Core Controls
+    format_string: "#,0"
+    source_unit: identifier
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+      action: UPDATE_EXISTING_MEASURE
+      expected_source_dax: DISTINCTCOUNT(FCT_RESULT[EVENT_ID])
+      rationale: Preserve the existing event-count semantics while adding benchmark metadata.
+
+  - case_id: pbiv2_006
+    name: Swim Time Seconds
+    operation: UPDATE
+    dax: SUM(FCT_RESULT[SUM_OF_SWIM_SECONDS])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Total recorded swim time in seconds under the current filter context.
+    display_folder: 01 Core Controls
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+      action: UPDATE_EXISTING_MEASURE
+      expected_source_dax: SUM(FCT_RESULT[SUM_OF_SWIM_SECONDS])
+      rationale: Preserve the existing aggregation while adding explicit benchmark metadata.
+
+  - case_id: pbiv2_007
+    name: Bike Time Seconds
+    operation: UPDATE
+    dax: SUM(FCT_RESULT[SUM_OF_BIKE_SECONDS])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Total recorded bike time in seconds under the current filter context.
+    display_folder: 01 Core Controls
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+      action: UPDATE_EXISTING_MEASURE
+      expected_source_dax: SUM(FCT_RESULT[SUM_OF_BIKE_SECONDS])
+      rationale: Preserve the existing aggregation while adding explicit benchmark metadata.
+
+  - case_id: pbiv2_008
+    name: Run Time Seconds
+    operation: UPDATE
+    dax: SUM(FCT_RESULT[SUM_OF_RUN_SECONDS])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Total recorded run time in seconds under the current filter context.
+    display_folder: 01 Core Controls
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+      action: UPDATE_EXISTING_MEASURE
+      expected_source_dax: SUM(FCT_RESULT[SUM_OF_RUN_SECONDS])
+      rationale: Preserve the existing aggregation while adding explicit benchmark metadata.
+
+  - case_id: pbiv2_009
+    name: Total Transition Seconds
+    operation: ADD
+    dax: SUM(FCT_RESULT[SUM_OF_T1_SECONDS]) + SUM(FCT_RESULT[SUM_OF_T2_SECONDS])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Total first- and second-transition time in seconds.
+    display_folder: 01 Core Controls
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_010
+    name: Total Recorded Seconds
+    operation: ADD
+    dax: "[Swim Time Seconds] + [Bike Time Seconds] + [Run Time Seconds] + [Total Transition Seconds]"
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Combined swim, bike, run, and transition time in seconds.
+    display_folder: 01 Core Controls
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_011
+    name: Finisher Rows
+    operation: ADD
+    dax: CALCULATE(COUNTROWS(FCT_RESULT), KEEPFILTERS(FCT_RESULT[IS_FINISHER] = TRUE()))
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Number of race-result rows marked as finishers.
+    display_folder: 02 Quality and Rates
+    format_string: "#,0"
+    source_unit: row
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_012
+    name: Valid SBR Finishers
+    operation: ADD
+    dax: CALCULATE(COUNTROWS(FCT_RESULT), KEEPFILTERS(FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()))
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Number of result rows marked as valid swim-bike-run finishers.
+    display_folder: 02 Quality and Rates
+    format_string: "#,0"
+    source_unit: row
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_013
+    name: Review Rows
+    operation: ADD
+    dax: CALCULATE(COUNTROWS(FCT_RESULT), KEEPFILTERS(FCT_RESULT[ANY_REVIEW_FLAG] = TRUE()))
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Number of result rows where at least one review-family flag is active.
+    display_folder: 02 Quality and Rates
+    format_string: "#,0"
+    source_unit: row
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_014
+    name: Reviewed Valid SBR Finishers
+    operation: ADD
+    dax: >-
+      CALCULATE(
+          COUNTROWS(FCT_RESULT),
+          KEEPFILTERS(FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()),
+          KEEPFILTERS(FCT_RESULT[ANY_REVIEW_FLAG] = TRUE())
+      )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Valid swim-bike-run finisher rows that also carry a review-family flag.
+    display_folder: 02 Quality and Rates
+    format_string: "#,0"
+    source_unit: row
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: The local deterministic grammar does not establish equivalence for intersecting multiple Boolean filters.
+
+  - case_id: pbiv2_015
+    name: Pro Finisher Rows
+    operation: ADD
+    dax: CALCULATE([Finisher Rows], KEEPFILTERS(DIM_DIVSION[IS_PRO] = TRUE()))
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Finisher rows related to professional divisions.
+    display_folder: 02 Quality and Rates
+    format_string: "#,0"
+    source_unit: row
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Conversion must preserve filtering through the DIM_DIVSION-to-FCT_RESULT relationship.
+
+  - case_id: pbiv2_016
+    name: Finish Rate
+    operation: ADD
+    dax: DIVIDE([Finisher Rows], [Result Rows])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Share of result rows marked as finishers; zero denominators return blank.
+    display_folder: 02 Quality and Rates
+    format_string: "0.0%"
+    source_unit: count
+    target_unit: ratio
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_017
+    name: Valid SBR Rate
+    operation: ADD
+    dax: DIVIDE([Valid SBR Finishers], [Result Rows])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Share of result rows marked as valid swim-bike-run finishers.
+    display_folder: 02 Quality and Rates
+    format_string: "0.0%"
+    source_unit: count
+    target_unit: ratio
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_018
+    name: Review Rate Among Valid SBR
+    operation: ADD
+    dax: DIVIDE([Reviewed Valid SBR Finishers], [Valid SBR Finishers])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Share of valid swim-bike-run finishers carrying a review-family flag.
+    display_folder: 02 Quality and Rates
+    format_string: "0.0%"
+    source_unit: count
+    target_unit: ratio
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_019
+    name: Split Coverage Rate
+    operation: ADD
+    dax: DIVIDE([Results With Splits], [Result Rows])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Share of result rows represented by at least one split row.
+    display_folder: 02 Quality and Rates
+    format_string: "0.0%"
+    source_unit: count
+    target_unit: ratio
+    semantic_status: CORRECT
+    expected_review_category: EXACT_CONVERSION
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_020
+    name: Average Bike Seconds
+    operation: ADD
+    dax: AVERAGE(FCT_RESULT[SUM_OF_BIKE_SECONDS])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Arithmetic mean of recorded result-level bike seconds.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_021
+    name: Min Bike Seconds
+    operation: ADD
+    dax: MIN(FCT_RESULT[SUM_OF_BIKE_SECONDS])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Minimum recorded result-level bike time in seconds.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_022
+    name: Max Bike Seconds
+    operation: ADD
+    dax: MAX(FCT_RESULT[SUM_OF_BIKE_SECONDS])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Maximum recorded result-level bike time in seconds.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+
+  - case_id: pbiv2_023
+    name: Median Complete SBR Seconds
+    operation: ADD
+    dax: >-
+      MEDIANX(
+          FILTER(
+              FCT_RESULT,
+              FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()
+                  && NOT(ISBLANK(FCT_RESULT[SUM_OF_SWIM_SECONDS]))
+                  && NOT(ISBLANK(FCT_RESULT[SUM_OF_BIKE_SECONDS]))
+                  && NOT(ISBLANK(FCT_RESULT[SUM_OF_RUN_SECONDS]))
+          ),
+          FCT_RESULT[SUM_OF_SWIM_SECONDS]
+              + FCT_RESULT[SUM_OF_BIKE_SECONDS]
+              + FCT_RESULT[SUM_OF_RUN_SECONDS]
+      )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Median complete swim-bike-run seconds across valid rows with all three components.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Iterator, row-population, blank, and median equivalence require target-specific review.
+
+  - case_id: pbiv2_024
+    name: P90 Complete SBR Seconds
+    operation: ADD
+    dax: >-
+      PERCENTILEX.INC(
+          FILTER(
+              FCT_RESULT,
+              FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()
+                  && NOT(ISBLANK(FCT_RESULT[SUM_OF_SWIM_SECONDS]))
+                  && NOT(ISBLANK(FCT_RESULT[SUM_OF_BIKE_SECONDS]))
+                  && NOT(ISBLANK(FCT_RESULT[SUM_OF_RUN_SECONDS]))
+          ),
+          FCT_RESULT[SUM_OF_SWIM_SECONDS]
+              + FCT_RESULT[SUM_OF_BIKE_SECONDS]
+              + FCT_RESULT[SUM_OF_RUN_SECONDS],
+          0.9
+      )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Inclusive 90th percentile of complete swim-bike-run seconds across valid rows.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Percentile algorithm, iterator population, and blank handling require target-specific review.
+
+  - case_id: pbiv2_025
+    name: Complete SBR Population StdDev Seconds
+    operation: ADD
+    dax: >-
+      VAR CompleteRows =
+          FILTER(
+              FCT_RESULT,
+              FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()
+                  && NOT(ISBLANK(FCT_RESULT[SUM_OF_SWIM_SECONDS]))
+                  && NOT(ISBLANK(FCT_RESULT[SUM_OF_BIKE_SECONDS]))
+                  && NOT(ISBLANK(FCT_RESULT[SUM_OF_RUN_SECONDS]))
+          )
+      VAR CompleteRowCount = COUNTROWS(CompleteRows)
+      RETURN
+          IF(
+              CompleteRowCount < 2,
+              BLANK(),
+              STDEVX.P(
+                  CompleteRows,
+                  FCT_RESULT[SUM_OF_SWIM_SECONDS]
+                      + FCT_RESULT[SUM_OF_BIKE_SECONDS]
+                      + FCT_RESULT[SUM_OF_RUN_SECONDS]
+              )
+          )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Population standard deviation of complete SBR seconds; blank with fewer than two rows.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Population standard deviation, iterator population, and explicit small-population behavior require review.
+
+  - case_id: pbiv2_026
+    name: Run Time Hours
+    operation: UPDATE
+    dax: DIVIDE([Run Time Seconds], 3600)
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Total recorded run time converted from seconds to hours.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: hours
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: CORRECT_DESCRIPTION
+      expected_source_dax: DIVIDE([Run Time Seconds], 3600)
+      rationale: Preserve the correct divisor while replacing the source comment that incorrectly describes bike time.
+
+  - case_id: pbiv2_027
+    name: Bike Time Hours
+    operation: UPDATE
+    dax: DIVIDE([Bike Time Seconds], 3600)
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Total recorded bike time converted from seconds to hours.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: hours
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: USE_SECONDS_TO_HOURS_DIVISOR
+      expected_source_dax: DIVIDE([Bike Time Seconds], 60)
+      rationale: Correct the existing minutes divisor so the measure returns hours.
+
+  - case_id: pbiv2_028
+    name: Swim Time Hours
+    operation: UPDATE
+    dax: DIVIDE([Swim Time Seconds], 3600)
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Total recorded swim time converted from seconds to hours.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: hours
+    semantic_status: CORRECT
+    expected_review_category: SNOWFLAKE_SUPPORTED_LOCAL_IR_GAP
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: USE_SECONDS_TO_HOURS_DIVISOR
+      expected_source_dax: DIVIDE([Swim Time Seconds], 60)
+      rationale: Correct the existing minutes divisor so the measure returns hours.
+
+  - case_id: pbiv2_029
+    name: Nominal Bike KM Across Timed Results
+    operation: ADD
+    dax: >-
+      SUMX(
+          FILTER(FCT_RESULT, FCT_RESULT[SUM_OF_BIKE_SECONDS] > 0),
+          RELATED(DIM_DISTANCE[NOMINAL_BIKE_KM])
+      )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Related nominal bike kilometres summed once per result having positive bike seconds.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: kilometres
+    target_unit: kilometres
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Conversion must preserve the positive-time population and RELATED lookup at result grain.
+
+  - case_id: pbiv2_030
+    name: Weighted Bike Speed KM/H
+    operation: ADD
+    dax: >-
+      VAR TimedResults =
+          FILTER(FCT_RESULT, FCT_RESULT[SUM_OF_BIKE_SECONDS] > 0)
+      VAR NominalBikeKM =
+          SUMX(TimedResults, RELATED(DIM_DISTANCE[NOMINAL_BIKE_KM]))
+      VAR BikeSeconds =
+          SUMX(TimedResults, FCT_RESULT[SUM_OF_BIKE_SECONDS])
+      RETURN
+          DIVIDE(NominalBikeKM, DIVIDE(BikeSeconds, 3600))
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Nominal kilometres divided by bike hours over the identical positive-time result population.
+    display_folder: 03 Statistics and Units
+    format_string: "#,0.00"
+    source_unit: kilometres_per_hour
+    target_unit: kilometres_per_hour
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Weighted-rate conversion must preserve row population, relationship lookup, and zero-denominator behavior.
+
+  - case_id: pbiv2_031
+    name: Valid SBR Share Across Visible Distances
+    operation: ADD
+    dax: >-
+      DIVIDE(
+          [Valid SBR Finishers],
+          CALCULATE(
+              [Valid SBR Finishers],
+              ALLSELECTED(DIM_DISTANCE[DISTANCE])
+          )
+      )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Current valid finishers as a share of valid finishers across visible distances.
+    display_folder: 04 Context and Ranking
+    format_string: "0.0%"
+    source_unit: count
+    target_unit: ratio
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: ALLSELECTED depends on visual-query context and has no presumed target equivalence.
+
+  - case_id: pbiv2_032
+    name: Distance Rank by Valid SBR
+    operation: ADD
+    dax: >-
+      IF(
+          NOT(ISINSCOPE(DIM_DISTANCE[DISTANCE])),
+          BLANK(),
+          RANKX(
+              ALLSELECTED(DIM_DISTANCE[DISTANCE]),
+              [Valid SBR Finishers],
+              ,
+              DESC,
+              DENSE
+          )
+      )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Dense descending rank across visible distances; blank outside distance scope.
+    display_folder: 04 Context and Ranking
+    format_string: "#,0"
+    source_unit: count
+    target_unit: rank
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Ranking, visibility, ties, and ISINSCOPE behavior require target-specific review.
+
+  - case_id: pbiv2_033
+    name: Event-Weighted Average Valid SBR Rate
+    operation: ADD
+    dax: >-
+      VAR EventsWithResults =
+          FILTER(
+              VALUES(DIM_EVENT[EVENT_ID]),
+              CALCULATE([Result Rows]) > 0
+          )
+      RETURN
+          AVERAGEX(
+              EventsWithResults,
+              CALCULATE([Valid SBR Rate])
+          )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Arithmetic mean of per-event valid-SBR rates across visible events having results.
+    display_folder: 04 Context and Ranking
+    format_string: "0.0%"
+    source_unit: ratio
+    target_unit: ratio
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Iterator context transition and event weighting require explicit target equivalence review.
+
+  - case_id: pbiv2_034
+    name: Valid SBR % of Parent Geography
+    operation: ADD
+    dax: >-
+      SWITCH(
+          TRUE(),
+          ISINSCOPE(DIM_EVENT[EVENT_NAME]),
+              DIVIDE(
+                  [Valid SBR Finishers],
+                  CALCULATE(
+                      [Valid SBR Finishers],
+                      ALLSELECTED(DIM_EVENT[EVENT_ID], DIM_EVENT[EVENT_NAME])
+                  )
+              ),
+          ISINSCOPE(DIM_COUNTRY[COUNTRY_NAME]),
+              DIVIDE(
+                  [Valid SBR Finishers],
+                  CALCULATE([Valid SBR Finishers], ALLSELECTED(DIM_COUNTRY[COUNTRY_NAME]))
+              ),
+          ISINSCOPE(DIM_COUNTRY[REGION]),
+              DIVIDE(
+                  [Valid SBR Finishers],
+                  CALCULATE([Valid SBR Finishers], ALLSELECTED(DIM_COUNTRY[REGION]))
+              ),
+          ISINSCOPE(DIM_COUNTRY[CONTINENT]),
+              DIVIDE(
+                  [Valid SBR Finishers],
+                  CALCULATE([Valid SBR Finishers], ALLSELECTED(DIM_COUNTRY[CONTINENT]))
+              ),
+          DIVIDE(
+              [Valid SBR Finishers],
+              CALCULATE([Valid SBR Finishers], ALLSELECTED(DIM_COUNTRY[CONTINENT]))
+          )
+      )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Valid-SBR share of parent at Event, Country, Region, Continent, and total scopes.
+    display_folder: 04 Context and Ranking
+    format_string: "0.0%"
+    source_unit: count
+    target_unit: ratio
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Hierarchy scope, ALLSELECTED parent context, and snowflaked geography relationships require manual review.
+
+  - case_id: pbiv2_035
+    name: Selected Leg Time Seconds
+    operation: ADD
+    dax: >-
+      VAR SelectedLeg = SELECTEDVALUE(FCT_SPLIT[LEG])
+      RETURN
+          SWITCH(
+              SelectedLeg,
+              "SWIM", [Swim Time Seconds],
+              "BIKE", [Bike Time Seconds],
+              "RUN", [Run Time Seconds],
+              "T1", SUM(FCT_RESULT[SUM_OF_T1_SECONDS]),
+              "T2", SUM(FCT_RESULT[SUM_OF_T2_SECONDS]),
+              BLANK()
+          )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Matching result-level component time for one selected leg; blank for zero or multiple legs.
+    display_folder: 04 Context and Ranking
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Selection cardinality, SWITCH branching, and cross-grain context require manual review.
+
+  - case_id: pbiv2_036
+    name: Top 3 Events Valid SBR Share
+    operation: ADD
+    dax: >-
+      VAR VisibleEventIDs =
+          CALCULATETABLE(
+              VALUES(DIM_EVENT[EVENT_ID]),
+              ALLSELECTED(DIM_EVENT)
+          )
+      VAR TopEvents =
+          TOPN(
+              3,
+              VisibleEventIDs,
+              CALCULATE([Valid SBR Finishers]), DESC,
+              DIM_EVENT[EVENT_ID], ASC
+          )
+      VAR TopThreeValidFinishers =
+          SUMX(TopEvents, CALCULATE([Valid SBR Finishers]))
+      VAR VisibleEventValidFinishers =
+          CALCULATE([Valid SBR Finishers], ALLSELECTED(DIM_EVENT))
+      RETURN
+          DIVIDE(TopThreeValidFinishers, VisibleEventValidFinishers)
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Share of visible-event valid finishers contributed by the top three events.
+    display_folder: 04 Context and Ranking
+    format_string: "0.0%"
+    source_unit: count
+    target_unit: ratio
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: TOPN visibility, deterministic tie-breaking, context transition, and totals require manual review.
+
+  - case_id: pbiv2_037
+    name: Complete Five-Split Results
+    operation: ADD
+    dax: >-
+      IF(
+          ISFILTERED(FCT_SPLIT[LEG]),
+          BLANK(),
+          VAR CompleteResults =
+              FILTER(
+                  VALUES(FCT_SPLIT[RESULT_ID]),
+                  CALCULATE(COUNTROWS(FCT_SPLIT)) = 5
+                      && CALCULATE(DISTINCTCOUNT(FCT_SPLIT[LEG])) = 5
+              )
+          RETURN
+              COUNTROWS(CompleteResults)
+      )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Results having exactly five rows and five distinct legs; blank under a leg filter.
+    display_folder: 05 Multi-Fact Validation
+    format_string: "#,0"
+    source_unit: identifier
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Per-result split completeness, context transition, and leg-filter behavior require manual review.
+
+  - case_id: pbiv2_038
+    name: Complete Split Coverage Rate
+    operation: ADD
+    dax: DIVIDE([Complete Five-Split Results], [Result Rows])
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Share of result rows represented by exactly five rows and five distinct legs.
+    display_folder: 05 Multi-Fact Validation
+    format_string: "0.0%"
+    source_unit: count
+    target_unit: ratio
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: true
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: The ratio inherits the split-completeness measure's cross-grain and leg-filter semantics.
+
+  - case_id: pbiv2_039
+    name: Split Event Mismatch Rows
+    operation: ADD
+    dax: >-
+      COUNTROWS(
+          FILTER(
+              FCT_SPLIT,
+              FCT_SPLIT[EVENT_ID] <> RELATED(FCT_RESULT[EVENT_ID])
+          )
+      )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — Split rows whose stored event identifier differs from the related result event.
+    display_folder: 05 Multi-Fact Validation
+    format_string: "#,0"
+    source_unit: row
+    target_unit: count
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Fact-to-fact relationship lookup and blank-comparison semantics require manual review.
+
+  - case_id: pbiv2_040
+    name: All-Leg Split vs Result Delta Seconds
+    operation: ADD
+    dax: >-
+      IF(
+          ISFILTERED(FCT_SPLIT[LEG]),
+          BLANK(),
+          VAR VisibleResultIDs = VALUES(FCT_SPLIT[RESULT_ID])
+          VAR VisibleResultCount = COUNTROWS(VisibleResultIDs)
+          VAR ResultComponentSeconds =
+              CALCULATE(
+                  [Total Recorded Seconds],
+                  KEEPFILTERS(
+                      TREATAS(
+                          VisibleResultIDs,
+                          FCT_RESULT[RESULT_ID]
+                      )
+                  )
+              )
+          RETURN
+              IF(
+                  VisibleResultCount = 0,
+                  BLANK(),
+                  [Split Time Seconds] - ResultComponentSeconds
+              )
+      )
+    description: EXPERIMENTAL_BENCHMARK_ONLY — All-leg split seconds less matching result-component seconds; blank with leg filters or no keys.
+    display_folder: 05 Multi-Fact Validation
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: CORRECT
+    expected_review_category: MANUAL_REVIEW_REQUIRED
+    expected_local_parser_supported: false
+    intentional_defects: []
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: TREATAS key transfer, retained filters, fact grains, and all-leg scope require manual review.
+
+  - case_id: pbiv2_041
+    name: NC - Bike Time Hours Divisor 60
+    operation: ADD
+    dax: DIVIDE([Bike Time Seconds], 60)
+    description: NEGATIVE CONTROL—do not use for reporting. Deliberately divides seconds by 60 while labeling the result as hours.
+    display_folder: 99 Negative Controls
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: hours
+    semantic_status: INTENTIONAL_DEFECT
+    expected_review_category: SEMANTIC_TRAP
+    expected_local_parser_supported: false
+    intentional_defects:
+      - UNIT_CONVERSION_MISMATCH
+    correction:
+      action: USE_SECONDS_TO_HOURS_DIVISOR
+      expected_dax: DIVIDE([Bike Time Seconds], 3600)
+      rationale: Seconds must be divided by 3600 to return hours.
+
+  - case_id: pbiv2_042
+    name: NC - Event ID Total
+    operation: ADD
+    dax: SUM(FCT_RESULT[EVENT_ID])
+    description: NEGATIVE CONTROL—do not use for reporting. Deliberately sums numeric event identifiers.
+    display_folder: 99 Negative Controls
+    format_string: "#,0"
+    source_unit: identifier
+    target_unit: number
+    semantic_status: INTENTIONAL_DEFECT
+    expected_review_category: SEMANTIC_TRAP
+    expected_local_parser_supported: true
+    intentional_defects:
+      - IDENTIFIER_AGGREGATION
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Use a distinct count only if event count is the intended business meaning; otherwise exclude.
+
+  - case_id: pbiv2_043
+    name: NC - Overall Relative Total
+    operation: ADD
+    dax: SUM(FCT_RESULT[SUM_OF_OVERALL_REL])
+    description: NEGATIVE CONTROL—do not use for reporting. Deliberately sums a non-additive row-level relative value.
+    display_folder: 99 Negative Controls
+    format_string: "#,0.00"
+    source_unit: ratio
+    target_unit: ratio
+    semantic_status: INTENTIONAL_DEFECT
+    expected_review_category: SEMANTIC_TRAP
+    expected_local_parser_supported: true
+    intentional_defects:
+      - NON_ADDITIVE_AGGREGATION
+    correction:
+      action: MANUAL_REVIEW_REQUIRED
+      rationale: Average, median, or exclusion requires an explicit business decision.
+
+  - case_id: pbiv2_044
+    name: NC - Review Rate Wrong Population
+    operation: ADD
+    dax: DIVIDE([Review Rows], [Valid SBR Finishers])
+    description: NEGATIVE CONTROL—do not use for reporting. Deliberately divides all review rows by valid SBR finishers without intersecting populations.
+    display_folder: 99 Negative Controls
+    format_string: "0.0%"
+    source_unit: count
+    target_unit: ratio
+    semantic_status: INTENTIONAL_DEFECT
+    expected_review_category: SEMANTIC_TRAP
+    expected_local_parser_supported: true
+    intentional_defects:
+      - POPULATION_MISMATCH
+    correction:
+      action: INTERSECT_NUMERATOR_POPULATION
+      expected_dax: DIVIDE([Reviewed Valid SBR Finishers], [Valid SBR Finishers])
+      rationale: The numerator must be restricted to reviewed valid SBR finishers.
+
+  - case_id: pbiv2_045
+    name: NC - Valid SBR Rate Decimal Format
+    operation: ADD
+    dax: "[Valid SBR Rate]"
+    description: NEGATIVE CONTROL—do not use for reporting. Reuses the correct ratio but deliberately applies a decimal rather than percentage format.
+    display_folder: 99 Negative Controls
+    format_string: "0.00"
+    source_unit: ratio
+    target_unit: ratio
+    semantic_status: INTENTIONAL_DEFECT
+    expected_review_category: SEMANTIC_TRAP
+    expected_local_parser_supported: false
+    intentional_defects:
+      - FORMAT_MISMATCH
+    correction:
+      action: SET_PERCENTAGE_FORMAT
+      expected_format_string: "0.0%"
+      rationale: The numeric ratio must be presented with percentage formatting.
+
+  - case_id: pbiv2_046
+    name: NC - Split-Multiplied Bike Seconds
+    operation: ADD
+    dax: SUMX(FCT_SPLIT, RELATED(FCT_RESULT[SUM_OF_BIKE_SECONDS]))
+    description: NEGATIVE CONTROL—do not use for reporting. Deliberately repeats each result-level bike value once per related split row.
+    display_folder: 99 Negative Controls
+    format_string: "#,0.00"
+    source_unit: seconds
+    target_unit: seconds
+    semantic_status: INTENTIONAL_DEFECT
+    expected_review_category: SEMANTIC_TRAP
+    expected_local_parser_supported: false
+    intentional_defects:
+      - FACT_GRAIN_FANOUT
+    correction:
+      action: USE_RESULT_GRAIN_AGGREGATION
+      expected_dax: "[Bike Time Seconds]"
+      rationale: Aggregate bike seconds at result grain rather than iterating the split fact.

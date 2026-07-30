@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "fixture": "B_SEMANTIC_TRAPS",
+  "power_bi_objects": 25,
+  "measures": 7,
+  "exact_conversions": 3,
+  "manual_review_measures": 4,
+  "blocking_findings": 16,
+  "warnings": 3,
+  "unsupported_constructs": 1,
+  "source_equivalence": {"passed": 4, "failed": 2},
+  "reviewed_candidate_equivalence": {"passed": 5, "failed": 0},
+  "deployment_status": "NOT_REQUESTED"
+}

@@ -1,0 +1,11 @@
+flowchart LR
+  PBI[Read-only PBIP/TMDL] --> INV[Deterministic inventory and support classification]
+  SF[Imported Snowflake YAML evidence] --> CMP[Comparison and semantic lint]
+  INV --> CMP
+  CAN[Canonical dbt contract / benchmark reference] --> IR[Typed semantic IR]
+  IR --> CMP
+  CMP --> REVIEW[Explicit human review boundary]
+  REVIEW --> CAND[Governed Power BI and Snowflake candidates]
+  CAND --> EQ[Independent equivalence evidence]
+  EQ --> READY[Ready for governed finalization]
+  READY -. no deployment .-> STOP[Human approval still required]

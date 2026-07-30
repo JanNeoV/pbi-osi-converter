@@ -1,0 +1,9 @@
+table Measures
+	measure 'Row Count' = COUNTROWS(fct_result)
+		formatString: 0
+
+	measure 'Valid Rows' = CALCULATE(COUNTROWS(fct_result), fct_result[is_finisher] = TRUE())
+		formatString: 0
+
+	measure 'Valid Rate' = DIVIDE([Valid Rows], [Row Count])
+		formatString: 0.0%

@@ -1,0 +1,38 @@
+table fact_traps
+	column row_id
+		dataType: int64
+		sourceColumn: row_id
+
+	column duration_seconds
+		dataType: int64
+		sourceColumn: duration_seconds
+
+	column numeric_id
+		dataType: int64
+		sourceColumn: numeric_id
+
+	column success_rate
+		dataType: double
+		formatString: 0.0%
+		sourceColumn: success_rate
+
+	column 'Total Measure'
+		dataType: string
+		sourceColumn: total_measure
+
+	column is_valid
+		dataType: boolean
+		sourceColumn: is_valid
+
+	column dimension_id
+		dataType: int64
+		sourceColumn: dimension_id
+
+	column alternate_dimension_id
+		dataType: int64
+		sourceColumn: alternate_dimension_id
+
+	partition fact_traps = m
+		mode: import
+		source =
+			let Source = #table({}, {}) in Source

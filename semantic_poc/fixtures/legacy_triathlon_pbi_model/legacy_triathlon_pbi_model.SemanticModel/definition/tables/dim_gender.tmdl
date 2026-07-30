@@ -1,0 +1,33 @@
+/// Gender dimension used for within-event percentile grouping and reporting.
+table dim_gender
+	lineageTag: caa259f4-e47a-40d4-b62d-18c2c5765a1b
+
+	/// Identifier for gender category.
+	column gender_id
+		dataType: string
+		lineageTag: 747472c8-0578-47f5-8d32-f78974a76a2e
+		summarizeBy: none
+		sourceColumn: gender_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Display label for the gender category.
+	column gender
+		dataType: string
+		lineageTag: f7661f6e-aae1-474f-9a62-7cbfe5c92d81
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_gender = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SANITIZED_HOST", "SANITIZED_WAREHOUSE"),
+				    dbo_mart_dim_gender = Source{[Schema="SANITIZED_SCHEMA",Item="SANITIZED_TABLE"]}[Data]
+				in
+				    dbo_mart_dim_gender
+
+	annotation PBI_ResultType = Table
+

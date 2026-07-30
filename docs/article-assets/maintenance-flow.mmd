@@ -1,0 +1,10 @@
+flowchart LR
+  C0[Accepted canonical metric] --> CR[Structured change request]
+  CR --> IR[Changed typed IR]
+  IR --> PBI[Power BI copied-definition target]
+  IR --> SF[Snowflake candidate target]
+  PBI --> EQ[Common signature and equivalence checks]
+  SF --> EQ
+  EQ --> VAL[Validated local state]
+  VAL --> RB[Hash-guarded rollback]
+  RB --> C0

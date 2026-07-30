@@ -1,0 +1,95 @@
+/// Event-leg level fact table used to identify course-context patterns. A high
+/// nominal hard-flag rate within one event-leg usually indicates altered,
+/// shortened, cancelled, or differently recorded course context.
+table fct_event_leg_context
+	lineageTag: 69f2b4e2-b3cd-4749-b0ed-7c72c37de532
+
+	/// Identifier for the race event represented by the event-leg context row.
+	column event_id
+		dataType: string
+		lineageTag: a52c95bb-c184-4792-80c5-0e351f29202b
+		summarizeBy: none
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Identifier for the gender category represented by the event-leg context row.
+	column gender_id
+		dataType: string
+		lineageTag: 3a62609c-2414-4723-b657-08d273b7e1ea
+		summarizeBy: none
+		sourceColumn: gender_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Event leg represented by the context row, such as swim, bike, or run.
+	column leg
+		dataType: string
+		lineageTag: 1d176cb3-18e6-4587-9650-b3adbb7c5f35
+		summarizeBy: none
+		sourceColumn: leg
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Number of valid result rows available for the event, gender, and leg.
+	column valid_leg_rows
+		dataType: int64
+		formatString: 0
+		lineageTag: 38d76c4e-54ea-44c2-96cd-614cab1f1fb7
+		summarizeBy: sum
+		sourceColumn: valid_leg_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Number of rows that look implausible under nominal distance assumptions
+	/// before course-context adjustment.
+	column nominal_hard_flag_rows
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b0b6842-5fd2-4621-88b7-83ed755db700
+		summarizeBy: sum
+		sourceColumn: nominal_hard_flag_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Share of valid event-gender-leg rows with nominal hard-flag evidence.
+	column event_nominal_hard_rate
+		dataType: double
+		lineageTag: 7c348ea6-9706-4754-ac59-688540e17fa0
+		summarizeBy: sum
+		sourceColumn: event_nominal_hard_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Band describing the strength of likely event-leg course-context evidence.
+	column event_context_band
+		dataType: string
+		lineageTag: 384c390a-0077-426a-9198-57183114798d
+		summarizeBy: none
+		sourceColumn: event_context_band
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True when the event leg likely differs from nominal course assumptions.
+	column event_context_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 47c8d807-b53a-4e64-88f2-a3af8007af93
+		summarizeBy: none
+		sourceColumn: event_context_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_event_leg_context = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SANITIZED_HOST", "SANITIZED_WAREHOUSE"),
+				    dbo_mart_fct_event_leg_context = Source{[Schema="SANITIZED_SCHEMA",Item="SANITIZED_TABLE"]}[Data]
+				in
+				    dbo_mart_fct_event_leg_context
+
+	annotation PBI_ResultType = Table
+

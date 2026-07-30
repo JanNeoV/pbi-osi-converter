@@ -1,0 +1,69 @@
+{
+  "files": [
+    {
+      "path": "cross_object.SemanticModel/definition.pbism",
+      "sha256": "d6f675bf150f33cadb76d60faf0ffa5dac0f7578c90612e3f83f6065b4445a50"
+    },
+    {
+      "path": "cross_object.SemanticModel/definition/database.tmdl",
+      "sha256": "71bbba8bc0dd61900dc629a69a3d8c62918e3a2f94878e08867319d6e8c356c1"
+    },
+    {
+      "path": "cross_object.SemanticModel/definition/model.tmdl",
+      "sha256": "4fb4784a2952f59da62329becf93ebdd903a2543843ccb37549a8560ed53b011"
+    },
+    {
+      "path": "cross_object.SemanticModel/definition/relationships.tmdl",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "cross_object.SemanticModel/definition/tables/Metrics.tmdl",
+      "sha256": "43389e91d699cec62e412b80096c6f8c5440d224c32b0d93bd4cd02bf2e60ae6"
+    },
+    {
+      "path": "cross_object.SemanticModel/definition/tables/fact_other.tmdl",
+      "sha256": "b4e88c7f9ad5a25a4f69801197d543ac993e079523b413ba06914e78c338d7e1"
+    },
+    {
+      "path": "exact_object_positive.yml",
+      "sha256": "3a2fdd5d3988d50c24f2281d7864ec178d50b699f90a05c00fbc99d3305f2fe5"
+    },
+    {
+      "path": "exact_typed_pattern_positive.yml",
+      "sha256": "5bb6ba4c17ea166231b95602e7328daeff1c5090d90ba3193f60172ca79a1c90"
+    },
+    {
+      "path": "near_miss_aggregation.yml",
+      "sha256": "304975705d3c5cf9474c1be82faaa39504d09ef84a26a6bbe43b320b43b1d50c"
+    },
+    {
+      "path": "near_miss_expression.yml",
+      "sha256": "4ab2f05efe52c7387320c547daaadc13239690a42d6a02b4f128ec306c3a7a11"
+    },
+    {
+      "path": "near_miss_filter_context.yml",
+      "sha256": "289c22e8c9977599209ecea44ebbda56297a6ba1a5e00892b4a6389b40fbffcb"
+    },
+    {
+      "path": "near_miss_grain.yml",
+      "sha256": "b5dfb4e5ec473f8703a5dcbc9de370d7c7c63cbf85d32431a80477f1ee4cacea"
+    },
+    {
+      "path": "near_miss_parameter_role.yml",
+      "sha256": "9abe9c68ab314b7790b35edc71fc76334b202d9637ef1d9774c5e48f64da5a3b"
+    },
+    {
+      "path": "near_miss_population.yml",
+      "sha256": "2268c14ce94c3f129b0e343eb8f7838275e364a5dc7dfdb0da39293cd49e578d"
+    },
+    {
+      "path": "near_miss_relationship_context.yml",
+      "sha256": "5054ebd93a35ca79a7a11467a6b2e8762f1e91ad8449054db4ce0a9f5d12e049"
+    },
+    {
+      "path": "near_miss_units.yml",
+      "sha256": "e7b4d8d013adea50cd3dad292a20e143fdc958936de706c1bc34b0ef2a0c452b"
+    }
+  ],
+  "schema_version": 1
+}

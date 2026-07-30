@@ -1,0 +1,84 @@
+version: 2
+semantic_models:
+  - name: benchmark_activity
+    model: ref('benchmark_activity')
+    config:
+      meta:
+        semantic_contract:
+          snowflake_logical_tables:
+            - name: activities
+              base_table: fact_activity
+              primary_key: result_id
+          relationships:
+            - name: fact_to_event
+              from_table: fact_activity
+              from_column: event_id
+              to_table: dim_event
+              to_column: event_id
+    entities:
+      - name: activity
+        type: primary
+        expr: result_id
+    dimensions:
+      - name: is_valid
+        type: categorical
+    measures:
+      - name: total_amount_measure
+        agg: sum
+        expr: amount
+      - name: athlete_rows_measure
+        agg: count
+        expr: athlete_id
+      - name: distinct_athletes_measure
+        agg: count_distinct
+        expr: athlete_id
+      - name: valid_rows_measure
+        agg: sum_boolean
+        expr: is_valid = TRUE
+metrics:
+  - name: total_amount
+    label: Total Amount
+    description: Total additive amount.
+    type: simple
+    type_params: {measure: total_amount_measure}
+    config:
+      meta:
+        power_bi: {table: Measures, measure: Total Amount, format_string: '#,0.00'}
+        snowflake: {logical_table: activities, metric_name: total_amount}
+  - name: athlete_rows
+    label: Athlete Rows
+    description: Count of nonblank athlete identifiers.
+    type: simple
+    type_params: {measure: athlete_rows_measure}
+    config:
+      meta:
+        power_bi: {table: Measures, measure: Athlete Rows, format_string: '0'}
+        snowflake: {logical_table: activities, metric_name: athlete_rows}
+  - name: distinct_athletes
+    label: Distinct Athletes
+    description: Distinct athletes, including one blank identity when present.
+    type: simple
+    type_params: {measure: distinct_athletes_measure}
+    config:
+      meta:
+        power_bi: {table: Measures, measure: Distinct Athletes, format_string: '0'}
+        snowflake: {logical_table: activities, metric_name: distinct_athletes}
+  - name: valid_rows
+    label: Valid Rows
+    description: Valid activity rows.
+    type: simple
+    type_params: {measure: valid_rows_measure}
+    config:
+      meta:
+        power_bi: {table: Measures, measure: Valid Rows, format_string: '0'}
+        snowflake: {logical_table: activities, metric_name: valid_rows}
+  - name: valid_rate
+    label: Valid Rate
+    description: Share of athlete rows that are valid.
+    type: ratio
+    type_params: {numerator: valid_rows, denominator: athlete_rows}
+    config:
+      meta:
+        semantic_contract: {format: percentage_1_decimal}
+        power_bi: {table: Measures, measure: Valid Rate, format_string: '0.0%'}
+        snowflake: {logical_table: activities, metric_name: valid_rate}

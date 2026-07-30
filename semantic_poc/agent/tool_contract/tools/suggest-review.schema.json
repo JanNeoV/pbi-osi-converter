@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,"required":["preview_ref","finding_ref"],"properties":{"preview_ref":{"type":"string","pattern":"^(?:prv_[0-9a-f]{24}|preview_[A-Za-z0-9_:-]+)$"},"finding_ref":{"type":"string","minLength":1,"maxLength":160}}}

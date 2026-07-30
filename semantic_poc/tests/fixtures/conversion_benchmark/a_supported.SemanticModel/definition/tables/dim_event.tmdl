@@ -1,0 +1,13 @@
+table dim_event
+	column event_id
+		dataType: int64
+		sourceColumn: event_id
+
+	column event_name
+		dataType: string
+		sourceColumn: event_name
+
+	partition dim_event = m
+		mode: import
+		source =
+			let Source = #table({"event_id", "event_name"}, {}) in Source

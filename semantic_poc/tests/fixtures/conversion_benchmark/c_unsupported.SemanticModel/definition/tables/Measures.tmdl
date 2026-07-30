@@ -1,0 +1,25 @@
+table Measures
+	measure 'Base Rows' = COUNTROWS(fact_unsupported)
+		formatString: 0
+
+	measure 'Time Intelligence' = CALCULATE([Base Rows], SAMEPERIODLASTYEAR(dim_date[date]))
+		formatString: 0
+
+	measure 'Inactive Relationship' = CALCULATE([Base Rows], USERELATIONSHIP(fact_unsupported[alternate_date_id], dim_date[date_id]))
+		formatString: 0
+
+	measure 'Iterator Total' = SUMX(fact_unsupported, fact_unsupported[value])
+		formatString: #,0.00
+
+	measure 'Nested Calculate' = CALCULATE(CALCULATE(COUNTROWS(fact_unsupported), fact_unsupported[row_id] = 1), fact_unsupported[date_id] = 10)
+		formatString: 0
+
+	measure 'Dynamic Format' = DIVIDE([Iterator Total], [Base Rows])
+		formatStringDefinition =
+			SELECTEDVALUE('Format Selector'[Format])
+
+	measure 'Dependency Level 1' = DIVIDE([Base Rows], [Iterator Total])
+
+	measure 'Dependency Level 2' = DIVIDE([Dependency Level 1], [Base Rows])
+
+	measure 'Broken Dependency' = DIVIDE([Missing Measure], [Base Rows])

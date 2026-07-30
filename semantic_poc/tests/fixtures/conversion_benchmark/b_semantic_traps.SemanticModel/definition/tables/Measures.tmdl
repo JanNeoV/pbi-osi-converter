@@ -1,0 +1,22 @@
+table Measures
+	/// Incorrectly labelled hours; division by 60 yields minutes.
+	measure Hours = SUM(fact_traps[duration_seconds]) / 60
+		formatString: 0.00
+
+	measure 'Identifier Total' = SUM(fact_traps[numeric_id])
+		formatString: 0
+
+	measure 'Rate Total' = SUM(fact_traps[success_rate])
+		formatString: 0.00
+
+	measure Rows = COUNTROWS(fact_traps)
+		formatString: 0
+
+	measure 'Valid Rows' = CALCULATE(COUNTROWS(fact_traps), fact_traps[is_valid] = TRUE())
+		formatString: 0
+
+	measure 'Bad Percent' = DIVIDE([Valid Rows], [Rows])
+		formatString: 0.00
+
+	measure 'Inactive Rows' = CALCULATE(COUNTROWS(fact_traps), USERELATIONSHIP(fact_traps[alternate_dimension_id], dim_trap[dimension_id]))
+		formatString: 0

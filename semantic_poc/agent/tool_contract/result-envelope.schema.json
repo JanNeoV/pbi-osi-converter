@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","tool_id","status","reason_code","source_hashes","canonical_source","canonical_sha256","permitted_next_actions","result"],
+  "properties":{
+    "schema_version":{"const":2},"tool_id":{"enum":["inspect-source","audit-conversion","list-findings","propose-supported","preview-sync","suggest-review","record-review"]},
+    "status":{"enum":["OK","MANUAL_REVIEW_REQUIRED","REVIEW_RULE_SUGGESTED","REVIEW_RECORDED"]},"reason_code":{"type":"string","minLength":1},
+    "source_hashes":{"type":"object","additionalProperties":{"type":"string","pattern":"^[0-9a-f]{64}$"}},
+    "canonical_source":{"const":"models/semantic/triathlon_semantic.yml"},"canonical_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "permitted_next_actions":{"type":"array","items":{"type":"string"}},"result":{"type":"object","additionalProperties":true}
+  }
+}

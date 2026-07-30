@@ -1,0 +1,23 @@
+schema_version: 1
+fixture_id: B_SEMANTIC_TRAPS
+source_snapshot_sha256: e5eb52ccae18081afd338760b101750145613aef0c659f15a2c77b3e70d44879
+decisions:
+  - {finding_id: fnd_c25ee9e28605c6b5, action: ACCEPT, canonical_metric: valid_rate, rationale: Exact canonical ratio confirmed.}
+  - {finding_id: fnd_801bdf33651ee972, action: ACCEPT, canonical_metric: rows, rationale: Exact row-count mapping confirmed.}
+  - {finding_id: fnd_9343f578e5d0ed6d, action: ACCEPT, canonical_metric: valid_rows, rationale: Exact filtered-count mapping confirmed.}
+  - {finding_id: fnd_ab2e701fdd17d6bd, action: REJECT, canonical_metric: null, rationale: Reject the generated dimension role for a numeric measure.}
+  - {finding_id: fnd_254ac9fd7b0565a5, action: REJECT, canonical_metric: null, rationale: Reject additive treatment of an identifier.}
+  - {finding_id: fnd_024aaaae65a8a394, action: REJECT, canonical_metric: null, rationale: Reject the text business quantity emitted as a fact.}
+  - {finding_id: fnd_d230c8efd5ff5299, action: CORRECT, canonical_metric: valid_rate, rationale: Restore the governed canonical ratio.}
+  - {finding_id: fnd_089bb2b76c6d0b57, action: CORRECT, canonical_metric: valid_rate, rationale: Use the reviewed canonical percentage metadata.}
+  - {finding_id: fnd_62f44c322ef197a6, action: CORRECT, canonical_metric: duration_hours, rationale: Use the governed scaled-sum expression.}
+  - {finding_id: fnd_15fe871fa1b58924, action: CORRECT, canonical_metric: duration_hours, rationale: Convert seconds to hours with divisor 3600.}
+  - {finding_id: fnd_610b35db41295a2d, action: CORRECT, canonical_metric: identifier_count, rationale: Use the governed distinct-count expression.}
+  - {finding_id: fnd_406ee6d2ec577e9b, action: CORRECT, canonical_metric: identifier_count, rationale: Treat the identifier as a key and count it distinctly.}
+  - {finding_id: fnd_08ef87d4c78aace4, action: REJECT, canonical_metric: null, rationale: Exclude unsupported inactive-relationship DAX.}
+  - {finding_id: fnd_fce410c6502bac21, action: REJECT, canonical_metric: null, rationale: Exclude the unresolved additive rate mapping.}
+  - {finding_id: fnd_2d5137650f86900f, action: REJECT, canonical_metric: null, rationale: A non-additive rate must not be summed.}
+  - {finding_id: fnd_4a9cdee4b245ee13, action: REJECT, canonical_metric: null, rationale: Reject formatting that would legitimize the invalid additive rate.}
+  - {finding_id: fnd_a903d541229b54e5, action: CORRECT, canonical_metric: rows, rationale: Restore the governed row-count metric.}
+  - {finding_id: fnd_b2c14cf131a75c63, action: CORRECT, canonical_metric: valid_rows, rationale: Restore the governed filtered-count metric.}
+  - {finding_id: fnd_c42f805a6176f258, action: REJECT, canonical_metric: null, rationale: Do not modify or activate an ambiguous relationship automatically.}

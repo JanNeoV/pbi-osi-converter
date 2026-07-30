@@ -1,0 +1,19 @@
+schema_version: 1
+decision_id: review_decision_unit_conversion_seconds_to_hours_v1
+status: ACCEPTED
+fixture_id: B_SEMANTIC_TRAPS
+finding_id: fnd_15fe871fa1b58924
+finding_category: UNIT_CONVERSION_MISMATCH
+source_snapshot_sha256: e5eb52ccae18081afd338760b101750145613aef0c659f15a2c77b3e70d44879
+action: CORRECT
+actor: poc-human-reviewer
+accepted_at: '2026-07-18T19:10:00Z'
+rationale: A measure labelled as hours and sourced from seconds must divide the summed seconds by 3600, not 60.
+resolution:
+  kind: USE_CANONICAL_SCALED_SUM
+  canonical_metric: duration_hours
+  source_field: duration_seconds
+  scale_divisor: '3600'
+human_confirmation: RECORDED
+approval_scope: FIXTURE_REVIEW_ONLY
+deployment_authorized: false

@@ -1,0 +1,4 @@
+schema_version: 1
+fixture_id: near_miss_expression
+changed_component: typed_expression
+replacement: MULTIPLY

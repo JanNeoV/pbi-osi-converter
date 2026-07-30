@@ -1,0 +1,6 @@
+{
+  "exit_code": 4,
+  "mutated_path": ".tmp/guided-sync-demo/work/stale.SemanticModel/definition/tables/Measures.tmdl",
+  "reason_code": "PREVIEW_INPUT_STALE",
+  "status": "REJECTED"
+}

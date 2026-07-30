@@ -1,0 +1,58 @@
+{
+  "application_performed": false,
+  "approval_state": "PENDING",
+  "canonical_candidate_sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+  "canonical_source": "models/semantic/triathlon_semantic.yml",
+  "change_id": "chg_20260718T190000Z_90909090",
+  "definition_operations": [
+    {
+      "canonical_metric": "valid_sbr_finishers",
+      "canonical_source": "models/semantic/triathlon_semantic.yml",
+      "change_id": "chg_20260718T190000Z_90909090",
+      "current": "CALCULATE(COUNTROWS(FCT_RESULT), KEEPFILTERS(FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()))",
+      "mapping_resolution": "EXACT_UNIQUE_MEASURE_NAME",
+      "measure": "Valid SBR Finishers",
+      "operation": "set_measure_expression",
+      "proposed": "CALCULATE( COUNTROWS(fct_result), fct_result[finish_status] = \"FIN\", fct_result[is_valid_sbr_finisher] = TRUE() )",
+      "source_object_id": "MEASURES_[Valid SBR Finishers]",
+      "table": "MEASURES_",
+      "target_mapping": {
+        "measure": "Valid SBR Finishers",
+        "table": "tri_measures"
+      }
+    }
+  ],
+  "deployment_performed": false,
+  "metadata_operations": [
+    {
+      "canonical_metric": "valid_sbr_finishers",
+      "canonical_source": "models/semantic/triathlon_semantic.yml",
+      "change_id": "chg_20260718T190000Z_90909090",
+      "current": "EXPERIMENTAL_BENCHMARK_ONLY — Number of result rows marked as valid swim-bike-run finishers.",
+      "field": "description",
+      "measure": "Valid SBR Finishers",
+      "operation": "set_measure_property",
+      "proposed": "Number of finishers with valid gender and complete swim, bike, and run splits.",
+      "source_object_id": "MEASURES_[Valid SBR Finishers]",
+      "table": "MEASURES_"
+    },
+    {
+      "canonical_metric": "valid_sbr_finishers",
+      "canonical_source": "models/semantic/triathlon_semantic.yml",
+      "change_id": "chg_20260718T190000Z_90909090",
+      "current": "#,0",
+      "field": "format_string",
+      "measure": "Valid SBR Finishers",
+      "operation": "set_measure_property",
+      "proposed": "0",
+      "source_object_id": "MEASURES_[Valid SBR Finishers]",
+      "table": "MEASURES_"
+    }
+  ],
+  "plan_kind": "POWERBI_COPY_PLAN",
+  "read_only": true,
+  "schema_version": 1,
+  "source_model_path": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel",
+  "source_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+  "validation_state": "NOT_RUN"
+}

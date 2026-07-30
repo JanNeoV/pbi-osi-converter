@@ -1,0 +1,128 @@
+version: 1
+
+contract:
+  name: triathlon_metric_contract
+  deprecated: true
+  deprecation_note: This legacy contract is not the canonical semantic source for the POC. Use models/semantic/triathlon_semantic.yml and its dbt config.meta mappings instead.
+  description: Cross-tool semantic metric contract for comparing Power BI, dbt Semantic Layer, and future Snowflake Semantic Views.
+  default_athlete_level_denominator: valid_sbr_finishers
+  metrics:
+    - business_metric_name: Result Rows
+      definition: Number of rows in the result fact table under the current filter context.
+      power_bi_measure_name: Result Rows
+      dbt_metric_name: result_rows
+      future_snowflake_metric_name: result_rows
+      denominator: null
+      caveat: Counts all result rows, including non-finishers and rows without complete swim-bike-run splits.
+
+    - business_metric_name: Finishers
+      definition: Number of result rows marked as finishers under the current filter context.
+      power_bi_measure_name: Finishers
+      dbt_metric_name: finishers
+      future_snowflake_metric_name: finishers
+      denominator: null
+      caveat: Finisher status alone does not require complete swim-bike-run splits.
+
+    - business_metric_name: Valid SBR Finishers
+      definition: Number of finishers with valid gender and complete swim, bike, and run splits.
+      power_bi_measure_name: Valid SBR Finishers
+      dbt_metric_name: valid_sbr_finishers
+      future_snowflake_metric_name: valid_sbr_finishers
+      denominator: null
+      caveat: Default denominator for athlete-level review rates.
+
+    - business_metric_name: Any Review Rows
+      definition: Number of valid result rows where at least one review-family flag is active.
+      power_bi_measure_name: Any Review Rows
+      dbt_metric_name: any_review_rows
+      future_snowflake_metric_name: any_review_rows
+      denominator: null
+      caveat: Review signals are not accusations.
+
+    - business_metric_name: Event Context Rows
+      definition: Number of result rows affected by event-leg course-context flags.
+      power_bi_measure_name: Event Context Rows
+      dbt_metric_name: event_context_rows
+      future_snowflake_metric_name: event_context_rows
+      denominator: null
+      caveat: Usually indicates altered, shortened, cancelled, or differently recorded legs.
+
+    - business_metric_name: Record Integrity Rows
+      definition: Number of result rows with strict row-level timing or arithmetic integrity issues.
+      power_bi_measure_name: Record Integrity Rows
+      dbt_metric_name: record_integrity_rows
+      future_snowflake_metric_name: record_integrity_rows
+      denominator: null
+      caveat: Intended for data quality review, not athlete judgment.
+
+    - business_metric_name: Individual Profile Rows
+      definition: Number of result rows with unusual swim-bike-run profile spread after course-context handling.
+      power_bi_measure_name: Individual Profile Rows
+      dbt_metric_name: individual_profile_rows
+      future_snowflake_metric_name: individual_profile_rows
+      denominator: null
+      caveat: Indicates an unusual profile requiring context, not a conclusion about the athlete.
+
+    - business_metric_name: Model Residual Rows
+      definition: Number of result rows where one leg is much stronger or weaker than expected from the other two based on model residual logic.
+      power_bi_measure_name: Model Residual Rows
+      dbt_metric_name: model_residual_rows
+      future_snowflake_metric_name: model_residual_rows
+      denominator: null
+      caveat: Model residual logic is a review signal and may evolve as modeling improves.
+
+    - business_metric_name: Individual Hard Flag Rows
+      definition: Number of rows that remain individual hard-flag candidates after likely course-context cases are separated.
+      power_bi_measure_name: Individual Hard Flag Rows
+      dbt_metric_name: individual_hard_flag_rows
+      future_snowflake_metric_name: individual_hard_flag_rows
+      denominator: null
+      caveat: Requires event and data context before interpretation.
+
+    - business_metric_name: Review Flag Rate
+      definition: Share of valid SBR finishers where at least one review-family flag is active.
+      power_bi_measure_name: Review Flag Rate
+      dbt_metric_name: review_flag_rate
+      future_snowflake_metric_name: review_flag_rate
+      denominator: valid_sbr_finishers
+      caveat: Broadest review-rate metric. Review signals are not accusations.
+
+    - business_metric_name: Event Context Rate
+      definition: Share of valid SBR finishers affected by event-leg course-context flags.
+      power_bi_measure_name: Event Context Rate
+      dbt_metric_name: event_context_rate
+      future_snowflake_metric_name: event_context_rate
+      denominator: valid_sbr_finishers
+      caveat: High values can reflect race-day or source-recording context rather than individual result anomalies.
+
+    - business_metric_name: Record Integrity Rate
+      definition: Share of valid SBR finishers with strict row-level timing or arithmetic integrity issues.
+      power_bi_measure_name: Record Integrity Rate
+      dbt_metric_name: record_integrity_rate
+      future_snowflake_metric_name: record_integrity_rate
+      denominator: valid_sbr_finishers
+      caveat: Designed for data quality triage.
+
+    - business_metric_name: Individual Profile Rate
+      definition: Share of valid SBR finishers with unusual swim-bike-run profile spread after course-context handling.
+      power_bi_measure_name: Individual Profile Rate
+      dbt_metric_name: individual_profile_rate
+      future_snowflake_metric_name: individual_profile_rate
+      denominator: valid_sbr_finishers
+      caveat: Requires contextual review before interpretation.
+
+    - business_metric_name: Model Residual Rate
+      definition: Share of valid SBR finishers with model residual review flags.
+      power_bi_measure_name: Model Residual Rate
+      dbt_metric_name: model_residual_rate
+      future_snowflake_metric_name: model_residual_rate
+      denominator: valid_sbr_finishers
+      caveat: Model residual logic is currently represented as a review-signal family.
+
+    - business_metric_name: Individual Hard Flag Rate
+      definition: Share of valid SBR finishers that remain individual hard-flag candidates after likely course-context cases are separated.
+      power_bi_measure_name: Individual Hard Flag Rate
+      dbt_metric_name: individual_hard_flag_rate
+      future_snowflake_metric_name: individual_hard_flag_rate
+      denominator: valid_sbr_finishers
+      caveat: Does not assign intent and should be interpreted with event context.

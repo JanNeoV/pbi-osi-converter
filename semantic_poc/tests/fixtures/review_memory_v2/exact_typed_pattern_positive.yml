@@ -1,0 +1,5 @@
+schema_version: 1
+fixture_id: exact_typed_pattern_positive
+scope: EXACT_TYPED_PATTERN
+model_path: semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel
+source_identifier: Metrics[Hours]

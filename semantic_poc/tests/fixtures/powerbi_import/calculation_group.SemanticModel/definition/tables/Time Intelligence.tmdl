@@ -1,0 +1,9 @@
+table 'Time Intelligence'
+	calculationGroup
+		precedence: 10
+
+		calculationItem Current = SELECTEDMEASURE()
+
+	column Name
+		dataType: string
+		sourceColumn: Name

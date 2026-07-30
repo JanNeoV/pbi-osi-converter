@@ -1,0 +1,713 @@
+{
+  "$defs": {
+    "artifact": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "FILE",
+            "TREE"
+          ]
+        },
+        "path": {
+          "$ref": "#/$defs/path"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "kind",
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "limitation": {
+      "additionalProperties": false,
+      "properties": {
+        "blocking": {
+          "type": "boolean"
+        },
+        "reason_code": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "blocking",
+        "reason_code",
+        "scope"
+      ],
+      "type": "object"
+    },
+    "path": {
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$",
+      "type": "string"
+    },
+    "prerequisite": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/path"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "task_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "terminal_marker": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "task_id",
+        "terminal_marker"
+      ],
+      "type": "object"
+    },
+    "protected_input": {
+      "additionalProperties": false,
+      "properties": {
+        "after_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "before_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "kind": {
+          "enum": [
+            "FILE",
+            "TREE"
+          ]
+        },
+        "path": {
+          "$ref": "#/$defs/path"
+        }
+      },
+      "required": [
+        "after_sha256",
+        "before_sha256",
+        "kind",
+        "path"
+      ],
+      "type": "object"
+    },
+    "safety": {
+      "additionalProperties": false,
+      "properties": {
+        "application_performed": {
+          "type": "boolean"
+        },
+        "approval_performed": {
+          "type": "boolean"
+        },
+        "network_contacted": {
+          "type": "boolean"
+        },
+        "production_deployment_performed": {
+          "type": "boolean"
+        },
+        "push_performed": {
+          "type": "boolean"
+        },
+        "source_modified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "application_performed",
+        "approval_performed",
+        "network_contacted",
+        "production_deployment_performed",
+        "push_performed",
+        "source_modified"
+      ],
+      "type": "object"
+    },
+    "scalar": {
+      "type": [
+        "boolean",
+        "integer",
+        "number",
+        "string"
+      ]
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "task02_result": {
+      "additionalProperties": false,
+      "properties": {
+        "audience": {
+          "$ref": "#/$defs/scalar"
+        },
+        "core_execution": {
+          "$ref": "#/$defs/scalar"
+        },
+        "decision_gate": {
+          "$ref": "#/$defs/scalar"
+        },
+        "openai_role": {
+          "$ref": "#/$defs/scalar"
+        },
+        "power_bi_preview_artifact": {
+          "$ref": "#/$defs/scalar"
+        },
+        "runtime_equivalence": {
+          "$ref": "#/$defs/scalar"
+        },
+        "selected_option": {
+          "$ref": "#/$defs/scalar"
+        },
+        "snowflake_preview_artifact": {
+          "$ref": "#/$defs/scalar"
+        },
+        "ui_scope": {
+          "$ref": "#/$defs/scalar"
+        }
+      },
+      "required": [
+        "audience",
+        "core_execution",
+        "decision_gate",
+        "openai_role",
+        "power_bi_preview_artifact",
+        "runtime_equivalence",
+        "selected_option",
+        "snowflake_preview_artifact",
+        "ui_scope"
+      ],
+      "type": "object"
+    },
+    "task03_result": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_bundle_file_count": {
+          "type": "integer"
+        },
+        "blocked_formula_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "blocked_relationship_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "create_preview_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "full_bundle_file_count": {
+          "type": "integer"
+        },
+        "no_op_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "optional_runtime_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "supported_change_id": {
+          "$ref": "#/$defs/scalar"
+        },
+        "supported_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "update_preview_status": {
+          "$ref": "#/$defs/scalar"
+        }
+      },
+      "required": [
+        "blocked_bundle_file_count",
+        "blocked_formula_status",
+        "blocked_relationship_status",
+        "create_preview_status",
+        "full_bundle_file_count",
+        "no_op_status",
+        "optional_runtime_status",
+        "supported_change_id",
+        "supported_status",
+        "update_preview_status"
+      ],
+      "type": "object"
+    },
+    "task04_result": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_object_suggestion": {
+          "$ref": "#/$defs/scalar"
+        },
+        "exact_typed_pattern_suggestion": {
+          "$ref": "#/$defs/scalar"
+        },
+        "human_confirmation": {
+          "$ref": "#/$defs/scalar"
+        },
+        "near_match_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "proposed_rule_registry_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "recorded_deferred_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "recorded_resolved_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "schema_v1_compatibility": {
+          "$ref": "#/$defs/scalar"
+        },
+        "suggestion_interface_status": {
+          "$ref": "#/$defs/scalar"
+        }
+      },
+      "required": [
+        "exact_object_suggestion",
+        "exact_typed_pattern_suggestion",
+        "human_confirmation",
+        "near_match_status",
+        "proposed_rule_registry_status",
+        "recorded_deferred_status",
+        "recorded_resolved_status",
+        "schema_v1_compatibility",
+        "suggestion_interface_status"
+      ],
+      "type": "object"
+    },
+    "task05_result": {
+      "additionalProperties": false,
+      "properties": {
+        "clean_checkout": {
+          "$ref": "#/$defs/scalar"
+        },
+        "conversion_gap": {
+          "$ref": "#/$defs/scalar"
+        },
+        "deterministic_modes": {
+          "$ref": "#/$defs/scalar"
+        },
+        "offline_ci": {
+          "$ref": "#/$defs/scalar"
+        },
+        "production_deployment": {
+          "$ref": "#/$defs/scalar"
+        },
+        "review_memory": {
+          "$ref": "#/$defs/scalar"
+        },
+        "source_mutation": {
+          "$ref": "#/$defs/scalar"
+        },
+        "stale_decision": {
+          "$ref": "#/$defs/scalar"
+        },
+        "supported_create_preview": {
+          "$ref": "#/$defs/scalar"
+        },
+        "supported_update_preview": {
+          "$ref": "#/$defs/scalar"
+        },
+        "unrelated_target_drift": {
+          "$ref": "#/$defs/scalar"
+        },
+        "unsupported_change": {
+          "$ref": "#/$defs/scalar"
+        }
+      },
+      "required": [
+        "clean_checkout",
+        "conversion_gap",
+        "deterministic_modes",
+        "offline_ci",
+        "production_deployment",
+        "review_memory",
+        "source_mutation",
+        "stale_decision",
+        "supported_create_preview",
+        "supported_update_preview",
+        "unrelated_target_drift",
+        "unsupported_change"
+      ],
+      "type": "object"
+    },
+    "task06_result": {
+      "additionalProperties": false,
+      "properties": {
+        "authorization_state": {
+          "$ref": "#/$defs/scalar"
+        },
+        "cleanup_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "controlled_edit_survival": {
+          "$ref": "#/$defs/scalar"
+        },
+        "disposable_mutation_performed": {
+          "$ref": "#/$defs/scalar"
+        },
+        "experiment_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "ingestion_behavior": {
+          "$ref": "#/$defs/scalar"
+        },
+        "intended_change_count": {
+          "$ref": "#/$defs/scalar"
+        },
+        "object_identity": {
+          "$ref": "#/$defs/scalar"
+        },
+        "production_deployment_performed": {
+          "$ref": "#/$defs/scalar"
+        },
+        "production_object_touched": {
+          "$ref": "#/$defs/scalar"
+        },
+        "runtime_status": {
+          "$ref": "#/$defs/scalar"
+        },
+        "unrelated_change_count": {
+          "$ref": "#/$defs/scalar"
+        }
+      },
+      "required": [
+        "authorization_state",
+        "cleanup_status",
+        "controlled_edit_survival",
+        "disposable_mutation_performed",
+        "experiment_status",
+        "ingestion_behavior",
+        "intended_change_count",
+        "object_identity",
+        "production_deployment_performed",
+        "production_object_touched",
+        "runtime_status",
+        "unrelated_change_count"
+      ],
+      "type": "object"
+    },
+    "validation": {
+      "additionalProperties": false,
+      "properties": {
+        "command": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "exit_code": {
+          "type": "integer"
+        },
+        "outcome": {
+          "enum": [
+            "KNOWN_BASELINE_FAILURE",
+            "PASSED"
+          ]
+        },
+        "reason_code": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "command",
+        "exit_code",
+        "outcome",
+        "reason_code",
+        "required"
+      ],
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "oneOf": [
+        {
+          "properties": {
+            "accepted_scope": {
+              "const": "OFFLINE_CAPTURED_CONVERSION_GAP_REPRODUCIBILITY_ONLY"
+            },
+            "status": {
+              "const": "ACCEPTED"
+            },
+            "task_id": {
+              "const": "01_PROVE_CAPTURED_CONVERSION_GAP"
+            },
+            "task_result": {
+              "additionalProperties": false,
+              "properties": {
+                "confirmed_incorrect": {
+                  "type": "integer"
+                },
+                "conversion_safe": {
+                  "type": "boolean"
+                },
+                "emitted_metrics": {
+                  "type": "integer"
+                },
+                "not_proven": {
+                  "type": "integer"
+                },
+                "omitted_measures": {
+                  "type": "integer"
+                },
+                "potentially_incorrect": {
+                  "type": "integer"
+                },
+                "proven_caught": {
+                  "type": "integer"
+                },
+                "proven_not_caught": {
+                  "type": "integer"
+                },
+                "relationship_endpoints_matched": {
+                  "type": "integer"
+                },
+                "runtime_equivalence": {
+                  "type": "string"
+                },
+                "source_measures": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "confirmed_incorrect",
+                "conversion_safe",
+                "emitted_metrics",
+                "not_proven",
+                "omitted_measures",
+                "potentially_incorrect",
+                "proven_caught",
+                "proven_not_caught",
+                "relationship_endpoints_matched",
+                "runtime_equivalence",
+                "source_measures"
+              ],
+              "type": "object"
+            },
+            "terminal_marker": {
+              "const": "CONVERSION_GAP_DEMO_ACCEPTED"
+            }
+          }
+        },
+        {
+          "properties": {
+            "accepted_scope": {
+              "const": "NARROW_OFFLINE_GUIDED_PREVIEW_CONTRACT_ONLY"
+            },
+            "status": {
+              "const": "ACCEPTED"
+            },
+            "task_id": {
+              "const": "02_LOCK_GUIDED_SYNC_POC_CONTRACT"
+            },
+            "task_result": {
+              "$ref": "#/$defs/task02_result"
+            },
+            "terminal_marker": {
+              "const": "GUIDED_SYNC_POC_CONTRACT_ACCEPTED"
+            }
+          }
+        },
+        {
+          "properties": {
+            "accepted_scope": {
+              "const": "PRODUCT_DECISION_NO_BUILD"
+            },
+            "status": {
+              "const": "NOT_WARRANTED"
+            },
+            "task_id": {
+              "const": "02_LOCK_GUIDED_SYNC_POC_CONTRACT"
+            },
+            "task_result": {
+              "$ref": "#/$defs/task02_result"
+            },
+            "terminal_marker": {
+              "const": "GUIDED_SYNC_POC_NOT_WARRANTED"
+            }
+          }
+        },
+        {
+          "properties": {
+            "accepted_scope": {
+              "const": "PROPOSAL_ONLY_DETERMINISTIC_TARGET_PREVIEW"
+            },
+            "status": {
+              "const": "ACCEPTED"
+            },
+            "task_id": {
+              "const": "03_BUILD_PREVIEW_SYNC_VERTICAL_SLICE"
+            },
+            "task_result": {
+              "$ref": "#/$defs/task03_result"
+            },
+            "terminal_marker": {
+              "const": "PREVIEW_SYNC_POC_ACCEPTED"
+            }
+          }
+        },
+        {
+          "properties": {
+            "accepted_scope": {
+              "const": "OFFLINE_GOVERNED_REVIEW_AND_SKILL_ONLY"
+            },
+            "status": {
+              "const": "ACCEPTED"
+            },
+            "task_id": {
+              "const": "04_ADD_GOVERNED_REVIEW_MEMORY_AND_SKILL"
+            },
+            "task_result": {
+              "$ref": "#/$defs/task04_result"
+            },
+            "terminal_marker": {
+              "const": "GUIDED_REVIEW_AND_SKILL_ACCEPTED"
+            }
+          }
+        },
+        {
+          "properties": {
+            "accepted_scope": {
+              "const": "OFFLINE_INCREMENTAL_RECONCILIATION_POC_ONLY"
+            },
+            "status": {
+              "const": "ACCEPTED"
+            },
+            "task_id": {
+              "const": "05_PROVE_INCREMENTAL_RECONCILIATION_AND_CI"
+            },
+            "task_result": {
+              "$ref": "#/$defs/task05_result"
+            },
+            "terminal_marker": {
+              "const": "INCREMENTAL_SYNC_POC_ACCEPTED"
+            }
+          }
+        },
+        {
+          "properties": {
+            "accepted_scope": {
+              "const": "DISPOSABLE_LIVE_VALIDATION_EVIDENCE_ONLY"
+            },
+            "status": {
+              "const": "ACCEPTED"
+            },
+            "task_id": {
+              "const": "06_OPTIONAL_LIVE_VALIDATION_EXPERIMENT"
+            },
+            "task_result": {
+              "$ref": "#/$defs/task06_result"
+            },
+            "terminal_marker": {
+              "const": "LIVE_VALIDATION_COMPLETE"
+            }
+          }
+        },
+        {
+          "properties": {
+            "accepted_scope": {
+              "const": "READ_ONLY_LIVE_VALIDATION_PREPARATION_ONLY"
+            },
+            "status": {
+              "const": "NOT_RUN"
+            },
+            "task_id": {
+              "const": "06_OPTIONAL_LIVE_VALIDATION_EXPERIMENT"
+            },
+            "task_result": {
+              "$ref": "#/$defs/task06_result"
+            },
+            "terminal_marker": {
+              "const": "LIVE_VALIDATION_NOT_RUN"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "properties": {
+    "accepted_scope": {
+      "type": "string"
+    },
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/artifact"
+      },
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "$ref": "#/$defs/limitation"
+      },
+      "type": "array"
+    },
+    "prerequisite_receipts": {
+      "items": {
+        "$ref": "#/$defs/prerequisite"
+      },
+      "type": "array"
+    },
+    "protected_inputs": {
+      "items": {
+        "$ref": "#/$defs/protected_input"
+      },
+      "type": "array"
+    },
+    "safety": {
+      "$ref": "#/$defs/safety"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "NOT_RUN",
+        "NOT_WARRANTED"
+      ]
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "task_result": {
+      "type": "object"
+    },
+    "terminal_marker": {
+      "type": "string"
+    },
+    "validations": {
+      "items": {
+        "$ref": "#/$defs/validation"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "accepted_scope",
+    "artifacts",
+    "limitations",
+    "prerequisite_receipts",
+    "protected_inputs",
+    "safety",
+    "schema_version",
+    "status",
+    "task_id",
+    "task_result",
+    "terminal_marker",
+    "validations"
+  ],
+  "title": "Guided synchronization durable task marker",
+  "type": "object"
+}

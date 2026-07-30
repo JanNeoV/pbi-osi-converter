@@ -1,0 +1,43 @@
+{
+  "connection_normalized_semantic_structure_sha256": "2a84093d61d2caf24dc96f7cf49a08b86c5e86e3052fb626b881076c415b4d67",
+  "connection_normalizer_version": "snowflake-location-v1",
+  "excluded_content_classes": [
+    "CREDENTIALS_AND_PROFILES",
+    "DATA_EXTRACTS_AND_CACHES",
+    "DIAGRAM_LAYOUT",
+    "LOCAL_POWER_BI_STATE",
+    "REPORT_FILES"
+  ],
+  "fixture_definition_tree_sha256": "a9042f554c8c500fdce0f75885322affdda7550f3b2c559c3ddc45b4699581e1",
+  "fixture_inventory_semantic_sha256": "3ef53ead9750bad8fbd103609d321a569ebe7f3684ac3ec6c001a17776cc0ddd",
+  "fixture_model_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+  "fixture_raw_structure_sha256": "2a84093d61d2caf24dc96f7cf49a08b86c5e86e3052fb626b881076c415b4d67",
+  "included_paths": [
+    "definition.pbism",
+    "definition/cultures/en-US.tmdl",
+    "definition/database.tmdl",
+    "definition/model.tmdl",
+    "definition/relationships.tmdl",
+    "definition/tables/DIM_AGE_GROUP.tmdl",
+    "definition/tables/DIM_COUNTRY.tmdl",
+    "definition/tables/DIM_DISTANCE.tmdl",
+    "definition/tables/DIM_DIVSION.tmdl",
+    "definition/tables/DIM_EVENT.tmdl",
+    "definition/tables/DIM_GENDER.tmdl",
+    "definition/tables/FCT_RESULT.tmdl",
+    "definition/tables/FCT_SPLIT.tmdl",
+    "definition/tables/MEASURES_.tmdl"
+  ],
+  "inventory_counts": {
+    "columns": 61,
+    "measures": 46,
+    "relationships": 7,
+    "tables": 9
+  },
+  "prior_reviewed_raw_structure_sha256": "7b8c842c08dc88b0a4b11efaef22afe3c0da22304ef908101046f7232209baf4",
+  "prior_reviewed_source_tree_sha256": "5208d521062039a2cbb3d7ab857618b179a5ee781f4fc9d489807045a89bc804",
+  "purpose": "PORTABLE_OFFLINE_PBI_TRIAL_V2_CONVERSION_AUDIT_FIXTURE",
+  "sanitized": true,
+  "schema_version": 1,
+  "source_connection_normalized_semantic_structure_sha256": "2a84093d61d2caf24dc96f7cf49a08b86c5e86e3052fb626b881076c415b4d67"
+}

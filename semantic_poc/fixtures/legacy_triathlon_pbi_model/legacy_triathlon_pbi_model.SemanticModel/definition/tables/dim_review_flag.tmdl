@@ -1,0 +1,71 @@
+/// Review flag dimension describing flag families, interpretations, and caveats.
+/// These flags support data-quality review and should not be interpreted as proof
+/// of wrongdoing.
+table dim_review_flag
+	lineageTag: 46359a86-538d-4123-9ff6-5c018d1d20fd
+
+	/// Identifier for a review flag type.
+	column review_flag_id
+		dataType: string
+		lineageTag: be0e896a-7182-4462-8092-799de52a0a53
+		summarizeBy: none
+		sourceColumn: review_flag_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Review family grouping for related flags.
+	column review_family
+		dataType: string
+		lineageTag: 1d8abc65-ddd1-4d96-b463-6ab089a0aef7
+		summarizeBy: none
+		sourceColumn: review_family
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Display name for the review flag.
+	column review_flag_name
+		dataType: string
+		lineageTag: 40a3e16a-515e-46a3-bf9e-5f43f8766223
+		summarizeBy: none
+		sourceColumn: review_flag_name
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Detailed description of the review flag logic or signal.
+	column review_flag_description
+		dataType: string
+		lineageTag: 78708630-980f-476c-ae96-81c2e83807ad
+		summarizeBy: none
+		sourceColumn: review_flag_description
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Guidance for interpreting the review flag in analysis.
+	column review_flag_interpretation
+		dataType: string
+		lineageTag: 414494a3-c397-4176-8f3c-a9ffef9cc36f
+		summarizeBy: none
+		sourceColumn: review_flag_interpretation
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Caveat describing limits and proper use of the review flag.
+	column review_flag_caveat
+		dataType: string
+		lineageTag: 88b5b14a-aa8e-421e-ae5d-06c3ec8c8b55
+		summarizeBy: none
+		sourceColumn: review_flag_caveat
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_review_flag = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SANITIZED_HOST", "SANITIZED_WAREHOUSE"),
+				    dbo_mart_dim_review_flag = Source{[Schema="SANITIZED_SCHEMA",Item="SANITIZED_TABLE"]}[Data]
+				in
+				    dbo_mart_dim_review_flag
+
+	annotation PBI_ResultType = Table
+

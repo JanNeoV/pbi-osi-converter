@@ -1,0 +1,13 @@
+table fact_other
+	column row_id
+		dataType: int64
+		sourceColumn: row_id
+
+	column elapsed_seconds
+		dataType: int64
+		sourceColumn: elapsed_seconds
+
+	partition fact_other = m
+		mode: import
+		source =
+			let Source = #table({}, {}) in Source

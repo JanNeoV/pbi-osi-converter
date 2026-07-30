@@ -1,0 +1,150 @@
+{
+  "accepted_scope": "NARROW_OFFLINE_GUIDED_PREVIEW_CONTRACT_ONLY",
+  "artifacts": [
+    {
+      "kind": "FILE",
+      "path": "docs/POWERBI_SNOWFLAKE_GUIDED_SYNC_POC_CONTRACT.md",
+      "sha256": "9e2097802501fb5fb21cef62e884fdba8ee11f27ea3a271ae6cbfaf43d80cf8e"
+    },
+    {
+      "kind": "FILE",
+      "path": "docs/codex/pbi-snowflake-poc/evidence/02-current-product-evidence.json",
+      "sha256": "e4b7e0491336aa9f5a50f106195f11c90df8d16fab9a05da514888f1a84cc813"
+    }
+  ],
+  "limitations": [
+    {
+      "blocking": false,
+      "reason_code": "LEGACY_POWERBI_FIXTURE_UNAVAILABLE",
+      "scope": "pbi/triathlon_pbi_model.SemanticModel/definition and pbi/triathlon_pbi_model.pbip are absent; legacy broad POC and dependent tests remain unavailable"
+    }
+  ],
+  "prerequisite_receipts": [
+    {
+      "path": "semantic_poc/demo/guided_sync/task-markers/01-conversion-gap-demo.json",
+      "sha256": "d335004440c1dc3bd6b5b0af1f589b85482d762fb6a244c18393c7e5c760828b",
+      "task_id": "01_PROVE_CAPTURED_CONVERSION_GAP",
+      "terminal_marker": "CONVERSION_GAP_DEMO_ACCEPTED"
+    }
+  ],
+  "protected_inputs": [
+    {
+      "after_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+      "before_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+      "kind": "FILE",
+      "path": "models/semantic/triathlon_semantic.yml"
+    },
+    {
+      "after_sha256": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751",
+      "before_sha256": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751",
+      "kind": "FILE",
+      "path": "pbit/snowflake_semantic_view/pbi_trial.yaml"
+    },
+    {
+      "after_sha256": "aafb55288ef6e247a268806a992c575aaa7e33bf3da4044ef0e9028c84127307",
+      "before_sha256": "aafb55288ef6e247a268806a992c575aaa7e33bf3da4044ef0e9028c84127307",
+      "kind": "FILE",
+      "path": "semantic/triathlon_metric_contract.yml"
+    },
+    {
+      "after_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+      "before_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+      "kind": "TREE",
+      "path": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel"
+    },
+    {
+      "after_sha256": "075ece2bc4bedb8817902b8aad1355b27fd15d9125c98531e7068204d3e8b3d5",
+      "before_sha256": "075ece2bc4bedb8817902b8aad1355b27fd15d9125c98531e7068204d3e8b3d5",
+      "kind": "TREE",
+      "path": "semantic_poc/output"
+    }
+  ],
+  "safety": {
+    "application_performed": false,
+    "approval_performed": false,
+    "network_contacted": false,
+    "production_deployment_performed": false,
+    "push_performed": false,
+    "source_modified": false
+  },
+  "schema_version": 1,
+  "status": "ACCEPTED",
+  "task_id": "02_LOCK_GUIDED_SYNC_POC_CONTRACT",
+  "task_result": {
+    "audience": "TECHNICAL_SEMANTIC_MODEL_OWNER_OR_REVIEWER",
+    "core_execution": "OFFLINE_DETERMINISTIC_NON_INTERACTIVE_CLI",
+    "decision_gate": "CLEARED",
+    "openai_role": "OPTIONAL_NATURAL_LANGUAGE_TO_TYPED_INTENT_ONLY",
+    "power_bi_preview_artifact": "DETERMINISTIC_COPY_PLAN_ONLY",
+    "runtime_equivalence": "NOT_AVAILABLE_OPTIONAL_SEPARATE_VALIDATION",
+    "selected_option": "GUIDED_INCREMENTAL_PREVIEW",
+    "snowflake_preview_artifact": "FULL_REVIEWABLE_CANDIDATE_YAML",
+    "ui_scope": "EXISTING_CODEX_SKILL_NO_NEW_UI"
+  },
+  "terminal_marker": "GUIDED_SYNC_POC_CONTRACT_ACCEPTED",
+  "validations": [
+    {
+      "command": "python semantic_poc/validate_guided_sync_receipt.py --receipt semantic_poc/demo/guided_sync/task-markers/01-conversion-gap-demo.json --expected-task 01_PROVE_CAPTURED_CONVERSION_GAP --expected-marker CONVERSION_GAP_DEMO_ACCEPTED --recompute",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "TASK01_RECEIPT_CURRENT",
+      "required": true
+    },
+    {
+      "command": "python semantic_poc/run_pbi_trial_v2_audit.py --check --json",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "CONVERSION_GAP_DEMO_CURRENT",
+      "required": true
+    },
+    {
+      "command": "python -c \"import datetime,json; from pathlib import Path; d=json.loads(Path('docs/codex/pbi-snowflake-poc/evidence/02-current-product-evidence.json').read_text()); c=Path('docs/POWERBI_SNOWFLAKE_GUIDED_SYNC_POC_CONTRACT.md').read_text(); datetime.date.fromisoformat(d['accessed_on']); ids=[x['claim_id'] for x in d['claims']]; assert set(d)=={'schema_version','accessed_on','claims'} and ids==sorted(ids); assert all(set(x)=={'claim_id','statement','status','url','evidence_summary'} and x['status'] in {'DOCUMENTED','NOT_DOCUMENTED','UNKNOWN'} and x['claim_id'] in c for x in d['claims']); print('TASK02_CONTRACT_EVIDENCE_CURRENT')\"",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "TASK02_CONTRACT_EVIDENCE_CURRENT",
+      "required": true
+    },
+    {
+      "command": "python -m pytest semantic_poc/tests/test_agent_import_cli.py semantic_poc/tests/test_conversion_review.py semantic_poc/tests/test_task9_end_to_end.py -q -p no:cacheprovider",
+      "exit_code": 1,
+      "outcome": "KNOWN_BASELINE_FAILURE",
+      "reason_code": "LEGACY_POWERBI_FIXTURE_UNAVAILABLE",
+      "required": false
+    },
+    {
+      "command": "python -m pytest semantic_poc/tests/test_task9_end_to_end.py semantic_poc/tests/test_task9_review_memory.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "M9_FOCUSED_TESTS",
+      "required": true
+    },
+    {
+      "command": "python -m pytest semantic_poc/tests -q -p no:cacheprovider -m \"not live_agent\"",
+      "exit_code": 1,
+      "outcome": "KNOWN_BASELINE_FAILURE",
+      "reason_code": "LEGACY_POWERBI_FIXTURE_UNAVAILABLE",
+      "required": false
+    },
+    {
+      "command": "python semantic_poc/run_quality_checks.py --skip-tests",
+      "exit_code": 1,
+      "outcome": "KNOWN_BASELINE_FAILURE",
+      "reason_code": "LEGACY_POWERBI_FIXTURE_UNAVAILABLE",
+      "required": false
+    },
+    {
+      "command": "python semantic_poc/run_poc.py --strict",
+      "exit_code": 1,
+      "outcome": "KNOWN_BASELINE_FAILURE",
+      "reason_code": "LEGACY_POWERBI_FIXTURE_UNAVAILABLE",
+      "required": false
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "GIT_DIFF_CHECK",
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,"required":["change_ref","mode"],"properties":{"change_ref":{"type":"string","pattern":"^chg_[A-Za-z0-9_:-]+$"},"mode":{"enum":["create","update"]}}}

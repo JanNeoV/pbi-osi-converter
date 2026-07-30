@@ -1,0 +1,348 @@
+{
+  "$defs": {
+    "answerSchema": {
+      "additionalProperties": false,
+      "properties": {
+        "$schema": {
+          "const": "https://json-schema.org/draft/2020-12/schema"
+        },
+        "oneOf": {
+          "items": {
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "$schema",
+        "oneOf"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "AVAILABLE",
+            "NOT_AVAILABLE",
+            "PASSED"
+          ]
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "finding": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_targets": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "allowed_answer_schema": {
+          "$ref": "#/$defs/answerSchema"
+        },
+        "blocking": {
+          "type": "boolean"
+        },
+        "bound_input_hashes": {
+          "additionalProperties": {
+            "$ref": "#/$defs/sha256"
+          },
+          "minProperties": 1,
+          "type": "object"
+        },
+        "canonical_metric": {
+          "oneOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "canonical_source_file": {
+          "const": "models/semantic/triathlon_semantic.yml"
+        },
+        "concrete_role_bindings": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "current_disposition": {
+          "enum": [
+            "BLOCKED",
+            "OPEN_NON_BLOCKING"
+          ]
+        },
+        "dependency_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "evidence_available": {
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "type": "array"
+        },
+        "evidence_required": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "finding_id": {
+          "pattern": "^fnd_[0-9a-f]{24}$",
+          "type": "string"
+        },
+        "finding_identity_payload": {
+          "additionalProperties": false,
+          "properties": {
+            "canonical_object_id": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "dependency_ids": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "preview_id": {
+              "pattern": "^prv_[0-9a-f]{24}$",
+              "type": "string"
+            },
+            "primary_reason_code": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "review_class": {
+              "$ref": "#/$defs/reviewClass"
+            },
+            "target_ids": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "canonical_object_id",
+            "dependency_ids",
+            "preview_id",
+            "primary_reason_code",
+            "review_class",
+            "target_ids"
+          ],
+          "type": "object"
+        },
+        "human_question": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "object_type": {
+          "enum": [
+            "METRIC",
+            "POWERBI_OBJECT"
+          ]
+        },
+        "preview_id": {
+          "pattern": "^prv_[0-9a-f]{24}$",
+          "type": "string"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "review_class": {
+          "$ref": "#/$defs/reviewClass"
+        },
+        "semantic_signature_payload": {
+          "$ref": "#/$defs/signature"
+        },
+        "semantic_signature_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "source_identifier": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "FAILED",
+            "MANUAL_REVIEW_REQUIRED",
+            "NOT_AVAILABLE",
+            "OPEN",
+            "PASSED",
+            "REVIEW_REQUIRED"
+          ]
+        },
+        "target_identifiers": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "typed_pattern_signature_payload": {
+          "$ref": "#/$defs/signature"
+        },
+        "typed_pattern_signature_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "affected_targets",
+        "allowed_answer_schema",
+        "blocking",
+        "bound_input_hashes",
+        "canonical_metric",
+        "canonical_source_file",
+        "concrete_role_bindings",
+        "current_disposition",
+        "dependency_ids",
+        "evidence_available",
+        "evidence_required",
+        "finding_id",
+        "finding_identity_payload",
+        "object_type",
+        "preview_id",
+        "reason_codes",
+        "review_class",
+        "semantic_signature_payload",
+        "semantic_signature_sha256",
+        "source_identifier",
+        "source_location",
+        "status",
+        "target_identifiers",
+        "typed_pattern_signature_payload",
+        "typed_pattern_signature_sha256"
+      ],
+      "type": "object"
+    },
+    "reviewClass": {
+      "enum": [
+        "FORMULA_REVIEW_REQUIRED",
+        "MODEL_RELATIONSHIP_REVIEW_REQUIRED",
+        "DATA_VALIDATION_REQUIRED",
+        "METADATA_REVIEW_REQUIRED"
+      ]
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "signature": {
+      "additionalProperties": false,
+      "properties": {
+        "filter_context": {},
+        "grain": {},
+        "population": {},
+        "relationship_context": {},
+        "source_units": {},
+        "target_units": {},
+        "typed_expression": {},
+        "typed_parameter_roles": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "filter_context",
+        "grain",
+        "population",
+        "relationship_context",
+        "source_units",
+        "target_units",
+        "typed_expression",
+        "typed_parameter_roles"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://example.invalid/semantic-poc/preview-sync-validation-queue.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocking_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/finding"
+      },
+      "type": "array"
+    },
+    "preview_id": {
+      "pattern": "^prv_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "review_classes": {
+      "const": [
+        "DATA_VALIDATION_REQUIRED",
+        "FORMULA_REVIEW_REQUIRED",
+        "METADATA_REVIEW_REQUIRED",
+        "MODEL_RELATIONSHIP_REVIEW_REQUIRED"
+      ]
+    },
+    "schema_version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "blocking_count",
+    "findings",
+    "preview_id",
+    "review_classes",
+    "schema_version"
+  ],
+  "title": "Preview Sync validation queue",
+  "type": "object"
+}

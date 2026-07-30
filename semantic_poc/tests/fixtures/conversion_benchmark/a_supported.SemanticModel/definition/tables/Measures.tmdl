@@ -1,0 +1,20 @@
+table Measures
+	/// Total additive amount.
+	measure 'Total Amount' = SUM(fact_activity[amount])
+		formatString: #,0.00
+
+	/// Count of nonblank athlete identifiers.
+	measure 'Athlete Rows' = COUNT(fact_activity[athlete_id])
+		formatString: 0
+
+	/// Distinct athletes, including one blank identity when present.
+	measure 'Distinct Athletes' = DISTINCTCOUNT(fact_activity[athlete_id])
+		formatString: 0
+
+	/// Valid activity rows.
+	measure 'Valid Rows' = CALCULATE(COUNTROWS(fact_activity), fact_activity[is_valid] = TRUE())
+		formatString: 0
+
+	/// Share of athlete rows that are valid.
+	measure 'Valid Rate' = DIVIDE([Valid Rows], [Athlete Rows])
+		formatString: 0.0%

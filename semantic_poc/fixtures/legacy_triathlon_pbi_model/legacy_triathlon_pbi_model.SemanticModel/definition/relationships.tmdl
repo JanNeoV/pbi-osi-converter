@@ -1,0 +1,40 @@
+relationship AutoDetected_9a0b3979-24c6-44d1-9320-cd6b0f16a618
+	fromColumn: fct_review_flag.review_flag_id
+	toColumn: dim_review_flag.review_flag_id
+
+relationship AutoDetected_d4a4948a-e6a4-4e0f-a432-2d416e5aa7a4
+	fromColumn: fct_review_flag.event_id
+	toColumn: dim_event.event_id
+
+relationship AutoDetected_78a91dfe-65a2-44ad-aec0-fc84d92b4d73
+	fromColumn: fct_result.event_id
+	toColumn: dim_event.event_id
+
+relationship AutoDetected_c5048771-be01-4188-ac73-13c12d76cb2f
+	fromColumn: fct_event_leg_context.event_id
+	toColumn: dim_event.event_id
+
+relationship AutoDetected_f07aebc1-12d7-4632-84f1-37b1a8dc85f7
+	fromColumn: fct_review_flag.gender_id
+	toColumn: dim_gender.gender_id
+
+relationship AutoDetected_a4c8a211-57f4-4e8d-9e2e-6d2d0792633a
+	fromColumn: fct_result.gender_id
+	toColumn: dim_gender.gender_id
+
+relationship AutoDetected_fe8b79dc-e4b6-4aa6-823d-da6d34a41893
+	fromColumn: fct_event_leg_context.gender_id
+	toColumn: dim_gender.gender_id
+
+relationship AutoDetected_048c12c3-c5ac-4b3d-93ec-dd1076fd3161
+	fromColumn: fct_review_flag.division_id
+	toColumn: dim_division.division_id
+
+relationship AutoDetected_906e9f22-0d65-4605-a3e7-1ab92a708911
+	fromColumn: fct_result.division_id
+	toColumn: dim_division.division_id
+
+relationship AutoDetected_6eb3c672-912f-498f-bec7-3993b3541c04
+	fromColumn: dim_event.distance
+	toColumn: dim_distance.distance
+

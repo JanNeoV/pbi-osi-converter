@@ -1,0 +1,10 @@
+schema_version: 1
+
+tables: []
+
+columns: []
+
+measures:
+  - power_bi_table: Measures
+    power_bi_measure: Valid Rows
+    canonical_metric: result_rows

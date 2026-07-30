@@ -1,0 +1,131 @@
+{
+  "checked_runner": {
+    "artifacts": {
+      "POWERBI_SNOWFLAKE_CONVERSION_FINDINGS.md": "docs/POWERBI_SNOWFLAKE_V2_CONVERSION_FINDINGS.md",
+      "conversion-findings.json": "semantic_poc/benchmark/pbi_trial_v2/conversion-findings.json",
+      "result-evidence.template.json": "semantic_poc/benchmark/pbi_trial_v2/result-evidence.template.json",
+      "snowflake-query-pack.sql": "semantic_poc/benchmark/pbi_trial_v2/snowflake-query-pack.sql"
+    },
+    "audit_id": "audit_bef38d48cf0c05ab",
+    "check": true,
+    "claim_scope": "CAPTURED_PBI_TRIAL_V2_ONLY",
+    "confirmed_incorrect": 4,
+    "emitted_metrics": 21,
+    "fixture_model_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+    "input_hashes": {
+      "behavioral_baseline_sha256": "98405395d9724b64196ffed7b5af5c43c5d0cc6b6c8e67febaa87e4a478f4400",
+      "benchmark_spec_sha256": "93c060de6ab00068682e8bf8a60713d4a1e97880511c36a4304d18917200d42c",
+      "canonical_contract_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+      "powerbi_model_tree_sha256": "a9042f554c8c500fdce0f75885322affdda7550f3b2c559c3ddc45b4699581e1",
+      "snowflake_query_pack_sha256": "8dd908957dc11b0b6e83775d6a30385a4a132dc8025fa219dd568393038c27d6",
+      "snowflake_yaml_sha256": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751"
+    },
+    "machine_findings_path": "semantic_poc/benchmark/pbi_trial_v2/conversion-findings.json",
+    "matched_metrics": 21,
+    "model_structure_status": "MATCH",
+    "not_proven": 2,
+    "omitted_measures": 25,
+    "potentially_incorrect": 4,
+    "presenter_path": "docs/codex/pbi-snowflake-poc/demo/CONVERSION_GAP_PRESENTER.md",
+    "proven_caught": 0,
+    "proven_not_caught": 4,
+    "relationship_endpoints_matched": 7,
+    "relationship_endpoints_total": 7,
+    "runtime_status": "NOT_AVAILABLE",
+    "source_measures": 46,
+    "summary": {
+      "all_in_scope_mappings_proven_safe": false,
+      "automation_disposition_counts": {
+        "FLAG_SOURCE_DEFECT": 6,
+        "MANUAL_REVIEW_REQUIRED": 40
+      },
+      "behavioral_status_counts": {
+        "NOT_AVAILABLE": 46
+      },
+      "blocker_count": 46,
+      "executive_verdict": "SNOWFLAKE_DID_NOT_PROVE_COMPLETE_OR_CORRECT_CONVERSION",
+      "extra_target_metric_count": 0,
+      "fidelity_status_counts": {
+        "CONFIRMED_INCORRECT": 4,
+        "OMITTED": 25,
+        "POTENTIALLY_INCORRECT": 4,
+        "STRUCTURALLY_EQUIVALENT": 13
+      },
+      "matched_measure_count": 21,
+      "measure_blocker_count": 46,
+      "model_blocker_count": 0,
+      "negative_control_count": 6,
+      "negative_control_detection_counts": {
+        "NOT_PROVEN": 2,
+        "PROVEN_NOT_CAUGHT": 4
+      },
+      "negative_control_handling_counts": {
+        "CHANGED": 1,
+        "EMITTED_WITH_CAUTION": 3,
+        "OMITTED": 2
+      },
+      "omitted_measure_count": 25,
+      "proven_caught_count": 0,
+      "source_measure_count": 46,
+      "target_metric_count": 21
+    },
+    "target_metrics": 21,
+    "verdict": "CONVERSION_GAP_DEMO_ACCEPTED"
+  },
+  "checked_runner_exit_code": 0,
+  "claims": {
+    "NOT_PROVEN": {
+      "count": 2,
+      "runtime_status": "NOT_AVAILABLE"
+    },
+    "OBSERVED": {
+      "emitted_metrics": 21,
+      "omitted_measures": 25,
+      "potentially_incorrect": 4,
+      "source_measures": 46
+    },
+    "PROVEN": {
+      "confirmed_incorrect": 4,
+      "proven_caught": 0,
+      "proven_not_caught": 4
+    }
+  },
+  "generic_audit_exit_code": 3,
+  "generic_audit_verdict": "SNOWFLAKE_DID_NOT_PROVE_COMPLETE_OR_CORRECT_CONVERSION",
+  "summary": {
+    "all_in_scope_mappings_proven_safe": false,
+    "automation_disposition_counts": {
+      "FLAG_SOURCE_DEFECT": 6,
+      "MANUAL_REVIEW_REQUIRED": 40
+    },
+    "behavioral_status_counts": {
+      "NOT_AVAILABLE": 46
+    },
+    "blocker_count": 46,
+    "executive_verdict": "SNOWFLAKE_DID_NOT_PROVE_COMPLETE_OR_CORRECT_CONVERSION",
+    "extra_target_metric_count": 0,
+    "fidelity_status_counts": {
+      "CONFIRMED_INCORRECT": 4,
+      "OMITTED": 25,
+      "POTENTIALLY_INCORRECT": 4,
+      "STRUCTURALLY_EQUIVALENT": 13
+    },
+    "matched_measure_count": 21,
+    "measure_blocker_count": 46,
+    "model_blocker_count": 0,
+    "negative_control_count": 6,
+    "negative_control_detection_counts": {
+      "NOT_PROVEN": 2,
+      "PROVEN_NOT_CAUGHT": 4
+    },
+    "negative_control_handling_counts": {
+      "CHANGED": 1,
+      "EMITTED_WITH_CAUTION": 3,
+      "OMITTED": 2
+    },
+    "omitted_measure_count": 25,
+    "proven_caught_count": 0,
+    "source_measure_count": 46,
+    "target_metric_count": 21
+  }
+}

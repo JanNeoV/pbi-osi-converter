@@ -1,0 +1,10 @@
+table Measures
+	measure 'Base Rows' = COUNTROWS(fact)
+
+	measure 'Inactive Rows' = CALCULATE(COUNTROWS(fact), USERELATIONSHIP(fact[dimension_id], dimension[dimension_id]))
+
+	measure 'Inactive Rows Rate' = DIVIDE([Inactive Rows], [Base Rows])
+
+	measure 'Cross Filter Aware Rows' = IF(ISCROSSFILTERED(dimension[dimension_id]), [Base Rows], BLANK())
+
+	measure 'Visual Scope Rows' = IF(ISINSCOPE(dimension[dimension_id]), [Base Rows], BLANK())

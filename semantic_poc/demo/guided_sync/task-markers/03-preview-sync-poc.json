@@ -1,0 +1,239 @@
+{
+  "accepted_scope": "PROPOSAL_ONLY_DETERMINISTIC_TARGET_PREVIEW",
+  "artifacts": [
+    {
+      "kind": "FILE",
+      "path": "semantic_poc/agent/canonical_apply.py",
+      "sha256": "62aa5355cbfec09c5857ba7cffce6df4f6c614dc4abe96876ec16ea20610c507"
+    },
+    {
+      "kind": "FILE",
+      "path": "semantic_poc/agent/cli.py",
+      "sha256": "7ddf8e4203919012d5f81220bafdbf8f1a71c4d18f18468f5727d4fc19f805ed"
+    },
+    {
+      "kind": "FILE",
+      "path": "semantic_poc/agent/import_models.py",
+      "sha256": "c052ab8a9b3b4ad30234477329f6942f9cb7cdca2391793bf3f93ffd66e300d9"
+    },
+    {
+      "kind": "FILE",
+      "path": "semantic_poc/agent/import_workflow.py",
+      "sha256": "4cfb555710156f412ee67e0bab17b34b522fc06d2236c1704206595d4643b78d"
+    },
+    {
+      "kind": "FILE",
+      "path": "semantic_poc/agent/preview_sync.py",
+      "sha256": "7ff112fa6c71517de452a6903c697e8d7c6d0e932ad4a29cb8d9cfa5a998ee16"
+    },
+    {
+      "kind": "FILE",
+      "path": "semantic_poc/agent/preview_sync_validation_queue.schema.json",
+      "sha256": "9b28bce65e73568e5447018a81df8df06e22fb6523c05926a8331a68025d9baf"
+    },
+    {
+      "kind": "FILE",
+      "path": "semantic_poc/agent/result_evidence.schema.json",
+      "sha256": "96493b306175c1ad86e4420df5393b77b890cf9610ba1b889115db9d96b769be"
+    },
+    {
+      "kind": "FILE",
+      "path": "semantic_poc/agent/workflow.py",
+      "sha256": "579c2666a6e3a7e4dede91614e97d99242d1bded5e91377dee515c445b3c004f"
+    },
+    {
+      "kind": "TREE",
+      "path": "semantic_poc/demo/guided_sync/task03-preview",
+      "sha256": "9aaef048752b1ec5b4060c25c0310aa843b515e7d9dc5581ed0a516f455bdb7d"
+    },
+    {
+      "kind": "FILE",
+      "path": "semantic_poc/src/models.py",
+      "sha256": "6c7ee19885c83608a58cb7460d172610b12a420abc7517c9d9b0c8ccaa1dcc92"
+    },
+    {
+      "kind": "FILE",
+      "path": "semantic_poc/tests/test_preview_sync.py",
+      "sha256": "c68721a6054c5d1c981f0608aca440ba2d40cbfc8558cd3b2c46bf56cef1c9e0"
+    }
+  ],
+  "limitations": [
+    {
+      "blocking": false,
+      "reason_code": "LEGACY_POWERBI_FIXTURE_UNAVAILABLE",
+      "scope": "pbi/triathlon_pbi_model.SemanticModel/definition and pbi/triathlon_pbi_model.pbip are absent; legacy broad POC and dependent tests remain unavailable"
+    }
+  ],
+  "prerequisite_receipts": [
+    {
+      "path": "semantic_poc/demo/guided_sync/task-markers/01-conversion-gap-demo.json",
+      "sha256": "d335004440c1dc3bd6b5b0af1f589b85482d762fb6a244c18393c7e5c760828b",
+      "task_id": "01_PROVE_CAPTURED_CONVERSION_GAP",
+      "terminal_marker": "CONVERSION_GAP_DEMO_ACCEPTED"
+    },
+    {
+      "path": "semantic_poc/demo/guided_sync/task-markers/02-guided-sync-contract.json",
+      "sha256": "4cdc0ad688a965d76e333bed1a41744c3d69884dece39c30b820dd1766489a39",
+      "task_id": "02_LOCK_GUIDED_SYNC_POC_CONTRACT",
+      "terminal_marker": "GUIDED_SYNC_POC_CONTRACT_ACCEPTED"
+    }
+  ],
+  "protected_inputs": [
+    {
+      "after_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+      "before_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+      "kind": "FILE",
+      "path": "models/semantic/triathlon_semantic.yml"
+    },
+    {
+      "after_sha256": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751",
+      "before_sha256": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751",
+      "kind": "FILE",
+      "path": "pbit/snowflake_semantic_view/pbi_trial.yaml"
+    },
+    {
+      "after_sha256": "aafb55288ef6e247a268806a992c575aaa7e33bf3da4044ef0e9028c84127307",
+      "before_sha256": "aafb55288ef6e247a268806a992c575aaa7e33bf3da4044ef0e9028c84127307",
+      "kind": "FILE",
+      "path": "semantic/triathlon_metric_contract.yml"
+    },
+    {
+      "after_sha256": "8dd908957dc11b0b6e83775d6a30385a4a132dc8025fa219dd568393038c27d6",
+      "before_sha256": "8dd908957dc11b0b6e83775d6a30385a4a132dc8025fa219dd568393038c27d6",
+      "kind": "FILE",
+      "path": "semantic_poc/benchmark/pbi_trial_v2/snowflake-query-pack.sql"
+    },
+    {
+      "after_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+      "before_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+      "kind": "TREE",
+      "path": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel"
+    },
+    {
+      "after_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79",
+      "before_sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79",
+      "kind": "FILE",
+      "path": "semantic_poc/config/snowflake_environment.yml"
+    },
+    {
+      "after_sha256": "5beab1b6d7ff13f6ed21984cfa185aa05434d5a26238135f63c7600d118accfc",
+      "before_sha256": "5beab1b6d7ff13f6ed21984cfa185aa05434d5a26238135f63c7600d118accfc",
+      "kind": "FILE",
+      "path": "semantic_poc/demo/guided_sync/task-marker.schema.json"
+    },
+    {
+      "after_sha256": "075ece2bc4bedb8817902b8aad1355b27fd15d9125c98531e7068204d3e8b3d5",
+      "before_sha256": "075ece2bc4bedb8817902b8aad1355b27fd15d9125c98531e7068204d3e8b3d5",
+      "kind": "TREE",
+      "path": "semantic_poc/output"
+    },
+    {
+      "after_sha256": "4c98a44fdbe4e033bee8892d16fac03dbcb746437df00a016e7cea9e88cead4a",
+      "before_sha256": "4c98a44fdbe4e033bee8892d16fac03dbcb746437df00a016e7cea9e88cead4a",
+      "kind": "TREE",
+      "path": "semantic_poc/review_memory/accepted"
+    },
+    {
+      "after_sha256": "a98b6ba9ac766d4dda84b9a64b9c4380f7aa119ae72c615789411a3bd099baa7",
+      "before_sha256": "a98b6ba9ac766d4dda84b9a64b9c4380f7aa119ae72c615789411a3bd099baa7",
+      "kind": "TREE",
+      "path": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel"
+    }
+  ],
+  "safety": {
+    "application_performed": false,
+    "approval_performed": false,
+    "network_contacted": false,
+    "production_deployment_performed": false,
+    "push_performed": false,
+    "source_modified": false
+  },
+  "schema_version": 1,
+  "status": "ACCEPTED",
+  "task_id": "03_BUILD_PREVIEW_SYNC_VERTICAL_SLICE",
+  "task_result": {
+    "blocked_bundle_file_count": 5,
+    "blocked_formula_status": "MANUAL_REVIEW_REQUIRED",
+    "blocked_relationship_status": "MANUAL_REVIEW_REQUIRED",
+    "create_preview_status": "PREVIEW_CREATED",
+    "full_bundle_file_count": 9,
+    "no_op_status": "NO_OP",
+    "optional_runtime_status": "NOT_AVAILABLE",
+    "supported_change_id": "chg_20260718T190000Z_90909090",
+    "supported_status": "PROPOSED",
+    "update_preview_status": "PREVIEW_CREATED"
+  },
+  "terminal_marker": "PREVIEW_SYNC_POC_ACCEPTED",
+  "validations": [
+    {
+      "command": "python -m pytest semantic_poc/tests/test_preview_sync.py -q -p no:cacheprovider --basetemp .tmp/pytest-task03-preview-final",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "TASK03_FOCUSED_TESTS",
+      "required": true
+    },
+    {
+      "command": "python -m pytest semantic_poc/tests/test_preview_sync.py semantic_poc/tests/test_agent_import_cli.py semantic_poc/tests/test_conversion_review.py semantic_poc/tests/test_safe_ir_extensions.py -q -p no:cacheprovider",
+      "exit_code": 1,
+      "outcome": "KNOWN_BASELINE_FAILURE",
+      "reason_code": "LEGACY_POWERBI_FIXTURE_UNAVAILABLE",
+      "required": false
+    },
+    {
+      "command": "python -m pytest semantic_poc/tests -q -p no:cacheprovider -m \"not live_agent\"",
+      "exit_code": 1,
+      "outcome": "KNOWN_BASELINE_FAILURE",
+      "reason_code": "LEGACY_POWERBI_FIXTURE_UNAVAILABLE",
+      "required": false
+    },
+    {
+      "command": "dbt --no-version-check parse",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "DBT_PARSE_CURRENT",
+      "required": true
+    },
+    {
+      "command": "python semantic_poc/run_quality_checks.py --skip-tests",
+      "exit_code": 1,
+      "outcome": "KNOWN_BASELINE_FAILURE",
+      "reason_code": "LEGACY_POWERBI_FIXTURE_UNAVAILABLE",
+      "required": false
+    },
+    {
+      "command": "python semantic_poc/run_poc.py --strict",
+      "exit_code": 1,
+      "outcome": "KNOWN_BASELINE_FAILURE",
+      "reason_code": "LEGACY_POWERBI_FIXTURE_UNAVAILABLE",
+      "required": false
+    },
+    {
+      "command": "python semantic_poc/run_conversion_benchmark.py --check",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "CONVERSION_BENCHMARK_CURRENT",
+      "required": true
+    },
+    {
+      "command": "python semantic_poc/build_pbi_trial_v2_fixture.py --check",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "PORTABLE_FIXTURE_CURRENT",
+      "required": true
+    },
+    {
+      "command": "python semantic_poc/run_pbi_trial_v2_audit.py --check --json",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "CONVERSION_GAP_DEMO_CURRENT",
+      "required": true
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "outcome": "PASSED",
+      "reason_code": "GIT_DIFF_CHECK",
+      "required": true
+    }
+  ]
+}

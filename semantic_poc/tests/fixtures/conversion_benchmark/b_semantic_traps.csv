@@ -1,0 +1,4 @@
+row_id,duration_seconds,numeric_id,success_rate,total_measure,is_valid,dimension_id,alternate_dimension_id
+1,3600,1001,0.5,ten,1,10,11
+2,1800,1002,0.8,twenty,1,10,12
+3,900,1003,0.2,thirty,0,11,10

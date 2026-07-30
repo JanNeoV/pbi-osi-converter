@@ -1,0 +1,13 @@
+table fct_result
+	column result_id
+		dataType: int64
+		sourceColumn: result_id
+
+	column is_finisher
+		dataType: boolean
+		sourceColumn: is_finisher
+
+	partition fct_result = m
+		mode: import
+		source =
+			let Source = #table({"result_id", "is_finisher"}, {}) in Source

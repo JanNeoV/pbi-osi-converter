@@ -1,0 +1,46 @@
+table DIM_COUNTRY
+	lineageTag: a16d2089-c529-45b5-a301-c4750628bf5b
+
+	column COUNTRY_ID
+		dataType: string
+		lineageTag: b974f254-f8ef-4574-9a12-3f07028b17f5
+		summarizeBy: none
+		sourceColumn: COUNTRY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_NAME
+		dataType: string
+		lineageTag: 56ad666c-4784-44f3-b22c-de52e2e94fce
+		summarizeBy: none
+		sourceColumn: COUNTRY_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTINENT
+		dataType: string
+		lineageTag: 0e21feb1-d468-4c00-a0d9-e82d6b0b8bb1
+		summarizeBy: none
+		sourceColumn: CONTINENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGION
+		dataType: string
+		lineageTag: 0d5b8c5a-d541-4cb4-97c5-31d670d604b4
+		summarizeBy: none
+		sourceColumn: REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_COUNTRY = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("SANITIZED_ACCOUNT","SANITIZED_WAREHOUSE",[Implementation="2.0"]),
+				    SANITIZED_DATABASE_Database = Source{[Name="SANITIZED_DATABASE",Kind="Database"]}[Data],
+				    SANITIZED_SCHEMA_Schema = SANITIZED_DATABASE_Database{[Name="SANITIZED_SCHEMA",Kind="Schema"]}[Data],
+				    DIM_COUNTRY_Table = SANITIZED_SCHEMA_Schema{[Name="DIM_COUNTRY",Kind="Table"]}[Data]
+				in
+				    DIM_COUNTRY_Table
+

@@ -1,0 +1,13 @@
+table dim_trap
+	column dimension_id
+		dataType: int64
+		sourceColumn: dimension_id
+
+	column label
+		dataType: string
+		sourceColumn: label
+
+	partition dim_trap = m
+		mode: import
+		source =
+			let Source = #table({}, {}) in Source

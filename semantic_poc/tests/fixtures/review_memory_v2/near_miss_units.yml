@@ -1,0 +1,4 @@
+schema_version: 1
+fixture_id: near_miss_units
+changed_component: target_units
+replacement: minutes

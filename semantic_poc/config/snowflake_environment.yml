@@ -1,0 +1,6 @@
+database: TRIATHLON
+mart_schema: MART
+semantic_schema: SEMANTIC
+semantic_view_name: TRIATHLON_ANALYTICS
+warehouse: COMPUTE_WH
+role: SEMANTIC_POC_ROLE

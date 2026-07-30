@@ -1,0 +1,13 @@
+table dim_date
+	column date_id
+		dataType: int64
+		sourceColumn: date_id
+
+	column date
+		dataType: dateTime
+		sourceColumn: date
+
+	partition dim_date = m
+		mode: import
+		source =
+			let Source = #table({}, {}) in Source

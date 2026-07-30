@@ -1,0 +1,5249 @@
+{
+  "benchmark_id": "milestone-7",
+  "counts_exact": true,
+  "decimal_tolerance": {
+    "absolute": "1E-9",
+    "relative": "1E-9"
+  },
+  "fixtures": [
+    {
+      "actual_metric_failures": [],
+      "autopilot_status": "NOT_AVAILABLE",
+      "candidate_ir": [
+        {
+          "canonical_metric": "athlete_rows",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": null,
+          "filters": [],
+          "numerator": null,
+          "pattern": "COLUMN_COUNT",
+          "public": false,
+          "scale_divisor": null,
+          "source_entity": "activity",
+          "source_field": "athlete_id",
+          "source_logical_table": "activities",
+          "source_physical_table": "fact_activity",
+          "source_semantic_model": "benchmark_activity",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:athlete_rows"
+        },
+        {
+          "canonical_metric": "distinct_athletes",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": null,
+          "filters": [],
+          "numerator": null,
+          "pattern": "DISTINCT_COUNT",
+          "public": false,
+          "scale_divisor": null,
+          "source_entity": "activity",
+          "source_field": "athlete_id",
+          "source_logical_table": "activities",
+          "source_physical_table": "fact_activity",
+          "source_semantic_model": "benchmark_activity",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:distinct_athletes"
+        },
+        {
+          "canonical_metric": "total_amount",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": null,
+          "filters": [],
+          "numerator": null,
+          "pattern": "SUM",
+          "public": false,
+          "scale_divisor": null,
+          "source_entity": "activity",
+          "source_field": "amount",
+          "source_logical_table": "activities",
+          "source_physical_table": "fact_activity",
+          "source_semantic_model": "benchmark_activity",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:total_amount"
+        },
+        {
+          "canonical_metric": "valid_rate",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": "athlete_rows",
+          "filters": [],
+          "numerator": "valid_rows",
+          "pattern": "RATIO",
+          "public": false,
+          "scale_divisor": null,
+          "source_entity": "activity",
+          "source_field": null,
+          "source_logical_table": "activities",
+          "source_physical_table": "fact_activity",
+          "source_semantic_model": "benchmark_activity",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:valid_rate"
+        },
+        {
+          "canonical_metric": "valid_rows",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": null,
+          "filters": [
+            {
+              "field": "is_valid",
+              "operator": "EQ",
+              "value": true
+            }
+          ],
+          "numerator": null,
+          "pattern": "FILTERED_COUNT",
+          "public": false,
+          "scale_divisor": null,
+          "source_entity": "activity",
+          "source_field": "*",
+          "source_logical_table": "activities",
+          "source_physical_table": "fact_activity",
+          "source_semantic_model": "benchmark_activity",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:valid_rows"
+        }
+      ],
+      "expected_metric_failures": [],
+      "expected_outcome_observed": true,
+      "findings": [
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "athlete_rows",
+          "category": "EXACT_MATCH",
+          "evidence": [
+            "The supported Power BI AST equals the deterministic canonical regeneration.",
+            "Canonical metric: athlete_rows"
+          ],
+          "finding_id": "fnd_714568395d9ca6d6",
+          "generated_expression": "COUNT(athlete_id)",
+          "generated_object": "athlete_rows",
+          "recommended_correction": "Explicitly accept the exact canonical mapping.",
+          "rule_id": "COMPARE_SUPPORTED_SEMANTICS",
+          "severity": "INFO",
+          "source_expression": "COUNT(fact_activity[athlete_id])",
+          "source_object": "Measures[Athlete Rows]",
+          "source_object_id": "pbi_measure_2e8bdc5aafd63251",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "distinct_athletes",
+          "category": "EXACT_MATCH",
+          "evidence": [
+            "The supported Power BI AST equals the deterministic canonical regeneration.",
+            "Canonical metric: distinct_athletes"
+          ],
+          "finding_id": "fnd_91542ddfe1a943f8",
+          "generated_expression": "COUNT(DISTINCT athlete_id) + IFF(COUNT_IF(athlete_id IS NULL) > 0, 1, 0)",
+          "generated_object": "distinct_athletes",
+          "recommended_correction": "Explicitly accept the exact canonical mapping.",
+          "rule_id": "COMPARE_SUPPORTED_SEMANTICS",
+          "severity": "INFO",
+          "source_expression": "DISTINCTCOUNT(fact_activity[athlete_id])",
+          "source_object": "Measures[Distinct Athletes]",
+          "source_object_id": "pbi_measure_8b2f93f2a4353da1",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "total_amount",
+          "category": "EXACT_MATCH",
+          "evidence": [
+            "The supported Power BI AST equals the deterministic canonical regeneration.",
+            "Canonical metric: total_amount"
+          ],
+          "finding_id": "fnd_abca7439f52c0be2",
+          "generated_expression": "SUM(amount)",
+          "generated_object": "total_amount",
+          "recommended_correction": "Explicitly accept the exact canonical mapping.",
+          "rule_id": "COMPARE_SUPPORTED_SEMANTICS",
+          "severity": "INFO",
+          "source_expression": "SUM(fact_activity[amount])",
+          "source_object": "Measures[Total Amount]",
+          "source_object_id": "pbi_measure_6ebb10c05462dec8",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "valid_rate",
+          "category": "EXACT_MATCH",
+          "evidence": [
+            "The supported Power BI AST equals the deterministic canonical regeneration.",
+            "Canonical metric: valid_rate"
+          ],
+          "finding_id": "fnd_a42b506ac1e13add",
+          "generated_expression": "activities.valid_rows / NULLIF(activities.athlete_rows, 0)",
+          "generated_object": "valid_rate",
+          "recommended_correction": "Explicitly accept the exact canonical mapping.",
+          "rule_id": "COMPARE_SUPPORTED_SEMANTICS",
+          "severity": "INFO",
+          "source_expression": "DIVIDE([Valid Rows], [Athlete Rows])",
+          "source_object": "Measures[Valid Rate]",
+          "source_object_id": "pbi_measure_048cc4e251ba22ac",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "valid_rows",
+          "category": "EXACT_MATCH",
+          "evidence": [
+            "The supported Power BI AST equals the deterministic canonical regeneration.",
+            "Canonical metric: valid_rows"
+          ],
+          "finding_id": "fnd_9343f578e5d0ed6d",
+          "generated_expression": "COUNT_IF(is_valid)",
+          "generated_object": "valid_rows",
+          "recommended_correction": "Explicitly accept the exact canonical mapping.",
+          "rule_id": "COMPARE_SUPPORTED_SEMANTICS",
+          "severity": "INFO",
+          "source_expression": "CALCULATE(COUNTROWS(fact_activity), fact_activity[is_valid] = TRUE())",
+          "source_object": "Measures[Valid Rows]",
+          "source_object_id": "pbi_measure_96527f69a5aeaf1d",
+          "source_support": "SUPPORTED_EXACT"
+        }
+      ],
+      "fixture_id": "A_SUPPORTED",
+      "golden_results": [
+        {
+          "direct_reference_sql": 3,
+          "pattern": "COLUMN_COUNT",
+          "power_bi_dax_evaluator": 3,
+          "reference_match": true,
+          "repository_match": true,
+          "repository_snowflake_evaluator": 3,
+          "source_measure": "Athlete Rows",
+          "status": "PASS"
+        },
+        {
+          "direct_reference_sql": 3,
+          "pattern": "DISTINCT_COUNT",
+          "power_bi_dax_evaluator": 3,
+          "reference_match": true,
+          "repository_match": true,
+          "repository_snowflake_evaluator": 3,
+          "source_measure": "Distinct Athletes",
+          "status": "PASS"
+        },
+        {
+          "direct_reference_sql": "45",
+          "pattern": "SUM",
+          "power_bi_dax_evaluator": "45",
+          "reference_match": true,
+          "repository_match": true,
+          "repository_snowflake_evaluator": "45",
+          "source_measure": "Total Amount",
+          "status": "PASS"
+        },
+        {
+          "direct_reference_sql": "1",
+          "pattern": "RATIO",
+          "power_bi_dax_evaluator": "1",
+          "reference_match": true,
+          "repository_match": true,
+          "repository_snowflake_evaluator": "1",
+          "source_measure": "Valid Rate",
+          "status": "PASS"
+        },
+        {
+          "direct_reference_sql": 3,
+          "pattern": "FILTERED_COUNT",
+          "power_bi_dax_evaluator": 3,
+          "reference_match": true,
+          "repository_match": true,
+          "repository_snowflake_evaluator": 3,
+          "source_measure": "Valid Rows",
+          "status": "PASS"
+        }
+      ],
+      "import_id": "imp_20260718T170000Z_00000001",
+      "inventory": {
+        "calculated_columns": [],
+        "calculation_groups": [],
+        "columns": [
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "event_id",
+            "object_id": "pbi_column_e2718edd10c401b2",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "event_id"
+            },
+            "source_column": "event_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/dim_event.tmdl",
+              "line": 2
+            },
+            "table": "dim_event"
+          },
+          {
+            "data_type": "string",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "event_name",
+            "object_id": "pbi_column_3f68c1bda0a10031",
+            "properties": {
+              "dataType": "string",
+              "sourceColumn": "event_name"
+            },
+            "source_column": "event_name",
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/dim_event.tmdl",
+              "line": 6
+            },
+            "table": "dim_event"
+          },
+          {
+            "data_type": "double",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "amount",
+            "object_id": "pbi_column_001209fc7392498c",
+            "properties": {
+              "dataType": "double",
+              "sourceColumn": "amount"
+            },
+            "source_column": "amount",
+            "source_location": {
+              "column": 5,
+              "end_line": 18,
+              "file": "tables/fact_activity.tmdl",
+              "line": 15
+            },
+            "table": "fact_activity"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "athlete_id",
+            "object_id": "pbi_column_fbad3785a7b667e0",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "athlete_id"
+            },
+            "source_column": "athlete_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 10,
+              "file": "tables/fact_activity.tmdl",
+              "line": 7
+            },
+            "table": "fact_activity"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "event_id",
+            "object_id": "pbi_column_06f2d29a48388329",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "event_id"
+            },
+            "source_column": "event_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 14,
+              "file": "tables/fact_activity.tmdl",
+              "line": 11
+            },
+            "table": "fact_activity"
+          },
+          {
+            "data_type": "boolean",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "is_valid",
+            "object_id": "pbi_column_fba9c64ad972fa19",
+            "properties": {
+              "dataType": "boolean",
+              "sourceColumn": "is_valid"
+            },
+            "source_column": "is_valid",
+            "source_location": {
+              "column": 5,
+              "end_line": 22,
+              "file": "tables/fact_activity.tmdl",
+              "line": 19
+            },
+            "table": "fact_activity"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "result_id",
+            "object_id": "pbi_column_efb0acbacad8280f",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "result_id"
+            },
+            "source_column": "result_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 6,
+              "file": "tables/fact_activity.tmdl",
+              "line": 3
+            },
+            "table": "fact_activity"
+          }
+        ],
+        "dependency_graph": {
+          "edges": [
+            {
+              "from": "pbi_measure_048cc4e251ba22ac",
+              "to": "pbi_measure_2e8bdc5aafd63251"
+            },
+            {
+              "from": "pbi_measure_048cc4e251ba22ac",
+              "to": "pbi_measure_96527f69a5aeaf1d"
+            }
+          ],
+          "nodes": [
+            "pbi_measure_2e8bdc5aafd63251",
+            "pbi_measure_8b2f93f2a4353da1",
+            "pbi_measure_6ebb10c05462dec8",
+            "pbi_measure_048cc4e251ba22ac",
+            "pbi_measure_96527f69a5aeaf1d"
+          ]
+        },
+        "diagnostics": [],
+        "extraction_version": "powerbi-tmdl-inventory-v1",
+        "hierarchies": [],
+        "measures": [
+          {
+            "analysis": {
+              "ast": {
+                "column": "athlete_id",
+                "kind": "COLUMN_COUNT",
+                "table": "fact_activity"
+              },
+              "column_dependencies": [
+                "fact_activity[athlete_id]"
+              ],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "count(fact_activityathlete_id)",
+              "pattern": "COLUMN_COUNT",
+              "supported": true,
+              "table_dependencies": [
+                "fact_activity"
+              ]
+            },
+            "dependency_object_ids": [],
+            "description": "Count of nonblank athlete identifiers.",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "COUNT(fact_activity[athlete_id])",
+            "expression_hash": "16e47088d8bff3b61fd8342ed778d5dfa0f13466912dc8a98e120d54a47fe06e",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Athlete Rows",
+            "object_id": "pbi_measure_2e8bdc5aafd63251",
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/Measures.tmdl",
+              "line": 7
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "column": "athlete_id",
+                "kind": "DISTINCT_COUNT",
+                "table": "fact_activity"
+              },
+              "column_dependencies": [
+                "fact_activity[athlete_id]"
+              ],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "distinctcount(fact_activityathlete_id)",
+              "pattern": "DISTINCT_COUNT",
+              "supported": true,
+              "table_dependencies": [
+                "fact_activity"
+              ]
+            },
+            "dependency_object_ids": [],
+            "description": "Distinct athletes, including one blank identity when present.",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "DISTINCTCOUNT(fact_activity[athlete_id])",
+            "expression_hash": "f18487b8e95cd6cf54a476e335591fe237d45d8c5a044bd015c5fdf013ab42ce",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Distinct Athletes",
+            "object_id": "pbi_measure_8b2f93f2a4353da1",
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/Measures.tmdl",
+              "line": 11
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "column": "amount",
+                "kind": "SUM",
+                "table": "fact_activity"
+              },
+              "column_dependencies": [
+                "fact_activity[amount]"
+              ],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "sum(fact_activityamount)",
+              "pattern": "SUM",
+              "supported": true,
+              "table_dependencies": [
+                "fact_activity"
+              ]
+            },
+            "dependency_object_ids": [],
+            "description": "Total additive amount.",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "SUM(fact_activity[amount])",
+            "expression_hash": "23cabd9746e46b99629eeb7b6e06528bb2cd05b3ed5c5d146103cdc7405f467e",
+            "format_string": "#,0.00",
+            "lineage_tag": null,
+            "name": "Total Amount",
+            "object_id": "pbi_measure_6ebb10c05462dec8",
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/Measures.tmdl",
+              "line": 3
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "denominator": "Athlete Rows",
+                "kind": "RATIO",
+                "numerator": "Valid Rows"
+              },
+              "column_dependencies": [],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [
+                "Athlete Rows",
+                "Valid Rows"
+              ],
+              "normalized_expression": "divide(valid rows,athlete rows)",
+              "pattern": "RATIO",
+              "supported": true,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [
+              "pbi_measure_2e8bdc5aafd63251",
+              "pbi_measure_96527f69a5aeaf1d"
+            ],
+            "description": "Share of athlete rows that are valid.",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "DIVIDE([Valid Rows], [Athlete Rows])",
+            "expression_hash": "16a36667f1c6d66e0eb2e61d40142e313d252813769257300209410a60245a2b",
+            "format_string": "0.0%",
+            "lineage_tag": null,
+            "name": "Valid Rate",
+            "object_id": "pbi_measure_048cc4e251ba22ac",
+            "source_location": {
+              "column": 5,
+              "end_line": 20,
+              "file": "tables/Measures.tmdl",
+              "line": 19
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "filters": [
+                  {
+                    "column": "is_valid",
+                    "operator": "EQ",
+                    "table": "fact_activity",
+                    "value": true
+                  }
+                ],
+                "kind": "FILTERED_COUNT",
+                "table": "fact_activity"
+              },
+              "column_dependencies": [
+                "fact_activity[is_valid]"
+              ],
+              "diagnostics": [],
+              "filters": [
+                {
+                  "column": "is_valid",
+                  "operator": "EQ",
+                  "table": "fact_activity",
+                  "value": true
+                }
+              ],
+              "measure_dependencies": [],
+              "normalized_expression": "calculate(countrows(fact_activity),fact_activityis_valid=true())",
+              "pattern": "FILTERED_COUNT",
+              "supported": true,
+              "table_dependencies": [
+                "fact_activity"
+              ]
+            },
+            "dependency_object_ids": [],
+            "description": "Valid activity rows.",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "CALCULATE(COUNTROWS(fact_activity), fact_activity[is_valid] = TRUE())",
+            "expression_hash": "b1ce47a76b39530097867fd76eef7e4cf384ff1db27795bdc934afe4fd1c6517",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Valid Rows",
+            "object_id": "pbi_measure_96527f69a5aeaf1d",
+            "source_location": {
+              "column": 5,
+              "end_line": 17,
+              "file": "tables/Measures.tmdl",
+              "line": 15
+            },
+            "table": "Measures"
+          }
+        ],
+        "model": {
+          "compatibility_level": 1600,
+          "culture": "en-US",
+          "definition_path": "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition",
+          "name": "a_supported",
+          "object_id": "pbi_model_425df545bf8e78c3",
+          "source_tree_hash": "b05e2de196a5fe17641041d34b0bcac974c8f2a433afc8178d42d17fd6dafc27",
+          "tmdl_model_name": "Model"
+        },
+        "object_support_records": [
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_e2718edd10c401b2",
+            "object_kind": "COLUMN",
+            "object_name": "dim_event[event_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/dim_event.tmdl",
+              "line": 2
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_3f68c1bda0a10031",
+            "object_kind": "COLUMN",
+            "object_name": "dim_event[event_name]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/dim_event.tmdl",
+              "line": 6
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_001209fc7392498c",
+            "object_kind": "COLUMN",
+            "object_name": "fact_activity[amount]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 18,
+              "file": "tables/fact_activity.tmdl",
+              "line": 15
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_fbad3785a7b667e0",
+            "object_kind": "COLUMN",
+            "object_name": "fact_activity[athlete_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 10,
+              "file": "tables/fact_activity.tmdl",
+              "line": 7
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_06f2d29a48388329",
+            "object_kind": "COLUMN",
+            "object_name": "fact_activity[event_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 14,
+              "file": "tables/fact_activity.tmdl",
+              "line": 11
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_fba9c64ad972fa19",
+            "object_kind": "COLUMN",
+            "object_name": "fact_activity[is_valid]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 22,
+              "file": "tables/fact_activity.tmdl",
+              "line": 19
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_efb0acbacad8280f",
+            "object_kind": "COLUMN",
+            "object_name": "fact_activity[result_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 6,
+              "file": "tables/fact_activity.tmdl",
+              "line": 3
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_MEASURE_SUPPORTED_EXACT",
+            "confidence": "PROVEN",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_measure_2e8bdc5aafd63251",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Athlete Rows]",
+            "recognized_pattern": "COLUMN_COUNT",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/Measures.tmdl",
+              "line": 7
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_MEASURE_SUPPORTED_EXACT",
+            "confidence": "PROVEN",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_measure_8b2f93f2a4353da1",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Distinct Athletes]",
+            "recognized_pattern": "DISTINCT_COUNT",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/Measures.tmdl",
+              "line": 11
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_MEASURE_SUPPORTED_EXACT",
+            "confidence": "PROVEN",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_measure_6ebb10c05462dec8",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Total Amount]",
+            "recognized_pattern": "SUM",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/Measures.tmdl",
+              "line": 3
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_MEASURE_SUPPORTED_EXACT",
+            "confidence": "PROVEN",
+            "dependencies": [
+              "pbi_measure_2e8bdc5aafd63251",
+              "pbi_measure_96527f69a5aeaf1d"
+            ],
+            "diagnostics": [],
+            "object_id": "pbi_measure_048cc4e251ba22ac",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Valid Rate]",
+            "recognized_pattern": "RATIO",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 20,
+              "file": "tables/Measures.tmdl",
+              "line": 19
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_MEASURE_SUPPORTED_EXACT",
+            "confidence": "PROVEN",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_measure_96527f69a5aeaf1d",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Valid Rows]",
+            "recognized_pattern": "FILTERED_COUNT",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 17,
+              "file": "tables/Measures.tmdl",
+              "line": 15
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_MODEL_DISCOVERY_EVIDENCE",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_model_425df545bf8e78c3",
+            "object_kind": "MODEL",
+            "object_name": "a_supported",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "model.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PARTITION_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_partition_6b6af984d6f2fbb1",
+            "object_kind": "PARTITION",
+            "object_name": "dim_event[dim_event]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/dim_event.tmdl",
+              "line": 10
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PARTITION_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_partition_c9581e5b2d206f3e",
+            "object_kind": "PARTITION",
+            "object_name": "fact_activity[fact_activity]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 26,
+              "file": "tables/fact_activity.tmdl",
+              "line": 23
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_RELATIONSHIP_EXACT_MATCH",
+            "confidence": "PROVEN",
+            "dependencies": [
+              "fact_activity[event_id]",
+              "dim_event[event_id]"
+            ],
+            "diagnostics": [
+              {
+                "code": "PBI_RELATIONSHIP_EXACT_MATCH",
+                "message": "Canonical relationship fact_to_event matches the Power BI target.",
+                "severity": "ERROR"
+              }
+            ],
+            "object_id": "pbi_relationship_67b04e3c66b128b7",
+            "object_kind": "RELATIONSHIP",
+            "object_name": "fact_to_event",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "end_line": 4,
+              "file": "relationships.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_table_650cfc0647266c3a",
+            "object_kind": "TABLE",
+            "object_name": "dim_event",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/dim_event.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_table_1669af61be9bcfbd",
+            "object_kind": "TABLE",
+            "object_name": "fact_activity",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/fact_activity.tmdl",
+              "line": 2
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_table_b17ae0652c74b1c7",
+            "object_kind": "TABLE",
+            "object_name": "Measures",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/Measures.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          }
+        ],
+        "partitions": [
+          {
+            "import_support_classification": "TARGET_SPECIFIC",
+            "mode": "import",
+            "name": "dim_event",
+            "object_id": "pbi_partition_6b6af984d6f2fbb1",
+            "source_expression_hash": "e4237d71c24be5a65bf3a33fb82035e16c149fe2eca0509553a6add9353ddf95",
+            "source_expression_redacted": "<REDACTED:source-expression>",
+            "source_kind": "M_EXPRESSION",
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/dim_event.tmdl",
+              "line": 10
+            },
+            "table": "dim_event"
+          },
+          {
+            "import_support_classification": "TARGET_SPECIFIC",
+            "mode": "import",
+            "name": "fact_activity",
+            "object_id": "pbi_partition_c9581e5b2d206f3e",
+            "source_expression_hash": "f385c3372300edac73c9f0767f675319b2c59c9ff5fce70d7223f3e1b88efc3c",
+            "source_expression_redacted": "<REDACTED:source-expression>",
+            "source_kind": "M_EXPRESSION",
+            "source_location": {
+              "column": 5,
+              "end_line": 26,
+              "file": "tables/fact_activity.tmdl",
+              "line": 23
+            },
+            "table": "fact_activity"
+          }
+        ],
+        "relationships": [
+          {
+            "cross_filter_direction": "oneDirection",
+            "cross_filter_direction_explicit": false,
+            "from": {
+              "column": "event_id",
+              "table": "fact_activity"
+            },
+            "from_cardinality": "many",
+            "from_cardinality_explicit": false,
+            "is_active": true,
+            "is_active_explicit": true,
+            "name": "fact_to_event",
+            "object_id": "pbi_relationship_67b04e3c66b128b7",
+            "raw_properties": {
+              "fromColumn": "fact_activity.event_id",
+              "isActive": "true",
+              "toColumn": "dim_event.event_id"
+            },
+            "source_location": {
+              "column": 1,
+              "end_line": 4,
+              "file": "relationships.tmdl",
+              "line": 1
+            },
+            "to": {
+              "column": "event_id",
+              "table": "dim_event"
+            },
+            "to_cardinality": "one",
+            "to_cardinality_explicit": false
+          }
+        ],
+        "report_references": [],
+        "roles": [],
+        "schema_version": 2,
+        "semantic_hash": "0c89ad220d0a8a718b2e96f1bc91ff0dbd117d1acb5439c0951c3445eaf452fa",
+        "tables": [
+          {
+            "column_ids": [
+              "pbi_column_e2718edd10c401b2",
+              "pbi_column_3f68c1bda0a10031"
+            ],
+            "description": "",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "measure_ids": [],
+            "name": "dim_event",
+            "object_id": "pbi_table_650cfc0647266c3a",
+            "partition_ids": [
+              "pbi_partition_6b6af984d6f2fbb1"
+            ],
+            "source_location": {
+              "column": 1,
+              "file": "tables/dim_event.tmdl",
+              "line": 1
+            }
+          },
+          {
+            "column_ids": [
+              "pbi_column_001209fc7392498c",
+              "pbi_column_fbad3785a7b667e0",
+              "pbi_column_06f2d29a48388329",
+              "pbi_column_fba9c64ad972fa19",
+              "pbi_column_efb0acbacad8280f"
+            ],
+            "description": "One row per benchmark activity.",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "measure_ids": [],
+            "name": "fact_activity",
+            "object_id": "pbi_table_1669af61be9bcfbd",
+            "partition_ids": [
+              "pbi_partition_c9581e5b2d206f3e"
+            ],
+            "source_location": {
+              "column": 1,
+              "file": "tables/fact_activity.tmdl",
+              "line": 2
+            }
+          },
+          {
+            "column_ids": [],
+            "description": "",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "measure_ids": [
+              "pbi_measure_2e8bdc5aafd63251",
+              "pbi_measure_8b2f93f2a4353da1",
+              "pbi_measure_6ebb10c05462dec8",
+              "pbi_measure_048cc4e251ba22ac",
+              "pbi_measure_96527f69a5aeaf1d"
+            ],
+            "name": "Measures",
+            "object_id": "pbi_table_b17ae0652c74b1c7",
+            "partition_ids": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/Measures.tmdl",
+              "line": 1
+            }
+          }
+        ]
+      },
+      "recognized_patterns": [
+        {
+          "classification": "SUPPORTED_EXACT",
+          "pattern": "COLUMN_COUNT",
+          "source_object": "Measures[Athlete Rows]"
+        },
+        {
+          "classification": "SUPPORTED_EXACT",
+          "pattern": "DISTINCT_COUNT",
+          "source_object": "Measures[Distinct Athletes]"
+        },
+        {
+          "classification": "SUPPORTED_EXACT",
+          "pattern": "SUM",
+          "source_object": "Measures[Total Amount]"
+        },
+        {
+          "classification": "SUPPORTED_EXACT",
+          "pattern": "RATIO",
+          "source_object": "Measures[Valid Rate]"
+        },
+        {
+          "classification": "SUPPORTED_EXACT",
+          "pattern": "FILTERED_COUNT",
+          "source_object": "Measures[Valid Rows]"
+        }
+      ],
+      "repository_snowflake": [
+        {
+          "access_modifier": "private_access",
+          "description": "Count of nonblank athlete identifiers.",
+          "expr": "COUNT(athlete_id)",
+          "name": "athlete_rows",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "Distinct athletes, including one blank identity when present.",
+          "expr": "COUNT(DISTINCT athlete_id) + IFF(COUNT_IF(athlete_id IS NULL) > 0, 1, 0)",
+          "name": "distinct_athletes",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "Total additive amount.",
+          "expr": "SUM(amount)",
+          "name": "total_amount",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "Share of athlete rows that are valid.",
+          "expr": "activities.valid_rows / NULLIF(activities.athlete_rows, 0)",
+          "name": "valid_rate",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "Valid activity rows.",
+          "expr": "COUNT_IF(is_valid)",
+          "name": "valid_rows",
+          "synonyms": []
+        }
+      ],
+      "semantic_content_sha256": "c6dbe5552695af8345b0c67356071bffd913b864951838044a07c4576ee45f7b",
+      "source_snapshot_sha256": "b05e2de196a5fe17641041d34b0bcac974c8f2a433afc8178d42d17fd6dafc27"
+    },
+    {
+      "actual_metric_failures": [
+        "Hours",
+        "Identifier Total"
+      ],
+      "autopilot_status": "SYNTHETIC_TEST_FIXTURE",
+      "candidate_ir": [
+        null,
+        {
+          "canonical_metric": "duration_hours",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": null,
+          "filters": [],
+          "numerator": null,
+          "pattern": "SCALED_SUM",
+          "public": false,
+          "scale_divisor": "3600",
+          "source_entity": "trap",
+          "source_field": "duration_seconds",
+          "source_logical_table": "traps",
+          "source_physical_table": "fact_traps",
+          "source_semantic_model": "benchmark_traps",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:duration_hours"
+        },
+        {
+          "canonical_metric": "identifier_count",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": null,
+          "filters": [],
+          "numerator": null,
+          "pattern": "DISTINCT_COUNT",
+          "public": false,
+          "scale_divisor": null,
+          "source_entity": "trap",
+          "source_field": "numeric_id",
+          "source_logical_table": "traps",
+          "source_physical_table": "fact_traps",
+          "source_semantic_model": "benchmark_traps",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:identifier_count"
+        },
+        {
+          "canonical_metric": "rate_total",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": null,
+          "filters": [],
+          "numerator": null,
+          "pattern": "SUM",
+          "public": false,
+          "publication_decision": "UNDECIDED_PRIVATE_DEFAULT",
+          "required_mappings": [
+            "canonical.semantic_model",
+            "canonical.entity",
+            "canonical.snowflake.logical_table"
+          ],
+          "scale_divisor": null,
+          "source_entity": null,
+          "source_field": "success_rate",
+          "source_logical_table": null,
+          "source_physical_table": "fact_traps",
+          "source_semantic_model": null,
+          "trace_id": "powerbi-import:pbi_measure_f6439145a19e94e6"
+        },
+        {
+          "canonical_metric": "rows",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": null,
+          "filters": [],
+          "numerator": null,
+          "pattern": "COUNT",
+          "public": false,
+          "scale_divisor": null,
+          "source_entity": "trap",
+          "source_field": "*",
+          "source_logical_table": "traps",
+          "source_physical_table": "fact_traps",
+          "source_semantic_model": "benchmark_traps",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:rows"
+        },
+        {
+          "canonical_metric": "valid_rate",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": "rows",
+          "filters": [],
+          "numerator": "valid_rows",
+          "pattern": "RATIO",
+          "public": false,
+          "scale_divisor": null,
+          "source_entity": "trap",
+          "source_field": null,
+          "source_logical_table": "traps",
+          "source_physical_table": "fact_traps",
+          "source_semantic_model": "benchmark_traps",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:valid_rate"
+        },
+        {
+          "canonical_metric": "valid_rows",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": null,
+          "filters": [
+            {
+              "field": "is_valid",
+              "operator": "EQ",
+              "value": true
+            }
+          ],
+          "numerator": null,
+          "pattern": "FILTERED_COUNT",
+          "public": false,
+          "scale_divisor": null,
+          "source_entity": "trap",
+          "source_field": "*",
+          "source_logical_table": "traps",
+          "source_physical_table": "fact_traps",
+          "source_semantic_model": "benchmark_traps",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:valid_rows"
+        }
+      ],
+      "expected_metric_failures": [
+        "Hours",
+        "Identifier Total"
+      ],
+      "expected_outcome_observed": true,
+      "findings": [
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "valid_rate",
+          "category": "EXACT_MATCH",
+          "evidence": [
+            "The supported Power BI AST equals the deterministic canonical regeneration.",
+            "Canonical metric: valid_rate"
+          ],
+          "finding_id": "fnd_c25ee9e28605c6b5",
+          "generated_expression": "traps.valid_rows / NULLIF(traps.rows, 0)",
+          "generated_object": "valid_rate",
+          "recommended_correction": "Explicitly accept the exact canonical mapping.",
+          "rule_id": "COMPARE_SUPPORTED_SEMANTICS",
+          "severity": "INFO",
+          "source_expression": "DIVIDE([Valid Rows], [Rows])",
+          "source_object": "Measures[Bad Percent]",
+          "source_object_id": "pbi_measure_7362ee25377caef4",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "rows",
+          "category": "EXACT_MATCH",
+          "evidence": [
+            "The supported Power BI AST equals the deterministic canonical regeneration.",
+            "Canonical metric: rows"
+          ],
+          "finding_id": "fnd_801bdf33651ee972",
+          "generated_expression": "COUNT(*)",
+          "generated_object": "rows",
+          "recommended_correction": "Explicitly accept the exact canonical mapping.",
+          "rule_id": "COMPARE_SUPPORTED_SEMANTICS",
+          "severity": "INFO",
+          "source_expression": "COUNTROWS(fact_traps)",
+          "source_object": "Measures[Rows]",
+          "source_object_id": "pbi_measure_c5f6cf421788986a",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "valid_rows",
+          "category": "EXACT_MATCH",
+          "evidence": [
+            "The supported Power BI AST equals the deterministic canonical regeneration.",
+            "Canonical metric: valid_rows"
+          ],
+          "finding_id": "fnd_9343f578e5d0ed6d",
+          "generated_expression": "COUNT_IF(is_valid)",
+          "generated_object": "valid_rows",
+          "recommended_correction": "Explicitly accept the exact canonical mapping.",
+          "rule_id": "COMPARE_SUPPORTED_SEMANTICS",
+          "severity": "INFO",
+          "source_expression": "CALCULATE(COUNTROWS(fact_traps), fact_traps[is_valid] = TRUE())",
+          "source_object": "Measures[Valid Rows]",
+          "source_object_id": "pbi_measure_96527f69a5aeaf1d",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "GENERATED_DESCRIPTION_UNVERIFIED",
+          "evidence": [
+            "Uncertain generated-description terms: likely"
+          ],
+          "finding_id": "fnd_53e19af120db604e",
+          "generated_expression": "success_rate",
+          "generated_object": "Bad Percent",
+          "recommended_correction": "Use the reviewed canonical description; do not promote uncertain generated prose.",
+          "rule_id": "LINT_GENERATED_DESCRIPTION_UNCERTAIN",
+          "severity": "WARNING",
+          "source_expression": null,
+          "source_object": "Autopilot dimension Bad Percent",
+          "source_object_id": "autopilot:dimensions:traps:Bad Percent",
+          "source_support": "AUTOPILOT_EVIDENCE"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "AGGREGATION_MISMATCH",
+          "evidence": [
+            "Generated object name 'sum_of_success_rate' uses SUM_OF naming."
+          ],
+          "finding_id": "fnd_1f14ae9f7f8e13b1",
+          "generated_expression": "SUM(success_rate)",
+          "generated_object": "sum_of_success_rate",
+          "recommended_correction": "Confirm additivity and use the exact canonical target name.",
+          "rule_id": "LINT_AUTOPILOT_SUM_OF_NAME",
+          "severity": "WARNING",
+          "source_expression": null,
+          "source_object": "Autopilot metric sum_of_success_rate",
+          "source_object_id": "autopilot:metrics:traps:sum_of_success_rate",
+          "source_support": "AUTOPILOT_EVIDENCE"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "GENERATED_DESCRIPTION_UNVERIFIED",
+          "evidence": [
+            "Uncertain generated-description terms: possibly"
+          ],
+          "finding_id": "fnd_5ab4566e744842fe",
+          "generated_expression": "SUM(success_rate)",
+          "generated_object": "sum_of_success_rate",
+          "recommended_correction": "Use the reviewed canonical description; do not promote uncertain generated prose.",
+          "rule_id": "LINT_GENERATED_DESCRIPTION_UNCERTAIN",
+          "severity": "WARNING",
+          "source_expression": null,
+          "source_object": "Autopilot metric sum_of_success_rate",
+          "source_object_id": "autopilot:metrics:traps:sum_of_success_rate",
+          "source_support": "AUTOPILOT_EVIDENCE"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "SEMANTIC_ROLE_MISMATCH",
+          "evidence": [
+            "A Power BI measure was emitted as a Snowflake dimension."
+          ],
+          "finding_id": "fnd_ab2e701fdd17d6bd",
+          "generated_expression": "success_rate",
+          "generated_object": "Bad Percent",
+          "recommended_correction": "Map the object to a deterministic canonical metric.",
+          "rule_id": "LINT_NUMERIC_MEASURE_AS_DIMENSION",
+          "severity": "BLOCKING",
+          "source_expression": "DIVIDE([Valid Rows], [Rows])",
+          "source_object": "Autopilot dimension Bad Percent",
+          "source_object_id": "autopilot:dimensions:traps:Bad Percent",
+          "source_support": "AUTOPILOT_EVIDENCE"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "SEMANTIC_ROLE_MISMATCH",
+          "evidence": [
+            "Identifier column 'numeric_id' was emitted as an additive fact."
+          ],
+          "finding_id": "fnd_254ac9fd7b0565a5",
+          "generated_expression": "numeric_id",
+          "generated_object": "numeric_id",
+          "recommended_correction": "Use the canonical key/dimension role and exclude the generated fact mapping.",
+          "rule_id": "LINT_AUTOPILOT_FACT_ROLE",
+          "severity": "BLOCKING",
+          "source_expression": null,
+          "source_object": "Autopilot fact numeric_id",
+          "source_object_id": "autopilot:facts:traps:numeric_id",
+          "source_support": "AUTOPILOT_EVIDENCE"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "TYPE_MISMATCH",
+          "evidence": [
+            "Text column 'Total Measure' was emitted as a fact."
+          ],
+          "finding_id": "fnd_024aaaae65a8a394",
+          "generated_expression": "total_measure",
+          "generated_object": "Total Measure",
+          "recommended_correction": "Use the canonical key/dimension role and exclude the generated fact mapping.",
+          "rule_id": "LINT_AUTOPILOT_FACT_ROLE",
+          "severity": "BLOCKING",
+          "source_expression": null,
+          "source_object": "Autopilot fact Total Measure",
+          "source_object_id": "autopilot:facts:traps:Total Measure",
+          "source_support": "AUTOPILOT_EVIDENCE"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "valid_rate",
+          "category": "OMITTED_OBJECT",
+          "evidence": [
+            "A supported source measure is absent from the supplied Autopilot YAML."
+          ],
+          "finding_id": "fnd_d230c8efd5ff5299",
+          "generated_expression": null,
+          "generated_object": "valid_rate",
+          "recommended_correction": "Use the governed repository mapping or correct the exported Autopilot definition.",
+          "rule_id": "LINT_AUTOPILOT_OMITTED_SUPPORTED_MEASURE",
+          "severity": "BLOCKING",
+          "source_expression": null,
+          "source_object": "Measures[Bad Percent]",
+          "source_object_id": "pbi_measure_7362ee25377caef4",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "valid_rate",
+          "category": "FORMAT_MISMATCH",
+          "evidence": [
+            "The measure is a ratio/percentage by AST or name.",
+            "Observed Power BI format string: 0.00."
+          ],
+          "finding_id": "fnd_089bb2b76c6d0b57",
+          "generated_expression": "traps.valid_rows / NULLIF(traps.rows, 0)",
+          "generated_object": "valid_rate",
+          "recommended_correction": "Map to a canonical percentage format and regenerate both targets.",
+          "rule_id": "LINT_PERCENTAGE_FORMAT",
+          "severity": "BLOCKING",
+          "source_expression": "DIVIDE([Valid Rows], [Rows])",
+          "source_object": "Measures[Bad Percent]",
+          "source_object_id": "pbi_measure_7362ee25377caef4",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "duration_hours",
+          "category": "FORMULA_MISMATCH",
+          "evidence": [
+            "scale_divisor"
+          ],
+          "finding_id": "fnd_62f44c322ef197a6",
+          "generated_expression": "SUM(duration_seconds) / 3600",
+          "generated_object": "duration_hours",
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_FORMULA_AST",
+          "severity": "BLOCKING",
+          "source_expression": "SUM(fact_traps[duration_seconds]) / 60",
+          "source_object": "Measures[Hours]",
+          "source_object_id": "pbi_measure_a6591b649bbf476e",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "duration_hours",
+          "category": "UNIT_CONVERSION_MISMATCH",
+          "evidence": [
+            "The source field/expression is seconds while the measure is labelled as hours.",
+            "Observed divisor: 60; required seconds-to-hours divisor: 3600."
+          ],
+          "finding_id": "fnd_15fe871fa1b58924",
+          "generated_expression": "SUM(duration_seconds) / 3600",
+          "generated_object": "duration_hours",
+          "recommended_correction": "Create or map to a canonical scaled-sum metric with divisor 3600.",
+          "rule_id": "LINT_TIME_UNIT_CONVERSION",
+          "severity": "BLOCKING",
+          "source_expression": "SUM(fact_traps[duration_seconds]) / 60",
+          "source_object": "Measures[Hours]",
+          "source_object_id": "pbi_measure_a6591b649bbf476e",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "identifier_count",
+          "category": "FORMULA_MISMATCH",
+          "evidence": [
+            "pattern"
+          ],
+          "finding_id": "fnd_610b35db41295a2d",
+          "generated_expression": "COUNT(DISTINCT numeric_id) + IFF(COUNT_IF(numeric_id IS NULL) > 0, 1, 0)",
+          "generated_object": "identifier_count",
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_FORMULA_AST",
+          "severity": "BLOCKING",
+          "source_expression": "SUM(fact_traps[numeric_id])",
+          "source_object": "Measures[Identifier Total]",
+          "source_object_id": "pbi_measure_20707064b0d8f2fd",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "identifier_count",
+          "category": "SEMANTIC_ROLE_MISMATCH",
+          "evidence": [
+            "Column 'numeric_id' has identifier/key naming but is summed."
+          ],
+          "finding_id": "fnd_406ee6d2ec577e9b",
+          "generated_expression": "COUNT(DISTINCT numeric_id) + IFF(COUNT_IF(numeric_id IS NULL) > 0, 1, 0)",
+          "generated_object": "identifier_count",
+          "recommended_correction": "Map the identifier as a dimension/key or use an explicit count metric.",
+          "rule_id": "LINT_IDENTIFIER_AS_FACT",
+          "severity": "BLOCKING",
+          "source_expression": "SUM(fact_traps[numeric_id])",
+          "source_object": "Measures[Identifier Total]",
+          "source_object_id": "pbi_measure_20707064b0d8f2fd",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "UNSUPPORTED_SOURCE_CONSTRUCT",
+          "evidence": [
+            "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+            "IMPORT_MAPPING_MISSING"
+          ],
+          "finding_id": "fnd_08ef87d4c78aace4",
+          "generated_expression": null,
+          "generated_object": null,
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_UNSUPPORTED_DAX",
+          "severity": "BLOCKING",
+          "source_expression": "CALCULATE(COUNTROWS(fact_traps), USERELATIONSHIP(fact_traps[alternate_dimension_id], dim_trap[dimension_id]))",
+          "source_object": "Measures[Inactive Rows]",
+          "source_object_id": "pbi_measure_964c4bb4236243a1",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "MANUAL_REVIEW_REQUIRED",
+          "evidence": [
+            "IMPORT_MAPPING_MISSING",
+            "IMPORT_NEW_METRIC_DRAFT"
+          ],
+          "finding_id": "fnd_fce410c6502bac21",
+          "generated_expression": "SUM(success_rate)",
+          "generated_object": "rate_total",
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_MAPPING_UNRESOLVED",
+          "severity": "BLOCKING",
+          "source_expression": "SUM(fact_traps[success_rate])",
+          "source_object": "Measures[Rate Total]",
+          "source_object_id": "pbi_measure_f6439145a19e94e6",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "AGGREGATION_MISMATCH",
+          "evidence": [
+            "A percentage/rate is exposed through additive SUM semantics."
+          ],
+          "finding_id": "fnd_2d5137650f86900f",
+          "generated_expression": "SUM(success_rate)",
+          "generated_object": "rate_total",
+          "recommended_correction": "Represent the value as a canonical ratio or explicit non-additive metric.",
+          "rule_id": "LINT_NON_ADDITIVE_RATIO",
+          "severity": "BLOCKING",
+          "source_expression": "SUM(fact_traps[success_rate])",
+          "source_object": "Measures[Rate Total]",
+          "source_object_id": "pbi_measure_f6439145a19e94e6",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "FORMAT_MISMATCH",
+          "evidence": [
+            "The measure is a ratio/percentage by AST or name.",
+            "Observed Power BI format string: 0.00."
+          ],
+          "finding_id": "fnd_4a9cdee4b245ee13",
+          "generated_expression": "SUM(success_rate)",
+          "generated_object": "rate_total",
+          "recommended_correction": "Map to a canonical percentage format and regenerate both targets.",
+          "rule_id": "LINT_PERCENTAGE_FORMAT",
+          "severity": "BLOCKING",
+          "source_expression": "SUM(fact_traps[success_rate])",
+          "source_object": "Measures[Rate Total]",
+          "source_object_id": "pbi_measure_f6439145a19e94e6",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "rows",
+          "category": "OMITTED_OBJECT",
+          "evidence": [
+            "A supported source measure is absent from the supplied Autopilot YAML."
+          ],
+          "finding_id": "fnd_a903d541229b54e5",
+          "generated_expression": null,
+          "generated_object": "rows",
+          "recommended_correction": "Use the governed repository mapping or correct the exported Autopilot definition.",
+          "rule_id": "LINT_AUTOPILOT_OMITTED_SUPPORTED_MEASURE",
+          "severity": "BLOCKING",
+          "source_expression": null,
+          "source_object": "Measures[Rows]",
+          "source_object_id": "pbi_measure_c5f6cf421788986a",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "valid_rows",
+          "category": "OMITTED_OBJECT",
+          "evidence": [
+            "A supported source measure is absent from the supplied Autopilot YAML."
+          ],
+          "finding_id": "fnd_b2c14cf131a75c63",
+          "generated_expression": null,
+          "generated_object": "valid_rows",
+          "recommended_correction": "Use the governed repository mapping or correct the exported Autopilot definition.",
+          "rule_id": "LINT_AUTOPILOT_OMITTED_SUPPORTED_MEASURE",
+          "severity": "BLOCKING",
+          "source_expression": null,
+          "source_object": "Measures[Valid Rows]",
+          "source_object_id": "pbi_measure_96527f69a5aeaf1d",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "RELATIONSHIP_MISMATCH",
+          "evidence": [
+            "PBI_INACTIVE_RELATIONSHIP_DEPENDENCY",
+            "Inactive relationship inactive_dimension is referenced by: Inactive Rows."
+          ],
+          "finding_id": "fnd_c42f805a6176f258",
+          "generated_expression": null,
+          "generated_object": "pbi_relationship_e318163415397e0a",
+          "recommended_correction": "Resolve the relationship against an exact canonical relationship or explicitly exclude the dependent object.",
+          "rule_id": "LINT_RELATIONSHIP_DRIFT",
+          "severity": "BLOCKING",
+          "source_expression": null,
+          "source_object": "pbi_relationship_e318163415397e0a",
+          "source_object_id": "pbi_relationship_e318163415397e0a",
+          "source_support": "INACTIVE_RELATIONSHIP_DEPENDENCY"
+        }
+      ],
+      "fixture_id": "B_SEMANTIC_TRAPS",
+      "golden_results": [
+        {
+          "direct_reference_sql": "0.6666666666666666666666666667",
+          "pattern": "RATIO",
+          "power_bi_dax_evaluator": "0.6666666666666666666666666667",
+          "reference_match": true,
+          "repository_match": true,
+          "repository_snowflake_evaluator": "0.6666666666666666666666666667",
+          "source_measure": "Bad Percent",
+          "status": "PASS"
+        },
+        {
+          "direct_reference_sql": "105",
+          "pattern": "SCALED_SUM",
+          "power_bi_dax_evaluator": "105",
+          "reference_match": true,
+          "repository_match": false,
+          "repository_snowflake_evaluator": "1.75",
+          "source_measure": "Hours",
+          "status": "FAIL"
+        },
+        {
+          "direct_reference_sql": "3006",
+          "pattern": "SUM",
+          "power_bi_dax_evaluator": "3006",
+          "reference_match": true,
+          "repository_match": false,
+          "repository_snowflake_evaluator": 3,
+          "source_measure": "Identifier Total",
+          "status": "FAIL"
+        },
+        {
+          "direct_reference_sql": "1.5",
+          "pattern": "SUM",
+          "power_bi_dax_evaluator": "1.5",
+          "reference_match": true,
+          "repository_match": true,
+          "repository_snowflake_evaluator": "1.5",
+          "source_measure": "Rate Total",
+          "status": "PASS"
+        },
+        {
+          "direct_reference_sql": 3,
+          "pattern": "COUNT",
+          "power_bi_dax_evaluator": 3,
+          "reference_match": true,
+          "repository_match": true,
+          "repository_snowflake_evaluator": 3,
+          "source_measure": "Rows",
+          "status": "PASS"
+        },
+        {
+          "direct_reference_sql": 2,
+          "pattern": "FILTERED_COUNT",
+          "power_bi_dax_evaluator": 2,
+          "reference_match": true,
+          "repository_match": true,
+          "repository_snowflake_evaluator": 2,
+          "source_measure": "Valid Rows",
+          "status": "PASS"
+        }
+      ],
+      "import_id": "imp_20260718T180000Z_00000002",
+      "inventory": {
+        "calculated_columns": [],
+        "calculation_groups": [],
+        "columns": [
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "dimension_id",
+            "object_id": "pbi_column_4462e407832f09d2",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "dimension_id"
+            },
+            "source_column": "dimension_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/dim_trap.tmdl",
+              "line": 2
+            },
+            "table": "dim_trap"
+          },
+          {
+            "data_type": "string",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "label",
+            "object_id": "pbi_column_9971974b366bda15",
+            "properties": {
+              "dataType": "string",
+              "sourceColumn": "label"
+            },
+            "source_column": "label",
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/dim_trap.tmdl",
+              "line": 6
+            },
+            "table": "dim_trap"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "alternate_dimension_id",
+            "object_id": "pbi_column_131872f28a458ed7",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "alternate_dimension_id"
+            },
+            "source_column": "alternate_dimension_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 34,
+              "file": "tables/fact_traps.tmdl",
+              "line": 31
+            },
+            "table": "fact_traps"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "dimension_id",
+            "object_id": "pbi_column_62ccd10165b7e5c2",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "dimension_id"
+            },
+            "source_column": "dimension_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 30,
+              "file": "tables/fact_traps.tmdl",
+              "line": 27
+            },
+            "table": "fact_traps"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "duration_seconds",
+            "object_id": "pbi_column_2e14968e7fa2a6a1",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "duration_seconds"
+            },
+            "source_column": "duration_seconds",
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/fact_traps.tmdl",
+              "line": 6
+            },
+            "table": "fact_traps"
+          },
+          {
+            "data_type": "boolean",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "is_valid",
+            "object_id": "pbi_column_2ddeade3a42df748",
+            "properties": {
+              "dataType": "boolean",
+              "sourceColumn": "is_valid"
+            },
+            "source_column": "is_valid",
+            "source_location": {
+              "column": 5,
+              "end_line": 26,
+              "file": "tables/fact_traps.tmdl",
+              "line": 23
+            },
+            "table": "fact_traps"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "numeric_id",
+            "object_id": "pbi_column_9a1bda725ba67452",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "numeric_id"
+            },
+            "source_column": "numeric_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/fact_traps.tmdl",
+              "line": 10
+            },
+            "table": "fact_traps"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "row_id",
+            "object_id": "pbi_column_ffb18cb5e5248ec6",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "row_id"
+            },
+            "source_column": "row_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/fact_traps.tmdl",
+              "line": 2
+            },
+            "table": "fact_traps"
+          },
+          {
+            "data_type": "double",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": "0.0%",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "success_rate",
+            "object_id": "pbi_column_347bc922d1ed9633",
+            "properties": {
+              "dataType": "double",
+              "formatString": "0.0%",
+              "sourceColumn": "success_rate"
+            },
+            "source_column": "success_rate",
+            "source_location": {
+              "column": 5,
+              "end_line": 18,
+              "file": "tables/fact_traps.tmdl",
+              "line": 14
+            },
+            "table": "fact_traps"
+          },
+          {
+            "data_type": "string",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "Total Measure",
+            "object_id": "pbi_column_932c4df105d70123",
+            "properties": {
+              "dataType": "string",
+              "sourceColumn": "total_measure"
+            },
+            "source_column": "total_measure",
+            "source_location": {
+              "column": 5,
+              "end_line": 22,
+              "file": "tables/fact_traps.tmdl",
+              "line": 19
+            },
+            "table": "fact_traps"
+          }
+        ],
+        "dependency_graph": {
+          "edges": [
+            {
+              "from": "pbi_measure_7362ee25377caef4",
+              "to": "pbi_measure_96527f69a5aeaf1d"
+            },
+            {
+              "from": "pbi_measure_7362ee25377caef4",
+              "to": "pbi_measure_c5f6cf421788986a"
+            }
+          ],
+          "nodes": [
+            "pbi_measure_7362ee25377caef4",
+            "pbi_measure_a6591b649bbf476e",
+            "pbi_measure_20707064b0d8f2fd",
+            "pbi_measure_964c4bb4236243a1",
+            "pbi_measure_f6439145a19e94e6",
+            "pbi_measure_c5f6cf421788986a",
+            "pbi_measure_96527f69a5aeaf1d"
+          ]
+        },
+        "diagnostics": [],
+        "extraction_version": "powerbi-tmdl-inventory-v1",
+        "hierarchies": [],
+        "measures": [
+          {
+            "analysis": {
+              "ast": {
+                "denominator": "Rows",
+                "kind": "RATIO",
+                "numerator": "Valid Rows"
+              },
+              "column_dependencies": [],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [
+                "Rows",
+                "Valid Rows"
+              ],
+              "normalized_expression": "divide(valid rows,rows)",
+              "pattern": "RATIO",
+              "supported": true,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [
+              "pbi_measure_96527f69a5aeaf1d",
+              "pbi_measure_c5f6cf421788986a"
+            ],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "DIVIDE([Valid Rows], [Rows])",
+            "expression_hash": "7901d4752ebbfd420d5f1be338d9d789a86b520b9ea21ce33af66d601dae0afe",
+            "format_string": "0.00",
+            "lineage_tag": null,
+            "name": "Bad Percent",
+            "object_id": "pbi_measure_7362ee25377caef4",
+            "source_location": {
+              "column": 5,
+              "end_line": 20,
+              "file": "tables/Measures.tmdl",
+              "line": 18
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "column": "duration_seconds",
+                "divisor": "60",
+                "kind": "SCALED_SUM",
+                "table": "fact_traps"
+              },
+              "column_dependencies": [
+                "fact_traps[duration_seconds]"
+              ],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "sum(fact_trapsduration_seconds)/60",
+              "pattern": "SCALED_SUM",
+              "supported": true,
+              "table_dependencies": [
+                "fact_traps"
+              ]
+            },
+            "dependency_object_ids": [],
+            "description": "Incorrectly labelled hours; division by 60 yields minutes.",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "SUM(fact_traps[duration_seconds]) / 60",
+            "expression_hash": "2ba64ecf47c0dfb3e184bacbffee03fa405a0fc788a0b8981354013f99ee90d1",
+            "format_string": "0.00",
+            "lineage_tag": null,
+            "name": "Hours",
+            "object_id": "pbi_measure_a6591b649bbf476e",
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/Measures.tmdl",
+              "line": 3
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "column": "numeric_id",
+                "kind": "SUM",
+                "table": "fact_traps"
+              },
+              "column_dependencies": [
+                "fact_traps[numeric_id]"
+              ],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "sum(fact_trapsnumeric_id)",
+              "pattern": "SUM",
+              "supported": true,
+              "table_dependencies": [
+                "fact_traps"
+              ]
+            },
+            "dependency_object_ids": [],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "SUM(fact_traps[numeric_id])",
+            "expression_hash": "e63611235a0e43dd217a36f413a02fa8a286b43f84ca7ee998e404beb3dabca8",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Identifier Total",
+            "object_id": "pbi_measure_20707064b0d8f2fd",
+            "source_location": {
+              "column": 5,
+              "end_line": 8,
+              "file": "tables/Measures.tmdl",
+              "line": 6
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": null,
+              "column_dependencies": [],
+              "diagnostics": [
+                {
+                  "code": "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+                  "message": "USERELATIONSHIP depends on inactive relationship behavior.",
+                  "severity": "ERROR"
+                }
+              ],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "calculate(countrows(fact_traps),userelationship(fact_trapsalternate_dimension_id,dim_trapdimension_id))",
+              "pattern": null,
+              "supported": false,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "CALCULATE(COUNTROWS(fact_traps), USERELATIONSHIP(fact_traps[alternate_dimension_id], dim_trap[dimension_id]))",
+            "expression_hash": "1650681ee6b7b5b47ccb7e72392a6a74ef69f09ec506cb9c62a2566ac37b43cd",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Inactive Rows",
+            "object_id": "pbi_measure_964c4bb4236243a1",
+            "source_location": {
+              "column": 5,
+              "end_line": 22,
+              "file": "tables/Measures.tmdl",
+              "line": 21
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "column": "success_rate",
+                "kind": "SUM",
+                "table": "fact_traps"
+              },
+              "column_dependencies": [
+                "fact_traps[success_rate]"
+              ],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "sum(fact_trapssuccess_rate)",
+              "pattern": "SUM",
+              "supported": true,
+              "table_dependencies": [
+                "fact_traps"
+              ]
+            },
+            "dependency_object_ids": [],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "SUM(fact_traps[success_rate])",
+            "expression_hash": "6716675718e8028f8d70c6b9909317386d196b0147c249d9aa4fadbab9b7c343",
+            "format_string": "0.00",
+            "lineage_tag": null,
+            "name": "Rate Total",
+            "object_id": "pbi_measure_f6439145a19e94e6",
+            "source_location": {
+              "column": 5,
+              "end_line": 11,
+              "file": "tables/Measures.tmdl",
+              "line": 9
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "kind": "COUNT",
+                "table": "fact_traps"
+              },
+              "column_dependencies": [],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "countrows(fact_traps)",
+              "pattern": "COUNT",
+              "supported": true,
+              "table_dependencies": [
+                "fact_traps"
+              ]
+            },
+            "dependency_object_ids": [],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "COUNTROWS(fact_traps)",
+            "expression_hash": "69f0e06c991a58e72a8b20d65c45687274bc52144496eab41156bd71ce890fcf",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Rows",
+            "object_id": "pbi_measure_c5f6cf421788986a",
+            "source_location": {
+              "column": 5,
+              "end_line": 14,
+              "file": "tables/Measures.tmdl",
+              "line": 12
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "filters": [
+                  {
+                    "column": "is_valid",
+                    "operator": "EQ",
+                    "table": "fact_traps",
+                    "value": true
+                  }
+                ],
+                "kind": "FILTERED_COUNT",
+                "table": "fact_traps"
+              },
+              "column_dependencies": [
+                "fact_traps[is_valid]"
+              ],
+              "diagnostics": [],
+              "filters": [
+                {
+                  "column": "is_valid",
+                  "operator": "EQ",
+                  "table": "fact_traps",
+                  "value": true
+                }
+              ],
+              "measure_dependencies": [],
+              "normalized_expression": "calculate(countrows(fact_traps),fact_trapsis_valid=true())",
+              "pattern": "FILTERED_COUNT",
+              "supported": true,
+              "table_dependencies": [
+                "fact_traps"
+              ]
+            },
+            "dependency_object_ids": [],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "CALCULATE(COUNTROWS(fact_traps), fact_traps[is_valid] = TRUE())",
+            "expression_hash": "7ba298c38910975e0ad4cde81f52d02a2e3f29d5ae19a845d12c33d58ac23084",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Valid Rows",
+            "object_id": "pbi_measure_96527f69a5aeaf1d",
+            "source_location": {
+              "column": 5,
+              "end_line": 17,
+              "file": "tables/Measures.tmdl",
+              "line": 15
+            },
+            "table": "Measures"
+          }
+        ],
+        "model": {
+          "compatibility_level": 1600,
+          "culture": "en-US",
+          "definition_path": "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition",
+          "name": "b_semantic_traps",
+          "object_id": "pbi_model_1a2f8a3b6c37ee61",
+          "source_tree_hash": "e5eb52ccae18081afd338760b101750145613aef0c659f15a2c77b3e70d44879",
+          "tmdl_model_name": "Model"
+        },
+        "object_support_records": [
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_4462e407832f09d2",
+            "object_kind": "COLUMN",
+            "object_name": "dim_trap[dimension_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/dim_trap.tmdl",
+              "line": 2
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_9971974b366bda15",
+            "object_kind": "COLUMN",
+            "object_name": "dim_trap[label]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/dim_trap.tmdl",
+              "line": 6
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_131872f28a458ed7",
+            "object_kind": "COLUMN",
+            "object_name": "fact_traps[alternate_dimension_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 34,
+              "file": "tables/fact_traps.tmdl",
+              "line": 31
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_62ccd10165b7e5c2",
+            "object_kind": "COLUMN",
+            "object_name": "fact_traps[dimension_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 30,
+              "file": "tables/fact_traps.tmdl",
+              "line": 27
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_2e14968e7fa2a6a1",
+            "object_kind": "COLUMN",
+            "object_name": "fact_traps[duration_seconds]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/fact_traps.tmdl",
+              "line": 6
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_2ddeade3a42df748",
+            "object_kind": "COLUMN",
+            "object_name": "fact_traps[is_valid]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 26,
+              "file": "tables/fact_traps.tmdl",
+              "line": 23
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_9a1bda725ba67452",
+            "object_kind": "COLUMN",
+            "object_name": "fact_traps[numeric_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/fact_traps.tmdl",
+              "line": 10
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_ffb18cb5e5248ec6",
+            "object_kind": "COLUMN",
+            "object_name": "fact_traps[row_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/fact_traps.tmdl",
+              "line": 2
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_347bc922d1ed9633",
+            "object_kind": "COLUMN",
+            "object_name": "fact_traps[success_rate]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 18,
+              "file": "tables/fact_traps.tmdl",
+              "line": 14
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_932c4df105d70123",
+            "object_kind": "COLUMN",
+            "object_name": "fact_traps[Total Measure]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 22,
+              "file": "tables/fact_traps.tmdl",
+              "line": 19
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_MEASURE_SUPPORTED_EXACT",
+            "confidence": "PROVEN",
+            "dependencies": [
+              "pbi_measure_96527f69a5aeaf1d",
+              "pbi_measure_c5f6cf421788986a"
+            ],
+            "diagnostics": [],
+            "object_id": "pbi_measure_7362ee25377caef4",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Bad Percent]",
+            "recognized_pattern": "RATIO",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 20,
+              "file": "tables/Measures.tmdl",
+              "line": 18
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_MEASURE_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [],
+            "diagnostics": [
+              {
+                "code": "POWER_BI_REGENERATION_NOT_EQUIVALENT",
+                "message": "Regenerated DAX is not AST-equivalent to the source.",
+                "severity": "ERROR"
+              }
+            ],
+            "object_id": "pbi_measure_a6591b649bbf476e",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Hours]",
+            "recognized_pattern": "SCALED_SUM",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/Measures.tmdl",
+              "line": 3
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_MEASURE_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [],
+            "diagnostics": [
+              {
+                "code": "POWER_BI_REGENERATION_NOT_EQUIVALENT",
+                "message": "Regenerated DAX is not AST-equivalent to the source.",
+                "severity": "ERROR"
+              }
+            ],
+            "object_id": "pbi_measure_20707064b0d8f2fd",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Identifier Total]",
+            "recognized_pattern": "SUM",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 8,
+              "file": "tables/Measures.tmdl",
+              "line": 6
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_MEASURE_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [],
+            "diagnostics": [
+              {
+                "code": "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+                "message": "USERELATIONSHIP depends on inactive relationship behavior.",
+                "severity": "ERROR"
+              },
+              {
+                "code": "IMPORT_MAPPING_MISSING",
+                "message": "No exact configured, explicit, or unique exact-normalized mapping exists.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 22,
+                  "file": "tables/Measures.tmdl",
+                  "line": 21
+                }
+              }
+            ],
+            "object_id": "pbi_measure_964c4bb4236243a1",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Inactive Rows]",
+            "recognized_pattern": null,
+            "required_mappings": [
+              "canonical.metric",
+              "canonical.semantic_model",
+              "canonical.entity",
+              "canonical.snowflake.logical_table",
+              "governance.publication"
+            ],
+            "source_location": {
+              "column": 5,
+              "end_line": 22,
+              "file": "tables/Measures.tmdl",
+              "line": 21
+            },
+            "unsupported_constructs": [
+              "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY"
+            ]
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_MEASURE_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [],
+            "diagnostics": [
+              {
+                "code": "IMPORT_MAPPING_MISSING",
+                "message": "No exact configured, explicit, or unique exact-normalized mapping exists.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 11,
+                  "file": "tables/Measures.tmdl",
+                  "line": 9
+                }
+              },
+              {
+                "code": "IMPORT_NEW_METRIC_DRAFT",
+                "message": "A private/undecided canonical draft was created from Power BI evidence; mappings and publication require human governance.",
+                "severity": "WARNING",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 11,
+                  "file": "tables/Measures.tmdl",
+                  "line": 9
+                }
+              }
+            ],
+            "object_id": "pbi_measure_f6439145a19e94e6",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Rate Total]",
+            "recognized_pattern": "SUM",
+            "required_mappings": [
+              "canonical.metric",
+              "canonical.semantic_model",
+              "canonical.entity",
+              "canonical.snowflake.logical_table",
+              "governance.publication"
+            ],
+            "source_location": {
+              "column": 5,
+              "end_line": 11,
+              "file": "tables/Measures.tmdl",
+              "line": 9
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_MEASURE_SUPPORTED_EXACT",
+            "confidence": "PROVEN",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_measure_c5f6cf421788986a",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Rows]",
+            "recognized_pattern": "COUNT",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 14,
+              "file": "tables/Measures.tmdl",
+              "line": 12
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_MEASURE_SUPPORTED_EXACT",
+            "confidence": "PROVEN",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_measure_96527f69a5aeaf1d",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Valid Rows]",
+            "recognized_pattern": "FILTERED_COUNT",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 17,
+              "file": "tables/Measures.tmdl",
+              "line": 15
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_MODEL_DISCOVERY_EVIDENCE",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_model_1a2f8a3b6c37ee61",
+            "object_kind": "MODEL",
+            "object_name": "b_semantic_traps",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "model.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PARTITION_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_partition_33adcdfbf493f4d1",
+            "object_kind": "PARTITION",
+            "object_name": "dim_trap[dim_trap]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/dim_trap.tmdl",
+              "line": 10
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PARTITION_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_partition_8b3022aabe6c88f1",
+            "object_kind": "PARTITION",
+            "object_name": "fact_traps[fact_traps]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 38,
+              "file": "tables/fact_traps.tmdl",
+              "line": 35
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_RELATIONSHIP_EXACT_MATCH",
+            "confidence": "PROVEN",
+            "dependencies": [
+              "fact_traps[dimension_id]",
+              "dim_trap[dimension_id]"
+            ],
+            "diagnostics": [
+              {
+                "code": "PBI_RELATIONSHIP_EXACT_MATCH",
+                "message": "Canonical relationship active_dimension matches the Power BI target.",
+                "severity": "ERROR"
+              }
+            ],
+            "object_id": "pbi_relationship_3c23dda2dd945400",
+            "object_kind": "RELATIONSHIP",
+            "object_name": "active_dimension",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "end_line": 5,
+              "file": "relationships.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_RELATIONSHIP_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [
+              "fact_traps[alternate_dimension_id]",
+              "dim_trap[dimension_id]"
+            ],
+            "diagnostics": [
+              {
+                "code": "PBI_RELATIONSHIP_EXTRA_TARGET",
+                "message": "Power BI relationship inactive_dimension has no canonical relationship entry.",
+                "severity": "ERROR"
+              },
+              {
+                "code": "PBI_INACTIVE_RELATIONSHIP_DEPENDENCY",
+                "message": "Inactive relationship inactive_dimension is referenced by: Inactive Rows.",
+                "severity": "ERROR"
+              }
+            ],
+            "object_id": "pbi_relationship_e318163415397e0a",
+            "object_kind": "RELATIONSHIP",
+            "object_name": "inactive_dimension",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "end_line": 10,
+              "file": "relationships.tmdl",
+              "line": 6
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_table_5c15432be7526ccb",
+            "object_kind": "TABLE",
+            "object_name": "dim_trap",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/dim_trap.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_table_51ddf4033cf68c21",
+            "object_kind": "TABLE",
+            "object_name": "fact_traps",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/fact_traps.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_table_b17ae0652c74b1c7",
+            "object_kind": "TABLE",
+            "object_name": "Measures",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/Measures.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          }
+        ],
+        "partitions": [
+          {
+            "import_support_classification": "TARGET_SPECIFIC",
+            "mode": "import",
+            "name": "dim_trap",
+            "object_id": "pbi_partition_33adcdfbf493f4d1",
+            "source_expression_hash": "9b87e16f87aff12252bd296a8c4d89043dab03f61486762a256c39ae8363e32a",
+            "source_expression_redacted": "<REDACTED:source-expression>",
+            "source_kind": "M_EXPRESSION",
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/dim_trap.tmdl",
+              "line": 10
+            },
+            "table": "dim_trap"
+          },
+          {
+            "import_support_classification": "TARGET_SPECIFIC",
+            "mode": "import",
+            "name": "fact_traps",
+            "object_id": "pbi_partition_8b3022aabe6c88f1",
+            "source_expression_hash": "9b87e16f87aff12252bd296a8c4d89043dab03f61486762a256c39ae8363e32a",
+            "source_expression_redacted": "<REDACTED:source-expression>",
+            "source_kind": "M_EXPRESSION",
+            "source_location": {
+              "column": 5,
+              "end_line": 38,
+              "file": "tables/fact_traps.tmdl",
+              "line": 35
+            },
+            "table": "fact_traps"
+          }
+        ],
+        "relationships": [
+          {
+            "cross_filter_direction": "oneDirection",
+            "cross_filter_direction_explicit": false,
+            "from": {
+              "column": "dimension_id",
+              "table": "fact_traps"
+            },
+            "from_cardinality": "many",
+            "from_cardinality_explicit": false,
+            "is_active": true,
+            "is_active_explicit": true,
+            "name": "active_dimension",
+            "object_id": "pbi_relationship_3c23dda2dd945400",
+            "raw_properties": {
+              "fromColumn": "fact_traps.dimension_id",
+              "isActive": "true",
+              "toColumn": "dim_trap.dimension_id"
+            },
+            "source_location": {
+              "column": 1,
+              "end_line": 5,
+              "file": "relationships.tmdl",
+              "line": 1
+            },
+            "to": {
+              "column": "dimension_id",
+              "table": "dim_trap"
+            },
+            "to_cardinality": "one",
+            "to_cardinality_explicit": false
+          },
+          {
+            "cross_filter_direction": "bothDirections",
+            "cross_filter_direction_explicit": true,
+            "from": {
+              "column": "alternate_dimension_id",
+              "table": "fact_traps"
+            },
+            "from_cardinality": "many",
+            "from_cardinality_explicit": false,
+            "is_active": false,
+            "is_active_explicit": true,
+            "name": "inactive_dimension",
+            "object_id": "pbi_relationship_e318163415397e0a",
+            "raw_properties": {
+              "crossFilteringBehavior": "bothDirections",
+              "fromColumn": "fact_traps.alternate_dimension_id",
+              "isActive": "false",
+              "toColumn": "dim_trap.dimension_id"
+            },
+            "source_location": {
+              "column": 1,
+              "end_line": 10,
+              "file": "relationships.tmdl",
+              "line": 6
+            },
+            "to": {
+              "column": "dimension_id",
+              "table": "dim_trap"
+            },
+            "to_cardinality": "one",
+            "to_cardinality_explicit": false
+          }
+        ],
+        "report_references": [],
+        "roles": [],
+        "schema_version": 2,
+        "semantic_hash": "a6b412325c128679927457f8d6b7884b2059021573551206e9e029c8a0efed66",
+        "tables": [
+          {
+            "column_ids": [
+              "pbi_column_4462e407832f09d2",
+              "pbi_column_9971974b366bda15"
+            ],
+            "description": "",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "measure_ids": [],
+            "name": "dim_trap",
+            "object_id": "pbi_table_5c15432be7526ccb",
+            "partition_ids": [
+              "pbi_partition_33adcdfbf493f4d1"
+            ],
+            "source_location": {
+              "column": 1,
+              "file": "tables/dim_trap.tmdl",
+              "line": 1
+            }
+          },
+          {
+            "column_ids": [
+              "pbi_column_131872f28a458ed7",
+              "pbi_column_62ccd10165b7e5c2",
+              "pbi_column_2e14968e7fa2a6a1",
+              "pbi_column_2ddeade3a42df748",
+              "pbi_column_9a1bda725ba67452",
+              "pbi_column_ffb18cb5e5248ec6",
+              "pbi_column_347bc922d1ed9633",
+              "pbi_column_932c4df105d70123"
+            ],
+            "description": "",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "measure_ids": [],
+            "name": "fact_traps",
+            "object_id": "pbi_table_51ddf4033cf68c21",
+            "partition_ids": [
+              "pbi_partition_8b3022aabe6c88f1"
+            ],
+            "source_location": {
+              "column": 1,
+              "file": "tables/fact_traps.tmdl",
+              "line": 1
+            }
+          },
+          {
+            "column_ids": [],
+            "description": "",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "measure_ids": [
+              "pbi_measure_7362ee25377caef4",
+              "pbi_measure_a6591b649bbf476e",
+              "pbi_measure_20707064b0d8f2fd",
+              "pbi_measure_964c4bb4236243a1",
+              "pbi_measure_f6439145a19e94e6",
+              "pbi_measure_c5f6cf421788986a",
+              "pbi_measure_96527f69a5aeaf1d"
+            ],
+            "name": "Measures",
+            "object_id": "pbi_table_b17ae0652c74b1c7",
+            "partition_ids": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/Measures.tmdl",
+              "line": 1
+            }
+          }
+        ]
+      },
+      "recognized_patterns": [
+        {
+          "classification": "MANUAL_REVIEW_REQUIRED",
+          "pattern": null,
+          "source_object": "Measures[Inactive Rows]"
+        },
+        {
+          "classification": "MANUAL_REVIEW_REQUIRED",
+          "pattern": "SCALED_SUM",
+          "source_object": "Measures[Hours]"
+        },
+        {
+          "classification": "MANUAL_REVIEW_REQUIRED",
+          "pattern": "SUM",
+          "source_object": "Measures[Identifier Total]"
+        },
+        {
+          "classification": "MANUAL_REVIEW_REQUIRED",
+          "pattern": "SUM",
+          "source_object": "Measures[Rate Total]"
+        },
+        {
+          "classification": "SUPPORTED_EXACT",
+          "pattern": "COUNT",
+          "source_object": "Measures[Rows]"
+        },
+        {
+          "classification": "SUPPORTED_EXACT",
+          "pattern": "RATIO",
+          "source_object": "Measures[Bad Percent]"
+        },
+        {
+          "classification": "SUPPORTED_EXACT",
+          "pattern": "FILTERED_COUNT",
+          "source_object": "Measures[Valid Rows]"
+        }
+      ],
+      "repository_snowflake": [
+        null,
+        {
+          "access_modifier": "private_access",
+          "description": "Total duration in hours.",
+          "expr": "SUM(duration_seconds) / 3600",
+          "name": "duration_hours",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "Distinct numeric identifiers.",
+          "expr": "COUNT(DISTINCT numeric_id) + IFF(COUNT_IF(numeric_id IS NULL) > 0, 1, 0)",
+          "name": "identifier_count",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "",
+          "expr": "SUM(success_rate)",
+          "logical_table": null,
+          "name": "rate_total",
+          "status": "DRAFT_REQUIRES_MAPPING",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "Trap fixture rows.",
+          "expr": "COUNT(*)",
+          "name": "rows",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "Share of rows that are valid.",
+          "expr": "traps.valid_rows / NULLIF(traps.rows, 0)",
+          "name": "valid_rate",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "Valid trap fixture rows.",
+          "expr": "COUNT_IF(is_valid)",
+          "name": "valid_rows",
+          "synonyms": []
+        }
+      ],
+      "semantic_content_sha256": "15e6e94fff22373a70d184fc90ad29537176ed4d51c16be8379dec285b3e6d44",
+      "source_snapshot_sha256": "e5eb52ccae18081afd338760b101750145613aef0c659f15a2c77b3e70d44879"
+    },
+    {
+      "actual_metric_failures": [],
+      "autopilot_status": "NOT_AVAILABLE",
+      "candidate_ir": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "canonical_metric": "base_rows",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": null,
+          "filters": [],
+          "numerator": null,
+          "pattern": "COUNT",
+          "public": false,
+          "scale_divisor": null,
+          "source_entity": "row",
+          "source_field": "*",
+          "source_logical_table": "unsupported",
+          "source_physical_table": "fact_unsupported",
+          "source_semantic_model": "benchmark_unsupported",
+          "trace_id": "canonical:models/semantic/triathlon_semantic.yml#metric:base_rows"
+        },
+        {
+          "canonical_metric": "dependency_level_1",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": "iterator_total",
+          "filters": [],
+          "numerator": "base_rows",
+          "pattern": "RATIO",
+          "public": false,
+          "publication_decision": "UNDECIDED_PRIVATE_DEFAULT",
+          "required_mappings": [
+            "canonical.semantic_model",
+            "canonical.entity",
+            "canonical.snowflake.logical_table"
+          ],
+          "scale_divisor": null,
+          "source_entity": null,
+          "source_field": null,
+          "source_logical_table": null,
+          "source_physical_table": null,
+          "source_semantic_model": null,
+          "trace_id": "powerbi-import:pbi_measure_ed06471d9ab57459"
+        },
+        {
+          "canonical_metric": "dependency_level_2",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "denominator": "base_rows",
+          "filters": [],
+          "numerator": "dependency_level_1",
+          "pattern": "RATIO",
+          "public": false,
+          "publication_decision": "UNDECIDED_PRIVATE_DEFAULT",
+          "required_mappings": [
+            "canonical.semantic_model",
+            "canonical.entity",
+            "canonical.snowflake.logical_table"
+          ],
+          "scale_divisor": null,
+          "source_entity": null,
+          "source_field": null,
+          "source_logical_table": null,
+          "source_physical_table": null,
+          "source_semantic_model": null,
+          "trace_id": "powerbi-import:pbi_measure_9d2ae4c1dccdcb8a"
+        }
+      ],
+      "expected_metric_failures": [],
+      "expected_outcome_observed": true,
+      "findings": [
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": "base_rows",
+          "category": "EXACT_MATCH",
+          "evidence": [
+            "The supported Power BI AST equals the deterministic canonical regeneration.",
+            "Canonical metric: base_rows"
+          ],
+          "finding_id": "fnd_eebf513b262f17ea",
+          "generated_expression": "COUNT(*)",
+          "generated_object": "base_rows",
+          "recommended_correction": "Explicitly accept the exact canonical mapping.",
+          "rule_id": "COMPARE_SUPPORTED_SEMANTICS",
+          "severity": "INFO",
+          "source_expression": "COUNTROWS(fact_unsupported)",
+          "source_object": "Measures[Base Rows]",
+          "source_object_id": "pbi_measure_19f993f55fc31cef",
+          "source_support": "SUPPORTED_EXACT"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "UNSUPPORTED_SOURCE_CONSTRUCT",
+          "evidence": [
+            "DAX_MEASURE_REFERENCE_MISSING",
+            "IMPORT_MAPPING_MISSING"
+          ],
+          "finding_id": "fnd_f2d413154485db19",
+          "generated_expression": null,
+          "generated_object": null,
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_UNSUPPORTED_DAX",
+          "severity": "BLOCKING",
+          "source_expression": "DIVIDE([Missing Measure], [Base Rows])",
+          "source_object": "Measures[Broken Dependency]",
+          "source_object_id": "pbi_measure_dde8e1310d169bd1",
+          "source_support": "UNSUPPORTED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "OMITTED_OBJECT",
+          "evidence": [
+            "One or more DAX measure dependencies did not resolve to inventory object IDs."
+          ],
+          "finding_id": "fnd_9ffc67ceeb1470ad",
+          "generated_expression": null,
+          "generated_object": null,
+          "recommended_correction": "Resolve every dependency exactly before generating or accepting the metric.",
+          "rule_id": "LINT_MISSING_MEASURE_DEPENDENCY",
+          "severity": "BLOCKING",
+          "source_expression": "DIVIDE([Missing Measure], [Base Rows])",
+          "source_object": "Measures[Broken Dependency]",
+          "source_object_id": "pbi_measure_dde8e1310d169bd1",
+          "source_support": "UNSUPPORTED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "FORMAT_MISMATCH",
+          "evidence": [
+            "The measure is a ratio/percentage by AST or name.",
+            "Observed Power BI format string: <missing>."
+          ],
+          "finding_id": "fnd_52265520a50fb59b",
+          "generated_expression": null,
+          "generated_object": null,
+          "recommended_correction": "Map to a canonical percentage format and regenerate both targets.",
+          "rule_id": "LINT_PERCENTAGE_FORMAT",
+          "severity": "BLOCKING",
+          "source_expression": "DIVIDE([Missing Measure], [Base Rows])",
+          "source_object": "Measures[Broken Dependency]",
+          "source_object_id": "pbi_measure_dde8e1310d169bd1",
+          "source_support": "UNSUPPORTED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "MANUAL_REVIEW_REQUIRED",
+          "evidence": [
+            "IMPORT_MAPPING_MISSING",
+            "IMPORT_NEW_METRIC_DRAFT"
+          ],
+          "finding_id": "fnd_2e2aab29a7b7ebf6",
+          "generated_expression": "__REQUIRES_MAPPING__.base_rows / NULLIF(__REQUIRES_MAPPING__.iterator_total, 0)",
+          "generated_object": "dependency_level_1",
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_MAPPING_UNRESOLVED",
+          "severity": "BLOCKING",
+          "source_expression": "DIVIDE([Base Rows], [Iterator Total])",
+          "source_object": "Measures[Dependency Level 1]",
+          "source_object_id": "pbi_measure_ed06471d9ab57459",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "FORMAT_MISMATCH",
+          "evidence": [
+            "The measure is a ratio/percentage by AST or name.",
+            "Observed Power BI format string: <missing>."
+          ],
+          "finding_id": "fnd_fbd1862b9bfed93c",
+          "generated_expression": "__REQUIRES_MAPPING__.base_rows / NULLIF(__REQUIRES_MAPPING__.iterator_total, 0)",
+          "generated_object": "dependency_level_1",
+          "recommended_correction": "Map to a canonical percentage format and regenerate both targets.",
+          "rule_id": "LINT_PERCENTAGE_FORMAT",
+          "severity": "BLOCKING",
+          "source_expression": "DIVIDE([Base Rows], [Iterator Total])",
+          "source_object": "Measures[Dependency Level 1]",
+          "source_object_id": "pbi_measure_ed06471d9ab57459",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "MANUAL_REVIEW_REQUIRED",
+          "evidence": [
+            "IMPORT_MAPPING_MISSING",
+            "IMPORT_NEW_METRIC_DRAFT"
+          ],
+          "finding_id": "fnd_45afecd5202931fd",
+          "generated_expression": "__REQUIRES_MAPPING__.dependency_level_1 / NULLIF(__REQUIRES_MAPPING__.base_rows, 0)",
+          "generated_object": "dependency_level_2",
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_MAPPING_UNRESOLVED",
+          "severity": "BLOCKING",
+          "source_expression": "DIVIDE([Dependency Level 1], [Base Rows])",
+          "source_object": "Measures[Dependency Level 2]",
+          "source_object_id": "pbi_measure_9d2ae4c1dccdcb8a",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "FORMAT_MISMATCH",
+          "evidence": [
+            "The measure is a ratio/percentage by AST or name.",
+            "Observed Power BI format string: <missing>."
+          ],
+          "finding_id": "fnd_387e9ff17029e479",
+          "generated_expression": "__REQUIRES_MAPPING__.dependency_level_1 / NULLIF(__REQUIRES_MAPPING__.base_rows, 0)",
+          "generated_object": "dependency_level_2",
+          "recommended_correction": "Map to a canonical percentage format and regenerate both targets.",
+          "rule_id": "LINT_PERCENTAGE_FORMAT",
+          "severity": "BLOCKING",
+          "source_expression": "DIVIDE([Dependency Level 1], [Base Rows])",
+          "source_object": "Measures[Dependency Level 2]",
+          "source_object_id": "pbi_measure_9d2ae4c1dccdcb8a",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "UNSUPPORTED_SOURCE_CONSTRUCT",
+          "evidence": [
+            "DAX_DYNAMIC_FORMAT_STRING",
+            "DAX_PATTERN_UNSUPPORTED",
+            "IMPORT_MAPPING_MISSING"
+          ],
+          "finding_id": "fnd_7a812d1ac19d6cb4",
+          "generated_expression": null,
+          "generated_object": null,
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_UNSUPPORTED_DAX",
+          "severity": "BLOCKING",
+          "source_expression": "DIVIDE([Iterator Total], [Base Rows]) formatStringDefinition = SELECTEDVALUE('Format Selector'[Format])",
+          "source_object": "Measures[Dynamic Format]",
+          "source_object_id": "pbi_measure_c6b188a0d963d9f1",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "UNSUPPORTED_SOURCE_CONSTRUCT",
+          "evidence": [
+            "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+            "IMPORT_MAPPING_MISSING"
+          ],
+          "finding_id": "fnd_112979328320fe82",
+          "generated_expression": null,
+          "generated_object": null,
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_UNSUPPORTED_DAX",
+          "severity": "BLOCKING",
+          "source_expression": "CALCULATE([Base Rows], USERELATIONSHIP(fact_unsupported[alternate_date_id], dim_date[date_id]))",
+          "source_object": "Measures[Inactive Relationship]",
+          "source_object_id": "pbi_measure_eab46556806f75fc",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "UNSUPPORTED_SOURCE_CONSTRUCT",
+          "evidence": [
+            "DAX_ITERATOR_UNSUPPORTED",
+            "IMPORT_MAPPING_MISSING"
+          ],
+          "finding_id": "fnd_d9654b7c7599d9d7",
+          "generated_expression": null,
+          "generated_object": null,
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_UNSUPPORTED_DAX",
+          "severity": "BLOCKING",
+          "source_expression": "SUMX(fact_unsupported, fact_unsupported[value])",
+          "source_object": "Measures[Iterator Total]",
+          "source_object_id": "pbi_measure_2e7d5c1960cd5902",
+          "source_support": "UNSUPPORTED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "UNSUPPORTED_SOURCE_CONSTRUCT",
+          "evidence": [
+            "DAX_NESTED_CALCULATE",
+            "IMPORT_MAPPING_MISSING"
+          ],
+          "finding_id": "fnd_1fb10ed551766cf8",
+          "generated_expression": null,
+          "generated_object": null,
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_UNSUPPORTED_DAX",
+          "severity": "BLOCKING",
+          "source_expression": "CALCULATE(CALCULATE(COUNTROWS(fact_unsupported), fact_unsupported[row_id] = 1), fact_unsupported[date_id] = 10)",
+          "source_object": "Measures[Nested Calculate]",
+          "source_object_id": "pbi_measure_9129d4c792b2e770",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "UNSUPPORTED_SOURCE_CONSTRUCT",
+          "evidence": [
+            "DAX_CONTEXT_TRANSITION",
+            "DAX_TIME_INTELLIGENCE",
+            "IMPORT_MAPPING_MISSING"
+          ],
+          "finding_id": "fnd_01577ed6eec11998",
+          "generated_expression": null,
+          "generated_object": null,
+          "recommended_correction": "Map to an exact supported canonical metric, create a typed canonical proposal, or explicitly exclude the unsupported object.",
+          "rule_id": "COMPARE_UNSUPPORTED_DAX",
+          "severity": "BLOCKING",
+          "source_expression": "CALCULATE([Base Rows], SAMEPERIODLASTYEAR(dim_date[date]))",
+          "source_object": "Measures[Time Intelligence]",
+          "source_object_id": "pbi_measure_6cc2862d498f667f",
+          "source_support": "MANUAL_REVIEW_REQUIRED"
+        },
+        {
+          "automatic_correction_safe": false,
+          "canonical_metric": null,
+          "category": "RELATIONSHIP_MISMATCH",
+          "evidence": [
+            "PBI_INACTIVE_RELATIONSHIP_DEPENDENCY",
+            "Inactive relationship inactive_date is referenced by: Inactive Relationship."
+          ],
+          "finding_id": "fnd_52c8cf6a4b2b9acd",
+          "generated_expression": null,
+          "generated_object": "pbi_relationship_dbdc07ba375ba17b",
+          "recommended_correction": "Resolve the relationship against an exact canonical relationship or explicitly exclude the dependent object.",
+          "rule_id": "LINT_RELATIONSHIP_DRIFT",
+          "severity": "BLOCKING",
+          "source_expression": null,
+          "source_object": "pbi_relationship_dbdc07ba375ba17b",
+          "source_object_id": "pbi_relationship_dbdc07ba375ba17b",
+          "source_support": "INACTIVE_RELATIONSHIP_DEPENDENCY"
+        }
+      ],
+      "fixture_id": "C_UNSUPPORTED",
+      "golden_results": [
+        {
+          "direct_reference_sql": 2,
+          "pattern": "COUNT",
+          "power_bi_dax_evaluator": 2,
+          "reference_match": true,
+          "repository_match": true,
+          "repository_snowflake_evaluator": 2,
+          "source_measure": "Base Rows",
+          "status": "PASS"
+        }
+      ],
+      "import_id": "imp_20260718T190000Z_00000003",
+      "inventory": {
+        "calculated_columns": [],
+        "calculation_groups": [
+          {
+            "import_support_classification": "TARGET_SPECIFIC",
+            "items": [
+              "YTD"
+            ],
+            "object_id": "pbi_calculation_group_90425d1beb063398",
+            "precedence": 10,
+            "source_location": {
+              "column": 5,
+              "end_line": 4,
+              "file": "tables/Time Intelligence.tmdl",
+              "line": 2
+            },
+            "table": "Time Intelligence"
+          }
+        ],
+        "columns": [
+          {
+            "data_type": "dateTime",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "date",
+            "object_id": "pbi_column_b85fa2afa5231a00",
+            "properties": {
+              "dataType": "dateTime",
+              "sourceColumn": "date"
+            },
+            "source_column": "date",
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/dim_date.tmdl",
+              "line": 6
+            },
+            "table": "dim_date"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "date_id",
+            "object_id": "pbi_column_982d10ddae5d2971",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "date_id"
+            },
+            "source_column": "date_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/dim_date.tmdl",
+              "line": 2
+            },
+            "table": "dim_date"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "alternate_date_id",
+            "object_id": "pbi_column_75d5b73be971f8b6",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "alternate_date_id"
+            },
+            "source_column": "alternate_date_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 17,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 14
+            },
+            "table": "fact_unsupported"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "date_id",
+            "object_id": "pbi_column_74942f182d74c571",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "date_id"
+            },
+            "source_column": "date_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 10
+            },
+            "table": "fact_unsupported"
+          },
+          {
+            "data_type": "int64",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "row_id",
+            "object_id": "pbi_column_ef7272902569eaeb",
+            "properties": {
+              "dataType": "int64",
+              "sourceColumn": "row_id"
+            },
+            "source_column": "row_id",
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 2
+            },
+            "table": "fact_unsupported"
+          },
+          {
+            "data_type": "double",
+            "description": "",
+            "display_folder": null,
+            "expression": null,
+            "format_string": null,
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "name": "value",
+            "object_id": "pbi_column_5ebbfe06871061c3",
+            "properties": {
+              "dataType": "double",
+              "sourceColumn": "value"
+            },
+            "source_column": "value",
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 6
+            },
+            "table": "fact_unsupported"
+          }
+        ],
+        "dependency_graph": {
+          "edges": [
+            {
+              "from": "pbi_measure_6cc2862d498f667f",
+              "to": "pbi_measure_19f993f55fc31cef"
+            },
+            {
+              "from": "pbi_measure_9d2ae4c1dccdcb8a",
+              "to": "pbi_measure_19f993f55fc31cef"
+            },
+            {
+              "from": "pbi_measure_9d2ae4c1dccdcb8a",
+              "to": "pbi_measure_ed06471d9ab57459"
+            },
+            {
+              "from": "pbi_measure_c6b188a0d963d9f1",
+              "to": "pbi_measure_19f993f55fc31cef"
+            },
+            {
+              "from": "pbi_measure_c6b188a0d963d9f1",
+              "to": "pbi_measure_2e7d5c1960cd5902"
+            },
+            {
+              "from": "pbi_measure_dde8e1310d169bd1",
+              "to": "pbi_measure_19f993f55fc31cef"
+            },
+            {
+              "from": "pbi_measure_eab46556806f75fc",
+              "to": "pbi_measure_19f993f55fc31cef"
+            },
+            {
+              "from": "pbi_measure_ed06471d9ab57459",
+              "to": "pbi_measure_19f993f55fc31cef"
+            },
+            {
+              "from": "pbi_measure_ed06471d9ab57459",
+              "to": "pbi_measure_2e7d5c1960cd5902"
+            }
+          ],
+          "nodes": [
+            "pbi_measure_19f993f55fc31cef",
+            "pbi_measure_dde8e1310d169bd1",
+            "pbi_measure_ed06471d9ab57459",
+            "pbi_measure_9d2ae4c1dccdcb8a",
+            "pbi_measure_c6b188a0d963d9f1",
+            "pbi_measure_eab46556806f75fc",
+            "pbi_measure_2e7d5c1960cd5902",
+            "pbi_measure_9129d4c792b2e770",
+            "pbi_measure_6cc2862d498f667f"
+          ]
+        },
+        "diagnostics": [],
+        "extraction_version": "powerbi-tmdl-inventory-v1",
+        "hierarchies": [],
+        "measures": [
+          {
+            "analysis": {
+              "ast": {
+                "kind": "COUNT",
+                "table": "fact_unsupported"
+              },
+              "column_dependencies": [],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "countrows(fact_unsupported)",
+              "pattern": "COUNT",
+              "supported": true,
+              "table_dependencies": [
+                "fact_unsupported"
+              ]
+            },
+            "dependency_object_ids": [],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "COUNTROWS(fact_unsupported)",
+            "expression_hash": "47e44686fc562c6cdb9ac6260810358583de3f6da0e5c78feaf77331f4171211",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Base Rows",
+            "object_id": "pbi_measure_19f993f55fc31cef",
+            "source_location": {
+              "column": 5,
+              "end_line": 4,
+              "file": "tables/Measures.tmdl",
+              "line": 2
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "denominator": "Base Rows",
+                "kind": "RATIO",
+                "numerator": "Missing Measure"
+              },
+              "column_dependencies": [],
+              "diagnostics": [
+                {
+                  "code": "DAX_MEASURE_REFERENCE_MISSING",
+                  "message": "Measure reference [Missing Measure] does not resolve.",
+                  "severity": "ERROR",
+                  "source_location": {
+                    "column": 5,
+                    "end_line": 25,
+                    "file": "tables/Measures.tmdl",
+                    "line": 25
+                  }
+                }
+              ],
+              "filters": [],
+              "measure_dependencies": [
+                "Base Rows",
+                "Missing Measure"
+              ],
+              "normalized_expression": "divide(missing measure,base rows)",
+              "pattern": "RATIO",
+              "supported": false,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [
+              "pbi_measure_19f993f55fc31cef"
+            ],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "DIVIDE([Missing Measure], [Base Rows])",
+            "expression_hash": "3e948d2cebde3049fda262d9811dbbf88ee3d6b3463c3a2d7394779b806617ca",
+            "format_string": null,
+            "lineage_tag": null,
+            "name": "Broken Dependency",
+            "object_id": "pbi_measure_dde8e1310d169bd1",
+            "source_location": {
+              "column": 5,
+              "end_line": 25,
+              "file": "tables/Measures.tmdl",
+              "line": 25
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "denominator": "Iterator Total",
+                "kind": "RATIO",
+                "numerator": "Base Rows"
+              },
+              "column_dependencies": [],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [
+                "Base Rows",
+                "Iterator Total"
+              ],
+              "normalized_expression": "divide(base rows,iterator total)",
+              "pattern": "RATIO",
+              "supported": true,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [
+              "pbi_measure_19f993f55fc31cef",
+              "pbi_measure_2e7d5c1960cd5902"
+            ],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "DIVIDE([Base Rows], [Iterator Total])",
+            "expression_hash": "88bb34dbaef2c984d8ca1cc8095529e839b09fab90869af7aa977b8c350a6298",
+            "format_string": null,
+            "lineage_tag": null,
+            "name": "Dependency Level 1",
+            "object_id": "pbi_measure_ed06471d9ab57459",
+            "source_location": {
+              "column": 5,
+              "end_line": 22,
+              "file": "tables/Measures.tmdl",
+              "line": 21
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": {
+                "denominator": "Base Rows",
+                "kind": "RATIO",
+                "numerator": "Dependency Level 1"
+              },
+              "column_dependencies": [],
+              "diagnostics": [],
+              "filters": [],
+              "measure_dependencies": [
+                "Base Rows",
+                "Dependency Level 1"
+              ],
+              "normalized_expression": "divide(dependency level 1,base rows)",
+              "pattern": "RATIO",
+              "supported": true,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [
+              "pbi_measure_19f993f55fc31cef",
+              "pbi_measure_ed06471d9ab57459"
+            ],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "DIVIDE([Dependency Level 1], [Base Rows])",
+            "expression_hash": "6df1741118b79cf7273a703dd3f35b2980ccf3ac1f8892086347d7c0e1688cfd",
+            "format_string": null,
+            "lineage_tag": null,
+            "name": "Dependency Level 2",
+            "object_id": "pbi_measure_9d2ae4c1dccdcb8a",
+            "source_location": {
+              "column": 5,
+              "end_line": 24,
+              "file": "tables/Measures.tmdl",
+              "line": 23
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": null,
+              "column_dependencies": [],
+              "diagnostics": [
+                {
+                  "code": "DAX_PATTERN_UNSUPPORTED",
+                  "message": "Unexpected trailing token 'formatStringDefinition'.",
+                  "severity": "ERROR"
+                },
+                {
+                  "code": "DAX_DYNAMIC_FORMAT_STRING",
+                  "message": "Dynamic format strings are target-specific and require manual review.",
+                  "severity": "ERROR"
+                }
+              ],
+              "filters": [],
+              "measure_dependencies": [
+                "Base Rows",
+                "Iterator Total"
+              ],
+              "normalized_expression": "divide(iterator total,base rows)formatstringdefinition=selectedvalue(format selectorformat)",
+              "pattern": null,
+              "supported": false,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [
+              "pbi_measure_19f993f55fc31cef",
+              "pbi_measure_2e7d5c1960cd5902"
+            ],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": "<DYNAMIC_FORMAT_STRING>",
+            "expression": "DIVIDE([Iterator Total], [Base Rows]) formatStringDefinition = SELECTEDVALUE('Format Selector'[Format])",
+            "expression_hash": "80f759dea2a4c47ffa7865706a30de19f8765b94c22659110cacb928e6eca17a",
+            "format_string": null,
+            "lineage_tag": null,
+            "name": "Dynamic Format",
+            "object_id": "pbi_measure_c6b188a0d963d9f1",
+            "source_location": {
+              "column": 5,
+              "end_line": 20,
+              "file": "tables/Measures.tmdl",
+              "line": 17
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": null,
+              "column_dependencies": [],
+              "diagnostics": [
+                {
+                  "code": "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+                  "message": "USERELATIONSHIP depends on inactive relationship behavior.",
+                  "severity": "ERROR"
+                }
+              ],
+              "filters": [],
+              "measure_dependencies": [
+                "Base Rows"
+              ],
+              "normalized_expression": "calculate(base rows,userelationship(fact_unsupportedalternate_date_id,dim_datedate_id))",
+              "pattern": null,
+              "supported": false,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [
+              "pbi_measure_19f993f55fc31cef"
+            ],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "CALCULATE([Base Rows], USERELATIONSHIP(fact_unsupported[alternate_date_id], dim_date[date_id]))",
+            "expression_hash": "d05aab5ffc8a3085ab3a6bb90b1463311b6125a5f8ed4bd40a3233f2126b6947",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Inactive Relationship",
+            "object_id": "pbi_measure_eab46556806f75fc",
+            "source_location": {
+              "column": 5,
+              "end_line": 10,
+              "file": "tables/Measures.tmdl",
+              "line": 8
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": null,
+              "column_dependencies": [],
+              "diagnostics": [
+                {
+                  "code": "DAX_ITERATOR_UNSUPPORTED",
+                  "message": "DAX iterator(s) are unsupported: SUMX.",
+                  "severity": "ERROR"
+                }
+              ],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "sumx(fact_unsupported,fact_unsupportedvalue)",
+              "pattern": null,
+              "supported": false,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "SUMX(fact_unsupported, fact_unsupported[value])",
+            "expression_hash": "24000620e010a0e399d8baeadf3ede44861eef3db773735df0cad8218ef0a7e8",
+            "format_string": "#,0.00",
+            "lineage_tag": null,
+            "name": "Iterator Total",
+            "object_id": "pbi_measure_2e7d5c1960cd5902",
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/Measures.tmdl",
+              "line": 11
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": null,
+              "column_dependencies": [],
+              "diagnostics": [
+                {
+                  "code": "DAX_NESTED_CALCULATE",
+                  "message": "Nested CALCULATE requires manual review.",
+                  "severity": "ERROR"
+                }
+              ],
+              "filters": [],
+              "measure_dependencies": [],
+              "normalized_expression": "calculate(calculate(countrows(fact_unsupported),fact_unsupportedrow_id=1),fact_unsupporteddate_id=10)",
+              "pattern": null,
+              "supported": false,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "CALCULATE(CALCULATE(COUNTROWS(fact_unsupported), fact_unsupported[row_id] = 1), fact_unsupported[date_id] = 10)",
+            "expression_hash": "c910e35bc976d77535e89383cadaee97dfc8da4e9df27451971fb2cea769df4c",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Nested Calculate",
+            "object_id": "pbi_measure_9129d4c792b2e770",
+            "source_location": {
+              "column": 5,
+              "end_line": 16,
+              "file": "tables/Measures.tmdl",
+              "line": 14
+            },
+            "table": "Measures"
+          },
+          {
+            "analysis": {
+              "ast": null,
+              "column_dependencies": [],
+              "diagnostics": [
+                {
+                  "code": "DAX_TIME_INTELLIGENCE",
+                  "message": "Time-intelligence function(s) require manual review: SAMEPERIODLASTYEAR.",
+                  "severity": "ERROR"
+                },
+                {
+                  "code": "DAX_CONTEXT_TRANSITION",
+                  "message": "CALCULATE context transition is only supported for COUNTROWS with flat equality filters.",
+                  "severity": "ERROR"
+                }
+              ],
+              "filters": [],
+              "measure_dependencies": [
+                "Base Rows"
+              ],
+              "normalized_expression": "calculate(base rows,sameperiodlastyear(dim_datedate))",
+              "pattern": null,
+              "supported": false,
+              "table_dependencies": []
+            },
+            "dependency_object_ids": [
+              "pbi_measure_19f993f55fc31cef"
+            ],
+            "description": "",
+            "display_folder": null,
+            "dynamic_format_string": null,
+            "expression": "CALCULATE([Base Rows], SAMEPERIODLASTYEAR(dim_date[date]))",
+            "expression_hash": "e98306d5057e9c89962f10ea9a45d088f9c5178ce0120bb0fcb0d9fd4b0f5882",
+            "format_string": "0",
+            "lineage_tag": null,
+            "name": "Time Intelligence",
+            "object_id": "pbi_measure_6cc2862d498f667f",
+            "source_location": {
+              "column": 5,
+              "end_line": 7,
+              "file": "tables/Measures.tmdl",
+              "line": 5
+            },
+            "table": "Measures"
+          }
+        ],
+        "model": {
+          "compatibility_level": 1600,
+          "culture": "en-US",
+          "definition_path": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition",
+          "name": "c_unsupported",
+          "object_id": "pbi_model_f0ffe8430fda846b",
+          "source_tree_hash": "335c9964ed056547b0920346c852ef9efa1ce5e51f170b38076d9d19695c1774",
+          "tmdl_model_name": "Model"
+        },
+        "object_support_records": [
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_CALCULATION_GROUP_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [
+              "YTD"
+            ],
+            "diagnostics": [],
+            "object_id": "pbi_calculation_group_90425d1beb063398",
+            "object_kind": "CALCULATION_GROUP",
+            "object_name": "Time Intelligence",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 4,
+              "file": "tables/Time Intelligence.tmdl",
+              "line": 2
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_b85fa2afa5231a00",
+            "object_kind": "COLUMN",
+            "object_name": "dim_date[date]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/dim_date.tmdl",
+              "line": 6
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_982d10ddae5d2971",
+            "object_kind": "COLUMN",
+            "object_name": "dim_date[date_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/dim_date.tmdl",
+              "line": 2
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_75d5b73be971f8b6",
+            "object_kind": "COLUMN",
+            "object_name": "fact_unsupported[alternate_date_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 17,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 14
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_74942f182d74c571",
+            "object_kind": "COLUMN",
+            "object_name": "fact_unsupported[date_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 10
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_ef7272902569eaeb",
+            "object_kind": "COLUMN",
+            "object_name": "fact_unsupported[row_id]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 5,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 2
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_column_5ebbfe06871061c3",
+            "object_kind": "COLUMN",
+            "object_name": "fact_unsupported[value]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 9,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 6
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "SUPPORTED_EXACT",
+            "classifier_rule_id": "POWERBI_MEASURE_SUPPORTED_EXACT",
+            "confidence": "PROVEN",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_measure_19f993f55fc31cef",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Base Rows]",
+            "recognized_pattern": "COUNT",
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 4,
+              "file": "tables/Measures.tmdl",
+              "line": 2
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "UNSUPPORTED",
+            "classifier_rule_id": "POWERBI_MEASURE_UNSUPPORTED",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [
+              "pbi_measure_19f993f55fc31cef"
+            ],
+            "diagnostics": [
+              {
+                "code": "DAX_MEASURE_REFERENCE_MISSING",
+                "message": "Measure reference [Missing Measure] does not resolve.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 25,
+                  "file": "tables/Measures.tmdl",
+                  "line": 25
+                }
+              },
+              {
+                "code": "IMPORT_MAPPING_MISSING",
+                "message": "No exact configured, explicit, or unique exact-normalized mapping exists.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 25,
+                  "file": "tables/Measures.tmdl",
+                  "line": 25
+                }
+              }
+            ],
+            "object_id": "pbi_measure_dde8e1310d169bd1",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Broken Dependency]",
+            "recognized_pattern": "RATIO",
+            "required_mappings": [
+              "canonical.metric",
+              "canonical.semantic_model",
+              "canonical.entity",
+              "canonical.snowflake.logical_table",
+              "governance.publication"
+            ],
+            "source_location": {
+              "column": 5,
+              "end_line": 25,
+              "file": "tables/Measures.tmdl",
+              "line": 25
+            },
+            "unsupported_constructs": [
+              "DAX_MEASURE_REFERENCE_MISSING"
+            ]
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_MEASURE_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [
+              "pbi_measure_19f993f55fc31cef",
+              "pbi_measure_2e7d5c1960cd5902"
+            ],
+            "diagnostics": [
+              {
+                "code": "IMPORT_MAPPING_MISSING",
+                "message": "No exact configured, explicit, or unique exact-normalized mapping exists.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 22,
+                  "file": "tables/Measures.tmdl",
+                  "line": 21
+                }
+              },
+              {
+                "code": "IMPORT_NEW_METRIC_DRAFT",
+                "message": "A private/undecided canonical draft was created from Power BI evidence; mappings and publication require human governance.",
+                "severity": "WARNING",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 22,
+                  "file": "tables/Measures.tmdl",
+                  "line": 21
+                }
+              }
+            ],
+            "object_id": "pbi_measure_ed06471d9ab57459",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Dependency Level 1]",
+            "recognized_pattern": "RATIO",
+            "required_mappings": [
+              "canonical.metric",
+              "canonical.semantic_model",
+              "canonical.entity",
+              "canonical.snowflake.logical_table",
+              "governance.publication"
+            ],
+            "source_location": {
+              "column": 5,
+              "end_line": 22,
+              "file": "tables/Measures.tmdl",
+              "line": 21
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_MEASURE_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [
+              "pbi_measure_19f993f55fc31cef",
+              "pbi_measure_ed06471d9ab57459"
+            ],
+            "diagnostics": [
+              {
+                "code": "IMPORT_MAPPING_MISSING",
+                "message": "No exact configured, explicit, or unique exact-normalized mapping exists.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 24,
+                  "file": "tables/Measures.tmdl",
+                  "line": 23
+                }
+              },
+              {
+                "code": "IMPORT_NEW_METRIC_DRAFT",
+                "message": "A private/undecided canonical draft was created from Power BI evidence; mappings and publication require human governance.",
+                "severity": "WARNING",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 24,
+                  "file": "tables/Measures.tmdl",
+                  "line": 23
+                }
+              }
+            ],
+            "object_id": "pbi_measure_9d2ae4c1dccdcb8a",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Dependency Level 2]",
+            "recognized_pattern": "RATIO",
+            "required_mappings": [
+              "canonical.metric",
+              "canonical.semantic_model",
+              "canonical.entity",
+              "canonical.snowflake.logical_table",
+              "governance.publication"
+            ],
+            "source_location": {
+              "column": 5,
+              "end_line": 24,
+              "file": "tables/Measures.tmdl",
+              "line": 23
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_MEASURE_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [
+              "pbi_measure_19f993f55fc31cef",
+              "pbi_measure_2e7d5c1960cd5902"
+            ],
+            "diagnostics": [
+              {
+                "code": "DAX_PATTERN_UNSUPPORTED",
+                "message": "Unexpected trailing token 'formatStringDefinition'.",
+                "severity": "ERROR"
+              },
+              {
+                "code": "DAX_DYNAMIC_FORMAT_STRING",
+                "message": "Dynamic format strings are target-specific and require manual review.",
+                "severity": "ERROR"
+              },
+              {
+                "code": "IMPORT_MAPPING_MISSING",
+                "message": "No exact configured, explicit, or unique exact-normalized mapping exists.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 20,
+                  "file": "tables/Measures.tmdl",
+                  "line": 17
+                }
+              }
+            ],
+            "object_id": "pbi_measure_c6b188a0d963d9f1",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Dynamic Format]",
+            "recognized_pattern": null,
+            "required_mappings": [
+              "canonical.metric",
+              "canonical.semantic_model",
+              "canonical.entity",
+              "canonical.snowflake.logical_table",
+              "governance.publication"
+            ],
+            "source_location": {
+              "column": 5,
+              "end_line": 20,
+              "file": "tables/Measures.tmdl",
+              "line": 17
+            },
+            "unsupported_constructs": [
+              "DAX_DYNAMIC_FORMAT_STRING",
+              "DAX_PATTERN_UNSUPPORTED"
+            ]
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_MEASURE_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [
+              "pbi_measure_19f993f55fc31cef"
+            ],
+            "diagnostics": [
+              {
+                "code": "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+                "message": "USERELATIONSHIP depends on inactive relationship behavior.",
+                "severity": "ERROR"
+              },
+              {
+                "code": "IMPORT_MAPPING_MISSING",
+                "message": "No exact configured, explicit, or unique exact-normalized mapping exists.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 10,
+                  "file": "tables/Measures.tmdl",
+                  "line": 8
+                }
+              }
+            ],
+            "object_id": "pbi_measure_eab46556806f75fc",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Inactive Relationship]",
+            "recognized_pattern": null,
+            "required_mappings": [
+              "canonical.metric",
+              "canonical.semantic_model",
+              "canonical.entity",
+              "canonical.snowflake.logical_table",
+              "governance.publication"
+            ],
+            "source_location": {
+              "column": 5,
+              "end_line": 10,
+              "file": "tables/Measures.tmdl",
+              "line": 8
+            },
+            "unsupported_constructs": [
+              "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY"
+            ]
+          },
+          {
+            "assumptions": [],
+            "classification": "UNSUPPORTED",
+            "classifier_rule_id": "POWERBI_MEASURE_UNSUPPORTED",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [
+              {
+                "code": "DAX_ITERATOR_UNSUPPORTED",
+                "message": "DAX iterator(s) are unsupported: SUMX.",
+                "severity": "ERROR"
+              },
+              {
+                "code": "IMPORT_MAPPING_MISSING",
+                "message": "No exact configured, explicit, or unique exact-normalized mapping exists.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 13,
+                  "file": "tables/Measures.tmdl",
+                  "line": 11
+                }
+              }
+            ],
+            "object_id": "pbi_measure_2e7d5c1960cd5902",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Iterator Total]",
+            "recognized_pattern": null,
+            "required_mappings": [
+              "canonical.metric",
+              "canonical.semantic_model",
+              "canonical.entity",
+              "canonical.snowflake.logical_table",
+              "governance.publication"
+            ],
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/Measures.tmdl",
+              "line": 11
+            },
+            "unsupported_constructs": [
+              "DAX_ITERATOR_UNSUPPORTED"
+            ]
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_MEASURE_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [],
+            "diagnostics": [
+              {
+                "code": "DAX_NESTED_CALCULATE",
+                "message": "Nested CALCULATE requires manual review.",
+                "severity": "ERROR"
+              },
+              {
+                "code": "IMPORT_MAPPING_MISSING",
+                "message": "No exact configured, explicit, or unique exact-normalized mapping exists.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 16,
+                  "file": "tables/Measures.tmdl",
+                  "line": 14
+                }
+              }
+            ],
+            "object_id": "pbi_measure_9129d4c792b2e770",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Nested Calculate]",
+            "recognized_pattern": null,
+            "required_mappings": [
+              "canonical.metric",
+              "canonical.semantic_model",
+              "canonical.entity",
+              "canonical.snowflake.logical_table",
+              "governance.publication"
+            ],
+            "source_location": {
+              "column": 5,
+              "end_line": 16,
+              "file": "tables/Measures.tmdl",
+              "line": 14
+            },
+            "unsupported_constructs": [
+              "DAX_NESTED_CALCULATE"
+            ]
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_MEASURE_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [
+              "pbi_measure_19f993f55fc31cef"
+            ],
+            "diagnostics": [
+              {
+                "code": "DAX_TIME_INTELLIGENCE",
+                "message": "Time-intelligence function(s) require manual review: SAMEPERIODLASTYEAR.",
+                "severity": "ERROR"
+              },
+              {
+                "code": "DAX_CONTEXT_TRANSITION",
+                "message": "CALCULATE context transition is only supported for COUNTROWS with flat equality filters.",
+                "severity": "ERROR"
+              },
+              {
+                "code": "IMPORT_MAPPING_MISSING",
+                "message": "No exact configured, explicit, or unique exact-normalized mapping exists.",
+                "severity": "ERROR",
+                "source_location": {
+                  "column": 5,
+                  "end_line": 7,
+                  "file": "tables/Measures.tmdl",
+                  "line": 5
+                }
+              }
+            ],
+            "object_id": "pbi_measure_6cc2862d498f667f",
+            "object_kind": "MEASURE",
+            "object_name": "Measures[Time Intelligence]",
+            "recognized_pattern": null,
+            "required_mappings": [
+              "canonical.metric",
+              "canonical.semantic_model",
+              "canonical.entity",
+              "canonical.snowflake.logical_table",
+              "governance.publication"
+            ],
+            "source_location": {
+              "column": 5,
+              "end_line": 7,
+              "file": "tables/Measures.tmdl",
+              "line": 5
+            },
+            "unsupported_constructs": [
+              "DAX_CONTEXT_TRANSITION",
+              "DAX_TIME_INTELLIGENCE"
+            ]
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_MODEL_DISCOVERY_EVIDENCE",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_model_f0ffe8430fda846b",
+            "object_kind": "MODEL",
+            "object_name": "c_unsupported",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "model.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PARTITION_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_partition_964eeed536f9c525",
+            "object_kind": "PARTITION",
+            "object_name": "dim_date[dim_date]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/dim_date.tmdl",
+              "line": 10
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PARTITION_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_partition_06bb15aa96e8f752",
+            "object_kind": "PARTITION",
+            "object_name": "fact_unsupported[fact_unsupported]",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 5,
+              "end_line": 21,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 18
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "MANUAL_REVIEW_REQUIRED",
+            "classifier_rule_id": "POWERBI_RELATIONSHIP_MANUAL_REVIEW_REQUIRED",
+            "confidence": "UNRESOLVED",
+            "dependencies": [
+              "fact_unsupported[alternate_date_id]",
+              "dim_date[date_id]"
+            ],
+            "diagnostics": [
+              {
+                "code": "PBI_RELATIONSHIP_EXTRA_TARGET",
+                "message": "Power BI relationship inactive_date has no canonical relationship entry.",
+                "severity": "ERROR"
+              },
+              {
+                "code": "PBI_INACTIVE_RELATIONSHIP_DEPENDENCY",
+                "message": "Inactive relationship inactive_date is referenced by: Inactive Relationship.",
+                "severity": "ERROR"
+              }
+            ],
+            "object_id": "pbi_relationship_dbdc07ba375ba17b",
+            "object_kind": "RELATIONSHIP",
+            "object_name": "inactive_date",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "end_line": 4,
+              "file": "relationships.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_table_dcbc20f0d4ff8c5a",
+            "object_kind": "TABLE",
+            "object_name": "dim_date",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/dim_date.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_table_32635376e0060893",
+            "object_kind": "TABLE",
+            "object_name": "fact_unsupported",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_table_b17ae0652c74b1c7",
+            "object_kind": "TABLE",
+            "object_name": "Measures",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/Measures.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          },
+          {
+            "assumptions": [],
+            "classification": "TARGET_SPECIFIC",
+            "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+            "confidence": "NOT_APPLICABLE",
+            "dependencies": [],
+            "diagnostics": [],
+            "object_id": "pbi_table_179ac5921fb588cc",
+            "object_kind": "TABLE",
+            "object_name": "Time Intelligence",
+            "recognized_pattern": null,
+            "required_mappings": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/Time Intelligence.tmdl",
+              "line": 1
+            },
+            "unsupported_constructs": []
+          }
+        ],
+        "partitions": [
+          {
+            "import_support_classification": "TARGET_SPECIFIC",
+            "mode": "import",
+            "name": "dim_date",
+            "object_id": "pbi_partition_964eeed536f9c525",
+            "source_expression_hash": "9b87e16f87aff12252bd296a8c4d89043dab03f61486762a256c39ae8363e32a",
+            "source_expression_redacted": "<REDACTED:source-expression>",
+            "source_kind": "M_EXPRESSION",
+            "source_location": {
+              "column": 5,
+              "end_line": 13,
+              "file": "tables/dim_date.tmdl",
+              "line": 10
+            },
+            "table": "dim_date"
+          },
+          {
+            "import_support_classification": "TARGET_SPECIFIC",
+            "mode": "import",
+            "name": "fact_unsupported",
+            "object_id": "pbi_partition_06bb15aa96e8f752",
+            "source_expression_hash": "9b87e16f87aff12252bd296a8c4d89043dab03f61486762a256c39ae8363e32a",
+            "source_expression_redacted": "<REDACTED:source-expression>",
+            "source_kind": "M_EXPRESSION",
+            "source_location": {
+              "column": 5,
+              "end_line": 21,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 18
+            },
+            "table": "fact_unsupported"
+          }
+        ],
+        "relationships": [
+          {
+            "cross_filter_direction": "oneDirection",
+            "cross_filter_direction_explicit": false,
+            "from": {
+              "column": "alternate_date_id",
+              "table": "fact_unsupported"
+            },
+            "from_cardinality": "many",
+            "from_cardinality_explicit": false,
+            "is_active": false,
+            "is_active_explicit": true,
+            "name": "inactive_date",
+            "object_id": "pbi_relationship_dbdc07ba375ba17b",
+            "raw_properties": {
+              "fromColumn": "fact_unsupported.alternate_date_id",
+              "isActive": "false",
+              "toColumn": "dim_date.date_id"
+            },
+            "source_location": {
+              "column": 1,
+              "end_line": 4,
+              "file": "relationships.tmdl",
+              "line": 1
+            },
+            "to": {
+              "column": "date_id",
+              "table": "dim_date"
+            },
+            "to_cardinality": "one",
+            "to_cardinality_explicit": false
+          }
+        ],
+        "report_references": [],
+        "roles": [],
+        "schema_version": 2,
+        "semantic_hash": "3853ccff036bd0779a05b869328dfd57ef46b378a3665a23448b5c15740ec713",
+        "tables": [
+          {
+            "column_ids": [
+              "pbi_column_b85fa2afa5231a00",
+              "pbi_column_982d10ddae5d2971"
+            ],
+            "description": "",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "measure_ids": [],
+            "name": "dim_date",
+            "object_id": "pbi_table_dcbc20f0d4ff8c5a",
+            "partition_ids": [
+              "pbi_partition_964eeed536f9c525"
+            ],
+            "source_location": {
+              "column": 1,
+              "file": "tables/dim_date.tmdl",
+              "line": 1
+            }
+          },
+          {
+            "column_ids": [
+              "pbi_column_75d5b73be971f8b6",
+              "pbi_column_74942f182d74c571",
+              "pbi_column_ef7272902569eaeb",
+              "pbi_column_5ebbfe06871061c3"
+            ],
+            "description": "",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "measure_ids": [],
+            "name": "fact_unsupported",
+            "object_id": "pbi_table_32635376e0060893",
+            "partition_ids": [
+              "pbi_partition_06bb15aa96e8f752"
+            ],
+            "source_location": {
+              "column": 1,
+              "file": "tables/fact_unsupported.tmdl",
+              "line": 1
+            }
+          },
+          {
+            "column_ids": [],
+            "description": "",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "measure_ids": [
+              "pbi_measure_19f993f55fc31cef",
+              "pbi_measure_dde8e1310d169bd1",
+              "pbi_measure_ed06471d9ab57459",
+              "pbi_measure_9d2ae4c1dccdcb8a",
+              "pbi_measure_c6b188a0d963d9f1",
+              "pbi_measure_eab46556806f75fc",
+              "pbi_measure_2e7d5c1960cd5902",
+              "pbi_measure_9129d4c792b2e770",
+              "pbi_measure_6cc2862d498f667f"
+            ],
+            "name": "Measures",
+            "object_id": "pbi_table_b17ae0652c74b1c7",
+            "partition_ids": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/Measures.tmdl",
+              "line": 1
+            }
+          },
+          {
+            "column_ids": [],
+            "description": "",
+            "is_calculated": false,
+            "is_hidden": false,
+            "lineage_tag": null,
+            "measure_ids": [],
+            "name": "Time Intelligence",
+            "object_id": "pbi_table_179ac5921fb588cc",
+            "partition_ids": [],
+            "source_location": {
+              "column": 1,
+              "file": "tables/Time Intelligence.tmdl",
+              "line": 1
+            }
+          }
+        ]
+      },
+      "recognized_patterns": [
+        {
+          "classification": "MANUAL_REVIEW_REQUIRED",
+          "pattern": null,
+          "source_object": "Measures[Dynamic Format]"
+        },
+        {
+          "classification": "MANUAL_REVIEW_REQUIRED",
+          "pattern": null,
+          "source_object": "Measures[Inactive Relationship]"
+        },
+        {
+          "classification": "MANUAL_REVIEW_REQUIRED",
+          "pattern": null,
+          "source_object": "Measures[Time Intelligence]"
+        },
+        {
+          "classification": "MANUAL_REVIEW_REQUIRED",
+          "pattern": null,
+          "source_object": "Measures[Nested Calculate]"
+        },
+        {
+          "classification": "UNSUPPORTED",
+          "pattern": "RATIO",
+          "source_object": "Measures[Broken Dependency]"
+        },
+        {
+          "classification": "UNSUPPORTED",
+          "pattern": null,
+          "source_object": "Measures[Iterator Total]"
+        },
+        {
+          "classification": "SUPPORTED_EXACT",
+          "pattern": "COUNT",
+          "source_object": "Measures[Base Rows]"
+        },
+        {
+          "classification": "MANUAL_REVIEW_REQUIRED",
+          "pattern": "RATIO",
+          "source_object": "Measures[Dependency Level 1]"
+        },
+        {
+          "classification": "MANUAL_REVIEW_REQUIRED",
+          "pattern": "RATIO",
+          "source_object": "Measures[Dependency Level 2]"
+        }
+      ],
+      "repository_snowflake": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "access_modifier": "private_access",
+          "description": "Base unsupported-fixture rows.",
+          "expr": "COUNT(*)",
+          "name": "base_rows",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "",
+          "expr": "__REQUIRES_MAPPING__.base_rows / NULLIF(__REQUIRES_MAPPING__.iterator_total, 0)",
+          "logical_table": null,
+          "name": "dependency_level_1",
+          "status": "DRAFT_REQUIRES_MAPPING",
+          "synonyms": []
+        },
+        {
+          "access_modifier": "private_access",
+          "description": "",
+          "expr": "__REQUIRES_MAPPING__.dependency_level_1 / NULLIF(__REQUIRES_MAPPING__.base_rows, 0)",
+          "logical_table": null,
+          "name": "dependency_level_2",
+          "status": "DRAFT_REQUIRES_MAPPING",
+          "synonyms": []
+        }
+      ],
+      "semantic_content_sha256": "a1ee3b690de38487181c1ed099b6a33090be593f76e6cedcbc6ce497cd9ebf1b",
+      "source_snapshot_sha256": "335c9964ed056547b0920346c852ef9efa1ce5e51f170b38076d9d19695c1774"
+    }
+  ],
+  "maintenance_equivalence": {
+    "applied_hashes": {
+      "canonical": "ea938d180960963c5c0aeef642abbd64fe79c1cb0e6e888c71c27ff55a3e571a",
+      "power_bi_copy": "cdf195f47921f2691df45cd2a5125e0453cf5060898d2c1235326ebd915b791b",
+      "snowflake": "c74468c2c0612a749b9905e8e01291a1c88b2d8dec0b416ef99ae68bd7ee7a17"
+    },
+    "before_targets": {
+      "dax": "CALCULATE( COUNTROWS(fact_activity), fact_activity[is_valid] = TRUE() )",
+      "snowflake": {
+        "access_modifier": "private_access",
+        "description": "Valid activity rows.",
+        "expr": "COUNT_IF(is_valid)",
+        "name": "valid_rows",
+        "synonyms": []
+      }
+    },
+    "change_id": "chg_20260718T180000Z_77777777",
+    "changed_targets": {
+      "dax": "CALCULATE( COUNTROWS(fact_activity), fact_activity[is_valid] = FALSE() )",
+      "snowflake": {
+        "access_modifier": "private_access",
+        "description": "Valid activity rows.",
+        "expr": "COUNT_IF(NOT is_valid)",
+        "name": "valid_rows",
+        "synonyms": []
+      }
+    },
+    "deployment_state": "NOT_PERFORMED",
+    "rollback_hash_guarded": true,
+    "rollback_restored_previous_targets": true,
+    "source_power_bi_mutated": false,
+    "states": [
+      "PROPOSED",
+      "APPROVED",
+      "APPLIED_LOCAL",
+      "VALIDATED",
+      "ROLLED_BACK"
+    ],
+    "targets_share_changed_signature": true,
+    "unrelated_objects_unchanged": true,
+    "validation_passed": true,
+    "workspace_isolated": true
+  },
+  "schema_version": 1,
+  "status": "PASSED"
+}

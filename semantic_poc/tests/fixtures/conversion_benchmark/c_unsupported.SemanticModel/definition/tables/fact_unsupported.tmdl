@@ -1,0 +1,21 @@
+table fact_unsupported
+	column row_id
+		dataType: int64
+		sourceColumn: row_id
+
+	column value
+		dataType: double
+		sourceColumn: value
+
+	column date_id
+		dataType: int64
+		sourceColumn: date_id
+
+	column alternate_date_id
+		dataType: int64
+		sourceColumn: alternate_date_id
+
+	partition fact_unsupported = m
+		mode: import
+		source =
+			let Source = #table({}, {}) in Source

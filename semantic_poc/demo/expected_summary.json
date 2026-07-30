@@ -1,0 +1,52 @@
+{
+  "artifact_hashes": {
+    "canonicalization-proposals.json": "214ac59bed3694b460743347047ff2393f231248f5139396d44cd3039c7f56da",
+    "canonicalization-proposals.md": "b83fb16f2cc47e2cbedb76f4a41192b054efebb25574329fb6a81bf5f652b126",
+    "conversion-comparison.json": "15e899279d426f181089feec7e72aac7c72ed0c12ccc38bffdc44e5ff25ad914",
+    "conversion-comparison.md": "a45bfc11f0187bfff516c8f4c50628a4a55396af8774220590aa1598d97e41cd",
+    "evidence/equivalence-report.md": "08d6d4d44e9e34734f418c06f37df9ca8b1f175d856c789d0043941f215a8dc2",
+    "evidence/equivalence-results.json": "28f7ae58609dae4a8140dedc3dffe610058e2c050561edf539a49bd082d8708e",
+    "evidence/generated-hashes.json": "85ad54501aca2f166728d11907c68300dfa2c2cf875bdd521002305f2b6bd77a",
+    "evidence/immutability-report.md": "031d2a637ebdd782928a15e485301e40cfda6a7f20d31fc7f1453c9469ea7063",
+    "evidence/source-hashes.json": "dabe49d23781c892a89f439c18699c078a056588de93eb2b593cec1e6c81018a",
+    "executive-summary.md": "8a2e2cb104023825507fee7986a4546296aa958320bee598bddf0f894991df3a",
+    "generated/canonical-contract.candidate.yml": "90fd8e0ba7b9601dbbd0f15fba93f847cf390eef9252dd1b8330524d37bbb7cc",
+    "generated/powerbi-copy-plan.json": "89a99001c202482f04563a148b9fed4b278e821cfee746f43af31aca11647610",
+    "generated/snowflake-semantic-view.candidate.yml": "4b01c2b3ae31953ca153fc6740ee31a403364e709da49924a3b7b07e0eecdbe7",
+    "generated/snowflake-verification.sql": "6746fd50aa2db2b1fcbda5318a0202de928bd61f70e8c4af285ed76b4b41c2f3",
+    "maintenance/rollback-proof.md": "b399189f1cd4fc910501b6fa685e242ff6237b94a78e1046b7183e843db5b5fd",
+    "maintenance/synchronized-change-example.md": "82ea5a25b0f6c525eb0344dc22e8173d3858c2f96fd25a477daa96b4fc39db75",
+    "manifest.json": "f079f6c5540b2c991aa43354359f95f90f9d9f6eacb213077bbf25b571660883",
+    "model-inventory.json": "57e94acabfc61208e4ae5338a81c6bec15aedb5f2d59cc4ef32f3bc857c8bbfc",
+    "model-inventory.md": "5e57039818c2ff792d9238986ea95843269ea0346910bff1a7322f011925d9b7",
+    "review-decisions.template.yml": "fb54f7715cce1ee339d4cfc8931bf00b286d1906e86a5611cce8dcc43933eff3",
+    "semantic-lint-report.json": "3c6ab88b4f9f44a6e1a5b977542fe3a3f5503c1a4bcb26d15feb38529f30841f",
+    "semantic-lint-report.md": "8dd9f8ffd78920c66de38724527ab117578103116aa08c392195c625e0789c0b",
+    "support-matrix.json": "8e14df9cc767703471a17411467e38fa9a1c07cca357bec6647c140df06ac61c",
+    "support-matrix.md": "a722d32f06c900bec5b7403ae33d34ba2e443563c49bff2d719ab3951711596a"
+  },
+  "assurance": {
+    "human_approval": "PENDING",
+    "semantic_equivalence": "FAILED",
+    "structural_compatibility": "MANUAL_REVIEW_REQUIRED",
+    "syntactic_validity": "PASSED"
+  },
+  "benchmark_status": "PASSED",
+  "counts": {
+    "blocking_findings": 16,
+    "equivalence_tests_failed": 2,
+    "equivalence_tests_passed": 4,
+    "exact_conversions": 3,
+    "informational_findings": 3,
+    "manual_review": 4,
+    "measures_analyzed": 7,
+    "power_bi_objects_analyzed": 25,
+    "supported_with_explicit_mapping": 0,
+    "unsupported_constructs": 1,
+    "warnings": 3
+  },
+  "deployment_status": "NOT_REQUESTED",
+  "fixture": "semantic-trap",
+  "overall_status": "BLOCKED_PENDING_REVIEW",
+  "source_immutability_status": "PASSED"
+}

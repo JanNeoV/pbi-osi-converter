@@ -1,0 +1,165 @@
+{
+  "connection_normalizer": "sql-location-v1",
+  "fixture_inventory": {
+    "columns": 69,
+    "measures": 17,
+    "relationships": 10,
+    "semantic_sha256": "3038c38a4d0f93c254a102944c4fe42f747b7e128d1a3fcc9ba1e8d7a9e085b2",
+    "structure_sha256": "6522c85214300ed208965ec94a1f3a274b7dae74f51c8cff3d4f4bb25237485a",
+    "tables": 9
+  },
+  "fixture_tree_sha256": "7b7067cd1568f86dc0458acd03a1e143908b9915f075ee3c054ecb06ddfc527e",
+  "historical_commit": "6a1949c16e880741a6eedf26af7c71f9bc2859da",
+  "included_paths": [
+    "legacy_triathlon_pbi_model.Report/definition.pbir",
+    "legacy_triathlon_pbi_model.Report/definition/pages/393e9177c7bae09776a8/page.json",
+    "legacy_triathlon_pbi_model.Report/definition/pages/393e9177c7bae09776a8/visuals/ac857b923719eb00d46e/visual.json",
+    "legacy_triathlon_pbi_model.Report/definition/pages/pages.json",
+    "legacy_triathlon_pbi_model.Report/definition/report.json",
+    "legacy_triathlon_pbi_model.Report/definition/version.json",
+    "legacy_triathlon_pbi_model.SemanticModel/definition.pbism",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/cultures/en-US.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/database.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/model.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/relationships.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_distance.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_division.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_event.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_gender.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_review_flag.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/tables/fct_event_leg_context.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/tables/fct_result.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/tables/fct_review_flag.tmdl",
+    "legacy_triathlon_pbi_model.SemanticModel/definition/tables/tri_measures.tmdl",
+    "legacy_triathlon_pbi_model.pbip"
+  ],
+  "purpose": "PORTABLE_LEGACY_TRIATHLON_PBI_FIXTURE",
+  "report_linkage": {
+    "pbip": "legacy_triathlon_pbi_model.pbip",
+    "report": "legacy_triathlon_pbi_model.Report/definition.pbir",
+    "semantic_model": "legacy_triathlon_pbi_model.SemanticModel"
+  },
+  "sanitized": true,
+  "sanitized_literals": [
+    "SANITIZED_HOST",
+    "SANITIZED_WAREHOUSE",
+    "SANITIZED_SCHEMA",
+    "SANITIZED_TABLE"
+  ],
+  "schema_version": 1,
+  "source_connection_normalized_inventory": {
+    "columns": 69,
+    "measures": 17,
+    "relationships": 10,
+    "semantic_sha256": "3038c38a4d0f93c254a102944c4fe42f747b7e128d1a3fcc9ba1e8d7a9e085b2",
+    "structure_sha256": "6522c85214300ed208965ec94a1f3a274b7dae74f51c8cff3d4f4bb25237485a",
+    "tables": 9
+  },
+  "source_paths": [
+    {
+      "git_blob": "440c4664019554066193b451dac1b4da700b6aff",
+      "path": "pbi/triathlon_pbi_model.Report/definition.pbir",
+      "sha256": "12e5a84fb5cc34eb402ce202c41af545da79001c1de1572b123e18a565f16c1d"
+    },
+    {
+      "git_blob": "08fefa8fdb380105d803cf8edb0c1d3bba817d9d",
+      "path": "pbi/triathlon_pbi_model.Report/definition/pages/393e9177c7bae09776a8/page.json",
+      "sha256": "7614b1a84c8f3723544cd253f05429c7a5022d5bfeaf86b1e53522b4d8426ae2"
+    },
+    {
+      "git_blob": "67f8331f8a97ec48201cb431fb8c64fc6d30368f",
+      "path": "pbi/triathlon_pbi_model.Report/definition/pages/393e9177c7bae09776a8/visuals/ac857b923719eb00d46e/visual.json",
+      "sha256": "2704661462baf748591bf125b4a1576d4d0bc9fc1b93fb38b7681a523734e7df"
+    },
+    {
+      "git_blob": "0ffa515f8cb451b4946eaa7f7763848001f59b8d",
+      "path": "pbi/triathlon_pbi_model.Report/definition/pages/pages.json",
+      "sha256": "1afb8ebcd6446053d6bfd4f79f196fb5862c5932f71c4ff36cfdabd88c31b00b"
+    },
+    {
+      "git_blob": "6c79c83a741ddbd0eddffd843d8894a4158c2f5d",
+      "path": "pbi/triathlon_pbi_model.Report/definition/report.json",
+      "sha256": "9487262ae6baaf024675799b1417e93d12d8e957f0ec6e0daadd75a885498e92"
+    },
+    {
+      "git_blob": "c8b385e42ddc91bb1aaf44e5a5f44a9829a3d2fa",
+      "path": "pbi/triathlon_pbi_model.Report/definition/version.json",
+      "sha256": "32bc72b8e7996a054f96e655c8dd8fda82e5f502532610b45bc21a18cffe30b6"
+    },
+    {
+      "git_blob": "7fc208d2ee0dcf36cd89e48cf5a9a7bfc77074de",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition.pbism",
+      "sha256": "e761066d848bfaec8496b03ec887aa0a158a8c14a2b359240fc43ca46bb54fcf"
+    },
+    {
+      "git_blob": "154f711052ccaaf471558f922596a9023f8e4ad1",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/cultures/en-US.tmdl",
+      "sha256": "2d91633247210a26aab1dd2293621640797b1ac959f8d2ea4214fb0e0fd7a6d9"
+    },
+    {
+      "git_blob": "19b27aa4055bdbec6c14309692390364c7dcf8ae",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/database.tmdl",
+      "sha256": "096660e23083c923efa9a31c6632d20e2e360280f4fa1dadc2170f81976709e5"
+    },
+    {
+      "git_blob": "02c2e348541295cbfa67c50e5f8a2d996bac35ba",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/model.tmdl",
+      "sha256": "626eef5f686b548326fbcb40c37a414e9cc8684180e70ffe5f284a12b261fe93"
+    },
+    {
+      "git_blob": "14127da902aa369d438bc956e6b580c9508ddc83",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/relationships.tmdl",
+      "sha256": "2abffcea0fe5b6bbe6c6a81a6d51abaff19a05e604ae548b1aaf0efedd8cb72f"
+    },
+    {
+      "git_blob": "c8ed5bd9310f617abb9d6fce5a61141b1d187445",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/tables/dim_distance.tmdl",
+      "sha256": "c509a90e23c64c433814b2e8cb9b8ddce63f9b0c2213cb47ed0bc854f1c031e5"
+    },
+    {
+      "git_blob": "4089c60258d3a6d133750e46038dd42a4844bd57",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/tables/dim_division.tmdl",
+      "sha256": "0a1ca9432ae2bb396ec58b4e95916563f7060cbc0d6eccfa0544279199837cf3"
+    },
+    {
+      "git_blob": "e58c7af4f17b479ef15cf1cec112b4dad20b92ab",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/tables/dim_event.tmdl",
+      "sha256": "1083ea7ab026291c4dfe2c6a4c66575e2dfa4ef8a7259f73bb357cc9220fb39a"
+    },
+    {
+      "git_blob": "c4390d2278d4bb1dbecbe38df9f72d3a2728b333",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/tables/dim_gender.tmdl",
+      "sha256": "4b39b15a451ed48d75cfeee2d03e3e386bb756dc43291ce93f508815f7b014ef"
+    },
+    {
+      "git_blob": "f5ebf2ad1e9a635f27de5a15707daac098330e8b",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/tables/dim_review_flag.tmdl",
+      "sha256": "904887bff8472f4eda03eb2f7d60713e83de7ea5f0932c985d9a44fc32003b68"
+    },
+    {
+      "git_blob": "e09910579d4111a3ced96c3c8c9d958c732177c0",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/tables/fct_event_leg_context.tmdl",
+      "sha256": "32ff903dbe2e198d6d947f862e7cc0c8d4c0612e7bfa3295dcbdbbeed22e2502"
+    },
+    {
+      "git_blob": "89b23d2798c85ce68e5348c76b6e7183844fdb57",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/tables/fct_result.tmdl",
+      "sha256": "8039b4accfbf0dac6d9d114d24041dbb41f7e01d176b78d178836b44c312be23"
+    },
+    {
+      "git_blob": "c2a8b123f037cad5fb58b3ff81ab50023d49c558",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/tables/fct_review_flag.tmdl",
+      "sha256": "15aed6425c95c38c10104201be522db5a0308e580bf62c73bfb0ba55b0b17bc1"
+    },
+    {
+      "git_blob": "bb0a9f4dd1429c0e9ba69d26a09a05a8a929401f",
+      "path": "pbi/triathlon_pbi_model.SemanticModel/definition/tables/tri_measures.tmdl",
+      "sha256": "e309f6c85f180ed8cc6125c694b45e907a92aa50c058290eec85caee5cc6890e"
+    },
+    {
+      "git_blob": "ec28854234d2342f0485f73e8f86676293c2c2f5",
+      "path": "pbi/triathlon_pbi_model.pbip",
+      "sha256": "d7ff5126250e2ceee69be3eb0174a18061e9df456e379b9149f52598ac2e353c"
+    }
+  ]
+}

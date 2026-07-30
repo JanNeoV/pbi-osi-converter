@@ -1,0 +1,4 @@
+schema_version: 1
+fixture_id: near_miss_relationship_context
+changed_component: relationship_context
+replacement: INCLUDE_INACTIVE

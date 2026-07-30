@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Where an AI agent belongs in semantic-model migration</title>
+  <desc id="desc">A reviewer and agent exchange business intent. The agent routes work to deterministic checks. Proven patterns go through a tested compiler to a candidate only. Unproven patterns pause for a human choice. Approval, application, live validation, and deployment remain outside the workflow.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f7f8fa}.title{font:700 32px Arial,sans-serif;fill:#172b4d}.subtitle{font:20px Arial,sans-serif;fill:#52606d}
+      .box{stroke-width:2.5;rx:16}.label{font:700 21px Arial,sans-serif;fill:#172b4d}.body{font:18px Arial,sans-serif;fill:#334e68}
+      .neutral{fill:#fff;stroke:#7b8794}.agent{fill:#eee9ff;stroke:#6750a4}.kernel{fill:#e3f2fd;stroke:#2878b5}.review{fill:#fff4d6;stroke:#b7791f}
+      .banner{fill:#eee9ff;stroke:#6750a4;stroke-width:2;rx:12}.boundary{fill:#fff;stroke:#7b8794;stroke-width:2.5;stroke-dasharray:10 8;rx:16}
+      .line{fill:none;stroke:#6b778c;stroke-width:3.5}.dash{stroke-dasharray:8 7}.branch{font:700 19px Arial,sans-serif;fill:#334e68}
+    </style>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 z" fill="#6b778c"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="14" markerHeight="14" refX="2" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M12,0 L0,6 L12,12 z" fill="#6b778c"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="675"/>
+  <text class="title" x="40" y="48">Where an AI agent belongs in semantic-model migration</text>
+  <text class="subtitle" x="40" y="79">Conversation guides the work; deterministic proof controls executable output</text>
+
+  <rect class="banner" x="40" y="101" width="1120" height="48"/>
+  <text class="label" x="600" y="133" text-anchor="middle">The agent never writes executable DAX or SQL</text>
+
+  <rect class="box neutral" x="40" y="184" width="170" height="82"/>
+  <text class="label" x="125" y="218" text-anchor="middle">Reviewer</text>
+  <text class="body" x="125" y="246" text-anchor="middle">business intent</text>
+
+  <rect class="box agent" x="260" y="184" width="180" height="82"/>
+  <text class="label" x="350" y="218" text-anchor="middle">Agent</text>
+  <text class="body" x="350" y="246" text-anchor="middle">explain · ask · route</text>
+
+  <rect class="box kernel" x="490" y="184" width="220" height="82"/>
+  <text class="label" x="600" y="218" text-anchor="middle">Deterministic checks</text>
+  <text class="body" x="600" y="246" text-anchor="middle">parse · lineage · hash</text>
+
+  <polygon class="review" points="830,160 930,225 830,290 730,225"/>
+  <text class="label" x="830" y="218" text-anchor="middle">Proven</text>
+  <text class="body" x="830" y="246" text-anchor="middle">equivalent?</text>
+
+  <rect class="box kernel" x="970" y="184" width="190" height="82"/>
+  <text class="label" x="1065" y="218" text-anchor="middle">Tested compiler</text>
+  <text class="body" x="1065" y="246" text-anchor="middle">typed pattern</text>
+
+  <path class="line" marker-start="url(#arrow-start)" marker-end="url(#arrow)" d="M210 225 L260 225"/>
+  <path class="line" marker-end="url(#arrow)" d="M440 225 L490 225"/>
+  <path class="line" marker-end="url(#arrow)" d="M710 225 L730 225"/>
+  <path class="line" marker-end="url(#arrow)" d="M930 225 L970 225"/>
+  <text class="branch" x="940" y="211">YES</text>
+
+  <rect class="box review" x="530" y="334" width="340" height="88"/>
+  <text class="label" x="700" y="369" text-anchor="middle">Pause for human choice</text>
+  <text class="body" x="700" y="399" text-anchor="middle">defer · remodel · reject</text>
+  <path class="line" marker-end="url(#arrow)" d="M830 290 L830 310 L700 310 L700 334"/>
+  <text class="branch" x="842" y="311">NO</text>
+
+  <rect class="box kernel" x="970" y="334" width="190" height="88"/>
+  <text class="label" x="1065" y="369" text-anchor="middle">Candidate only</text>
+  <text class="body" x="1065" y="399" text-anchor="middle">traceable · unapplied</text>
+  <path class="line" marker-end="url(#arrow)" d="M1065 266 L1065 334"/>
+
+  <rect class="box neutral" x="530" y="452" width="340" height="62"/>
+  <text class="body" x="700" y="478" text-anchor="middle">Versioned guidance</text>
+  <text class="body" x="700" y="503" text-anchor="middle">confirm again next time</text>
+  <path class="line dash" marker-end="url(#arrow)" d="M700 422 L700 452"/>
+
+  <rect class="boundary" x="40" y="548" width="1120" height="88"/>
+  <text class="label" x="72" y="582">Outside this workflow</text>
+  <text class="body" x="310" y="614" text-anchor="middle">approve</text>
+  <text class="body" x="500" y="614" text-anchor="middle">apply</text>
+  <text class="body" x="710" y="614" text-anchor="middle">live validate</text>
+  <text class="body" x="930" y="614" text-anchor="middle">deploy</text>
+  <path class="line" marker-end="url(#arrow)" d="M365 607 L445 607"/>
+  <path class="line" marker-end="url(#arrow)" d="M545 607 L640 607"/>
+  <path class="line" marker-end="url(#arrow)" d="M780 607 L865 607"/>
+  <path class="line dash" marker-end="url(#arrow)" d="M1065 422 L1065 548"/>
+</svg>

@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/semantic-poc/metric-change-request.schema.json",
+  "title": "MetricChangeRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "change_id",
+    "created_at",
+    "user_request",
+    "intent",
+    "mode",
+    "canonical_metric_name",
+    "canonical_file",
+    "requested_semantic_change",
+    "operation",
+    "affected_targets",
+    "target_support",
+    "status",
+    "approval_state",
+    "validation_state",
+    "deployment_requested",
+    "deployment_state",
+    "assumptions",
+    "diagnostics"
+  ],
+  "properties": {
+    "schema_version": {"const": 2},
+    "change_id": {"type": "string", "pattern": "^chg_[0-9]{8}T[0-9]{6}Z_[0-9a-f]{8}$"},
+    "created_at": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"},
+    "user_request": {"type": "string", "minLength": 1},
+    "intent": {"enum": ["CREATE_METRIC", "UPDATE_METRIC", "RENAME_METRIC", "DEPRECATE_METRIC", "RECONCILE_TARGET_DRIFT"]},
+    "mode": {"const": "PROPOSE"},
+    "canonical_metric_name": {"type": "string", "minLength": 1, "not": {"pattern": "(\\.\\.|/|\\\\)"}},
+    "canonical_file": {"const": "models/semantic/triathlon_semantic.yml"},
+    "requested_semantic_change": {"type": "string", "minLength": 1},
+    "operation": {"$ref": "#/$defs/operation"},
+    "affected_targets": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "contains": {"const": "CANONICAL_DBT"},
+      "items": {"enum": ["CANONICAL_DBT", "POWER_BI", "SNOWFLAKE"]}
+    },
+    "target_support": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {"enum": ["CANONICAL_DBT", "POWER_BI", "SNOWFLAKE"]},
+      "additionalProperties": {"enum": ["SUPPORTED_PATTERN", "METADATA_ONLY", "MANUAL_REVIEW_REQUIRED", "UNSUPPORTED"]}
+    },
+    "status": {"const": "DRAFT"},
+    "approval_state": {"const": "NOT_REQUESTED"},
+    "validation_state": {"const": "NOT_RUN"},
+    "deployment_requested": {"const": false},
+    "deployment_state": {"const": "NOT_REQUESTED"},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "diagnostics": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "predicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "operator", "value"],
+      "properties": {
+        "field": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+        "operator": {"const": "EQ"},
+        "value": {"type": ["string", "boolean", "integer", "number"]}
+      }
+    },
+    "operation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "value"],
+          "properties": {"kind": {"enum": ["SET_LABEL", "SET_DESCRIPTION"]}, "value": {"type": "string", "minLength": 1}}
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "value"],
+          "properties": {"kind": {"const": "SET_FORMAT"}, "value": {"enum": ["whole_number", "decimal_2", "percentage_1_decimal"]}}
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "predicate"],
+          "properties": {"kind": {"enum": ["ADD_FILTER", "REMOVE_FILTER"]}, "predicate": {"$ref": "#/$defs/predicate"}}
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "current", "proposed"],
+          "properties": {"kind": {"const": "REPLACE_FILTER"}, "current": {"$ref": "#/$defs/predicate"}, "proposed": {"$ref": "#/$defs/predicate"}}
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "metric"],
+          "properties": {"kind": {"enum": ["SET_NUMERATOR", "SET_DENOMINATOR"]}, "metric": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}}
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "field", "values"],
+          "properties": {
+            "kind": {"const": "ENSURE_EXCLUDED_VALUES"},
+            "field": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+            "values": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "proposed_name"],
+          "properties": {"kind": {"const": "CREATE_METRIC"}, "proposed_name": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}}
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "proposed_name", "definition"],
+          "properties": {
+            "kind": {"const": "CREATE_METRIC"},
+            "proposed_name": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+            "definition": {"$ref": "#/$defs/typedMetricDefinition"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "new_name"],
+          "properties": {"kind": {"const": "RENAME_METRIC"}, "new_name": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"}}
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "reason"],
+          "properties": {"kind": {"const": "DEPRECATE_METRIC"}, "reason": {"type": "string", "minLength": 1}}
+        }
+      ]
+    },
+    "typedMetricDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pattern", "semantic_model", "label", "description", "public", "source_field",
+        "scale_divisor", "filters", "numerator", "denominator", "semantic_format",
+        "power_bi_table", "power_bi_measure", "power_bi_format_string",
+        "power_bi_display_folder", "snowflake_logical_table", "snowflake_metric_name",
+        "snowflake_synonyms"
+      ],
+      "properties": {
+        "pattern": {"enum": ["COUNT", "COLUMN_COUNT", "SUM", "DISTINCT_COUNT", "FILTERED_COUNT", "SCALED_SUM", "RATIO"]},
+        "semantic_model": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+        "label": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "public": {"type": "boolean"},
+        "source_field": {"type": ["string", "null"], "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+        "scale_divisor": {"type": ["string", "null"], "pattern": "^[0-9]+(?:\\.[0-9]+)?$"},
+        "filters": {"type": "array", "items": {"$ref": "#/$defs/predicate"}},
+        "numerator": {"type": ["string", "null"], "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+        "denominator": {"type": ["string", "null"], "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+        "semantic_format": {"enum": ["whole_number", "decimal_2", "percentage_1_decimal"]},
+        "power_bi_table": {"type": "string", "minLength": 1},
+        "power_bi_measure": {"type": "string", "minLength": 1},
+        "power_bi_format_string": {"type": "string", "minLength": 1},
+        "power_bi_display_folder": {"type": ["string", "null"]},
+        "snowflake_logical_table": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+        "snowflake_metric_name": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
+        "snowflake_synonyms": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+version: 2
+semantic_models:
+  - name: benchmark_unsupported
+    model: ref('benchmark_unsupported')
+    config:
+      meta:
+        semantic_contract:
+          snowflake_logical_tables:
+            - name: unsupported
+              base_table: fact_unsupported
+              primary_key: row_id
+    entities:
+      - name: row
+        type: primary
+        expr: row_id
+    measures:
+      - {name: base_rows_measure, agg: sum, expr: 1}
+metrics:
+  - name: base_rows
+    label: Base Rows
+    description: Base unsupported-fixture rows.
+    type: simple
+    type_params: {measure: base_rows_measure}
+    config:
+      meta:
+        power_bi: {table: Measures, measure: Base Rows, format_string: '0'}
+        snowflake: {logical_table: unsupported, metric_name: base_rows}

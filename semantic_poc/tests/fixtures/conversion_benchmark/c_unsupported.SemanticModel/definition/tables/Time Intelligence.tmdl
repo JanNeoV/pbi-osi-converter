@@ -1,0 +1,4 @@
+table 'Time Intelligence'
+	calculationGroup
+		precedence: 10
+		calculationItem YTD = TOTALYTD(SELECTEDMEASURE(), dim_date[date])

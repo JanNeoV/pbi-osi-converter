@@ -1,0 +1,53 @@
+schema_version: 1
+rule_id: review_unit_conversion_seconds_to_hours_v1
+status: ACCEPTED
+finding_category: UNIT_CONVERSION_MISMATCH
+source_pattern:
+  pattern: SCALED_SUM
+  expression_shape: DIVIDE_SUM_COLUMN_BY_LITERAL
+  aggregation: SUM
+  source_table: fact_traps
+  source_field: duration_seconds
+  observed_operator: DIVIDE
+  observed_divisor: '60'
+applicability:
+  match_mode: EXACT
+  source_platform: POWER_BI_TMDL
+  source_object: Measures[Hours]
+  source_unit: seconds
+  target_semantic_label: Hours
+  target_unit: hours
+  relationship_context: ACTIVE_ONLY
+  relationship_signature_sha256: 4a7fd737f06370f56bdbe927d13dfe9397bcd6ece2b9485cf83b1f820b5a9fd8
+expected_transformation:
+  operator: DIVIDE
+  divisor: '3600'
+unsafe_observed_transformation:
+  operator: DIVIDE
+  divisor: '60'
+structured_canonical_operation:
+  kind: USE_CANONICAL_SCALED_SUM
+  canonical_metric: duration_hours
+  source_field: duration_seconds
+  scale_divisor: '3600'
+evidence_references:
+  - semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/tables/Measures.tmdl
+  - semantic_poc/tests/fixtures/conversion_benchmark/b_synthetic_autopilot.yml
+  - semantic_poc/tests/fixtures/conversion_benchmark/b_expected_canonical.yml
+  - finding:fnd_15fe871fa1b58924
+human_rationale: A measure labelled as hours and sourced from seconds must divide the summed seconds by 3600, not 60.
+approval_provenance:
+  decision_id: review_decision_unit_conversion_seconds_to_hours_v1
+  actor: poc-human-reviewer
+  accepted_at: '2026-07-18T19:10:00Z'
+  decision_path: semantic_poc/end_to_end/review-decision.accepted.yml
+  decision_sha256: 47b4839aaed8c669374a64c39df5a2b5e0bca21965fb42c8d129465673518402
+fixture_source_signature:
+  fixture_id: B_SEMANTIC_TRAPS
+  source_snapshot_sha256: e5eb52ccae18081afd338760b101750145613aef0c659f15a2c77b3e70d44879
+  source_object_id: pbi_measure_a6591b649bbf476e
+  semantic_signature_sha256: ff0c426623799b576b744141c8080ce20ff3dcbeeba0f483ed6cf8054524c594
+match_signature_sha256: ee6662c994746d787625324adbe09bb289e55e1163f544dea0fe5f14265e2ac4
+version: 1
+supersession_status: CURRENT
+superseded_by: null

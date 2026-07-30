@@ -1,0 +1,28 @@
+relationship AutoDetected_9d8f1b22-ca80-4207-b473-657700520689
+	fromColumn: DIM_DIVSION.AGE_GROUP_ID
+	toColumn: DIM_AGE_GROUP.AGE_GROUP_ID
+
+relationship AutoDetected_cd4f0c19-9af1-446e-9fcb-8f488e90e4da
+	fromColumn: DIM_EVENT.COUNTRY_ID
+	toColumn: DIM_COUNTRY.COUNTRY_ID
+
+relationship AutoDetected_a8e67ec1-2cfc-45f3-869b-97de08ee66a7
+	fromColumn: FCT_RESULT.DISTANCE_ID
+	toColumn: DIM_DISTANCE.DISTANCE_ID
+
+relationship AutoDetected_2b758320-233c-4ce7-bbb6-f2a01b6ba4cb
+	fromColumn: FCT_RESULT.DIVISION_ID
+	toColumn: DIM_DIVSION.DIVISION_ID
+
+relationship AutoDetected_c9caa533-7fbb-49e6-a121-c969dc5d730f
+	fromColumn: FCT_RESULT.GENDER_ID
+	toColumn: DIM_GENDER.GENDER_ID
+
+relationship AutoDetected_64b59efc-0b86-44eb-9eb1-8445e88188ab
+	fromColumn: FCT_SPLIT.RESULT_ID
+	toColumn: FCT_RESULT.RESULT_ID
+
+relationship 4ea0c4cf-a0c9-df94-b302-5ffab9317429
+	fromColumn: FCT_RESULT.EVENT_ID
+	toColumn: DIM_EVENT.EVENT_ID
+

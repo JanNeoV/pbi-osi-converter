@@ -1,0 +1,1346 @@
+{
+  "export_manifest_sha256": "08281b0f45799b6ae10b63784f9fa250ce0619bc96e9ff8cc8067fc3c1c0d6d7",
+  "exported_files": {
+    ".gitattributes": {
+      "sha256": "eb334df9bb88ad0bd605793dc503842a61502f6a5346f4d5739ffac8b01fad00",
+      "source": "publication/public-template/.gitattributes"
+    },
+    ".github/workflows/ci.yml": {
+      "sha256": "7afacccfa9123599d70457ee020e1c274dc5f54899565476a5a4e735eaa4d1e5",
+      "source": "publication/public-template/.github/workflows/ci.yml"
+    },
+    ".gitignore": {
+      "sha256": "7c7ae34152c1e8052193a6c5d59bf3a2df41f3a32a257d237d218e3f02f041b4",
+      "source": "publication/public-template/.gitignore"
+    },
+    "LICENSE": {
+      "sha256": "e9823d80f8516842886b9ee91f02e96dbe08cc77a946086136f0ed2e2c47e0c5",
+      "source": "publication/public-template/LICENSE"
+    },
+    "README.md": {
+      "sha256": "4d69f847c711b476ff8db437a4013f94f1bbd808c3d5d42b5460b6ff9f38c076",
+      "source": "publication/public-template/README.md"
+    },
+    "SECURITY.md": {
+      "sha256": "6730f2d5aa4e55a2c304f32ee364e2e0f6528df475ab664ece71423e6e074823",
+      "source": "publication/public-template/SECURITY.md"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "sha256": "ae669dc6b9a62cd9c4063b30966760c48b835398d2301a9c2c84cee11ed93331",
+      "source": "publication/public-template/THIRD_PARTY_NOTICES.md"
+    },
+    "demo/run_public_demo.py": {
+      "sha256": "bde8345f4ec952515d63e5ce12595bba6d544fa424f671fbb95aa9c968a38c0c",
+      "source": "publication/public-template/demo/run_public_demo.py"
+    },
+    "docs/DEMO.md": {
+      "sha256": "0201d80f1c5df73569e864f85cfdcf82ea1c8acdd320d6b5d7fde230ab925513",
+      "source": "publication/public-template/docs/DEMO.md"
+    },
+    "docs/EVIDENCE.md": {
+      "sha256": "5485506c02a81e287e00423b28661114b80e7e348aec264223b4bd21af5cda84",
+      "source": "publication/public-template/docs/EVIDENCE.md"
+    },
+    "docs/LIMITATIONS.md": {
+      "sha256": "df18a8b1226d61b47b73b96dec3fcdae9d75fe8d324f8c4dfaa686a918a8094d",
+      "source": "publication/public-template/docs/LIMITATIONS.md"
+    },
+    "docs/POWERBI_SNOWFLAKE_V2_CONVERSION_FINDINGS.md": {
+      "sha256": "d436c8ee0f4e92933c4bb01e5a2ccbb76243ac3d9ac7baf572a751391e7b1959",
+      "source": "docs/POWERBI_SNOWFLAKE_V2_CONVERSION_FINDINGS.md"
+    },
+    "docs/article-assets/architecture.mmd": {
+      "sha256": "1d6301a98e94643c5fdba446124af235c182673f02a689ec93098cb0efcce9e1",
+      "source": "docs/article-assets/architecture.mmd"
+    },
+    "docs/article-assets/benchmark-summary.json": {
+      "sha256": "fd4aa15603f75f0e72d5ee5d6aa87372a30b606becc38fac58191144b9e4af14",
+      "source": "docs/article-assets/benchmark-summary.json"
+    },
+    "docs/article-assets/benchmark-summary.md": {
+      "sha256": "8f48146db0f7de843577dc6f64af18124c27ef400dfe29e33e6acb041c4e2c90",
+      "source": "docs/article-assets/benchmark-summary.md"
+    },
+    "docs/article-assets/key-findings.md": {
+      "sha256": "b6978c1600b8198a685112ec5377be536c2a5379bcd0cf7013bc2423639ffc2d",
+      "source": "docs/article-assets/key-findings.md"
+    },
+    "docs/article-assets/limitations.md": {
+      "sha256": "2a6735703278473a099559ef8a4085d534629b814d20fe2bb79d8d34f6764c48",
+      "source": "docs/article-assets/limitations.md"
+    },
+    "docs/article-assets/maintenance-flow.mmd": {
+      "sha256": "66cecdf73401d5a42f05afa920f7a77197e3228328b9229ffc0d06da55a264c2",
+      "source": "docs/article-assets/maintenance-flow.mmd"
+    },
+    "docs/article-assets/migration-review-flow.mmd": {
+      "sha256": "7ef97cc2f1860782160fb8642fd445d984e1f83b053721ed04f75944a64e08bf",
+      "source": "docs/article-assets/migration-review-flow.mmd"
+    },
+    "docs/article-assets/relationship-comparison.md": {
+      "sha256": "8e83cdef1add06d2acff32919cba7d1e07a66aa29f1e12e7d2d03e494ea67580",
+      "source": "docs/article-assets/relationship-comparison.md"
+    },
+    "docs/article-assets/relationship-comparison.mmd": {
+      "sha256": "444e753de73af5cf44edc6bd0c1e418b3de4002eef3cc33925424dd5fbb7035b",
+      "source": "docs/article-assets/relationship-comparison.mmd"
+    },
+    "docs/article-assets/reproduction-commands.md": {
+      "sha256": "721b47793a61788029de21336a49b2ffb444174a436aae1817cd9ef3a8f5c0c1",
+      "source": "docs/article-assets/reproduction-commands.md"
+    },
+    "docs/codex/pbi-snowflake-poc/demo/CONVERSION_GAP_PRESENTER.md": {
+      "sha256": "4bac008cc1a2f0f871d97e8b52073fd071547bae86fa06e152a1cc346b13f1c7",
+      "source": "docs/codex/pbi-snowflake-poc/demo/CONVERSION_GAP_PRESENTER.md"
+    },
+    "docs/images/agent-review-flow.png": {
+      "sha256": "11b65ec1a78d7d99ea7566561aea8b52a4a59f3abc1e246abddfb881f378de5b",
+      "source": "publication/public-template/docs/images/agent-review-flow.png"
+    },
+    "docs/images/agent-review-flow.svg": {
+      "sha256": "7e226d82403fb032726c4f1eb6ceac567915073fe07dd204f3156fdd30958eb1",
+      "source": "publication/public-template/docs/images/agent-review-flow.svg"
+    },
+    "docs/images/conversion-funnel.svg": {
+      "sha256": "2576c370341de51815e573a189c645144d902a450c601a7db067aa792767048b",
+      "source": "publication/public-template/docs/images/conversion-funnel.svg"
+    },
+    "docs/images/relationship-comparison.svg": {
+      "sha256": "b313cd920329af65f4dc807b203bb9bd67d0dc407f7f9184f441e15acb587627",
+      "source": "publication/public-template/docs/images/relationship-comparison.svg"
+    },
+    "models/intermediate/int_result_times.sql": {
+      "sha256": "129dcf263efdbdd74334b93681f4569557de0eeb75bffc38d9e4b4e36c91f9b1",
+      "source": "models/intermediate/int_result_times.sql"
+    },
+    "models/semantic/triathlon_semantic.yml": {
+      "sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+      "source": "models/semantic/triathlon_semantic.yml"
+    },
+    "pbit/pbi_trial.pbit": {
+      "sha256": "ba030ad8dfdab603849743e91da5414874fa24dd7d3de7af7a9d1992c0040314",
+      "source": "pbit/pbi_trial.pbit"
+    },
+    "pbit/snowflake_semantic_view/pbi_trial.yaml": {
+      "sha256": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751",
+      "source": "pbit/snowflake_semantic_view/pbi_trial.yaml"
+    },
+    "pyproject.toml": {
+      "sha256": "d9c8ad39a7067ee848a698e95791dd02e11879f3504a8e39520031424ce24890",
+      "source": "publication/public-template/pyproject.toml"
+    },
+    "scripts/check_public_repository.py": {
+      "sha256": "4299af8d5558aba058d8f033fec4f8a4f83fd3acee6e7a15fb1d47f018e16589",
+      "source": "publication/public-template/scripts/check_public_repository.py"
+    },
+    "semantic/triathlon_metric_contract.yml": {
+      "sha256": "aafb55288ef6e247a268806a992c575aaa7e33bf3da4044ef0e9028c84127307",
+      "source": "semantic/triathlon_metric_contract.yml"
+    },
+    "semantic_poc/__init__.py": {
+      "sha256": "8da4058af6e8877284a6887d9eb8c9099bb17aadf2ee13a071261ced7146688c",
+      "source": "semantic_poc/__init__.py"
+    },
+    "semantic_poc/agent/__init__.py": {
+      "sha256": "3dfeca090b2f5270b9fd50019abbceeb92c530ed5be397ad6fe29557af44e83f",
+      "source": "semantic_poc/agent/__init__.py"
+    },
+    "semantic_poc/agent/__main__.py": {
+      "sha256": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "source": "semantic_poc/agent/__main__.py"
+    },
+    "semantic_poc/agent/approvals.py": {
+      "sha256": "a355364be7bd8e36270cf149b3da72fc5e9b0b65ddbf50d76b41acd6d535431b",
+      "source": "semantic_poc/agent/approvals.py"
+    },
+    "semantic_poc/agent/canonical_apply.py": {
+      "sha256": "62aa5355cbfec09c5857ba7cffce6df4f6c614dc4abe96876ec16ea20610c507",
+      "source": "semantic_poc/agent/canonical_apply.py"
+    },
+    "semantic_poc/agent/change_store.py": {
+      "sha256": "27d2abeeffceca6fe309bc2a13b96703c4bd8180a6af048185aca822f3640e93",
+      "source": "semantic_poc/agent/change_store.py"
+    },
+    "semantic_poc/agent/cli.py": {
+      "sha256": "bea0a60fbeb6cb66c772ffc5babfaa698e605e29a87db6c3bc7812218b39c043",
+      "source": "semantic_poc/agent/cli.py"
+    },
+    "semantic_poc/agent/conversion_review.py": {
+      "sha256": "0aa6316287666d0c6d7eccc6c3734e1a6c1e92b220c57a19cfbbff84cd3bcd49",
+      "source": "semantic_poc/agent/conversion_review.py"
+    },
+    "semantic_poc/agent/diff_models.py": {
+      "sha256": "bdd51b8268ad84a8f2f4449737c7533df5e40c730ddeb566e640b2cabe6088f5",
+      "source": "semantic_poc/agent/diff_models.py"
+    },
+    "semantic_poc/agent/guided_conversion.py": {
+      "sha256": "3d5fbb815769a7aebe04a9dd26a224445fa1ed5d1b705cfe379e66aac151bf29",
+      "source": "semantic_poc/agent/guided_conversion.py"
+    },
+    "semantic_poc/agent/import_models.py": {
+      "sha256": "c052ab8a9b3b4ad30234477329f6942f9cb7cdca2391793bf3f93ffd66e300d9",
+      "source": "semantic_poc/agent/import_models.py"
+    },
+    "semantic_poc/agent/import_store.py": {
+      "sha256": "3b45ee6884110d6d6850e311387329e9ebc44bfdab9705dc7c8cbd99bab92e50",
+      "source": "semantic_poc/agent/import_store.py"
+    },
+    "semantic_poc/agent/import_workflow.py": {
+      "sha256": "4cfb555710156f412ee67e0bab17b34b522fc06d2236c1704206595d4643b78d",
+      "source": "semantic_poc/agent/import_workflow.py"
+    },
+    "semantic_poc/agent/inspection.py": {
+      "sha256": "2351e71699f104bc1f62739042fc6d97f7b2da70d237f76338081fab2c4a3b71",
+      "source": "semantic_poc/agent/inspection.py"
+    },
+    "semantic_poc/agent/interpretation.py": {
+      "sha256": "7ab02976fdaadeb9c0fe3788ebb2422d4e4b5d774fc7a15b97d5f3320164b117",
+      "source": "semantic_poc/agent/interpretation.py"
+    },
+    "semantic_poc/agent/metric_change_request.schema.json": {
+      "sha256": "db1ed3be8b9f2c47c86c698c94c7abcedd4150f2d0a36584f0f038baa567d73a",
+      "source": "semantic_poc/agent/metric_change_request.schema.json"
+    },
+    "semantic_poc/agent/natural_language.py": {
+      "sha256": "707fb67f90eeee9e73a4280328b96d8ca1285396dd7887bbee42646a5528f311",
+      "source": "semantic_poc/agent/natural_language.py"
+    },
+    "semantic_poc/agent/openai_provider.py": {
+      "sha256": "c1450fddd44fe3e8bf99670588de78d570656bc283d64191ddea8cd6c69b35ad",
+      "source": "semantic_poc/agent/openai_provider.py"
+    },
+    "semantic_poc/agent/pbi_trial_v2_demo.py": {
+      "sha256": "2dae8cc32e7e52bd7e830e9c979f6981d41a090809c3946ac057ad7aeab41f71",
+      "source": "semantic_poc/agent/pbi_trial_v2_demo.py"
+    },
+    "semantic_poc/agent/pbi_trial_v2_fixture.py": {
+      "sha256": "8ec2c99bd1d046f655ca023b0e6037bc96a0e5ada5ef2e20cdcbc0afac8a7be0",
+      "source": "semantic_poc/agent/pbi_trial_v2_fixture.py"
+    },
+    "semantic_poc/agent/powerbi_import.py": {
+      "sha256": "ff89b49e7e19eb855b4e76d22b2ce168ae4b8f60bd5a47c9808068535b75e212",
+      "source": "semantic_poc/agent/powerbi_import.py"
+    },
+    "semantic_poc/agent/powerbi_import_mapping.schema.json": {
+      "sha256": "b1b179e68b144951f5234398f5bff1e9940f65cd43e3aa6a1d997d3640f0bc1f",
+      "source": "semantic_poc/agent/powerbi_import_mapping.schema.json"
+    },
+    "semantic_poc/agent/powerbi_snowflake_audit.py": {
+      "sha256": "8a28c8cfba9e125f384f17b475e29c9e0209bdc6f724483dc6f39125a6cd089f",
+      "source": "semantic_poc/agent/powerbi_snowflake_audit.py"
+    },
+    "semantic_poc/agent/preview_sync.py": {
+      "sha256": "d203ce38882106f855d19e9efd9102f49591a120a179293e9dfe66d8eb0b71dd",
+      "source": "semantic_poc/agent/preview_sync.py"
+    },
+    "semantic_poc/agent/preview_sync_validation_queue.schema.json": {
+      "sha256": "9b28bce65e73568e5447018a81df8df06e22fb6523c05926a8331a68025d9baf",
+      "source": "semantic_poc/agent/preview_sync_validation_queue.schema.json"
+    },
+    "semantic_poc/agent/prompts/guided_conversion_v1.txt": {
+      "sha256": "6bd762051ec1a5975941e7303abf27feb0c48ae34e4d3189b51ec9de13b25e63",
+      "source": "semantic_poc/agent/prompts/guided_conversion_v1.txt"
+    },
+    "semantic_poc/agent/prompts/import_review_v1.txt": {
+      "sha256": "574b423f95fa4e15582a96f140ccabdd9e3205434b96f027e391c2745d29098f",
+      "source": "semantic_poc/agent/prompts/import_review_v1.txt"
+    },
+    "semantic_poc/agent/prompts/maintenance_v1.txt": {
+      "sha256": "f5fa67d1670ef63eccb412b038230db4c883e4d0a862d7785dfa149e645bf206",
+      "source": "semantic_poc/agent/prompts/maintenance_v1.txt"
+    },
+    "semantic_poc/agent/prompts/powerbi_import_v1.txt": {
+      "sha256": "72f0e0175eaa907b592499238e2a1ed0fd3e27cb68b5b1fc608c69d87aeb8b90",
+      "source": "semantic_poc/agent/prompts/powerbi_import_v1.txt"
+    },
+    "semantic_poc/agent/proposal_engine.py": {
+      "sha256": "b3e184fbb7e8fc301f315899a62aa20b7365756b5e455029e882aac1330ce327",
+      "source": "semantic_poc/agent/proposal_engine.py"
+    },
+    "semantic_poc/agent/proposal_models.py": {
+      "sha256": "42a3b4a1031bb90f036c2f55e7b99ea4188ee2681e9e5564a6e691c388c56113",
+      "source": "semantic_poc/agent/proposal_models.py"
+    },
+    "semantic_poc/agent/result_evidence.schema.json": {
+      "sha256": "96493b306175c1ad86e4420df5393b77b890cf9610ba1b889115db9d96b769be",
+      "source": "semantic_poc/agent/result_evidence.schema.json"
+    },
+    "semantic_poc/agent/result_evidence_compare.py": {
+      "sha256": "c85b886d03dbd2f5749ac921c6848092e31beac3764d02f046246eb2206d65c0",
+      "source": "semantic_poc/agent/result_evidence_compare.py"
+    },
+    "semantic_poc/agent/review_decision.schema.json": {
+      "sha256": "effc727ba9a4c08d3f963ce697b000b5db136023aa247fa43bf42f3ad6dc8b90",
+      "source": "semantic_poc/agent/review_decision.schema.json"
+    },
+    "semantic_poc/agent/review_recording.py": {
+      "sha256": "033532e603909936183903274b118b8799342eb07e43b58e80a0271363209bfb",
+      "source": "semantic_poc/agent/review_recording.py"
+    },
+    "semantic_poc/agent/schemas.py": {
+      "sha256": "aa2fd310ded7b8889044c0ad112dbdcc885e15ded9354015b6bbab7ce99f5940",
+      "source": "semantic_poc/agent/schemas.py"
+    },
+    "semantic_poc/agent/tool_contract/__init__.py": {
+      "sha256": "3ba518dbd7124c55833e7d4819e352b2e8ff411a7710ede2897a5d858e2e02c1",
+      "source": "semantic_poc/agent/tool_contract/__init__.py"
+    },
+    "semantic_poc/agent/tool_contract/harness.py": {
+      "sha256": "9a606c9a530fed5ad7aba72e0edea7c1db39f78de578136d3f2be6c2bf776071",
+      "source": "semantic_poc/agent/tool_contract/harness.py"
+    },
+    "semantic_poc/agent/tool_contract/registry.json": {
+      "sha256": "e9a3e9c28f888495df803708a96571894b8680d5ac21b3f13d74a864e4cf7303",
+      "source": "semantic_poc/agent/tool_contract/registry.json"
+    },
+    "semantic_poc/agent/tool_contract/request-envelope.schema.json": {
+      "sha256": "12bae2fc6e0f501eb544f526dc8be1092391c2b7a711def4f0ba776c917377bf",
+      "source": "semantic_poc/agent/tool_contract/request-envelope.schema.json"
+    },
+    "semantic_poc/agent/tool_contract/result-envelope.schema.json": {
+      "sha256": "a029a5565db5c803a66caf66cd4e1220da292c9019cc4a15ba25dbef2860fed9",
+      "source": "semantic_poc/agent/tool_contract/result-envelope.schema.json"
+    },
+    "semantic_poc/agent/tool_contract/tools/audit-conversion.schema.json": {
+      "sha256": "50c08c69cc0c496bcf1fda1f1c2ec8680a7557db6c8f21ea37c21abb4b2a3ec0",
+      "source": "semantic_poc/agent/tool_contract/tools/audit-conversion.schema.json"
+    },
+    "semantic_poc/agent/tool_contract/tools/inspect-source.schema.json": {
+      "sha256": "cb6580ed4821dad4f392c2b765884f647e23e7977120fda3792a3e644422a81a",
+      "source": "semantic_poc/agent/tool_contract/tools/inspect-source.schema.json"
+    },
+    "semantic_poc/agent/tool_contract/tools/list-findings.schema.json": {
+      "sha256": "2c1d8f339eb0aabc7446dfcd95f121294c99188ac2680cac3f93ba70d0cbaaf2",
+      "source": "semantic_poc/agent/tool_contract/tools/list-findings.schema.json"
+    },
+    "semantic_poc/agent/tool_contract/tools/preview-sync.schema.json": {
+      "sha256": "103c57b39082755647640c01a37347afe1005bb6192b24be0f6afcec40d33cc8",
+      "source": "semantic_poc/agent/tool_contract/tools/preview-sync.schema.json"
+    },
+    "semantic_poc/agent/tool_contract/tools/propose-supported.schema.json": {
+      "sha256": "50c08c69cc0c496bcf1fda1f1c2ec8680a7557db6c8f21ea37c21abb4b2a3ec0",
+      "source": "semantic_poc/agent/tool_contract/tools/propose-supported.schema.json"
+    },
+    "semantic_poc/agent/tool_contract/tools/record-review.schema.json": {
+      "sha256": "0b7d1b850de5df992ca573cb3cb646ddc59869e91bfa775af56a9db2fe1ae52c",
+      "source": "semantic_poc/agent/tool_contract/tools/record-review.schema.json"
+    },
+    "semantic_poc/agent/tool_contract/tools/suggest-review.schema.json": {
+      "sha256": "ba2cb959590fc4c73769abcdc90c410f6dcf7a979eb92a462ab91296d6172340",
+      "source": "semantic_poc/agent/tool_contract/tools/suggest-review.schema.json"
+    },
+    "semantic_poc/agent/workflow.py": {
+      "sha256": "71151423804eee02043f51673586db1cc936087e5bf0923cb59fb6ebb27d37c1",
+      "source": "semantic_poc/agent/workflow.py"
+    },
+    "semantic_poc/benchmark.py": {
+      "sha256": "1a4be09dcd0fc86dde26dd4a69f99ac40bb95c0a3e3ddcdcfdf30da1384e1aa9",
+      "source": "semantic_poc/benchmark.py"
+    },
+    "semantic_poc/benchmark/output/conversion-benchmark.json": {
+      "sha256": "35acfe288043a886ad0cd99148a4430cef20518bdcad9daa44788c6430fed39a",
+      "source": "semantic_poc/benchmark/output/conversion-benchmark.json"
+    },
+    "semantic_poc/benchmark/output/conversion-benchmark.md": {
+      "sha256": "05b8689e23b08c6d581d8f4f9a72ac924782e59a0164c7dd3a37e74e8c7d3133",
+      "source": "semantic_poc/benchmark/output/conversion-benchmark.md"
+    },
+    "semantic_poc/benchmark/output/human-review-decisions.json": {
+      "sha256": "28617c673ebba12e86efda1a9826959524618cea7596716a99415ff67abbc57b",
+      "source": "semantic_poc/benchmark/output/human-review-decisions.json"
+    },
+    "semantic_poc/benchmark/output/maintenance-equivalence-report.md": {
+      "sha256": "e51a43c28627ac1b6d85b25ab32549da3acf8b1c4df062154ebdf463d8f34f7b",
+      "source": "semantic_poc/benchmark/output/maintenance-equivalence-report.md"
+    },
+    "semantic_poc/benchmark/output/semantic-lint-report.json": {
+      "sha256": "677049d0478789f9a6ca607dde384b73b61f20abf976df4f5a61526b02fa6041",
+      "source": "semantic_poc/benchmark/output/semantic-lint-report.json"
+    },
+    "semantic_poc/benchmark/output/semantic-lint-report.md": {
+      "sha256": "c0faa5a21bab679820486163ecb2d6f527b947226e6eafd90dd48c306f5ba9a9",
+      "source": "semantic_poc/benchmark/output/semantic-lint-report.md"
+    },
+    "semantic_poc/benchmark/output/snowflake-autopilot-comparison.md": {
+      "sha256": "78cbaa1324ff7ac575cee3d398ebaf4a959b50b86239ffc6c72c1ab1c77049d2",
+      "source": "semantic_poc/benchmark/output/snowflake-autopilot-comparison.md"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/conversion-findings.json": {
+      "sha256": "23f87f2fc441d659f1e0826f65268940d36f370cb26b9a4580f41c45896338ba",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/conversion-findings.json"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/fixture-manifest.json": {
+      "sha256": "2c272096dc90eea0ebf8a10b3b5c629a6a6c126c4b4e68103d7477205707cc47",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/fixture-manifest.json"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition.pbism": {
+      "sha256": "73a1ae4c89d7488f553788adc772a04c805d1c9e0d7333e2b2b5476aad8e5a5f",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/cultures/en-US.tmdl": {
+      "sha256": "2d91633247210a26aab1dd2293621640797b1ac959f8d2ea4214fb0e0fd7a6d9",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/cultures/en-US.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/database.tmdl": {
+      "sha256": "096660e23083c923efa9a31c6632d20e2e360280f4fa1dadc2170f81976709e5",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/model.tmdl": {
+      "sha256": "d762312bd9aa54a948b548dc8b39b29d80799569def59834f6a534cc1ed28660",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "8d9db5d6704a67ff9cbc7fc48361d2f8b9f071ce7aad8f1b84338714fdfa298f",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_AGE_GROUP.tmdl": {
+      "sha256": "fd3dd55b59e9ce08f1a327d811fde9b10f9ca2ef91521b3f31a7470bf2dd3308",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_AGE_GROUP.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_COUNTRY.tmdl": {
+      "sha256": "bf5188b0d4803e5cce8630c7b8d7545a3df725c32ee09d611d201b2580abccb5",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_COUNTRY.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_DISTANCE.tmdl": {
+      "sha256": "9eca0de67efa0155366004373b9d46ff3e353d779c166e5f240314eb014fc6bf",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_DISTANCE.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_DIVSION.tmdl": {
+      "sha256": "68d7c678e0a49f9ee01c7dec0d89b35377f617142c36d611b2237f095231bc5e",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_DIVSION.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_EVENT.tmdl": {
+      "sha256": "6892bf28ff8b08be0e080ba0626cd524b005e70bc251d90c55ec9650118702aa",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_EVENT.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_GENDER.tmdl": {
+      "sha256": "7ba60e4a5324cf415daa4b83cc1e04c5a7d5dd6695431b60c41c3762b8db62cb",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/DIM_GENDER.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/FCT_RESULT.tmdl": {
+      "sha256": "764255833c5fb79892d9947345f303628ee031ca49fdf5ffb6f5bf12eb56de7e",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/FCT_RESULT.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/FCT_SPLIT.tmdl": {
+      "sha256": "32d1c781df2186459eaec2fa65286f172fadc8c89292d1c19b1593bff416d5c9",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/FCT_SPLIT.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/MEASURES_.tmdl": {
+      "sha256": "2556afd83de3f63590bba8c890786ef1c36c5bec28c2ba6fce6d4cbe83b7b5b0",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/fixtures/pbi_trial.SemanticModel/definition/tables/MEASURES_.tmdl"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/measure-cases.yml": {
+      "sha256": "b7105bd20b3b1eafddd3a9d1dc91e53777bb9b408605f5130201b937ca2a43d4",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/measure-cases.yml"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/powerbi-baseline.dax": {
+      "sha256": "98405395d9724b64196ffed7b5af5c43c5d0cc6b6c8e67febaa87e4a478f4400",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/powerbi-baseline.dax"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/result-evidence.schema.json": {
+      "sha256": "cff850fe73062e5020daac412093fa489d4cacd29ad64a824a5a3f7fb66548ea",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/result-evidence.schema.json"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/result-evidence.template.json": {
+      "sha256": "228c6926b1269bbc7ebc444a0ebc5fe3987759fecc31fe03c6258da2d4d62997",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/result-evidence.template.json"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/snowflake-query-pack.sql": {
+      "sha256": "8dd908957dc11b0b6e83775d6a30385a4a132dc8025fa219dd568393038c27d6",
+      "source": "semantic_poc/benchmark/pbi_trial_v2/snowflake-query-pack.sql"
+    },
+    "semantic_poc/canonical_drift.py": {
+      "sha256": "a476655999be94d7b7554238daaa7d75c1093729ce56071454982897d49b5145",
+      "source": "semantic_poc/canonical_drift.py"
+    },
+    "semantic_poc/config/snowflake_environment.yml": {
+      "sha256": "10dd2ebf972da02813424bc8a5c7ea34d8a33817a30f9264d36810154dceff79",
+      "source": "semantic_poc/config/snowflake_environment.yml"
+    },
+    "semantic_poc/demo.py": {
+      "sha256": "c5dbe667c68a05408062bd28a133f3ea27d5af1d284a6767b970bc97b7b007a0",
+      "source": "semantic_poc/demo.py"
+    },
+    "semantic_poc/demo/expected_findings.json": {
+      "sha256": "27b6e074eedcf01a69d8398487a337659236b8527b467b9318dab036281c0f49",
+      "source": "semantic_poc/demo/expected_findings.json"
+    },
+    "semantic_poc/demo/expected_summary.json": {
+      "sha256": "41ab55255bef524d5bcbaf546f6c92e7aa2fe31ed2ef415e6920b6daf949fd45",
+      "source": "semantic_poc/demo/expected_summary.json"
+    },
+    "semantic_poc/demo/guided_sync/agentic-golden/sanitized-transcript.json": {
+      "sha256": "786592f398ac96194b1c8b71d0f3a4b246a64a57b787fb4e13d9b21f0036c3c0",
+      "source": "semantic_poc/demo/guided_sync/agentic-golden/sanitized-transcript.json"
+    },
+    "semantic_poc/demo/guided_sync/golden/blocked-preview/blocked-preview.json": {
+      "sha256": "f24931e2f54917cdae2b2982a11fc290cb679626a4cc92ab13408db8ae085474",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/blocked-preview/cross-target-report.md": {
+      "sha256": "5123597ae1dcd934305e8d959e964269100c91ab94d53070f0d4650f0d5f7f2e",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/blocked-preview/manifest.json": {
+      "sha256": "7ef76b1618574f359fd4f6fdb7d7702ba59c627c8a5a35993efc97795be12f94",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/blocked-preview/validation-queue.json": {
+      "sha256": "0890d3000ef9b2d787a195fd05577dc2324ccbc7c13252b13d808a3225bee2f7",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/blocked-preview/validation-queue.md": {
+      "sha256": "2c022581875f4b1c009f3681269d65e967a3ada4db56e92aaf9104b6b91ccab5",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/conversion-gap-summary.json": {
+      "sha256": "51fb7f30281503f0ad4d569b5b4f96f41fcb6e4b3bf34edee8a7e5e5ee4f57fc",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/create-preview/canonical-candidate.yml": {
+      "sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/create-preview/cross-target-report.md": {
+      "sha256": "764303f92b23180b00af512f2f282b4df37dce10f2e2fa10d096c278dde3506d",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/create-preview/manifest.json": {
+      "sha256": "88de4cc9d67fb171cdd56765b6af213f3864dee3454c2033956233b20ac3cd65",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/create-preview/powerbi-copy-plan.json": {
+      "sha256": "162927184d82d1dc51dcd0575155c6eeb8859eb0aa517ec81d5d90d885fedbd6",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/create-preview/snowflake-candidate-diff.md": {
+      "sha256": "7700d7a9a3587fd400da0d3380bac185c162acf51d5740fbd88401c232f54cb1",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/create-preview/snowflake-semantic-view.candidate.yml": {
+      "sha256": "e3fcf9495f57eedd925ccc46f91931b5b1f0fbe3edf074cb19025e81d7c76075",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/create-preview/target-diff.json": {
+      "sha256": "ae8a8cd9e673b09bac58d81897f353dfd3ce9a019f462c912237e54777f25602",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/create-preview/validation-queue.json": {
+      "sha256": "de0ee36532cb5c9fd01fd4aad0ef0d0450f86b2e1f14e60a4745620d72248fce",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/create-preview/validation-queue.md": {
+      "sha256": "066b398d3052b28bfc73b541a3489fc24c1a150367f241e7e7aee364155241c8",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/executive-summary.md": {
+      "sha256": "e50675778df2498ec6553ccb600d1bc3c1489fb6ae2378eb33aa4104d4fe5d81",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/immutability-report.json": {
+      "sha256": "c3659bb1978e220da31da9ce2393af4e3bcfcea8e99fce34ec6de1194c04000a",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/manifest.json": {
+      "sha256": "eb8e52878e9675b965cb55f3266d43174346bc99742986b644a671e13574e1fa",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/recorded-review/manifest.json": {
+      "sha256": "9db7252d0dee517f64074426aa1b8c914f38727c3ff1b48bd3aea72a2b75d32f",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/recorded-review/review-decision.yml": {
+      "sha256": "377496316a1003c6b580f7ee205ddd9e32b64b9e9c855bc8b30512c3a5b67c8c",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/recorded-review/review-session.md": {
+      "sha256": "aca2b2ca24615fa209c9d962e27b84ad5e7323d22e76b34706ab3427ebea3e82",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/stale-decision.json": {
+      "sha256": "04e5535dbb45faba8a6c65f943de7daa39ca01f575dad16acfd46b40df79e698",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/update-preview/canonical-candidate.yml": {
+      "sha256": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/update-preview/cross-target-report.md": {
+      "sha256": "31dfab1e7b009e9879530de70064f23dc1c2f26ba1954c6c2bfd04c07ae0888d",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/update-preview/manifest.json": {
+      "sha256": "f2ee0f664e3d7e968a8013142690a772843238de25907737f29b2721637deebc",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/update-preview/powerbi-copy-plan.json": {
+      "sha256": "162927184d82d1dc51dcd0575155c6eeb8859eb0aa517ec81d5d90d885fedbd6",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/update-preview/snowflake-candidate-diff.md": {
+      "sha256": "90a5f450a5c72c07c32ab19452f031b5b0c7b6e5f062f281086eca4b3a00b859",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/update-preview/snowflake-semantic-view.candidate.yml": {
+      "sha256": "e3fcf9495f57eedd925ccc46f91931b5b1f0fbe3edf074cb19025e81d7c76075",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/update-preview/target-diff.json": {
+      "sha256": "7ba9add87c9e9ac6661cafb3b690a07ae7f17a9c9e1ff37ab581fcf5cbca8ef3",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/update-preview/validation-queue.json": {
+      "sha256": "0c484f28ea1a62d6a3a29b2bbf3c190489db86b89fd7b7cb7a202abcb6310604",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/golden/update-preview/validation-queue.md": {
+      "sha256": "664c1512b5bc8419a15a3b931bdf01d65dfbf6bed75347aecba1d37b50cbcaba",
+      "source": "DERIVED_FROM_SANITIZED_PUBLIC_PROJECTION"
+    },
+    "semantic_poc/demo/guided_sync/task-marker.schema.json": {
+      "sha256": "5beab1b6d7ff13f6ed21984cfa185aa05434d5a26238135f63c7600d118accfc",
+      "source": "semantic_poc/demo/guided_sync/task-marker.schema.json"
+    },
+    "semantic_poc/demo/guided_sync/task-markers/01-conversion-gap-demo.json": {
+      "sha256": "d335004440c1dc3bd6b5b0af1f589b85482d762fb6a244c18393c7e5c760828b",
+      "source": "semantic_poc/demo/guided_sync/task-markers/01-conversion-gap-demo.json"
+    },
+    "semantic_poc/demo/guided_sync/task-markers/02-guided-sync-contract.json": {
+      "sha256": "4cdc0ad688a965d76e333bed1a41744c3d69884dece39c30b820dd1766489a39",
+      "source": "semantic_poc/demo/guided_sync/task-markers/02-guided-sync-contract.json"
+    },
+    "semantic_poc/demo/guided_sync/task-markers/03-preview-sync-poc.json": {
+      "sha256": "b89b4eedc110b67f7d819056dedc9b818835cf18cc8c6b5ee517dae7da1cc0eb",
+      "source": "semantic_poc/demo/guided_sync/task-markers/03-preview-sync-poc.json"
+    },
+    "semantic_poc/demo/guided_sync/task-markers/04-guided-review-and-skill.json": {
+      "sha256": "2e219215295d699063060da775cf78a90d11f47aeee4fe258c64779b8ec8c957",
+      "source": "semantic_poc/demo/guided_sync/task-markers/04-guided-review-and-skill.json"
+    },
+    "semantic_poc/demo/review-decisions.accepted.yml": {
+      "sha256": "1982549c78fdb46af6f98104c560456edae81ea810c1763b2fec6d02e93156ba",
+      "source": "semantic_poc/demo/review-decisions.accepted.yml"
+    },
+    "semantic_poc/end_to_end/expected_summary.json": {
+      "sha256": "6124ff204d8623016508bffddc3ca91bb175ebc7d846e5ce4620b32f63d05885",
+      "source": "semantic_poc/end_to_end/expected_summary.json"
+    },
+    "semantic_poc/end_to_end/review-decision.accepted.yml": {
+      "sha256": "47b4839aaed8c669374a64c39df5a2b5e0bca21965fb42c8d129465673518402",
+      "source": "semantic_poc/end_to_end/review-decision.accepted.yml"
+    },
+    "semantic_poc/end_to_end_demo.py": {
+      "sha256": "4d84400c585f50f1abf35cf0b08785c8559c5fe0f513ae2fd63b563e3ff665af",
+      "source": "semantic_poc/end_to_end_demo.py"
+    },
+    "semantic_poc/examples/requests/valid_sbr_finishers_add_filter.json": {
+      "sha256": "a4dbd87505dbac97103d5a60ee70e484fe2b93409492229ff903116e91fee2ef",
+      "source": "semantic_poc/examples/requests/valid_sbr_finishers_add_filter.json"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/fixture-manifest.json": {
+      "sha256": "0fa70c7da5cc2b35913c94e88e3703f6bd0bc0c24621c57b096e08431c835e2f",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/fixture-manifest.json"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition.pbir": {
+      "sha256": "4484a69c6732ca92af89e74ecfec5d09f4b060d17f3cfd38f4b5686719d0f15d",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition.pbir"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition/pages/393e9177c7bae09776a8/page.json": {
+      "sha256": "7614b1a84c8f3723544cd253f05429c7a5022d5bfeaf86b1e53522b4d8426ae2",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition/pages/393e9177c7bae09776a8/page.json"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition/pages/393e9177c7bae09776a8/visuals/ac857b923719eb00d46e/visual.json": {
+      "sha256": "2704661462baf748591bf125b4a1576d4d0bc9fc1b93fb38b7681a523734e7df",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition/pages/393e9177c7bae09776a8/visuals/ac857b923719eb00d46e/visual.json"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition/pages/pages.json": {
+      "sha256": "1afb8ebcd6446053d6bfd4f79f196fb5862c5932f71c4ff36cfdabd88c31b00b",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition/pages/pages.json"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition/report.json": {
+      "sha256": "9487262ae6baaf024675799b1417e93d12d8e957f0ec6e0daadd75a885498e92",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition/report.json"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition/version.json": {
+      "sha256": "32bc72b8e7996a054f96e655c8dd8fda82e5f502532610b45bc21a18cffe30b6",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.Report/definition/version.json"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition.pbism": {
+      "sha256": "e761066d848bfaec8496b03ec887aa0a158a8c14a2b359240fc43ca46bb54fcf",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/cultures/en-US.tmdl": {
+      "sha256": "2d91633247210a26aab1dd2293621640797b1ac959f8d2ea4214fb0e0fd7a6d9",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/cultures/en-US.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/database.tmdl": {
+      "sha256": "096660e23083c923efa9a31c6632d20e2e360280f4fa1dadc2170f81976709e5",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/model.tmdl": {
+      "sha256": "626eef5f686b548326fbcb40c37a414e9cc8684180e70ffe5f284a12b261fe93",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "2abffcea0fe5b6bbe6c6a81a6d51abaff19a05e604ae548b1aaf0efedd8cb72f",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_distance.tmdl": {
+      "sha256": "cb5cca333ed53d68bf44190416040b3992288194fc1d90cea857947f7eebe370",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_distance.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_division.tmdl": {
+      "sha256": "d9229dbb8cf4a627a779edb597cd0ec3f563d50f00d8f8aa848a140ec5031f65",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_division.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_event.tmdl": {
+      "sha256": "de9a6dcf4ef6fb3c26c7696aae917ebb4d20c987c784639cbed9580eaac867fe",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_event.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_gender.tmdl": {
+      "sha256": "fa9a5835707e730baf192808cd906a32ac4fe869fbb8191dbad78bc8087e1326",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_gender.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_review_flag.tmdl": {
+      "sha256": "e4ef0e942e684cff38acee265073b4e4ab0807079deb0147272fcd23d7a803bf",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/dim_review_flag.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/fct_event_leg_context.tmdl": {
+      "sha256": "00aa57b0aeeb22173aef825b5909c840b9056e635b3d33cba5af84e0ea844e90",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/fct_event_leg_context.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/fct_result.tmdl": {
+      "sha256": "060191e48d639ed79295d68ab0862eccc6859cebf4ffc8e352b782028e44b5e6",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/fct_result.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/fct_review_flag.tmdl": {
+      "sha256": "1eb118d6eeb3c089cc088fc1eb7cd182cad409b5c6780ecb5e679f3d927d8820",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/fct_review_flag.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/tri_measures.tmdl": {
+      "sha256": "e309f6c85f180ed8cc6125c694b45e907a92aa50c058290eec85caee5cc6890e",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.SemanticModel/definition/tables/tri_measures.tmdl"
+    },
+    "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.pbip": {
+      "sha256": "87b4ac963de07dd59fc22464e3eca38b4e0a67bdc51bfb733192cb7f761322ae",
+      "source": "semantic_poc/fixtures/legacy_triathlon_pbi_model/legacy_triathlon_pbi_model.pbip"
+    },
+    "semantic_poc/output/dbt_semantics.json": {
+      "sha256": "d85e5638ff2cab4ed57fcbf40dc4a515a062b5503d243b295a2a9ab43fa043f9",
+      "source": "semantic_poc/output/dbt_semantics.json"
+    },
+    "semantic_poc/output/patched_powerbi_semantics.json": {
+      "sha256": "b806e3eb4e18b3b567e561b719e2226ec5f2709898c6c7f48703a01e7aaf534f",
+      "source": "semantic_poc/output/patched_powerbi_semantics.json"
+    },
+    "semantic_poc/output/patched_semantic_compatibility.md": {
+      "sha256": "453813d9d4597d5f0e00dc36bc54e17a5a1167f2614dba1d521f61c54b35a000",
+      "source": "semantic_poc/output/patched_semantic_compatibility.md"
+    },
+    "semantic_poc/output/powerbi_patch_result.md": {
+      "sha256": "6d57e8f473919e151ed5e4dcb7d0dd754a61037a5a337f3c13fed5cf93f206fb",
+      "source": "semantic_poc/output/powerbi_patch_result.md"
+    },
+    "semantic_poc/output/powerbi_semantics.json": {
+      "sha256": "c9051e72e430da21976c76bb98fb806b1c38723e2562ff2d922d848dd8efe3a5",
+      "source": "semantic_poc/output/powerbi_semantics.json"
+    },
+    "semantic_poc/output/proposed_powerbi_patch.json": {
+      "sha256": "e47d4a5aafc9031a4206821212408a6a12dae3e0de889e24c645db8b384c0ebf",
+      "source": "semantic_poc/output/proposed_powerbi_patch.json"
+    },
+    "semantic_poc/output/semantic_compatibility.md": {
+      "sha256": "0b3ced989915b54656281b1ea598dadb827c2553b4d0b5c6627f28d64fd208c3",
+      "source": "semantic_poc/output/semantic_compatibility.md"
+    },
+    "semantic_poc/output/snowflake_semantic_view.yml": {
+      "sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+      "source": "semantic_poc/output/snowflake_semantic_view.yml"
+    },
+    "semantic_poc/powerbi_measure_benchmark.py": {
+      "sha256": "7193ec5bd44390804e255ff7094697dfb97e29217adbdd5b3dd12807d1f10292",
+      "source": "semantic_poc/powerbi_measure_benchmark.py"
+    },
+    "semantic_poc/review_memory.py": {
+      "sha256": "7e66e1619ddc5abd7ed61a7784e2ec984661e5103003f9fd8d57ba82edb11500",
+      "source": "semantic_poc/review_memory.py"
+    },
+    "semantic_poc/review_memory/README.md": {
+      "sha256": "1acff71ff9dcc956c7d78a8179781a20e26bdf81a6b48b7fb11044cd49c4a5d6",
+      "source": "semantic_poc/review_memory/README.md"
+    },
+    "semantic_poc/review_memory/accepted/unit_conversion_seconds_to_hours.yml": {
+      "sha256": "af996d6a1d96e5f8a75b0b34baf567f0b47788523d2722057d877eef9e451e4a",
+      "source": "semantic_poc/review_memory/accepted/unit_conversion_seconds_to_hours.yml"
+    },
+    "semantic_poc/review_memory/registry.json": {
+      "sha256": "a937d544572ecad0ab76fc62fde8c79dd38d387803d1099fa8b26095ba2a7dd6",
+      "source": "semantic_poc/review_memory/registry.json"
+    },
+    "semantic_poc/review_memory/registry.schema.json": {
+      "sha256": "3ff8867dcc356ca32ab0a6c69dbe1ed477e4dcf8c5b9db23610e0766240a8cac",
+      "source": "semantic_poc/review_memory/registry.schema.json"
+    },
+    "semantic_poc/review_memory/schema-v2.json": {
+      "sha256": "54879eb95daa1a6d239d9480e9571a2cc336e4d5beff735910aa730d77a36072",
+      "source": "semantic_poc/review_memory/schema-v2.json"
+    },
+    "semantic_poc/review_memory/schema.json": {
+      "sha256": "998194f6783938c7bd227a2e2103229e4b807a0526ad8ef6e4a59e7c2037afc6",
+      "source": "semantic_poc/review_memory/schema.json"
+    },
+    "semantic_poc/run_agent_guided_conversion_demo.py": {
+      "sha256": "055be1ce8813c3e06bf0038f344146db703e492cde8b3939142cb7896abcc475",
+      "source": "semantic_poc/run_agent_guided_conversion_demo.py"
+    },
+    "semantic_poc/run_demo.py": {
+      "sha256": "62d57ce7f4ee58d709ed8b033bcaf68c7a0298f47f7c15bf206722a960862b1a",
+      "source": "semantic_poc/run_demo.py"
+    },
+    "semantic_poc/run_end_to_end_demo.py": {
+      "sha256": "62db605d437301aaff96ee0fea0d56e389fa3d71afbd28b3d23324647335eb1e",
+      "source": "semantic_poc/run_end_to_end_demo.py"
+    },
+    "semantic_poc/run_guided_sync_demo.py": {
+      "sha256": "de6ed4365509b4cad04af5cf54f55a30803f68645a9e42bfefe8c3743c3bc8f7",
+      "source": "semantic_poc/run_guided_sync_demo.py"
+    },
+    "semantic_poc/run_pbi_trial_v2_audit.py": {
+      "sha256": "823f880a73ecad4f7f9156694354e26c41bb2374cf309c861c5e08e1d74a0b32",
+      "source": "semantic_poc/run_pbi_trial_v2_audit.py"
+    },
+    "semantic_poc/src/__init__.py": {
+      "sha256": "4e2ebbf0996316a2f10950a601a82648b05ef5a328e11f8e36f36431484abc5f",
+      "source": "semantic_poc/src/__init__.py"
+    },
+    "semantic_poc/src/apply_powerbi_patch.py": {
+      "sha256": "0c3a7a53752635d020bc27fa71e2f5c9fdabc3c3c1e1991cfb87205bcbc873c9",
+      "source": "semantic_poc/src/apply_powerbi_patch.py"
+    },
+    "semantic_poc/src/compare_semantics.py": {
+      "sha256": "9579a77179fc475809abb5476d14a15e999360dbc7be0e34e6f631c72cb05dd7",
+      "source": "semantic_poc/src/compare_semantics.py"
+    },
+    "semantic_poc/src/extract_dbt.py": {
+      "sha256": "4f052c09ac3ca3d480383d2c2c47d79d717efe1ea85597149d0c00c7c5d41865",
+      "source": "semantic_poc/src/extract_dbt.py"
+    },
+    "semantic_poc/src/extract_powerbi.py": {
+      "sha256": "956203a942f9ced2f1eac9f8458d9ae24428bee5cc121df047bdc84e5e5d5352",
+      "source": "semantic_poc/src/extract_powerbi.py"
+    },
+    "semantic_poc/src/generate_powerbi_patch.py": {
+      "sha256": "4294a0cb6ac23d1db089184d460ebb88cf1269d8df0dbb158a410665743af2c8",
+      "source": "semantic_poc/src/generate_powerbi_patch.py"
+    },
+    "semantic_poc/src/generate_snowflake_yaml.py": {
+      "sha256": "7cac25e23bc6cbd0c1f7152ed77a22bf79410c6b01f7e773c4655ffff27e75d3",
+      "source": "semantic_poc/src/generate_snowflake_yaml.py"
+    },
+    "semantic_poc/src/models.py": {
+      "sha256": "65b43422828115dc0947d29651242caa372107ee05f29199ad0349ee296e8f6c",
+      "source": "semantic_poc/src/models.py"
+    },
+    "semantic_poc/src/semantic_ir.py": {
+      "sha256": "a2ec3e70d89a0080994b05063d7f00a86f1dd14b6cf81be4b3746fb1ec6bb4f8",
+      "source": "semantic_poc/src/semantic_ir.py"
+    },
+    "semantic_poc/src/snowflake_semantic_view.py": {
+      "sha256": "aa272e11c088e8a26e2292521882771a72ec98f7ef92b604ad5d61520618d17e",
+      "source": "semantic_poc/src/snowflake_semantic_view.py"
+    },
+    "semantic_poc/src/validate_contract.py": {
+      "sha256": "755e2fa95d59f81a6b53ed4bd67d37d60892cf7ebbc59a5f6e51020d7ba0eaaf",
+      "source": "semantic_poc/src/validate_contract.py"
+    },
+    "semantic_poc/tests/conftest.py": {
+      "sha256": "e2e68f7b300384bf09c7aed613d38e2fba3ed3d23b67f78481641e9a0978fbad",
+      "source": "semantic_poc/tests/conftest.py"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/a_expected_canonical.yml": {
+      "sha256": "e2663c6cc887535ded1c11d2379f17936c902c7b90c3ef8cc39782b157719ce1",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/a_expected_canonical.yml"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition.pbism": {
+      "sha256": "d6f675bf150f33cadb76d60faf0ffa5dac0f7578c90612e3f83f6065b4445a50",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/database.tmdl": {
+      "sha256": "71bbba8bc0dd61900dc629a69a3d8c62918e3a2f94878e08867319d6e8c356c1",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/model.tmdl": {
+      "sha256": "4fb4784a2952f59da62329becf93ebdd903a2543843ccb37549a8560ed53b011",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "b565e438680d3585de5aa959890f15886ec3b3a80f391f852433338befe3cb5c",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/tables/Measures.tmdl": {
+      "sha256": "0f08ef874175a6e16587ce7f38db25ee72d0c1de183ba4a55c5d6b2394369804",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/tables/Measures.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/tables/dim_event.tmdl": {
+      "sha256": "dec54e5eb533e0ecbf4d509c082a8022e28f2b9cd680440951daf54a32df2360",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/tables/dim_event.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/tables/fact_activity.tmdl": {
+      "sha256": "10155a5813c2b5103390d9e0b438a97795bd6300937750c3fd12cc2bc58af2a9",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.SemanticModel/definition/tables/fact_activity.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.csv": {
+      "sha256": "cc1d86b7e89af86a9b05a3aee2cdbc4ef8d412646648cbc8ec2d75e0dc9d5463",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/a_supported.csv"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_expected_canonical.yml": {
+      "sha256": "6875a72fc8aca6b5227b97976b523b5c8659203346129c7067956435be774f96",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_expected_canonical.yml"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition.pbism": {
+      "sha256": "d6f675bf150f33cadb76d60faf0ffa5dac0f7578c90612e3f83f6065b4445a50",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/database.tmdl": {
+      "sha256": "71bbba8bc0dd61900dc629a69a3d8c62918e3a2f94878e08867319d6e8c356c1",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/model.tmdl": {
+      "sha256": "4fb4784a2952f59da62329becf93ebdd903a2543843ccb37549a8560ed53b011",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "a50d9c12a8f9d67b1849aca5223f5953cb68cd98ea70820b28a0e4a9245ce6c5",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/tables/Measures.tmdl": {
+      "sha256": "efd256128b716177e1e2f65ab59f3873a934db252d85088ac6e5ce71c62b12fe",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/tables/Measures.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/tables/dim_trap.tmdl": {
+      "sha256": "7c253acdd339b58ff15175237743d2d46a4ec2a7e6ae6a0a9550bc7c4e6ad2ff",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/tables/dim_trap.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/tables/fact_traps.tmdl": {
+      "sha256": "e05279fbed702aebcef9974519a494b18a9a2508dde0c541af1ee0ba05fdd93a",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.SemanticModel/definition/tables/fact_traps.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.csv": {
+      "sha256": "11cd009744914d3349585970f3a55f8b5d99726b057d84f787a98df57a383768",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.csv"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.pbip": {
+      "sha256": "a999d8ef279bb133809d9611a18d9d2e53b39e0958c4f3239c2cd4b798fa31de",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_semantic_traps.pbip"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/b_synthetic_autopilot.yml": {
+      "sha256": "0512b9b048fa1c92188eb5ed80a642c874db2f357a6f71b1bd1ddd9ae1681dc5",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/b_synthetic_autopilot.yml"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/c_expected_canonical.yml": {
+      "sha256": "7edfe3ba2b1c198bdfcc417acb87ae74518358be7f6a4b511cc25d74a889d446",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/c_expected_canonical.yml"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition.pbism": {
+      "sha256": "d6f675bf150f33cadb76d60faf0ffa5dac0f7578c90612e3f83f6065b4445a50",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/database.tmdl": {
+      "sha256": "71bbba8bc0dd61900dc629a69a3d8c62918e3a2f94878e08867319d6e8c356c1",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/model.tmdl": {
+      "sha256": "4fb4784a2952f59da62329becf93ebdd903a2543843ccb37549a8560ed53b011",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "e4fba98b3839d129fb5ef742f55d1fd1b7abd53a7edf4df8fa5b0a4e5d691f24",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/tables/Measures.tmdl": {
+      "sha256": "e8b46c4405d7b8432e04f97bc7d5532d35c340a8dbaa0eb9addc0e29cce67a7a",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/tables/Measures.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/tables/Time Intelligence.tmdl": {
+      "sha256": "cdac27068418668fa50029ad5a2cd2f3110891c0d9750f35a6b5da46b1b07022",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/tables/Time Intelligence.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/tables/dim_date.tmdl": {
+      "sha256": "77c5eb6e3dd57b971367b0508a7fc1b9e9b67c6239939aa4eec94d0741cb433a",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/tables/dim_date.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/tables/fact_unsupported.tmdl": {
+      "sha256": "651a387adbb292a78d613a32b0cb34d5ab7232a89d5d7fc66e5425fb44edd17c",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.SemanticModel/definition/tables/fact_unsupported.tmdl"
+    },
+    "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.csv": {
+      "sha256": "94f527b45df28aef848aa2d1ad318be60433d3ba6587164c4895be0ed6742fdf",
+      "source": "semantic_poc/tests/fixtures/conversion_benchmark/c_unsupported.csv"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition.pbism": {
+      "sha256": "e7fdfdd3dcf21b9a1274f74ef537b6306bbcb85f6315cd226bd6aea8cae5d3a7",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition/database.tmdl": {
+      "sha256": "f021b80eb5da94e7af503ee10652e48451e4945dfccd43bcd404582d905ebce7",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition/model.tmdl": {
+      "sha256": "a3ab89b7a1d511c213d98df471bb7f37df303296fa1195f81fc80637e4e91393",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition/tables/Measures.tmdl": {
+      "sha256": "4271189859ec19fb177c83752d76a17bd212d4f55aa6bd7eb50d0e4fc10d04fd",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition/tables/Measures.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition/tables/fact.tmdl": {
+      "sha256": "b241dec057c857b74cc55fc6ea4cd5c56e8392d5e10827ed02b52d0c76a96b5b",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/ambiguous_mapping.SemanticModel/definition/tables/fact.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/calculation_group.SemanticModel/definition.pbism": {
+      "sha256": "e7fdfdd3dcf21b9a1274f74ef537b6306bbcb85f6315cd226bd6aea8cae5d3a7",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/calculation_group.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/calculation_group.SemanticModel/definition/database.tmdl": {
+      "sha256": "f021b80eb5da94e7af503ee10652e48451e4945dfccd43bcd404582d905ebce7",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/calculation_group.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/calculation_group.SemanticModel/definition/model.tmdl": {
+      "sha256": "a4c71873731c72c25d8654f373e72ef6852133f331232305e93fb2915834493c",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/calculation_group.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/calculation_group.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/calculation_group.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/calculation_group.SemanticModel/definition/tables/Time Intelligence.tmdl": {
+      "sha256": "276b3157f879f4a46fac24903587aefba811e8dd005648084df548e5ba9785e9",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/calculation_group.SemanticModel/definition/tables/Time Intelligence.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition.pbism": {
+      "sha256": "e7fdfdd3dcf21b9a1274f74ef537b6306bbcb85f6315cd226bd6aea8cae5d3a7",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/database.tmdl": {
+      "sha256": "f021b80eb5da94e7af503ee10652e48451e4945dfccd43bcd404582d905ebce7",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/model.tmdl": {
+      "sha256": "e641d2c4933846d88f9ba7f0a413ab58690a8859371f6ddfc8393460c4acb642",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "8b767657ef15971e20a116d94218c509d3be1c5cf4278674b68d07628d3c14bf",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/tables/Measures.tmdl": {
+      "sha256": "c36e3f5025217c887a5ab181a74419bc8d14f20b55780ec5f85c1f9ca1ddcb37",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/tables/Measures.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/tables/dimension.tmdl": {
+      "sha256": "244f4b5ac87689f5ffde6c6bd5c8f13fc89f44f2355d99b7fa00eb3c08a6dcd6",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/tables/dimension.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/tables/fact.tmdl": {
+      "sha256": "71027e733549a8048e4a0283e3a6a061fc3dac75ee608e0856d1646fed445c58",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/inactive_relationship.SemanticModel/definition/tables/fact.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/scalar_mapping.yml": {
+      "sha256": "29481428abcee1494c71d5c55344f6b2c84822526deb5ab4f936d74447a48be8",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/scalar_mapping.yml"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition.pbism": {
+      "sha256": "e7fdfdd3dcf21b9a1274f74ef537b6306bbcb85f6315cd226bd6aea8cae5d3a7",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition/database.tmdl": {
+      "sha256": "f021b80eb5da94e7af503ee10652e48451e4945dfccd43bcd404582d905ebce7",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition/model.tmdl": {
+      "sha256": "2e609c9abf52c1e8cc7d1230871b8a61ddd9beef94d21b75325c2e7718972572",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition/tables/Measures.tmdl": {
+      "sha256": "440d3ffbb9de0f51aa80ec922251f4ad0f2545cc5af3ea7f7e5141d7ba80ca0f",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition/tables/Measures.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition/tables/fact.tmdl": {
+      "sha256": "3438635c40f1f45d5d9f0954efc66f4da73a3becb504e9cd93e73f4aaf321576",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/supported.SemanticModel/definition/tables/fact.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition.pbism": {
+      "sha256": "e7fdfdd3dcf21b9a1274f74ef537b6306bbcb85f6315cd226bd6aea8cae5d3a7",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition/database.tmdl": {
+      "sha256": "f021b80eb5da94e7af503ee10652e48451e4945dfccd43bcd404582d905ebce7",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition/model.tmdl": {
+      "sha256": "a3ab89b7a1d511c213d98df471bb7f37df303296fa1195f81fc80637e4e91393",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition/tables/Measures.tmdl": {
+      "sha256": "933bf8d2b1837433c4ffbdfe9cd4b3b36b90273dbfe2789e8a0ccb9b41bb5ebe",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition/tables/Measures.tmdl"
+    },
+    "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition/tables/fact.tmdl": {
+      "sha256": "8afaf9a887f3909bcd2d07a185d1c5e12b98f8452d83f1ef454d7114bafc93ce",
+      "source": "semantic_poc/tests/fixtures/powerbi_import/unsupported_dax.SemanticModel/definition/tables/fact.tmdl"
+    },
+    "semantic_poc/tests/fixtures/proposals/description_change.json": {
+      "sha256": "40fe4cfadfffa2725165b3719b67de436d4460ab27e46ed19aa46b2a07b27d6b",
+      "source": "semantic_poc/tests/fixtures/proposals/description_change.json"
+    },
+    "semantic_poc/tests/fixtures/proposals/filtered_count_change.json": {
+      "sha256": "b5c31b5439a4b809a32b753b43002ab9b427ba1b09b5dcb8f08af1a89c166e18",
+      "source": "semantic_poc/tests/fixtures/proposals/filtered_count_change.json"
+    },
+    "semantic_poc/tests/fixtures/proposals/no_op_exclusions.json": {
+      "sha256": "c815e9824eee594fee6d99e0a0b66a445eb9f0860048fd5cdc07599f31d1ae75",
+      "source": "semantic_poc/tests/fixtures/proposals/no_op_exclusions.json"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition.pbism": {
+      "sha256": "d6f675bf150f33cadb76d60faf0ffa5dac0f7578c90612e3f83f6065b4445a50",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition.pbism"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition/database.tmdl": {
+      "sha256": "71bbba8bc0dd61900dc629a69a3d8c62918e3a2f94878e08867319d6e8c356c1",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition/database.tmdl"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition/model.tmdl": {
+      "sha256": "4fb4784a2952f59da62329becf93ebdd903a2543843ccb37549a8560ed53b011",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition/model.tmdl"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition/relationships.tmdl": {
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition/relationships.tmdl"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition/tables/Metrics.tmdl": {
+      "sha256": "43389e91d699cec62e412b80096c6f8c5440d224c32b0d93bd4cd02bf2e60ae6",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition/tables/Metrics.tmdl"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition/tables/fact_other.tmdl": {
+      "sha256": "b4e88c7f9ad5a25a4f69801197d543ac993e079523b413ba06914e78c338d7e1",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/cross_object.SemanticModel/definition/tables/fact_other.tmdl"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/exact_object_positive.yml": {
+      "sha256": "3a2fdd5d3988d50c24f2281d7864ec178d50b699f90a05c00fbc99d3305f2fe5",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/exact_object_positive.yml"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/exact_typed_pattern_positive.yml": {
+      "sha256": "5bb6ba4c17ea166231b95602e7328daeff1c5090d90ba3193f60172ca79a1c90",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/exact_typed_pattern_positive.yml"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/fixture-manifest.json": {
+      "sha256": "ba4b265daf43d496a1716c29c4bf1d8186e5169e6040aa629dfd575edbfc9c18",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/fixture-manifest.json"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/near_miss_aggregation.yml": {
+      "sha256": "304975705d3c5cf9474c1be82faaa39504d09ef84a26a6bbe43b320b43b1d50c",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/near_miss_aggregation.yml"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/near_miss_expression.yml": {
+      "sha256": "4ab2f05efe52c7387320c547daaadc13239690a42d6a02b4f128ec306c3a7a11",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/near_miss_expression.yml"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/near_miss_filter_context.yml": {
+      "sha256": "289c22e8c9977599209ecea44ebbda56297a6ba1a5e00892b4a6389b40fbffcb",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/near_miss_filter_context.yml"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/near_miss_grain.yml": {
+      "sha256": "b5dfb4e5ec473f8703a5dcbc9de370d7c7c63cbf85d32431a80477f1ee4cacea",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/near_miss_grain.yml"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/near_miss_parameter_role.yml": {
+      "sha256": "9abe9c68ab314b7790b35edc71fc76334b202d9637ef1d9774c5e48f64da5a3b",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/near_miss_parameter_role.yml"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/near_miss_population.yml": {
+      "sha256": "2268c14ce94c3f129b0e343eb8f7838275e364a5dc7dfdb0da39293cd49e578d",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/near_miss_population.yml"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/near_miss_relationship_context.yml": {
+      "sha256": "5054ebd93a35ca79a7a11467a6b2e8762f1e91ad8449054db4ce0a9f5d12e049",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/near_miss_relationship_context.yml"
+    },
+    "semantic_poc/tests/fixtures/review_memory_v2/near_miss_units.yml": {
+      "sha256": "e7b4d8d013adea50cd3dad292a20e143fdc958936de706c1bc34b0ef2a0c452b",
+      "source": "semantic_poc/tests/fixtures/review_memory_v2/near_miss_units.yml"
+    },
+    "semantic_poc/tests/test_agent_guided_conversion.py": {
+      "sha256": "d35dea209e2d4c5badb488dcdd14d197c77bba893ceaa4cf62e49dae4654e062",
+      "source": "semantic_poc/tests/test_agent_guided_conversion.py"
+    },
+    "semantic_poc/tests/test_agent_tool_contract.py": {
+      "sha256": "6a647df9bcdbe0396552ef59bca7aa2ff8bbb9647663414a2dff9ee4678b0dba",
+      "source": "semantic_poc/tests/test_agent_tool_contract.py"
+    },
+    "semantic_poc/tests/test_demo.py": {
+      "sha256": "eb012095402c09f5b4eae4914e6787302ba3017a5f3c116b92f98af0218e7e62",
+      "source": "semantic_poc/tests/test_demo.py"
+    },
+    "semantic_poc/tests/test_guided_sync_demo.py": {
+      "sha256": "2f2d59fc7d7f04fb5e21d4a001baf6f43dc675744ae017a89a54dbdefcd93f5d",
+      "source": "semantic_poc/tests/test_guided_sync_demo.py"
+    },
+    "semantic_poc/tests/test_pbi_trial_v2_demo.py": {
+      "sha256": "08fbdb462f3e53b6f606bd7adfedf4462e814d8d20ae299a34b4413267ddad9b",
+      "source": "semantic_poc/tests/test_pbi_trial_v2_demo.py"
+    },
+    "semantic_poc/tests/test_powerbi_snowflake_audit.py": {
+      "sha256": "6f585ab8019ef4094c86a732e0adca8b084beea6eeccdd9a5fad2be116859be2",
+      "source": "semantic_poc/tests/test_powerbi_snowflake_audit.py"
+    },
+    "semantic_poc/tests/test_preview_sync.py": {
+      "sha256": "c68721a6054c5d1c981f0608aca440ba2d40cbfc8558cd3b2c46bf56cef1c9e0",
+      "source": "semantic_poc/tests/test_preview_sync.py"
+    },
+    "semantic_poc/tests/test_record_review.py": {
+      "sha256": "375bd12b05595aeb209b76cc59335270b62bc9b18845e83c9d5b1c787da0dc25",
+      "source": "semantic_poc/tests/test_record_review.py"
+    },
+    "semantic_poc/tests/test_review_memory_v2.py": {
+      "sha256": "0735117efec2a9d61ad759fed5bfcbf02a723c7123dfd7b0a123919feffcacb5",
+      "source": "semantic_poc/tests/test_review_memory_v2.py"
+    },
+    "semantic_poc/tests/test_safe_ir_extensions.py": {
+      "sha256": "691b9a740cfaf2195a148bf7781f4a4eeb616ca2e95004cddc3f56d6c65e50af",
+      "source": "semantic_poc/tests/test_safe_ir_extensions.py"
+    },
+    "semantic_poc/tests/test_task9_canonical_drift.py": {
+      "sha256": "f0215d94300bc557a95e369e241aab5faa57b945465db2fcc348f4760a3f27f4",
+      "source": "semantic_poc/tests/test_task9_canonical_drift.py"
+    },
+    "semantic_poc/tests/test_task9_end_to_end.py": {
+      "sha256": "6a3ea817d3653103ece9e74165137493e5cee1d887b4b4c20835bb91af027aa3",
+      "source": "semantic_poc/tests/test_task9_end_to_end.py"
+    },
+    "semantic_poc/tests/test_task9_review_memory.py": {
+      "sha256": "771384b501e2881cc8360c1d0f027ea5a8b9d0b553407c4f4a7e91f6cac7a324",
+      "source": "semantic_poc/tests/test_task9_review_memory.py"
+    },
+    "semantic_poc/validate_guided_sync_receipt.py": {
+      "sha256": "f1ec0f4f63d306437792f6c1d6f6b33c438f259eac9db8baa408e6fe02a7d294",
+      "source": "semantic_poc/validate_guided_sync_receipt.py"
+    },
+    "target/semantic_manifest.json": {
+      "sha256": "cc9df6fb278ec1076db42a19a9bd194cb58ea13a6619368584963d01292fa56b",
+      "source": "target/semantic_manifest.json"
+    },
+    "tests/test_public_contract.py": {
+      "sha256": "fa4376a9a0a42535885d18ee3fdadb2e1f702ecc07e8620417f2845a3a5bf989",
+      "source": "publication/public-template/tests/test_public_contract.py"
+    }
+  },
+  "local_review_only": false,
+  "private_source_commit": "250b5ac84c951d37e6f4f81fcae3c82a544b6c7f",
+  "private_source_dirty": false,
+  "protected_inputs": {
+    "models/semantic/triathlon_semantic.yml": {
+      "kind": "FILE",
+      "source_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4"
+    },
+    "pbit/pbi_trial.pbit": {
+      "kind": "FILE",
+      "source_sha256": "76c2313fbbf2a77bbb06ecf69e508611a3a5da0c7befe80e811cdfd036961bd7"
+    },
+    "pbit/snowflake_semantic_view/pbi_trial.yaml": {
+      "kind": "FILE",
+      "source_sha256": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751"
+    },
+    "semantic/triathlon_metric_contract.yml": {
+      "kind": "FILE",
+      "source_sha256": "aafb55288ef6e247a268806a992c575aaa7e33bf3da4044ef0e9028c84127307"
+    },
+    "semantic_poc/benchmark/pbi_trial_v2/fixtures": {
+      "kind": "TREE",
+      "source_sha256": "4d1298fd0307fe27b1c796b2da213b5eb5c88f69795e4d5a730250cd48095076"
+    },
+    "semantic_poc/output/dbt_semantics.json": {
+      "kind": "FILE",
+      "source_sha256": "d85e5638ff2cab4ed57fcbf40dc4a515a062b5503d243b295a2a9ab43fa043f9"
+    },
+    "semantic_poc/output/patched_powerbi_semantics.json": {
+      "kind": "FILE",
+      "source_sha256": "b806e3eb4e18b3b567e561b719e2226ec5f2709898c6c7f48703a01e7aaf534f"
+    },
+    "semantic_poc/output/patched_semantic_compatibility.md": {
+      "kind": "FILE",
+      "source_sha256": "453813d9d4597d5f0e00dc36bc54e17a5a1167f2614dba1d521f61c54b35a000"
+    },
+    "semantic_poc/output/powerbi_patch_result.md": {
+      "kind": "FILE",
+      "source_sha256": "6d57e8f473919e151ed5e4dcb7d0dd754a61037a5a337f3c13fed5cf93f206fb"
+    },
+    "semantic_poc/output/powerbi_semantics.json": {
+      "kind": "FILE",
+      "source_sha256": "c9051e72e430da21976c76bb98fb806b1c38723e2562ff2d922d848dd8efe3a5"
+    },
+    "semantic_poc/output/proposed_powerbi_patch.json": {
+      "kind": "FILE",
+      "source_sha256": "e47d4a5aafc9031a4206821212408a6a12dae3e0de889e24c645db8b384c0ebf"
+    },
+    "semantic_poc/output/semantic_compatibility.md": {
+      "kind": "FILE",
+      "source_sha256": "0b3ced989915b54656281b1ea598dadb827c2553b4d0b5c6627f28d64fd208c3"
+    },
+    "semantic_poc/output/snowflake_semantic_view.yml": {
+      "kind": "FILE",
+      "source_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb"
+    },
+    "target/semantic_manifest.json": {
+      "kind": "FILE",
+      "source_sha256": "cc9df6fb278ec1076db42a19a9bd194cb58ea13a6619368584963d01292fa56b"
+    }
+  },
+  "repository_name": "pbi-osi-converter",
+  "schema_version": 1,
+  "transformations": [
+    {
+      "exported_sha256": "2e219215295d699063060da775cf78a90d11f47aeee4fe258c64779b8ec8c957",
+      "kind": "TEXT_REDACTION",
+      "path": "semantic_poc/demo/guided_sync/task-markers/04-guided-review-and-skill.json",
+      "replacement_count": 1,
+      "source_sha256": "d90187b6426b5f0c6943f50ec4b5f7ff02970b6c3923db5f51ef8e9aae4d7984"
+    },
+    {
+      "exported_sha256": "ba030ad8dfdab603849743e91da5414874fa24dd7d3de7af7a9d1992c0040314",
+      "kind": "PBIT_SANITIZATION",
+      "path": "pbit/pbi_trial.pbit",
+      "removed_entries": [
+        "SecurityBindings"
+      ],
+      "sanitized_field_counts": {
+        "SANITIZED_ACCOUNT": 8,
+        "SANITIZED_DATABASE": 24,
+        "SANITIZED_SCHEMA": 24,
+        "SANITIZED_WAREHOUSE": 8
+      },
+      "source_sha256": "76c2313fbbf2a77bbb06ecf69e508611a3a5da0c7befe80e811cdfd036961bd7"
+    },
+    {
+      "deployment_performed": false,
+      "exported_file_count": 31,
+      "exported_tree_sha256": "ead0d1d20d8309ff58e00508005d37e2d46fd580a9e4091ecfe0a4c0c9b892a8",
+      "kind": "GUIDED_GOLDEN_REGENERATION",
+      "network_contacted": false,
+      "path": "semantic_poc/demo/guided_sync/golden",
+      "source_file_count": 31,
+      "source_tree_sha256": "61143e7a3abf3033860a2520aa2dc7b27d403cbc3e913329b4ac17a8791ac50b"
+    }
+  ]
+}

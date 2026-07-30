@@ -1,0 +1,6 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","tool_id","request"],
+  "properties":{"schema_version":{"const":2},"tool_id":{"enum":["inspect-source","audit-conversion","list-findings","propose-supported","preview-sync","suggest-review","record-review"]},"request":{"type":"object"}}
+}

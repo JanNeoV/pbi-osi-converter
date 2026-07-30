@@ -1,0 +1,30 @@
+table DIM_GENDER
+	lineageTag: 06e21cc5-eca3-4207-a9f8-1c19ef3bdd51
+
+	column GENDER
+		dataType: string
+		lineageTag: 986e2570-6f9a-4abd-8129-87972a7a438f
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER_ID
+		dataType: string
+		lineageTag: 9460880a-f11b-4786-8092-5ad4bba6ec5f
+		summarizeBy: none
+		sourceColumn: GENDER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_GENDER = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("SANITIZED_ACCOUNT","SANITIZED_WAREHOUSE",[Implementation="2.0"]),
+				    SANITIZED_DATABASE_Database = Source{[Name="SANITIZED_DATABASE",Kind="Database"]}[Data],
+				    SANITIZED_SCHEMA_Schema = SANITIZED_DATABASE_Database{[Name="SANITIZED_SCHEMA",Kind="Schema"]}[Data],
+				    DIM_GENDER_Table = SANITIZED_SCHEMA_Schema{[Name="DIM_GENDER",Kind="Table"]}[Data]
+				in
+				    DIM_GENDER_Table
+

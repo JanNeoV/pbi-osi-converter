@@ -1,0 +1,26 @@
+{
+  "clarification": "RECORDED",
+  "event_counts": {
+    "AGENT_TURN": 10,
+    "CHECKPOINT": 10,
+    "CLARIFICATION_ANSWERED": 1,
+    "SESSION_COMPLETED": 1,
+    "SESSION_STARTED": 1,
+    "SESSION_WAITING": 1,
+    "TOOL_COMPLETED": 9,
+    "TOOL_REQUESTED": 9
+  },
+  "filter_state_dependency": "MANUAL_REVIEW_REQUIRED",
+  "inactive_relationship_dependency": "MANUAL_REVIEW_REQUIRED",
+  "prohibited_tool_calls_executed": 0,
+  "resume": "PASSED",
+  "review_kernel": "PASSED",
+  "schema_version": 1,
+  "stale_session": "REJECTED",
+  "supported_preview_modes": [
+    "create",
+    "update"
+  ],
+  "transitive_dependency": "MANUAL_REVIEW_REQUIRED",
+  "visual_scope_dependency": "MANUAL_REVIEW_REQUIRED"
+}

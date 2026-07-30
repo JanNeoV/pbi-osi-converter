@@ -1,0 +1,67 @@
+/// Distance dimension describing nominal triathlon distance categories and
+/// expected swim, bike, and run distances.
+table dim_distance
+	lineageTag: 867f620f-a40d-44b5-88b3-2ad51e8a111b
+
+	/// Identifier for nominal triathlon distance category.
+	column distance_id
+		dataType: string
+		lineageTag: c2b8f9a4-9c91-4721-99d3-60c0f32481e2
+		summarizeBy: none
+		sourceColumn: distance_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Display label for the nominal triathlon distance category.
+	column distance
+		dataType: string
+		lineageTag: 53f9a69a-e34e-41d0-8516-ce944a7d2403
+		summarizeBy: none
+		sourceColumn: distance
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Expected swim distance in kilometers for the distance category.
+	column nominal_swim_km
+		dataType: double
+		lineageTag: 214268f7-8702-461e-bce4-f0ed61ac5c51
+		summarizeBy: none
+		sourceColumn: nominal_swim_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Expected bike distance in kilometers for the distance category.
+	column nominal_bike_km
+		dataType: double
+		lineageTag: b695807d-d67f-4f26-8a51-9a520883a948
+		summarizeBy: none
+		sourceColumn: nominal_bike_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Expected run distance in kilometers for the distance category.
+	column nominal_run_km
+		dataType: double
+		lineageTag: 3c4dade6-6420-4918-8f80-5c6cb62e74db
+		summarizeBy: none
+		sourceColumn: nominal_run_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_distance = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SANITIZED_HOST", "SANITIZED_WAREHOUSE"),
+				    dbo_mart_dim_distance = Source{[Schema="SANITIZED_SCHEMA",Item="SANITIZED_TABLE"]}[Data]
+				in
+				    dbo_mart_dim_distance
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,9 @@
+table fact
+	column dimension_id
+		dataType: int64
+		sourceColumn: dimension_id
+
+	partition fact = m
+		mode: import
+		source =
+			let Source = #table({"dimension_id"}, {}) in Source

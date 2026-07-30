@@ -1,0 +1,26 @@
+/// One row per benchmark activity.
+table fact_activity
+	column result_id
+		dataType: int64
+		sourceColumn: result_id
+
+	column athlete_id
+		dataType: int64
+		sourceColumn: athlete_id
+
+	column event_id
+		dataType: int64
+		sourceColumn: event_id
+
+	column amount
+		dataType: double
+		sourceColumn: amount
+
+	column is_valid
+		dataType: boolean
+		sourceColumn: is_valid
+
+	partition fact_activity = m
+		mode: import
+		source =
+			let Source = #table({"result_id", "athlete_id", "event_id", "amount", "is_valid"}, {}) in Source

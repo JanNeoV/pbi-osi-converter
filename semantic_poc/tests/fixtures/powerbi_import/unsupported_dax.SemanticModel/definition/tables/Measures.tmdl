@@ -1,0 +1,2 @@
+table Measures
+	measure 'Iterator Total' = SUMX(fact, fact[value])

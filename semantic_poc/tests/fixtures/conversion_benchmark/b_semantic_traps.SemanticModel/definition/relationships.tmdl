@@ -1,0 +1,10 @@
+relationship active_dimension
+	fromColumn: fact_traps.dimension_id
+	toColumn: dim_trap.dimension_id
+	isActive: true
+
+relationship inactive_dimension
+	fromColumn: fact_traps.alternate_dimension_id
+	toColumn: dim_trap.dimension_id
+	isActive: false
+	crossFilteringBehavior: bothDirections

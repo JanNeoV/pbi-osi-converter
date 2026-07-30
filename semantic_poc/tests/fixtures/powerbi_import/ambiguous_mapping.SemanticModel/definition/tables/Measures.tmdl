@@ -1,0 +1,3 @@
+table Measures
+	measure 'Result Rows' = COUNTROWS(fact)
+	measure result_rows = COUNTROWS(fact)

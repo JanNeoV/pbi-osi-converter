@@ -1,0 +1,398 @@
+{
+  "agent_tool_contract": "PASSED",
+  "application_performed": false,
+  "approval_performed": false,
+  "component_results": {
+    "blocked": {
+      "exit_code": 3,
+      "reason_code": "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+      "status": "MANUAL_REVIEW_REQUIRED"
+    },
+    "conversion_gap": {
+      "checked_runner": {
+        "artifacts": {
+          "POWERBI_SNOWFLAKE_CONVERSION_FINDINGS.md": "docs/POWERBI_SNOWFLAKE_V2_CONVERSION_FINDINGS.md",
+          "conversion-findings.json": "semantic_poc/benchmark/pbi_trial_v2/conversion-findings.json",
+          "result-evidence.template.json": "semantic_poc/benchmark/pbi_trial_v2/result-evidence.template.json",
+          "snowflake-query-pack.sql": "semantic_poc/benchmark/pbi_trial_v2/snowflake-query-pack.sql"
+        },
+        "audit_id": "audit_bef38d48cf0c05ab",
+        "check": true,
+        "claim_scope": "CAPTURED_PBI_TRIAL_V2_ONLY",
+        "confirmed_incorrect": 4,
+        "emitted_metrics": 21,
+        "fixture_model_tree_sha256": "54f8f8ab2f080aba5b42b924bb6467e363e36cc1da3bbf6f8e2deaf68614971b",
+        "input_hashes": {
+          "behavioral_baseline_sha256": "98405395d9724b64196ffed7b5af5c43c5d0cc6b6c8e67febaa87e4a478f4400",
+          "benchmark_spec_sha256": "93c060de6ab00068682e8bf8a60713d4a1e97880511c36a4304d18917200d42c",
+          "canonical_contract_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+          "powerbi_model_tree_sha256": "a9042f554c8c500fdce0f75885322affdda7550f3b2c559c3ddc45b4699581e1",
+          "snowflake_query_pack_sha256": "8dd908957dc11b0b6e83775d6a30385a4a132dc8025fa219dd568393038c27d6",
+          "snowflake_yaml_sha256": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751"
+        },
+        "machine_findings_path": "semantic_poc/benchmark/pbi_trial_v2/conversion-findings.json",
+        "matched_metrics": 21,
+        "model_structure_status": "MATCH",
+        "not_proven": 2,
+        "omitted_measures": 25,
+        "potentially_incorrect": 4,
+        "presenter_path": "docs/codex/pbi-snowflake-poc/demo/CONVERSION_GAP_PRESENTER.md",
+        "proven_caught": 0,
+        "proven_not_caught": 4,
+        "relationship_endpoints_matched": 7,
+        "relationship_endpoints_total": 7,
+        "runtime_status": "NOT_AVAILABLE",
+        "source_measures": 46,
+        "summary": {
+          "all_in_scope_mappings_proven_safe": false,
+          "automation_disposition_counts": {
+            "FLAG_SOURCE_DEFECT": 6,
+            "MANUAL_REVIEW_REQUIRED": 40
+          },
+          "behavioral_status_counts": {
+            "NOT_AVAILABLE": 46
+          },
+          "blocker_count": 46,
+          "executive_verdict": "SNOWFLAKE_DID_NOT_PROVE_COMPLETE_OR_CORRECT_CONVERSION",
+          "extra_target_metric_count": 0,
+          "fidelity_status_counts": {
+            "CONFIRMED_INCORRECT": 4,
+            "OMITTED": 25,
+            "POTENTIALLY_INCORRECT": 4,
+            "STRUCTURALLY_EQUIVALENT": 13
+          },
+          "matched_measure_count": 21,
+          "measure_blocker_count": 46,
+          "model_blocker_count": 0,
+          "negative_control_count": 6,
+          "negative_control_detection_counts": {
+            "NOT_PROVEN": 2,
+            "PROVEN_NOT_CAUGHT": 4
+          },
+          "negative_control_handling_counts": {
+            "CHANGED": 1,
+            "EMITTED_WITH_CAUTION": 3,
+            "OMITTED": 2
+          },
+          "omitted_measure_count": 25,
+          "proven_caught_count": 0,
+          "source_measure_count": 46,
+          "target_metric_count": 21
+        },
+        "target_metrics": 21,
+        "verdict": "CONVERSION_GAP_DEMO_ACCEPTED"
+      },
+      "checked_runner_exit_code": 0,
+      "claims": {
+        "NOT_PROVEN": {
+          "count": 2,
+          "runtime_status": "NOT_AVAILABLE"
+        },
+        "OBSERVED": {
+          "emitted_metrics": 21,
+          "omitted_measures": 25,
+          "potentially_incorrect": 4,
+          "source_measures": 46
+        },
+        "PROVEN": {
+          "confirmed_incorrect": 4,
+          "proven_caught": 0,
+          "proven_not_caught": 4
+        }
+      },
+      "generic_audit_exit_code": 3,
+      "generic_audit_verdict": "SNOWFLAKE_DID_NOT_PROVE_COMPLETE_OR_CORRECT_CONVERSION",
+      "summary": {
+        "all_in_scope_mappings_proven_safe": false,
+        "automation_disposition_counts": {
+          "FLAG_SOURCE_DEFECT": 6,
+          "MANUAL_REVIEW_REQUIRED": 40
+        },
+        "behavioral_status_counts": {
+          "NOT_AVAILABLE": 46
+        },
+        "blocker_count": 46,
+        "executive_verdict": "SNOWFLAKE_DID_NOT_PROVE_COMPLETE_OR_CORRECT_CONVERSION",
+        "extra_target_metric_count": 0,
+        "fidelity_status_counts": {
+          "CONFIRMED_INCORRECT": 4,
+          "OMITTED": 25,
+          "POTENTIALLY_INCORRECT": 4,
+          "STRUCTURALLY_EQUIVALENT": 13
+        },
+        "matched_measure_count": 21,
+        "measure_blocker_count": 46,
+        "model_blocker_count": 0,
+        "negative_control_count": 6,
+        "negative_control_detection_counts": {
+          "NOT_PROVEN": 2,
+          "PROVEN_NOT_CAUGHT": 4
+        },
+        "negative_control_handling_counts": {
+          "CHANGED": 1,
+          "EMITTED_WITH_CAUTION": 3,
+          "OMITTED": 2
+        },
+        "omitted_measure_count": 25,
+        "proven_caught_count": 0,
+        "source_measure_count": 46,
+        "target_metric_count": 21
+      }
+    },
+    "review_memory": {
+      "decision_id": "review_decision_guided_sync_demo_v1",
+      "human_confirmation": "REQUIRED",
+      "recorded_status": "REVIEW_RECORDED",
+      "suggestion_status": "REVIEW_RULE_SUGGESTED"
+    },
+    "stale": {
+      "exit_code": 4,
+      "mutated_path": ".tmp/guided-sync-demo/work/stale.SemanticModel/definition/tables/Measures.tmdl",
+      "reason_code": "PREVIEW_INPUT_STALE",
+      "status": "REJECTED"
+    },
+    "supported": {
+      "change_id": "chg_20260718T190000Z_90909090",
+      "create_exit_code": 0,
+      "target_change_count": 1,
+      "update_exit_code": 0
+    },
+    "tool_contract": {
+      "executed_prohibited_tool_calls": 0,
+      "results": [
+        {
+          "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "permitted_next_actions": [
+            "propose-supported"
+          ],
+          "reason_code": "EXACT_CANONICAL_MAPPING",
+          "result": {
+            "metric": "valid_sbr_finishers",
+            "power_bi_mapping_exists": true
+          },
+          "schema_version": 2,
+          "source_hashes": {
+            "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4"
+          },
+          "status": "OK",
+          "tool_id": "inspect-source"
+        },
+        {
+          "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "permitted_next_actions": [
+            "list-findings"
+          ],
+          "reason_code": "UNSAFE_TO_ACCEPT_BLINDLY",
+          "result": {
+            "audit_id": "audit_bef38d48cf0c05ab",
+            "summary": {
+              "all_in_scope_mappings_proven_safe": false,
+              "automation_disposition_counts": {
+                "FLAG_SOURCE_DEFECT": 6,
+                "MANUAL_REVIEW_REQUIRED": 40
+              },
+              "behavioral_status_counts": {
+                "NOT_AVAILABLE": 46
+              },
+              "blocker_count": 46,
+              "executive_verdict": "SNOWFLAKE_DID_NOT_PROVE_COMPLETE_OR_CORRECT_CONVERSION",
+              "extra_target_metric_count": 0,
+              "fidelity_status_counts": {
+                "CONFIRMED_INCORRECT": 4,
+                "OMITTED": 25,
+                "POTENTIALLY_INCORRECT": 4,
+                "STRUCTURALLY_EQUIVALENT": 13
+              },
+              "matched_measure_count": 21,
+              "measure_blocker_count": 46,
+              "model_blocker_count": 0,
+              "negative_control_count": 6,
+              "negative_control_detection_counts": {
+                "NOT_PROVEN": 2,
+                "PROVEN_NOT_CAUGHT": 4
+              },
+              "negative_control_handling_counts": {
+                "CHANGED": 1,
+                "EMITTED_WITH_CAUTION": 3,
+                "OMITTED": 2
+              },
+              "omitted_measure_count": 25,
+              "proven_caught_count": 0,
+              "source_measure_count": 46,
+              "target_metric_count": 21
+            }
+          },
+          "schema_version": 2,
+          "source_hashes": {
+            "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4"
+          },
+          "status": "MANUAL_REVIEW_REQUIRED",
+          "tool_id": "audit-conversion"
+        },
+        {
+          "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "permitted_next_actions": [],
+          "reason_code": "AUDIT_BLOCKERS_PRESENT",
+          "result": {
+            "audit_id": "audit_bef38d48cf0c05ab",
+            "confirmed_incorrect_count": 4,
+            "omitted_measure_count": 25
+          },
+          "schema_version": 2,
+          "source_hashes": {
+            "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4"
+          },
+          "status": "MANUAL_REVIEW_REQUIRED",
+          "tool_id": "list-findings"
+        },
+        {
+          "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "permitted_next_actions": [
+            "preview-sync"
+          ],
+          "reason_code": "SUPPORTED_PROPOSAL_CREATED",
+          "result": {
+            "canonical_metric": "valid_sbr_finishers",
+            "canonical_source": "models/semantic/triathlon_semantic.yml",
+            "change_id": "chg_20260718T190000Z_90909090"
+          },
+          "schema_version": 2,
+          "source_hashes": {
+            "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4"
+          },
+          "status": "OK",
+          "tool_id": "propose-supported"
+        },
+        {
+          "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "permitted_next_actions": [
+            "suggest-review"
+          ],
+          "reason_code": "PREVIEW_REQUIRES_ISOLATED_STORE",
+          "result": {
+            "canonical_source": "models/semantic/triathlon_semantic.yml",
+            "change_id": "chg_20260718T190000Z_90909090",
+            "target_mode": "create"
+          },
+          "schema_version": 2,
+          "source_hashes": {
+            "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4"
+          },
+          "status": "OK",
+          "tool_id": "preview-sync"
+        },
+        {
+          "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "permitted_next_actions": [
+            "record-review"
+          ],
+          "reason_code": "EXACT_REVIEW_RULE",
+          "result": {
+            "human_confirmation": "REQUIRED",
+            "registered_rule_id": "review_unit_conversion_seconds_to_hours_v1"
+          },
+          "schema_version": 2,
+          "source_hashes": {
+            "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4"
+          },
+          "status": "REVIEW_RULE_SUGGESTED",
+          "tool_id": "suggest-review"
+        },
+        {
+          "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+          "canonical_source": "models/semantic/triathlon_semantic.yml",
+          "permitted_next_actions": [],
+          "reason_code": "STRUCTURED_REVIEW_ONLY",
+          "result": {
+            "application_state": "NOT_REQUESTED",
+            "approval_state": "NOT_REQUESTED",
+            "decision_id": "review_decision_guided_sync_demo_v1"
+          },
+          "schema_version": 2,
+          "source_hashes": {
+            "canonical_sha256": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4"
+          },
+          "status": "REVIEW_RECORDED",
+          "tool_id": "record-review"
+        }
+      ],
+      "status": "PASSED",
+      "tool_count": 7
+    }
+  },
+  "deployment_performed": false,
+  "files": {
+    "blocked-preview/blocked-preview.json": "f24931e2f54917cdae2b2982a11fc290cb679626a4cc92ab13408db8ae085474",
+    "blocked-preview/cross-target-report.md": "5123597ae1dcd934305e8d959e964269100c91ab94d53070f0d4650f0d5f7f2e",
+    "blocked-preview/manifest.json": "7ef76b1618574f359fd4f6fdb7d7702ba59c627c8a5a35993efc97795be12f94",
+    "blocked-preview/validation-queue.json": "0890d3000ef9b2d787a195fd05577dc2324ccbc7c13252b13d808a3225bee2f7",
+    "blocked-preview/validation-queue.md": "2c022581875f4b1c009f3681269d65e967a3ada4db56e92aaf9104b6b91ccab5",
+    "conversion-gap-summary.json": "51fb7f30281503f0ad4d569b5b4f96f41fcb6e4b3bf34edee8a7e5e5ee4f57fc",
+    "create-preview/canonical-candidate.yml": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+    "create-preview/cross-target-report.md": "764303f92b23180b00af512f2f282b4df37dce10f2e2fa10d096c278dde3506d",
+    "create-preview/manifest.json": "88de4cc9d67fb171cdd56765b6af213f3864dee3454c2033956233b20ac3cd65",
+    "create-preview/powerbi-copy-plan.json": "162927184d82d1dc51dcd0575155c6eeb8859eb0aa517ec81d5d90d885fedbd6",
+    "create-preview/snowflake-candidate-diff.md": "7700d7a9a3587fd400da0d3380bac185c162acf51d5740fbd88401c232f54cb1",
+    "create-preview/snowflake-semantic-view.candidate.yml": "e3fcf9495f57eedd925ccc46f91931b5b1f0fbe3edf074cb19025e81d7c76075",
+    "create-preview/target-diff.json": "ae8a8cd9e673b09bac58d81897f353dfd3ce9a019f462c912237e54777f25602",
+    "create-preview/validation-queue.json": "de0ee36532cb5c9fd01fd4aad0ef0d0450f86b2e1f14e60a4745620d72248fce",
+    "create-preview/validation-queue.md": "066b398d3052b28bfc73b541a3489fc24c1a150367f241e7e7aee364155241c8",
+    "executive-summary.md": "e50675778df2498ec6553ccb600d1bc3c1489fb6ae2378eb33aa4104d4fe5d81",
+    "immutability-report.json": "c3659bb1978e220da31da9ce2393af4e3bcfcea8e99fce34ec6de1194c04000a",
+    "recorded-review/manifest.json": "9db7252d0dee517f64074426aa1b8c914f38727c3ff1b48bd3aea72a2b75d32f",
+    "recorded-review/review-decision.yml": "377496316a1003c6b580f7ee205ddd9e32b64b9e9c855bc8b30512c3a5b67c8c",
+    "recorded-review/review-session.md": "aca2b2ca24615fa209c9d962e27b84ad5e7323d22e76b34706ab3427ebea3e82",
+    "stale-decision.json": "04e5535dbb45faba8a6c65f943de7daa39ca01f575dad16acfd46b40df79e698",
+    "update-preview/canonical-candidate.yml": "9fadcd63392494cb3125a87913e466807b766b630c86e7e750cba79270ce79e5",
+    "update-preview/cross-target-report.md": "31dfab1e7b009e9879530de70064f23dc1c2f26ba1954c6c2bfd04c07ae0888d",
+    "update-preview/manifest.json": "f2ee0f664e3d7e968a8013142690a772843238de25907737f29b2721637deebc",
+    "update-preview/powerbi-copy-plan.json": "162927184d82d1dc51dcd0575155c6eeb8859eb0aa517ec81d5d90d885fedbd6",
+    "update-preview/snowflake-candidate-diff.md": "90a5f450a5c72c07c32ab19452f031b5b0c7b6e5f062f281086eca4b3a00b859",
+    "update-preview/snowflake-semantic-view.candidate.yml": "e3fcf9495f57eedd925ccc46f91931b5b1f0fbe3edf074cb19025e81d7c76075",
+    "update-preview/target-diff.json": "7ba9add87c9e9ac6661cafb3b690a07ae7f17a9c9e1ff37ab581fcf5cbca8ef3",
+    "update-preview/validation-queue.json": "0c484f28ea1a62d6a3a29b2bbf3c190489db86b89fd7b7cb7a202abcb6310604",
+    "update-preview/validation-queue.md": "664c1512b5bc8419a15a3b931bdf01d65dfbf6bed75347aecba1d37b50cbcaba"
+  },
+  "network_contacted": false,
+  "prerequisite_receipts": [
+    {
+      "path": "semantic_poc/demo/guided_sync/task-markers/01-conversion-gap-demo.json",
+      "sha256": "d335004440c1dc3bd6b5b0af1f589b85482d762fb6a244c18393c7e5c760828b"
+    },
+    {
+      "path": "semantic_poc/demo/guided_sync/task-markers/02-guided-sync-contract.json",
+      "sha256": "4cdc0ad688a965d76e333bed1a41744c3d69884dece39c30b820dd1766489a39"
+    },
+    {
+      "path": "semantic_poc/demo/guided_sync/task-markers/03-preview-sync-poc.json",
+      "sha256": "b89b4eedc110b67f7d819056dedc9b818835cf18cc8c6b5ee517dae7da1cc0eb"
+    },
+    {
+      "path": "semantic_poc/demo/guided_sync/task-markers/04-guided-review-and-skill.json",
+      "sha256": "2e219215295d699063060da775cf78a90d11f47aeee4fe258c64779b8ec8c957"
+    }
+  ],
+  "protected_inputs": {
+    "after": {
+      "models/semantic/triathlon_semantic.yml": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+      "pbit/snowflake_semantic_view/pbi_trial.yaml": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751",
+      "semantic/triathlon_metric_contract.yml": "aafb55288ef6e247a268806a992c575aaa7e33bf3da4044ef0e9028c84127307",
+      "semantic_poc/output": "9f45d33f68813e9039942f100e66e6657ed9a811a7e871bc0aaf88bb05da77fa"
+    },
+    "before": {
+      "models/semantic/triathlon_semantic.yml": "12b0bae86103284b68254220bafb3cc14ba428cf9ac446ac29a32b6876e7d1c4",
+      "pbit/snowflake_semantic_view/pbi_trial.yaml": "9957822850a690cccc3eb5b3108f8cefc26a36461b85996f5e98ff3d1744e751",
+      "semantic/triathlon_metric_contract.yml": "aafb55288ef6e247a268806a992c575aaa7e33bf3da4044ef0e9028c84127307",
+      "semantic_poc/output": "9f45d33f68813e9039942f100e66e6657ed9a811a7e871bc0aaf88bb05da77fa"
+    }
+  },
+  "schema_version": 1,
+  "source_modified": false,
+  "verdict": "INCREMENTAL_SYNC_POC_ACCEPTED"
+}

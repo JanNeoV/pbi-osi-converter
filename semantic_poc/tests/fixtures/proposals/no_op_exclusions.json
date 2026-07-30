@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "change_id": "chg_20260717T160000Z_00112233",
+  "created_at": "2026-07-17T16:00:00Z",
+  "user_request": "Exclude DNS, DNF, and DSQ from valid_sbr_finishers.",
+  "intent": "UPDATE_METRIC",
+  "mode": "PROPOSE",
+  "canonical_metric_name": "valid_sbr_finishers",
+  "canonical_file": "models/semantic/triathlon_semantic.yml",
+  "requested_semantic_change": "Ensure non-finishing statuses are excluded.",
+  "operation": {
+    "kind": "ENSURE_EXCLUDED_VALUES",
+    "field": "finish_status",
+    "values": ["DNS", "DNF", "DSQ"]
+  },
+  "affected_targets": ["CANONICAL_DBT", "POWER_BI", "SNOWFLAKE"],
+  "target_support": {
+    "CANONICAL_DBT": "SUPPORTED_PATTERN",
+    "POWER_BI": "SUPPORTED_PATTERN",
+    "SNOWFLAKE": "SUPPORTED_PATTERN"
+  },
+  "status": "DRAFT",
+  "approval_state": "NOT_REQUESTED",
+  "validation_state": "NOT_RUN",
+  "deployment_requested": false,
+  "deployment_state": "NOT_REQUESTED",
+  "assumptions": [],
+  "diagnostics": []
+}

@@ -1,0 +1,254 @@
+table FCT_RESULT
+	lineageTag: f65b4950-0127-4337-b12e-f98207bbd824
+
+	column ANY_REVIEW_FLAG
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1a2326b7-d9c9-408e-b4d2-f76d4cd1712d
+		summarizeBy: none
+		sourceColumn: ANY_REVIEW_FLAG
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUM_OF_BIKE_REL
+		dataType: double
+		lineageTag: bce576ee-5de6-4712-8800-888808d3e120
+		summarizeBy: sum
+		sourceColumn: SUM_OF_BIKE_REL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUM_OF_BIKE_SECONDS
+		dataType: double
+		lineageTag: 86aff7ab-f1e0-47ae-970d-c31757c9fbaa
+		summarizeBy: sum
+		sourceColumn: SUM_OF_BIKE_SECONDS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUM_OF_CONSISTENCY_SPREAD_REL
+		dataType: double
+		lineageTag: b6a3e9e5-a7df-4659-842f-87964d450cb1
+		summarizeBy: sum
+		sourceColumn: SUM_OF_CONSISTENCY_SPREAD_REL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DISTANCE_ID
+		dataType: string
+		lineageTag: b98c4704-ab64-4e33-b36e-ad8c1963a264
+		summarizeBy: none
+		sourceColumn: DISTANCE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVISION_ID
+		dataType: string
+		lineageTag: 8ac61f79-79a9-41d6-9172-f4a4fcff79df
+		summarizeBy: none
+		sourceColumn: DIVISION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EVENT_CONTEXT_FLAG
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f38d4d3a-56b8-426d-8ef3-0dca64de9746
+		summarizeBy: none
+		sourceColumn: EVENT_CONTEXT_FLAG
+
+		annotation SummarizationSetBy = Automatic
+
+	column EVENT_ID
+		dataType: double
+		lineageTag: 5dcbeff4-8a1c-49b1-9130-f36e4d5b35c8
+		summarizeBy: none
+		sourceColumn: EVENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FINISH_STATUS
+		dataType: string
+		lineageTag: f812520f-c32d-4bdb-8c93-01f64918c748
+		summarizeBy: none
+		sourceColumn: FINISH_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUM_OF_FLAG_LAYER_COUNT
+		dataType: double
+		lineageTag: 395d4786-462b-46d9-878b-63315235e4d6
+		summarizeBy: sum
+		sourceColumn: SUM_OF_FLAG_LAYER_COUNT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GENDER_ID
+		dataType: string
+		lineageTag: 78cdac3c-448f-4c04-af80-36a1d51778a4
+		summarizeBy: none
+		sourceColumn: GENDER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDIVIDUAL_HARD_FLAG
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2b8905ae-769e-470b-adf0-87a349a42667
+		summarizeBy: none
+		sourceColumn: INDIVIDUAL_HARD_FLAG
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDIVIDUAL_PROFILE_FLAG
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: acf15c4f-ffb8-4019-9826-47f47ae64142
+		summarizeBy: none
+		sourceColumn: INDIVIDUAL_PROFILE_FLAG
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_FINISHER
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 00119c9d-a347-44b0-8c9e-d41752b28840
+		summarizeBy: none
+		sourceColumn: IS_FINISHER
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_VALID_SBR_FINISHER
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 738b4869-1dad-427f-abeb-5dfba2044029
+		summarizeBy: none
+		sourceColumn: IS_VALID_SBR_FINISHER
+
+		annotation SummarizationSetBy = Automatic
+
+	column MODEL_RESIDUAL_FLAG
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b239a37d-5920-41a9-9111-dd679bf9e634
+		summarizeBy: none
+		sourceColumn: MODEL_RESIDUAL_FLAG
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUM_OF_OVERALL_REL
+		dataType: double
+		lineageTag: 8db177c9-7765-41e1-8fbb-568c96ee1638
+		summarizeBy: sum
+		sourceColumn: SUM_OF_OVERALL_REL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUM_OF_OVERALL_SECONDS
+		dataType: string
+		lineageTag: 0eca9b73-0ea0-48c2-abad-5f47a2d95bdc
+		summarizeBy: none
+		sourceColumn: SUM_OF_OVERALL_SECONDS
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESULT_ID
+		dataType: string
+		lineageTag: 476ea81e-3285-4eb3-8d97-71cd234cef98
+		summarizeBy: none
+		sourceColumn: RESULT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECORD_INTEGRITY_FLAG
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 207bbf1d-c491-44c7-a56e-0983490ffe44
+		summarizeBy: none
+		sourceColumn: RECORD_INTEGRITY_FLAG
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUM_OF_RUN_REL
+		dataType: double
+		lineageTag: 14cc5f32-59c6-4011-975a-0dcb057aebb0
+		summarizeBy: sum
+		sourceColumn: SUM_OF_RUN_REL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUM_OF_RUN_SECONDS
+		dataType: double
+		lineageTag: aed34392-0da9-466e-ac5e-bf576ca06e32
+		summarizeBy: sum
+		sourceColumn: SUM_OF_RUN_SECONDS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUM_OF_SWIM_REL
+		dataType: double
+		lineageTag: 00726155-ff67-453b-a06b-b776d6c230a1
+		summarizeBy: sum
+		sourceColumn: SUM_OF_SWIM_REL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUM_OF_SWIM_SECONDS
+		dataType: double
+		lineageTag: 5a1012b3-83e3-4a6a-be3a-6c99e22055d9
+		summarizeBy: sum
+		sourceColumn: SUM_OF_SWIM_SECONDS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUM_OF_T1_SECONDS
+		dataType: double
+		lineageTag: dfc3f418-c3a3-4381-88e8-d722a24728a9
+		summarizeBy: sum
+		sourceColumn: SUM_OF_T1_SECONDS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUM_OF_T2_SECONDS
+		dataType: double
+		lineageTag: 53c774cb-d0e8-4b13-a98a-0a8e059b29e8
+		summarizeBy: sum
+		sourceColumn: SUM_OF_T2_SECONDS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FCT_RESULT = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("SANITIZED_ACCOUNT","SANITIZED_WAREHOUSE",[Implementation="2.0"]),
+				    SANITIZED_DATABASE_Database = Source{[Name="SANITIZED_DATABASE",Kind="Database"]}[Data],
+				    SANITIZED_SCHEMA_Schema = SANITIZED_DATABASE_Database{[Name="SANITIZED_SCHEMA",Kind="Schema"]}[Data],
+				    FCT_RESULT_Table = SANITIZED_SCHEMA_Schema{[Name="FCT_RESULT",Kind="Table"]}[Data]
+				in
+				    FCT_RESULT_Table
+

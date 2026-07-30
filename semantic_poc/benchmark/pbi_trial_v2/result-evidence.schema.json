@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "../../agent/result_evidence.schema.json"
+    },
+    {
+      "properties": {
+        "profile": {
+          "const": "PBI_TRIAL_V2_AUDIT"
+        },
+        "subject_hashes": {
+          "additionalProperties": false,
+          "properties": {
+            "behavioral_baseline_sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "benchmark_spec_sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "powerbi_model_tree_sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "snowflake_query_pack_sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "snowflake_yaml_sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "behavioral_baseline_sha256",
+            "benchmark_spec_sha256",
+            "powerbi_model_tree_sha256",
+            "snowflake_query_pack_sha256",
+            "snowflake_yaml_sha256"
+          ],
+          "type": "object"
+        }
+      }
+    }
+  ],
+  "title": "PBI trial v2 audit result-evidence profile"
+}

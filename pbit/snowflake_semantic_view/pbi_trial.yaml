@@ -1,0 +1,372 @@
+name: PBI_CONVERSION_TEST
+description: 'Semantic model from Power BI file: @.."~"/_cortex_analyst/pbi_trial.pbit'
+tables:
+  - name: DIM_AGE_GROUP
+    base_table:
+      database: SEMANTIC_TRIAL
+      schema: STAGE
+      table: DIM_AGE_GROUP
+    dimensions:
+      - name: AGE_GROUP_ID
+        expr: AGE_GROUP_ID
+        data_type: TEXT
+      - name: AGE_GROUP_NAME
+        expr: AGE_GROUP_NAME
+        data_type: TEXT
+      - name: MAX_AGE
+        expr: MAX_AGE
+        data_type: FLOAT
+      - name: MIN_AGE
+        expr: MIN_AGE
+        data_type: FLOAT
+    primary_key:
+      columns:
+        - AGE_GROUP_ID
+  - name: DIM_COUNTRY
+    base_table:
+      database: SEMANTIC_TRIAL
+      schema: STAGE
+      table: DIM_COUNTRY
+    dimensions:
+      - name: CONTINENT
+        expr: CONTINENT
+        data_type: TEXT
+      - name: COUNTRY_ID
+        expr: COUNTRY_ID
+        data_type: TEXT
+      - name: COUNTRY_NAME
+        expr: COUNTRY_NAME
+        data_type: TEXT
+      - name: REGION
+        expr: REGION
+        data_type: TEXT
+    primary_key:
+      columns:
+        - COUNTRY_ID
+  - name: DIM_DISTANCE
+    base_table:
+      database: SEMANTIC_TRIAL
+      schema: STAGE
+      table: DIM_DISTANCE
+    dimensions:
+      - name: DISTANCE
+        expr: DISTANCE
+        data_type: TEXT
+      - name: DISTANCE_ID
+        expr: DISTANCE_ID
+        data_type: TEXT
+      - name: NOMINAL_BIKE_KM
+        expr: NOMINAL_BIKE_KM
+        data_type: FLOAT
+      - name: NOMINAL_RUN_KM
+        expr: NOMINAL_RUN_KM
+        data_type: FLOAT
+      - name: NOMINAL_SWIM_KM
+        expr: NOMINAL_SWIM_KM
+        data_type: FLOAT
+    metrics:
+      - name: NOMINAL_BIKE_KM_ACROSS_TIMED_RESULTS
+        description: Calculates the total nominal bike kilometers across all results that have recorded bike times. Use when questions ask about 'total bike distance', 'kilometers biked', 'cumulative bike distance', or 'how far did athletes bike'. Helps analyze total distance coverage in bike segments, compare bike distance volumes across events or time periods, and understand the scale of bike portions in triathlon competitions.
+        expr: SUM(DIM_DISTANCE.NOMINAL_BIKE_KM)
+    primary_key:
+      columns:
+        - DISTANCE_ID
+  - name: DIM_DIVSION
+    base_table:
+      database: SEMANTIC_TRIAL
+      schema: STAGE
+      table: DIM_DIVSION
+    dimensions:
+      - name: AGE_GROUP
+        expr: AGE_GROUP
+        data_type: TEXT
+      - name: AGE_GROUP_ID
+        expr: AGE_GROUP_ID
+        data_type: TEXT
+      - name: DIVISION
+        expr: DIVISION
+        data_type: TEXT
+      - name: DIVISION_ID
+        expr: DIVISION_ID
+        data_type: TEXT
+      - name: GENDER_DEFAULT_IF_PARSEABLE
+        expr: GENDER_DEFAULT_IF_PARSEABLE
+        data_type: TEXT
+      - name: IS_PRO
+        expr: IS_PRO
+        data_type: BOOLEAN
+    primary_key:
+      columns:
+        - DIVISION_ID
+  - name: DIM_EVENT
+    base_table:
+      database: SEMANTIC_TRIAL
+      schema: STAGE
+      table: DIM_EVENT
+    dimensions:
+      - name: COUNTRY_ID
+        expr: COUNTRY_ID
+        data_type: TEXT
+      - name: EVENT_ID
+        expr: EVENT_ID
+        data_type: FLOAT
+      - name: EVENT_NAME
+        expr: EVENT_NAME
+        data_type: TEXT
+      - name: VENUE
+        expr: VENUE
+        data_type: TEXT
+    time_dimensions:
+      - name: EVENT_DATE
+        expr: EVENT_DATE
+        data_type: TIMESTAMP
+    facts:
+      - name: YEAR
+        expr: YEAR
+        data_type: FLOAT
+    primary_key:
+      columns:
+        - EVENT_ID
+  - name: DIM_GENDER
+    base_table:
+      database: SEMANTIC_TRIAL
+      schema: STAGE
+      table: DIM_GENDER
+    dimensions:
+      - name: GENDER
+        expr: GENDER
+        data_type: TEXT
+      - name: GENDER_ID
+        expr: GENDER_ID
+        data_type: TEXT
+    primary_key:
+      columns:
+        - GENDER_ID
+  - name: FCT_RESULT
+    base_table:
+      database: SEMANTIC_TRIAL
+      schema: STAGE
+      table: FCT_RESULT
+    dimensions:
+      - name: ANY_REVIEW_FLAG
+        expr: ANY_REVIEW_FLAG
+        data_type: BOOLEAN
+      - name: DISTANCE_ID
+        expr: DISTANCE_ID
+        data_type: TEXT
+      - name: DIVISION_ID
+        expr: DIVISION_ID
+        data_type: TEXT
+      - name: EVENT_CONTEXT_FLAG
+        expr: EVENT_CONTEXT_FLAG
+        data_type: BOOLEAN
+      - name: EVENT_ID
+        expr: EVENT_ID
+        data_type: FLOAT
+      - name: FINISH_STATUS
+        expr: FINISH_STATUS
+        data_type: TEXT
+      - name: GENDER_ID
+        expr: GENDER_ID
+        data_type: TEXT
+      - name: INDIVIDUAL_HARD_FLAG
+        expr: INDIVIDUAL_HARD_FLAG
+        data_type: BOOLEAN
+      - name: INDIVIDUAL_PROFILE_FLAG
+        expr: INDIVIDUAL_PROFILE_FLAG
+        data_type: BOOLEAN
+      - name: IS_FINISHER
+        expr: IS_FINISHER
+        data_type: BOOLEAN
+      - name: IS_VALID_SBR_FINISHER
+        expr: IS_VALID_SBR_FINISHER
+        data_type: BOOLEAN
+      - name: MODEL_RESIDUAL_FLAG
+        expr: MODEL_RESIDUAL_FLAG
+        data_type: BOOLEAN
+      - name: RECORD_INTEGRITY_FLAG
+        expr: RECORD_INTEGRITY_FLAG
+        data_type: BOOLEAN
+      - name: RESULT_ID
+        expr: RESULT_ID
+        data_type: TEXT
+      - name: SUM_OF_OVERALL_SECONDS
+        expr: SUM_OF_OVERALL_SECONDS
+        data_type: TEXT
+    facts:
+      - name: SUM_OF_BIKE_REL
+        expr: SUM_OF_BIKE_REL
+        data_type: FLOAT
+      - name: SUM_OF_BIKE_SECONDS
+        expr: SUM_OF_BIKE_SECONDS
+        data_type: FLOAT
+      - name: SUM_OF_CONSISTENCY_SPREAD_REL
+        expr: SUM_OF_CONSISTENCY_SPREAD_REL
+        data_type: FLOAT
+      - name: SUM_OF_FLAG_LAYER_COUNT
+        expr: SUM_OF_FLAG_LAYER_COUNT
+        data_type: FLOAT
+      - name: SUM_OF_OVERALL_REL
+        expr: SUM_OF_OVERALL_REL
+        data_type: FLOAT
+      - name: SUM_OF_RUN_REL
+        expr: SUM_OF_RUN_REL
+        data_type: FLOAT
+      - name: SUM_OF_RUN_SECONDS
+        expr: SUM_OF_RUN_SECONDS
+        data_type: FLOAT
+      - name: SUM_OF_SWIM_REL
+        expr: SUM_OF_SWIM_REL
+        data_type: FLOAT
+      - name: SUM_OF_SWIM_SECONDS
+        expr: SUM_OF_SWIM_SECONDS
+        data_type: FLOAT
+      - name: SUM_OF_T1_SECONDS
+        expr: SUM_OF_T1_SECONDS
+        data_type: FLOAT
+      - name: SUM_OF_T2_SECONDS
+        expr: SUM_OF_T2_SECONDS
+        data_type: FLOAT
+    metrics:
+      - name: AVERAGE_BIKE_SECONDS
+        description: Calculates the mean bike segment time in seconds across all race results. Use when questions ask about 'average bike time', 'typical cycling performance', 'mean bike split', or 'average cycling duration'. Helps analyze overall cycling performance trends, compare bike segment performance across different groups, and identify typical completion times for the cycling portion of triathlon events.
+        expr: AVG(FCT_RESULT.SUM_OF_BIKE_SECONDS)
+      - name: BIKE_TIME_HOURS
+        description: Converts total bike segment time from seconds to hours by dividing by 3600. Use when questions ask about 'bike time in hours', 'hours spent biking', or when hour-based time analysis is preferred over seconds. Helps provide more readable time measurements for longer bike segments and facilitates easier comparison of bike performance across different time scales.
+        expr: IFF(((3600 = 0) OR (3600 IS NULL)), NULL, (SUM(FCT_RESULT.SUM_OF_BIKE_SECONDS) / 3600))
+      - name: BIKE_TIME_SECONDS
+        description: Calculates the total bike segment time in seconds across all results. Use when questions ask about 'bike time', 'cycling duration', 'time spent biking', or 'bike segment performance'. Helps analyze bike performance trends, compare bike times across athletes or events, and measure bike segment efficiency in triathlon competitions.
+        expr: SUM(FCT_RESULT.SUM_OF_BIKE_SECONDS)
+      - name: EVENTS
+        description: Counts the number of distinct events in the dataset. Use when questions ask about 'how many events', 'number of competitions', 'event count', or 'total events'. Helps analyze event participation levels, track event frequency over time, and understand the scope of triathlon competitions in the dataset.
+        expr: COUNT(DISTINCT FCT_RESULT.EVENT_ID)
+      - name: MAX_BIKE_SECONDS
+        description: Returns the slowest bike segment time in seconds from all race results. Use when questions ask about 'slowest bike time', 'longest cycling duration', 'worst bike performance', or 'maximum bike split time'. Helps identify performance outliers, understand the full range of bike segment completion times, and analyze potential data quality issues or extreme performance cases.
+        expr: MAX(FCT_RESULT.SUM_OF_BIKE_SECONDS)
+      - name: MIN_BIKE_SECONDS
+        description: Returns the fastest bike segment time in seconds from all race results. Use when questions ask about 'fastest bike time', 'best cycling performance', 'quickest bike split', or 'record bike time'. Helps identify top cycling performances, set performance benchmarks, and analyze the fastest possible bike segment times in triathlon events.
+        expr: MIN(FCT_RESULT.SUM_OF_BIKE_SECONDS)
+      - name: NC_BIKE_TIME_HOURS_DIVISOR_60
+        description: Converts total bike time from seconds to minutes by dividing by 60. Use when questions ask about bike times in minutes rather than seconds or hours. Provides an intermediate time unit that may be more intuitive for certain reporting scenarios, though this appears to be a non-standard calculation as indicated by the NC prefix.
+        expr: IFF(((60 = 0) OR (60 IS NULL)), NULL, (SUM(FCT_RESULT.SUM_OF_BIKE_SECONDS) / 60))
+      - name: NC_EVENT_ID_TOTAL
+        description: Sums all event ID values across race results. This is a non-standard calculation (indicated by NC prefix) that adds numeric event identifiers rather than counting events. Use with caution as summing ID values typically doesn't provide meaningful business insights. May be used for technical validation or debugging purposes rather than standard business analysis.
+        expr: SUM(FCT_RESULT.EVENT_ID)
+      - name: NC_OVERALL_RELATIVE_TOTAL
+        description: Sums the overall relative performance scores across all race results. This non-standard calculation (indicated by NC prefix) aggregates relative performance metrics. Use when analyzing cumulative relative performance across multiple results, though individual relative performance metrics are typically more meaningful for analysis.
+        expr: SUM(FCT_RESULT.SUM_OF_OVERALL_REL)
+      - name: NC_SPLIT_MULTIPLIED_BIKE_SECONDS
+        description: Calculates bike seconds by multiplying across split data relationships. This non-standard calculation (indicated by NC prefix) appears to aggregate bike times through the split table structure. Use when analyzing bike performance data that needs to account for split-level granularity, though standard bike time metrics are typically more appropriate for most analyses.
+        expr: SUM(FCT_RESULT.SUM_OF_BIKE_SECONDS)
+      - name: RUN_TIME_HOURS
+        description: Converts total run segment time from seconds to hours by dividing by 3600. Use when questions ask about 'run time in hours', 'hours spent running', or when hour-based time analysis is preferred over seconds. Helps provide more readable time measurements for longer run segments and facilitates easier comparison of run performance across different time scales.
+        expr: IFF(((3600 = 0) OR (3600 IS NULL)), NULL, (SUM(FCT_RESULT.SUM_OF_RUN_SECONDS) / 3600))
+      - name: RUN_TIME_SECONDS
+        description: Calculates the total run segment time in seconds across all results. Use when questions ask about 'run time', 'running duration', 'time spent running', or 'run segment performance'. Helps analyze running performance trends, compare run times across athletes or events, and measure run segment efficiency in triathlon competitions.
+        expr: SUM(FCT_RESULT.SUM_OF_RUN_SECONDS)
+      - name: SWIM_TIME_HOURS
+        description: Converts total swim segment time from seconds to hours by dividing by 3600. Use when questions ask about 'swim time in hours', 'hours spent swimming', or when hour-based time analysis is preferred over seconds. Helps provide more readable time measurements for swim segments and facilitates easier comparison of swim performance across different time scales.
+        expr: IFF(((3600 = 0) OR (3600 IS NULL)), NULL, (SUM(FCT_RESULT.SUM_OF_SWIM_SECONDS) / 3600))
+      - name: SWIM_TIME_SECONDS
+        description: Calculates the total swim segment time in seconds across all results. Use when questions ask about 'swim time', 'swimming duration', 'time spent swimming', or 'swim segment performance'. Helps analyze swimming performance trends, compare swim times across athletes or events, and measure swim segment efficiency in triathlon competitions.
+        expr: SUM(FCT_RESULT.SUM_OF_SWIM_SECONDS)
+      - name: TOTAL_RECORDED_SECONDS
+        description: Calculates the complete race time by summing swim, bike, run, and both transition times in seconds. Use when questions ask about 'total race time', 'overall finish time', 'complete duration', or 'end-to-end time'. Helps analyze overall race performance, compare complete race times across athletes or events, and measure total triathlon completion efficiency.
+        expr: (((SUM(FCT_RESULT.SUM_OF_SWIM_SECONDS) + SUM(FCT_RESULT.SUM_OF_BIKE_SECONDS)) + SUM(FCT_RESULT.SUM_OF_RUN_SECONDS)) + (SUM(FCT_RESULT.SUM_OF_T1_SECONDS) + SUM(FCT_RESULT.SUM_OF_T2_SECONDS)))
+      - name: TOTAL_TRANSITION_SECONDS
+        description: Calculates the combined time spent in both T1 (swim-to-bike) and T2 (bike-to-run) transitions in seconds. Use when questions ask about 'transition time', 'T1 and T2 time', 'time between segments', or 'changeover duration'. Helps analyze transition efficiency, identify areas for performance improvement, and compare transition performance across athletes or events.
+        expr: (SUM(FCT_RESULT.SUM_OF_T1_SECONDS) + SUM(FCT_RESULT.SUM_OF_T2_SECONDS))
+    primary_key:
+      columns:
+        - RESULT_ID
+  - name: FCT_SPLIT
+    base_table:
+      database: SEMANTIC_TRIAL
+      schema: STAGE
+      table: FCT_SPLIT
+    dimensions:
+      - name: LEG
+        expr: LEG
+        data_type: TEXT
+      - name: RESULT_ID
+        expr: RESULT_ID
+        data_type: TEXT
+      - name: SPLIT_ID
+        expr: SPLIT_ID
+        data_type: TEXT
+    facts:
+      - name: EVENT_ID
+        expr: EVENT_ID
+        data_type: FLOAT
+      - name: SPLIT_RANK
+        expr: SPLIT_RANK
+        data_type: FLOAT
+      - name: SPLIT_REL
+        expr: SPLIT_REL
+        data_type: FLOAT
+      - name: SPLIT_SECONDS
+        expr: SPLIT_SECONDS
+        data_type: FLOAT
+    metrics:
+      - name: RESULTS_WITH_SPLITS
+        description: Counts the distinct number of race results that have detailed split time data available. Use when questions ask about 'how many results have splits', 'split data availability', or 'detailed timing coverage'. Helps assess data completeness for split-level analysis and understand which results can be used for detailed segment performance analysis.
+        expr: COUNT(DISTINCT FCT_SPLIT.RESULT_ID)
+      - name: SPLIT_COVERAGE_RATE
+        description: Calculates the percentage of race results that have split timing data available by dividing results with splits by total results. Use when questions ask about 'split data coverage', 'percentage with detailed timing', or 'timing data completeness rate'. Helps evaluate the quality and completeness of detailed timing data for analysis and reporting purposes.
+        expr: IFF(((COUNT(*) = 0) OR (COUNT(*) IS NULL)), NULL, (COUNT(DISTINCT FCT_SPLIT.RESULT_ID) / COUNT(*)))
+      - name: SPLIT_TIME_SECONDS
+        description: Calculates the total time in seconds across all race segment splits (swim, bike, run, transitions). Use when questions ask about 'total split time', 'segment duration', 'leg performance', or 'split times'. Helps analyze performance across individual race segments, compare leg-specific times, and understand detailed race breakdowns beyond overall finish times.
+        expr: SUM(FCT_SPLIT.SPLIT_SECONDS)
+metrics:
+  - name: WEIGHTED_BIKE_SPEED_KM_H
+    expr: IFF(((IFF(((3600 = 0) OR (3600 IS NULL)), NULL, (SUM(FCT_RESULT.SUM_OF_BIKE_SECONDS) / 3600)) = 0) OR (IFF(((3600 = 0) OR (3600 IS NULL)), NULL, (SUM(FCT_RESULT.SUM_OF_BIKE_SECONDS) / 3600)) IS NULL)), NULL, (SUM(DIM_DISTANCE.NOMINAL_BIKE_KM) / IFF(((3600 = 0) OR (3600 IS NULL)), NULL, (SUM(FCT_RESULT.SUM_OF_BIKE_SECONDS) / 3600))))
+relationships:
+  - name: DIM_DIVSION_TO_DIM_AGE_GROUP
+    left_table: DIM_DIVSION
+    right_table: DIM_AGE_GROUP
+    relationship_type: many_to_one
+    relationship_columns:
+      - left_column: AGE_GROUP_ID
+        right_column: AGE_GROUP_ID
+  - name: DIM_EVENT_TO_DIM_COUNTRY
+    left_table: DIM_EVENT
+    right_table: DIM_COUNTRY
+    relationship_type: many_to_one
+    relationship_columns:
+      - left_column: COUNTRY_ID
+        right_column: COUNTRY_ID
+  - name: FCT_RESULT_TO_DIM_DISTANCE
+    left_table: FCT_RESULT
+    right_table: DIM_DISTANCE
+    relationship_type: many_to_one
+    relationship_columns:
+      - left_column: DISTANCE_ID
+        right_column: DISTANCE_ID
+  - name: FCT_RESULT_TO_DIM_DIVSION
+    left_table: FCT_RESULT
+    right_table: DIM_DIVSION
+    relationship_type: many_to_one
+    relationship_columns:
+      - left_column: DIVISION_ID
+        right_column: DIVISION_ID
+  - name: FCT_RESULT_TO_DIM_EVENT
+    left_table: FCT_RESULT
+    right_table: DIM_EVENT
+    relationship_type: many_to_one
+    relationship_columns:
+      - left_column: EVENT_ID
+        right_column: EVENT_ID
+  - name: FCT_RESULT_TO_DIM_GENDER
+    left_table: FCT_RESULT
+    right_table: DIM_GENDER
+    relationship_type: many_to_one
+    relationship_columns:
+      - left_column: GENDER_ID
+        right_column: GENDER_ID
+  - name: FCT_SPLIT_TO_FCT_RESULT
+    left_table: FCT_SPLIT
+    right_table: FCT_RESULT
+    relationship_type: many_to_one
+    relationship_columns:
+      - left_column: RESULT_ID
+        right_column: RESULT_ID

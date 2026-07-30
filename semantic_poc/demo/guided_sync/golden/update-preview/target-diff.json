@@ -1,0 +1,24 @@
+{
+  "additions": [],
+  "changes": [
+    {
+      "fields": [
+        {
+          "after": "COUNT_IF(finish_status = 'FIN' AND is_valid_sbr_finisher)",
+          "before": "COUNT_IF(is_valid_sbr_finisher)",
+          "field": "expr"
+        }
+      ],
+      "object_id": "metric:results.valid_sbr_finishers"
+    }
+  ],
+  "normalized": true,
+  "removals": [],
+  "schema_version": 1,
+  "summary": {
+    "additions": 0,
+    "changes": 1,
+    "removals": 0
+  },
+  "target_mode": "update"
+}

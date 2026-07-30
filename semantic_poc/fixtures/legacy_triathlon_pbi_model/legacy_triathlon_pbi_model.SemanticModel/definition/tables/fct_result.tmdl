@@ -1,0 +1,287 @@
+/// Fact table at one row per athlete result in one event. Contains parsed split
+/// times, within-event percentiles, validity flags, and review-family indicators.
+/// Public-facing analytics should avoid direct athlete identification.
+table fct_result
+	lineageTag: f5a5ad2e-7c79-4183-bc37-2ca609022a38
+
+	/// Stable surrogate key for one athlete result row.
+	column result_id
+		dataType: string
+		lineageTag: 6830ebfe-428c-4646-8e20-0ed7a03248d7
+		summarizeBy: none
+		sourceColumn: result_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Identifier for the race event associated with the result row.
+	column event_id
+		dataType: string
+		lineageTag: c3a31e8f-df49-4c3f-a1f7-3e58674e9cf8
+		summarizeBy: none
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Identifier for the athlete division or category associated with the result row.
+	column division_id
+		dataType: string
+		lineageTag: 4ebb6014-158f-41e2-a68e-9a454fc95817
+		summarizeBy: none
+		sourceColumn: division_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Identifier for the gender category used for grouping and percentiles.
+	column gender_id
+		dataType: string
+		lineageTag: 85dea049-ecbb-4aea-a01a-42de59047add
+		summarizeBy: none
+		sourceColumn: gender_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Identifier for the nominal distance category associated with the event.
+	column distance_id
+		dataType: string
+		lineageTag: 6c0c9b6d-edd6-4c03-acea-52cbf31bd0cd
+		summarizeBy: none
+		sourceColumn: distance_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Finish status parsed from the source result data.
+	column finish_status
+		dataType: string
+		lineageTag: 09476608-778e-4ea5-a42c-440096ecd95e
+		summarizeBy: none
+		sourceColumn: finish_status
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Overall finish time in seconds after parsing the raw result data.
+	column overall_seconds
+		dataType: int64
+		formatString: 0
+		lineageTag: b7cce1bc-1910-4cfe-8235-6c37b053284a
+		summarizeBy: sum
+		sourceColumn: overall_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Swim split time in seconds after parsing the raw result data.
+	column swim_seconds
+		dataType: int64
+		formatString: 0
+		lineageTag: e8a21bdc-2818-4969-b575-693c17441fa8
+		summarizeBy: sum
+		sourceColumn: swim_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Bike split time in seconds after parsing the raw result data.
+	column bike_seconds
+		dataType: int64
+		formatString: 0
+		lineageTag: 929261a1-0aed-41ce-9267-cae527334c28
+		summarizeBy: sum
+		sourceColumn: bike_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Run split time in seconds after parsing the raw result data.
+	column run_seconds
+		dataType: int64
+		formatString: 0
+		lineageTag: f574af54-8b7a-42cd-96bd-c2ad87700132
+		summarizeBy: sum
+		sourceColumn: run_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+	/// First transition time in seconds where available.
+	column t1_seconds
+		dataType: int64
+		formatString: 0
+		lineageTag: d0e893c5-6fa5-4ff5-82a2-b4eb5df5a38c
+		summarizeBy: sum
+		sourceColumn: t1_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Second transition time in seconds where available.
+	column t2_seconds
+		dataType: int64
+		formatString: 0
+		lineageTag: c8a4c53e-6e81-40a1-aa2f-3a56df2f60ea
+		summarizeBy: sum
+		sourceColumn: t2_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Relative swim performance percentile within the same event and gender.
+	/// Higher values indicate stronger relative performance.
+	column swim_rel
+		dataType: double
+		lineageTag: 763e951f-c749-4e7b-be84-06aefef7f4fb
+		summarizeBy: sum
+		sourceColumn: swim_rel
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Relative bike performance percentile within the same event and gender.
+	/// Higher values indicate stronger relative performance.
+	column bike_rel
+		dataType: double
+		lineageTag: a0ee5c7b-5a22-4939-958f-745ec7b40950
+		summarizeBy: sum
+		sourceColumn: bike_rel
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Relative run performance percentile within the same event and gender.
+	/// Higher values indicate stronger relative performance.
+	column run_rel
+		dataType: double
+		lineageTag: 19dea51f-1240-41e8-bf87-7e0486f269c8
+		summarizeBy: sum
+		sourceColumn: run_rel
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Relative overall performance percentile within the same event and gender.
+	/// Higher values indicate stronger relative performance.
+	column overall_rel
+		dataType: double
+		lineageTag: 05a7d892-5e54-4949-a53b-6d9f1835ae97
+		summarizeBy: sum
+		sourceColumn: overall_rel
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Difference between the best and worst swim-bike-run relative percentile.
+	/// Larger values indicate a more uneven split profile.
+	column consistency_spread_rel
+		dataType: double
+		lineageTag: 43580686-c705-4b7c-9217-11794cb426a9
+		summarizeBy: sum
+		sourceColumn: consistency_spread_rel
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// True when the result row is marked as a finisher.
+	column is_finisher
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 36ae0a1d-264d-421b-b466-a4cdcc0a8186
+		summarizeBy: none
+		sourceColumn: is_finisher
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True when the row is a finisher with valid gender and complete swim, bike,
+	/// and run splits.
+	column is_valid_sbr_finisher
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4416a7cd-a475-4f8c-b494-077b17f58798
+		summarizeBy: none
+		sourceColumn: is_valid_sbr_finisher
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True when the result row is affected by likely event-leg course context.
+	column event_context_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 73181159-b628-4ca6-a627-645fd46ebd82
+		summarizeBy: none
+		sourceColumn: event_context_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True when timing fields do not reconcile cleanly or contain strict row-level
+	/// integrity issues.
+	column record_integrity_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a6d8450f-1cb6-4a2d-a122-1aa5427f1ca1
+		summarizeBy: none
+		sourceColumn: record_integrity_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True when the athlete's swim-bike-run profile is unusually uneven after
+	/// course-context handling.
+	column individual_profile_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e307d101-73ff-403c-80ae-10c300e2bb21
+		summarizeBy: none
+		sourceColumn: individual_profile_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True when a row remains extreme after likely course-context patterns are
+	/// separated.
+	column individual_hard_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f9f0000f-8b5b-4859-8de6-001fe964b88c
+		summarizeBy: none
+		sourceColumn: individual_hard_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True when one split is much stronger or weaker than expected from the other
+	/// two based on robust residual logic.
+	column model_residual_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3925e812-1606-4da3-b7a2-8937dafe4f91
+		summarizeBy: none
+		sourceColumn: model_residual_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True when at least one review-family flag is active. This is a review
+	/// signal, not an accusation.
+	column any_review_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c3ddc3b7-fa8c-49c6-84fc-28a965f99e75
+		summarizeBy: none
+		sourceColumn: any_review_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Number of review-family layers triggered for the row.
+	column flag_layer_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 728153dd-ea98-42c1-a8ab-11e2ad83661a
+		summarizeBy: sum
+		sourceColumn: flag_layer_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_result = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SANITIZED_HOST", "SANITIZED_WAREHOUSE"),
+				    dbo_mart_fct_result = Source{[Schema="SANITIZED_SCHEMA",Item="SANITIZED_TABLE"]}[Data]
+				in
+				    dbo_mart_fct_result
+
+	annotation PBI_ResultType = Table
+

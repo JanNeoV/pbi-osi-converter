@@ -1,0 +1,134 @@
+/// Central measure table for the triathlon semantic model. Measures define
+/// result counts, review flag counts, rates, and sanity checks used by reports.
+table tri_measures
+	lineageTag: b6a65c5f-55db-4c4e-a01f-e02ba6341633
+
+	/// Number of rows in the result fact table under the current filter context.
+	measure 'Result Rows' =
+			
+			COUNTROWS(fct_result)
+		formatString: 0
+		lineageTag: 0c0b7ff7-f597-43bf-9cf6-a1ba24aaddae
+
+	/// Number of result rows marked as finishers under the current filter context.
+	measure Finishers = CALCULATE( COUNTROWS(fct_result), fct_result[is_finisher] = TRUE() )
+		formatString: 0
+		lineageTag: ec6b9146-c68f-4703-8b9e-72d727f08741
+
+	/// Number of finishers with valid gender and complete swim, bike, and run
+	/// splits. This is the default denominator for athlete-level review rates.
+	measure 'Valid SBR Finishers' = CALCULATE( COUNTROWS(fct_result), fct_result[is_valid_sbr_finisher] = TRUE() )
+		formatString: 0
+		lineageTag: 62de7d40-801a-4f05-9e36-b11bf72ad8fb
+
+	/// Number of distinct events under the current filter context.
+	measure Events = DISTINCTCOUNT(dim_event[event_id])
+		formatString: 0
+		lineageTag: 69e07b20-6bab-44b4-a43c-3e4425a3bc1a
+
+	/// Number of event-gender-leg rows in the event-leg context fact table.
+	measure Event-Gender-Legs = COUNTROWS(fct_event_leg_context)
+		formatString: 0
+		lineageTag: 470fad7d-c4c8-409b-bbb7-0116253e345c
+
+	/// Number of valid result rows where at least one review-family flag is active.
+	/// This is a review signal, not an accusation.
+	measure 'Any Review Rows' = CALCULATE( COUNTROWS(fct_result), fct_result[any_review_flag] = TRUE() )
+		formatString: 0
+		lineageTag: 60d6477b-20fe-41e0-abae-49712df17fea
+
+	/// Number of result rows affected by event-leg course-context flags. These
+	/// usually indicate altered, shortened, cancelled, or differently recorded legs.
+	measure 'Event Context Rows' = CALCULATE( COUNTROWS(fct_result), fct_result[event_context_flag] = TRUE() )
+		formatString: 0
+		lineageTag: 145936f8-5463-487e-b07e-997671dea26f
+
+	/// Number of result rows with strict row-level timing or arithmetic integrity
+	/// issues, such as reconciliation mismatch.
+	measure 'Record Integrity Rows' = CALCULATE( COUNTROWS(fct_result), fct_result[record_integrity_flag] = TRUE() )
+		formatString: 0
+		lineageTag: 6303ce61-2eb9-4ed5-8816-275ff4915e4d
+
+	/// Number of result rows with unusual swim-bike-run profile spread after
+	/// course-context handling.
+	measure 'Individual Profile Rows' = CALCULATE( COUNTROWS(fct_result), fct_result[individual_profile_flag] = TRUE() )
+		formatString: 0
+		lineageTag: 8ceac07c-8a72-44eb-b8ac-4210588ec983
+
+	/// Number of result rows where one leg is much stronger or weaker than expected
+	/// from the other two based on the model residual logic.
+	measure 'Model Residual Rows' = CALCULATE( COUNTROWS(fct_result), fct_result[model_residual_flag] = TRUE() )
+		formatString: 0
+		lineageTag: 2737fae4-02ee-43aa-af49-5eeb57b6e8ce
+
+	/// Number of rows that remain individual hard-flag candidates after likely
+	/// course-context cases are separated.
+	measure 'Individual Hard Flag Rows' = CALCULATE( COUNTROWS(fct_result), fct_result[individual_hard_flag] = TRUE() )
+		formatString: 0
+		lineageTag: 823ac2ca-4d46-4069-9047-67dee0ab5b93
+
+	/// Share of valid SBR finishers where at least one review-family flag is active.
+	/// This is the broadest review-rate measure.
+	measure 'Review Flag Rate' = DIVIDE( [Any Review Rows], [Valid SBR Finishers] )
+		lineageTag: c7b75881-6e46-4e14-a0c3-778b60e62fe1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Share of valid SBR finishers affected by event-leg course-context flags.
+	measure 'Event Context Rate' = DIVIDE( [Event Context Rows], [Valid SBR Finishers] )
+		lineageTag: a83b2f7e-ec73-42cf-baeb-322addbc47c6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Share of valid SBR finishers with strict row-level timing or arithmetic
+	/// integrity issues.
+	measure 'Record Integrity Rate' = DIVIDE( [Record Integrity Rows], [Valid SBR Finishers] )
+		lineageTag: 599e5a8d-2dca-4074-8045-caf744067273
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Share of valid SBR finishers with unusual swim-bike-run profile spread after
+	/// course-context handling.
+	measure 'Individual Profile Rate' = DIVIDE( [Individual Profile Rows], [Valid SBR Finishers] )
+		lineageTag: 6f87b8e0-6fe3-47c9-a3fd-db5bb18c1aa7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Share of valid SBR finishers with model residual review flags.
+	measure 'Model Residual Rate' = DIVIDE( [Model Residual Rows], [Valid SBR Finishers] )
+		lineageTag: 90518ab1-6cee-4e02-8177-83d98720313a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Share of valid SBR finishers that remain individual hard-flag candidates
+	/// after likely course-context cases are separated.
+	measure 'Individual Hard Flag Rate' = DIVIDE( [Individual Hard Flag Rows], [Valid SBR Finishers] )
+		lineageTag: e5fc04f9-5f09-4636-8abd-4986bf06acef
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Hidden physical placeholder column required for the imported measure table.
+	column dummy
+		dataType: string
+		isHidden
+		lineageTag: 3c2118b3-5a94-41d7-86b7-9ccc6c1c6616
+		summarizeBy: none
+		sourceColumn: dummy
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tri_measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [dummy = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"dummy", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

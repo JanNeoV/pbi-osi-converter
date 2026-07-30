@@ -1,0 +1,206 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "ac857b923719eb00d46e",
+  "position": {
+    "x": 9.8969072164948457,
+    "y": 0,
+    "z": 0,
+    "height": 407.01030927835052,
+    "width": 1182.0618556701031,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_distance"
+                    }
+                  },
+                  "Property": "distance"
+                }
+              },
+              "queryRef": "dbo_mart dim_distance.distance",
+              "nativeQueryRef": "distance"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_event"
+                    }
+                  },
+                  "Property": "event_id"
+                }
+              },
+              "queryRef": "dbo_mart dim_event.event_id",
+              "nativeQueryRef": "event_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_event"
+                    }
+                  },
+                  "Property": "race_name"
+                }
+              },
+              "queryRef": "dbo_mart dim_event.race_name",
+              "nativeQueryRef": "race_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_gender"
+                    }
+                  },
+                  "Property": "gender"
+                }
+              },
+              "queryRef": "dbo_mart dim_gender.gender",
+              "nativeQueryRef": "gender"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fct_result"
+                    }
+                  },
+                  "Property": "any_review_flag"
+                }
+              },
+              "queryRef": "dbo_mart fct_result.any_review_flag",
+              "nativeQueryRef": "any_review_flag"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fct_result"
+                        }
+                      },
+                      "Property": "bike_rel"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(dbo_mart fct_result.bike_rel)",
+              "nativeQueryRef": "Sum of bike_rel"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4c3f96849dd8e8564108",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_distance"
+              }
+            },
+            "Property": "distance"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "aed89972619ba9d6d377",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_event"
+              }
+            },
+            "Property": "event_id"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "110d5c738d92e2397a30",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_event"
+              }
+            },
+            "Property": "race_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b74bac3a4b49244720c0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_gender"
+              }
+            },
+            "Property": "gender"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0da1223a5e5e3c9d6521",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fct_result"
+              }
+            },
+            "Property": "any_review_flag"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "46eafb38ede20c0d9a9d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fct_result"
+                  }
+                },
+                "Property": "bike_rel"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

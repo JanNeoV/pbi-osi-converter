@@ -1,0 +1,4 @@
+relationship fact_to_event
+	fromColumn: fact_activity.event_id
+	toColumn: dim_event.event_id
+	isActive: true

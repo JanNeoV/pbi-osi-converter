@@ -1,0 +1,75 @@
+version: 2
+semantic_models:
+  - name: benchmark_traps
+    model: ref('benchmark_traps')
+    config:
+      meta:
+        semantic_contract:
+          snowflake_logical_tables:
+            - name: traps
+              base_table: fact_traps
+              primary_key: row_id
+          relationships:
+            - name: active_dimension
+              from_table: fact_traps
+              from_column: dimension_id
+              to_table: dim_trap
+              to_column: dimension_id
+    entities:
+      - name: trap
+        type: primary
+        expr: row_id
+    dimensions:
+      - {name: is_valid, type: categorical}
+    measures:
+      - {name: duration_hours_measure, agg: sum, expr: 'duration_seconds / 3600'}
+      - {name: identifier_count_measure, agg: count_distinct, expr: numeric_id}
+      - {name: rows_measure, agg: sum, expr: 1}
+      - {name: valid_rows_measure, agg: sum_boolean, expr: 'is_valid = TRUE'}
+metrics:
+  - name: duration_hours
+    label: Hours
+    description: Total duration in hours.
+    type: simple
+    type_params: {measure: duration_hours_measure}
+    config:
+      meta:
+        power_bi: {table: Measures, measure: Hours, format_string: '0.00'}
+        snowflake: {logical_table: traps, metric_name: duration_hours}
+  - name: identifier_count
+    label: Identifier Count
+    description: Distinct numeric identifiers.
+    type: simple
+    type_params: {measure: identifier_count_measure}
+    config:
+      meta:
+        power_bi: {table: Measures, measure: Identifier Total, format_string: '0'}
+        snowflake: {logical_table: traps, metric_name: identifier_count}
+  - name: rows
+    label: Rows
+    description: Trap fixture rows.
+    type: simple
+    type_params: {measure: rows_measure}
+    config:
+      meta:
+        power_bi: {table: Measures, measure: Rows, format_string: '0'}
+        snowflake: {logical_table: traps, metric_name: rows}
+  - name: valid_rows
+    label: Valid Rows
+    description: Valid trap fixture rows.
+    type: simple
+    type_params: {measure: valid_rows_measure}
+    config:
+      meta:
+        power_bi: {table: Measures, measure: Valid Rows, format_string: '0'}
+        snowflake: {logical_table: traps, metric_name: valid_rows}
+  - name: valid_rate
+    label: Bad Percent
+    description: Share of rows that are valid.
+    type: ratio
+    type_params: {numerator: valid_rows, denominator: rows}
+    config:
+      meta:
+        semantic_contract: {format: percentage_1_decimal}
+        power_bi: {table: Measures, measure: Bad Percent, format_string: '0.0%'}
+        snowflake: {logical_table: traps, metric_name: valid_rate}

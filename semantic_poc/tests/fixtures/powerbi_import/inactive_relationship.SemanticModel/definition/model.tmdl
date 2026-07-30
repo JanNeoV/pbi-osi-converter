@@ -1,0 +1,6 @@
+model Model
+	culture: en-US
+
+ref table fact
+ref table dimension
+ref table Measures

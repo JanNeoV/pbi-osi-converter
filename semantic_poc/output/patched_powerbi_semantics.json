@@ -1,0 +1,951 @@
+{
+  "_generated": {
+    "notice": "Generated file. Do not edit manually.",
+    "canonical_source": "models/semantic/triathlon_semantic.yml"
+  },
+  "definition_dir": "semantic_poc/output/patched_powerbi_definition",
+  "tables": {
+    "dim_distance": {
+      "name": "dim_distance",
+      "description": "Distance dimension describing nominal triathlon distance categories and expected swim, bike, and run distances.",
+      "lineage_tag": "867f620f-a40d-44b5-88b3-2ad51e8a111b",
+      "measures": {},
+      "columns": {
+        "distance_id": {
+          "name": "distance_id",
+          "description": "Identifier for nominal triathlon distance category.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "c2b8f9a4-9c91-4721-99d3-60c0f32481e2",
+          "source_column": "distance_id"
+        },
+        "distance": {
+          "name": "distance",
+          "description": "Display label for the nominal triathlon distance category.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "53f9a69a-e34e-41d0-8516-ce944a7d2403",
+          "source_column": "distance"
+        },
+        "nominal_swim_km": {
+          "name": "nominal_swim_km",
+          "description": "Expected swim distance in kilometers for the distance category.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "214268f7-8702-461e-bce4-f0ed61ac5c51",
+          "source_column": "nominal_swim_km"
+        },
+        "nominal_bike_km": {
+          "name": "nominal_bike_km",
+          "description": "Expected bike distance in kilometers for the distance category.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "b695807d-d67f-4f26-8a51-9a520883a948",
+          "source_column": "nominal_bike_km"
+        },
+        "nominal_run_km": {
+          "name": "nominal_run_km",
+          "description": "Expected run distance in kilometers for the distance category.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "3c4dade6-6420-4918-8f80-5c6cb62e74db",
+          "source_column": "nominal_run_km"
+        }
+      }
+    },
+    "dim_division": {
+      "name": "dim_division",
+      "description": "Division dimension containing athlete category information such as age group and professional status where available.",
+      "lineage_tag": "f5109964-a7ae-47a7-a30e-38689ecc8378",
+      "measures": {},
+      "columns": {
+        "division_id": {
+          "name": "division_id",
+          "description": "Identifier for athlete division or category.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "800888de-5e1e-4270-a96c-337716e8006f",
+          "source_column": "division_id"
+        },
+        "division": {
+          "name": "division",
+          "description": "Display label for the athlete division or category.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "87745816-c4a6-4e6b-8744-9b812d4115f1",
+          "source_column": "division"
+        },
+        "is_pro": {
+          "name": "is_pro",
+          "description": "True when the division represents professional athletes.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "8dbb7808-13c0-4e29-87e5-3288ac68e1a5",
+          "source_column": "is_pro"
+        },
+        "age_group": {
+          "name": "age_group",
+          "description": "Age-group label parsed from the division where available.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "d3f0c157-949e-4f99-ac26-7698b78b7f73",
+          "source_column": "age_group"
+        },
+        "gender_default_if_parseable": {
+          "name": "gender_default_if_parseable",
+          "description": "Default gender inferred from the division label where parseable.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "ca721326-ef9b-4700-9cac-10be4dd9861e",
+          "source_column": "gender_default_if_parseable"
+        }
+      }
+    },
+    "dim_event": {
+      "name": "dim_event",
+      "description": "Event dimension containing race-level context such as race name, year, distance, and nominal split distances.",
+      "lineage_tag": "6aa825ed-d630-4118-87ec-f64895f52367",
+      "measures": {},
+      "columns": {
+        "event_id": {
+          "name": "event_id",
+          "description": "Identifier for a race event.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "93dd97f3-77c7-4bd0-817b-0918fb3d93b4",
+          "source_column": "event_id"
+        },
+        "race_name": {
+          "name": "race_name",
+          "description": "Display name for the race event.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "e21f2405-fd4b-483c-ad15-b675806fc822",
+          "source_column": "race_name"
+        },
+        "year": {
+          "name": "year",
+          "description": "Calendar year of the race event.",
+          "data_type": "int64",
+          "format_string": "0",
+          "is_hidden": false,
+          "lineage_tag": "2b3a456b-ba0c-4bd4-badc-54f3c619fff2",
+          "source_column": "year"
+        },
+        "distance": {
+          "name": "distance",
+          "description": "Nominal triathlon distance category for the race event.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "257ca5e6-daa1-42bb-a71f-00516a09ca87",
+          "source_column": "distance"
+        },
+        "source_file_name": {
+          "name": "source_file_name",
+          "description": "Source file name from which the event was loaded.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "fc2b3afd-7c66-482a-be34-628f9f7d576e",
+          "source_column": "source_file_name"
+        },
+        "nominal_swim_km": {
+          "name": "nominal_swim_km",
+          "description": "Nominal swim distance for the event in kilometers.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "7f7dcd32-c8d9-419a-b5e3-e876d9c7db40",
+          "source_column": "nominal_swim_km"
+        },
+        "nominal_bike_km": {
+          "name": "nominal_bike_km",
+          "description": "Nominal bike distance for the event in kilometers.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "3b5efc27-6f3a-4226-b594-e57eacd24940",
+          "source_column": "nominal_bike_km"
+        },
+        "nominal_run_km": {
+          "name": "nominal_run_km",
+          "description": "Nominal run distance for the event in kilometers.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "43a40980-1eb8-4021-90a1-994020fc98cd",
+          "source_column": "nominal_run_km"
+        },
+        "event_has_context_flag": {
+          "name": "event_has_context_flag",
+          "description": "True when at least one event-leg context row indicates likely course context.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "09a30add-6d8b-469d-81a8-90c59be02ba2",
+          "source_column": "event_has_context_flag"
+        }
+      }
+    },
+    "dim_gender": {
+      "name": "dim_gender",
+      "description": "Gender dimension used for within-event percentile grouping and reporting.",
+      "lineage_tag": "caa259f4-e47a-40d4-b62d-18c2c5765a1b",
+      "measures": {},
+      "columns": {
+        "gender_id": {
+          "name": "gender_id",
+          "description": "Identifier for gender category.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "747472c8-0578-47f5-8d32-f78974a76a2e",
+          "source_column": "gender_id"
+        },
+        "gender": {
+          "name": "gender",
+          "description": "Display label for the gender category.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "f7661f6e-aae1-474f-9a62-7cbfe5c92d81",
+          "source_column": "gender"
+        }
+      }
+    },
+    "dim_review_flag": {
+      "name": "dim_review_flag",
+      "description": "Review flag dimension describing flag families, interpretations, and caveats. These flags support data-quality review and should not be interpreted as proof of wrongdoing.",
+      "lineage_tag": "46359a86-538d-4123-9ff6-5c018d1d20fd",
+      "measures": {},
+      "columns": {
+        "review_flag_id": {
+          "name": "review_flag_id",
+          "description": "Identifier for a review flag type.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "be0e896a-7182-4462-8092-799de52a0a53",
+          "source_column": "review_flag_id"
+        },
+        "review_family": {
+          "name": "review_family",
+          "description": "Review family grouping for related flags.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "1d8abc65-ddd1-4d96-b463-6ab089a0aef7",
+          "source_column": "review_family"
+        },
+        "review_flag_name": {
+          "name": "review_flag_name",
+          "description": "Display name for the review flag.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "40a3e16a-515e-46a3-bf9e-5f43f8766223",
+          "source_column": "review_flag_name"
+        },
+        "review_flag_description": {
+          "name": "review_flag_description",
+          "description": "Detailed description of the review flag logic or signal.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "78708630-980f-476c-ae96-81c2e83807ad",
+          "source_column": "review_flag_description"
+        },
+        "review_flag_interpretation": {
+          "name": "review_flag_interpretation",
+          "description": "Guidance for interpreting the review flag in analysis.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "414494a3-c397-4176-8f3c-a9ffef9cc36f",
+          "source_column": "review_flag_interpretation"
+        },
+        "review_flag_caveat": {
+          "name": "review_flag_caveat",
+          "description": "Caveat describing limits and proper use of the review flag.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "88b5b14a-aa8e-421e-ae5d-06c3ec8c8b55",
+          "source_column": "review_flag_caveat"
+        }
+      }
+    },
+    "fct_event_leg_context": {
+      "name": "fct_event_leg_context",
+      "description": "Event-leg level fact table used to identify course-context patterns. A high nominal hard-flag rate within one event-leg usually indicates altered, shortened, cancelled, or differently recorded course context.",
+      "lineage_tag": "69f2b4e2-b3cd-4749-b0ed-7c72c37de532",
+      "measures": {},
+      "columns": {
+        "event_id": {
+          "name": "event_id",
+          "description": "Identifier for the race event represented by the event-leg context row.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "a52c95bb-c184-4792-80c5-0e351f29202b",
+          "source_column": "event_id"
+        },
+        "gender_id": {
+          "name": "gender_id",
+          "description": "Identifier for the gender category represented by the event-leg context row.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "3a62609c-2414-4723-b657-08d273b7e1ea",
+          "source_column": "gender_id"
+        },
+        "leg": {
+          "name": "leg",
+          "description": "Event leg represented by the context row, such as swim, bike, or run.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "1d176cb3-18e6-4587-9650-b3adbb7c5f35",
+          "source_column": "leg"
+        },
+        "valid_leg_rows": {
+          "name": "valid_leg_rows",
+          "description": "Number of valid result rows available for the event, gender, and leg.",
+          "data_type": "int64",
+          "format_string": "0",
+          "is_hidden": false,
+          "lineage_tag": "38d76c4e-54ea-44c2-96cd-614cab1f1fb7",
+          "source_column": "valid_leg_rows"
+        },
+        "nominal_hard_flag_rows": {
+          "name": "nominal_hard_flag_rows",
+          "description": "Number of rows that look implausible under nominal distance assumptions before course-context adjustment.",
+          "data_type": "int64",
+          "format_string": "0",
+          "is_hidden": false,
+          "lineage_tag": "5b0b6842-5fd2-4621-88b7-83ed755db700",
+          "source_column": "nominal_hard_flag_rows"
+        },
+        "event_nominal_hard_rate": {
+          "name": "event_nominal_hard_rate",
+          "description": "Share of valid event-gender-leg rows with nominal hard-flag evidence.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "7c348ea6-9706-4754-ac59-688540e17fa0",
+          "source_column": "event_nominal_hard_rate"
+        },
+        "event_context_band": {
+          "name": "event_context_band",
+          "description": "Band describing the strength of likely event-leg course-context evidence.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "384c390a-0077-426a-9198-57183114798d",
+          "source_column": "event_context_band"
+        },
+        "event_context_flag": {
+          "name": "event_context_flag",
+          "description": "True when the event leg likely differs from nominal course assumptions.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "47c8d807-b53a-4e64-88f2-a3af8007af93",
+          "source_column": "event_context_flag"
+        }
+      }
+    },
+    "fct_result": {
+      "name": "fct_result",
+      "description": "Fact table at one row per athlete result in one event. Contains parsed split times, within-event percentiles, validity flags, and review-family indicators. Public-facing analytics should avoid direct athlete identification.",
+      "lineage_tag": "f5a5ad2e-7c79-4183-bc37-2ca609022a38",
+      "measures": {},
+      "columns": {
+        "result_id": {
+          "name": "result_id",
+          "description": "Stable surrogate key for one athlete result row.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "6830ebfe-428c-4646-8e20-0ed7a03248d7",
+          "source_column": "result_id"
+        },
+        "event_id": {
+          "name": "event_id",
+          "description": "Identifier for the race event associated with the result row.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "c3a31e8f-df49-4c3f-a1f7-3e58674e9cf8",
+          "source_column": "event_id"
+        },
+        "division_id": {
+          "name": "division_id",
+          "description": "Identifier for the athlete division or category associated with the result row.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "4ebb6014-158f-41e2-a68e-9a454fc95817",
+          "source_column": "division_id"
+        },
+        "gender_id": {
+          "name": "gender_id",
+          "description": "Identifier for the gender category used for grouping and percentiles.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "85dea049-ecbb-4aea-a01a-42de59047add",
+          "source_column": "gender_id"
+        },
+        "distance_id": {
+          "name": "distance_id",
+          "description": "Identifier for the nominal distance category associated with the event.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "6c0c9b6d-edd6-4c03-acea-52cbf31bd0cd",
+          "source_column": "distance_id"
+        },
+        "finish_status": {
+          "name": "finish_status",
+          "description": "Finish status parsed from the source result data.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "09476608-778e-4ea5-a42c-440096ecd95e",
+          "source_column": "finish_status"
+        },
+        "overall_seconds": {
+          "name": "overall_seconds",
+          "description": "Overall finish time in seconds after parsing the raw result data.",
+          "data_type": "int64",
+          "format_string": "0",
+          "is_hidden": false,
+          "lineage_tag": "b7cce1bc-1910-4cfe-8235-6c37b053284a",
+          "source_column": "overall_seconds"
+        },
+        "swim_seconds": {
+          "name": "swim_seconds",
+          "description": "Swim split time in seconds after parsing the raw result data.",
+          "data_type": "int64",
+          "format_string": "0",
+          "is_hidden": false,
+          "lineage_tag": "e8a21bdc-2818-4969-b575-693c17441fa8",
+          "source_column": "swim_seconds"
+        },
+        "bike_seconds": {
+          "name": "bike_seconds",
+          "description": "Bike split time in seconds after parsing the raw result data.",
+          "data_type": "int64",
+          "format_string": "0",
+          "is_hidden": false,
+          "lineage_tag": "929261a1-0aed-41ce-9267-cae527334c28",
+          "source_column": "bike_seconds"
+        },
+        "run_seconds": {
+          "name": "run_seconds",
+          "description": "Run split time in seconds after parsing the raw result data.",
+          "data_type": "int64",
+          "format_string": "0",
+          "is_hidden": false,
+          "lineage_tag": "f574af54-8b7a-42cd-96bd-c2ad87700132",
+          "source_column": "run_seconds"
+        },
+        "t1_seconds": {
+          "name": "t1_seconds",
+          "description": "First transition time in seconds where available.",
+          "data_type": "int64",
+          "format_string": "0",
+          "is_hidden": false,
+          "lineage_tag": "d0e893c5-6fa5-4ff5-82a2-b4eb5df5a38c",
+          "source_column": "t1_seconds"
+        },
+        "t2_seconds": {
+          "name": "t2_seconds",
+          "description": "Second transition time in seconds where available.",
+          "data_type": "int64",
+          "format_string": "0",
+          "is_hidden": false,
+          "lineage_tag": "c8a4c53e-6e81-40a1-aa2f-3a56df2f60ea",
+          "source_column": "t2_seconds"
+        },
+        "swim_rel": {
+          "name": "swim_rel",
+          "description": "Relative swim performance percentile within the same event and gender. Higher values indicate stronger relative performance.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "763e951f-c749-4e7b-be84-06aefef7f4fb",
+          "source_column": "swim_rel"
+        },
+        "bike_rel": {
+          "name": "bike_rel",
+          "description": "Relative bike performance percentile within the same event and gender. Higher values indicate stronger relative performance.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "a0ee5c7b-5a22-4939-958f-745ec7b40950",
+          "source_column": "bike_rel"
+        },
+        "run_rel": {
+          "name": "run_rel",
+          "description": "Relative run performance percentile within the same event and gender. Higher values indicate stronger relative performance.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "19dea51f-1240-41e8-bf87-7e0486f269c8",
+          "source_column": "run_rel"
+        },
+        "overall_rel": {
+          "name": "overall_rel",
+          "description": "Relative overall performance percentile within the same event and gender. Higher values indicate stronger relative performance.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "05a7d892-5e54-4949-a53b-6d9f1835ae97",
+          "source_column": "overall_rel"
+        },
+        "consistency_spread_rel": {
+          "name": "consistency_spread_rel",
+          "description": "Difference between the best and worst swim-bike-run relative percentile. Larger values indicate a more uneven split profile.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "43580686-c705-4b7c-9217-11794cb426a9",
+          "source_column": "consistency_spread_rel"
+        },
+        "is_finisher": {
+          "name": "is_finisher",
+          "description": "True when the result row is marked as a finisher.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "36ae0a1d-264d-421b-b466-a4cdcc0a8186",
+          "source_column": "is_finisher"
+        },
+        "is_valid_sbr_finisher": {
+          "name": "is_valid_sbr_finisher",
+          "description": "True when the row is a finisher with valid gender and complete swim, bike, and run splits.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "4416a7cd-a475-4f8c-b494-077b17f58798",
+          "source_column": "is_valid_sbr_finisher"
+        },
+        "event_context_flag": {
+          "name": "event_context_flag",
+          "description": "True when the result row is affected by likely event-leg course context.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "73181159-b628-4ca6-a627-645fd46ebd82",
+          "source_column": "event_context_flag"
+        },
+        "record_integrity_flag": {
+          "name": "record_integrity_flag",
+          "description": "True when timing fields do not reconcile cleanly or contain strict row-level integrity issues.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "a6d8450f-1cb6-4a2d-a122-1aa5427f1ca1",
+          "source_column": "record_integrity_flag"
+        },
+        "individual_profile_flag": {
+          "name": "individual_profile_flag",
+          "description": "True when the athlete's swim-bike-run profile is unusually uneven after course-context handling.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "e307d101-73ff-403c-80ae-10c300e2bb21",
+          "source_column": "individual_profile_flag"
+        },
+        "individual_hard_flag": {
+          "name": "individual_hard_flag",
+          "description": "True when a row remains extreme after likely course-context patterns are separated.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "f9f0000f-8b5b-4859-8de6-001fe964b88c",
+          "source_column": "individual_hard_flag"
+        },
+        "model_residual_flag": {
+          "name": "model_residual_flag",
+          "description": "True when one split is much stronger or weaker than expected from the other two based on robust residual logic.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "3925e812-1606-4da3-b7a2-8937dafe4f91",
+          "source_column": "model_residual_flag"
+        },
+        "any_review_flag": {
+          "name": "any_review_flag",
+          "description": "True when at least one review-family flag is active. This is a review signal, not an accusation.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "c3ddc3b7-fa8c-49c6-84fc-28a965f99e75",
+          "source_column": "any_review_flag"
+        },
+        "flag_layer_count": {
+          "name": "flag_layer_count",
+          "description": "Number of review-family layers triggered for the row.",
+          "data_type": "int64",
+          "format_string": "0",
+          "is_hidden": false,
+          "lineage_tag": "728153dd-ea98-42c1-a8ab-11e2ad83661a",
+          "source_column": "flag_layer_count"
+        }
+      }
+    },
+    "fct_review_flag": {
+      "name": "fct_review_flag",
+      "description": "Bridge fact table with one row per result and review flag. Use this table to analyse review-family composition. Review flags are data-quality and review signals, not accusations.",
+      "lineage_tag": "0fb3debb-33d8-472a-99b0-576fb6f0e97b",
+      "measures": {},
+      "columns": {
+        "result_id": {
+          "name": "result_id",
+          "description": "Stable surrogate key for the athlete result row associated with the flag.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "84f36460-ef49-41b1-b0d2-3ef113224c22",
+          "source_column": "result_id"
+        },
+        "review_flag_id": {
+          "name": "review_flag_id",
+          "description": "Identifier for the review flag type.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "8eb8364c-7540-4f85-bce8-1b00eb82c924",
+          "source_column": "review_flag_id"
+        },
+        "event_id": {
+          "name": "event_id",
+          "description": "Identifier for the race event associated with the flagged result row.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "81344600-a21f-4ae0-889b-48c684612bc7",
+          "source_column": "event_id"
+        },
+        "gender_id": {
+          "name": "gender_id",
+          "description": "Identifier for the gender category associated with the flagged result row.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "d0936d72-a415-4eb5-a94d-4bdb839fb26a",
+          "source_column": "gender_id"
+        },
+        "division_id": {
+          "name": "division_id",
+          "description": "Identifier for the athlete division or category associated with the flagged result row.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "c4870863-e8a1-417c-b3dc-23ed0e79c7d6",
+          "source_column": "division_id"
+        },
+        "flag_value": {
+          "name": "flag_value",
+          "description": "True when the review flag applies to the result row. This is a review signal, not an accusation.",
+          "data_type": "boolean",
+          "format_string": "\"\"TRUE\"\";\"\"TRUE\"\";\"\"FALSE\"\"",
+          "is_hidden": false,
+          "lineage_tag": "14c66e54-c3ff-4fd9-9be7-a41bf443845d",
+          "source_column": "flag_value"
+        },
+        "flag_evidence_value": {
+          "name": "flag_evidence_value",
+          "description": "Numeric evidence value supporting the flag where available.",
+          "data_type": "double",
+          "format_string": null,
+          "is_hidden": false,
+          "lineage_tag": "1b4a6518-56f9-4297-88ad-da57edff31cc",
+          "source_column": "flag_evidence_value"
+        }
+      }
+    },
+    "tri_measures": {
+      "name": "tri_measures",
+      "description": "Central measure table for the triathlon semantic model. Measures define result counts, review flag counts, rates, and sanity checks used by reports.",
+      "lineage_tag": "b6a65c5f-55db-4c4e-a01f-e02ba6341633",
+      "measures": {
+        "Result Rows": {
+          "name": "Result Rows",
+          "description": "Number of rows in the result fact table under the current filter context.",
+          "expression": "COUNTROWS(fct_result)",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "0c0b7ff7-f597-43bf-9cf6-a1ba24aaddae"
+        },
+        "Finishers": {
+          "name": "Finishers",
+          "description": "Number of result rows marked as finishers under the current filter context.",
+          "expression": "CALCULATE( COUNTROWS(fct_result), fct_result[is_finisher] = TRUE() )",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "ec6b9146-c68f-4703-8b9e-72d727f08741"
+        },
+        "Valid SBR Finishers": {
+          "name": "Valid SBR Finishers",
+          "description": "Number of finishers with valid gender and complete swim, bike, and run splits. This is the default denominator for athlete-level review rates.",
+          "expression": "CALCULATE( COUNTROWS(fct_result), fct_result[is_valid_sbr_finisher] = TRUE() )",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "62de7d40-801a-4f05-9e36-b11bf72ad8fb"
+        },
+        "Events": {
+          "name": "Events",
+          "description": "Number of distinct events under the current filter context.",
+          "expression": "DISTINCTCOUNT(dim_event[event_id])",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "69e07b20-6bab-44b4-a43c-3e4425a3bc1a"
+        },
+        "Event-Gender-Legs": {
+          "name": "Event-Gender-Legs",
+          "description": "Number of event-gender-leg rows in the event-leg context fact table.",
+          "expression": "COUNTROWS(fct_event_leg_context)",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "470fad7d-c4c8-409b-bbb7-0116253e345c"
+        },
+        "Any Review Rows": {
+          "name": "Any Review Rows",
+          "description": "Number of valid result rows where at least one review-family flag is active. This is a review signal, not an accusation.",
+          "expression": "CALCULATE( COUNTROWS(fct_result), fct_result[any_review_flag] = TRUE() )",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "60d6477b-20fe-41e0-abae-49712df17fea"
+        },
+        "Event Context Rows": {
+          "name": "Event Context Rows",
+          "description": "Number of result rows affected by event-leg course-context flags. These usually indicate altered, shortened, cancelled, or differently recorded legs.",
+          "expression": "CALCULATE( COUNTROWS(fct_result), fct_result[event_context_flag] = TRUE() )",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "145936f8-5463-487e-b07e-997671dea26f"
+        },
+        "Record Integrity Rows": {
+          "name": "Record Integrity Rows",
+          "description": "Number of result rows with strict row-level timing or arithmetic integrity issues, such as reconciliation mismatch.",
+          "expression": "CALCULATE( COUNTROWS(fct_result), fct_result[record_integrity_flag] = TRUE() )",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "6303ce61-2eb9-4ed5-8816-275ff4915e4d"
+        },
+        "Individual Profile Rows": {
+          "name": "Individual Profile Rows",
+          "description": "Number of result rows with unusual swim-bike-run profile spread after course-context handling.",
+          "expression": "CALCULATE( COUNTROWS(fct_result), fct_result[individual_profile_flag] = TRUE() )",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "8ceac07c-8a72-44eb-b8ac-4210588ec983"
+        },
+        "Model Residual Rows": {
+          "name": "Model Residual Rows",
+          "description": "Number of result rows where one leg is much stronger or weaker than expected from the other two based on the model residual logic.",
+          "expression": "CALCULATE( COUNTROWS(fct_result), fct_result[model_residual_flag] = TRUE() )",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "2737fae4-02ee-43aa-af49-5eeb57b6e8ce"
+        },
+        "Individual Hard Flag Rows": {
+          "name": "Individual Hard Flag Rows",
+          "description": "Number of rows that remain individual hard-flag candidates after likely course-context cases are separated.",
+          "expression": "CALCULATE( COUNTROWS(fct_result), fct_result[individual_hard_flag] = TRUE() )",
+          "format_string": "0",
+          "display_folder": null,
+          "lineage_tag": "823ac2ca-4d46-4069-9047-67dee0ab5b93"
+        },
+        "Review Flag Rate": {
+          "name": "Review Flag Rate",
+          "description": "Share of valid SBR finishers where at least one review-family flag is active. This is the broadest review-rate measure.",
+          "expression": "DIVIDE( [Any Review Rows], [Valid SBR Finishers] )",
+          "format_string": null,
+          "display_folder": null,
+          "lineage_tag": "c7b75881-6e46-4e14-a0c3-778b60e62fe1"
+        },
+        "Event Context Rate": {
+          "name": "Event Context Rate",
+          "description": "Share of valid SBR finishers affected by event-leg course-context flags.",
+          "expression": "DIVIDE( [Event Context Rows], [Valid SBR Finishers] )",
+          "format_string": "0.0%",
+          "display_folder": "03 Rates",
+          "lineage_tag": "a83b2f7e-ec73-42cf-baeb-322addbc47c6"
+        },
+        "Record Integrity Rate": {
+          "name": "Record Integrity Rate",
+          "description": "Share of valid SBR finishers with strict row-level timing or arithmetic integrity issues.",
+          "expression": "DIVIDE( [Record Integrity Rows], [Valid SBR Finishers] )",
+          "format_string": "0.0%",
+          "display_folder": "03 Rates",
+          "lineage_tag": "599e5a8d-2dca-4074-8045-caf744067273"
+        },
+        "Individual Profile Rate": {
+          "name": "Individual Profile Rate",
+          "description": "Share of valid SBR finishers with unusual swim-bike-run profile spread after course-context handling.",
+          "expression": "DIVIDE( [Individual Profile Rows], [Valid SBR Finishers] )",
+          "format_string": "0.0%",
+          "display_folder": "03 Rates",
+          "lineage_tag": "6f87b8e0-6fe3-47c9-a3fd-db5bb18c1aa7"
+        },
+        "Model Residual Rate": {
+          "name": "Model Residual Rate",
+          "description": "Share of valid SBR finishers with model residual review flags.",
+          "expression": "DIVIDE( [Model Residual Rows], [Valid SBR Finishers] )",
+          "format_string": "0.0%",
+          "display_folder": "03 Rates",
+          "lineage_tag": "90518ab1-6cee-4e02-8177-83d98720313a"
+        },
+        "Individual Hard Flag Rate": {
+          "name": "Individual Hard Flag Rate",
+          "description": "Share of valid SBR finishers that remain individual hard-flag candidates after likely course-context cases are separated.",
+          "expression": "DIVIDE( [Individual Hard Flag Rows], [Valid SBR Finishers] )",
+          "format_string": "0.0%",
+          "display_folder": "03 Rates",
+          "lineage_tag": "e5fc04f9-5f09-4636-8abd-4986bf06acef"
+        }
+      },
+      "columns": {
+        "dummy": {
+          "name": "dummy",
+          "description": "Hidden physical placeholder column required for the imported measure table.",
+          "data_type": "string",
+          "format_string": null,
+          "is_hidden": true,
+          "lineage_tag": "3c2118b3-5a94-41d7-86b7-9ccc6c1c6616",
+          "source_column": "dummy"
+        }
+      }
+    }
+  },
+  "relationships": [
+    {
+      "name": "AutoDetected_9a0b3979-24c6-44d1-9320-cd6b0f16a618",
+      "from": {
+        "table": "fct_review_flag",
+        "column": "review_flag_id"
+      },
+      "to": {
+        "table": "dim_review_flag",
+        "column": "review_flag_id"
+      }
+    },
+    {
+      "name": "AutoDetected_d4a4948a-e6a4-4e0f-a432-2d416e5aa7a4",
+      "from": {
+        "table": "fct_review_flag",
+        "column": "event_id"
+      },
+      "to": {
+        "table": "dim_event",
+        "column": "event_id"
+      }
+    },
+    {
+      "name": "AutoDetected_78a91dfe-65a2-44ad-aec0-fc84d92b4d73",
+      "from": {
+        "table": "fct_result",
+        "column": "event_id"
+      },
+      "to": {
+        "table": "dim_event",
+        "column": "event_id"
+      }
+    },
+    {
+      "name": "AutoDetected_c5048771-be01-4188-ac73-13c12d76cb2f",
+      "from": {
+        "table": "fct_event_leg_context",
+        "column": "event_id"
+      },
+      "to": {
+        "table": "dim_event",
+        "column": "event_id"
+      }
+    },
+    {
+      "name": "AutoDetected_f07aebc1-12d7-4632-84f1-37b1a8dc85f7",
+      "from": {
+        "table": "fct_review_flag",
+        "column": "gender_id"
+      },
+      "to": {
+        "table": "dim_gender",
+        "column": "gender_id"
+      }
+    },
+    {
+      "name": "AutoDetected_a4c8a211-57f4-4e8d-9e2e-6d2d0792633a",
+      "from": {
+        "table": "fct_result",
+        "column": "gender_id"
+      },
+      "to": {
+        "table": "dim_gender",
+        "column": "gender_id"
+      }
+    },
+    {
+      "name": "AutoDetected_fe8b79dc-e4b6-4aa6-823d-da6d34a41893",
+      "from": {
+        "table": "fct_event_leg_context",
+        "column": "gender_id"
+      },
+      "to": {
+        "table": "dim_gender",
+        "column": "gender_id"
+      }
+    },
+    {
+      "name": "AutoDetected_048c12c3-c5ac-4b3d-93ec-dd1076fd3161",
+      "from": {
+        "table": "fct_review_flag",
+        "column": "division_id"
+      },
+      "to": {
+        "table": "dim_division",
+        "column": "division_id"
+      }
+    },
+    {
+      "name": "AutoDetected_906e9f22-0d65-4605-a3e7-1ab92a708911",
+      "from": {
+        "table": "fct_result",
+        "column": "division_id"
+      },
+      "to": {
+        "table": "dim_division",
+        "column": "division_id"
+      }
+    },
+    {
+      "name": "AutoDetected_6eb3c672-912f-498f-bec7-3993b3541c04",
+      "from": {
+        "table": "dim_event",
+        "column": "distance"
+      },
+      "to": {
+        "table": "dim_distance",
+        "column": "distance"
+      }
+    }
+  ]
+}

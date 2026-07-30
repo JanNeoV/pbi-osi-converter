@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "change_id": "chg_20260718T190000Z_90909090",
+  "created_at": "2026-07-18T19:00:00Z",
+  "user_request": "Add an explicit FIN-status filter to valid_sbr_finishers.",
+  "intent": "UPDATE_METRIC",
+  "mode": "PROPOSE",
+  "canonical_metric_name": "valid_sbr_finishers",
+  "canonical_file": "models/semantic/triathlon_semantic.yml",
+  "requested_semantic_change": "Add finish_status = FIN as an explicit equality filter.",
+  "operation": {
+    "kind": "ADD_FILTER",
+    "predicate": {
+      "field": "finish_status",
+      "operator": "EQ",
+      "value": "FIN"
+    }
+  },
+  "affected_targets": [
+    "CANONICAL_DBT",
+    "POWER_BI",
+    "SNOWFLAKE"
+  ],
+  "target_support": {
+    "CANONICAL_DBT": "SUPPORTED_PATTERN",
+    "POWER_BI": "SUPPORTED_PATTERN",
+    "SNOWFLAKE": "SUPPORTED_PATTERN"
+  },
+  "status": "DRAFT",
+  "approval_state": "NOT_REQUESTED",
+  "validation_state": "NOT_RUN",
+  "deployment_requested": false,
+  "deployment_state": "NOT_REQUESTED",
+  "assumptions": [
+    "This example creates a proposal only; it does not approve, apply, or deploy the change."
+  ],
+  "diagnostics": []
+}

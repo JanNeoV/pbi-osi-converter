@@ -1,0 +1,499 @@
+table MEASURES_
+	lineageTag: b831a8e4-626b-4d4c-a38c-fde551907703
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Total recorded bike time in seconds under the current filter context.
+	measure 'Bike Time Seconds' = SUM(FCT_RESULT[SUM_OF_BIKE_SECONDS])
+		formatString: #,0.00
+		displayFolder: 01 Core Controls
+		lineageTag: 7317fa3a-72dd-4983-94e2-16b99b7af467
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Total recorded run time in seconds under the current filter context.
+	measure 'Run Time Seconds' = SUM(FCT_RESULT[SUM_OF_RUN_SECONDS])
+		formatString: #,0.00
+		displayFolder: 01 Core Controls
+		lineageTag: c59dbe33-d188-4f27-be51-96a11cec0dd3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Total recorded swim time in seconds under the current filter context.
+	measure 'Swim Time Seconds' = SUM(FCT_RESULT[SUM_OF_SWIM_SECONDS])
+		formatString: #,0.00
+		displayFolder: 01 Core Controls
+		lineageTag: cd475b69-90a6-4e9d-a04b-5f90ffcede95
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Total recorded run time converted from seconds to hours.
+	measure 'Run Time Hours' = DIVIDE([Run Time Seconds], 3600)
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: 4bdb754e-e238-4a27-98e7-7362ff8121be
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Total recorded bike time converted from seconds to hours.
+	measure 'Bike Time Hours' = DIVIDE([Bike Time Seconds], 3600)
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: 705509d0-e238-4511-a25b-542b47f0b338
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Total recorded swim time converted from seconds to hours.
+	measure 'Swim Time Hours' = DIVIDE([Swim Time Seconds], 3600)
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: d947ea93-aef6-46c7-a5ec-ac70a6d51b35
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Distinct events having race-result rows under the current filter context.
+	measure '# Events' = DISTINCTCOUNT(FCT_RESULT[EVENT_ID])
+		formatString: #,0
+		displayFolder: 01 Core Controls
+		lineageTag: df0d6ec8-d3b1-4c28-8455-bf0a5b94d5c0
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Number of race-result rows under the current filter context.
+	measure 'Result Rows' = COUNTROWS(FCT_RESULT)
+		formatString: #,0
+		displayFolder: 01 Core Controls
+		lineageTag: a94ea558-81e1-5064-ab37-002d36dc1c9f
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Number of leg-level split rows under the current filter context.
+	measure 'Split Rows' = COUNTROWS(FCT_SPLIT)
+		formatString: #,0
+		displayFolder: 01 Core Controls
+		lineageTag: 7d80f877-a49c-572e-bd38-358183d8b8cc
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Total recorded leg-level split time in seconds.
+	measure 'Split Time Seconds' = SUM(FCT_SPLIT[SPLIT_SECONDS])
+		formatString: #,0.00
+		displayFolder: 01 Core Controls
+		lineageTag: 3e9ef023-6140-5aae-9330-374a64baea03
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Distinct race results represented by at least one visible split row.
+	measure 'Results With Splits' = DISTINCTCOUNT(FCT_SPLIT[RESULT_ID])
+		formatString: #,0
+		displayFolder: 01 Core Controls
+		lineageTag: 629d5579-39c3-51ed-aeb1-2ea1090e36da
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Total first- and second-transition time in seconds.
+	measure 'Total Transition Seconds' = SUM(FCT_RESULT[SUM_OF_T1_SECONDS]) + SUM(FCT_RESULT[SUM_OF_T2_SECONDS])
+		formatString: #,0.00
+		displayFolder: 01 Core Controls
+		lineageTag: d392167f-8380-5605-a7b9-8f89ae315c84
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Combined swim, bike, run, and transition time in seconds.
+	measure 'Total Recorded Seconds' = [Swim Time Seconds] + [Bike Time Seconds] + [Run Time Seconds] + [Total Transition Seconds]
+		formatString: #,0.00
+		displayFolder: 01 Core Controls
+		lineageTag: 0c7e9b8a-1f93-5fbb-b42f-5347a0cddbce
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Number of race-result rows marked as finishers.
+	measure 'Finisher Rows' = CALCULATE(COUNTROWS(FCT_RESULT), KEEPFILTERS(FCT_RESULT[IS_FINISHER] = TRUE()))
+		formatString: #,0
+		displayFolder: 02 Quality and Rates
+		lineageTag: f328cbfe-0bb6-5bd4-92d9-5653f9254199
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Number of result rows marked as valid swim-bike-run finishers.
+	measure 'Valid SBR Finishers' = CALCULATE(COUNTROWS(FCT_RESULT), KEEPFILTERS(FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()))
+		formatString: #,0
+		displayFolder: 02 Quality and Rates
+		lineageTag: 21ab32be-eac9-5333-8f0a-1acc6d37e5b6
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Number of result rows where at least one review-family flag is active.
+	measure 'Review Rows' = CALCULATE(COUNTROWS(FCT_RESULT), KEEPFILTERS(FCT_RESULT[ANY_REVIEW_FLAG] = TRUE()))
+		formatString: #,0
+		displayFolder: 02 Quality and Rates
+		lineageTag: 06b6e8e5-66d5-55b4-bc39-09f800f74f28
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Valid swim-bike-run finisher rows that also carry a review-family flag.
+	measure 'Reviewed Valid SBR Finishers' =
+			CALCULATE(
+			    COUNTROWS(FCT_RESULT),
+			    KEEPFILTERS(FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()),
+			    KEEPFILTERS(FCT_RESULT[ANY_REVIEW_FLAG] = TRUE())
+			)
+		formatString: #,0
+		displayFolder: 02 Quality and Rates
+		lineageTag: 0259f9e2-0639-5828-94e2-36048c053eea
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Finisher rows related to professional divisions.
+	measure 'Pro Finisher Rows' = CALCULATE([Finisher Rows], KEEPFILTERS(DIM_DIVSION[IS_PRO] = TRUE()))
+		formatString: #,0
+		displayFolder: 02 Quality and Rates
+		lineageTag: 96d03108-dff9-5ee6-a25a-649482fe67a0
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Share of result rows marked as finishers; zero denominators return blank.
+	measure 'Finish Rate' = DIVIDE([Finisher Rows], [Result Rows])
+		formatString: 0.0%
+		displayFolder: 02 Quality and Rates
+		lineageTag: af8b1dce-36f3-5442-bfac-775387180e97
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Share of result rows marked as valid swim-bike-run finishers.
+	measure 'Valid SBR Rate' = DIVIDE([Valid SBR Finishers], [Result Rows])
+		formatString: 0.0%
+		displayFolder: 02 Quality and Rates
+		lineageTag: 72fa4fdf-9fee-5255-84b6-a6f305d4a2f0
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Share of valid swim-bike-run finishers carrying a review-family flag.
+	measure 'Review Rate Among Valid SBR' = DIVIDE([Reviewed Valid SBR Finishers], [Valid SBR Finishers])
+		formatString: 0.0%
+		displayFolder: 02 Quality and Rates
+		lineageTag: 669e1532-e16a-5371-af25-5a328058c734
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Share of result rows represented by at least one split row.
+	measure 'Split Coverage Rate' = DIVIDE([Results With Splits], [Result Rows])
+		formatString: 0.0%
+		displayFolder: 02 Quality and Rates
+		lineageTag: d394493b-305b-5c57-936a-4cc9ebf4b9c5
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Arithmetic mean of recorded result-level bike seconds.
+	measure 'Average Bike Seconds' = AVERAGE(FCT_RESULT[SUM_OF_BIKE_SECONDS])
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: 795f84c8-1066-563a-a2a9-7e2bad1125e0
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Minimum recorded result-level bike time in seconds.
+	measure 'Min Bike Seconds' = MIN(FCT_RESULT[SUM_OF_BIKE_SECONDS])
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: 4d5b2588-86d3-5b89-94c2-5ba660289b00
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Maximum recorded result-level bike time in seconds.
+	measure 'Max Bike Seconds' = MAX(FCT_RESULT[SUM_OF_BIKE_SECONDS])
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: ddbd5131-56f6-57f2-8981-b3969e9e7f35
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Median complete swim-bike-run seconds across valid rows with all three components.
+	measure 'Median Complete SBR Seconds' =
+			MEDIANX(
+			    FILTER(
+			        FCT_RESULT,
+			        FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()
+			            && NOT(ISBLANK(FCT_RESULT[SUM_OF_SWIM_SECONDS]))
+			            && NOT(ISBLANK(FCT_RESULT[SUM_OF_BIKE_SECONDS]))
+			            && NOT(ISBLANK(FCT_RESULT[SUM_OF_RUN_SECONDS]))
+			    ),
+			    FCT_RESULT[SUM_OF_SWIM_SECONDS]
+			        + FCT_RESULT[SUM_OF_BIKE_SECONDS]
+			        + FCT_RESULT[SUM_OF_RUN_SECONDS]
+			)
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: 61084979-aaad-57e9-9f6a-b27329fb24d6
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Inclusive 90th percentile of complete swim-bike-run seconds across valid rows.
+	measure 'P90 Complete SBR Seconds' =
+			PERCENTILEX.INC(
+			    FILTER(
+			        FCT_RESULT,
+			        FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()
+			            && NOT(ISBLANK(FCT_RESULT[SUM_OF_SWIM_SECONDS]))
+			            && NOT(ISBLANK(FCT_RESULT[SUM_OF_BIKE_SECONDS]))
+			            && NOT(ISBLANK(FCT_RESULT[SUM_OF_RUN_SECONDS]))
+			    ),
+			    FCT_RESULT[SUM_OF_SWIM_SECONDS]
+			        + FCT_RESULT[SUM_OF_BIKE_SECONDS]
+			        + FCT_RESULT[SUM_OF_RUN_SECONDS],
+			    0.9
+			)
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: b724f6e2-af03-5497-a26f-4ac794e6eac9
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Population standard deviation of complete SBR seconds; blank with fewer than two rows.
+	measure 'Complete SBR Population StdDev Seconds' =
+			VAR CompleteRows =
+			    FILTER(
+			        FCT_RESULT,
+			        FCT_RESULT[IS_VALID_SBR_FINISHER] = TRUE()
+			            && NOT(ISBLANK(FCT_RESULT[SUM_OF_SWIM_SECONDS]))
+			            && NOT(ISBLANK(FCT_RESULT[SUM_OF_BIKE_SECONDS]))
+			            && NOT(ISBLANK(FCT_RESULT[SUM_OF_RUN_SECONDS]))
+			    )
+			VAR CompleteRowCount = COUNTROWS(CompleteRows) RETURN
+			    IF(
+			        CompleteRowCount < 2,
+			        BLANK(),
+			        STDEVX.P(
+			            CompleteRows,
+			            FCT_RESULT[SUM_OF_SWIM_SECONDS]
+			                + FCT_RESULT[SUM_OF_BIKE_SECONDS]
+			                + FCT_RESULT[SUM_OF_RUN_SECONDS]
+			        )
+			    )
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: 05c5c065-1368-5173-83b7-c9412e217950
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Related nominal bike kilometres summed once per result having positive bike seconds.
+	measure 'Nominal Bike KM Across Timed Results' =
+			SUMX(
+			    FILTER(FCT_RESULT, FCT_RESULT[SUM_OF_BIKE_SECONDS] > 0),
+			    RELATED(DIM_DISTANCE[NOMINAL_BIKE_KM])
+			)
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: af7c7152-8beb-54b2-b69b-436c5385a759
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Nominal kilometres divided by bike hours over the identical positive-time result population.
+	measure 'Weighted Bike Speed KM/H' =
+			VAR TimedResults =
+			    FILTER(FCT_RESULT, FCT_RESULT[SUM_OF_BIKE_SECONDS] > 0)
+			VAR NominalBikeKM =
+			    SUMX(TimedResults, RELATED(DIM_DISTANCE[NOMINAL_BIKE_KM]))
+			VAR BikeSeconds =
+			    SUMX(TimedResults, FCT_RESULT[SUM_OF_BIKE_SECONDS])
+			RETURN
+			    DIVIDE(NominalBikeKM, DIVIDE(BikeSeconds, 3600))
+		formatString: #,0.00
+		displayFolder: 03 Statistics and Units
+		lineageTag: a80a1c24-37fb-5149-82bb-943842e93729
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Current valid finishers as a share of valid finishers across visible distances.
+	measure 'Valid SBR Share Across Visible Distances' =
+			DIVIDE(
+			    [Valid SBR Finishers],
+			    CALCULATE(
+			        [Valid SBR Finishers],
+			        ALLSELECTED(DIM_DISTANCE[DISTANCE])
+			    )
+			)
+		formatString: 0.0%
+		displayFolder: 04 Context and Ranking
+		lineageTag: 307d2c79-3b23-53ac-bd9e-7cfd2f99285e
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Dense descending rank across visible distances; blank outside distance scope.
+	measure 'Distance Rank by Valid SBR' =
+			IF(
+			    NOT(ISINSCOPE(DIM_DISTANCE[DISTANCE])),
+			    BLANK(),
+			    RANKX(
+			        ALLSELECTED(DIM_DISTANCE[DISTANCE]),
+			        [Valid SBR Finishers],
+			        ,
+			        DESC,
+			        DENSE
+			    )
+			)
+		formatString: #,0
+		displayFolder: 04 Context and Ranking
+		lineageTag: 9babcba0-dd22-57ee-a57e-442f916a2e76
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Arithmetic mean of per-event valid-SBR rates across visible events having results.
+	measure 'Event-Weighted Average Valid SBR Rate' =
+			VAR EventsWithResults =
+			    FILTER(
+			        VALUES(DIM_EVENT[EVENT_ID]),
+			        CALCULATE([Result Rows]) > 0
+			    )
+			RETURN
+			    AVERAGEX(
+			        EventsWithResults,
+			        CALCULATE([Valid SBR Rate])
+			    )
+		formatString: 0.0%
+		displayFolder: 04 Context and Ranking
+		lineageTag: 156485b4-f4d3-5f76-89c6-5928bdef9a8a
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Valid-SBR share of parent at Event, Country, Region, Continent, and total scopes.
+	measure 'Valid SBR % of Parent Geography' =
+			SWITCH(
+			    TRUE(),
+			    ISINSCOPE(DIM_EVENT[EVENT_NAME]),
+			        DIVIDE(
+			            [Valid SBR Finishers],
+			            CALCULATE(
+			                [Valid SBR Finishers],
+			                ALLSELECTED(DIM_EVENT[EVENT_ID], DIM_EVENT[EVENT_NAME])
+			            )
+			        ),
+			    ISINSCOPE(DIM_COUNTRY[COUNTRY_NAME]),
+			        DIVIDE(
+			            [Valid SBR Finishers],
+			            CALCULATE([Valid SBR Finishers], ALLSELECTED(DIM_COUNTRY[COUNTRY_NAME]))
+			        ),
+			    ISINSCOPE(DIM_COUNTRY[REGION]),
+			        DIVIDE(
+			            [Valid SBR Finishers],
+			            CALCULATE([Valid SBR Finishers], ALLSELECTED(DIM_COUNTRY[REGION]))
+			        ),
+			    ISINSCOPE(DIM_COUNTRY[CONTINENT]),
+			        DIVIDE(
+			            [Valid SBR Finishers],
+			            CALCULATE([Valid SBR Finishers], ALLSELECTED(DIM_COUNTRY[CONTINENT]))
+			        ),
+			    DIVIDE(
+			        [Valid SBR Finishers],
+			        CALCULATE([Valid SBR Finishers], ALLSELECTED(DIM_COUNTRY[CONTINENT]))
+			    )
+			)
+		formatString: 0.0%
+		displayFolder: 04 Context and Ranking
+		lineageTag: 89c3bf2c-4966-5e6c-bd81-0708994d6aa0
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Matching result-level component time for one selected leg; blank for zero or multiple legs.
+	measure 'Selected Leg Time Seconds' =
+			VAR SelectedLeg = SELECTEDVALUE(FCT_SPLIT[LEG]) RETURN
+			    SWITCH(
+			        SelectedLeg,
+			        "SWIM", [Swim Time Seconds],
+			        "BIKE", [Bike Time Seconds],
+			        "RUN", [Run Time Seconds],
+			        "T1", SUM(FCT_RESULT[SUM_OF_T1_SECONDS]),
+			        "T2", SUM(FCT_RESULT[SUM_OF_T2_SECONDS]),
+			        BLANK()
+			    )
+		formatString: #,0.00
+		displayFolder: 04 Context and Ranking
+		lineageTag: 600a5690-1e1f-5677-b80a-bd2dc56701c9
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Share of visible-event valid finishers contributed by the top three events.
+	measure 'Top 3 Events Valid SBR Share' =
+			VAR VisibleEventIDs =
+			    CALCULATETABLE(
+			        VALUES(DIM_EVENT[EVENT_ID]),
+			        ALLSELECTED(DIM_EVENT)
+			    )
+			VAR TopEvents =
+			    TOPN(
+			        3,
+			        VisibleEventIDs,
+			        CALCULATE([Valid SBR Finishers]), DESC,
+			        DIM_EVENT[EVENT_ID], ASC
+			    )
+			VAR TopThreeValidFinishers =
+			    SUMX(TopEvents, CALCULATE([Valid SBR Finishers]))
+			VAR VisibleEventValidFinishers =
+			    CALCULATE([Valid SBR Finishers], ALLSELECTED(DIM_EVENT))
+			RETURN
+			    DIVIDE(TopThreeValidFinishers, VisibleEventValidFinishers)
+		formatString: 0.0%
+		displayFolder: 04 Context and Ranking
+		lineageTag: 38a8413f-47c5-5c55-9eb1-1e04ea4c3f0b
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Results having exactly five rows and five distinct legs; blank under a leg filter.
+	measure 'Complete Five-Split Results' =
+			IF(
+			    ISFILTERED(FCT_SPLIT[LEG]),
+			    BLANK(),
+			    VAR CompleteResults =
+			        FILTER(
+			            VALUES(FCT_SPLIT[RESULT_ID]),
+			            CALCULATE(COUNTROWS(FCT_SPLIT)) = 5
+			                && CALCULATE(DISTINCTCOUNT(FCT_SPLIT[LEG])) = 5
+			        )
+			    RETURN
+			        COUNTROWS(CompleteResults)
+			)
+		formatString: #,0
+		displayFolder: 05 Multi-Fact Validation
+		lineageTag: d8a05e5a-c256-58db-9a8c-b2bbf2f935b8
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Share of result rows represented by exactly five rows and five distinct legs.
+	measure 'Complete Split Coverage Rate' = DIVIDE([Complete Five-Split Results], [Result Rows])
+		formatString: 0.0%
+		displayFolder: 05 Multi-Fact Validation
+		lineageTag: 542a2dc0-c55d-5e10-bd63-c8000b28e816
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — Split rows whose stored event identifier differs from the related result event.
+	measure 'Split Event Mismatch Rows' =
+			COUNTROWS(
+			    FILTER(
+			        FCT_SPLIT,
+			        FCT_SPLIT[EVENT_ID] <> RELATED(FCT_RESULT[EVENT_ID])
+			    )
+			)
+		formatString: #,0
+		displayFolder: 05 Multi-Fact Validation
+		lineageTag: 2c6264d9-b4ae-588c-9f55-53b95a16f6a5
+
+	/// EXPERIMENTAL_BENCHMARK_ONLY — All-leg split seconds less matching result-component seconds; blank with leg filters or no keys.
+	measure 'All-Leg Split vs Result Delta Seconds' =
+			IF(
+			    ISFILTERED(FCT_SPLIT[LEG]),
+			    BLANK(),
+			    VAR VisibleResultIDs = VALUES(FCT_SPLIT[RESULT_ID])
+			    VAR VisibleResultCount = COUNTROWS(VisibleResultIDs)
+			    VAR ResultComponentSeconds =
+			        CALCULATE(
+			            [Total Recorded Seconds],
+			            KEEPFILTERS(
+			                TREATAS(
+			                    VisibleResultIDs,
+			                    FCT_RESULT[RESULT_ID]
+			                )
+			            )
+			        )
+			    RETURN
+			        IF(
+			            VisibleResultCount = 0,
+			            BLANK(),
+			            [Split Time Seconds] - ResultComponentSeconds
+			        )
+			)
+		formatString: #,0.00
+		displayFolder: 05 Multi-Fact Validation
+		lineageTag: 27c67dd5-a91e-5ecc-9917-897492db05fc
+
+	/// NEGATIVE CONTROL—do not use for reporting. Deliberately divides seconds by 60 while labeling the result as hours.
+	measure 'NC - Bike Time Hours Divisor 60' = DIVIDE([Bike Time Seconds], 60)
+		formatString: #,0.00
+		displayFolder: 99 Negative Controls
+		lineageTag: 49d6f1a6-0cf2-5921-b96c-387aa3b7dbe3
+
+	/// NEGATIVE CONTROL—do not use for reporting. Deliberately sums numeric event identifiers.
+	measure 'NC - Event ID Total' = SUM(FCT_RESULT[EVENT_ID])
+		formatString: #,0
+		displayFolder: 99 Negative Controls
+		lineageTag: f5e09898-3ac1-5801-9e00-2c263cbefb12
+
+	/// NEGATIVE CONTROL—do not use for reporting. Deliberately sums a non-additive row-level relative value.
+	measure 'NC - Overall Relative Total' = SUM(FCT_RESULT[SUM_OF_OVERALL_REL])
+		formatString: #,0.00
+		displayFolder: 99 Negative Controls
+		lineageTag: d5dc88b2-ee37-5ead-bba7-94f162e7652b
+
+	/// NEGATIVE CONTROL—do not use for reporting. Deliberately divides all review rows by valid SBR finishers without intersecting populations.
+	measure 'NC - Review Rate Wrong Population' = DIVIDE([Review Rows], [Valid SBR Finishers])
+		formatString: 0.0%
+		displayFolder: 99 Negative Controls
+		lineageTag: c8a25627-e406-568a-9564-75eb4747a063
+
+	/// NEGATIVE CONTROL—do not use for reporting. Reuses the correct ratio but deliberately applies a decimal rather than percentage format.
+	measure 'NC - Valid SBR Rate Decimal Format' = [Valid SBR Rate]
+		formatString: 0.00
+		displayFolder: 99 Negative Controls
+		lineageTag: 630a509b-f2f6-53da-a07e-4d870b8485f8
+
+	/// NEGATIVE CONTROL—do not use for reporting. Deliberately repeats each result-level bike value once per related split row.
+	measure 'NC - Split-Multiplied Bike Seconds' = SUMX(FCT_SPLIT, RELATED(FCT_RESULT[SUM_OF_BIKE_SECONDS]))
+		formatString: #,0.00
+		displayFolder: 99 Negative Controls
+		lineageTag: 16582823-5cb3-54f0-8e2d-b55e0fc40481
+
+	column DUMMY
+		dataType: string
+		lineageTag: c6f04d47-5503-40fd-9469-1d453e383782
+		summarizeBy: none
+		sourceColumn: DUMMY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MEASURES_ = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [DUMMY = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"DUMMY", type text}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

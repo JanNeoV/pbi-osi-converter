@@ -1,0 +1,51 @@
+{
+  "artifact_hashes": {
+    "accepted-review-decision.yml": "47b4839aaed8c669374a64c39df5a2b5e0bca21965fb42c8d129465673518402",
+    "canonical-change-diff.md": "12b26586370f8c24020261ab5d2a1915b42f7ad506f17a2b5cf3dfa992661111",
+    "corrected-candidate-equivalence.md": "6396221987774d56c215e921fcc810d07e7ba25a09d4201ff69750c8ac072e76",
+    "executive-summary.md": "9b00c16c09d355e18410fcf607ae4cf352a67042d5a4a563f6e5cc93b5f3d846",
+    "hashes.json": "df72462130417a38ce901351f570be8495b7e28db7cb04a891d9b2bd2e5ac66c",
+    "immutability-report.md": "1d24335f8ed76cacd95f9d7f6c1214c65aa2f2544ef286f3efffde22fe05cdef",
+    "initial-conversion-findings.md": "62c9971addaf9c38f6da57e99d034dadcc8240e08ac15d244a4d2aeafd95a62f",
+    "manifest.json": "3be97f3364ddc7128a445981e7f8eecfa01db082c1513e4528099fd41653acb8",
+    "regenerated-target-diff.md": "b162ca56df5ab1c876f2f0fdf22087f0a19db2bddd501c1acd8264d7b88f7c10",
+    "review-memory-entry.yml": "af996d6a1d96e5f8a75b0b34baf567f0b47788523d2722057d877eef9e451e4a",
+    "synchronization-report.md": "ccb02833559cab191c5621f0cd874df564cf91cb9ea89dc8a5c2d39ed26f2da0"
+  },
+  "summary": {
+    "blocking_finding": "UNIT_CONVERSION_MISMATCH",
+    "blocking_finding_id": "fnd_15fe871fa1b58924",
+    "canonical_change_detected": true,
+    "changed_canonical_metrics": [
+      "valid_sbr_finishers"
+    ],
+    "corrected_equivalence": {
+      "passed": 5,
+      "status": "PASSED",
+      "total": 5
+    },
+    "cross_target_semantic_drift": 0,
+    "deployment_performed": false,
+    "human_confirmation": "REQUIRED",
+    "human_review": "ACCEPTED",
+    "initial_conversion": "BLOCKED_PENDING_REVIEW",
+    "isolated_runtime_stores": [
+      "changes",
+      "imports",
+      "reviews",
+      "candidates"
+    ],
+    "managed_by": "semantic-agent-end-to-end-poc",
+    "power_bi_target_changes": 1,
+    "review_memory": "RECORDED",
+    "review_rule_id": "review_unit_conversion_seconds_to_hours_v1",
+    "safe_reuse": "REVIEW_RULE_SUGGESTED",
+    "schema_version": 1,
+    "snowflake_target_changes": 1,
+    "source_modified": false,
+    "synchronization_status": "ALIGNED",
+    "unexpected_target_only_drift": 0,
+    "unrelated_object_changes": 0,
+    "verdict": "END_TO_END_POC_ACCEPTED"
+  }
+}

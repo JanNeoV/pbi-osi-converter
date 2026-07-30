@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/semantic-agent/powerbi-import-mapping-v1.schema.json",
+  "title": "Power BI Brownfield Import Mapping",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "tables", "columns", "measures"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "tables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["power_bi_table"],
+        "properties": {
+          "power_bi_table": {"$ref": "#/$defs/name"},
+          "canonical_semantic_model": {"$ref": "#/$defs/name"},
+          "canonical_entity": {"$ref": "#/$defs/name"},
+          "snowflake_logical_table": {"$ref": "#/$defs/name"}
+        }
+      }
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["power_bi_table", "power_bi_column", "canonical_field"],
+        "properties": {
+          "power_bi_table": {"$ref": "#/$defs/name"},
+          "power_bi_column": {"$ref": "#/$defs/name"},
+          "canonical_semantic_model": {"$ref": "#/$defs/name"},
+          "canonical_field": {"$ref": "#/$defs/name"}
+        }
+      }
+    },
+    "measures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["power_bi_table", "power_bi_measure", "canonical_metric"],
+        "properties": {
+          "power_bi_table": {"$ref": "#/$defs/name"},
+          "power_bi_measure": {"$ref": "#/$defs/name"},
+          "canonical_metric": {"$ref": "#/$defs/name"},
+          "snowflake_logical_table": {"$ref": "#/$defs/name"},
+          "snowflake_metric": {"$ref": "#/$defs/name"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "name": {"type": "string", "minLength": 1, "maxLength": 256}
+  }
+}

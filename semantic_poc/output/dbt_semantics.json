@@ -1,0 +1,1944 @@
+{
+  "_generated": {
+    "notice": "Generated file. Do not edit manually.",
+    "canonical_source": "models/semantic/triathlon_semantic.yml"
+  },
+  "canonical_source": "models/semantic/triathlon_semantic.yml",
+  "compiled_source": "target/semantic_manifest.json",
+  "semantic_model": {
+    "name": "triathlon_results",
+    "description": "Result-grain semantic model for triathlon result counts, split medians, and review-signal rates.",
+    "dimensions": [
+      {
+        "name": "event_year",
+        "description": null,
+        "type": "time",
+        "is_partition": false,
+        "type_params": {
+          "time_granularity": "year",
+          "validity_params": null
+        },
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "race_name",
+        "description": null,
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "distance",
+        "description": null,
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "gender",
+        "description": null,
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "division",
+        "description": null,
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "is_pro",
+        "description": null,
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "finish_status",
+        "description": null,
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "is_finisher",
+        "description": null,
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "is_valid_sbr_finisher",
+        "description": null,
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "any_review_flag",
+        "description": "Broad review-signal flag. This is not an accusation.",
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "event_context_flag",
+        "description": "Indicates likely event-level course or recording context.",
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "record_integrity_flag",
+        "description": "Indicates strict row-level timing or arithmetic integrity review signals.",
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "individual_profile_flag",
+        "description": "Indicates unusual split-profile review signals after course-context handling.",
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "model_residual_flag",
+        "description": "Indicates model residual review signals.",
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "individual_hard_flag",
+        "description": "Indicates rows that remain hard-flag candidates after likely course-context cases are separated.",
+        "type": "categorical",
+        "is_partition": false,
+        "type_params": null,
+        "expr": null,
+        "metadata": null,
+        "label": null,
+        "config": {
+          "meta": {
+            "semantic_contract": {
+              "version": 1,
+              "canonical_source": "dbt_semantic_yaml",
+              "snowflake_logical_tables": [
+                {
+                  "name": "results",
+                  "description": "Athlete result fact table.",
+                  "base_table": "fct_result",
+                  "primary_key": "result_id"
+                },
+                {
+                  "name": "events",
+                  "description": "Race event dimension.",
+                  "base_table": "dim_event",
+                  "primary_key": "event_id"
+                },
+                {
+                  "name": "divisions",
+                  "description": "Athlete division dimension.",
+                  "base_table": "dim_division",
+                  "primary_key": "division_id"
+                },
+                {
+                  "name": "genders",
+                  "description": "Gender dimension.",
+                  "base_table": "dim_gender",
+                  "primary_key": "gender_id"
+                },
+                {
+                  "name": "distances",
+                  "description": "Nominal race distance dimension.",
+                  "base_table": "dim_distance",
+                  "primary_key": "distance_id"
+                }
+              ],
+              "relationships": [
+                {
+                  "name": "results_to_events",
+                  "from_table": "fct_result",
+                  "from_column": "event_id",
+                  "to_table": "dim_event",
+                  "to_column": "event_id"
+                },
+                {
+                  "name": "results_to_divisions",
+                  "from_table": "fct_result",
+                  "from_column": "division_id",
+                  "to_table": "dim_division",
+                  "to_column": "division_id"
+                },
+                {
+                  "name": "results_to_genders",
+                  "from_table": "fct_result",
+                  "from_column": "gender_id",
+                  "to_table": "dim_gender",
+                  "to_column": "gender_id"
+                },
+                {
+                  "name": "results_to_distances",
+                  "from_table": "fct_result",
+                  "from_column": "distance_id",
+                  "to_table": "dim_distance",
+                  "to_column": "distance_id"
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "logical_tables": [
+      {
+        "name": "results",
+        "description": "Athlete result fact table.",
+        "base_table": "fct_result",
+        "primary_key": "result_id"
+      },
+      {
+        "name": "events",
+        "description": "Race event dimension.",
+        "base_table": "dim_event",
+        "primary_key": "event_id"
+      },
+      {
+        "name": "divisions",
+        "description": "Athlete division dimension.",
+        "base_table": "dim_division",
+        "primary_key": "division_id"
+      },
+      {
+        "name": "genders",
+        "description": "Gender dimension.",
+        "base_table": "dim_gender",
+        "primary_key": "gender_id"
+      },
+      {
+        "name": "distances",
+        "description": "Nominal race distance dimension.",
+        "base_table": "dim_distance",
+        "primary_key": "distance_id"
+      }
+    ],
+    "relationships": [
+      {
+        "name": "results_to_events",
+        "from_table": "fct_result",
+        "from_column": "event_id",
+        "to_table": "dim_event",
+        "to_column": "event_id"
+      },
+      {
+        "name": "results_to_divisions",
+        "from_table": "fct_result",
+        "from_column": "division_id",
+        "to_table": "dim_division",
+        "to_column": "division_id"
+      },
+      {
+        "name": "results_to_genders",
+        "from_table": "fct_result",
+        "from_column": "gender_id",
+        "to_table": "dim_gender",
+        "to_column": "gender_id"
+      },
+      {
+        "name": "results_to_distances",
+        "from_table": "fct_result",
+        "from_column": "distance_id",
+        "to_table": "dim_distance",
+        "to_column": "distance_id"
+      }
+    ]
+  },
+  "public_metrics": [
+    "valid_sbr_finishers",
+    "event_context_rows",
+    "event_context_rate",
+    "record_integrity_rate",
+    "individual_profile_rate",
+    "model_residual_rate",
+    "individual_hard_flag_rate"
+  ],
+  "required_mvp_metrics": [
+    "valid_sbr_finishers",
+    "event_context_rows",
+    "event_context_rate",
+    "record_integrity_rate",
+    "individual_profile_rate",
+    "model_residual_rate",
+    "individual_hard_flag_rate"
+  ],
+  "metrics": {
+    "valid_sbr_finishers": {
+      "name": "valid_sbr_finishers",
+      "label": "Valid SBR Finishers",
+      "description": "Number of finishers with valid gender and complete swim, bike, and run splits.",
+      "type": "simple",
+      "measure": "valid_sbr_finishers",
+      "numerator": null,
+      "denominator": null,
+      "measure_agg": "sum_boolean",
+      "measure_expression": "is_valid_sbr_finisher = 1",
+      "filter_column": "is_valid_sbr_finisher",
+      "source_model": "triathlon_results",
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": "whole_number",
+      "caveat": "Default denominator for athlete-level review rates.",
+      "public": true,
+      "translation_pattern": "filtered_count",
+      "snowflake_supported": true,
+      "power_bi": {
+        "table": "tri_measures",
+        "measure": "Valid SBR Finishers",
+        "format_string": "0"
+      },
+      "snowflake": {
+        "logical_table": "results",
+        "metric_name": "valid_sbr_finishers",
+        "synonyms": [
+          "valid finishers",
+          "complete swim bike run finishers"
+        ]
+      },
+      "meta": {
+        "semantic_contract": {
+          "version": 1,
+          "public": true,
+          "format": "whole_number",
+          "caveat": "Default denominator for athlete-level review rates."
+        },
+        "power_bi": {
+          "table": "tri_measures",
+          "measure": "Valid SBR Finishers",
+          "format_string": "0"
+        },
+        "snowflake": {
+          "logical_table": "results",
+          "metric_name": "valid_sbr_finishers",
+          "synonyms": [
+            "valid finishers",
+            "complete swim bike run finishers"
+          ]
+        }
+      }
+    },
+    "event_context_rows": {
+      "name": "event_context_rows",
+      "label": "Event Context Rows",
+      "description": "Number of result rows affected by event-leg course-context flags.",
+      "type": "simple",
+      "measure": "event_context_rows",
+      "numerator": null,
+      "denominator": null,
+      "measure_agg": "sum_boolean",
+      "measure_expression": "event_context_flag = 1",
+      "filter_column": "event_context_flag",
+      "source_model": "triathlon_results",
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": "whole_number",
+      "caveat": "Review flags are data-quality review signals and are not accusations.",
+      "public": true,
+      "translation_pattern": "filtered_count",
+      "snowflake_supported": true,
+      "power_bi": {
+        "table": "tri_measures",
+        "measure": "Event Context Rows",
+        "format_string": "0"
+      },
+      "snowflake": {
+        "logical_table": "results",
+        "metric_name": "event_context_rows",
+        "synonyms": [
+          "course context rows",
+          "altered course rows"
+        ]
+      },
+      "meta": {
+        "semantic_contract": {
+          "version": 1,
+          "public": true,
+          "format": "whole_number",
+          "caveat": "Review flags are data-quality review signals and are not accusations."
+        },
+        "power_bi": {
+          "table": "tri_measures",
+          "measure": "Event Context Rows",
+          "format_string": "0"
+        },
+        "snowflake": {
+          "logical_table": "results",
+          "metric_name": "event_context_rows",
+          "synonyms": [
+            "course context rows",
+            "altered course rows"
+          ]
+        }
+      }
+    },
+    "record_integrity_rows": {
+      "name": "record_integrity_rows",
+      "label": "Record Integrity Rows",
+      "description": "Number of result rows with strict row-level timing or arithmetic integrity issues.",
+      "type": "simple",
+      "measure": "record_integrity_rows",
+      "numerator": null,
+      "denominator": null,
+      "measure_agg": "sum_boolean",
+      "measure_expression": "record_integrity_flag = 1",
+      "filter_column": "record_integrity_flag",
+      "source_model": "triathlon_results",
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": null,
+      "caveat": null,
+      "public": false,
+      "translation_pattern": "filtered_count",
+      "snowflake_supported": true,
+      "power_bi": {},
+      "snowflake": {},
+      "meta": {}
+    },
+    "individual_profile_rows": {
+      "name": "individual_profile_rows",
+      "label": "Individual Profile Rows",
+      "description": "Number of result rows with unusual swim-bike-run profile spread after course-context handling.",
+      "type": "simple",
+      "measure": "individual_profile_rows",
+      "numerator": null,
+      "denominator": null,
+      "measure_agg": "sum_boolean",
+      "measure_expression": "individual_profile_flag = 1",
+      "filter_column": "individual_profile_flag",
+      "source_model": "triathlon_results",
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": null,
+      "caveat": null,
+      "public": false,
+      "translation_pattern": "filtered_count",
+      "snowflake_supported": true,
+      "power_bi": {},
+      "snowflake": {},
+      "meta": {}
+    },
+    "model_residual_rows": {
+      "name": "model_residual_rows",
+      "label": "Model Residual Rows",
+      "description": "Number of result rows with model residual review flags.",
+      "type": "simple",
+      "measure": "model_residual_rows",
+      "numerator": null,
+      "denominator": null,
+      "measure_agg": "sum_boolean",
+      "measure_expression": "model_residual_flag = 1",
+      "filter_column": "model_residual_flag",
+      "source_model": "triathlon_results",
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": null,
+      "caveat": null,
+      "public": false,
+      "translation_pattern": "filtered_count",
+      "snowflake_supported": true,
+      "power_bi": {},
+      "snowflake": {},
+      "meta": {}
+    },
+    "individual_hard_flag_rows": {
+      "name": "individual_hard_flag_rows",
+      "label": "Individual Hard Flag Rows",
+      "description": "Number of rows that remain individual hard-flag candidates after likely course-context cases are separated.",
+      "type": "simple",
+      "measure": "individual_hard_flag_rows",
+      "numerator": null,
+      "denominator": null,
+      "measure_agg": "sum_boolean",
+      "measure_expression": "individual_hard_flag = 1",
+      "filter_column": "individual_hard_flag",
+      "source_model": "triathlon_results",
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": null,
+      "caveat": null,
+      "public": false,
+      "translation_pattern": "filtered_count",
+      "snowflake_supported": true,
+      "power_bi": {},
+      "snowflake": {},
+      "meta": {}
+    },
+    "event_context_rate": {
+      "name": "event_context_rate",
+      "label": "Event Context Rate",
+      "description": "Share of valid SBR finishers affected by event-leg course-context flags.",
+      "type": "ratio",
+      "measure": null,
+      "numerator": "event_context_rows",
+      "denominator": "valid_sbr_finishers",
+      "measure_agg": null,
+      "measure_expression": null,
+      "filter_column": null,
+      "source_model": null,
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": "percentage_1_decimal",
+      "caveat": "Review flags are data-quality review signals and are not accusations.",
+      "public": true,
+      "translation_pattern": "ratio",
+      "snowflake_supported": true,
+      "power_bi": {
+        "table": "tri_measures",
+        "measure": "Event Context Rate",
+        "format_string": "0.0%",
+        "display_folder": "03 Rates"
+      },
+      "snowflake": {
+        "logical_table": "results",
+        "metric_name": "event_context_rate",
+        "synonyms": [
+          "course context rate",
+          "altered course rate"
+        ]
+      },
+      "meta": {
+        "semantic_contract": {
+          "version": 1,
+          "public": true,
+          "format": "percentage_1_decimal",
+          "caveat": "Review flags are data-quality review signals and are not accusations."
+        },
+        "power_bi": {
+          "table": "tri_measures",
+          "measure": "Event Context Rate",
+          "format_string": "0.0%",
+          "display_folder": "03 Rates"
+        },
+        "snowflake": {
+          "logical_table": "results",
+          "metric_name": "event_context_rate",
+          "synonyms": [
+            "course context rate",
+            "altered course rate"
+          ]
+        }
+      }
+    },
+    "record_integrity_rate": {
+      "name": "record_integrity_rate",
+      "label": "Record Integrity Rate",
+      "description": "Share of valid SBR finishers with strict row-level timing or arithmetic integrity issues.",
+      "type": "ratio",
+      "measure": null,
+      "numerator": "record_integrity_rows",
+      "denominator": "valid_sbr_finishers",
+      "measure_agg": null,
+      "measure_expression": null,
+      "filter_column": null,
+      "source_model": null,
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": "percentage_1_decimal",
+      "caveat": "Review flags are data-quality review signals and are not accusations.",
+      "public": true,
+      "translation_pattern": "ratio",
+      "snowflake_supported": true,
+      "power_bi": {
+        "table": "tri_measures",
+        "measure": "Record Integrity Rate",
+        "format_string": "0.0%",
+        "display_folder": "03 Rates"
+      },
+      "snowflake": {
+        "logical_table": "results",
+        "metric_name": "record_integrity_rate",
+        "synonyms": [
+          "record quality rate",
+          "timing integrity rate"
+        ]
+      },
+      "meta": {
+        "semantic_contract": {
+          "version": 1,
+          "public": true,
+          "format": "percentage_1_decimal",
+          "caveat": "Review flags are data-quality review signals and are not accusations."
+        },
+        "power_bi": {
+          "table": "tri_measures",
+          "measure": "Record Integrity Rate",
+          "format_string": "0.0%",
+          "display_folder": "03 Rates"
+        },
+        "snowflake": {
+          "logical_table": "results",
+          "metric_name": "record_integrity_rate",
+          "synonyms": [
+            "record quality rate",
+            "timing integrity rate"
+          ]
+        }
+      }
+    },
+    "individual_profile_rate": {
+      "name": "individual_profile_rate",
+      "label": "Individual Profile Rate",
+      "description": "Share of valid SBR finishers with unusual swim-bike-run profile spread after course-context handling.",
+      "type": "ratio",
+      "measure": null,
+      "numerator": "individual_profile_rows",
+      "denominator": "valid_sbr_finishers",
+      "measure_agg": null,
+      "measure_expression": null,
+      "filter_column": null,
+      "source_model": null,
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": "percentage_1_decimal",
+      "caveat": "Review flags are data-quality review signals and are not accusations.",
+      "public": true,
+      "translation_pattern": "ratio",
+      "snowflake_supported": true,
+      "power_bi": {
+        "table": "tri_measures",
+        "measure": "Individual Profile Rate",
+        "format_string": "0.0%",
+        "display_folder": "03 Rates"
+      },
+      "snowflake": {
+        "logical_table": "results",
+        "metric_name": "individual_profile_rate",
+        "synonyms": [
+          "split profile rate",
+          "individual review profile rate"
+        ]
+      },
+      "meta": {
+        "semantic_contract": {
+          "version": 1,
+          "public": true,
+          "format": "percentage_1_decimal",
+          "caveat": "Review flags are data-quality review signals and are not accusations."
+        },
+        "power_bi": {
+          "table": "tri_measures",
+          "measure": "Individual Profile Rate",
+          "format_string": "0.0%",
+          "display_folder": "03 Rates"
+        },
+        "snowflake": {
+          "logical_table": "results",
+          "metric_name": "individual_profile_rate",
+          "synonyms": [
+            "split profile rate",
+            "individual review profile rate"
+          ]
+        }
+      }
+    },
+    "model_residual_rate": {
+      "name": "model_residual_rate",
+      "label": "Model Residual Rate",
+      "description": "Share of valid SBR finishers with model residual review flags.",
+      "type": "ratio",
+      "measure": null,
+      "numerator": "model_residual_rows",
+      "denominator": "valid_sbr_finishers",
+      "measure_agg": null,
+      "measure_expression": null,
+      "filter_column": null,
+      "source_model": null,
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": "percentage_1_decimal",
+      "caveat": "Review flags are data-quality review signals and are not accusations.",
+      "public": true,
+      "translation_pattern": "ratio",
+      "snowflake_supported": true,
+      "power_bi": {
+        "table": "tri_measures",
+        "measure": "Model Residual Rate",
+        "format_string": "0.0%",
+        "display_folder": "03 Rates"
+      },
+      "snowflake": {
+        "logical_table": "results",
+        "metric_name": "model_residual_rate",
+        "synonyms": [
+          "residual review rate",
+          "model review rate"
+        ]
+      },
+      "meta": {
+        "semantic_contract": {
+          "version": 1,
+          "public": true,
+          "format": "percentage_1_decimal",
+          "caveat": "Review flags are data-quality review signals and are not accusations."
+        },
+        "power_bi": {
+          "table": "tri_measures",
+          "measure": "Model Residual Rate",
+          "format_string": "0.0%",
+          "display_folder": "03 Rates"
+        },
+        "snowflake": {
+          "logical_table": "results",
+          "metric_name": "model_residual_rate",
+          "synonyms": [
+            "residual review rate",
+            "model review rate"
+          ]
+        }
+      }
+    },
+    "individual_hard_flag_rate": {
+      "name": "individual_hard_flag_rate",
+      "label": "Individual Hard Flag Rate",
+      "description": "Share of valid SBR finishers that remain individual hard-flag candidates after likely course-context cases are separated.",
+      "type": "ratio",
+      "measure": null,
+      "numerator": "individual_hard_flag_rows",
+      "denominator": "valid_sbr_finishers",
+      "measure_agg": null,
+      "measure_expression": null,
+      "filter_column": null,
+      "source_model": null,
+      "dimensions": [
+        "event_year",
+        "race_name",
+        "distance",
+        "gender",
+        "division",
+        "is_pro",
+        "finish_status",
+        "is_finisher",
+        "is_valid_sbr_finisher",
+        "any_review_flag",
+        "event_context_flag",
+        "record_integrity_flag",
+        "individual_profile_flag",
+        "model_residual_flag",
+        "individual_hard_flag"
+      ],
+      "format": "percentage_1_decimal",
+      "caveat": "Review flags are data-quality review signals and are not accusations.",
+      "public": true,
+      "translation_pattern": "ratio",
+      "snowflake_supported": true,
+      "power_bi": {
+        "table": "tri_measures",
+        "measure": "Individual Hard Flag Rate",
+        "format_string": "0.0%",
+        "display_folder": "03 Rates"
+      },
+      "snowflake": {
+        "logical_table": "results",
+        "metric_name": "individual_hard_flag_rate",
+        "synonyms": [
+          "hard flag rate",
+          "individual hard review rate"
+        ]
+      },
+      "meta": {
+        "semantic_contract": {
+          "version": 1,
+          "public": true,
+          "format": "percentage_1_decimal",
+          "caveat": "Review flags are data-quality review signals and are not accusations."
+        },
+        "power_bi": {
+          "table": "tri_measures",
+          "measure": "Individual Hard Flag Rate",
+          "format_string": "0.0%",
+          "display_folder": "03 Rates"
+        },
+        "snowflake": {
+          "logical_table": "results",
+          "metric_name": "individual_hard_flag_rate",
+          "synonyms": [
+            "hard flag rate",
+            "individual hard review rate"
+          ]
+        }
+      }
+    }
+  }
+}

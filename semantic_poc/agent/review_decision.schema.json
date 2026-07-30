@@ -1,0 +1,418 @@
+{
+  "$defs": {
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "$ref": "#/$defs/safeId"
+        },
+        "finding_id": {
+          "pattern": "^fnd_[0-9a-f]{24}$",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "PREVIEW_ARTIFACT",
+            "DATA_RESULTS",
+            "MODEL_METADATA",
+            "DOCUMENTATION",
+            "REVIEW_RULE"
+          ]
+        },
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "kind",
+        "path",
+        "sha256",
+        "finding_id"
+      ],
+      "type": "object"
+    },
+    "fixture": {
+      "additionalProperties": false,
+      "properties": {
+        "fixture_id": {
+          "$ref": "#/$defs/safeId"
+        },
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "fixture_id",
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "relativePath": {
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\u0000\\\\]+$",
+      "type": "string"
+    },
+    "safeId": {
+      "pattern": "^[a-z][a-z0-9_]{2,127}$",
+      "type": "string"
+    },
+    "selectedAnswer": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "answer_id": {
+              "const": "CONFIRM_TYPED_SEMANTICS"
+            },
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "semantic_signature_sha256": {
+                  "$ref": "#/$defs/sha256"
+                }
+              },
+              "required": [
+                "semantic_signature_sha256"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "answer_id",
+            "parameters"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "answer_id": {
+              "const": "SELECT_EXACT_MAPPING"
+            },
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "canonical_metric": {
+                  "$ref": "#/$defs/safeId"
+                }
+              },
+              "required": [
+                "canonical_metric"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "answer_id",
+            "parameters"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "answer_id": {
+              "const": "CONFIRM_METADATA"
+            },
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "value_sha256": {
+                  "$ref": "#/$defs/sha256"
+                }
+              },
+              "required": [
+                "value_sha256"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "answer_id",
+            "parameters"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "answer_id": {
+              "const": "SUPPLY_HASH_BOUND_EVIDENCE"
+            },
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "evidence_kind": {
+                  "enum": [
+                    "DATA_RESULTS",
+                    "MODEL_METADATA"
+                  ]
+                },
+                "evidence_path": {
+                  "$ref": "#/$defs/relativePath"
+                },
+                "finding_id": {
+                  "pattern": "^fnd_[0-9a-f]{24}$",
+                  "type": "string"
+                },
+                "sha256": {
+                  "$ref": "#/$defs/sha256"
+                }
+              },
+              "required": [
+                "evidence_kind",
+                "evidence_path",
+                "finding_id",
+                "sha256"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "answer_id",
+            "parameters"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "answer_id": {
+              "const": "DEFER_MANUAL_REVIEW"
+            },
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "reason_code": {
+                  "enum": [
+                    "EVIDENCE_NOT_AVAILABLE",
+                    "IMPLEMENTATION_SUPPORT_REQUIRED",
+                    "REVIEW_DEFERRED"
+                  ]
+                }
+              },
+              "required": [
+                "reason_code"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "answer_id",
+            "parameters"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "answer_id": {
+              "const": "REJECT_CHANGE"
+            },
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "reason_code": {
+                  "enum": [
+                    "SEMANTIC_CHANGE_REJECTED",
+                    "UNSUPPORTED_CHANGE_REJECTED"
+                  ]
+                }
+              },
+              "required": [
+                "reason_code"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "answer_id",
+            "parameters"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "answer_id": {
+              "const": "CONFIRM_REGISTERED_REVIEW_RULE"
+            },
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "rule_id": {
+                  "$ref": "#/$defs/safeId"
+                },
+                "semantic_signature_sha256": {
+                  "$ref": "#/$defs/sha256"
+                },
+                "sha256": {
+                  "$ref": "#/$defs/sha256"
+                }
+              },
+              "required": [
+                "rule_id",
+                "sha256",
+                "semantic_signature_sha256"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "answer_id",
+            "parameters"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "$id": "https://example.invalid/semantic-poc/review-decision-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "maxLength": 200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "application_state": {
+      "const": "NOT_REQUESTED"
+    },
+    "approval_state": {
+      "const": "NOT_REQUESTED"
+    },
+    "bound_input_hashes": {
+      "additionalProperties": false,
+      "minProperties": 1,
+      "patternProperties": {
+        "^[a-z][a-z0-9_]*_sha256$": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "type": "object"
+    },
+    "decision_id": {
+      "$ref": "#/$defs/safeId"
+    },
+    "deployment_authorized": {
+      "const": false
+    },
+    "evidence_references": {
+      "items": {
+        "$ref": "#/$defs/evidence"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "finding_id": {
+      "pattern": "^fnd_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "human_confirmation": {
+      "const": "RECORDED"
+    },
+    "preview_id": {
+      "pattern": "^prv_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "preview_manifest_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "propose_review_rule": {
+      "type": "boolean"
+    },
+    "rationale": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "recorded_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "requested_rule_scope": {
+      "enum": [
+        "EXACT_OBJECT",
+        "EXACT_TYPED_PATTERN"
+      ]
+    },
+    "rule_fixture_evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "near_misses": {
+          "items": {
+            "$ref": "#/$defs/fixture"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "positive": {
+          "items": {
+            "$ref": "#/$defs/fixture"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "positive",
+        "near_misses"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "selected_answer": {
+      "$ref": "#/$defs/selectedAnswer"
+    },
+    "suggested_rule": {
+      "additionalProperties": false,
+      "properties": {
+        "rule_id": {
+          "$ref": "#/$defs/safeId"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "rule_id",
+        "sha256"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_id",
+    "preview_id",
+    "preview_manifest_sha256",
+    "finding_id",
+    "bound_input_hashes",
+    "selected_answer",
+    "actor",
+    "recorded_at",
+    "rationale",
+    "evidence_references",
+    "human_confirmation",
+    "approval_state",
+    "application_state",
+    "deployment_authorized",
+    "propose_review_rule"
+  ],
+  "title": "Governed review decision input",
+  "type": "object"
+}

@@ -1,0 +1,4 @@
+relationship inactive_dimension
+	fromColumn: fact.dimension_id
+	toColumn: dimension.dimension_id
+	isActive: false

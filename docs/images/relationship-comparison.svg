@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Power BI and Snowflake relationship topology comparison</title>
+  <desc id="desc">Side-by-side Power BI TMDL and Snowflake semantic-view models show the same eight data tables and seven many-to-one relationship endpoints. Events filter splits indirectly through results.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f6f8fb}.panel{fill:#fff;stroke:#d7dee8;stroke-width:2}.title{font:700 32px Arial,sans-serif;fill:#14213d}.subtitle{font:17px Arial,sans-serif;fill:#52606d}.panelTitle{font:700 23px Arial,sans-serif;fill:#14213d}.box{fill:#fff;stroke:#7c8da6;stroke-width:2}.fact{fill:#e8f2ff;stroke:#2878b5}.split{fill:#edf8f3;stroke:#24936e}.name{font:700 14px Arial,sans-serif;fill:#14213d}.role{font:12px Arial,sans-serif;fill:#52606d}.edge{fill:none;stroke:#24936e;stroke-width:3}.badge{fill:#dff3ea;stroke:#24936e;stroke-width:2}.badgeText{font:700 18px Arial,sans-serif;fill:#145c46}.note{font:14px Arial,sans-serif;fill:#52606d}
+    </style>
+    <g id="topology">
+      <path class="edge" data-edge="DIM_EVENT.COUNTRY_ID-&gt;DIM_COUNTRY.COUNTRY_ID" d="M170 60 H220"/>
+      <path class="edge" data-edge="DIM_DIVSION.AGE_GROUP_ID-&gt;DIM_AGE_GROUP.AGE_GROUP_ID" d="M170 145 H220"/>
+      <path class="edge" data-edge="FCT_RESULT.EVENT_ID-&gt;DIM_EVENT.EVENT_ID" d="M370 60 H480 V220 H345 V245"/>
+      <path class="edge" data-edge="FCT_RESULT.DIVISION_ID-&gt;DIM_DIVSION.DIVISION_ID" d="M295 170 V220 H320 V245"/>
+      <path class="edge" data-edge="FCT_RESULT.DISTANCE_ID-&gt;DIM_DISTANCE.DISTANCE_ID" d="M170 270 H220"/>
+      <path class="edge" data-edge="FCT_RESULT.GENDER_ID-&gt;DIM_GENDER.GENDER_ID" d="M170 360 H195 V315 H220"/>
+      <path class="edge" data-edge="FCT_SPLIT.RESULT_ID-&gt;FCT_RESULT.RESULT_ID" d="M345 340 V405"/>
+      <rect class="box" x="20" y="35" width="150" height="50" rx="10"/>
+      <text class="name" x="95" y="57" text-anchor="middle">DIM_COUNTRY</text>
+      <text class="role" x="95" y="75" text-anchor="middle">sub-dimension · 1</text>
+      <rect class="box" x="220" y="35" width="150" height="50" rx="10"/>
+      <text class="name" x="295" y="57" text-anchor="middle">DIM_EVENT</text>
+      <text class="role" x="295" y="75" text-anchor="middle">dimension · *</text>
+      <rect class="box" x="20" y="120" width="150" height="50" rx="10"/>
+      <text class="name" x="95" y="142" text-anchor="middle">DIM_AGE_GROUP</text>
+      <text class="role" x="95" y="160" text-anchor="middle">sub-dimension · 1</text>
+      <rect class="box" x="220" y="120" width="150" height="50" rx="10"/>
+      <text class="name" x="295" y="142" text-anchor="middle">DIM_DIVSION</text>
+      <text class="role" x="295" y="160" text-anchor="middle">dimension · *</text>
+      <rect class="box" x="20" y="245" width="150" height="50" rx="10"/>
+      <text class="name" x="95" y="267" text-anchor="middle">DIM_DISTANCE</text>
+      <text class="role" x="95" y="285" text-anchor="middle">dimension · 1</text>
+      <rect class="box" x="20" y="335" width="150" height="50" rx="10"/>
+      <text class="name" x="95" y="357" text-anchor="middle">DIM_GENDER</text>
+      <text class="role" x="95" y="375" text-anchor="middle">dimension · 1</text>
+      <rect class="box fact" x="220" y="245" width="250" height="95" rx="12"/>
+      <text class="name" x="345" y="280" text-anchor="middle">FCT_RESULT</text>
+      <text class="role" x="345" y="303" text-anchor="middle">race grain · many side</text>
+      <text class="role" x="345" y="324" text-anchor="middle">event · division · distance · gender</text>
+      <rect class="box split" x="220" y="405" width="250" height="65" rx="12"/>
+      <text class="name" x="345" y="432" text-anchor="middle">FCT_SPLIT</text>
+      <text class="role" x="345" y="453" text-anchor="middle">leg grain · filtered through FCT_RESULT</text>
+    </g>
+  </defs>
+  <rect class="bg" width="1200" height="675"/>
+  <text class="title" x="600" y="46" text-anchor="middle">The abstract data model survived the conversion</text>
+  <text class="subtitle" x="600" y="75" text-anchor="middle">Same endpoint pairs and many-to-one intent; business-logic equivalence is a separate question</text>
+  <rect class="badge" x="445" y="92" width="310" height="42" rx="21"/>
+  <text class="badgeText" x="600" y="119" text-anchor="middle">7 / 7 relationships preserved</text>
+  <rect class="panel" x="30" y="145" width="535" height="505" rx="18"/>
+  <rect class="panel" x="635" y="145" width="535" height="505" rx="18"/>
+  <text class="panelTitle" x="55" y="177">Power BI TMDL</text>
+  <text class="note" x="540" y="177" text-anchor="end">captured source</text>
+  <text class="panelTitle" x="660" y="177">Snowflake semantic-view YAML</text>
+  <text class="note" x="1145" y="177" text-anchor="end">captured target</text>
+  <use href="#topology" transform="translate(45 170)"/>
+  <use href="#topology" transform="translate(650 170)"/>
+</svg>

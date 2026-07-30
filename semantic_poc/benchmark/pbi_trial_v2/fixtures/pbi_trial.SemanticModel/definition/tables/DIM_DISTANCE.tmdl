@@ -1,0 +1,60 @@
+table DIM_DISTANCE
+	lineageTag: 2c41873d-53c6-40bb-853a-15425e3fc6fd
+
+	column DISTANCE
+		dataType: string
+		lineageTag: e87d01ae-c2c2-4984-be46-488235f2caac
+		summarizeBy: none
+		sourceColumn: DISTANCE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISTANCE_ID
+		dataType: string
+		lineageTag: 1eccb14b-4050-4c6a-93d3-adf5abf23448
+		summarizeBy: none
+		sourceColumn: DISTANCE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMINAL_BIKE_KM
+		dataType: double
+		lineageTag: ba0286f7-d8f2-4440-9db0-f869eb5c89bc
+		summarizeBy: none
+		sourceColumn: NOMINAL_BIKE_KM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NOMINAL_RUN_KM
+		dataType: double
+		lineageTag: 3b6f3065-d643-40d3-962c-58709b8a77a0
+		summarizeBy: none
+		sourceColumn: NOMINAL_RUN_KM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NOMINAL_SWIM_KM
+		dataType: double
+		lineageTag: 4adef54c-8fc3-47c1-98fe-25f9990e467d
+		summarizeBy: none
+		sourceColumn: NOMINAL_SWIM_KM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_DISTANCE = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("SANITIZED_ACCOUNT","SANITIZED_WAREHOUSE",[Implementation="2.0"]),
+				    SANITIZED_DATABASE_Database = Source{[Name="SANITIZED_DATABASE",Kind="Database"]}[Data],
+				    SANITIZED_SCHEMA_Schema = SANITIZED_DATABASE_Database{[Name="SANITIZED_SCHEMA",Kind="Schema"]}[Data],
+				    DIM_DISTANCE_Table = SANITIZED_SCHEMA_Schema{[Name="DIM_DISTANCE",Kind="Table"]}[Data]
+				in
+				    DIM_DISTANCE_Table
+

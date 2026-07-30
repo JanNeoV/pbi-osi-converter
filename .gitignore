@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.tmp/
+*.egg-info/
+build/
+dist/
+demo-output/
+end-to-end-output/
+semantic_poc/agent_sessions/
+semantic_poc/changes/*
+semantic_poc/imports/*
+.env
+.env.*
+profiles.yml
+

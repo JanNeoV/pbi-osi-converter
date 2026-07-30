@@ -1,0 +1,84 @@
+/// Bridge fact table with one row per result and review flag. Use this table to
+/// analyse review-family composition. Review flags are data-quality and review
+/// signals, not accusations.
+table fct_review_flag
+	lineageTag: 0fb3debb-33d8-472a-99b0-576fb6f0e97b
+
+	/// Stable surrogate key for the athlete result row associated with the flag.
+	column result_id
+		dataType: string
+		lineageTag: 84f36460-ef49-41b1-b0d2-3ef113224c22
+		summarizeBy: none
+		sourceColumn: result_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Identifier for the review flag type.
+	column review_flag_id
+		dataType: string
+		lineageTag: 8eb8364c-7540-4f85-bce8-1b00eb82c924
+		summarizeBy: none
+		sourceColumn: review_flag_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Identifier for the race event associated with the flagged result row.
+	column event_id
+		dataType: string
+		lineageTag: 81344600-a21f-4ae0-889b-48c684612bc7
+		summarizeBy: none
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Identifier for the gender category associated with the flagged result row.
+	column gender_id
+		dataType: string
+		lineageTag: d0936d72-a415-4eb5-a94d-4bdb839fb26a
+		summarizeBy: none
+		sourceColumn: gender_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Identifier for the athlete division or category associated with the flagged result row.
+	column division_id
+		dataType: string
+		lineageTag: c4870863-e8a1-417c-b3dc-23ed0e79c7d6
+		summarizeBy: none
+		sourceColumn: division_id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// True when the review flag applies to the result row. This is a review
+	/// signal, not an accusation.
+	column flag_value
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 14c66e54-c3ff-4fd9-9be7-a41bf443845d
+		summarizeBy: none
+		sourceColumn: flag_value
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Numeric evidence value supporting the flag where available.
+	column flag_evidence_value
+		dataType: double
+		lineageTag: 1b4a6518-56f9-4297-88ad-da57edff31cc
+		summarizeBy: sum
+		sourceColumn: flag_evidence_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fct_review_flag = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SANITIZED_HOST", "SANITIZED_WAREHOUSE"),
+				    dbo_mart_fct_review_flag = Source{[Schema="SANITIZED_SCHEMA",Item="SANITIZED_TABLE"]}[Data]
+				in
+				    dbo_mart_fct_review_flag
+
+	annotation PBI_ResultType = Table
+
