@@ -1,15 +1,14 @@
-# Power BI to Snowflake semantic assurance POC
+# Power BI Semantic Assurance — conversion evidence and governed review
 
-This clean companion repository reproduces one captured Power BI-to-Snowflake
-conversion audit and three offline demonstrations of a governed alternative.
-It makes no universal claim about Snowflake conversion. In this captured model,
-all seven reviewed relationship endpoints matched, while the initial metric
-output was incomplete and contained material semantic errors.
+**Can semantic-model conversion preserve business meaning, not just model structure?**
 
-The operating idea is simple: abstract model conversion is only the start.
-Business meaning still needs deterministic comparison and human review. An
-agent-led interface makes that governed maintenance loop usable without
-letting the model author executable DAX or SQL.
+A public, offline proof of concept for auditing a captured Power BI-to-Snowflake conversion and demonstrating a review-controlled alternative. Deterministic code inventories metrics, checks supported semantics and records evidence; an agent-guided interface proposes next steps without independently authoring accepted DAX or SQL.
+
+**Captured finding:** Of **46 Power BI measures**, **21** were emitted as Snowflake metrics and **25** were omitted. Review classified **four** translations as confirmed incorrect and **four** as potentially incorrect. All **seven reviewed relationship endpoint pairs** matched. **Numerical runtime equivalence was not tested**; this is not a general converter benchmark.
+
+**Start here:** [Run the offline demo](#five-minute-quickstart) · [Evidence and claims](docs/EVIDENCE.md) · [Known limitations](docs/LIMITATIONS.md) · [Review workflow](docs/images/agent-review-flow.svg)
+
+**Related work:** [Analytical AI agent evaluation](https://github.com/JanNeoV/ai-agent-evaluation-lab) · [Technical articles](https://medium.com/@jan.busse)
 
 ## Five-minute quickstart
 
