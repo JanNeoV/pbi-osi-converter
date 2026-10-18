@@ -70,5 +70,35 @@
     "original_encoding": "utf-8",
     "retained_sha256": "67a45ac46e1529f8b3d433b51f4174f89bd84db912ea4c043312758ed0c8df19",
     "normalization": "UTF-8 / LF only; output retained"
+  },
+  "clean-checkout-0.log": {
+    "original_sha256": "182f07b539cffdea9ceca2323a82b8734930c98c312d404c57df1d2c455fab67",
+    "original_encoding": "utf-8",
+    "retained_sha256": "9c9ac16a673e2da36175c4ed4960a6c67317b039d77dbac9ae4e2cc7dd238ca7",
+    "normalization": "UTF-8/LF; checkout and user-home path prefixes replaced with explicit placeholders; output otherwise retained"
+  },
+  "clean-checkout-1.log": {
+    "original_sha256": "dfbd2ee385d7d5843d958b1e404d840906efa34b5e3cf1b4a6754b24db566a16",
+    "original_encoding": "utf-8",
+    "retained_sha256": "51e343d280773b0e1ed73a7debe14bd56d7a96ea0318834fd397c69d4a39f20e",
+    "normalization": "UTF-8/LF; checkout and user-home path prefixes replaced with explicit placeholders; output otherwise retained"
+  },
+  "clean-checkout-2.log": {
+    "original_sha256": "b30adb0b9636c44af7b6f653578e0cb6f8a8cf35ae56e3ed2aee7e1b521e5542",
+    "original_encoding": "utf-8",
+    "retained_sha256": "d75a20aebd583c09568a01035f42f85cda1b458e13b4e165e39377a9d5b9428c",
+    "normalization": "UTF-8/LF; checkout and user-home path prefixes replaced with explicit placeholders; output otherwise retained"
+  },
+  "clean-checkout-3.log": {
+    "original_sha256": "d704ebdbb0ef635dad98738b189d29cac61ed7ea13ba352e48430cda4992abb6",
+    "original_encoding": "utf-8",
+    "retained_sha256": "21754751e8359575d6194d550bb9d896dcce07852b421a1a0c5d65faa03303bc",
+    "normalization": "UTF-8/LF; checkout and user-home path prefixes replaced with explicit placeholders; output otherwise retained"
+  },
+  "clean-checkout-4.log": {
+    "original_sha256": "3fbb97aac44132e835e886d47462524b6de1e7fb640e8a5e7ac46278c49cbe8c",
+    "original_encoding": "utf-8",
+    "retained_sha256": "64d84309e7bf87932124f5a4e494f74809ba7af8922ea684055278fa796ede84",
+    "normalization": "UTF-8/LF; checkout and user-home path prefixes replaced with explicit placeholders; output otherwise retained"
   }
 }

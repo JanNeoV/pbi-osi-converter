@@ -38,5 +38,7 @@
     "labs/semantic_interop/showcase/README.md",
     "labs/semantic_interop/showcase/TUTORIAL.md"
   ],
-  "passed": true
+  "passed": true,
+  "scope": "Original author workspace, using the unchanged Task05 baseline mechanism",
+  "portable_clone_custody": "See clean-checkout.json: 1860 tracked files; 5 ignored generated metadata entries excluded"
 }

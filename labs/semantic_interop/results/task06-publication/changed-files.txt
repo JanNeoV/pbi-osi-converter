@@ -2159,6 +2159,12 @@ A	labs/semantic_interop/results/task05-minimal/validation/public-check.command.j
 A	labs/semantic_interop/results/task05-minimal/validation/public-check.stderr.log
 A	labs/semantic_interop/results/task05-minimal/validation/public-check.stdout.log
 A	labs/semantic_interop/results/task06-publication/changed-files.txt
+A	labs/semantic_interop/results/task06-publication/clean-checkout-0.log
+A	labs/semantic_interop/results/task06-publication/clean-checkout-1.log
+A	labs/semantic_interop/results/task06-publication/clean-checkout-2.log
+A	labs/semantic_interop/results/task06-publication/clean-checkout-3.log
+A	labs/semantic_interop/results/task06-publication/clean-checkout-4.log
+A	labs/semantic_interop/results/task06-publication/clean-checkout.json
 A	labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log
 A	labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log
 A	labs/semantic_interop/results/task06-publication/isolated-setup.json

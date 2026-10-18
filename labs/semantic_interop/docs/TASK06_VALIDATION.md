@@ -21,7 +21,8 @@ converter pins, SQL and result template. No future merge SHA is invented.
 
 The Task 05 [baseline](../results/task05-minimal/baseline.json) remains the original
 1,865-file preservation mechanism. It binds historical results, canonical fixtures
-and dependency files to SHA-256. All **1,865 files remain unchanged**. The installed
+and dependency files to SHA-256. All **1,865 files remain unchanged in the original
+author workspace**. The installed
 environment still matches its **77 package records**, and all **17 installed
 converter module hashes** match the Task 04 installed-source audit.
 
@@ -33,7 +34,16 @@ Do not regenerate historical manifests to hide current documentation revisions.
 The Task 06 [preservation record](../results/task06-publication/preservation.json)
 records these separate checks.
 
-To repeat the original protected-file check from the repository root in PowerShell:
+The baseline also includes **five ignored `.egg-info/` build-metadata files**.
+They are not published inputs or dependencies. A fresh editable installation
+regenerates them; four happened to match the historical bytes, while `SOURCES.txt`
+correctly lists the later lab modules/tests. The original full-baseline check
+therefore reported that one metadata difference in the fresh clone. The manifest
+and original workspace metadata remain unchanged. Do not commit or copy stale
+generated metadata to manufacture a clean-clone match.
+
+All **1,860 tracked historical files** match their original hashes in the fresh
+Git clone. To repeat that portable check from the repository root in PowerShell:
 
 ```powershell
 @'
@@ -41,11 +51,15 @@ from pathlib import Path
 import hashlib, json
 baseline = Path('labs/semantic_interop/results/task05-minimal/baseline.json')
 files = json.loads(baseline.read_text(encoding='utf-8'))['files']
-changed = [name for name, expected in files.items()
+generated = {name for name in files if '.egg-info/' in name}
+portable = {name: digest for name, digest in files.items() if name not in generated}
+changed = [name for name, expected in portable.items()
            if not Path(name).is_file()
            or hashlib.sha256(Path(name).read_bytes()).hexdigest() != expected]
-print(json.dumps({'protected_files': len(files), 'changed_or_missing': changed}))
-assert len(files) == 1865 and not changed
+print(json.dumps({'historical_records': len(files), 'portable_files': len(portable),
+                  'generated_metadata_excluded': sorted(generated),
+                  'changed_or_missing': changed}))
+assert len(files) == 1865 and len(generated) == 5 and len(portable) == 1860 and not changed
 '@ | & .tmp/semantic-lab-venv/Scripts/python.exe -
 ```
 
@@ -87,6 +101,7 @@ git -c core.whitespace=trailing-space,space-before-tab,cr-at-eol diff --cached -
 | Isolated setup and benchmark | 31/31 matches; 5/5 injected faults detected |
 | Isolated environment's lab suite | 84 passed |
 | Fresh pinned Java build | 100 tests, zero failures/errors/skips |
+| Fresh Git clone | Setup, 31-case benchmark and public hygiene pass; 1,860 tracked historical hashes match |
 
 Counts describe different checks and are not combined into an interoperability
 pass rate. Whitespace validation permits preserved CRLF endings. Captured results,
@@ -115,6 +130,12 @@ The new JAR's export also matched the captured baseline YAML. The
 versions, hashes and all observed build warnings; the
 [Surefire summaries](../results/task06-publication/java-test-results.txt) retain
 the four actual suite outcomes. No Databricks engine was involved.
+
+The [fresh Git-clone record](../results/task06-publication/clean-checkout.json)
+identifies the checked source commit, exact commands and the generated-metadata
+finding above. Its benchmark/public checks succeed with a newly created environment
+and leave that checkout clean. The follow-up commit updates validation documentation
+and records only.
 
 The Task 02 replay requires the separate pinned environments created by
 [`setup_task02.py`](../scripts/setup_task02.py); it does not use the baseline

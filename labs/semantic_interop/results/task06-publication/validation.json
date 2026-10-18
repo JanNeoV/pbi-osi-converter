@@ -138,8 +138,8 @@
   "powershell_audit": "powershell-audit.json",
   "whitespace_audit": "whitespace-audit.json",
   "markdown_result": {
-    "documents": 26,
-    "links_and_anchors": 303,
+    "documents": 63,
+    "links_and_anchors": 367,
     "findings": 0
   },
   "PowerShell_parse_result": {
@@ -155,5 +155,15 @@
     ],
     "exit_code": 0,
     "log": "public-hygiene.log"
+  },
+  "clean_checkout": "clean-checkout.json",
+  "historical_custody_scope": {
+    "original_author_workspace_files_unchanged": 1865,
+    "tracked_portable_files_matching_fresh_clone": 1860,
+    "ignored_generated_metadata_records": 5,
+    "fresh_generated_metadata_differences": [
+      "SOURCES.txt"
+    ],
+    "baseline_manifest_modified": false
   }
 }
