@@ -281,10 +281,17 @@ def run(output):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True, help="New evidence directory; refuses overwrite")
+    parser.add_argument("--scope", choices=("all", "three"), default="all",
+                        help="Keep all nine routes, or run the three public experiments")
+    parser.add_argument("--check", action="store_true", help="Fail if demo acceptance is incomplete")
     args = parser.parse_args()
-    report = run(args.output.resolve())
+    if args.scope == "three":
+        from .showcase_three import run_three
+        report = run_three(args.output.resolve())
+    else:
+        report = run(args.output.resolve())
     print(json.dumps({"output": args.output.as_posix(), "native_gate": report["native_gate"]}, indent=2))
-    return 0
+    return 1 if args.check and not report.get("accepted", report["native_gate"]["accepted"]) else 0
 
 
 if __name__ == "__main__":

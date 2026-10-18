@@ -179,7 +179,7 @@ def engine_availability() -> dict:
     return discovery
 
 
-def _oracle_evidence(output: Path) -> dict:
+def _oracle_evidence(output: Path, *, include_switch: bool = True) -> dict:
     """Execute independent SQL; expected selector values are never DAX results."""
     directory = output / "oracle"
     directory.mkdir()
@@ -196,7 +196,7 @@ def _oracle_evidence(output: Path) -> dict:
                 record = {"execution": "EXECUTED", "sql": f"oracle/{key}.sql", "typed_result": table(columns, rows)}
                 write_json(directory / f"{key}.json", record)
                 result["headline_queries"][key] = record
-        for channel in (None, "Direct", "Indirect"):
+        for channel in ((None, "Direct", "Indirect") if include_switch else ()):
             predicate = f"s.sales_channel = '{channel}'" if channel else None
             references = {}
             for metric in ("conversion_rate", "paid_revenue"):
@@ -220,7 +220,7 @@ def _oracle_evidence(output: Path) -> dict:
     return result
 
 
-def native_demo(output: Path) -> dict:
+def native_demo(output: Path, *, include_switch: bool = True) -> dict:
     """Author core/SWITCH native inputs and run separately recorded native legs."""
     output = Path(output).resolve()
     output.mkdir(parents=True, exist_ok=False)
@@ -231,10 +231,11 @@ def native_demo(output: Path) -> dict:
                       for path in sorted(FIXTURE.rglob("*")) if path.is_file()}
     report["fixture_sha256_before"] = fixture_hashes
     report["engine_availability"] = engine_availability()
-    report["duckdb_oracle"] = _oracle_evidence(output)
+    report["duckdb_oracle"] = _oracle_evidence(output, include_switch=include_switch)
     queries = FIXTURE / "targets/powerbi/validate-task04.dax"
     shutil.copyfile(queries, output / "planned-validation.dax")
-    for name, dynamic in (("core", False), ("switch", True)):
+    variants = (("core", False), ("switch", True)) if include_switch else (("core", False),)
+    for name, dynamic in variants:
         case = output / name
         case.mkdir()
         source = builder.authored_input(dynamic)

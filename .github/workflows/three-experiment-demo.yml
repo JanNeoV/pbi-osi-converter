@@ -1,0 +1,44 @@
+name: Three-experiment interoperability demo
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  demo:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned manager and environment
+        run: |
+          python -m pip install uv==0.12.17
+          python labs/semantic_interop/scripts/setup.py
+      - name: Run documented focused demo and offline evidence tests
+        shell: python
+        run: |
+          import os, subprocess
+          py = '.tmp/semantic-lab-venv/Scripts/python.exe' if os.name == 'nt' else '.tmp/semantic-lab-venv/bin/python'
+          subprocess.run([py, 'labs/semantic_interop/scripts/run_showcase.py', '--scope', 'three', '--check', '--output', '.tmp/three-demo'], check=True)
+          subprocess.run([py, '-m', 'pytest', '-q', 'labs/semantic_interop/tests/test_showcase_three.py', '--basetemp', '.tmp/three-offline-tests'], check=True)
+      - name: Retain complete generated evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: three-experiment-evidence-${{ matrix.os }}
+          include-hidden-files: true
+          path: |
+            .tmp/three-demo/**
+            .tmp/three-offline-tests/**
+            .tmp/conversion-demo/run-*/dbt-build.log
