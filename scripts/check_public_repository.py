@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
+import subprocess
 import sys
 import xml.etree.ElementTree as ET
 from zipfile import ZipFile
@@ -16,6 +17,10 @@ except ModuleNotFoundError:  # Python 3.10 compatibility.
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PRIVATE_EDITORIAL = (
+    "labs/semantic_interop/docs/CONVERSION_ARTICLE_MEDIUM.md",
+    "labs/semantic_interop/docs/CONVERSION_ARTICLE_PUBLICATION_NOTES.md",
+)
 TEXT_SUFFIXES = {
     ".cfg", ".csv", ".dax", ".ini", ".json", ".md", ".mmd", ".pbip", ".pbism",
     ".py", ".sql", ".svg", ".tmdl", ".toml", ".txt", ".xml", ".yaml", ".yml",
@@ -75,6 +80,7 @@ def _ignored_runtime(relative: str) -> bool:
     )
     return (
         relative.startswith(prefixes)
+        or relative in PRIVATE_EDITORIAL
         or "/__pycache__/" in f"/{relative}"
         or relative.endswith(".pyc")
         or ".egg-info/" in relative
@@ -163,8 +169,8 @@ def _check_provenance(errors: list[str], *, after_demo: bool) -> None:
     if revision_path.exists():
         try:
             revisions = json.loads(revision_path.read_text(encoding="utf-8"))
-            if not isinstance(revisions, dict) or not revisions.keys() <= {"README.md", "scripts/check_public_repository.py"}:
-                raise ValueError("Only documentation and checker revisions are allowed")
+            if not isinstance(revisions, dict) or not revisions.keys() <= {"README.md", "scripts/check_public_repository.py", ".gitignore"}:
+                raise ValueError("Only documentation, checker and ignore-rule revisions are allowed")
             for relative, revision in revisions.items():
                 original_hash = value.get("exported_files", {}).get(relative, {}).get("sha256")
                 if (not isinstance(revision, dict) or not original_hash or revision.get("base_sha256") != original_hash
@@ -193,11 +199,36 @@ def _check_provenance(errors: list[str], *, after_demo: bool) -> None:
                 errors.append(f"Protected public input changed: {relative}")
 
 
+def _check_private_editorial(errors: list[str]) -> None:
+    """Ignore only local drafts; ignore rules cannot excuse tracked private content."""
+    paths = [*PRIVATE_EDITORIAL, ".tmp/publication-private/"]
+    try:
+        tracked = subprocess.run(["git", "-C", str(ROOT), "ls-files", "-z", "--", *paths],
+                                 capture_output=True, check=False)
+    except OSError:
+        tracked = None
+    if tracked is not None and tracked.returncode == 0:
+        for name in tracked.stdout.decode("utf-8").split("\0"):
+            if name:
+                errors.append(f"Private editorial file is tracked or staged: {name}")
+    for relative in PRIVATE_EDITORIAL:
+        if not (ROOT / relative).exists():
+            continue
+        if tracked is None or tracked.returncode != 0:
+            errors.append(f"Private editorial file present without Git ignore verification: {relative}")
+            continue
+        ignored = subprocess.run(["git", "-C", str(ROOT), "check-ignore", "--quiet", "--", relative],
+                                 capture_output=True, check=False)
+        if ignored.returncode != 0:
+            errors.append(f"Private editorial file is not ignored: {relative}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--after-demo", action="store_true")
     args = parser.parse_args()
     errors: list[str] = []
+    _check_private_editorial(errors)
     required = {
         "README.md", "LICENSE", "SECURITY.md", "THIRD_PARTY_NOTICES.md",
         "pyproject.toml", "PUBLIC_PROVENANCE.json",

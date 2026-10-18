@@ -10,8 +10,8 @@ A public, offline proof of concept for auditing a captured Power BI-to-Snowflake
 
 **Related work:** [Analytical AI agent evaluation](https://github.com/JanNeoV/ai-agent-evaluation-lab) · [Technical articles](https://medium.com/@jan.busse)
 
-**Cross-platform lab:** [Semantic Interoperability & Correctness Lab](labs/semantic_interop/showcase/README.md)
-— reproduce two business metrics across MetricFlow, Power BI and Databricks converters using Apache Ossie.
+**Cross-platform lab:** [Semantic Interoperability & Correctness Lab](labs/semantic_interop/showcase/QUICKSTART.md)
+— reproduce three experiments through Apache Ossie with MetricFlow and Power BI.
 
 ## Five-minute quickstart
 
@@ -83,15 +83,15 @@ definitions; six paths have static semantic mismatches. **No unchanged conversio
 has a numerically verified target result.** Power BI and Databricks runtime execution
 remains unverified; returned MetricFlow models stop at missing configuration.
 
-Start with the demonstration, then choose the exercise for your platform:
+Start with the three-experiment quickstart, then explore the supporting evidence:
 
-1. [Five-minute demonstration](labs/semantic_interop/showcase/README.md)
+1. [Three-experiment quickstart](labs/semantic_interop/showcase/QUICKSTART.md)
 2. [Offline installation and execution](labs/semantic_interop/README.md#offline-quickstart)
 3. [Hands-on interoperability tutorial](labs/semantic_interop/showcase/TUTORIAL.md)
 4. [Power BI example and manual Desktop setup](labs/semantic_interop/showcase/TUTORIAL.md#exercise-b-power-bi-change-the-default-kpi) — TMSL candidate **NOT_VERIFIED**
 5. [Databricks continuation guide for Charlotte](labs/semantic_interop/showcase/DATABRICKS_HANDOFF.md)
 6. [Verified results and research limitations](labs/semantic_interop/showcase/RESULTS.md)
-7. [Technical article draft](labs/semantic_interop/docs/CONVERSION_ARTICLE_DRAFT.md)
+7. [Demo acceptance and platform coverage](labs/semantic_interop/showcase/ACCEPTANCE.md)
 
 The lab is separate from the captured Power BI/Snowflake assurance project above.
 Historical Task 02 results use a different fixture and remain separately reported

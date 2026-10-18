@@ -3,6 +3,7 @@
 import hashlib
 import importlib.util
 import json
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -61,6 +62,48 @@ def check_errors():
     errors = []
     checker._check_provenance(errors, after_demo=False)
     return errors
+
+
+def test_private_editorial_must_be_ignored_and_never_staged(tmp_path, monkeypatch):
+    monkeypatch.setattr(checker, "ROOT", tmp_path)
+    subprocess.run(["git", "init", "-q", str(tmp_path)], check=True)
+    relative = checker.PRIVATE_EDITORIAL[0]
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True)
+    path.write_text("Private editorial text")
+    errors = []
+    checker._check_private_editorial(errors)
+    assert any("not ignored" in e for e in errors)
+    (tmp_path / ".gitignore").write_text(relative + "\n.tmp/\n")
+    errors = []
+    checker._check_private_editorial(errors)
+    assert errors == []
+    subprocess.run(["git", "-C", str(tmp_path), "add", "-f", relative], check=True)
+    errors = []
+    checker._check_private_editorial(errors)
+    assert any("tracked or staged" in e for e in errors)
+    recommendation = tmp_path / ".tmp/publication-private/readiness.md"
+    recommendation.parent.mkdir(parents=True)
+    recommendation.write_text("Private recommendation")
+    subprocess.run(["git", "-C", str(tmp_path), "add", "-f", ".tmp/publication-private/readiness.md"], check=True)
+    errors = []
+    checker._check_private_editorial(errors)
+    assert any("readiness.md" in e for e in errors)
+
+
+def test_ignore_rule_revision_remains_bound_to_original_hash(public_tree):
+    root, provenance = public_tree
+    original, changed = ".tmp/\n", ".tmp/\nprivate-draft.md\n"
+    provenance["exported_files"][".gitignore"] = {"sha256": digest(original)}
+    (root / "PUBLIC_PROVENANCE.json").write_text(json.dumps(provenance))
+    (root / ".gitignore").write_bytes(changed.encode())
+    revisions = {".gitignore": {"base_sha256": digest(original), "sha256": digest(changed),
+                               "reason": "Ignore private editorial files"}}
+    (root / "docs/PUBLIC_REVISIONS.json").write_text(json.dumps(revisions))
+    assert check_errors() == []
+    revisions[".gitignore"]["base_sha256"] = "0" * 64
+    (root / "docs/PUBLIC_REVISIONS.json").write_text(json.dumps(revisions))
+    assert "Public revision is invalid or does not bind the original export hash." in check_errors()
 
 
 def test_original_export_still_passes_without_a_revision(public_tree):

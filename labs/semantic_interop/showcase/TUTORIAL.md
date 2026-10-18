@@ -4,7 +4,7 @@ Choose [A: MetricFlow](#exercise-a-metricflow-include-refunded-orders),
 [B: Power BI](#exercise-b-power-bi-change-the-default-kpi), or
 [C: Databricks](#exercise-c-databricks-include-refunded-orders). Each starts from a supplied model;
 you do not need to complete the other exercises. For the business story, start with the
-[five-minute demonstration](README.md).
+[three-experiment quickstart](QUICKSTART.md).
 
 The shared fixture has [12 sessions](../fixtures/conversion_demo/data/sessions.csv) and
 [six orders](../fixtures/conversion_demo/data/orders.csv). Two sessions are ineligible. Four of

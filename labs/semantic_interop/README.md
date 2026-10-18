@@ -8,9 +8,9 @@ assurance with independent DuckDB reference queries and real upstream tool execu
 It separates structural validity, bounded semantic checks and numerical agreement.
 It is not a general equivalence proof or a production converter.
 
-## Semantic Interoperability in Five Minutes
+## Start with three interoperability experiments
 
-Use the [five-minute demonstration](showcase/README.md) for the frozen
+Use the [three-experiment quickstart](showcase/QUICKSTART.md) for the frozen
 12-session/six-order example. Its only headline metrics are Conversion Rate
 (Direct 50%, Indirect 25%, overall 40%) and Paid Revenue (EUR 300/90/390).
 January and February use session cohorts, including the cross-month order.
@@ -20,7 +20,7 @@ separate completed conversion, static preservation, target execution and oracle 
 The [hands-on tutorial](showcase/TUTORIAL.md) has independent MetricFlow, Power BI
 and Databricks exercises. The [Databricks handoff for Charlotte](showcase/DATABRICKS_HANDOFF.md) contains exact
 inputs, pins, prerequisites and commands. The
-[concise article update](docs/CONVERSION_ARTICLE_DRAFT.md) gives the research story.
+[acceptance record](showcase/ACCEPTANCE.md) separates actual validation from unverified platforms.
 Existing Task 02 evidence and Task 03 accepted results remain immutable.
 
 ## Historical measured milestone
@@ -61,7 +61,7 @@ $py = '.tmp/semantic-lab-venv/Scripts/python.exe'
 
 Read the printed report path under `.tmp/conversion-demo/run-*`. Expected:
 **31 native cases match the independent oracle; five injected faults are detected**.
-The [five-minute demo](showcase/README.md) explains the two headline values and
+The [three-experiment quickstart](showcase/QUICKSTART.md) explains the two headline values and
 shows the verified revenue edit from 390 to 440 EUR. These commands use the
 frozen [lockfile](uv.lock); do not upgrade it to reproduce the evidence.
 

@@ -13,4 +13,6 @@ semantic_poc/imports/*
 .env
 .env.*
 profiles.yml
+labs/semantic_interop/docs/CONVERSION_ARTICLE_MEDIUM.md
+labs/semantic_interop/docs/CONVERSION_ARTICLE_PUBLICATION_NOTES.md
 

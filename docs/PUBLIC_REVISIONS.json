@@ -1,12 +1,17 @@
 {
   "README.md": {
     "base_sha256": "4d69f847c711b476ff8db437a4013f94f1bbd808c3d5d42b5460b6ff9f38c076",
-    "sha256": "23d305c910cca7c949e131ad0218ef6fdd07141a5ba618624e6833f71d15332c",
-    "reason": "Task 06 public lab navigation and concise findings, preserving the main-branch Power BI/Snowflake introduction and immutable original export provenance."
+    "sha256": "8d2e154cfb812baadab3e31989ee4c36dc8d33478514a76e83831c985956fcdc",
+    "reason": "Three-experiment quickstart and acceptance navigation; original export provenance remains immutable."
   },
   "scripts/check_public_repository.py": {
     "base_sha256": "4299af8d5558aba058d8f033fec4f8a4f83fd3acee6e7a15fb1d47f018e16589",
-    "sha256": "893445dc080334df2e0783fd10d01701281451d25d2b723cec9457dc51106b8b",
-    "reason": "Exact revision hashes retain export integrity; validate the one immutable README snapshot from its original location and support CommonMark destinations with spaces, retaining containment and broken-link checks."
+    "sha256": "7d3989bda3dd8662520a544ae8f24ea429538d7ef6a3df9d67a761089b36cbe1",
+    "reason": "Reject staged/tracked private editorial files and verify ignored local copies, retaining all original provenance and content checks."
+  },
+  ".gitignore": {
+    "base_sha256": "7c7ae34152c1e8052193a6c5d59bf3a2df41f3a32a257d237d218e3f02f041b4",
+    "reason": "Ignore exactly the two existing private publication drafts; retain original export hash.",
+    "sha256": "e370b2dc02f1a4fcf17cb42f2c25904de64b99d616974763fc3c4f332c27fbdb"
   }
 }

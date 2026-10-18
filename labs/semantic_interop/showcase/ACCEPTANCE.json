@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "validation_date": "2026-10-18",
+  "base_commit": "6bb0457c78df60bd71f10fedb4562b54e0332983",
+  "scope": "Local validation snapshot before subsequent Git publication; remote CI and Medium publication results excluded",
+  "demo_accepted": true,
+  "full_regression_passed": true,
+  "task02_replay_passed": true,
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "packages": {
+    "duckdb": "1.5.6",
+    "metricflow": "0.213.0",
+    "dbt-core": "1.12.6",
+    "dbt-duckdb": "1.11.0",
+    "apache-ossie": "0.2.0.dev0",
+    "apache-ossie-dbt": "0.2.0.dev0",
+    "apache-ossie-microsoft": "0.2.0.dev0"
+  },
+  "uv": "uv 0.12.17 (635500036 2026-09-18 x86_64-pc-windows-msvc)",
+  "ossie_commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+  "test_summaries": [
+    "92 passed in 104.20s (0:01:44)",
+    "173 passed, 1 skipped in 842.75s (0:14:02)"
+  ],
+  "checks": {
+    "full": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "check",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "labs/semantic_interop/scripts/check.py"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 1456.36,
+          "log": ".tmp/three-demo-validation/full-check.log",
+          "log_sha256": "4f49f7202bd333aa5398769fda17b8fd277343b1e210ca8b22c11dcc44813fc6"
+        }
+      ]
+    },
+    "clean-full": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "check",
+          "command": [
+            "<repository>/.tmp/three-demo-validation/clean-checkout/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "labs/semantic_interop/scripts/check.py"
+          ],
+          "cwd": "<repository>/.tmp/three-demo-validation/clean-checkout",
+          "exit_code": 0,
+          "seconds": 379.05,
+          "log": ".tmp/three-demo-validation/clean-full-check.log",
+          "log_sha256": "f37e2aef0296faefe20b4128c1c3fae7b3ac7c70b95bfa7514ec2e95476757e2"
+        }
+      ]
+    },
+    "task02": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "replay",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "labs/semantic_interop/scripts/check_task02.py",
+            "--upstream-python",
+            ".tmp/task02-replay/current-env/Scripts/python.exe",
+            "--repair-python",
+            ".tmp/task02-replay/repair-env/Scripts/python.exe"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 77.03,
+          "log": ".tmp/three-demo-validation/task02-replay.log",
+          "log_sha256": "24f0ba5f5a18eb34d5a2b450748f1746557e726d87151123e4c70081894d4891"
+        }
+      ]
+    },
+    "clean": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "clone",
+          "command": [
+            "git",
+            "clone",
+            "--quiet",
+            "--no-hardlinks",
+            "--local",
+            "<repository>",
+            "<repository>/.tmp/three-demo-validation/clean-checkout"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 3.36,
+          "log": ".tmp/three-demo-validation/clean-clone.log",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "setup",
+          "command": [
+            "<python-3.12>",
+            "labs/semantic_interop/scripts/setup.py"
+          ],
+          "cwd": "<repository>/.tmp/three-demo-validation/clean-checkout",
+          "exit_code": 0,
+          "seconds": 6.09,
+          "log": ".tmp/three-demo-validation/clean-setup.log",
+          "log_sha256": "2dcf6d0fbf17960f72c0f12e690652cf973d880db65ecd7a56b46cfee98e7eef"
+        },
+        {
+          "name": "demo",
+          "command": [
+            "<repository>/.tmp/three-demo-validation/clean-checkout/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "labs/semantic_interop/scripts/run_showcase.py",
+            "--scope",
+            "three",
+            "--check",
+            "--output",
+            ".tmp/three-demo"
+          ],
+          "cwd": "<repository>/.tmp/three-demo-validation/clean-checkout",
+          "exit_code": 0,
+          "seconds": 24.91,
+          "log": ".tmp/three-demo-validation/clean-demo.log",
+          "log_sha256": "0a9368e9c85f87de0358a2d6d0cf3b248d6ff8bc177cfba8eadd19b1a0389cd9"
+        }
+      ]
+    },
+    "clean-final": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "demo",
+          "command": [
+            "<repository>/.tmp/three-demo-validation/clean-checkout/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "labs/semantic_interop/scripts/run_showcase.py",
+            "--scope",
+            "three",
+            "--check",
+            "--output",
+            ".tmp/three-demo-final"
+          ],
+          "cwd": "<repository>/.tmp/three-demo-validation/clean-checkout",
+          "exit_code": 0,
+          "seconds": 10.53,
+          "log": ".tmp/three-demo-validation/clean-final-demo.log",
+          "log_sha256": "34dc12f205b0d56f228b9c575bcca4d7cec5d0e8ebcea47cfebb2cc475364d43"
+        }
+      ]
+    },
+    "offline": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "demo",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "labs/semantic_interop/scripts/run_showcase.py",
+            "--scope",
+            "three",
+            "--check",
+            "--output",
+            "<repository>/.tmp/three-demo-validation/offline"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 10.62,
+          "log": ".tmp/three-demo-validation/offline-demo.log",
+          "log_sha256": "d5d2623ee54ada48f5a2ae4e8c6c935bb38cb574aefe3d5236e1fbd0697b6f5f"
+        }
+      ]
+    },
+    "refund": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "init",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "<repository>/labs/semantic_interop/showcase/metricflow_task05.py",
+            "init",
+            "--work",
+            "<repository>/.tmp/three-demo-validation/refund"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 0.33,
+          "log": ".tmp/three-demo-validation/refund-init.log",
+          "log_sha256": "6834cdfa5f34861989a49999a624fc60d27e5064f3d7085a70ba93e18c5e8251"
+        },
+        {
+          "name": "before-build",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "-m",
+            "dbt.cli.main",
+            "build",
+            "--no-partial-parse",
+            "--project-dir",
+            "<repository>/.tmp/three-demo-validation/refund/dbt",
+            "--profiles-dir",
+            "<repository>/.tmp/three-demo-validation/refund/dbt"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 6.72,
+          "log": ".tmp/three-demo-validation/refund-before-build.log",
+          "log_sha256": "e505c271b40385bfa01c5b39dbb0a5e31da2b5c2a3a74acd65ded97c7d04c7a0"
+        },
+        {
+          "name": "before",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "<repository>/labs/semantic_interop/showcase/metricflow_task05.py",
+            "execute",
+            "--work",
+            "<repository>/.tmp/three-demo-validation/refund",
+            "--label",
+            "before"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 6.09,
+          "log": ".tmp/three-demo-validation/refund-before.log",
+          "log_sha256": "63dfa7d8f9d2c77750fbf7ae42dbbc62acd1406a788f9406b72aba5c7a2d3d9b"
+        },
+        {
+          "name": "after-build",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "-m",
+            "dbt.cli.main",
+            "build",
+            "--no-partial-parse",
+            "--project-dir",
+            "<repository>/.tmp/three-demo-validation/refund/dbt",
+            "--profiles-dir",
+            "<repository>/.tmp/three-demo-validation/refund/dbt"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 5.2,
+          "log": ".tmp/three-demo-validation/refund-after-build.log",
+          "log_sha256": "7e765c004d8e927d0bcc3bfc4993891ef70a5100304e79ffd3cc45b6bb08b55e"
+        },
+        {
+          "name": "after",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "<repository>/labs/semantic_interop/showcase/metricflow_task05.py",
+            "execute",
+            "--work",
+            "<repository>/.tmp/three-demo-validation/refund",
+            "--label",
+            "after",
+            "--include-refunded"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 3.8,
+          "log": ".tmp/three-demo-validation/refund-after.log",
+          "log_sha256": "93310e007d9798f0eff4e1ff3100480da9c12bdea1729e1906b21f45df67b16f"
+        },
+        {
+          "name": "to-ossie",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/ossie-dbt.exe",
+            "msi-to-ossie",
+            "-i",
+            "<repository>/.tmp/three-demo-validation/refund/dbt/target/semantic_manifest.json",
+            "-o",
+            "<repository>/.tmp/three-demo-validation/refund/after.ossie.yml",
+            "--model-name",
+            "conversion_demo"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 0.56,
+          "log": ".tmp/three-demo-validation/refund-to-ossie.log",
+          "log_sha256": "029f79694238f99f603beb08de53f06a67db29169e3e174bfcc01efdf1369962"
+        },
+        {
+          "name": "return",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/ossie-dbt.exe",
+            "ossie-to-msi",
+            "-i",
+            "<repository>/.tmp/three-demo-validation/refund/after.ossie.yml",
+            "-o",
+            "<repository>/.tmp/three-demo-validation/refund/after.returned.json"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 0.61,
+          "log": ".tmp/three-demo-validation/refund-return.log",
+          "log_sha256": "3c520a5044e85355e7e4d6c6e5db2a65d473c011a8ca7209d4ca3400636b4fc5"
+        },
+        {
+          "name": "target",
+          "command": [
+            "<repository>/.tmp/semantic-lab-venv/Scripts/python.exe",
+            "<repository>/labs/semantic_interop/showcase/metricflow_task05.py",
+            "execute",
+            "--work",
+            "<repository>/.tmp/three-demo-validation/refund",
+            "--label",
+            "returned",
+            "--manifest",
+            "<repository>/.tmp/three-demo-validation/refund/after.returned.json",
+            "--include-refunded"
+          ],
+          "cwd": "<repository>",
+          "exit_code": 0,
+          "seconds": 3.64,
+          "log": ".tmp/three-demo-validation/refund-target.log",
+          "log_sha256": "9d79dc83565fc15d852c8b50fb6c197a626a8380d8a6227083c542d515a88d84"
+        }
+      ]
+    }
+  },
+  "paths": [
+    {
+      "source": "MetricFlow",
+      "target": "MetricFlow",
+      "conversion": "PASS",
+      "semantic_preservation": "MISMATCH",
+      "target_execution": "BLOCKED",
+      "numerical_equivalence": "BLOCKED"
+    },
+    {
+      "source": "Power BI",
+      "target": "Power BI",
+      "conversion": "PASS",
+      "semantic_preservation": "PASS",
+      "target_execution": "NOT_EXECUTED",
+      "numerical_equivalence": "BLOCKED"
+    },
+    {
+      "source": "MetricFlow",
+      "target": "Power BI",
+      "conversion": "PASS",
+      "semantic_preservation": "MISMATCH",
+      "target_execution": "NOT_EXECUTED",
+      "numerical_equivalence": "BLOCKED"
+    }
+  ],
+  "source_gate": {
+    "accepted": true,
+    "dbt_build_exit_code": 0,
+    "detected_failures": 5,
+    "native_cases": 31,
+    "native_matches": 31,
+    "oracle_reviewed_values_match": true
+  },
+  "refund": {
+    "source_paid_revenue_before_eur": 390,
+    "source_paid_revenue_after_eur": 440,
+    "source_conversion_rate_before_and_after": 0.4,
+    "source_comparisons_before_and_after": 4,
+    "returned_target": "BLOCKED; no numerical values",
+    "evidence_directory": ".tmp/three-demo-validation/refund"
+  },
+  "offline_guard": "Inherited Python audit hook denies socket.connect/socket.getaddrinfo, including dbt subprocesses; not an OS firewall",
+  "clean_installation": "Fresh local clone plus reviewed working-tree overlay; new virtual environment using existing uv dependency cache, no copied virtual environment",
+  "platform_coverage": {
+    "Windows": "EXECUTED",
+    "Linux": "NOT_EXECUTED; commands reviewed; CI configured",
+    "macOS": "NOT_EXECUTED; commands reviewed; CI configured"
+  },
+  "observed_warnings": {
+    "metricflow_to_powerbi": [
+      {
+        "category": "UserWarning",
+        "message": "[metric 'eligible_sessions'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'eligible_sessions'] no home table recorded; the measure is placed on 'sessions'"
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'converted_sessions_base'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'converted_sessions_base'] no home table recorded; the measure is placed on 'sessions'"
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'paid_revenue_base'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'paid_revenue_base'] no home table recorded; the measure is placed on 'sessions'"
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'paid_order_count_base'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'paid_order_count_base'] no home table recorded; the measure is placed on 'sessions'"
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'conversion_rate'] a 'ANSI_SQL' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'conversion_rate'] no home table recorded; the measure is placed on 'sessions'"
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'average_paid_order_value'] a 'ANSI_SQL' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'average_paid_order_value'] no home table recorded; the measure is placed on 'sessions'"
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'converted_sessions'] a 'ANSI_SQL' expression could not be translated to DAX (only a single aggregate over one column translates unambiguously to DAX), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'converted_sessions'] no home table recorded; the measure is placed on 'sessions'"
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'paid_revenue'] a 'ANSI_SQL' expression could not be translated to DAX (only a single aggregate over one column translates unambiguously to DAX), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'paid_revenue'] no home table recorded; the measure is placed on 'sessions'"
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'paid_order_count'] a 'ANSI_SQL' expression could not be translated to DAX (only a single aggregate over one column translates unambiguously to DAX), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+      },
+      {
+        "category": "UserWarning",
+        "message": "[metric 'paid_order_count'] no home table recorded; the measure is placed on 'sessions'"
+      },
+      {
+        "category": "UserWarning",
+        "message": "[relationship 'orders__sessions__session'] column 'orders'[session_id] is not in the model; relationship skipped"
+      },
+      {
+        "category": "UserWarning",
+        "message": "[DatabaseQuery] no workspaceId/itemId given; the Direct Lake source uses placeholder ids"
+      }
+    ],
+    "powerbi_to_ossie": [
+      {
+        "category": "UserWarning",
+        "message": "[model] shared Power Query expressions and parameters ('expressions') has no Apache Ossie counterpart; preserved in the Power BI stash for round trip, but not represented in the Apache Ossie document"
+      }
+    ],
+    "returned_metricflow": [
+      "At least one time spine must be configured to use the semantic layer, but none were found."
+    ]
+  },
+  "known_limits": [
+    "No converted-target numerical PASS",
+    "Power BI Desktop/refresh/DAX not executed",
+    "Bounded single synthetic fixture",
+    "Linux/macOS CI has not run in this session"
+  ],
+  "initial_validation_findings": [
+    ".gitignore is also hash-bound: added a narrowly allowed revision entry rather than changing original provenance.",
+    "Initial Task 02 replay saw implementation edits between runs: only new source/test custody hashes and nested report hashes differed. Retained failed run; stable rerun passed without baseline or converter changes."
+  ],
+  "custody": {
+    "protected_files_verified": 2170,
+    "historical_evidence_fixture_and_pin_changes": [],
+    "private_drafts_unchanged": true,
+    "private_drafts_ignored_and_untracked": true,
+    "already_on_remote_main": [
+      "labs/semantic_interop/docs/ARTICLE_DRAFT.md",
+      "labs/semantic_interop/docs/ARTICLE_OUTLINE.md",
+      "labs/semantic_interop/docs/CONVERSION_ARTICLE_DRAFT.md"
+    ]
+  },
+  "runtime_evidence": {
+    "offline_report": {
+      "path": ".tmp/three-demo-validation/offline/report.json",
+      "sha256": "8395462cbde75580fac01675533b4c86f82b4ab223b6ed1b0ede12bbc5f1a960"
+    },
+    "clean_final_report": {
+      "path": ".tmp/three-demo-validation/clean-checkout/.tmp/three-demo-final/report.json",
+      "sha256": "3e5ee74773501942312a40cbd6c58774db9966ed7e622fe22e04e6264cf5c9cf"
+    },
+    "full_log": {
+      "path": ".tmp/three-demo-validation/full-check.log",
+      "sha256": "4f49f7202bd333aa5398769fda17b8fd277343b1e210ca8b22c11dcc44813fc6"
+    },
+    "task02_log": {
+      "path": ".tmp/three-demo-validation/task02-replay.log",
+      "sha256": "24f0ba5f5a18eb34d5a2b450748f1746557e726d87151123e4c70081894d4891"
+    },
+    "initial_task02_diff": {
+      "path": ".tmp/three-demo-validation/task02-differences.json",
+      "sha256": "e548b29ed155f42b7fa9c881def05f973d3b0718dbd1dd09c945ce0022296ef8"
+    }
+  },
+  "implementation_sha256": {
+    "labs/semantic_interop/src/semantic_lab/showcase.py": "8ef5da5191a650ca5b0e5e83ea1050602e9bd725762b471780c6dcfba13fec4e",
+    "labs/semantic_interop/src/semantic_lab/showcase_powerbi.py": "614c4e71dc5ab214c4d56f9ed922993960949fd960490637368e590712847cac",
+    "scripts/check_public_repository.py": "7d3989bda3dd8662520a544ae8f24ea429538d7ef6a3df9d67a761089b36cbe1",
+    "tests/test_readme_revision.py": "9393e65740e0bc6b3774dca3f09f54fa812bdcd67798472f43d7d72ef80ffc1e",
+    ".github/workflows/three-experiment-demo.yml": "87b62afc850c61c1d369d551dafcd4a5464e96b5115a230efcbd250c3dcb2e79",
+    "labs/semantic_interop/src/semantic_lab/showcase_three.py": "bbc0374a243dc90dbd043c1cd748f008d3492c7898f8e45242dbc9f13b235708",
+    "labs/semantic_interop/tests/test_showcase_three.py": "88b8adcac6f2d297f3dfa35802988d17ef4f09c312be82317a0cd07f141cc2cd"
+  }
+}
