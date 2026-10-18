@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+    "-jar",
+    "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+    "export",
+    "<repository>\\labs\\semantic_interop\\results\\task05-minimal\\metricflow\\include-refunded\\output.ossie.yml",
+    "-o",
+    "<repository>\\labs\\semantic_interop\\results\\task05-minimal\\metricflow\\include-refunded\\output.metric-view.yml",
+    "--source",
+    "sessions"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0
+}

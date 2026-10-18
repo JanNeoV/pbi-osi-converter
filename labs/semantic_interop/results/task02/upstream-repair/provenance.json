@@ -1,0 +1,24 @@
+{
+  "ai_assisted": true,
+  "base_commit": "ef91cb61092c60f4b918016a81cfdbe483e113bc",
+  "expectation_changes": "Four existing test expectations and one snapshot intentionally changed from physical identifiers to exported field names. Initial five failures preserved in suite-initial.txt.",
+  "full_dbt_suite_after": {
+    "passed": 179,
+    "snapshots_passed": 5
+  },
+  "new_regressions_after": {
+    "passed": 3
+  },
+  "new_regressions_before": {
+    "failed": 3
+  },
+  "overlap": [
+    "https://github.com/apache/ossie/pull/315",
+    "https://github.com/apache/ossie/pull/486"
+  ],
+  "patch_sha256": "f7a14007a28cbf801eccfc055d990a26411882176c0f20272ee6c20c58ad28d6",
+  "pr315_evaluated_head": "b9a7c28469834c3ba1f80dc4b88f5f75322eb416",
+  "pr315_evaluation": "Exactly the three source hunks applied to current commit; not a claim that the PR head was rebased or its entire historical suite ran.",
+  "source_change": "Keys and relationship endpoints reference exported entity field names. Physical field expressions remain unchanged.",
+  "status": "LOCAL_CANDIDATE_REQUIRES_HUMAN_REVIEW"
+}

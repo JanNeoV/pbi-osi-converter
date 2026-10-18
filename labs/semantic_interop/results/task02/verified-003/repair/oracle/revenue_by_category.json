@@ -1,0 +1,48 @@
+{
+  "columns": [
+    "category",
+    "revenue"
+  ],
+  "rows": [
+    [
+      {
+        "type": "null",
+        "value": null
+      },
+      {
+        "type": "decimal",
+        "value": "10.20"
+      }
+    ],
+    [
+      {
+        "type": "string",
+        "value": "Books"
+      },
+      {
+        "type": "decimal",
+        "value": "85.10"
+      }
+    ],
+    [
+      {
+        "type": "string",
+        "value": "Tools"
+      },
+      {
+        "type": "decimal",
+        "value": "170.00"
+      }
+    ],
+    [
+      {
+        "type": "string",
+        "value": "Zero"
+      },
+      {
+        "type": "decimal",
+        "value": "0.00"
+      }
+    ]
+  ]
+}

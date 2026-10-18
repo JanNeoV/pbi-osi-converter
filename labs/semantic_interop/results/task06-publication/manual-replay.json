@@ -1,0 +1,198 @@
+{
+  "scope": "Repeated documented local exercises; no Power BI/DAX or native Databricks runtime execution",
+  "metricflow": {
+    "before": {
+      "result_file": "metricflow-before.execution.json",
+      "comparisons": 4,
+      "oracle_matches": 4,
+      "native_target_queries": "PASS",
+      "conversion_rate": [
+        [
+          0.4
+        ]
+      ],
+      "paid_revenue": [
+        [
+          "390.00"
+        ]
+      ]
+    },
+    "after": {
+      "result_file": "metricflow-after.execution.json",
+      "comparisons": 4,
+      "oracle_matches": 4,
+      "native_target_queries": "PASS",
+      "conversion_rate": [
+        [
+          0.4
+        ]
+      ],
+      "paid_revenue": [
+        [
+          "440.00"
+        ]
+      ]
+    },
+    "restored": {
+      "result_file": "metricflow-restored.execution.json",
+      "comparisons": 4,
+      "oracle_matches": 4,
+      "native_target_queries": "PASS",
+      "conversion_rate": [
+        [
+          0.4
+        ]
+      ],
+      "paid_revenue": [
+        [
+          "390.00"
+        ]
+      ]
+    },
+    "after-target": {
+      "result_file": "metricflow-after-target.execution.json",
+      "comparisons": 4,
+      "oracle_matches": 0,
+      "native_target_queries": "BLOCKED",
+      "conversion_rate": null,
+      "paid_revenue": null
+    }
+  },
+  "powerbi": {
+    "baseline": {
+      "commands": [
+        {
+          "arguments": [
+            "-m",
+            "ossie_microsoft.cli",
+            "import",
+            "-i",
+            ".tmp\\task06-tutorial-pbi-baseline-001\\source.model.bim",
+            "-o",
+            ".tmp\\task06-tutorial-pbi-baseline-001\\output.ossie.yml"
+          ],
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "-m",
+            "ossie_microsoft.cli",
+            "export",
+            "-i",
+            ".tmp\\task06-tutorial-pbi-baseline-001\\output.ossie.yml",
+            "-o",
+            ".tmp\\task06-tutorial-pbi-baseline-001\\roundtrip.model.bim"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "bounded_checks": {
+        "table_names_equal": true,
+        "measure_names_equal": true,
+        "dax_expressions_equal": true,
+        "complete_measure_properties_equal": true,
+        "relationships_equal_including_filter_direction": true,
+        "columns_equal": true,
+        "partitions_equal": true,
+        "m_expressions_equal": true,
+        "complete_normalized_document_equal": true,
+        "selector_disconnected": true,
+        "exactly_two_selector_choices": true
+      },
+      "dependencies": {
+        "Conversion Rate": [
+          "Converted Sessions",
+          "Eligible Sessions"
+        ],
+        "Converted Sessions": [],
+        "Eligible Sessions": [],
+        "Paid Revenue": [],
+        "Selected KPI": [
+          "Conversion Rate",
+          "Paid Revenue"
+        ]
+      },
+      "source_sha256": "696a4a0871056cc6825eb1a610d5e9185430dc3d5eda283b0d1a43257323ce5d",
+      "returned_sha256": "bfb3194aeae6103646de21f6332919f5124c649dd6fffedefb3a452522afb58e",
+      "Desktop_DAX": "NOT_EXECUTED",
+      "candidate": "NOT_VERIFIED"
+    },
+    "changed-default": {
+      "commands": [
+        {
+          "arguments": [
+            "-m",
+            "ossie_microsoft.cli",
+            "import",
+            "-i",
+            ".tmp\\task06-tutorial-pbi-001\\source.model.bim",
+            "-o",
+            ".tmp\\task06-tutorial-pbi-001\\output.ossie.yml"
+          ],
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "-m",
+            "ossie_microsoft.cli",
+            "export",
+            "-i",
+            ".tmp\\task06-tutorial-pbi-001\\output.ossie.yml",
+            "-o",
+            ".tmp\\task06-tutorial-pbi-001\\roundtrip.model.bim"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "bounded_checks": {
+        "table_names_equal": true,
+        "measure_names_equal": true,
+        "dax_expressions_equal": true,
+        "complete_measure_properties_equal": true,
+        "relationships_equal_including_filter_direction": true,
+        "columns_equal": true,
+        "partitions_equal": true,
+        "m_expressions_equal": true,
+        "complete_normalized_document_equal": true,
+        "selector_disconnected": true,
+        "exactly_two_selector_choices": true
+      },
+      "dependencies": {
+        "Conversion Rate": [
+          "Converted Sessions",
+          "Eligible Sessions"
+        ],
+        "Converted Sessions": [],
+        "Eligible Sessions": [],
+        "Paid Revenue": [],
+        "Selected KPI": [
+          "Conversion Rate",
+          "Paid Revenue"
+        ]
+      },
+      "source_sha256": "08768c458ebf6c2bf4d8487350016fc405d2f3f42e5bb7b32bbd30ba2450f7fe",
+      "returned_sha256": "4eb260e6780aefd5fef9aed1e6a24501e9aa07cc4fc5656928bbc3288ed3ca4f",
+      "Desktop_DAX": "NOT_EXECUTED",
+      "candidate": "NOT_VERIFIED"
+    }
+  },
+  "databricks": {
+    "baseline": {
+      "complete_parsed_values_equal_ignoring_only_trailing_source_SQL_whitespace": true,
+      "import_exit_code": 0,
+      "export_exit_code": 0,
+      "stderr_empty": true,
+      "returned_sha256": "7273821d7c003b71c70272df4c266524b0ff3113bdc5959413fec8dd021b13f9",
+      "native_queries": "NOT_EXECUTED"
+    },
+    "include-refunded": {
+      "complete_parsed_values_equal_ignoring_only_trailing_source_SQL_whitespace": true,
+      "import_exit_code": 0,
+      "export_exit_code": 0,
+      "stderr_empty": true,
+      "returned_sha256": "dbcdf360b307d2b46c7d2c5c89f1d9a2105e80d24fa9a9fe017fcfb2daea0972",
+      "native_queries": "NOT_EXECUTED"
+    }
+  },
+  "all_assertions_passed": true
+}

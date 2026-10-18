@@ -1,0 +1,436 @@
+{
+  "scope": "Official offline conversions of self-contained authored TMSL candidate; no Desktop/TOM/DAX execution",
+  "converter": {
+    "official_source": "https://github.com/apache/ossie/tree/6ebc5e5612467dac405985f44ea078b39c891bee/converters/microsoft",
+    "commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+    "distributions": {
+      "apache-ossie": {
+        "version": "0.2.0.dev0",
+        "direct_url": {
+          "url": "https://github.com/apache/ossie.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee"
+          },
+          "subdirectory": "python"
+        }
+      },
+      "apache-ossie-microsoft": {
+        "version": "0.2.0.dev0",
+        "direct_url": {
+          "url": "https://github.com/apache/ossie.git",
+          "vcs_info": {
+            "vcs": "git",
+            "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee"
+          },
+          "subdirectory": "converters/microsoft"
+        }
+      }
+    },
+    "installed_converter_sha256": {
+      "__init__.py": "2befa65ed0de85b719847947ae2f85ec84e2b437ecb708cfd1e6d41c1d982787",
+      "_common.py": "f0361c7c0b8ee930e3e6257cdf9f21a97d7a5f9c8efe01661ea71f4106b79b09",
+      "_sql_to_dax.py": "797168011bfcc798b4a44e824c53b7fa01d653cf760642e7102794e7281f623f",
+      "cli.py": "0c44036bb510b82a308b47ba7777af5bef91f13fd5da2dc4becd85d44b97dfbf",
+      "engine.py": "6896667cb32608e3b2b85744ccd97fb09d9647a1f5086e545e6afaedab7e1a4e",
+      "ossie_to_semantic_model.py": "fdefffef8680a72d7e65e2da70889d596e9c062de95563706b7c155f03d57cd8",
+      "semantic_model_to_ossie.py": "cdfa0345efd2e956addb3f01a164733f1bf3c42a631f653d5eaf367d3a33e87f",
+      "tom.py": "4bdc6678266cecffc7592e86fef90c59c2cf5969f6a2da0e237efbfadfccd1ff"
+    },
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "engine_availability": {
+    "platform": "Windows",
+    "local_processes": [],
+    "provided_xmla_endpoint": false,
+    "reason": "No Power BI/XMLA endpoint or model execution session was supplied for this task.",
+    "tasklist_exit_code": 0,
+    "endpoint_environment_variables_present": {
+      "POWERBI_XMLA_ENDPOINT": false,
+      "PBI_XMLA_ENDPOINT": false,
+      "POWERBI_WORKSPACE_ID": false,
+      "FABRIC_WORKSPACE_ID": false
+    },
+    "engine_execution": "NOT_EXECUTED",
+    "numerical_equivalence": "BLOCKED",
+    "actual_DAX_values": null
+  },
+  "cases": {
+    "baseline": {
+      "source": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\showcase\\powerbi-task05\\baseline.model.bim",
+      "commands": {
+        "to-ossie": {
+          "command": [
+            "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+            "-m",
+            "ossie_microsoft.cli",
+            "import",
+            "-i",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\showcase\\powerbi-task05\\baseline.model.bim",
+            "-o",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\baseline\\output.ossie.yml"
+          ],
+          "cwd": "C:\\github\\pbi-osi-converter",
+          "exit_code": 0,
+          "stdout": "to-ossie.stdout.log",
+          "stderr": "to-ossie.stderr.log"
+        },
+        "from-ossie": {
+          "command": [
+            "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+            "-m",
+            "ossie_microsoft.cli",
+            "export",
+            "-i",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\baseline\\output.ossie.yml",
+            "-o",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\baseline\\roundtrip.model.bim"
+          ],
+          "cwd": "C:\\github\\pbi-osi-converter",
+          "exit_code": 0,
+          "stdout": "from-ossie.stdout.log",
+          "stderr": "from-ossie.stderr.log"
+        },
+        "to-metricflow": {
+          "command": [
+            "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+            "-m",
+            "ossie_dbt.cli",
+            "ossie-to-msi",
+            "-i",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\baseline\\output.ossie.yml",
+            "-o",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\baseline\\target.manifest.json"
+          ],
+          "cwd": "C:\\github\\pbi-osi-converter",
+          "exit_code": 0,
+          "stdout": "to-metricflow.stdout.log",
+          "stderr": "to-metricflow.stderr.log"
+        },
+        "to-databricks": {
+          "command": [
+            "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+            "-jar",
+            "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+            "export",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\baseline\\output.ossie.yml",
+            "-o",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\baseline\\target.metric-view.yml",
+            "--source",
+            "Sessions"
+          ],
+          "cwd": "C:\\github\\pbi-osi-converter",
+          "exit_code": 1,
+          "stdout": "to-databricks.stdout.log",
+          "stderr": "to-databricks.stderr.log"
+        }
+      },
+      "bounded_structural_checks": {
+        "table_names_equal": true,
+        "measure_names_equal": true,
+        "dax_expressions_equal": true,
+        "complete_measure_properties_equal": true,
+        "relationships_equal_including_filter_direction": true,
+        "columns_equal": true,
+        "partitions_equal": true,
+        "m_expressions_equal": true,
+        "complete_normalized_document_equal": true,
+        "selector_disconnected": true,
+        "exactly_two_selector_choices": true
+      },
+      "measure_dependencies": {
+        "Conversion Rate": [
+          "Converted Sessions",
+          "Eligible Sessions"
+        ],
+        "Converted Sessions": [],
+        "Eligible Sessions": [],
+        "Paid Revenue": [],
+        "Selected KPI": [
+          "Conversion Rate",
+          "Paid Revenue"
+        ]
+      },
+      "source_TOM": {
+        "status": "NOT_EXECUTED",
+        "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`"
+      },
+      "target_TOM": {
+        "status": "NOT_EXECUTED",
+        "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`"
+      },
+      "Desktop_open": "NOT_EXECUTED",
+      "DAX_execution": "NOT_EXECUTED",
+      "numerical_comparison": "BLOCKED"
+    },
+    "changed-default": {
+      "source": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\showcase\\powerbi-task05\\changed-default.model.bim",
+      "commands": {
+        "to-ossie": {
+          "command": [
+            "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+            "-m",
+            "ossie_microsoft.cli",
+            "import",
+            "-i",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\showcase\\powerbi-task05\\changed-default.model.bim",
+            "-o",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\output.ossie.yml"
+          ],
+          "cwd": "C:\\github\\pbi-osi-converter",
+          "exit_code": 0,
+          "stdout": "to-ossie.stdout.log",
+          "stderr": "to-ossie.stderr.log"
+        },
+        "from-ossie": {
+          "command": [
+            "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+            "-m",
+            "ossie_microsoft.cli",
+            "export",
+            "-i",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\output.ossie.yml",
+            "-o",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\roundtrip.model.bim"
+          ],
+          "cwd": "C:\\github\\pbi-osi-converter",
+          "exit_code": 0,
+          "stdout": "from-ossie.stdout.log",
+          "stderr": "from-ossie.stderr.log"
+        },
+        "to-metricflow": {
+          "command": [
+            "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+            "-m",
+            "ossie_dbt.cli",
+            "ossie-to-msi",
+            "-i",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\output.ossie.yml",
+            "-o",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\target.manifest.json"
+          ],
+          "cwd": "C:\\github\\pbi-osi-converter",
+          "exit_code": 0,
+          "stdout": "to-metricflow.stdout.log",
+          "stderr": "to-metricflow.stderr.log"
+        },
+        "to-databricks": {
+          "command": [
+            "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+            "-jar",
+            "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+            "export",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\output.ossie.yml",
+            "-o",
+            "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\target.metric-view.yml",
+            "--source",
+            "Sessions"
+          ],
+          "cwd": "C:\\github\\pbi-osi-converter",
+          "exit_code": 1,
+          "stdout": "to-databricks.stdout.log",
+          "stderr": "to-databricks.stderr.log"
+        }
+      },
+      "bounded_structural_checks": {
+        "table_names_equal": true,
+        "measure_names_equal": true,
+        "dax_expressions_equal": true,
+        "complete_measure_properties_equal": true,
+        "relationships_equal_including_filter_direction": true,
+        "columns_equal": true,
+        "partitions_equal": true,
+        "m_expressions_equal": true,
+        "complete_normalized_document_equal": true,
+        "selector_disconnected": true,
+        "exactly_two_selector_choices": true
+      },
+      "measure_dependencies": {
+        "Conversion Rate": [
+          "Converted Sessions",
+          "Eligible Sessions"
+        ],
+        "Converted Sessions": [],
+        "Eligible Sessions": [],
+        "Paid Revenue": [],
+        "Selected KPI": [
+          "Conversion Rate",
+          "Paid Revenue"
+        ]
+      },
+      "source_TOM": {
+        "status": "NOT_EXECUTED",
+        "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`"
+      },
+      "target_TOM": {
+        "status": "NOT_EXECUTED",
+        "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`"
+      },
+      "Desktop_open": "NOT_EXECUTED",
+      "DAX_execution": "NOT_EXECUTED",
+      "numerical_comparison": "BLOCKED"
+    }
+  },
+  "artifacts_sha256": {
+    "artifact-validation.json": "f25c257996f9801f816ba873b535865e9b8e9beae3493288bd376f79396da771",
+    "baseline\\comparison.json": "2da53ab004d9218134fc22303f65ef849ac6cc5972a4f7dff69c96f926911241",
+    "baseline\\from-ossie.command.json": "f588205b4330bc0861ebea0ce55ee1d138f8fb4274fee81f37c9a6202b7eadbe",
+    "baseline\\from-ossie.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline\\from-ossie.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline\\output.ossie.yml": "25c343b261aa1f82e7dec616255845dfcf67811e0170f76518c57acebd0e02c0",
+    "baseline\\roundtrip.model.bim": "bfb3194aeae6103646de21f6332919f5124c649dd6fffedefb3a452522afb58e",
+    "baseline\\target.manifest.json": "932995181753ed46684142e0715a54edc19d2c24bd51f7034932dbd378cb1f32",
+    "baseline\\to-databricks.command.json": "e1457abceb3ceef1d566df7ef2cfdd909e956a5af0b6759b408ea12363b36ef5",
+    "baseline\\to-databricks.stderr.log": "481579c2ea3caed683f4d8662b7dc84b827b412ea32b5799d96445c539af7f84",
+    "baseline\\to-databricks.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline\\to-metricflow.command.json": "994e78eff7b1dfacf1f9cd0b491f62b1a45227a335e96d27cab32396c18ff87d",
+    "baseline\\to-metricflow.stderr.log": "1db8b1764bfcb75d715fb7d7df4b408e152036f06ca31cb270bbeb87f5f62d8b",
+    "baseline\\to-metricflow.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline\\to-ossie.command.json": "2011cb216dc2567e9097cbdf868981ef86163b8f669f62ae37275d7441fd5f42",
+    "baseline\\to-ossie.stderr.log": "bc29c98675909c22f8537cdb15eb46856bceba362f3b3a54f1b4259a058cba29",
+    "baseline\\to-ossie.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "changed-default\\comparison.json": "3f7998e12b20f54a8c6877ca627f51e8c48bd63cffd318d0f92ccfc1d8053435",
+    "changed-default\\from-ossie.command.json": "a7cdb5e19306fa1db0d1d397e1b09e4ce5a7bc70c19b558b13f28114e6c87eb6",
+    "changed-default\\from-ossie.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "changed-default\\from-ossie.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "changed-default\\output.ossie.yml": "ecaf74bcd1cff4e63af3603688283d68203238b65f42d5732c6ff0cb281b8030",
+    "changed-default\\roundtrip.model.bim": "4eb260e6780aefd5fef9aed1e6a24501e9aa07cc4fc5656928bbc3288ed3ca4f",
+    "changed-default\\target.manifest.json": "49393beb933d6e93bb494c9fd3ebe8595d8e2a42c93a9fc0ace02aa016be843d",
+    "changed-default\\to-databricks.command.json": "6f5662ba40bc33a536f1cddef4f62c584b636723948a6e23df8d177e7a182f8e",
+    "changed-default\\to-databricks.stderr.log": "481579c2ea3caed683f4d8662b7dc84b827b412ea32b5799d96445c539af7f84",
+    "changed-default\\to-databricks.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "changed-default\\to-metricflow.command.json": "141653cdceddd8ce69b4988c889466353a3d94369a47c808556d4d15637f8ffe",
+    "changed-default\\to-metricflow.stderr.log": "c3564d4a032326c39f5594dbfbf463e684da90933a2e73532d025df0bf92fd77",
+    "changed-default\\to-metricflow.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "changed-default\\to-ossie.command.json": "8e37f7ebe550aa763ac2f11373be13f7f58b2e3dba8dea72b161560d94571154",
+    "changed-default\\to-ossie.stderr.log": "bc29c98675909c22f8537cdb15eb46856bceba362f3b3a54f1b4259a058cba29",
+    "changed-default\\to-ossie.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "expected-values.json": "0e6bd11adc231d9918a149c3d85e69c1646cde9db591f4348da4fec00b6a29cb",
+    "oracle-Direct-conversion_rate.sql": "f0ca57fcda7f0042d4686126595a8a46bcb6c15d403e58d588cc7209ea2d7caf",
+    "oracle-Direct-paid_revenue.sql": "29a1c0acc85b663c7081fd3319e601f994a117fd6b7e1f097dddef853248122e",
+    "oracle-Indirect-conversion_rate.sql": "9af51267158758bdadd1f48ef0e2892c2bbf31c7a8d54efefca7e42a2d5b039f",
+    "oracle-Indirect-paid_revenue.sql": "8a19437e2c6b0201596b003c75f755e2804460fc9f17d340b02d54729ba43deb",
+    "oracle-overall-conversion_rate.sql": "c6aea307045cc5c9b0209929a2bef983f9fa863ee1d0e0cde14c854506bc57c5",
+    "oracle-overall-paid_revenue.sql": "cf074c4d17631995355ecff94862d00f338d88470c42aadcb2a7ae1e422b1442"
+  },
+  "additional_converter_provenance": {
+    "apache-ossie-dbt": {
+      "version": "0.2.0.dev0",
+      "direct_url": {
+        "url": "https://github.com/apache/ossie.git",
+        "vcs_info": {
+          "vcs": "git",
+          "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee"
+        },
+        "subdirectory": "converters/dbt"
+      }
+    },
+    "databricks": {
+      "jar": "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+      "jar_sha256": "09af8c0868cd56eac6a2de0e07dd59c1288506d4dd5779c9db2d3fbcec1e490f",
+      "historical_provenance": {
+        "converter_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+        "converter_version": "0.1.0-SNAPSHOT",
+        "official_source": "https://github.com/apache/ossie/tree/53418ba8a4b8a20951334fdb9d9638aa34b514e3/converters/databricks/java",
+        "java": "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "jar": "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+        "jar_sha256": "09af8c0868cd56eac6a2de0e07dd59c1288506d4dd5779c9db2d3fbcec1e490f",
+        "converter_modified": false,
+        "runtime": "NOT_EXECUTED",
+        "matches_recorded_task04_jar": true,
+        "build_evidence": "prior-build.report.json (historical build; no fresh Maven build claimed)",
+        "pinned_source_verified": true,
+        "official_build_verified": true,
+        "commands": [
+          {
+            "label": "java-version",
+            "command": [
+              "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+              "-version"
+            ],
+            "cwd": "<repository>",
+            "exit_code": 0,
+            "stdout": "java-version.stdout.log",
+            "stderr": "java-version.stderr.log",
+            "execution_status": "EXECUTED",
+            "warnings": [
+              "openjdk version \"21.0.12.1\" 2026-08-18 LTS",
+              "OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)",
+              "OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+            ]
+          },
+          {
+            "label": "source-commit",
+            "command": [
+              "git",
+              "-C",
+              "<repository>\\.tmp\\task04-databricks\\ossie-current",
+              "rev-parse",
+              "HEAD"
+            ],
+            "cwd": "<repository>",
+            "exit_code": 0,
+            "stdout": "source-commit.stdout.log",
+            "stderr": "source-commit.stderr.log",
+            "execution_status": "EXECUTED",
+            "warnings": []
+          },
+          {
+            "label": "source-status",
+            "command": [
+              "git",
+              "-C",
+              "<repository>\\.tmp\\task04-databricks\\ossie-current",
+              "status",
+              "--porcelain",
+              "--",
+              "converters/databricks/java"
+            ],
+            "cwd": "<repository>",
+            "exit_code": 0,
+            "stdout": "source-status.stdout.log",
+            "stderr": "source-status.stderr.log",
+            "execution_status": "EXECUTED",
+            "warnings": []
+          },
+          {
+            "label": "source-tree",
+            "command": [
+              "git",
+              "-C",
+              "<repository>\\.tmp\\task04-databricks\\ossie-current",
+              "rev-parse",
+              "HEAD:converters/databricks/java"
+            ],
+            "cwd": "<repository>",
+            "exit_code": 0,
+            "stdout": "source-tree.stdout.log",
+            "stderr": "source-tree.stderr.log",
+            "execution_status": "EXECUTED",
+            "warnings": []
+          }
+        ]
+      }
+    }
+  },
+  "source_artifacts_sha256": {
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\baseline.model.bim": "696a4a0871056cc6825eb1a610d5e9185430dc3d5eda283b0d1a43257323ce5d",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\candidate-status.json": "c7b9f3e90436cd9278a9dc1d85ed175b5cd4173a058edee855ba3822ad7839ed",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\changed-default.model.bim": "08768c458ebf6c2bf4d8487350016fc405d2f3f42e5bb7b32bbd30ba2450f7fe",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\Conversion Rate.dax": "eed13f21421a655177849a9a4da3e346d2a88103d4810f1369a36bddf740b2ac",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\Converted Sessions.dax": "ef969f24fbb2953d76ed86529763e766e0421788c1d37ce3c3143365777cbc76",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\Eligible Sessions.dax": "29353c29fd6bde79a1a8954266ddaf2e126ce5f64ab6d70e78f552a58070a628",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\KPI Selector.pq": "3a0803a135fa7e81355d61fb7ee23532eaad5e91c644d6c7be1ade96fcfd0be4",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\Orders.pq": "3a1438b97f699ed754717306b54ee8ef6ac957a1e248b4c15dbb041b14c3ebbb",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\Paid Revenue.dax": "6bffaaa5f78de6450acf003182e481197f1cd960a93df1c8e7e19fb5017ab163",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\runtime-results-template.csv": "d5d2549ae2b1879b76dcab8b761bf2eaf48d6762a9c6f11fe5c63246c455e9a8",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\Sales Channel.pq": "985bb80e123ccc69ee429667bb9c7b5e1f0fdc344fcf7cb54ec72ab2e5673049",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\Selected KPI.dax": "5b8c4ddcd7570de982c64dbd15c61988d294ffd62a0aa54ff924aaa49f9ea9df",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\Selected KPI.format.dax": "2ce3c30874429f377849f0111ad49efeb9dcad22ad40453991e91cc51454a900",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\Sessions.pq": "c4e7f826d3c206213761c709685384d2e8ee84a0b1de3b6be7a6bd32bb4095ba",
+    "labs\\semantic_interop\\showcase\\powerbi-task05\\validate.dax": "63511418f6fa16f2b42e17f046bfa551873ba539d129ff28d96b064feba8d4b3"
+  }
+}

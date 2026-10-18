@@ -1,0 +1,25 @@
+{
+  "lane": "NATIVE_DATABRICKS_ROUNDTRIP_NAMESPACE_BOUND",
+  "execution_status": "NOT_EXECUTED",
+  "source_yaml": "labs/semantic_interop/showcase/databricks-task05/metric_view.baseline.yaml",
+  "generated_ossie": "labs/semantic_interop/results/task05-minimal/databricks/baseline/imported.ossie.yml",
+  "generated_metric_view": "labs/semantic_interop/results/task05-minimal/databricks/baseline/roundtrip.metric-view.yml",
+  "converter_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+  "jar_sha256": "09af8c0868cd56eac6a2de0e07dd59c1288506d4dd5779c9db2d3fbcec1e490f",
+  "namespace": null,
+  "warehouse_or_runtime_version": null,
+  "namespace_binding_diff_path": null,
+  "input_hashes_path": null,
+  "setup_sql_path": null,
+  "create_view_sql_path": null,
+  "show_create_result_path": null,
+  "creation_and_analyzer_errors_path": null,
+  "query_sql_path": null,
+  "query_results_path": null,
+  "expected": {
+    "baseline": {"overall": [0.4, "390.00"], "Direct": [0.5, "300.00"], "Indirect": [0.25, "90.00"]},
+    "include_refunded": {"overall": [0.4, "440.00"], "Direct": [0.5, "300.00"], "Indirect": [0.25, "140.00"]}
+  },
+  "actual_results": null,
+  "comparison_status": "BLOCKED"
+}

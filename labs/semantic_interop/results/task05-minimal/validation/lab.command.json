@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "labs/semantic_interop/tests",
+    "--basetemp",
+    ".tmp/pytest-task05-lab"
+  ],
+  "cwd": "C:\\github\\pbi-osi-converter",
+  "started_at_utc": "2026-10-18T09:35:50.813626+00:00",
+  "completed_at_utc": "2026-10-18T09:37:41.267674+00:00",
+  "exit_code": 0,
+  "stdout": "lab.stdout.log",
+  "stderr": "lab.stderr.log"
+}

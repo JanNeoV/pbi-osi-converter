@@ -1,0 +1,13 @@
+session_id,session_date,sales_channel,is_eligible,exclusion_reason
+1,2026-01-05,Direct,true,
+2,2026-01-06,Direct,true,
+3,2026-01-20,Direct,true,
+4,2026-02-01,Direct,true,
+5,2026-02-02,Direct,true,
+6,2026-02-10,Direct,true,
+7,2026-01-07,Indirect,true,
+8,2026-01-21,Indirect,true,
+9,2026-02-03,Indirect,true,
+10,2026-02-05,Indirect,true,
+11,2026-01-08,Direct,false,bot
+12,2026-02-06,Indirect,false,internal

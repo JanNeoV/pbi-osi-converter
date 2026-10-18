@@ -1,0 +1,19 @@
+table Items
+    column item_id
+        dataType: int64
+        sourceColumn: item_id
+    column order_id
+        dataType: int64
+        sourceColumn: order_id
+    column product_id
+        dataType: int64
+        sourceColumn: product_id
+    column amount
+        dataType: decimal
+        sourceColumn: amount
+    measure revenue = SUM(Items[amount])
+    measure average_order_value = DIVIDE([revenue], [order_count])
+    measure completed_revenue = CALCULATE(SUM(Items[amount]), Orders[status] = "completed")
+    measure completed_revenue_share = DIVIDE([completed_revenue], [revenue])
+    measure context_sensitive = IF(ISCROSSFILTERED(Orders[status]), [revenue], BLANK())
+    measure shipping_revenue = CALCULATE([revenue], USERELATIONSHIP(Orders[ship_date], Calendar[date_day]))

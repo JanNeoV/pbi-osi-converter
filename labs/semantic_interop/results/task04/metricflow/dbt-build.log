@@ -1,0 +1,19 @@
+04:28:37  Running with dbt=1.12.6
+04:28:37  Registered adapter: duckdb=1.11.0
+04:28:41  Found 3 models, 9 metrics, 500 macros, 2 semantic models
+04:28:41  
+04:28:41  Concurrency: 1 threads (target='local')
+04:28:41  
+04:28:44  1 of 3 START sql view model main.orders ........................................ [RUN]
+04:28:44  1 of 3 OK created sql view model main.orders ................................... [OK in 0.09s]
+04:28:44  2 of 3 START sql view model main.sessions ...................................... [RUN]
+04:28:44  2 of 3 OK created sql view model main.sessions ................................. [OK in 0.03s]
+04:28:44  3 of 3 START sql view model main.time_spine .................................... [RUN]
+04:28:44  3 of 3 OK created sql view model main.time_spine ............................... [OK in 0.03s]
+04:28:44  
+04:28:44  Finished running 3 view models in 0 hours 0 minutes and 2.86 seconds (2.86s).
+04:28:44  
+04:28:44  Completed successfully
+04:28:44  
+04:28:44  Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=3
+<frozen runpy>:128: RuntimeWarning: 'dbt.cli.main' found in sys.modules after import of package 'dbt.cli', but prior to execution of 'dbt.cli.main'; this may result in unpredictable behaviour

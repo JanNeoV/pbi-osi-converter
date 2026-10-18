@@ -1,0 +1,21 @@
+relationship items_orders
+    fromColumn: Items.order_id
+    toColumn: Orders.order_id
+    fromCardinality: many
+    toCardinality: one
+    crossFilteringBehavior: oneDirection
+relationship items_products
+    fromColumn: Items.product_id
+    toColumn: Products.product_id
+    fromCardinality: many
+    toCardinality: one
+    crossFilteringBehavior: oneDirection
+relationship order_date
+    fromColumn: Orders.order_date
+    toColumn: Calendar.date_day
+    crossFilteringBehavior: oneDirection
+relationship ship_date
+    fromColumn: Orders.ship_date
+    toColumn: Calendar.date_day
+    isActive: false
+    crossFilteringBehavior: oneDirection

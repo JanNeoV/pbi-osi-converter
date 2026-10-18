@@ -1,0 +1,16 @@
+{
+  "label": "source-commit",
+  "command": [
+    "git",
+    "-C",
+    "<repository>\\.tmp\\task04-databricks\\ossie-current",
+    "rev-parse",
+    "HEAD"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0,
+  "stdout": "source-commit.stdout.log",
+  "stderr": "source-commit.stderr.log",
+  "execution_status": "EXECUTED",
+  "warnings": []
+}

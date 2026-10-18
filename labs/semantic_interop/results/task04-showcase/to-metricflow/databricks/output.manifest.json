@@ -1,0 +1,188 @@
+{
+  "semantic_models": [
+    {
+      "name": "conversion_demo_databricks",
+      "node_relation": {
+        "alias": "session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n",
+        "schema_name": "session_id, s",
+        "database": "SELECT s",
+        "relation_name": "SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n"
+      },
+      "entities": [],
+      "measures": [],
+      "dimensions": [
+        {
+          "name": "sales_channel",
+          "description": "One channel per originating session",
+          "type": "categorical",
+          "is_partition": false
+        },
+        {
+          "name": "session_month",
+          "description": "Session cohort month, not transaction month",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "CAST(DATE_TRUNC('MONTH', session_date) AS DATE)"
+        }
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "name": "eligible_sessions",
+      "description": "Includes eligible sessions without orders; distinct survives multiple orders",
+      "type": "simple",
+      "type_params": {
+        "expr": "session_id",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "conversion_demo_databricks",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "converted_sessions",
+      "type": "simple",
+      "type_params": {
+        "expr": "COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid')",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "conversion_demo_databricks",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "conversion_rate__numerator",
+      "type": "simple",
+      "type_params": {
+        "expr": "CAST(COUNT(DISTINCT session_id) FILTER(WHERE order_status = 'paid') AS DOUBLE)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "conversion_demo_databricks",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "conversion_rate__denominator",
+      "type": "simple",
+      "type_params": {
+        "expr": "NULLIF(COUNT(DISTINCT session_id), 0)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "conversion_demo_databricks",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "conversion_rate",
+      "description": "Recompute the aggregate ratio at the requested grain; zero denominator returns NULL",
+      "type": "ratio",
+      "type_params": {
+        "numerator": {
+          "name": "conversion_rate__numerator"
+        },
+        "denominator": {
+          "name": "conversion_rate__denominator"
+        },
+        "input_measures": [],
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "paid_revenue",
+      "description": "EUR attributed to session month; empty paid sums remain NULL",
+      "type": "simple",
+      "type_params": {
+        "expr": "SUM(amount_eur) FILTER (WHERE order_status = 'paid')",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "conversion_demo_databricks",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "paid_order_count",
+      "type": "simple",
+      "type_params": {
+        "expr": "COUNT(DISTINCT order_id) FILTER (WHERE order_status = 'paid')",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "conversion_demo_databricks",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "average_paid_order_value__numerator",
+      "type": "simple",
+      "type_params": {
+        "expr": "SUM(amount_eur) FILTER(WHERE order_status = 'paid')",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "conversion_demo_databricks",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "average_paid_order_value__denominator",
+      "type": "simple",
+      "type_params": {
+        "expr": "NULLIF(COUNT(DISTINCT order_id) FILTER(WHERE order_status = 'paid'), 0)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "conversion_demo_databricks",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "average_paid_order_value",
+      "description": "Paid revenue divided by paid orders, not converted sessions",
+      "type": "ratio",
+      "type_params": {
+        "numerator": {
+          "name": "average_paid_order_value__numerator"
+        },
+        "denominator": {
+          "name": "average_paid_order_value__denominator"
+        },
+        "input_measures": [],
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    }
+  ],
+  "project_configuration": {
+    "time_spine_table_configurations": [],
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "time_spines": []
+  },
+  "saved_queries": []
+}

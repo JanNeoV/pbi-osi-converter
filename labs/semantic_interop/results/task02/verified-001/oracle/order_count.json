@@ -1,0 +1,13 @@
+{
+  "columns": [
+    "order_count"
+  ],
+  "rows": [
+    [
+      {
+        "type": "integer",
+        "value": "8"
+      }
+    ]
+  ]
+}

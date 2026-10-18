@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "<repository>\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "<repository>\\labs\\semantic_interop\\showcase\\metricflow_task05.py",
+    "execute",
+    "--work",
+    "<repository>\\.tmp\\task05-metricflow-v2\\elementary",
+    "--label",
+    "spine-only-experiment",
+    "--manifest",
+    "<repository>\\labs\\semantic_interop\\results\\task05-minimal\\metricflow\\elementary\\output.manifest.json",
+    "--spine-experiment",
+    "--elementary"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0
+}

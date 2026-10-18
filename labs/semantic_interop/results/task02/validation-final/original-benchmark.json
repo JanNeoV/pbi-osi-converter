@@ -1,0 +1,26 @@
+{
+  "command": "python -m semantic_lab benchmark --check",
+  "offline_guard": "inherited Python audit socket guard",
+  "reports": [
+    ".tmp/semantic-lab/run-jvzs95cb/report.json",
+    ".tmp/semantic-lab/run-va0ut924/report.json"
+  ],
+  "all_fields_except_input_provenance_equal_historical": true,
+  "historical_input_hash_count": 52,
+  "unchanged_historical_input_hashes": 50,
+  "changed_input_hashes": [
+    "labs/semantic_interop/src/semantic_lab/__main__.py",
+    "labs/semantic_interop/src/semantic_lab/integrations.py"
+  ],
+  "new_input_hashes": [
+    "labs/semantic_interop/fixtures/regressions/cases.json",
+    "labs/semantic_interop/src/semantic_lab/diagnostics.py",
+    "labs/semantic_interop/src/semantic_lab/regressions.py"
+  ],
+  "artifact_hash_count": 36,
+  "all_artifact_hashes_equal_historical": true,
+  "acceptance": {
+    "accepted": true,
+    "failures": []
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "offline_guard": "Python audit hook denies socket.connect and socket.getaddrinfo in worker/dbt subprocesses; not an OS firewall",
+  "repeated_reports_equal": true,
+  "artifact_hashes_verified": true,
+  "reports": [
+    ".tmp/semantic-lab/run-3nf7te31/report.json",
+    ".tmp/semantic-lab/run-57tzvgny/report.json"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+    "-jar",
+    "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+    "import",
+    "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\source.metric-view.yml",
+    "-o",
+    "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\imported.ossie.yml",
+    "--name",
+    "task05_databricks"
+  ],
+  "cwd": "C:\\github\\pbi-osi-converter",
+  "exit_code": 0,
+  "stdout": "to-ossie.stdout.log",
+  "stderr": "to-ossie.stderr.log"
+}

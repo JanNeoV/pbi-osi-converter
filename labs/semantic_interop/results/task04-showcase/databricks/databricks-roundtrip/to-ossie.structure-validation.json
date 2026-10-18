@@ -1,0 +1,4 @@
+{
+  "validation": "PASS",
+  "method": "Official OssieDocument.model_validate"
+}

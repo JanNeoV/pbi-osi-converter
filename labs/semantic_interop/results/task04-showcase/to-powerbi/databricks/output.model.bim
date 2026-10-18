@@ -1,0 +1,148 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "culture": "en-US",
+    "description": "Candidate session-cohort conversion metrics, observed before 2026-03-01 exclusive; runtime NOT_EXECUTED",
+    "tables": [
+      {
+        "columns": [
+          {
+            "description": "One channel per originating session",
+            "name": "sales_channel",
+            "sourceColumn": "sales_channel"
+          },
+          {
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "OSSIE_SQL_2026"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "CAST(DATE_TRUNC('MONTH', session_date) AS DATE)"
+              }
+            ],
+            "description": "Session cohort month, not transaction month",
+            "expression": "BLANK()",
+            "name": "session_month",
+            "type": "calculated"
+          }
+        ],
+        "measures": [
+          {
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "DATABRICKS"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "COUNT(DISTINCT session_id)"
+              }
+            ],
+            "description": "Includes eligible sessions without orders; distinct survives multiple orders",
+            "expression": "BLANK()",
+            "name": "eligible_sessions"
+          },
+          {
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "DATABRICKS"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid')"
+              }
+            ],
+            "expression": "BLANK()",
+            "name": "converted_sessions"
+          },
+          {
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "DATABRICKS"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0)"
+              }
+            ],
+            "description": "Recompute the aggregate ratio at the requested grain; zero denominator returns NULL",
+            "expression": "BLANK()",
+            "name": "conversion_rate"
+          },
+          {
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "DATABRICKS"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "SUM(amount_eur) FILTER (WHERE order_status = 'paid')"
+              }
+            ],
+            "description": "EUR attributed to session month; empty paid sums remain NULL",
+            "expression": "BLANK()",
+            "name": "paid_revenue"
+          },
+          {
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "DATABRICKS"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "COUNT(DISTINCT order_id) FILTER (WHERE order_status = 'paid')"
+              }
+            ],
+            "expression": "BLANK()",
+            "name": "paid_order_count"
+          },
+          {
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "DATABRICKS"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "(SUM(amount_eur) FILTER (WHERE order_status = 'paid')) / NULLIF(COUNT(DISTINCT order_id) FILTER (WHERE order_status = 'paid'), 0)"
+              }
+            ],
+            "description": "Paid revenue divided by paid orders, not converted sessions",
+            "expression": "BLANK()",
+            "name": "average_paid_order_value"
+          }
+        ],
+        "name": "conversion_demo_databricks",
+        "partitions": [
+          {
+            "mode": "import",
+            "name": "conversion_demo_databricks",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"localhost\", \"database\", [Query=\"SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,",
+                "       o.order_id, o.order_date, o.amount_eur, o.order_status",
+                "FROM demo.semantic_interop.sessions AS s",
+                "LEFT JOIN demo.semantic_interop.orders AS o",
+                "  ON s.session_id = o.session_id",
+                " AND o.order_date < DATE '2026-03-01'",
+                "WHERE s.session_date >= DATE '2026-01-01'",
+                "  AND s.session_date < DATE '2026-03-01'\"])",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "name": "conversion_demo_databricks"
+}

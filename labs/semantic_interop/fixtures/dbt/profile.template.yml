@@ -1,0 +1,9 @@
+# Copied to an isolated generated project as profiles.yml by the runner.
+semantic_lab:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: benchmark.duckdb
+      schema: main
+      threads: 1

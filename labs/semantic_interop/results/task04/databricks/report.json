@@ -1,0 +1,240 @@
+{
+  "checked_on": "2026-10-18",
+  "upstream_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+  "adapter_version": "0.1.0-SNAPSHOT",
+  "baseline_upgraded": false,
+  "upstream_source_modified": false,
+  "java_module_equal_to_task02_commit": "ef91cb61092c60f4b918016a81cfdbe483e113bc",
+  "input_source": "labs/semantic_interop/results/task04/metricflow/platforms/converted.ossie.yml",
+  "input_sha256": "903a98b9e95c30632bd63fb670e507f4e0eab1cbb62e1a35744ce5332c200360",
+  "jar_path": ".tmp/task04-databricks/build/target/ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+  "jar_sha256": "09af8c0868cd56eac6a2de0e07dd59c1288506d4dd5779c9db2d3fbcec1e490f",
+  "portable_toolchains": {
+    "java": "Eclipse Temurin 21.0.12.1+1",
+    "maven": "Apache Maven 3.9.11",
+    "java_zip_sha256": "f9d6e191ab098c0d416e7d588a24420a8621cd2f4720dab2459b8b7b2d2d8b4e",
+    "java_published_sha256": "f9d6e191ab098c0d416e7d588a24420a8621cd2f4720dab2459b8b7b2d2d8b4e",
+    "maven_zip_sha256": "0d7125e8c91097b36edb990ea5934e6c68b4440eef4ea96510a0f6815e7eeadb",
+    "maven_zip_sha512": "03e2d65d4483a3396980629f260e25cac0d8b6f7f2791e4dc20bc83f9514db8d0f05b0479e699a5f34679250c49c8e52e961262ded468a20de0be254d8207076",
+    "maven_published_sha512": "03e2d65d4483a3396980629f260e25cac0d8b6f7f2791e4dc20bc83f9514db8d0f05b0479e699a5f34679250c49c8e52e961262ded468a20de0be254d8207076"
+  },
+  "upstream_tests": {
+    "tests": 100,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "conversion_completed": true,
+  "structure_validated": "YAML_PARSE_AND_OFFICIAL_REIMPORT_AND_OSSIE_PYDANTIC_ONLY",
+  "databricks_creation_and_analysis": "NOT_EXECUTED",
+  "semantics_preserved": "LOSS_DETECTED_STATIC; runtime UNKNOWN",
+  "numerical_execution_completed": false,
+  "oracle_comparison_passed": null,
+  "target_runtime": "NOT_EXECUTED",
+  "commands": [
+    {
+      "label": "java-version",
+      "command": [
+        "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "maven-version",
+      "command": [
+        "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\apache-maven-3.9.11\\bin\\mvn.cmd",
+        "-version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "build",
+      "command": [
+        "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\apache-maven-3.9.11\\bin\\mvn.cmd",
+        "-B",
+        "-f",
+        "<repository>\\.tmp\\task04-databricks\\build\\pom.xml",
+        "-Dmaven.repo.local=<repository>\\.tmp\\task04-databricks\\maven-cache",
+        "clean",
+        "package"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "export",
+      "command": [
+        "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-jar",
+        "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+        "export",
+        "<repository>\\labs\\semantic_interop\\results\\task04\\databricks\\input.ossie.yml",
+        "-o",
+        "<repository>\\labs\\semantic_interop\\results\\task04\\databricks\\generated.metric-view.yml",
+        "--source",
+        "sessions"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "import",
+      "command": [
+        "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-jar",
+        "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+        "import",
+        "<repository>\\labs\\semantic_interop\\results\\task04\\databricks\\generated.metric-view.yml",
+        "-o",
+        "<repository>\\labs\\semantic_interop\\results\\task04\\databricks\\reimported.ossie.yml",
+        "--name",
+        "conversion_demo_databricks"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "warnings": [
+    "Conversion notices (12):",
+    "  [field 'session_date'] dimension.is_time has no Metric View counterpart; dropped",
+    "  [field 'sales_channel'] dimension.is_time has no Metric View counterpart; dropped",
+    "  [field 'is_eligible'] dimension.is_time has no Metric View counterpart; dropped",
+    "  [field 'order'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+    "  [field 'session'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+    "  [field 'session_date'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+    "  [field 'order_status'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+    "  [field 'converted_session_count'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+    "  [field 'order_count'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+    "  [field 'revenue'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+    "  [dataset 'sessions'] primary_key/unique_keys not stored as columns; used to set rely.at_most_one_match on a matching many_to_one join where applicable",
+    "  [dataset 'orders'] primary_key/unique_keys not stored as columns; used to set rely.at_most_one_match on a matching many_to_one join where applicable"
+  ],
+  "source_materialization_required": [
+    "labs/semantic_interop/fixtures/conversion_demo/dbt/models/sessions.sql",
+    "labs/semantic_interop/fixtures/conversion_demo/dbt/models/orders.sql"
+  ],
+  "generated_inventory": {
+    "version": "1.1",
+    "source": "\"benchmark\".\"main\".\"sessions\"",
+    "joins": [
+      {
+        "name": "orders",
+        "source": "\"benchmark\".\"main\".\"orders\"",
+        "using": [
+          "session_id"
+        ],
+        "cardinality": "one_to_many"
+      }
+    ],
+    "dimensions": [
+      {
+        "name": "session",
+        "expr": "session_id"
+      },
+      {
+        "name": "session_date",
+        "expr": "session_date"
+      },
+      {
+        "name": "sales_channel",
+        "expr": "sales_channel"
+      },
+      {
+        "name": "is_eligible",
+        "expr": "is_eligible"
+      },
+      {
+        "name": "session_count",
+        "expr": "session_id"
+      }
+    ],
+    "measures": [
+      {
+        "name": "eligible_sessions",
+        "expr": "COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id END)"
+      },
+      {
+        "name": "converted_sessions_base",
+        "expr": "COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.session_id END)"
+      },
+      {
+        "name": "paid_revenue_base",
+        "expr": "SUM(CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.amount_eur END)"
+      },
+      {
+        "name": "paid_order_count_base",
+        "expr": "COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.order_id END)"
+      },
+      {
+        "name": "conversion_rate",
+        "expr": "(COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.session_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id END)) / (COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id END))"
+      },
+      {
+        "name": "average_paid_order_value",
+        "expr": "(SUM(CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.amount_eur END) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id END)) / (COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.order_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id END))"
+      },
+      {
+        "name": "converted_sessions",
+        "expr": "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.session_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id END)"
+      },
+      {
+        "name": "paid_revenue",
+        "expr": "SUM(CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.amount_eur END) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id END)"
+      },
+      {
+        "name": "paid_order_count",
+        "expr": "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.order_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id END)"
+      }
+    ]
+  },
+  "artifact_sha256": {
+    "build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build.stdout.log": "437707f4029af9739da7e726eccbb4f9fc7f38b1f50d553c78a05858c7129488",
+    "commands.json": "a408a20d6e2aa7b750d50784046d61bb44680ae81590b6ba90f2ed754001a8e1",
+    "export.stderr.log": "ccd6216f84aad70d3340e2d67402bd0f13267ffd94e16ac671cd1d3a3168abc0",
+    "export.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "generated.metric-view.yml": "68a0141b3c9979dcac82f4934a043f77807800a63fdf254191805799b273a03a",
+    "import.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "import.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "input.ossie.yml": "903a98b9e95c30632bd63fb670e507f4e0eab1cbb62e1a35744ce5332c200360",
+    "java-version.stderr.log": "c09b3f6e7993628681d0f0e0fdfa12ccbfef6d7798ad260ec13807486db8b267",
+    "java-version.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "maven-version.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "maven-version.stdout.log": "06e787908c2fbd7901114bc76ee948f027e2afed79427ad9eda720c44423e327",
+    "reimported.ossie.yml": "35fadee0a2764f2b2749cfb4fdbbe4ff48175a6d7277fe08ab1445c6eba4440b",
+    "source-provenance.json": "a7e8ace0d05f91c91c005fac47a4cd7829227c16c8eb0cc7ae94d81fe64b85b8",
+    "structure-validation.log": "0bdac42c0cce09ab27da16e1ff9f267488b8d81ff6d88332bdea599fdde715ae"
+  },
+  "source_provenance": {
+    "current_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+    "current_java_tree": "8309efe7fb695936e35e5f3ddab9ebace1925f63",
+    "task02_java_tree": "8309efe7fb695936e35e5f3ddab9ebace1925f63",
+    "git_status": "",
+    "java_module_matches_task02": true
+  },
+  "static_findings": {
+    "notice_count": 12,
+    "one_to_many_fields_dropped": 7,
+    "time_dimension_markers_dropped": 3,
+    "key_notices": 2,
+    "unresolved_metricflow_dimension_tokens": {
+      "session__is_eligible": 9,
+      "order__order_status": 8
+    },
+    "token_resolution_observation": "Neither token exists among canonical raw/derived source columns or generated dimension names. No Databricks SQL failure is claimed without runtime execution.",
+    "source_sql_embedded": false,
+    "source_sql_required": "Recreate the authored dbt sessions/orders relations including cohort cutoff, order cutoff and orders.session_date; raw CSV table-name substitution is not equivalent.",
+    "session_month_dimension_generated": false,
+    "cohort_month_query_requires_manual_expression_or_added_dimension": true
+  },
+  "official_sources": [
+    "https://github.com/apache/ossie/blob/53418ba8a4b8a20951334fdb9d9638aa34b514e3/converters/databricks/java/README.md",
+    "https://docs.databricks.com/aws/en/uc-semantics/metric-views/feature-availability",
+    "https://docs.databricks.com/aws/en/uc-semantics/metric-views/yaml-reference",
+    "https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-create-view"
+  ],
+  "tool_downloads": {
+    "java": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jdk_x64_windows_hotspot_21.0.12.1_1.zip",
+    "java_sha256": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jdk_x64_windows_hotspot_21.0.12.1_1.zip.sha256.txt",
+    "maven": "https://archive.apache.org/dist/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.zip",
+    "maven_sha512": "https://archive.apache.org/dist/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.zip.sha512"
+  }
+}

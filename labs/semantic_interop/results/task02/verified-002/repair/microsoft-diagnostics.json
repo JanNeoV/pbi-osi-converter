@@ -1,0 +1,246 @@
+{
+  "bim": {
+    "compatibilityLevel": 1702,
+    "model": {
+      "culture": "en-US",
+      "expressions": [
+        {
+          "expression": [
+            "let",
+            "    Source = AzureStorage.DataLake(\"https://onelake.dfs.fabric.microsoft.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\")",
+            "in",
+            "    Source"
+          ],
+          "kind": "m",
+          "name": "DatabaseQuery"
+        }
+      ],
+      "relationships": [
+        {
+          "fromColumn": "order",
+          "fromTable": "items",
+          "name": "items__orders__order",
+          "toColumn": "order",
+          "toTable": "orders"
+        },
+        {
+          "fromColumn": "product",
+          "fromTable": "items",
+          "name": "items__products__product",
+          "toColumn": "product",
+          "toTable": "products"
+        }
+      ],
+      "tables": [
+        {
+          "columns": [
+            {
+              "isKey": true,
+              "name": "order",
+              "sourceColumn": "order_id"
+            },
+            {
+              "name": "order_date",
+              "sourceColumn": "order_date"
+            },
+            {
+              "name": "status",
+              "sourceColumn": "status"
+            },
+            {
+              "name": "order_count_measure",
+              "sourceColumn": "order_id"
+            },
+            {
+              "name": "customers_measure",
+              "sourceColumn": "customer_id"
+            }
+          ],
+          "measures": [
+            {
+              "annotations": [
+                {
+                  "name": "OssieExpressionDialect",
+                  "value": "ANSI_SQL"
+                },
+                {
+                  "name": "OssieExpression",
+                  "value": "SUM(items.amount)"
+                }
+              ],
+              "expression": "SUM('items'[revenue_measure])",
+              "name": "revenue"
+            },
+            {
+              "annotations": [
+                {
+                  "name": "OssieExpressionDialect",
+                  "value": "ANSI_SQL"
+                },
+                {
+                  "name": "OssieExpression",
+                  "value": "COUNT(DISTINCT orders.order_id)"
+                }
+              ],
+              "expression": "BLANK()",
+              "name": "order_count"
+            },
+            {
+              "annotations": [
+                {
+                  "name": "OssieExpressionDialect",
+                  "value": "ANSI_SQL"
+                },
+                {
+                  "name": "OssieExpression",
+                  "value": "COUNT(DISTINCT orders.customer_id)"
+                }
+              ],
+              "expression": "DISTINCTCOUNTNOBLANK('orders'[customers_measure])",
+              "name": "purchasing_customers"
+            },
+            {
+              "annotations": [
+                {
+                  "name": "OssieExpressionDialect",
+                  "value": "ANSI_SQL"
+                },
+                {
+                  "name": "OssieExpression",
+                  "value": "SUM(CASE WHEN item__status = 'completed' THEN items.amount END)"
+                }
+              ],
+              "expression": "BLANK()",
+              "name": "completed_revenue"
+            },
+            {
+              "annotations": [
+                {
+                  "name": "OssieExpressionDialect",
+                  "value": "ANSI_SQL"
+                },
+                {
+                  "name": "OssieExpression",
+                  "value": "(SUM(items.amount)) / (COUNT(DISTINCT orders.order_id))"
+                }
+              ],
+              "expression": "BLANK()",
+              "name": "average_order_value"
+            },
+            {
+              "annotations": [
+                {
+                  "name": "OssieExpressionDialect",
+                  "value": "ANSI_SQL"
+                },
+                {
+                  "name": "OssieExpression",
+                  "value": "(SUM(CASE WHEN item__status = 'completed' THEN items.amount END)) / (SUM(items.amount))"
+                }
+              ],
+              "expression": "BLANK()",
+              "name": "completed_revenue_share"
+            }
+          ],
+          "name": "orders",
+          "partitions": [
+            {
+              "mode": "directLake",
+              "name": "orders",
+              "source": {
+                "entityName": "orders",
+                "expressionSource": "DatabaseQuery",
+                "schemaName": "main",
+                "type": "entity"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "isKey": true,
+              "name": "item",
+              "sourceColumn": "item_id"
+            },
+            {
+              "name": "order",
+              "sourceColumn": "order_id"
+            },
+            {
+              "name": "product",
+              "sourceColumn": "product_id"
+            },
+            {
+              "name": "order_date",
+              "sourceColumn": "order_date"
+            },
+            {
+              "name": "status",
+              "sourceColumn": "status"
+            },
+            {
+              "name": "revenue_measure",
+              "sourceColumn": "amount"
+            }
+          ],
+          "name": "items",
+          "partitions": [
+            {
+              "mode": "directLake",
+              "name": "items",
+              "source": {
+                "entityName": "items",
+                "expressionSource": "DatabaseQuery",
+                "schemaName": "main",
+                "type": "entity"
+              }
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "isKey": true,
+              "name": "product",
+              "sourceColumn": "product_id"
+            },
+            {
+              "name": "category",
+              "sourceColumn": "category"
+            }
+          ],
+          "name": "products",
+          "partitions": [
+            {
+              "mode": "directLake",
+              "name": "products",
+              "source": {
+                "entityName": "products",
+                "expressionSource": "DatabaseQuery",
+                "schemaName": "main",
+                "type": "entity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "name": "synthetic_shop"
+  },
+  "returned_valid": true,
+  "warnings": [
+    "[metric 'revenue'] no home table recorded; the measure is placed on 'orders'",
+    "[metric 'order_count'] a 'ANSI_SQL' expression could not be translated to DAX (column 'orders.order_id' does not resolve to exactly one dataset field), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+    "[metric 'order_count'] no home table recorded; the measure is placed on 'orders'",
+    "[metric 'purchasing_customers'] no home table recorded; the measure is placed on 'orders'",
+    "[metric 'completed_revenue'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+    "[metric 'completed_revenue'] no home table recorded; the measure is placed on 'orders'",
+    "[metric 'average_order_value'] a 'ANSI_SQL' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+    "[metric 'average_order_value'] no home table recorded; the measure is placed on 'orders'",
+    "[metric 'completed_revenue_share'] a 'ANSI_SQL' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+    "[metric 'completed_revenue_share'] no home table recorded; the measure is placed on 'orders'",
+    "[DatabaseQuery] no workspaceId/itemId given; the Direct Lake source uses placeholder ids",
+    "[model] shared Power Query expressions and parameters ('expressions') has no Apache Ossie counterpart; preserved in the Power BI stash for round trip, but not represented in the Apache Ossie document"
+  ]
+}

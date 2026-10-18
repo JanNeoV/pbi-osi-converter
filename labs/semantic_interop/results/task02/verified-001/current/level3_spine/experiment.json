@@ -1,0 +1,31 @@
+{
+  "interventions": [
+    {
+      "after": [
+        {
+          "custom_granularities": [],
+          "node_relation": {
+            "alias": "time_spine",
+            "database": "benchmark",
+            "relation_name": "\"benchmark\".\"main\".\"time_spine\"",
+            "schema_name": "main"
+          },
+          "primary_column": {
+            "name": "date_day",
+            "time_granularity": "day"
+          }
+        }
+      ],
+      "before": [],
+      "pointer": "/project_configuration/time_spines"
+    }
+  ],
+  "label": "level3_spine",
+  "level": 3,
+  "lossless_roundtrip_claim": false,
+  "manifest_sha256": "9555f066edc6aac41aefc24db39a417f6d3e2b130f0cf3c195ee792356dbb79e",
+  "parent_manifest": "roundtrip.canonical.json",
+  "parent_sha256": "96fc1ad1efaf76fe675f46a1e23e32aa146798991684cd86a95d606b9b7b61f9",
+  "schema_version": 1,
+  "source_manifest": "source.manifest.normalized.json"
+}

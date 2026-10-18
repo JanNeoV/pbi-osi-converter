@@ -1,0 +1,11 @@
+/// Presentation dimension derived from sessions. Select channel here to filter both business tables.
+table 'Sales Channel'
+	column sales_channel
+		dataType: string
+		isKey
+		summarizeBy: none
+		sourceColumn: sales_channel
+
+	partition 'Sales Channel' = m
+		mode: import
+		source = Table.Distinct(Table.SelectColumns(SessionsData, {"sales_channel"}))

@@ -1,0 +1,154 @@
+{
+  "accepted": true,
+  "branch": "research/semantic-interoperability-lab",
+  "date": "2026-10-17",
+  "dependency_versions_unchanged": true,
+  "final_public_repository_check": {
+    "command": "python scripts/check_public_repository.py --after-demo",
+    "exit_code": 0,
+    "result": "PUBLIC_REPOSITORY_CHECK_ACCEPTED"
+  },
+  "git_whitespace_check": "PASS",
+  "historical_results_unchanged": true,
+  "intentional_original_changes": {
+    "README.md": {
+      "after_sha256": "7426f44aaedaac32d48d9279727cdaad92aa122fd9fb57673091f4366399eb99",
+      "before_sha256": "4d69f847c711b476ff8db437a4013f94f1bbd808c3d5d42b5460b6ff9f38c076"
+    },
+    "labs/semantic_interop/README.md": {
+      "after_sha256": "b2ca29d7ce0b3d4a66ee8aa26f1148966902ca99a8f7b3c230c6eba8ec78d15e",
+      "before_sha256": "d7be51ab931a723265edb4b2572989283a616a9d1a88a0b698ce9d044de4e917"
+    },
+    "scripts/check_public_repository.py": {
+      "after_sha256": "e57e5937c50243e532dc46629052393b552e09d9816a64c3ed156b212ffaa053",
+      "before_sha256": "4299af8d5558aba058d8f033fec4f8a4f83fd3acee6e7a15fb1d47f018e16589"
+    }
+  },
+  "lab_tests": {
+    "command": "python -m pytest -q labs/semantic_interop/tests --basetemp .tmp/pytest-task03-final",
+    "passed": 78
+  },
+  "linux_validation": "NOT_EXECUTED",
+  "local_platform": "Windows / Python 3.12.10",
+  "new_platform_results": {
+    "TOM": "NOT_EXECUTED",
+    "controlled_faults": "5 executed, 5 detected",
+    "databricks_converter": "NOT_EXECUTED; no ready Java toolchain/JAR",
+    "databricks_runtime": "NOT_EXECUTED",
+    "microsoft": "9 emitted BLANK placeholders, no DAX execution",
+    "native_additional_order": "31 executed, 31 match",
+    "native_canonical": "31 executed, 31 match",
+    "power_bi_runtime": "NOT_EXECUTED",
+    "unmodified_roundtrip": "31 requested, 0 numerical executions, missing time spine"
+  },
+  "original_files_checked": 1184,
+  "parent_checks": {
+    "checks": [
+      {
+        "command": [
+          "python",
+          "scripts/check_public_repository.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "python",
+          "semantic_poc/run_pbi_trial_v2_audit.py",
+          "--check",
+          "--json"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "python",
+          "semantic_poc/run_demo.py",
+          "--clean",
+          "--check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "python",
+          "semantic_poc/run_agent_guided_conversion_demo.py",
+          "--clean",
+          "--check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "python",
+          "semantic_poc/run_end_to_end_demo.py",
+          "--clean",
+          "--check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "python",
+          "demo/run_public_demo.py",
+          "--check"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "pytest",
+          "-q",
+          "-m",
+          "not live_agent",
+          "--basetemp",
+          ".tmp/pytest-task03-stage-a-parent"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "python",
+          "scripts/check_public_repository.py",
+          "--after-demo"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "passed": true
+  },
+  "parent_tests": {
+    "command": "python -m pytest -q -m \"not live_agent\" --basetemp .tmp/pytest-task03-stage-a-parent",
+    "passed": 165,
+    "skipped": 1
+  },
+  "public_provenance_unchanged": true,
+  "pushed_merged_published": false,
+  "remote_ci": "NOT_EXECUTED",
+  "sealed_artifact_hashes_verified": 203,
+  "stage_a_gate": "stage-a-validation.json",
+  "task02_final_regression": {
+    "artifact_hashes_verified": true,
+    "offline_guard": "Python audit hook denies socket.connect and socket.getaddrinfo in worker/dbt subprocesses; not an OS firewall",
+    "passed": true,
+    "repeated_reports_equal": true,
+    "reports": [
+      ".tmp/semantic-lab/run-l4n9jid0/report.json",
+      ".tmp/semantic-lab/run-qzdoh9x2/report.json"
+    ]
+  },
+  "task03_offline_repeatability": {
+    "artifact_hashes_verified_by_existing_capture": true,
+    "capture": "labs/semantic_interop/results/task03/platforms-001/report.json",
+    "offline_guard": "Python audit hook denies socket.connect and socket.getaddrinfo; not an OS firewall",
+    "passed": true,
+    "repeated_reports_equal": true,
+    "reports": [
+      ".tmp/conversion-demo/run-wa0yj7wc/report.json",
+      ".tmp/conversion-demo/run-xj4sundf/report.json"
+    ]
+  },
+  "validation_note": "The initial check.py found a frozen provenance conflict. Original PUBLIC_PROVENANCE.json was restored. Exact current README/checker hashes are bound separately in docs/PUBLIC_REVISIONS.json. All check.py component checks subsequently passed; final lab/parent suites and repeatability checks are recorded above."
+}

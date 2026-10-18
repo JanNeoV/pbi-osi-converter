@@ -1,0 +1,111 @@
+version: "0.2.0.dev0"
+name: "conversion_demo_databricks"
+datasets:
+- name: "conversion_demo_databricks"
+  source: "\"benchmark\".\"main\".\"sessions\""
+  fields:
+  - name: "session"
+    expression:
+      dialects:
+      - dialect: "OSSIE_SQL_2026"
+        expression: "session_id"
+  - name: "session_date"
+    expression:
+      dialects:
+      - dialect: "OSSIE_SQL_2026"
+        expression: "session_date"
+  - name: "sales_channel"
+    expression:
+      dialects:
+      - dialect: "OSSIE_SQL_2026"
+        expression: "sales_channel"
+  - name: "is_eligible"
+    expression:
+      dialects:
+      - dialect: "OSSIE_SQL_2026"
+        expression: "is_eligible"
+  - name: "session_count"
+    expression:
+      dialects:
+      - dialect: "OSSIE_SQL_2026"
+        expression: "session_id"
+- name: "orders"
+  source: "\"benchmark\".\"main\".\"orders\""
+relationships:
+- name: "orders_to_conversion_demo_databricks"
+  from: "orders"
+  to: "conversion_demo_databricks"
+  from_columns:
+  - "session_id"
+  to_columns:
+  - "session_id"
+  custom_extensions:
+  - vendor_name: "DATABRICKS"
+    data: "{\"_v\": 1, \"cardinality\": \"one_to_many\"}"
+metrics:
+- name: "eligible_sessions"
+  expression:
+    dialects:
+    - dialect: "OSSIE_SQL_2026"
+      expression: "COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id\
+        \ END)"
+- name: "converted_sessions_base"
+  expression:
+    dialects:
+    - dialect: "OSSIE_SQL_2026"
+      expression: "COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status\
+        \ = 'paid' THEN orders.session_id END)"
+- name: "paid_revenue_base"
+  expression:
+    dialects:
+    - dialect: "OSSIE_SQL_2026"
+      expression: "SUM(CASE WHEN session__is_eligible = true AND order__order_status\
+        \ = 'paid' THEN orders.amount_eur END)"
+- name: "paid_order_count_base"
+  expression:
+    dialects:
+    - dialect: "OSSIE_SQL_2026"
+      expression: "COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status\
+        \ = 'paid' THEN orders.order_id END)"
+- name: "conversion_rate"
+  expression:
+    dialects:
+    - dialect: "OSSIE_SQL_2026"
+      expression: "(COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true\
+        \ AND order__order_status = 'paid' THEN orders.session_id END), 0) + 0 * COUNT(DISTINCT\
+        \ CASE WHEN session__is_eligible = true THEN session_id END)) / (COUNT(DISTINCT\
+        \ CASE WHEN session__is_eligible = true THEN session_id END))"
+- name: "average_paid_order_value"
+  expression:
+    dialects:
+    - dialect: "OSSIE_SQL_2026"
+      expression: "(SUM(CASE WHEN session__is_eligible = true AND order__order_status\
+        \ = 'paid' THEN orders.amount_eur END) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible\
+        \ = true THEN session_id END)) / (COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible\
+        \ = true AND order__order_status = 'paid' THEN orders.order_id END), 0) +\
+        \ 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id\
+        \ END))"
+- name: "converted_sessions"
+  expression:
+    dialects:
+    - dialect: "OSSIE_SQL_2026"
+      expression: "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND\
+        \ order__order_status = 'paid' THEN orders.session_id END), 0) + 0 * COUNT(DISTINCT\
+        \ CASE WHEN session__is_eligible = true THEN session_id END)"
+- name: "paid_revenue"
+  expression:
+    dialects:
+    - dialect: "OSSIE_SQL_2026"
+      expression: "SUM(CASE WHEN session__is_eligible = true AND order__order_status\
+        \ = 'paid' THEN orders.amount_eur END) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible\
+        \ = true THEN session_id END)"
+- name: "paid_order_count"
+  expression:
+    dialects:
+    - dialect: "OSSIE_SQL_2026"
+      expression: "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND\
+        \ order__order_status = 'paid' THEN orders.order_id END), 0) + 0 * COUNT(DISTINCT\
+        \ CASE WHEN session__is_eligible = true THEN session_id END)"
+custom_extensions:
+- vendor_name: "DATABRICKS"
+  data: "{\"_v\": 1, \"source_dataset\": \"conversion_demo_databricks\"}"

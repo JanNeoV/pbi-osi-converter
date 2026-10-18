@@ -1,0 +1,2 @@
+Conversion Rate =
+DIVIDE([Converted Sessions], [Eligible Sessions])

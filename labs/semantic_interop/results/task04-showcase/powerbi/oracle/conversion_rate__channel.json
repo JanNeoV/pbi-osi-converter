@@ -1,0 +1,32 @@
+{
+  "execution": "EXECUTED",
+  "sql": "oracle/conversion_rate__channel.sql",
+  "typed_result": {
+    "columns": [
+      "sales_channel",
+      "conversion_rate"
+    ],
+    "rows": [
+      [
+        {
+          "type": "string",
+          "value": "Direct"
+        },
+        {
+          "type": "float",
+          "value": "0.5"
+        }
+      ],
+      [
+        {
+          "type": "string",
+          "value": "Indirect"
+        },
+        {
+          "type": "float",
+          "value": "0.25"
+        }
+      ]
+    ]
+  }
+}

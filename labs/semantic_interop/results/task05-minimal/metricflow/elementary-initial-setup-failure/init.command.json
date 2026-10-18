@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "<repository>\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "<repository>\\labs\\semantic_interop\\showcase\\metricflow_task05.py",
+    "init",
+    "--work",
+    "<repository>\\.tmp\\task05-metricflow\\elementary",
+    "--elementary"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0
+}

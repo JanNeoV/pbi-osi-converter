@@ -1,0 +1,5868 @@
+{
+  "artifact_sha256": {
+    "failures/average_of_rates.sql": "b28ab0e6dbdcbf86c526c9df5d77c9f91f2df3e019719f00b534609be0ab67a7",
+    "failures/incorrect_conversion.sql": "f2f6b92e3fa3a5493943773e06b5482ed4a9bcec73913cbfdf3c1ad2353fb41b",
+    "failures/inner_join.sql": "df5091a4f428c1193b6a08c3af68cfc8bc89c6145cca005e16741a24369bbf22",
+    "failures/removed_channel_filter.sql": "4e47e3ea13ce11e715c30c003147ac6dc284b33f2dacdde27d412323b89493b4",
+    "failures/wrong_denominator.sql": "cd4e1a9e22b8f54f22ae9840dfe41129019d3b00276551cb8271545b1541981b",
+    "native/average_paid_order_value__channel.sql": "cc6460b2c3cecc415097f47ca6509ccc9928d1fd700e846b7efb1d6d19142b1c",
+    "native/average_paid_order_value__empty.sql": "39fb5bec0c1d7cb7efbb74f3bae2d00e8ee1d26729249edb1f6709114759d811",
+    "native/average_paid_order_value__month.sql": "4942be2f4bf5b60f280fd3b6feabb942a73803bad713f3aad6a18dbde881c23d",
+    "native/average_paid_order_value__month_channel.sql": "2406b510bac9d3df823c312f1f1b94978cdd18e253defa985fca5d31cd818502",
+    "native/average_paid_order_value__overall.sql": "dff5ec57cee0ad54dfd9b5522ff6231c91c67cfed2761483cb75786066ffe8af",
+    "native/conversion_rate__channel.sql": "26b008fafd31d5ca21d13366e7378dab9fe9c8deb3ed7093abad0a745659273b",
+    "native/conversion_rate__empty.sql": "d44bab5e31bbac7db4a3f6ffd847f0f97769f89c3058f01103415d51a52d250a",
+    "native/conversion_rate__month.sql": "4573fb5cf49b4baf156ff8314fedaa032a1a3d10705e559c453cdd334067dce5",
+    "native/conversion_rate__month_channel.sql": "85cc901ccf8033135ab8effa0ce5770ff71e88ea354570caf79e76950b9f03a2",
+    "native/conversion_rate__nonconverting.sql": "c7390333660007463c1bf33e8da6b5f0087c9391e8897f825a23342e1c939de5",
+    "native/conversion_rate__overall.sql": "7b6b4ad718bbb5ff14cb224cc7e253403c455f28998b2dff557d63bc37e3cc87",
+    "native/converted_sessions__channel.sql": "923d73cb5263e224f6df37162cac2144e43885d009f1ca9161c4fccb60702872",
+    "native/converted_sessions__empty.sql": "d6e226907f307949e9b062b6979c0a8f5d028caf1dc57eae17d00e3ee0b79ac2",
+    "native/converted_sessions__month.sql": "c4fd56a64658a6c2f51bde867ebbd20ff5c93db7e9449fd3638b6359d74dd729",
+    "native/converted_sessions__month_channel.sql": "dc3d846cf28e5d25c8948fa34fe108c68b1ddc52fd028f7a96f9c1494c20d921",
+    "native/converted_sessions__overall.sql": "0aa0eb8238ae63745a313408c8caf4ee6954f434e89a0a2d7eaa9758e804fc78",
+    "native/eligible_sessions__channel.sql": "e0dcfa48b1ef5cc5da271ac2df7a4266efd70b6352b23efbe58deed3d15b9668",
+    "native/eligible_sessions__empty.sql": "ad38c6ffaf6c64f6a4e0b6f6ad23ab7b65cb47488410cd13124ba9cd472d3054",
+    "native/eligible_sessions__month.sql": "32662e1bda8f47a848b45a570ab3bd09279e5ef58d169dfda8bd044a6ff4dc0b",
+    "native/eligible_sessions__month_channel.sql": "83702d2898f98fcf072f90c43f5c5a7817e11e58835c519fcc056c90597392de",
+    "native/eligible_sessions__overall.sql": "b68ea77ac515be6d8c65e854e9605cfe44388510b508588999732e091a2a07fa",
+    "native/paid_order_count__channel.sql": "260dcce77b1b448d0a74de16b9039bde90df70d4b61f1b2dd72f6cbf924b0f5b",
+    "native/paid_order_count__empty.sql": "bc7d0f04b5df4bef33ce90418edc69755a095d8481e50c9eb2979a92a3a40ab1",
+    "native/paid_order_count__month.sql": "8b359e3f1fb61420df1a2cbd2cfdedad8a2d6968f49ddf786ebd1c0888deb1e6",
+    "native/paid_order_count__month_channel.sql": "430aed16af370bf7993f3e6347257e05bf57a2c4a79a2178a3cd0d33444d8a09",
+    "native/paid_order_count__overall.sql": "cf57b7fa8e6466dd2894a63baa8f5852bde88a845e5e37e0ce60774a93b4955b",
+    "native/paid_revenue__channel.sql": "1cbbb72aff217797f106ff623ac6f1d65cb86b357db73e9995271de024de37af",
+    "native/paid_revenue__empty.sql": "2c96edeb22144364f308e238d0ec35afe414c08c45610ca0b5e58a13ddb79541",
+    "native/paid_revenue__month.sql": "16c36a94c64e8b4951739b5c8fdd3fc8fc1b4ee811d0f3e0035d8a07dfeb6cfd",
+    "native/paid_revenue__month_channel.sql": "29eda6044d6e721abd9cb311a6850d575159f140328d2615cbbdebd06e54c1b0",
+    "native/paid_revenue__overall.sql": "b684107ddaccf713063028ab58bc295e236e1a03678667a62b1889d8cebb937c",
+    "oracle/average_paid_order_value__channel.sql": "98475d5ce3a9a94607b57dc0b3ac7d34160724bc819f3885bfbac6c2839e2ad9",
+    "oracle/average_paid_order_value__empty.sql": "62778d34700bc2252c836a31708864c5747ec409da0f66258e17788dc21fb5d9",
+    "oracle/average_paid_order_value__month.sql": "b948c35e35cfaa0aae0da49b9e4320246d83dc45f80f649192522abe0dcdad62",
+    "oracle/average_paid_order_value__month_channel.sql": "6212119296c1883070d604d9ab833956315667da0388b2ab3d351b25c85b1698",
+    "oracle/average_paid_order_value__overall.sql": "c988172f7c3dd5c0e69b6b20127142d6c9f7f69b49d78d8fee5a3ba06d7bd1a2",
+    "oracle/conversion_rate__channel.sql": "49b73311f00248130c10be463984bbaea1665fd40cf3acc1bb089aa1015eb850",
+    "oracle/conversion_rate__empty.sql": "6c3d1319462cc189aeeb31cad4ad95d597400f9fc3e02c8c88a94ee132618cb2",
+    "oracle/conversion_rate__month.sql": "7a94d74dd377931e88e5ccc0f566d97ceae10f491e6ab120d2c5bd3d2f80a15c",
+    "oracle/conversion_rate__month_channel.sql": "158dde6b9665e829a04a7e1d1fa739c216a8ddf4b0013d216b23cba9352586bb",
+    "oracle/conversion_rate__nonconverting.sql": "84dc76a44d7c021f99d1fefc9e0839fb0228c3088994a56b711feff8a38c7b04",
+    "oracle/conversion_rate__overall.sql": "c6aea307045cc5c9b0209929a2bef983f9fa863ee1d0e0cde14c854506bc57c5",
+    "oracle/converted_sessions__channel.sql": "7ceaa0b843e1e613e231862bcfea7eeee80df9901848c778ae3153dcbf0264fc",
+    "oracle/converted_sessions__empty.sql": "75fa71852a2560ab2a3a62a6e538352ebe80bc2a976059d4aab30f74a6c3092a",
+    "oracle/converted_sessions__month.sql": "e32a4730f68169dee9daf74561cc0bfcf2bf2c3b6033acb823b8d05ead48b529",
+    "oracle/converted_sessions__month_channel.sql": "0d95f03d3fb79535c7d715bb3b9dcb490a053e6ef1ed3a18a2242aa021b964c0",
+    "oracle/converted_sessions__overall.sql": "384655515308ac92180bb454bee570e09ec797a9b689c6eb91d544b3e58d1b6a",
+    "oracle/eligible_sessions__channel.sql": "f183c31b4e2e65077905c4cf57f300ee777fda4b47fdf313778c35ac54c31933",
+    "oracle/eligible_sessions__empty.sql": "4842afd12b7ea72cdf872c8f3142c1ce908e0e65488ffad9ebead56867984d24",
+    "oracle/eligible_sessions__month.sql": "e5f40bd559c3c606e34900ca9b3dc0cee39ac8cd8ac1e88f1a528b83d50d0008",
+    "oracle/eligible_sessions__month_channel.sql": "a25df1486f79235e011465946faf88b6cb05b331977826542dd8973429ae20b1",
+    "oracle/eligible_sessions__overall.sql": "830b549de375187e1e44576070c5643b551eddde1cf8c34b0c7c1f94b04e8b74",
+    "oracle/paid_order_count__channel.sql": "ac197283dd226fced811145b10d2b59ce7d4bef65e4c52235cb89d498780e363",
+    "oracle/paid_order_count__empty.sql": "abf8b69c284bab3f68f947f9762a10e125aa17561d199288b739bf64377d99f5",
+    "oracle/paid_order_count__month.sql": "97279cd1d4c86b59ea072d6931867c3f40ab9cf9617965d47430288bb7758a24",
+    "oracle/paid_order_count__month_channel.sql": "f3666890eb86fd535a0ae16311c0aa0d80c7be5628da4c0fe95fb3400201ba07",
+    "oracle/paid_order_count__overall.sql": "e64f259816660669da715fcc2077c7f93cc7873d39feae9fddc7e5c93d4a0106",
+    "oracle/paid_revenue__channel.sql": "5da801325782211f97be53bad72f06f3553a243c1996c99e8db6899ac58d732b",
+    "oracle/paid_revenue__empty.sql": "3d50e9cede14f568ed0731a3edf4a242f5e9dcdaa3d40c77f723aa47caa22c5c",
+    "oracle/paid_revenue__month.sql": "c905110a6c14f4aba520bd3da4a1df16570bed281142de647167b10908f4e449",
+    "oracle/paid_revenue__month_channel.sql": "8a7e1d26771f53c669ddce727976ccd9cd870f41ead8af0cb1d6bc3437239bfd",
+    "oracle/paid_revenue__overall.sql": "cf074c4d17631995355ecff94862d00f338d88470c42aadcb2a7ae1e422b1442",
+    "source.manifest.json": "e6d61a6e2ad73f26d84e660d382c80835af33a571a4251af558ee09be1e8551b"
+  },
+  "attribution": "Each order belongs to its originating session; canonical month uses session_date",
+  "cases": [
+    {
+      "business_question": "How many eligible sessions did we receive?",
+      "case_id": "eligible_sessions__overall",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "eligible_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "10"
+            },
+            "keys": [],
+            "observed": {
+              "type": "integer",
+              "value": "10"
+            },
+            "relative": "0"
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/eligible_sessions__overall.sql",
+        "native/eligible_sessions__overall.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "eligible_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "10"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "eligible_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "10"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many eligible sessions did we receive?",
+      "case_id": "eligible_sessions__channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "eligible_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "4"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "4"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "eligible_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "6"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "6"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/eligible_sessions__channel.sql",
+        "native/eligible_sessions__channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "sales_channel",
+          "eligible_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "6"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "4"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "sales_channel",
+          "eligible_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "6"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "4"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many eligible sessions did we receive?",
+      "case_id": "eligible_sessions__month",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "eligible_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "5"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "5"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "eligible_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "5"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "5"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/eligible_sessions__month.sql",
+        "native/eligible_sessions__month.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "eligible_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "integer",
+              "value": "5"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "integer",
+              "value": "5"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "eligible_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "integer",
+              "value": "5"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "integer",
+              "value": "5"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many eligible sessions did we receive?",
+      "case_id": "eligible_sessions__month_channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "eligible_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "2"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "2"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "eligible_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "2"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "2"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "eligible_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "3"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "3"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "eligible_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "3"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "3"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/eligible_sessions__month_channel.sql",
+        "native/eligible_sessions__month_channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "eligible_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "2"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "2"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "eligible_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "2"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "2"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many eligible sessions had a paid order by the cutoff?",
+      "case_id": "converted_sessions__overall",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "converted_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "4"
+            },
+            "keys": [],
+            "observed": {
+              "type": "integer",
+              "value": "4"
+            },
+            "relative": "0"
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/converted_sessions__overall.sql",
+        "native/converted_sessions__overall.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "converted_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "4"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "converted_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "4"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many eligible sessions had a paid order by the cutoff?",
+      "case_id": "converted_sessions__channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "converted_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "1"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "1"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "converted_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "3"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "3"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/converted_sessions__channel.sql",
+        "native/converted_sessions__channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "sales_channel",
+          "converted_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "sales_channel",
+          "converted_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many eligible sessions had a paid order by the cutoff?",
+      "case_id": "converted_sessions__month",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "converted_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "1"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "1"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "converted_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "3"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "3"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/converted_sessions__month.sql",
+        "native/converted_sessions__month.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "converted_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "converted_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many eligible sessions had a paid order by the cutoff?",
+      "case_id": "converted_sessions__month_channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "converted_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "0"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "0"
+            },
+            "relative": null
+          },
+          {
+            "absolute": "0",
+            "column": "converted_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "1"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "1"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "converted_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "1"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "1"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "converted_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "2"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "2"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/converted_sessions__month_channel.sql",
+        "native/converted_sessions__month_channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "converted_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "2"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "0"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "converted_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "2"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "0"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__overall",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.0",
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "0.4"
+            },
+            "keys": [],
+            "observed": {
+              "type": "float",
+              "value": "0.4"
+            },
+            "relative": "0.0"
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/conversion_rate__overall.sql",
+        "native/conversion_rate__overall.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.0",
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "0.25"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "0.25"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": "0.0",
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "0.5"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "0.5"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/conversion_rate__channel.sql",
+        "native/conversion_rate__channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.25"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.25"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__month",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.0",
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "0.2"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "0.2"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": "0.0",
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "0.6"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "0.6"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/conversion_rate__month.sql",
+        "native/conversion_rate__month.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "float",
+              "value": "0.6"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "float",
+              "value": "0.2"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "float",
+              "value": "0.6"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "float",
+              "value": "0.2"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__month_channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.0",
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "0.0"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "0.0"
+            },
+            "relative": null
+          },
+          {
+            "absolute": "0.0",
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "0.3333333333333333"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "0.3333333333333333"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": "0.0",
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "0.5"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "0.5"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": "0.0",
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "0.6666666666666666"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "0.6666666666666666"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/conversion_rate__month_channel.sql",
+        "native/conversion_rate__month_channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.6666666666666666"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.3333333333333333"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.6666666666666666"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.3333333333333333"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How much paid revenue belongs to these session cohorts?",
+      "case_id": "paid_revenue__overall",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.00",
+            "column": "paid_revenue",
+            "equal": true,
+            "expected": {
+              "type": "decimal",
+              "value": "390.00"
+            },
+            "keys": [],
+            "observed": {
+              "type": "decimal",
+              "value": "390.00"
+            },
+            "relative": "0"
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/paid_revenue__overall.sql",
+        "native/paid_revenue__overall.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "390.00"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "390.00"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How much paid revenue belongs to these session cohorts?",
+      "case_id": "paid_revenue__channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.00",
+            "column": "paid_revenue",
+            "equal": true,
+            "expected": {
+              "type": "decimal",
+              "value": "300.00"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "decimal",
+              "value": "300.00"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0.00",
+            "column": "paid_revenue",
+            "equal": true,
+            "expected": {
+              "type": "decimal",
+              "value": "90.00"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "decimal",
+              "value": "90.00"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/paid_revenue__channel.sql",
+        "native/paid_revenue__channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "300.00"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "300.00"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How much paid revenue belongs to these session cohorts?",
+      "case_id": "paid_revenue__month",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.00",
+            "column": "paid_revenue",
+            "equal": true,
+            "expected": {
+              "type": "decimal",
+              "value": "120.00"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "decimal",
+              "value": "120.00"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0.00",
+            "column": "paid_revenue",
+            "equal": true,
+            "expected": {
+              "type": "decimal",
+              "value": "270.00"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "decimal",
+              "value": "270.00"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/paid_revenue__month.sql",
+        "native/paid_revenue__month.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "decimal",
+              "value": "270.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "decimal",
+              "value": "270.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How much paid revenue belongs to these session cohorts?",
+      "case_id": "paid_revenue__month_channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.00",
+            "column": "paid_revenue",
+            "equal": true,
+            "expected": {
+              "type": "decimal",
+              "value": "120.00"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "decimal",
+              "value": "120.00"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0.00",
+            "column": "paid_revenue",
+            "equal": true,
+            "expected": {
+              "type": "decimal",
+              "value": "180.00"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "decimal",
+              "value": "180.00"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0.00",
+            "column": "paid_revenue",
+            "equal": true,
+            "expected": {
+              "type": "decimal",
+              "value": "90.00"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "decimal",
+              "value": "90.00"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "paid_revenue",
+            "equal": true,
+            "expected": {
+              "type": "null",
+              "value": null
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "null",
+              "value": null
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/paid_revenue__month_channel.sql",
+        "native/paid_revenue__month_channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "180.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "180.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many paid orders belong to eligible sessions?",
+      "case_id": "paid_order_count__overall",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "paid_order_count",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "4"
+            },
+            "keys": [],
+            "observed": {
+              "type": "integer",
+              "value": "4"
+            },
+            "relative": "0"
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/paid_order_count__overall.sql",
+        "native/paid_order_count__overall.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "paid_order_count"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "4"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "paid_order_count"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "4"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many paid orders belong to eligible sessions?",
+      "case_id": "paid_order_count__channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "paid_order_count",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "1"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "1"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "paid_order_count",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "3"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "3"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/paid_order_count__channel.sql",
+        "native/paid_order_count__channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "sales_channel",
+          "paid_order_count"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "sales_channel",
+          "paid_order_count"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many paid orders belong to eligible sessions?",
+      "case_id": "paid_order_count__month",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "paid_order_count",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "1"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "1"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "paid_order_count",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "3"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "3"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/paid_order_count__month.sql",
+        "native/paid_order_count__month.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "paid_order_count"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "paid_order_count"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "integer",
+              "value": "3"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many paid orders belong to eligible sessions?",
+      "case_id": "paid_order_count__month_channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "paid_order_count",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "0"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "0"
+            },
+            "relative": null
+          },
+          {
+            "absolute": "0",
+            "column": "paid_order_count",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "1"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "1"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "paid_order_count",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "1"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "1"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": "0",
+            "column": "paid_order_count",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "2"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "integer",
+              "value": "2"
+            },
+            "relative": "0"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/paid_order_count__month_channel.sql",
+        "native/paid_order_count__month_channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "paid_order_count"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "2"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "0"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "paid_order_count"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "2"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "integer",
+              "value": "1"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "integer",
+              "value": "0"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What is the average paid order value?",
+      "case_id": "average_paid_order_value__overall",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.0",
+            "column": "average_paid_order_value",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "97.5"
+            },
+            "keys": [],
+            "observed": {
+              "type": "float",
+              "value": "97.5"
+            },
+            "relative": "0.0"
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/average_paid_order_value__overall.sql",
+        "native/average_paid_order_value__overall.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "average_paid_order_value"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "97.5"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "average_paid_order_value"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "97.5"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What is the average paid order value?",
+      "case_id": "average_paid_order_value__channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.0",
+            "column": "average_paid_order_value",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "100.0"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "100.0"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": "0.0",
+            "column": "average_paid_order_value",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "90.0"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "90.0"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/average_paid_order_value__channel.sql",
+        "native/average_paid_order_value__channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "sales_channel",
+          "average_paid_order_value"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "100.0"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "90.0"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "sales_channel",
+          "average_paid_order_value"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "100.0"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "90.0"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What is the average paid order value?",
+      "case_id": "average_paid_order_value__month",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.0",
+            "column": "average_paid_order_value",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "120.0"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "120.0"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": "0.0",
+            "column": "average_paid_order_value",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "90.0"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "90.0"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/average_paid_order_value__month.sql",
+        "native/average_paid_order_value__month.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "average_paid_order_value"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "float",
+              "value": "90.0"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "float",
+              "value": "120.0"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "average_paid_order_value"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "float",
+              "value": "90.0"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "float",
+              "value": "120.0"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What is the average paid order value?",
+      "case_id": "average_paid_order_value__month_channel",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.0",
+            "column": "average_paid_order_value",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "120.0"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "120.0"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": "0.0",
+            "column": "average_paid_order_value",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "90.0"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "90.0"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": "0.0",
+            "column": "average_paid_order_value",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "90.0"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "90.0"
+            },
+            "relative": "0.0"
+          },
+          {
+            "absolute": null,
+            "column": "average_paid_order_value",
+            "equal": true,
+            "expected": {
+              "type": "null",
+              "value": null
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "null",
+              "value": null
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "session_month",
+            "equal": true,
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/average_paid_order_value__month_channel.sql",
+        "native/average_paid_order_value__month_channel.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "average_paid_order_value"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "90.0"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "90.0"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "120.0"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "average_paid_order_value"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "90.0"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "90.0"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "120.0"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many eligible sessions did we receive?",
+      "case_id": "eligible_sessions__empty",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "eligible_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "0"
+            },
+            "keys": [],
+            "observed": {
+              "type": "integer",
+              "value": "0"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/eligible_sessions__empty.sql",
+        "native/eligible_sessions__empty.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "eligible_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "0"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "eligible_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "0"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many eligible sessions had a paid order by the cutoff?",
+      "case_id": "converted_sessions__empty",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "converted_sessions",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "0"
+            },
+            "keys": [],
+            "observed": {
+              "type": "integer",
+              "value": "0"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/converted_sessions__empty.sql",
+        "native/converted_sessions__empty.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "converted_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "0"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "converted_sessions"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "0"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__empty",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": null,
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "null",
+              "value": null
+            },
+            "keys": [],
+            "observed": {
+              "type": "null",
+              "value": null
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/conversion_rate__empty.sql",
+        "native/conversion_rate__empty.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How much paid revenue belongs to these session cohorts?",
+      "case_id": "paid_revenue__empty",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": null,
+            "column": "paid_revenue",
+            "equal": true,
+            "expected": {
+              "type": "null",
+              "value": null
+            },
+            "keys": [],
+            "observed": {
+              "type": "null",
+              "value": null
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/paid_revenue__empty.sql",
+        "native/paid_revenue__empty.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "How many paid orders belong to eligible sessions?",
+      "case_id": "paid_order_count__empty",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0",
+            "column": "paid_order_count",
+            "equal": true,
+            "expected": {
+              "type": "integer",
+              "value": "0"
+            },
+            "keys": [],
+            "observed": {
+              "type": "integer",
+              "value": "0"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/paid_order_count__empty.sql",
+        "native/paid_order_count__empty.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "paid_order_count"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "0"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "paid_order_count"
+        ],
+        "rows": [
+          [
+            {
+              "type": "integer",
+              "value": "0"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What is the average paid order value?",
+      "case_id": "average_paid_order_value__empty",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": null,
+            "column": "average_paid_order_value",
+            "equal": true,
+            "expected": {
+              "type": "null",
+              "value": null
+            },
+            "keys": [],
+            "observed": {
+              "type": "null",
+              "value": null
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/average_paid_order_value__empty.sql",
+        "native/average_paid_order_value__empty.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "average_paid_order_value"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "average_paid_order_value"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__nonconverting",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.0",
+            "column": "conversion_rate",
+            "equal": true,
+            "expected": {
+              "type": "float",
+              "value": "0.0"
+            },
+            "keys": [],
+            "observed": {
+              "type": "float",
+              "value": "0.0"
+            },
+            "relative": null
+          }
+        ],
+        "equal": true
+      },
+      "conversion_path": "native",
+      "diagnostics": [],
+      "evidence_reference": [
+        "oracle/conversion_rate__nonconverting.sql",
+        "native/conversion_rate__nonconverting.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      },
+      "provenance": "MetricFlow-generated SQL",
+      "semantic_status": "BOUNDED_MATCH",
+      "source_platform": "MetricFlow",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      }
+    }
+  ],
+  "controlled_failures": [
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "wrong_denominator",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.06666666666666671",
+            "column": "conversion_rate",
+            "equal": false,
+            "expected": {
+              "type": "float",
+              "value": "0.4"
+            },
+            "keys": [],
+            "observed": {
+              "type": "float",
+              "value": "0.3333333333333333"
+            },
+            "relative": "0.16666666666666677"
+          }
+        ],
+        "equal": false
+      },
+      "conversion_path": "injected",
+      "diagnostics": [],
+      "evidence_reference": [
+        "failures/wrong_denominator.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      },
+      "provenance": "Injected teaching SQL; not converter output",
+      "semantic_status": "INJECTED_FAILURE",
+      "source_platform": "Authored SQL mutation",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.3333333333333333"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "incorrect_conversion",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.19999999999999996",
+            "column": "conversion_rate",
+            "equal": false,
+            "expected": {
+              "type": "float",
+              "value": "0.4"
+            },
+            "keys": [],
+            "observed": {
+              "type": "float",
+              "value": "0.6"
+            },
+            "relative": "0.4999999999999999"
+          }
+        ],
+        "equal": false
+      },
+      "conversion_path": "injected",
+      "diagnostics": [],
+      "evidence_reference": [
+        "failures/incorrect_conversion.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      },
+      "provenance": "Injected teaching SQL; not converter output",
+      "semantic_status": "INJECTED_FAILURE",
+      "source_platform": "Authored SQL mutation",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.6"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "average_of_rates",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.025000000000000022",
+            "column": "conversion_rate",
+            "equal": false,
+            "expected": {
+              "type": "float",
+              "value": "0.4"
+            },
+            "keys": [],
+            "observed": {
+              "type": "float",
+              "value": "0.375"
+            },
+            "relative": "0.06250000000000006"
+          }
+        ],
+        "equal": false
+      },
+      "conversion_path": "injected",
+      "diagnostics": [],
+      "evidence_reference": [
+        "failures/average_of_rates.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      },
+      "provenance": "Injected teaching SQL; not converter output",
+      "semantic_status": "INJECTED_FAILURE",
+      "source_platform": "Authored SQL mutation",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.375"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "removed_channel_filter",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.09999999999999998",
+            "column": "conversion_rate",
+            "equal": false,
+            "expected": {
+              "type": "float",
+              "value": "0.5"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "0.4"
+            },
+            "relative": "0.19999999999999996"
+          },
+          {
+            "absolute": "0.15000000000000002",
+            "column": "conversion_rate",
+            "equal": false,
+            "expected": {
+              "type": "float",
+              "value": "0.25"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "float",
+              "value": "0.4"
+            },
+            "relative": "0.6000000000000001"
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "relative": null
+          },
+          {
+            "absolute": null,
+            "column": "sales_channel",
+            "equal": true,
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "relative": null
+          }
+        ],
+        "equal": false
+      },
+      "conversion_path": "injected",
+      "diagnostics": [],
+      "evidence_reference": [
+        "failures/removed_channel_filter.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.25"
+            }
+          ]
+        ]
+      },
+      "provenance": "Injected teaching SQL; not converter output",
+      "semantic_status": "INJECTED_FAILURE",
+      "source_platform": "Authored SQL mutation",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "inner_join",
+      "comparison_result": {
+        "diagnostics": [],
+        "differences": [
+          {
+            "absolute": "0.2666666666666666",
+            "column": "conversion_rate",
+            "equal": false,
+            "expected": {
+              "type": "float",
+              "value": "0.4"
+            },
+            "keys": [],
+            "observed": {
+              "type": "float",
+              "value": "0.6666666666666666"
+            },
+            "relative": "0.6666666666666665"
+          }
+        ],
+        "equal": false
+      },
+      "conversion_path": "injected",
+      "diagnostics": [],
+      "evidence_reference": [
+        "failures/inner_join.sql"
+      ],
+      "execution_status": "EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      },
+      "provenance": "Injected teaching SQL; not converter output",
+      "semantic_status": "INJECTED_FAILURE",
+      "source_platform": "Authored SQL mutation",
+      "target_platform": "DuckDB",
+      "target_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.6666666666666666"
+            }
+          ]
+        ]
+      }
+    }
+  ],
+  "edge_case": false,
+  "fixture": "conversion_demo",
+  "implementation_sha256": {
+    "labs/semantic_interop/scripts/run_conversion_demo.py": "77bffb0e28d9a237bf5913011d0200861697fd4d5318a726b1225fda98342f01",
+    "labs/semantic_interop/src/semantic_lab/conversion_demo.py": "42db615ec8c16fabeecd75793c72ee6b94c3c807938d74991948bb1779e56fd0"
+  },
+  "input_sha256": {
+    "contract.json": "e5884901eb9c4ab5a61b4e42ccf178d77c1aef5622ddd2301b106b2312e40f2d",
+    "data/additional_order.csv": "6d4086b636352950bfa6ff22c07b0c46993d3ec94777dec228a6b140a2ebcc01",
+    "data/orders.csv": "2c501f5faac1c3b489aa469295cfdcea8a3ec09df6ba3496fe3640d6aaf08ba1",
+    "data/sessions.csv": "648bd14ce8390ed7d1d2a83f39137e0846c0037cd92542ca6be41b8c8db80215",
+    "dbt/dbt_project.yml": "a3e0f7d428a06be2d76ad0dc7302637a019d99763df804d69dda7e8b6b6b987e",
+    "dbt/models/metrics.yml": "3c14e14e40f0ce1fd5caefc3944ce23fe4c257d8381eaf1ed47509974b1f8cc5",
+    "dbt/models/orders.sql": "d5695ab7489d6ca93f4feea506e0c35a1682aba6226449bcf5f8443906f9d313",
+    "dbt/models/sessions.sql": "f1880a6bfcd240a869f6dbda855a4189c9945ef723952de808d5c9f09758be27",
+    "dbt/models/time_spine.sql": "f7de94bb1028bb9a4eafed7cd5f402900e061cc84968d0736468a90b37659900",
+    "dbt/profile.template.yml": "aefffbb7daa5aac40d67364f2355c74cb8b2d20db95df1291bfcf73a77d4e109",
+    "failures/average_of_rates.sql": "8473349f4c6d3e782810c721641a0f911b9b7b781ade92a2081bee95dbb6b857",
+    "failures/incorrect_conversion.sql": "8a5d909f78d844dd3ec193d0e4b05e0abdefa4eabd7d41f6643bee4257a0b8ec",
+    "failures/inner_join.sql": "e2850c262cd4fe9db14eca2813f8cb7d3e1e6f055a25c5c6c6d7af1aa5aed609",
+    "failures/removed_channel_filter.sql": "186d1551b1e57a2ec6d4c213b40f4f188b04ac1a6dc246ed512e1059e49acae7",
+    "failures/wrong_denominator.sql": "2d0bc5e9f9f29bbe01f478e8a0167733330c0747e66897a5e82645cebea93d3c",
+    "oracle/average_paid_order_value.sql": "5dd6891a270758e5b67aebed94d5bca539ad4e432b3d4cd8d14df07db91cdfa3",
+    "oracle/conversion_rate.sql": "c3defe63b5cc292df08df12c2249bb1eac9e87db6c4033c8446d855b9a57deb5",
+    "oracle/converted_sessions.sql": "b6721273deaa0d726c68e2b8dfeb05f1d95166b314ac3eb960c108149220ade3",
+    "oracle/eligible_sessions.sql": "2645730631d68265beaa0cdce201c286360f950f9b2f77a5b374719f1182aa09",
+    "oracle/paid_order_count.sql": "1bf381f65a5fc0f13f09a3068193e153a0635ceb89e3fba0d23ee7ca224942d5",
+    "oracle/paid_revenue.sql": "9ed6f70735bbbb0e57a65f2623d737bc85681cd1c122f7e3c11e3c91b30b03bc",
+    "targets/databricks/README.md": "9756ceccedde40c9fd74d0b2fd701c96cafeb2e93a5afed89832ece453cc6a58",
+    "targets/databricks/metric_view.yaml": "dd3dd44f1b817f0aefaa5c67267fdfa6422521a7968fba06682d3cdeb1866dd1",
+    "targets/databricks/provenance.json": "96b400157f91dde23c5e1986430ac1aca66e7ab1eeb8c69cab9860d9c252bc9b",
+    "targets/databricks/validate.sql": "a67507a06bb0dedd4d83cf7261b027c74a459a8fe71d1d291bc33c2d104d1035",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/database.tmdl": "5d16e73de9d4a4fca2796c8878985d7a6f709cda63dc726230b3b4760ebde58c",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/expressions.tmdl": "cbbb0ad7e698fd8a708f50071b428a2fe793e340763b78bf6ad7ebd900943040",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/model.tmdl": "e677bb521f6af4ddf9bc983ebcd07c92c968efbf22c3537a5ced5b1f4d6aaa13",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/relationships.tmdl": "6a8cdc134a987c453ba21ca4b0b6df0077dd1270edfbd4779329c7694d92b6c1",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/KPI Selector.tmdl": "d414c53d7f50555d8163e822bd0ab2f1d07f696109cee27511b31a957eb18f78",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Orders.tmdl": "4024533143683a0b955262538df7d67717559372654c97dc85d202f417e8915e",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Sales Channel.tmdl": "754582e9f054781bc1ebc6ca29ac69c9944ace505c198e0e1a16bca2730de130",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Sessions.tmdl": "de5d995c6ae3206140cd76ec99f8f1020eed4955692a2276c9e3c11984ed09d1",
+    "targets/powerbi/README.md": "b639603ea1336a2d2d0bfd37a8fe44d1fe6773285d4934eb12aebc839db69769",
+    "targets/powerbi/provenance.json": "a9ab352c7e5a47130383bd810661fd679755cc3c6668beaa9556446cb89d0c90",
+    "targets/powerbi/validate-task04.dax": "8587a3c8e42e32a431abd35d89af3decc679612594630d4928907c1dc9befb34",
+    "targets/powerbi/validate.dax": "51645e6f00e789797a892a873882cc80dfd8322c58f94cdc5b002e69bd706c26"
+  },
+  "observation_cutoff": "2026-03-01 exclusive; order DATE snapshot, whole-order statuses",
+  "platform_execution": {
+    "Apache Ossie conversion": "NOT_EXECUTED",
+    "Databricks runtime": "NOT_EXECUTED",
+    "MetricFlow SQL -> DuckDB": "EXECUTED",
+    "Power BI/DAX runtime": "NOT_EXECUTED"
+  },
+  "schema_version": 1,
+  "stage_a": {
+    "accepted": true,
+    "dbt_build_exit_code": 0,
+    "detected_failures": 5,
+    "native_cases": 31,
+    "native_matches": 31,
+    "oracle_reviewed_values_match": true
+  },
+  "tool_versions": {
+    "dbt-core": "1.12.6",
+    "dbt-duckdb": "1.11.0",
+    "duckdb": "1.5.6",
+    "metricflow": "0.213.0"
+  }
+}

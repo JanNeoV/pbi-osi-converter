@@ -1,0 +1,56 @@
+SESSION COHORT CONVERSION - order cutoff 2026-03-01 exclusive; amounts EUR
+How many eligible sessions did we receive?
+  eligible_sessions: oracle=10; MetricFlow=BOUNDED_MATCH
+  Definition: COUNT(DISTINCT session_id) WHERE is_eligible = true
+How many eligible sessions had a paid order by the cutoff?
+  converted_sessions: oracle=4; MetricFlow=BOUNDED_MATCH
+  Definition: Distinct eligible sessions with at least one paid order before cutoff
+What share of eligible sessions converted?
+  conversion_rate: oracle=0.4; MetricFlow=BOUNDED_MATCH
+  Definition: converted_sessions / NULLIF(eligible_sessions, 0)
+How much paid revenue belongs to these session cohorts?
+  paid_revenue: oracle=390.00; MetricFlow=BOUNDED_MATCH
+  Definition: SUM(amount_eur) for paid orders before cutoff belonging to eligible session cohorts
+How many paid orders belong to eligible sessions?
+  paid_order_count: oracle=4; MetricFlow=BOUNDED_MATCH
+  Definition: COUNT(DISTINCT order_id) for paid orders before cutoff belonging to eligible sessions
+What is the average paid order value?
+  average_paid_order_value: oracle=97.5; MetricFlow=BOUNDED_MATCH
+  Definition: paid_revenue / NULLIF(paid_order_count, 0)
+SQL oracle by channel (canonical session cohort):
+  eligible_sessions: Direct: 6; Indirect: 4
+  converted_sessions: Direct: 3; Indirect: 1
+  conversion_rate: Direct: 50.00%; Indirect: 25.00%
+  paid_revenue: Direct: 300.00; Indirect: 90.00
+  paid_order_count: Direct: 3; Indirect: 1
+  average_paid_order_value: Direct: 100.0; Indirect: 90.0
+SQL oracle by month (canonical session cohort):
+  eligible_sessions: 2026-01-01: 5; 2026-02-01: 5
+  converted_sessions: 2026-01-01: 3; 2026-02-01: 1
+  conversion_rate: 2026-01-01: 60.00%; 2026-02-01: 20.00%
+  paid_revenue: 2026-01-01: 270.00; 2026-02-01: 120.00
+  paid_order_count: 2026-01-01: 3; 2026-02-01: 1
+  average_paid_order_value: 2026-01-01: 90.0; 2026-02-01: 120.0
+Features: eligibility/status filters; session relationship; session-month cohort; ratio aggregation
+INJECTED wrong_denominator: correct=40.00%; faulty=33.33%
+INJECTED incorrect_conversion: correct=40.00%; faulty=60.00%
+INJECTED average_of_rates: correct=40.00%; faulty=37.50%
+INJECTED removed_channel_filter: correct=Direct: 50.00%; Indirect: 25.00%; faulty=Direct: 40.00%; Indirect: 40.00%
+INJECTED inner_join: correct=40.00%; faulty=66.67%
+{
+  "stage_a": {
+    "dbt_build_exit_code": 0,
+    "oracle_reviewed_values_match": true,
+    "native_cases": 31,
+    "native_matches": 31,
+    "detected_failures": 5,
+    "accepted": true
+  },
+  "platform_execution": {
+    "MetricFlow SQL -> DuckDB": "EXECUTED",
+    "Apache Ossie conversion": "NOT_EXECUTED",
+    "Databricks runtime": "NOT_EXECUTED",
+    "Power BI/DAX runtime": "NOT_EXECUTED"
+  },
+  "report": ".tmp/conversion-demo/run-z14n5wkl/report.json"
+}

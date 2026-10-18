@@ -1,0 +1,7 @@
+order_id,session_id,order_date,amount_eur,order_status
+1,1,2026-01-05,100,paid
+2,2,2026-02-01,80,paid
+3,4,2026-02-02,120,paid
+4,7,2026-01-07,90,paid
+5,5,2026-02-02,20,cancelled
+6,9,2026-02-03,50,refunded

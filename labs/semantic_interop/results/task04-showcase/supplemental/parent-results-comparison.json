@@ -1,0 +1,220 @@
+{
+  "purpose": "After-regression comparison of existing parent demonstration result artifacts",
+  "scopes": [
+    "demo-output",
+    "end-to-end-output",
+    "target",
+    "semantic_poc/output",
+    "semantic_poc/benchmark/output"
+  ],
+  "existing_files": {
+    "demo-output/canonicalization-proposals.json": {
+      "before_sha256": "214ac59bed3694b460743347047ff2393f231248f5139396d44cd3039c7f56da",
+      "after_sha256": "214ac59bed3694b460743347047ff2393f231248f5139396d44cd3039c7f56da"
+    },
+    "demo-output/canonicalization-proposals.md": {
+      "before_sha256": "b83fb16f2cc47e2cbedb76f4a41192b054efebb25574329fb6a81bf5f652b126",
+      "after_sha256": "b83fb16f2cc47e2cbedb76f4a41192b054efebb25574329fb6a81bf5f652b126"
+    },
+    "demo-output/conversion-comparison.json": {
+      "before_sha256": "15e899279d426f181089feec7e72aac7c72ed0c12ccc38bffdc44e5ff25ad914",
+      "after_sha256": "15e899279d426f181089feec7e72aac7c72ed0c12ccc38bffdc44e5ff25ad914"
+    },
+    "demo-output/conversion-comparison.md": {
+      "before_sha256": "a45bfc11f0187bfff516c8f4c50628a4a55396af8774220590aa1598d97e41cd",
+      "after_sha256": "a45bfc11f0187bfff516c8f4c50628a4a55396af8774220590aa1598d97e41cd"
+    },
+    "demo-output/executive-summary.md": {
+      "before_sha256": "8a2e2cb104023825507fee7986a4546296aa958320bee598bddf0f894991df3a",
+      "after_sha256": "8a2e2cb104023825507fee7986a4546296aa958320bee598bddf0f894991df3a"
+    },
+    "demo-output/manifest.json": {
+      "before_sha256": "f079f6c5540b2c991aa43354359f95f90f9d9f6eacb213077bbf25b571660883",
+      "after_sha256": "f079f6c5540b2c991aa43354359f95f90f9d9f6eacb213077bbf25b571660883"
+    },
+    "demo-output/model-inventory.json": {
+      "before_sha256": "57e94acabfc61208e4ae5338a81c6bec15aedb5f2d59cc4ef32f3bc857c8bbfc",
+      "after_sha256": "57e94acabfc61208e4ae5338a81c6bec15aedb5f2d59cc4ef32f3bc857c8bbfc"
+    },
+    "demo-output/model-inventory.md": {
+      "before_sha256": "5e57039818c2ff792d9238986ea95843269ea0346910bff1a7322f011925d9b7",
+      "after_sha256": "5e57039818c2ff792d9238986ea95843269ea0346910bff1a7322f011925d9b7"
+    },
+    "demo-output/review-decisions.template.yml": {
+      "before_sha256": "fb54f7715cce1ee339d4cfc8931bf00b286d1906e86a5611cce8dcc43933eff3",
+      "after_sha256": "fb54f7715cce1ee339d4cfc8931bf00b286d1906e86a5611cce8dcc43933eff3"
+    },
+    "demo-output/semantic-lint-report.json": {
+      "before_sha256": "3c6ab88b4f9f44a6e1a5b977542fe3a3f5503c1a4bcb26d15feb38529f30841f",
+      "after_sha256": "3c6ab88b4f9f44a6e1a5b977542fe3a3f5503c1a4bcb26d15feb38529f30841f"
+    },
+    "demo-output/semantic-lint-report.md": {
+      "before_sha256": "8dd9f8ffd78920c66de38724527ab117578103116aa08c392195c625e0789c0b",
+      "after_sha256": "8dd9f8ffd78920c66de38724527ab117578103116aa08c392195c625e0789c0b"
+    },
+    "demo-output/support-matrix.json": {
+      "before_sha256": "8e14df9cc767703471a17411467e38fa9a1c07cca357bec6647c140df06ac61c",
+      "after_sha256": "8e14df9cc767703471a17411467e38fa9a1c07cca357bec6647c140df06ac61c"
+    },
+    "demo-output/support-matrix.md": {
+      "before_sha256": "a722d32f06c900bec5b7403ae33d34ba2e443563c49bff2d719ab3951711596a",
+      "after_sha256": "a722d32f06c900bec5b7403ae33d34ba2e443563c49bff2d719ab3951711596a"
+    },
+    "demo-output/evidence/equivalence-report.md": {
+      "before_sha256": "08d6d4d44e9e34734f418c06f37df9ca8b1f175d856c789d0043941f215a8dc2",
+      "after_sha256": "08d6d4d44e9e34734f418c06f37df9ca8b1f175d856c789d0043941f215a8dc2"
+    },
+    "demo-output/evidence/equivalence-results.json": {
+      "before_sha256": "28f7ae58609dae4a8140dedc3dffe610058e2c050561edf539a49bd082d8708e",
+      "after_sha256": "28f7ae58609dae4a8140dedc3dffe610058e2c050561edf539a49bd082d8708e"
+    },
+    "demo-output/evidence/generated-hashes.json": {
+      "before_sha256": "85ad54501aca2f166728d11907c68300dfa2c2cf875bdd521002305f2b6bd77a",
+      "after_sha256": "85ad54501aca2f166728d11907c68300dfa2c2cf875bdd521002305f2b6bd77a"
+    },
+    "demo-output/evidence/immutability-report.md": {
+      "before_sha256": "031d2a637ebdd782928a15e485301e40cfda6a7f20d31fc7f1453c9469ea7063",
+      "after_sha256": "031d2a637ebdd782928a15e485301e40cfda6a7f20d31fc7f1453c9469ea7063"
+    },
+    "demo-output/evidence/source-hashes.json": {
+      "before_sha256": "dabe49d23781c892a89f439c18699c078a056588de93eb2b593cec1e6c81018a",
+      "after_sha256": "dabe49d23781c892a89f439c18699c078a056588de93eb2b593cec1e6c81018a"
+    },
+    "demo-output/generated/canonical-contract.candidate.yml": {
+      "before_sha256": "90fd8e0ba7b9601dbbd0f15fba93f847cf390eef9252dd1b8330524d37bbb7cc",
+      "after_sha256": "90fd8e0ba7b9601dbbd0f15fba93f847cf390eef9252dd1b8330524d37bbb7cc"
+    },
+    "demo-output/generated/powerbi-copy-plan.json": {
+      "before_sha256": "89a99001c202482f04563a148b9fed4b278e821cfee746f43af31aca11647610",
+      "after_sha256": "89a99001c202482f04563a148b9fed4b278e821cfee746f43af31aca11647610"
+    },
+    "demo-output/generated/snowflake-semantic-view.candidate.yml": {
+      "before_sha256": "4b01c2b3ae31953ca153fc6740ee31a403364e709da49924a3b7b07e0eecdbe7",
+      "after_sha256": "4b01c2b3ae31953ca153fc6740ee31a403364e709da49924a3b7b07e0eecdbe7"
+    },
+    "demo-output/generated/snowflake-verification.sql": {
+      "before_sha256": "6746fd50aa2db2b1fcbda5318a0202de928bd61f70e8c4af285ed76b4b41c2f3",
+      "after_sha256": "6746fd50aa2db2b1fcbda5318a0202de928bd61f70e8c4af285ed76b4b41c2f3"
+    },
+    "demo-output/maintenance/rollback-proof.md": {
+      "before_sha256": "b399189f1cd4fc910501b6fa685e242ff6237b94a78e1046b7183e843db5b5fd",
+      "after_sha256": "b399189f1cd4fc910501b6fa685e242ff6237b94a78e1046b7183e843db5b5fd"
+    },
+    "demo-output/maintenance/synchronized-change-example.md": {
+      "before_sha256": "82ea5a25b0f6c525eb0344dc22e8173d3858c2f96fd25a477daa96b4fc39db75",
+      "after_sha256": "82ea5a25b0f6c525eb0344dc22e8173d3858c2f96fd25a477daa96b4fc39db75"
+    },
+    "end-to-end-output/accepted-review-decision.yml": {
+      "before_sha256": "47b4839aaed8c669374a64c39df5a2b5e0bca21965fb42c8d129465673518402",
+      "after_sha256": "47b4839aaed8c669374a64c39df5a2b5e0bca21965fb42c8d129465673518402"
+    },
+    "end-to-end-output/canonical-change-diff.md": {
+      "before_sha256": "12b26586370f8c24020261ab5d2a1915b42f7ad506f17a2b5cf3dfa992661111",
+      "after_sha256": "12b26586370f8c24020261ab5d2a1915b42f7ad506f17a2b5cf3dfa992661111"
+    },
+    "end-to-end-output/corrected-candidate-equivalence.md": {
+      "before_sha256": "6396221987774d56c215e921fcc810d07e7ba25a09d4201ff69750c8ac072e76",
+      "after_sha256": "6396221987774d56c215e921fcc810d07e7ba25a09d4201ff69750c8ac072e76"
+    },
+    "end-to-end-output/executive-summary.md": {
+      "before_sha256": "9b00c16c09d355e18410fcf607ae4cf352a67042d5a4a563f6e5cc93b5f3d846",
+      "after_sha256": "9b00c16c09d355e18410fcf607ae4cf352a67042d5a4a563f6e5cc93b5f3d846"
+    },
+    "end-to-end-output/hashes.json": {
+      "before_sha256": "df72462130417a38ce901351f570be8495b7e28db7cb04a891d9b2bd2e5ac66c",
+      "after_sha256": "df72462130417a38ce901351f570be8495b7e28db7cb04a891d9b2bd2e5ac66c"
+    },
+    "end-to-end-output/immutability-report.md": {
+      "before_sha256": "1d24335f8ed76cacd95f9d7f6c1214c65aa2f2544ef286f3efffde22fe05cdef",
+      "after_sha256": "1d24335f8ed76cacd95f9d7f6c1214c65aa2f2544ef286f3efffde22fe05cdef"
+    },
+    "end-to-end-output/initial-conversion-findings.md": {
+      "before_sha256": "62c9971addaf9c38f6da57e99d034dadcc8240e08ac15d244a4d2aeafd95a62f",
+      "after_sha256": "62c9971addaf9c38f6da57e99d034dadcc8240e08ac15d244a4d2aeafd95a62f"
+    },
+    "end-to-end-output/manifest.json": {
+      "before_sha256": "3be97f3364ddc7128a445981e7f8eecfa01db082c1513e4528099fd41653acb8",
+      "after_sha256": "3be97f3364ddc7128a445981e7f8eecfa01db082c1513e4528099fd41653acb8"
+    },
+    "end-to-end-output/regenerated-target-diff.md": {
+      "before_sha256": "b162ca56df5ab1c876f2f0fdf22087f0a19db2bddd501c1acd8264d7b88f7c10",
+      "after_sha256": "b162ca56df5ab1c876f2f0fdf22087f0a19db2bddd501c1acd8264d7b88f7c10"
+    },
+    "end-to-end-output/review-memory-entry.yml": {
+      "before_sha256": "af996d6a1d96e5f8a75b0b34baf567f0b47788523d2722057d877eef9e451e4a",
+      "after_sha256": "af996d6a1d96e5f8a75b0b34baf567f0b47788523d2722057d877eef9e451e4a"
+    },
+    "end-to-end-output/synchronization-report.md": {
+      "before_sha256": "ccb02833559cab191c5621f0cd874df564cf91cb9ea89dc8a5c2d39ed26f2da0",
+      "after_sha256": "ccb02833559cab191c5621f0cd874df564cf91cb9ea89dc8a5c2d39ed26f2da0"
+    },
+    "target/semantic_manifest.json": {
+      "before_sha256": "cc9df6fb278ec1076db42a19a9bd194cb58ea13a6619368584963d01292fa56b",
+      "after_sha256": "cc9df6fb278ec1076db42a19a9bd194cb58ea13a6619368584963d01292fa56b"
+    },
+    "semantic_poc/output/dbt_semantics.json": {
+      "before_sha256": "d85e5638ff2cab4ed57fcbf40dc4a515a062b5503d243b295a2a9ab43fa043f9",
+      "after_sha256": "d85e5638ff2cab4ed57fcbf40dc4a515a062b5503d243b295a2a9ab43fa043f9"
+    },
+    "semantic_poc/output/patched_powerbi_semantics.json": {
+      "before_sha256": "b806e3eb4e18b3b567e561b719e2226ec5f2709898c6c7f48703a01e7aaf534f",
+      "after_sha256": "b806e3eb4e18b3b567e561b719e2226ec5f2709898c6c7f48703a01e7aaf534f"
+    },
+    "semantic_poc/output/patched_semantic_compatibility.md": {
+      "before_sha256": "453813d9d4597d5f0e00dc36bc54e17a5a1167f2614dba1d521f61c54b35a000",
+      "after_sha256": "453813d9d4597d5f0e00dc36bc54e17a5a1167f2614dba1d521f61c54b35a000"
+    },
+    "semantic_poc/output/powerbi_patch_result.md": {
+      "before_sha256": "6d57e8f473919e151ed5e4dcb7d0dd754a61037a5a337f3c13fed5cf93f206fb",
+      "after_sha256": "6d57e8f473919e151ed5e4dcb7d0dd754a61037a5a337f3c13fed5cf93f206fb"
+    },
+    "semantic_poc/output/powerbi_semantics.json": {
+      "before_sha256": "c9051e72e430da21976c76bb98fb806b1c38723e2562ff2d922d848dd8efe3a5",
+      "after_sha256": "c9051e72e430da21976c76bb98fb806b1c38723e2562ff2d922d848dd8efe3a5"
+    },
+    "semantic_poc/output/proposed_powerbi_patch.json": {
+      "before_sha256": "e47d4a5aafc9031a4206821212408a6a12dae3e0de889e24c645db8b384c0ebf",
+      "after_sha256": "e47d4a5aafc9031a4206821212408a6a12dae3e0de889e24c645db8b384c0ebf"
+    },
+    "semantic_poc/output/semantic_compatibility.md": {
+      "before_sha256": "0b3ced989915b54656281b1ea598dadb827c2553b4d0b5c6627f28d64fd208c3",
+      "after_sha256": "0b3ced989915b54656281b1ea598dadb827c2553b4d0b5c6627f28d64fd208c3"
+    },
+    "semantic_poc/output/snowflake_semantic_view.yml": {
+      "before_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb",
+      "after_sha256": "15f705826f284b974477ffd85d66655885527c72ff52bd4ac3f18ade8126ccdb"
+    },
+    "semantic_poc/benchmark/output/conversion-benchmark.json": {
+      "before_sha256": "35acfe288043a886ad0cd99148a4430cef20518bdcad9daa44788c6430fed39a",
+      "after_sha256": "35acfe288043a886ad0cd99148a4430cef20518bdcad9daa44788c6430fed39a"
+    },
+    "semantic_poc/benchmark/output/conversion-benchmark.md": {
+      "before_sha256": "05b8689e23b08c6d581d8f4f9a72ac924782e59a0164c7dd3a37e74e8c7d3133",
+      "after_sha256": "05b8689e23b08c6d581d8f4f9a72ac924782e59a0164c7dd3a37e74e8c7d3133"
+    },
+    "semantic_poc/benchmark/output/human-review-decisions.json": {
+      "before_sha256": "28617c673ebba12e86efda1a9826959524618cea7596716a99415ff67abbc57b",
+      "after_sha256": "28617c673ebba12e86efda1a9826959524618cea7596716a99415ff67abbc57b"
+    },
+    "semantic_poc/benchmark/output/maintenance-equivalence-report.md": {
+      "before_sha256": "e51a43c28627ac1b6d85b25ab32549da3acf8b1c4df062154ebdf463d8f34f7b",
+      "after_sha256": "e51a43c28627ac1b6d85b25ab32549da3acf8b1c4df062154ebdf463d8f34f7b"
+    },
+    "semantic_poc/benchmark/output/semantic-lint-report.json": {
+      "before_sha256": "677049d0478789f9a6ca607dde384b73b61f20abf976df4f5a61526b02fa6041",
+      "after_sha256": "677049d0478789f9a6ca607dde384b73b61f20abf976df4f5a61526b02fa6041"
+    },
+    "semantic_poc/benchmark/output/semantic-lint-report.md": {
+      "before_sha256": "c0faa5a21bab679820486163ecb2d6f527b947226e6eafd90dd48c306f5ba9a9",
+      "after_sha256": "c0faa5a21bab679820486163ecb2d6f527b947226e6eafd90dd48c306f5ba9a9"
+    },
+    "semantic_poc/benchmark/output/snowflake-autopilot-comparison.md": {
+      "before_sha256": "78cbaa1324ff7ac575cee3d398ebaf4a959b50b86239ffc6c72c1ab1c77049d2",
+      "after_sha256": "78cbaa1324ff7ac575cee3d398ebaf4a959b50b86239ffc6c72c1ab1c77049d2"
+    }
+  },
+  "changed": [],
+  "missing": [],
+  "added": [],
+  "all_existing_files_unchanged": true
+}

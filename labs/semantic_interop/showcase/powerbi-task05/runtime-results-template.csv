@@ -1,0 +1,10 @@
+desktop_version,model_role,input_sha256,roundtrip_sha256,opened,refresh_ok,channel,kpi_selection,expected_numeric,actual_numeric,actual_display,query_result_file,notes
+,source_baseline,,,,,overall,none,0.4,,,,NOT_EXECUTED
+,target_baseline,,,,,overall,none,0.4,,,,NOT_EXECUTED
+,source_changed_default,,,,,overall,none,390,,,,NOT_EXECUTED
+,target_changed_default,,,,,overall,none,390,,,,NOT_EXECUTED
+,target_changed_default,,,,,overall,Conversion Rate,0.4,,,,NOT_EXECUTED
+,target_changed_default,,,,,overall,Paid Revenue,390,,,,NOT_EXECUTED
+,target_changed_default,,,,,overall,multiple,390,,,,NOT_EXECUTED
+,target_changed_default,,,,,Direct,none,300,,,,NOT_EXECUTED
+,target_changed_default,,,,,Indirect,none,90,,,,NOT_EXECUTED

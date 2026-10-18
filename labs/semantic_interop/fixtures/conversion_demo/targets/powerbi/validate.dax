@@ -1,0 +1,90 @@
+// MANUALLY_AUTHORED_CANDIDATE validation queries. Execution: NOT_EXECUTED.
+// Run against a refreshed target model; these expected values are assertions to check,
+// never captured Power BI results. All months below are session cohorts.
+
+// Overall expected: 10, 4, 0.4, 390, 4, 97.5.
+EVALUATE
+ROW(
+    "Eligible Sessions", [Eligible Sessions],
+    "Converted Sessions", [Converted Sessions],
+    "Conversion Rate", [Conversion Rate],
+    "Paid Revenue", [Paid Revenue],
+    "Paid Order Count", [Paid Order Count],
+    "Average Paid Order Value", [Average Paid Order Value]
+)
+
+// Direct expected: 6, 3, 0.5, 300. Indirect: 4, 1, 0.25, 90.
+EVALUATE
+SUMMARIZECOLUMNS(
+    'Sales Channel'[sales_channel],
+    "Eligible Sessions", [Eligible Sessions],
+    "Converted Sessions", [Converted Sessions],
+    "Conversion Rate", [Conversion Rate],
+    "Paid Revenue", [Paid Revenue],
+    "Paid Order Count", [Paid Order Count],
+    "Average Paid Order Value", [Average Paid Order Value]
+)
+
+// January expected: 5, 3, 0.6, 270. February: 5, 1, 0.2, 120.
+// Transaction-month revenue would instead be 190/200 and is a different question.
+EVALUATE
+SUMMARIZECOLUMNS(
+    Sessions[session_month],
+    "Eligible Sessions", [Eligible Sessions],
+    "Converted Sessions", [Converted Sessions],
+    "Conversion Rate", [Conversion Rate],
+    "Paid Revenue", [Paid Revenue],
+    "Paid Order Count", [Paid Order Count],
+    "Average Paid Order Value", [Average Paid Order Value]
+)
+
+// All four channel-month cohorts, including February Indirect: 2 eligible, 0 converted, 0% rate.
+EVALUATE
+SUMMARIZECOLUMNS(
+    Sessions[session_month],
+    'Sales Channel'[sales_channel],
+    "Eligible Sessions", [Eligible Sessions],
+    "Converted Sessions", [Converted Sessions],
+    "Conversion Rate", [Conversion Rate],
+    "Paid Revenue", [Paid Revenue],
+    "Paid Order Count", [Paid Order Count],
+    "Average Paid Order Value", [Average Paid Order Value]
+)
+
+// Single/no/multiple selections and channel interaction; compare Actual to Expected.
+EVALUATE
+UNION(
+    ROW("case_id", "selector_none", "Actual", [Selected KPI], "Expected", 0.4),
+    ROW("case_id", "selector_single_rate", "Actual", CALCULATE([Selected KPI], TREATAS({"Conversion Rate"}, 'KPI Selector'[KPI])), "Expected", 0.4),
+    ROW("case_id", "selector_single_revenue", "Actual", CALCULATE([Selected KPI], TREATAS({"Paid Revenue"}, 'KPI Selector'[KPI])), "Expected", 390.0),
+    ROW("case_id", "selector_single_sessions", "Actual", CALCULATE([Selected KPI], TREATAS({"Eligible Sessions"}, 'KPI Selector'[KPI])), "Expected", 10.0),
+    ROW("case_id", "selector_multiple", "Actual", CALCULATE([Selected KPI], TREATAS({"Paid Revenue", "Eligible Sessions"}, 'KPI Selector'[KPI])), "Expected", 0.4),
+    ROW("case_id", "selector_direct_default", "Actual", CALCULATE([Selected KPI], TREATAS({"Direct"}, 'Sales Channel'[sales_channel])), "Expected", 0.5),
+    ROW("case_id", "selector_indirect_revenue", "Actual", CALCULATE([Selected KPI], TREATAS({"Indirect"}, 'Sales Channel'[sales_channel]), TREATAS({"Paid Revenue"}, 'KPI Selector'[KPI])), "Expected", 90.0),
+    ROW("case_id", "selector_direct_multiple", "Actual", CALCULATE([Selected KPI], TREATAS({"Direct"}, 'Sales Channel'[sales_channel]), TREATAS({"Paid Revenue", "Eligible Sessions"}, 'KPI Selector'[KPI])), "Expected", 0.5)
+)
+
+// Empty cohort: counts 0; undefined ratios and selector default BLANK, never artificial 0%.
+EVALUATE
+CALCULATETABLE(
+    ROW(
+        "case_id", "empty_cohort",
+        "Eligible Sessions", [Eligible Sessions],
+        "Converted Sessions", [Converted Sessions],
+        "Rate Is Blank", ISBLANK([Conversion Rate]),
+        "AOV Is Blank", ISBLANK([Average Paid Order Value]),
+        "Selected KPI Is Blank", ISBLANK([Selected KPI])
+    ),
+    FILTER(ALL(Sessions[session_date]), Sessions[session_date] < DATE(2020, 1, 1))
+)
+
+// Existing February Indirect cohort: denominator 2, numerator 0, rate 0, AOV BLANK.
+EVALUATE
+CALCULATETABLE(
+    ROW("case_id", "zero_conversion", "Eligible Sessions", [Eligible Sessions], "Converted Sessions", [Converted Sessions], "Conversion Rate", [Conversion Rate], "AOV Is Blank", ISBLANK([Average Paid Order Value])),
+    TREATAS({"Indirect"}, 'Sales Channel'[sales_channel]),
+    TREATAS({DATE(2026, 2, 1)}, Sessions[session_month])
+)
+
+// Visual formatting also needs an engine/UI check: rate 40.0%; revenue 390.00 EUR;
+// sessions 10. No/multiple selections use rate formatting. NOT_EXECUTED.

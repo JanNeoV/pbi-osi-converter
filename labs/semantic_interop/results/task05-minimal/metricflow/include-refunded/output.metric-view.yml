@@ -1,0 +1,54 @@
+version: "1.1"
+source: "\"benchmark\".\"main\".\"sessions\""
+joins:
+- name: "orders"
+  source: "\"benchmark\".\"main\".\"orders\""
+  using:
+  - "session_id"
+  cardinality: "one_to_many"
+dimensions:
+- name: "session"
+  expr: "session_id"
+- name: "session_date"
+  expr: "session_date"
+- name: "sales_channel"
+  expr: "sales_channel"
+- name: "is_eligible"
+  expr: "is_eligible"
+- name: "session_count"
+  expr: "session_id"
+measures:
+- name: "eligible_sessions"
+  expr: "COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id END)"
+- name: "converted_sessions_base"
+  expr: "COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status\
+    \ = 'paid' THEN orders.session_id END)"
+- name: "paid_revenue_base"
+  expr: "SUM(CASE WHEN session__is_eligible = true AND order__order_status IN ('paid',\
+    \ 'refunded') THEN orders.amount_eur END)"
+- name: "paid_order_count_base"
+  expr: "COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status\
+    \ = 'paid' THEN orders.order_id END)"
+- name: "conversion_rate"
+  expr: "(COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status\
+    \ = 'paid' THEN orders.session_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible\
+    \ = true THEN session_id END)) / (COUNT(DISTINCT CASE WHEN session__is_eligible\
+    \ = true THEN session_id END))"
+- name: "average_paid_order_value"
+  expr: "(SUM(CASE WHEN session__is_eligible = true AND order__order_status IN ('paid',\
+    \ 'refunded') THEN orders.amount_eur END) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible\
+    \ = true THEN session_id END)) / (COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible\
+    \ = true AND order__order_status = 'paid' THEN orders.order_id END), 0) + 0 *\
+    \ COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN session_id END))"
+- name: "converted_sessions"
+  expr: "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status\
+    \ = 'paid' THEN orders.session_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible\
+    \ = true THEN session_id END)"
+- name: "paid_revenue"
+  expr: "SUM(CASE WHEN session__is_eligible = true AND order__order_status IN ('paid',\
+    \ 'refunded') THEN orders.amount_eur END) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible\
+    \ = true THEN session_id END)"
+- name: "paid_order_count"
+  expr: "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status\
+    \ = 'paid' THEN orders.order_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible\
+    \ = true THEN session_id END)"

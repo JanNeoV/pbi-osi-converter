@@ -1,0 +1,17 @@
+{
+  "execution": "EXECUTED",
+  "sql": "oracle/selector__conversion_rate__Indirect.sql",
+  "typed_result": {
+    "columns": [
+      "conversion_rate"
+    ],
+    "rows": [
+      [
+        {
+          "type": "float",
+          "value": "0.25"
+        }
+      ]
+    ]
+  }
+}

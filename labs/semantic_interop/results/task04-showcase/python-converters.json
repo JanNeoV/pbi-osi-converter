@@ -1,0 +1,38 @@
+{
+  "apache-ossie": {
+    "source": {
+      "subdirectory": "python",
+      "url": "https://github.com/apache/ossie.git",
+      "vcs_info": {
+        "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+        "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+        "vcs": "git"
+      }
+    },
+    "version": "0.2.0.dev0"
+  },
+  "apache-ossie-dbt": {
+    "source": {
+      "subdirectory": "converters/dbt",
+      "url": "https://github.com/apache/ossie.git",
+      "vcs_info": {
+        "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+        "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+        "vcs": "git"
+      }
+    },
+    "version": "0.2.0.dev0"
+  },
+  "apache-ossie-microsoft": {
+    "source": {
+      "subdirectory": "converters/microsoft",
+      "url": "https://github.com/apache/ossie.git",
+      "vcs_info": {
+        "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+        "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+        "vcs": "git"
+      }
+    },
+    "version": "0.2.0.dev0"
+  }
+}

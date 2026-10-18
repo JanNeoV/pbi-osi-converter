@@ -1,0 +1,17 @@
+Audience: SEMANTIC_ENGINEER
+Interface: INTERACTIVE_CLI
+Supported conversion: SAFE_CANDIDATE
+Clarification: RECORDED
+Filter-state dependency: MANUAL_REVIEW_REQUIRED
+Inactive relationship dependency: MANUAL_REVIEW_REQUIRED
+Transitive dependency: MANUAL_REVIEW_REQUIRED
+Review memory: SUGGESTED_CONFIRMATION_REQUIRED
+Unsupported change: MANUAL_REVIEW_REQUIRED
+Session resume: PASSED
+Stale session: REJECTED
+Provider conformance: PASSED
+Prohibited tool calls executed: 0
+Model-authored executable expressions: 0
+Source mutation: NO
+Deployment: NOT_PERFORMED
+AGENTIC_CONVERSION_POC_ACCEPTED

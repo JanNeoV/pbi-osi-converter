@@ -1,0 +1,28 @@
+java : Conversion notices (12):
+At line:10 char:3
++   java -jar $dbJar export "labs/semantic_interop/results/task05-minim ...
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Conversion notices (12)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  [field 'session_date'] dimension.is_time has no Metric View counterpart; dropped
+  [field 'sales_channel'] dimension.is_time has no Metric View counterpart; dropped
+  [field 'is_eligible'] dimension.is_time has no Metric View counterpart; dropped
+  [field 'order'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source 
+row); dropped
+  [field 'session'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source 
+row); dropped
+  [field 'session_date'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per 
+source row); dropped
+  [field 'order_status'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per 
+source row); dropped
+  [field 'converted_session_count'] column on a one-to-many-joined table cannot be a dimension (must resolve to one 
+value per source row); dropped
+  [field 'order_count'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per 
+source row); dropped
+  [field 'revenue'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source 
+row); dropped
+  [dataset 'sessions'] primary_key/unique_keys not stored as columns; used to set rely.at_most_one_match on a matching 
+many_to_one join where applicable
+  [dataset 'orders'] primary_key/unique_keys not stored as columns; used to set rely.at_most_one_match on a matching 
+many_to_one join where applicable

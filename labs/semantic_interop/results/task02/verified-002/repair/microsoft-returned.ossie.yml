@@ -1,0 +1,165 @@
+version: 0.2.0.dev0
+name: synthetic_shop
+datasets:
+- name: orders
+  source: main.orders
+  primary_key:
+  - order
+  fields:
+  - name: order
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_id
+  - name: order_date
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_date
+  - name: status
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: status
+  - name: order_count_measure
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_id
+  - name: customers_measure
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: customer_id
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "partitions": [{"mode": "directLake", "name": "orders", "source": {"entityName": "orders", "expressionSource": "DatabaseQuery", "schemaName": "main", "type": "entity"}}]}'
+- name: items
+  source: main.items
+  primary_key:
+  - item
+  fields:
+  - name: item
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: item_id
+  - name: order
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_id
+  - name: product
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: product_id
+  - name: order_date
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_date
+  - name: status
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: status
+  - name: revenue_measure
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: amount
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "partitions": [{"mode": "directLake", "name": "items", "source": {"entityName": "items", "expressionSource": "DatabaseQuery", "schemaName": "main", "type": "entity"}}]}'
+- name: products
+  source: main.products
+  primary_key:
+  - product
+  fields:
+  - name: product
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: product_id
+  - name: category
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: category
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "partitions": [{"mode": "directLake", "name": "products", "source": {"entityName": "products", "expressionSource": "DatabaseQuery", "schemaName": "main", "type": "entity"}}]}'
+relationships:
+- name: items_order_to_orders_order
+  from: items
+  to: orders
+  from_columns:
+  - order
+  to_columns:
+  - order
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "name": "items__orders__order"}'
+- name: items_product_to_products_product
+  from: items
+  to: products
+  from_columns:
+  - product
+  to_columns:
+  - product
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "name": "items__products__product"}'
+metrics:
+- name: revenue
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: SUM('items'[revenue_measure])
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "annotations": [{"name": "OssieExpressionDialect", "value": "ANSI_SQL"}, {"name": "OssieExpression", "value": "SUM(items.amount)"}], "table": "orders"}'
+- name: order_count
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: BLANK()
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "annotations": [{"name": "OssieExpressionDialect", "value": "ANSI_SQL"}, {"name": "OssieExpression", "value": "COUNT(DISTINCT orders.order_id)"}], "table": "orders"}'
+- name: purchasing_customers
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: DISTINCTCOUNTNOBLANK('orders'[customers_measure])
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "annotations": [{"name": "OssieExpressionDialect", "value": "ANSI_SQL"}, {"name": "OssieExpression", "value": "COUNT(DISTINCT orders.customer_id)"}], "table": "orders"}'
+- name: completed_revenue
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: BLANK()
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "annotations": [{"name": "OssieExpressionDialect", "value": "ANSI_SQL"}, {"name": "OssieExpression", "value": "SUM(CASE WHEN item__status = ''completed'' THEN items.amount END)"}], "table": "orders"}'
+- name: average_order_value
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: BLANK()
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "annotations": [{"name": "OssieExpressionDialect", "value": "ANSI_SQL"}, {"name": "OssieExpression", "value": "(SUM(items.amount)) / (COUNT(DISTINCT orders.order_id))"}], "table": "orders"}'
+- name: completed_revenue_share
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: BLANK()
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "annotations": [{"name": "OssieExpressionDialect", "value": "ANSI_SQL"}, {"name": "OssieExpression", "value": "(SUM(CASE WHEN item__status = ''completed'' THEN items.amount END)) / (SUM(items.amount))"}], "table": "orders"}'
+custom_extensions:
+- vendor_name: POWER_BI
+  data: '{"_v": 2, "culture": "en-US", "document": {"compatibilityLevel": 1702}, "expressions": [{"expression": ["let", "    Source = AzureStorage.DataLake(\"https://onelake.dfs.fabric.microsoft.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\")", "in", "    Source"], "kind": "m", "name": "DatabaseQuery"}]}'

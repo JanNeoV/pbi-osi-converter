@@ -1,0 +1,18 @@
+{
+  "label": "source-status",
+  "command": [
+    "git",
+    "-C",
+    "<repository>\\.tmp\\task04-databricks\\ossie-current",
+    "status",
+    "--porcelain",
+    "--",
+    "converters/databricks/java"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0,
+  "stdout": "source-status.stdout.log",
+  "stderr": "source-status.stderr.log",
+  "execution_status": "EXECUTED",
+  "warnings": []
+}

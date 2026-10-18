@@ -1,0 +1,18 @@
+{
+  "baseline_files_checked": 1463,
+  "changed_original_files": [
+    "labs/semantic_interop/README.md",
+    "labs/semantic_interop/docs/CONVERSION_ARTICLE_DRAFT.md",
+    "labs/semantic_interop/docs/CONVERSION_DEMO.md",
+    "labs/semantic_interop/docs/TASK03_VALIDATION.md",
+    "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/README.md"
+  ],
+  "baseline_package_versions_unchanged": true,
+  "task02_initial_archive": {
+    "path": ".tmp/semantic-task02/initial-milestone.zip",
+    "expected_sha256": "7ca9f593c4fe51c4ed3e9c081092c4798ee80ce6486b749d8e50aac029da78d6",
+    "actual_sha256": "7ca9f593c4fe51c4ed3e9c081092c4798ee80ce6486b749d8e50aac029da78d6"
+  },
+  "head": "d44aabfd196a57b56afef4debec64bcc37a95c8a",
+  "branch": "research/semantic-interoperability-lab"
+}

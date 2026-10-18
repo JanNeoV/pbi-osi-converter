@@ -1,0 +1,10 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+    "-version"
+  ],
+  "cwd": "C:\\github\\pbi-osi-converter",
+  "exit_code": 0,
+  "stdout": "java-version.stdout.log",
+  "stderr": "java-version.stderr.log"
+}

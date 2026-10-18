@@ -1,0 +1,94 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "scripts/check_public_repository.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "labs/semantic_interop/tests",
+        "--basetemp",
+        ".tmp/pytest-lab-final"
+      ],
+      "exit_code": 0,
+      "output": "..........................                                               [100%]\n26 passed in 16.95s",
+      "prior_exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "semantic_poc/run_pbi_trial_v2_audit.py",
+        "--check",
+        "--json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "semantic_poc/run_demo.py",
+        "--clean",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "semantic_poc/run_agent_guided_conversion_demo.py",
+        "--clean",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "semantic_poc/run_end_to_end_demo.py",
+        "--clean",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "demo/run_public_demo.py",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-m",
+        "not live_agent",
+        "--basetemp",
+        ".tmp/pytest-semantic-lab-parent"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "scripts/check_public_repository.py",
+        "--after-demo"
+      ],
+      "exit_code": 0,
+      "output": "PUBLIC_REPOSITORY_CHECK_ACCEPTED",
+      "prior_exit_code": 1
+    }
+  ],
+  "passed": true,
+  "notes": "Lab tests rerun after final control refinement; publication check rerun after documentation files were complete. Parent regression run: 153 passed, 1 skipped."
+}

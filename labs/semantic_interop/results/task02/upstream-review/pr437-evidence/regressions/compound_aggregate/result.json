@@ -1,0 +1,63 @@
+{
+  "artifact_directory": "regressions/compound_aggregate",
+  "entity_names": [
+    "item_id"
+  ],
+  "id": "compound_aggregate",
+  "issues": [],
+  "mechanism": "nested aggregate fallback",
+  "metric_expression": "CASE WHEN status = 'completed' THEN amount END",
+  "native": {
+    "columns": [
+      "revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "10.00"
+        }
+      ]
+    ]
+  },
+  "native_matches_oracle": true,
+  "oracle": {
+    "columns": [
+      "revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "10.00"
+        }
+      ]
+    ]
+  },
+  "reduction": {
+    "attempted": "remove cancelled row",
+    "initial_failure": "equal",
+    "kept": false,
+    "reduced_failure": "equal",
+    "selected": "two_rows",
+    "structural": "one metric, one model, one primary entity, only time/status dimensions; source is reexecuted"
+  },
+  "returned": {
+    "columns": [
+      "revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "10.00"
+        }
+      ]
+    ]
+  },
+  "returned_executed": true,
+  "returned_matches_oracle": true,
+  "source_entity_names": [
+    "item_id"
+  ]
+}

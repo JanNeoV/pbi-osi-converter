@@ -1,0 +1,13 @@
+{
+  "command": [
+    "git",
+    "-C",
+    "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\ossie-current",
+    "rev-parse",
+    "HEAD:converters/databricks/java"
+  ],
+  "cwd": "C:\\github\\pbi-osi-converter",
+  "exit_code": 0,
+  "stdout": "source-tree.stdout.log",
+  "stderr": "source-tree.stderr.log"
+}

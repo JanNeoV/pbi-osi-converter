@@ -1,0 +1,13 @@
+{
+  "columns": [
+    "purchasing_customers"
+  ],
+  "rows": [
+    [
+      {
+        "type": "integer",
+        "value": "5"
+      }
+    ]
+  ]
+}

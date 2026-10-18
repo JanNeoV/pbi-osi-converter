@@ -1,0 +1,7 @@
+{
+  "difference": "Test formatting only; final formatted patch evaluated in verified-003",
+  "final_patch_apply_check": "PASSED against clean ef91cb61092c60f4b918016a81cfdbe483e113bc",
+  "final_setup_patch": "../upstream-repair-v2/field-name-keys.patch",
+  "setup_executed_with": "../upstream-repair/field-name-keys.patch",
+  "volatile_acquisition_separate_from_normalized_evidence": true
+}

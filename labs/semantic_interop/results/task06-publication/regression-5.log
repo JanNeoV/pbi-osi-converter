@@ -1,0 +1,28 @@
+POWER BI -> SNOWFLAKE: DID THE BUSINESS MEANING SURVIVE?
+Inputs: pbit/pbi_trial.pbit + captured pbit/snowflake_semantic_view/pbi_trial.yaml
+Mode: OFFLINE / DETERMINISTIC / SCRIPTED / NO DEPLOYMENT
+
+1/4 CAPTURED AUDIT — CONVERSION_GAP_DEMO_ACCEPTED
+46 Power BI measures -> 21 emitted / 25 omitted
+Emitted: 13 structurally equivalent / 4 confirmed incorrect / 4 potentially incorrect
+Relationships: 7/7 endpoints matched | Runtime equivalence: NOT_AVAILABLE
+Examples: Result Rows omitted; Split Coverage Rate changed grain; divisor-60 unit defect remained active
+
+2/4 OFFLINE ASSURANCE — POC_DEMO_ACCEPTED
+Unsafe semantic output: BLOCKED_PENDING_REVIEW
+Deterministic compiler: supported patterns only; ambiguity remains explicit
+
+3/4 SCRIPTED AGENT CLARIFICATION
+[SCRIPTED AGENT] Dividing seconds by 60 yields minutes. Should this metric be minutes,
+or should an hours metric divide by 3,600?
+[HUMAN REVIEWER] 2 — hours; use the governed divisor 3,600
+Provider: SCRIPTED | Clarification: RECORDED | Review memory: CONFIRMATION_REQUIRED
+Executable expressions authored by model: 0 | Deployment: NOT_PERFORMED
+
+4/4 GOVERNED RESULT — END_TO_END_POC_ACCEPTED
+Corrected fixture equivalence: 5/5 PASSED
+Power BI candidate regenerated: YES | Snowflake candidate regenerated: YES
+Unexpected cross-target drift: 0 | Source modified: NO | Deployment: NO
+
+The agent improves the interaction; deterministic code remains the compiler and validator.
+PUBLIC_COMPANION_DEMO_ACCEPTED

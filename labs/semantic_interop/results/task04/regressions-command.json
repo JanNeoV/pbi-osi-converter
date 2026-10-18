@@ -1,0 +1,7 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "labs/semantic_interop/scripts/check.py"
+  ],
+  "exit_code": 1
+}

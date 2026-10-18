@@ -1,0 +1,10 @@
+/// Disconnected presentation table; it must have no relationship to either business table.
+table 'KPI Selector'
+	column KPI
+		dataType: string
+		summarizeBy: none
+		sourceColumn: KPI
+
+	partition 'KPI Selector' = m
+		mode: import
+		source = #table(type table [KPI = text], {{"Conversion Rate"}, {"Paid Revenue"}, {"Eligible Sessions"}})

@@ -1,0 +1,13 @@
+{
+  "columns": [
+    "completed_revenue"
+  ],
+  "rows": [
+    [
+      {
+        "type": "decimal",
+        "value": "195.30"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+Initial conversion: BLOCKED_PENDING_REVIEW
+Blocking finding: UNIT_CONVERSION_MISMATCH
+Human review: ACCEPTED
+Review memory: RECORDED
+Corrected candidate equivalence: PASSED
+Canonical change detected: YES
+Power BI target regenerated: YES
+Snowflake target regenerated: YES
+Cross-target semantic drift: 0
+Source modified: NO
+Deployment performed: NO
+END_TO_END_POC_ACCEPTED

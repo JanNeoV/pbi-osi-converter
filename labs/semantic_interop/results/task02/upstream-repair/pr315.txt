@@ -1,0 +1,73 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+_ test_alias_keys_reference_fields_without_promoting_measure_aliases[EntityType.PRIMARY] _
+
+key_type = <EntityType.PRIMARY: 'primary'>
+
+    @pytest.mark.parametrize("key_type", [EntityType.PRIMARY, EntityType.UNIQUE])
+    def test_alias_keys_reference_fields_without_promoting_measure_aliases(key_type):
+        dimension = semantic_model_with_guaranteed_meta(
+            name="dimension", entities=[_entity("customer", key_type, "customer_id")],
+            measures=[_measure("customer_count", AggregationType.COUNT_DISTINCT, "customer_id")],
+        )
+        fact = semantic_model_with_guaranteed_meta(
+            name="fact", entities=[_entity("row", EntityType.PRIMARY, "row_id"),
+                                   _entity("customer", EntityType.FOREIGN, "customer_id")],
+        )
+        document = MSIToOssieConverter().convert(_manifest(semantic_models=[dimension, fact])).output
+        fields = {dataset.name: {field.name for field in dataset.fields} for dataset in document.datasets}
+        for dataset in document.datasets:
+            for key in ([dataset.primary_key] if dataset.primary_key else []) + (dataset.unique_keys or []):
+>               assert set(key) <= fields[dataset.name]
+E               AssertionError: assert {'customer_id'} <= {'customer', 'customer_count'}
+E                 
+E                 Extra items in the left set:
+E                 'customer_id'
+
+tests\test_alias_key_regression.py:39: AssertionError
+_ test_alias_keys_reference_fields_without_promoting_measure_aliases[EntityType.UNIQUE] _
+
+key_type = <EntityType.UNIQUE: 'unique'>
+
+    @pytest.mark.parametrize("key_type", [EntityType.PRIMARY, EntityType.UNIQUE])
+    def test_alias_keys_reference_fields_without_promoting_measure_aliases(key_type):
+        dimension = semantic_model_with_guaranteed_meta(
+            name="dimension", entities=[_entity("customer", key_type, "customer_id")],
+            measures=[_measure("customer_count", AggregationType.COUNT_DISTINCT, "customer_id")],
+        )
+        fact = semantic_model_with_guaranteed_meta(
+            name="fact", entities=[_entity("row", EntityType.PRIMARY, "row_id"),
+                                   _entity("customer", EntityType.FOREIGN, "customer_id")],
+        )
+        document = MSIToOssieConverter().convert(_manifest(semantic_models=[dimension, fact])).output
+        fields = {dataset.name: {field.name for field in dataset.fields} for dataset in document.datasets}
+        for dataset in document.datasets:
+            for key in ([dataset.primary_key] if dataset.primary_key else []) + (dataset.unique_keys or []):
+>               assert set(key) <= fields[dataset.name]
+E               AssertionError: assert {'customer_id'} <= {'customer', 'customer_count'}
+E                 
+E                 Extra items in the left set:
+E                 'customer_id'
+
+tests\test_alias_key_regression.py:39: AssertionError
+__ test_reverse_does_not_promote_a_measure_with_the_same_physical_expression __
+
+    def test_reverse_does_not_promote_a_measure_with_the_same_physical_expression():
+        model = semantic_model_with_guaranteed_meta(
+            name="orders", entities=[_entity("order", EntityType.PRIMARY, "order_id")],
+            measures=[_measure("order_count", AggregationType.COUNT_DISTINCT, "order_id")],
+        )
+        document = MSIToOssieConverter().convert(_manifest(semantic_models=[model])).output
+        returned = OssieToMSIConverter().convert(document).output
+>       assert [e.name for e in returned.semantic_models[0].entities] == ["order"]
+E       AssertionError: assert ['order', 'order_count'] == ['order']
+E         
+E         Left contains one more item: 'order_count'
+E         Use -v to get more diff
+
+tests\test_alias_key_regression.py:59: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_alias_key_regression.py::test_alias_keys_reference_fields_without_promoting_measure_aliases[EntityType.PRIMARY]
+FAILED tests/test_alias_key_regression.py::test_alias_keys_reference_fields_without_promoting_measure_aliases[EntityType.UNIQUE]
+FAILED tests/test_alias_key_regression.py::test_reverse_does_not_promote_a_measure_with_the_same_physical_expression
+3 failed in 0.53s

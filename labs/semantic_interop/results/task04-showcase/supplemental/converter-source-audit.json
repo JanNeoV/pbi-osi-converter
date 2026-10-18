@@ -1,0 +1,127 @@
+{
+  "official_commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+  "normalization": "Only CRLF to LF; both original hashes retained",
+  "packages": {
+    "ossie": {
+      "source_prefix": "python/src/ossie",
+      "files": {
+        "__init__.py": {
+          "installed_sha256": "a424ffebb4a23d8632f54db4fcfb744b1c86684aaa8780f08174a48e04a90e64",
+          "upstream_git_blob_sha256": "d3386079c15cb3ddbc936c835d52bc19592b0562f1d937b03b998aacc97da376",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "models.py": {
+          "installed_sha256": "7fa2d1b02f2247e1e1416ae055ac593b48a859a2c15e73f1b0eb6a124ca34c4b",
+          "upstream_git_blob_sha256": "8a7a7c39399385ff74e312c49ea4033570207146d8db716483c15e0a2fd3717e",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        }
+      },
+      "all_normalized_equal": true
+    },
+    "ossie_dbt": {
+      "source_prefix": "converters/dbt/src/ossie_dbt",
+      "files": {
+        "__init__.py": {
+          "installed_sha256": "a6654666b90e1fb142386912c308da5e7e7d8d45d97698854108de7b9e7e5bab",
+          "upstream_git_blob_sha256": "6ec2531fba12f7e85fcd5ed1095683b651570ac08483f47be346d4874db344ec",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "cli.py": {
+          "installed_sha256": "81980fe06b4c0a77806fc6e6429fc2b293f748ebc0de7f8c5e7c6b8a9a95a8f1",
+          "upstream_git_blob_sha256": "9850eb81072b356439c43a79878d913f6808ef4fdef6a8120bbe6b644cccf4e2",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "converter_issues.py": {
+          "installed_sha256": "d5e112772a310771cb75024829a4d0ed6cfcf90de4a671ec058fe29591ba9d47",
+          "upstream_git_blob_sha256": "912f34f341c033c802d6bfd5cd9c0a7aa84401fbd5485016ea1f5fca61f8e3c8",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "expression_utils.py": {
+          "installed_sha256": "10736bb3f728dd411eace5386283c9cf6b268078e6e18cfff4eb3115e81d7e7d",
+          "upstream_git_blob_sha256": "a49bcf0fb552fe4ec1e86c9c79a3a0df02352e81fed6218c9b47c640eb5147b7",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "filter_utils.py": {
+          "installed_sha256": "1cc7526491d175fdd2f1daf9044e8bfda30d09528f1141e34a64833e51b9cb89",
+          "upstream_git_blob_sha256": "11712bcdd83ff7b2654c7798b9f597796306811c434e71ee01a9c0527a639109",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "msi_to_ossie.py": {
+          "installed_sha256": "35b92cc1210806c270134f3b94ffa4aacdc213ce8eb3b61e614e1c5cda71ece4",
+          "upstream_git_blob_sha256": "199daa6381644d100f22a1e935603dbead40f21456e0573c3c7a5237e9f73e60",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "ossie_to_msi.py": {
+          "installed_sha256": "4ad59c00d6bbf070757f6c0b74dcfcc312572456f7a1d9524b807b3ec0444c07",
+          "upstream_git_blob_sha256": "11d1fa4766000662c5cd11aa4aac404b3cef346c219b1e093e38d56e2ddaa866",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        }
+      },
+      "all_normalized_equal": true
+    },
+    "ossie_microsoft": {
+      "source_prefix": "converters/microsoft/src/ossie_microsoft",
+      "files": {
+        "__init__.py": {
+          "installed_sha256": "2befa65ed0de85b719847947ae2f85ec84e2b437ecb708cfd1e6d41c1d982787",
+          "upstream_git_blob_sha256": "ff68a28cd2e0e5ff774916214ec646b751b91ecbf3da6e29ccbf5fb22c913543",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "_common.py": {
+          "installed_sha256": "f0361c7c0b8ee930e3e6257cdf9f21a97d7a5f9c8efe01661ea71f4106b79b09",
+          "upstream_git_blob_sha256": "910a576a1b97b847ab03fa7d1b129405a88e2dc129ee44fe48b9f060f8d450ba",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "_sql_to_dax.py": {
+          "installed_sha256": "797168011bfcc798b4a44e824c53b7fa01d653cf760642e7102794e7281f623f",
+          "upstream_git_blob_sha256": "b0dd332c2cc96112b67ada712effe87f5972ead23a1cfadccec34da59d5e96ba",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "cli.py": {
+          "installed_sha256": "0c44036bb510b82a308b47ba7777af5bef91f13fd5da2dc4becd85d44b97dfbf",
+          "upstream_git_blob_sha256": "589a4cd616bfbf6d39f6b8987f655eb5525a1b16bcf09f9445def983cb2a606d",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "engine.py": {
+          "installed_sha256": "6896667cb32608e3b2b85744ccd97fb09d9647a1f5086e545e6afaedab7e1a4e",
+          "upstream_git_blob_sha256": "cbe2cb3d5a5d0cec50af0db9ed2802cf77a4c082ebeede94fbb0e6523468bc17",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "ossie_to_semantic_model.py": {
+          "installed_sha256": "fdefffef8680a72d7e65e2da70889d596e9c062de95563706b7c155f03d57cd8",
+          "upstream_git_blob_sha256": "11861c496f10c49dca86cb4355c57b2f8654f4f2fd59db4d91a7523fd28b8a6a",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "semantic_model_to_ossie.py": {
+          "installed_sha256": "cdfa0345efd2e956addb3f01a164733f1bf3c42a631f653d5eaf367d3a33e87f",
+          "upstream_git_blob_sha256": "a9503f701ceacabda82ae30d85a47f37e8c84d1ecffdcd1842e9572a514fc8e2",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        },
+        "tom.py": {
+          "installed_sha256": "4bdc6678266cecffc7592e86fef90c59c2cf5969f6a2da0e237efbfadfccd1ff",
+          "upstream_git_blob_sha256": "59df7493a46d3479792da36f572bb4b66414f4ac051d3a9e283ae79d14b6cd63",
+          "bytes_equal": false,
+          "line_ending_normalized_equal": true
+        }
+      },
+      "all_normalized_equal": true
+    }
+  },
+  "all_installed_source_matches_official_pin": true
+}

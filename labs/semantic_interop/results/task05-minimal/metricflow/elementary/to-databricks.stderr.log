@@ -1,0 +1,4 @@
+Conversion notices (3):
+  [field 'session_date'] dimension.is_time has no Metric View counterpart; dropped
+  [field 'order_status'] dimension.is_time has no Metric View counterpart; dropped
+  [dataset 'orders'] primary_key/unique_keys not stored as columns; used to set rely.at_most_one_match on a matching many_to_one join where applicable

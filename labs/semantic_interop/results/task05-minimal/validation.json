@@ -1,0 +1,137 @@
+{
+  "task": "05",
+  "date": "2026-10-18",
+  "deliverable_complete": true,
+  "goal_boundary": "Manual tutorial and bounded official conversion diagnosis; no converted numerical target pass or verified PBIP claimed.",
+  "smallest_happy_path": {
+    "whole_model_numerically_verified": false,
+    "elementary_source_eur": "460.00",
+    "scope": "Relaxed unfiltered aggregate only; not business Paid Revenue",
+    "aggregate_definition_preserved_in": [
+      "MetricFlow returned aggregate parameters",
+      "Power BI DAX SUM with amount_eur sourceColumn",
+      "Databricks SUM expression"
+    ],
+    "unchanged_metricflow_return": "BLOCKED: missing time spine",
+    "separate_spine_reconstruction": "BLOCKED: no primary entity"
+  },
+  "metricflow_source": {
+    "baseline": {
+      "paid_revenue_eur": "390.00",
+      "conversion_rate": 0.4,
+      "Direct_revenue_eur": "300.00",
+      "Indirect_revenue_eur": "90.00"
+    },
+    "include_refunded": {
+      "paid_revenue_eur": "440.00",
+      "conversion_rate": 0.4,
+      "Direct_revenue_eur": "300.00",
+      "Indirect_revenue_eur": "140.00"
+    },
+    "baseline_and_edited_oracle_matching_queries": 8,
+    "elementary_oracle_matching_queries": 1,
+    "restore_oracle_matching_queries": 4,
+    "converted_target_numerical_executions": 0,
+    "evidence": "metricflow/"
+  },
+  "powerbi": {
+    "model_candidate": "NOT_VERIFIED",
+    "Desktop_open_refresh_report_DAX": "NOT_EXECUTED",
+    "official_baseline_and_edited_exact_normalized_model_comparisons": "PASS",
+    "scope": "11 bounded model checks each, no executable-behavior claim",
+    "metricflow_export": "DAX retained as SUM fallback expression; no executable selector",
+    "databricks_export": "FAIL: disconnected selector unreachable",
+    "evidence": "powerbi/report.json"
+  },
+  "databricks": {
+    "baseline_and_edited_native_definition_retention": "PASS ignoring trailing source SQL whitespace",
+    "runtime": "NOT_EXECUTED",
+    "metricflow_export": "Eligibility/filter/source/aggregate representation losses",
+    "powerbi_export": "Both headline measures BLANK",
+    "evidence": "databricks/"
+  },
+  "task04_statuses_unchanged": {
+    "conversion_PASS": 8,
+    "conversion_FAIL": 1,
+    "semantic_MISMATCH": 6,
+    "semantic_PASS_definition_only": 2,
+    "semantic_UNKNOWN": 1,
+    "numerical_PASS": 0
+  },
+  "regressions": {
+    "lab": {
+      "exit_code": 0,
+      "summary": "84 passed in 109.53s",
+      "record": "validation/lab.command.json"
+    },
+    "public": {
+      "exit_code": 0,
+      "summary": "PUBLIC_REPOSITORY_CHECK_ACCEPTED",
+      "record": "validation/public-check.command.json"
+    },
+    "additional_databricks": {
+      "exit_code": 0,
+      "summary": "3 passed",
+      "record": "databricks/regressions.command.json"
+    },
+    "broader_parent_suite": "Not rerun for documentation/copied fixture experiments; historical Task04 result remains 165 passed, 1 skipped"
+  },
+  "preservation": {
+    "protected_files": 1865,
+    "changed_or_missing": [],
+    "packages_unchanged": true,
+    "package_count": 77,
+    "installed_official_modules_match_task04_audit": {
+      "ossie": {
+        "__init__.py": true,
+        "models.py": true
+      },
+      "ossie_dbt": {
+        "__init__.py": true,
+        "cli.py": true,
+        "converter_issues.py": true,
+        "expression_utils.py": true,
+        "filter_utils.py": true,
+        "msi_to_ossie.py": true,
+        "ossie_to_msi.py": true
+      },
+      "ossie_microsoft": {
+        "__init__.py": true,
+        "_common.py": true,
+        "_sql_to_dax.py": true,
+        "cli.py": true,
+        "engine.py": true,
+        "ossie_to_semantic_model.py": true,
+        "semantic_model_to_ossie.py": true,
+        "tom.py": true
+      }
+    },
+    "canonical_fixtures_historical_results_and_pinned_lockfiles_unchanged": true
+  },
+  "manual_document_local_links_missing": [],
+  "initial_setup_failure": {
+    "evidence": "metricflow/elementary-initial-setup-failure/",
+    "cause": "New tutorial helper initially omitted seeding raw fixture tables; dbt reported missing raw_orders/raw_sessions. Helper corrected to load canonical rows; fresh directory rerun succeeded. No upstream converter or business policy repair."
+  },
+  "remaining_runtime_blockers": [
+    "Official MetricFlow return: missing spine, then primary entities; source defaults/complex SQL/filter resolution also absent or altered. Local MetricFlow/DuckDB runtime exists.",
+    "Power BI: no executed Desktop/TOM/DAX validation of candidate or returned model; generated MetricFlow->PBI has Direct Lake placeholder IDs and BLANK headline measures.",
+    "Databricks: authorized compatible workspace/compute, Unity Catalog namespace/privileges and actual generated-view creation/query execution absent. Cross-platform binding/name-resolution failures remain separately evidenced."
+  ],
+  "next_actions": {
+    "Jan_engineer": "Repeat three edits in showcase/TUTORIAL.md using copied source files.",
+    "PowerBI_owner": "Open, refresh, query and interact with the exact returned candidate in Desktop; retain evidence before marking PBIP verified.",
+    "Charlotte": "Run generated native Databricks baseline against oracle, then include-refunded view; capture namespace diff and engine results.",
+    "Research_converter_owners": "Review minimized binding/filter/key/SQL-to-DAX failures before proposing fixes.",
+    "Manager": "Require actual target-engine/oracle comparison before accepting numerical interoperability."
+  },
+  "published_pushed_merged_deployed": false,
+  "verified_capture_hashes": {
+    "databricks": 56,
+    "powerbi_artifacts_sha256": 40,
+    "powerbi_source_artifacts_sha256": 15
+  },
+  "manual_document_anchor_warnings": [],
+  "artifact_sha256_manifest": "artifact-sha256.json",
+  "hashed_evidence_and_deliverable_files": 320
+}

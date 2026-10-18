@@ -1,0 +1,23 @@
+{
+  "interventions": [
+    {
+      "after": [
+        {
+          "column_name": "date_day",
+          "grain": "day",
+          "location": "\"benchmark\".\"main\".\"time_spine\""
+        }
+      ],
+      "before": [],
+      "pointer": "/project_configuration/time_spine_table_configurations"
+    }
+  ],
+  "label": "level3_legacy_spine",
+  "level": 3,
+  "lossless_roundtrip_claim": false,
+  "manifest_sha256": "ad35900b460ec521996c3d416378c10ee2887d0a863ff9a8f3f5f68eab5d151f",
+  "parent_manifest": "roundtrip.canonical.json",
+  "parent_sha256": "77359fae76f46075becf5638a71b518245d409b66db32ae8b422a170d316d45f",
+  "schema_version": 1,
+  "source_manifest": "source.manifest.normalized.json"
+}

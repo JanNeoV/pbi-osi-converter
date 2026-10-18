@@ -1,0 +1,107 @@
+{
+  "metrics": [
+    {
+      "config": null,
+      "datatype": null,
+      "description": "",
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "revenue",
+      "time_granularity": null,
+      "type": "simple",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": null,
+        "expr": "SUM(CASE WHEN item_id__status = 'completed' THEN items.amount END)",
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": {
+          "agg": "sum",
+          "agg_params": null,
+          "agg_time_dimension": null,
+          "non_additive_dimension": null,
+          "semantic_model": "items"
+        },
+        "metrics": null,
+        "numerator": null,
+        "window": null
+      }
+    }
+  ],
+  "project_configuration": {
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "metadata": null,
+    "time_spine_table_configurations": [],
+    "time_spines": []
+  },
+  "saved_queries": [],
+  "semantic_models": [
+    {
+      "config": null,
+      "defaults": null,
+      "description": null,
+      "dimensions": [
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": null,
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "order_date",
+          "type": "time",
+          "type_params": {
+            "time_granularity": "day",
+            "validity_params": null
+          }
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": null,
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "status",
+          "type": "categorical",
+          "type_params": null
+        }
+      ],
+      "entities": [
+        {
+          "config": null,
+          "description": null,
+          "expr": null,
+          "label": null,
+          "metadata": null,
+          "name": "item_id",
+          "role": null,
+          "type": "primary"
+        }
+      ],
+      "label": null,
+      "measures": [],
+      "metadata": null,
+      "name": "items",
+      "node_relation": {
+        "alias": "\"regression_items\"",
+        "database": "\"benchmark\"",
+        "relation_name": "\"benchmark\".\"main\".\"regression_items\"",
+        "schema_name": "\"main\""
+      },
+      "primary_entity": null
+    }
+  ]
+}

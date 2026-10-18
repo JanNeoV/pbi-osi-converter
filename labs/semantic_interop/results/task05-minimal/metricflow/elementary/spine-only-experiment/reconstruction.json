@@ -1,0 +1,38 @@
+{
+  "change": "Copy source time_spines only; no converter repair",
+  "before": {
+    "time_spine_table_configurations": [],
+    "metadata": null,
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "time_spines": []
+  },
+  "after": {
+    "time_spine_table_configurations": [],
+    "metadata": null,
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "time_spines": [
+      {
+        "node_relation": {
+          "alias": "time_spine",
+          "schema_name": "main",
+          "database": "benchmark",
+          "relation_name": "\"benchmark\".\"main\".\"time_spine\""
+        },
+        "primary_column": {
+          "name": "date_day",
+          "time_granularity": "day"
+        },
+        "custom_granularities": []
+      }
+    ]
+  },
+  "unchanged_official_roundtrip": false
+}

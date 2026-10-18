@@ -1,0 +1,21 @@
+/// Set this parameter to the absolute conversion_demo/data directory before refresh.
+expression FixtureRoot = "__SET_ABSOLUTE_CONVERSION_DEMO_DATA_DIRECTORY__" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+
+/// Raw sessions plus a presentation column derived from session_date, never order_date.
+expression SessionsData =
+		let
+		    Csv = Csv.Document(File.Contents(FixtureRoot & "/sessions.csv"), [Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+		    Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars=true]),
+		    Typed = Table.TransformColumnTypes(Headers, {{"session_id", Int64.Type}, {"session_date", type date}, {"sales_channel", type text}, {"is_eligible", type logical}, {"exclusion_reason", type text}}, "en-US"),
+		    WithMonth = Table.AddColumn(Typed, "session_month", each Date.StartOfMonth([session_date]), type date)
+		in
+		    WithMonth
+
+/// Orders remain at order grain; status/eligibility/cutoff rules live in the measures.
+expression OrdersData =
+		let
+		    Csv = Csv.Document(File.Contents(FixtureRoot & "/orders.csv"), [Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+		    Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars=true]),
+		    Typed = Table.TransformColumnTypes(Headers, {{"order_id", Int64.Type}, {"session_id", Int64.Type}, {"order_date", type date}, {"amount_eur", Currency.Type}, {"order_status", type text}}, "en-US")
+		in
+		    Typed

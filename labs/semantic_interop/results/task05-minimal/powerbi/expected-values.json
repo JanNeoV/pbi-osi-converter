@@ -1,0 +1,237 @@
+{
+  "engine": "DuckDB",
+  "DAX_execution": "NOT_EXECUTED",
+  "values_are": "Independent SQL oracle results; selector defaults below are planned DAX expectations, not observed DAX execution",
+  "headlines": {
+    "overall": {
+      "conversion_rate": 0.4,
+      "paid_revenue": 390.0
+    },
+    "Direct": {
+      "conversion_rate": 0.5,
+      "paid_revenue": 300.0
+    },
+    "Indirect": {
+      "conversion_rate": 0.25,
+      "paid_revenue": 90.0
+    }
+  },
+  "selection_cases": [
+    {
+      "source_case": "baseline",
+      "channel": "overall",
+      "selection": "none",
+      "expected_from_duckdb": 0.4,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "overall",
+      "selection": "Conversion Rate",
+      "expected_from_duckdb": 0.4,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "overall",
+      "selection": "Paid Revenue",
+      "expected_from_duckdb": 390.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "overall",
+      "selection": "multiple",
+      "expected_from_duckdb": 0.4,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "overall",
+      "selection": "none",
+      "expected_from_duckdb": 390.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "overall",
+      "selection": "Conversion Rate",
+      "expected_from_duckdb": 0.4,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "overall",
+      "selection": "Paid Revenue",
+      "expected_from_duckdb": 390.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "overall",
+      "selection": "multiple",
+      "expected_from_duckdb": 390.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "Direct",
+      "selection": "none",
+      "expected_from_duckdb": 0.5,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "Direct",
+      "selection": "Conversion Rate",
+      "expected_from_duckdb": 0.5,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "Direct",
+      "selection": "Paid Revenue",
+      "expected_from_duckdb": 300.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "Direct",
+      "selection": "multiple",
+      "expected_from_duckdb": 0.5,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "Direct",
+      "selection": "none",
+      "expected_from_duckdb": 300.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "Direct",
+      "selection": "Conversion Rate",
+      "expected_from_duckdb": 0.5,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "Direct",
+      "selection": "Paid Revenue",
+      "expected_from_duckdb": 300.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "Direct",
+      "selection": "multiple",
+      "expected_from_duckdb": 300.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "Indirect",
+      "selection": "none",
+      "expected_from_duckdb": 0.25,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "Indirect",
+      "selection": "Conversion Rate",
+      "expected_from_duckdb": 0.25,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "Indirect",
+      "selection": "Paid Revenue",
+      "expected_from_duckdb": 90.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "baseline",
+      "channel": "Indirect",
+      "selection": "multiple",
+      "expected_from_duckdb": 0.25,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "Indirect",
+      "selection": "none",
+      "expected_from_duckdb": 90.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "Indirect",
+      "selection": "Conversion Rate",
+      "expected_from_duckdb": 0.25,
+      "unit": "ratio",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "Indirect",
+      "selection": "Paid Revenue",
+      "expected_from_duckdb": 90.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    },
+    {
+      "source_case": "changed-default",
+      "channel": "Indirect",
+      "selection": "multiple",
+      "expected_from_duckdb": 90.0,
+      "unit": "EUR",
+      "DAX_actual": null,
+      "DAX_status": "NOT_EXECUTED"
+    }
+  ]
+}

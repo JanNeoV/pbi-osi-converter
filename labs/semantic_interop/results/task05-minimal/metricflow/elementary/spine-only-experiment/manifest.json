@@ -1,0 +1,83 @@
+{
+  "semantic_models": [
+    {
+      "name": "orders",
+      "node_relation": {
+        "alias": "\"orders\"",
+        "schema_name": "\"main\"",
+        "database": "\"benchmark\"",
+        "relation_name": "\"benchmark\".\"main\".\"orders\""
+      },
+      "entities": [],
+      "measures": [],
+      "dimensions": [
+        {
+          "name": "order",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "order_id"
+        },
+        {
+          "name": "session_date",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          }
+        },
+        {
+          "name": "order_status",
+          "type": "categorical",
+          "is_partition": false
+        },
+        {
+          "name": "revenue",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "amount_eur"
+        }
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "name": "paid_revenue",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "amount_eur",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "orders",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    }
+  ],
+  "project_configuration": {
+    "time_spine_table_configurations": [],
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "time_spines": [
+      {
+        "node_relation": {
+          "alias": "time_spine",
+          "schema_name": "main",
+          "database": "benchmark",
+          "relation_name": "\"benchmark\".\"main\".\"time_spine\""
+        },
+        "primary_column": {
+          "name": "date_day",
+          "time_granularity": "day"
+        },
+        "custom_granularities": []
+      }
+    ]
+  },
+  "saved_queries": []
+}

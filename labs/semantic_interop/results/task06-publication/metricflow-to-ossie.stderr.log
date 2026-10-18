@@ -1,0 +1,7 @@
+python.exe : Written to .tmp\task06-tutorial-mf-001\after.ossie.yml
+At line:18 char:1
++ & $py -m ossie_dbt.cli msi-to-ossie -i "$work/dbt/target/semantic_man ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Written to .tmp...after.ossie.yml:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

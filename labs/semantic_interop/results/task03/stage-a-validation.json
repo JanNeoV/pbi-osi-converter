@@ -1,0 +1,36 @@
+{
+  "stage": "A",
+  "accepted": true,
+  "native_canonical": {
+    "executed": 31,
+    "matches": 31,
+    "evidence": "stage-a-001/report.json"
+  },
+  "native_repeated_order_edge": {
+    "executed": 31,
+    "matches": 31,
+    "evidence": "edge-001/report.json"
+  },
+  "injected_failures": {
+    "executed": 5,
+    "detected": 5
+  },
+  "lab_tests": {
+    "passed": 66,
+    "command": "python -m pytest -q labs/semantic_interop/tests --basetemp .tmp/pytest-task03-stage-a-final"
+  },
+  "teaching_tests_passed": 32,
+  "provenance_revision_tests_passed": 12,
+  "task02_regression": {
+    "passed": true,
+    "offline_repeated_reports_equal": true,
+    "artifact_hashes_verified": true,
+    "command": "python labs/semantic_interop/scripts/check_task02.py --upstream-python .tmp/task02-replay/current-env/Scripts/python.exe --repair-python .tmp/task02-replay/repair-env/Scripts/python.exe"
+  },
+  "historical_files_checked": 1091,
+  "historical_results_unchanged": true,
+  "public_provenance_unchanged": true,
+  "pinned_packages_unchanged": true,
+  "broader_parent_regressions": "Running independently; final result will be recorded in validation.json. Stage B began only after required Stage A and existing semantic lab checks passed.",
+  "platform_definitions_at_gate": "No Stage B definitions existed at gate acceptance."
+}

@@ -1,0 +1,502 @@
+{
+  "actual_target_metric_names": [
+    "Eligible Sessions",
+    "Converted Sessions",
+    "Conversion Rate",
+    "Paid Revenue"
+  ],
+  "canonical_query_metric_names": [
+    "conversion_rate",
+    "paid_revenue"
+  ],
+  "cases": [
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__overall",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__channel",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.25"
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__month",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "float",
+              "value": "0.6"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "float",
+              "value": "0.2"
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__month_channel",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.6666666666666666"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.3333333333333333"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    },
+    {
+      "business_question": "How much paid revenue belongs to these session cohorts?",
+      "case_id": "paid_revenue__overall",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "390.00"
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    },
+    {
+      "business_question": "How much paid revenue belongs to these session cohorts?",
+      "case_id": "paid_revenue__channel",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "300.00"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    },
+    {
+      "business_question": "How much paid revenue belongs to these session cohorts?",
+      "case_id": "paid_revenue__month",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "decimal",
+              "value": "270.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    },
+    {
+      "business_question": "How much paid revenue belongs to these session cohorts?",
+      "case_id": "paid_revenue__month_channel",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "180.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__empty",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    },
+    {
+      "business_question": "How much paid revenue belongs to these session cohorts?",
+      "case_id": "paid_revenue__empty",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    },
+    {
+      "business_question": "What share of eligible sessions converted?",
+      "case_id": "conversion_rate__nonconverting",
+      "comparison_result": null,
+      "conversion_path": "Power BI -> Apache Ossie -> MetricFlow -> DuckDB",
+      "diagnostics": [
+        "At least one time spine must be configured to use the semantic layer, but none were found."
+      ],
+      "evidence_reference": [],
+      "execution_status": "NOT_EXECUTED",
+      "oracle_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      },
+      "provenance": "No repairs; canonical query identifiers; exact returned manifest retained",
+      "semantic_status": "UNKNOWN",
+      "source_platform": "Power BI",
+      "target_platform": "MetricFlow / DuckDB",
+      "target_result": null
+    }
+  ],
+  "executed": 0,
+  "numerical_equivalence": "BLOCKED",
+  "oracle_matches": 0,
+  "requested": 11,
+  "scope": "MetricFlow renderer with DuckDB backend; no target reconstruction"
+}

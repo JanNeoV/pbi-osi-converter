@@ -1,0 +1,116 @@
+{
+  "checked_source_commit": "f99cd65a5404bbe9f8be12c446141898d22fa9ea",
+  "source": "Fresh Git clone from committed objects, without any ignored environment before setup",
+  "clone_command": [
+    "git",
+    "clone",
+    "--no-hardlinks",
+    "--single-branch",
+    "--branch",
+    "research/semantic-interoperability-lab",
+    ".",
+    ".tmp/task06-clean-checkout"
+  ],
+  "commands_relative_to_clone_root": [
+    {
+      "command": [
+        "python",
+        "labs/semantic_interop/scripts/setup.py"
+      ],
+      "exit_code": 0,
+      "log": "clean-checkout-0.log"
+    },
+    {
+      "command": [
+        ".tmp/semantic-lab-venv/Scripts/python.exe",
+        "labs/semantic_interop/scripts/run_conversion_demo.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "clean-checkout-1.log"
+    },
+    {
+      "command": [
+        ".tmp/semantic-lab-venv/Scripts/python.exe",
+        "scripts/check_public_repository.py",
+        "--after-demo"
+      ],
+      "exit_code": 0,
+      "log": "clean-checkout-2.log"
+    }
+  ],
+  "stage_a": {
+    "accepted": true,
+    "dbt_build_exit_code": 0,
+    "detected_failures": 5,
+    "native_cases": 31,
+    "native_matches": 31,
+    "oracle_reviewed_values_match": true
+  },
+  "tool_versions": {
+    "dbt-core": "1.12.6",
+    "dbt-duckdb": "1.11.0",
+    "duckdb": "1.5.6",
+    "metricflow": "0.213.0"
+  },
+  "initial_full_baseline_check": {
+    "exit_code": 1,
+    "log": "clean-checkout-3.log",
+    "scope": "All 1865 original workspace records; one expected ignored generated SOURCES.txt difference",
+    "not_a_converter_or_business_result_failure": true
+  },
+  "portable_history_check": {
+    "command": [
+      ".tmp/semantic-lab-venv/Scripts/python.exe",
+      "-c",
+      "from pathlib import Path\nimport hashlib, json\nbaseline = Path('labs/semantic_interop/results/task05-minimal/baseline.json')\nfiles = json.loads(baseline.read_text(encoding='utf-8'))['files']\ngenerated = {name for name in files if '.egg-info/' in name}\nportable = {name: digest for name, digest in files.items() if name not in generated}\nchanged = [name for name, expected in portable.items()\n           if not Path(name).is_file()\n           or hashlib.sha256(Path(name).read_bytes()).hexdigest() != expected]\nprint(json.dumps({'historical_records': len(files), 'portable_files': len(portable),\n                  'generated_metadata_excluded': sorted(generated),\n                  'changed_or_missing': changed}))\nassert len(files) == 1865 and len(generated) == 5 and len(portable) == 1860 and not changed"
+    ],
+    "exit_code": 0,
+    "log": "clean-checkout-4.log",
+    "result": {
+      "historical_records": 1865,
+      "portable_files": 1860,
+      "generated_metadata_excluded": [
+        "labs/semantic_interop/src/semantic_interoperability_lab.egg-info/PKG-INFO",
+        "labs/semantic_interop/src/semantic_interoperability_lab.egg-info/SOURCES.txt",
+        "labs/semantic_interop/src/semantic_interoperability_lab.egg-info/dependency_links.txt",
+        "labs/semantic_interop/src/semantic_interoperability_lab.egg-info/requires.txt",
+        "labs/semantic_interop/src/semantic_interoperability_lab.egg-info/top_level.txt"
+      ],
+      "changed_or_missing": []
+    }
+  },
+  "generated_metadata": {
+    "labs/semantic_interop/src/semantic_interoperability_lab.egg-info/dependency_links.txt": {
+      "tracked": false,
+      "historical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "fresh_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "labs/semantic_interop/src/semantic_interoperability_lab.egg-info/PKG-INFO": {
+      "tracked": false,
+      "historical_sha256": "c2ff7b2cd4eac4bb2f8cce8bfbe90ec2646ec5fd392432da0fcf2963ed09c476",
+      "fresh_sha256": "c2ff7b2cd4eac4bb2f8cce8bfbe90ec2646ec5fd392432da0fcf2963ed09c476"
+    },
+    "labs/semantic_interop/src/semantic_interoperability_lab.egg-info/requires.txt": {
+      "tracked": false,
+      "historical_sha256": "1d0cc973e66adf9e40119366b37e30376c7ace91b678e90d97fa5c407f18adc6",
+      "fresh_sha256": "1d0cc973e66adf9e40119366b37e30376c7ace91b678e90d97fa5c407f18adc6"
+    },
+    "labs/semantic_interop/src/semantic_interoperability_lab.egg-info/SOURCES.txt": {
+      "tracked": false,
+      "historical_sha256": "2f0eabeb19edc0d08bdeddf011c6e91977be4d53ea1c15a2f027139b676fbe1f",
+      "fresh_sha256": "db694a898206ed297e37a91f7d6de7151a2ea0dcf9cd14737c03338187d11c97"
+    },
+    "labs/semantic_interop/src/semantic_interoperability_lab.egg-info/top_level.txt": {
+      "tracked": false,
+      "historical_sha256": "6e6e3e6ebad399efaed343213b1d1c00ad76276e520a29161f85d4804e117fb4",
+      "fresh_sha256": "6e6e3e6ebad399efaed343213b1d1c00ad76276e520a29161f85d4804e117fb4"
+    }
+  },
+  "generated_metadata_disposition": "All five ignored build artifacts excluded from portable-input custody; original baseline and original author-workspace artifacts are unchanged",
+  "working_tree_clean_after_setup_and_execution": true,
+  "benchmark_and_public_hygiene_passed": true,
+  "portable_history_passed": true,
+  "followup_scope": "Documentation and validation evidence only; runtime source and dependency pins unchanged",
+  "passed": true
+}

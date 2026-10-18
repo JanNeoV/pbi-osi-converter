@@ -1,0 +1,3380 @@
+{
+  "full_command": [
+    "git",
+    "-c",
+    "core.whitespace=trailing-space,space-before-tab,cr-at-eol",
+    "diff",
+    "--cached",
+    "--check",
+    "origin/main",
+    "--"
+  ],
+  "full_exit_code": 2,
+  "full_findings": 665,
+  "full_files": 244,
+  "retained_non_archive_findings": [
+    {
+      "path": "labs/semantic_interop/pyproject.toml",
+      "line": 36,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/scripts/setup.py",
+      "line": 9,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/src/semantic_lab/__init__.py",
+      "line": 2,
+      "message": "new blank line at EOF."
+    }
+  ],
+  "current_publication_command": [
+    "git",
+    "-c",
+    "core.whitespace=trailing-space,space-before-tab,cr-at-eol",
+    "diff",
+    "--cached",
+    "--check",
+    "origin/main",
+    "--",
+    "README.md",
+    "scripts/check_public_repository.py",
+    "tests/test_readme_revision.py",
+    ".github/workflows/semantic-lab.yml",
+    "docs",
+    "labs/semantic_interop/docs",
+    "labs/semantic_interop/showcase",
+    "labs/semantic_interop/README.md"
+  ],
+  "current_publication_exit_code": 0,
+  "current_publication_output": "",
+  "policy": "Original archived results/patches, canonical fixtures and historical source/dependency EOF formatting remain unchanged. CRLF preserved by existing .gitattributes. Publication docs and QA code pass.",
+  "all_findings": [
+    {
+      "path": "labs/semantic_interop/pyproject.toml",
+      "line": 36,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair-v2/field-name-keys.patch",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair-v2/field-name-keys.patch",
+      "line": 22,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair-v2/field-name-keys.patch",
+      "line": 93,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair-v2/field-name-keys.patch",
+      "line": 201,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair-v2/field-name-keys.patch",
+      "line": 212,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair-v2/field-name-keys.patch",
+      "line": 218,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair-v2/field-name-keys.patch",
+      "line": 232,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/before.txt",
+      "line": 23,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/before.txt",
+      "line": 48,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/before.txt",
+      "line": 64,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/field-name-keys.patch",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/field-name-keys.patch",
+      "line": 22,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/field-name-keys.patch",
+      "line": 93,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/field-name-keys.patch",
+      "line": 182,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/field-name-keys.patch",
+      "line": 193,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/field-name-keys.patch",
+      "line": 199,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/field-name-keys.patch",
+      "line": 213,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/pr315.txt",
+      "line": 23,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/pr315.txt",
+      "line": 48,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/pr315.txt",
+      "line": 64,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/suite-initial.txt",
+      "line": 33,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/suite-initial.txt",
+      "line": 37,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/suite-initial.txt",
+      "line": 56,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/suite-initial.txt",
+      "line": 65,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/suite-initial.txt",
+      "line": 84,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/suite-initial.txt",
+      "line": 90,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/suite-initial.txt",
+      "line": 130,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/suite-initial.txt",
+      "line": 145,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/suite-initial.txt",
+      "line": 163,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task02/upstream-repair/suite-initial.txt",
+      "line": 169,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__empty.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__nonconverting.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__empty.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__channel.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__empty.sql",
+      "line": 5,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__month.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__month_channel.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__overall.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__overall.sql",
+      "line": 5,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__empty.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__nonconverting.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__empty.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__channel.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__empty.sql",
+      "line": 5,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__month.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__month_channel.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__overall.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__overall.sql",
+      "line": 5,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__empty.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__nonconverting.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__empty.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__channel.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__empty.sql",
+      "line": 5,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__month.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__month_channel.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__overall.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__overall.sql",
+      "line": 5,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 155,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 161,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 220,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 223,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 355,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 395,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 465,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 469,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 473,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 532,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 544,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 546,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 548,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 549,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 612,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 635,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 637,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 639,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 641,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/databricks-roundtrip/prior-build.build.stdout.log",
+      "line": 644,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 155,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 161,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 220,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 223,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 355,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 395,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 465,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 469,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 473,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 532,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 544,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 546,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 548,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 549,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 612,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 635,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 637,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 639,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 641,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/metricflow-to-databricks/prior-build.build.stdout.log",
+      "line": 644,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 155,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 161,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 220,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 223,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 355,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 395,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 465,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 469,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 473,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 532,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 544,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 546,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 548,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 549,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 612,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 635,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 637,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 639,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 641,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-switch-to-databricks/prior-build.build.stdout.log",
+      "line": 644,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 155,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 161,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 220,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 223,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 355,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 395,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 465,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 469,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 473,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 532,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 544,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 546,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 548,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 549,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 612,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 635,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 637,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 639,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 641,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/databricks/powerbi-to-databricks/prior-build.build.stdout.log",
+      "line": 644,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/dbt-build.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/dbt-build.log",
+      "line": 6,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/dbt-build.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/dbt-build.log",
+      "line": 15,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/dbt-build.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/average_paid_order_value__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/average_paid_order_value__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/average_paid_order_value__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/average_paid_order_value__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/average_paid_order_value__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/average_paid_order_value__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/conversion_rate__empty.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/conversion_rate__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/conversion_rate__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/conversion_rate__nonconverting.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/converted_sessions__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/converted_sessions__empty.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/converted_sessions__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/converted_sessions__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/converted_sessions__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/converted_sessions__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/eligible_sessions__channel.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/eligible_sessions__empty.sql",
+      "line": 5,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/eligible_sessions__month.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/eligible_sessions__month_channel.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/eligible_sessions__overall.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/eligible_sessions__overall.sql",
+      "line": 5,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_order_count__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_order_count__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_order_count__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_order_count__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_order_count__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_order_count__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_revenue__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_revenue__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_revenue__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/native/oracle/paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/conversion_rate__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/conversion_rate__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/paid_revenue__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/paid_revenue__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/selector__conversion_rate__Direct.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/selector__conversion_rate__Indirect.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/selector__conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/selector__conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/selector__paid_revenue__Direct.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/selector__paid_revenue__Indirect.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/selector__paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/powerbi/oracle/selector__paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/supplemental/regressions.log",
+      "line": 150,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04-showcase/supplemental/task02.log",
+      "line": 11,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 155,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 161,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 220,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 223,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 355,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 395,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 465,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 469,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 473,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 532,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 544,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 546,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 548,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 549,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 612,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 635,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 637,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 639,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 641,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "line": 644,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/lab-regression.log",
+      "line": 1,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/lab-regression.log",
+      "line": 2,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/lab-regression.log",
+      "line": 3,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 1,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 2,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 3,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 10,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 12,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 14,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 18,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 19,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 22,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 23,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 24,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 27,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 28,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 29,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 32,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 33,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 34,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 37,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 38,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 39,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 42,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 43,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 44,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 47,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 48,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 49,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "line": 52,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/dbt-build.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/dbt-build.log",
+      "line": 6,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/dbt-build.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/dbt-build.log",
+      "line": 15,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/dbt-build.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__empty.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__nonconverting.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__empty.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__channel.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__empty.sql",
+      "line": 5,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__month.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__month_channel.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__overall.sql",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__overall.sql",
+      "line": 5,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__empty.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 1,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 2,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 3,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 6,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 8,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 9,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 10,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 11,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 12,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 14,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 15,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 16,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 18,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 19,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 20,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 21,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 22,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 23,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 24,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 25,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 26,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 27,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 28,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 29,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 30,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 31,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 32,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 33,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 34,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 35,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 36,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 37,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 38,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 39,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 40,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 41,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 42,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 43,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 44,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 45,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 46,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 47,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 48,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 49,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 50,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 51,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 52,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 53,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 54,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 55,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 56,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 57,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 58,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 59,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 60,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 61,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 62,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 63,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 64,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 65,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 66,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 67,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 68,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 69,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 70,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 71,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 72,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 73,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 74,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 75,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 76,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 77,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 78,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 79,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 80,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 81,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 82,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 83,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 84,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 85,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 86,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 87,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 88,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 89,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 90,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 91,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 92,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 93,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 94,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 95,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 96,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 97,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 98,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 99,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 100,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 101,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 102,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 103,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 104,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 105,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 106,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 107,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 108,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 109,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 110,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 111,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 112,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 113,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 114,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 115,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 116,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 117,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 118,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 119,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 120,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 121,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 122,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 123,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 124,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "line": 125,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/conversion_rate__month.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/conversion_rate__month_channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/paid_revenue__month.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/paid_revenue__month_channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/public-check.log",
+      "line": 1,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/dbt-build.stdout.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/dbt-build.stdout.log",
+      "line": 6,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/dbt-build.stdout.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/dbt-build.stdout.log",
+      "line": 15,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/dbt-build.stdout.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/source/oracle-conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/source/oracle-conversion_rate__channel.sql",
+      "line": 9,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/source/oracle-conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/source/oracle-conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/source/oracle-paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/source/oracle-paid_revenue__channel.sql",
+      "line": 7,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/source/oracle-paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/source/oracle-paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/spine-only-experiment/oracle-conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/spine-only-experiment/oracle-conversion_rate__channel.sql",
+      "line": 9,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/spine-only-experiment/oracle-conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/spine-only-experiment/oracle-conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/spine-only-experiment/oracle-paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/spine-only-experiment/oracle-paid_revenue__channel.sql",
+      "line": 7,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/spine-only-experiment/oracle-paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/spine-only-experiment/oracle-paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/target/oracle-conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/target/oracle-conversion_rate__channel.sql",
+      "line": 9,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/target/oracle-conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/target/oracle-conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/target/oracle-paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/target/oracle-paid_revenue__channel.sql",
+      "line": 7,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/target/oracle-paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/baseline/target/oracle-paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 6,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 15,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 22,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 25,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 27,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 32,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 35,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary-initial-setup-failure/dbt-build.stdout.log",
+      "line": 37,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary/dbt-build.stdout.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary/dbt-build.stdout.log",
+      "line": 6,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary/dbt-build.stdout.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary/dbt-build.stdout.log",
+      "line": 15,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/elementary/dbt-build.stdout.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/dbt-build.stdout.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/dbt-build.stdout.log",
+      "line": 6,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/dbt-build.stdout.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/dbt-build.stdout.log",
+      "line": 15,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/dbt-build.stdout.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restore-build.stdout.log",
+      "line": 4,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restore-build.stdout.log",
+      "line": 6,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restore-build.stdout.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restore-build.stdout.log",
+      "line": 15,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restore-build.stdout.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restored/oracle-conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restored/oracle-conversion_rate__channel.sql",
+      "line": 9,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restored/oracle-conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restored/oracle-conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restored/oracle-paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restored/oracle-paid_revenue__channel.sql",
+      "line": 7,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restored/oracle-paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/restored/oracle-paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/source/oracle-conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/source/oracle-conversion_rate__channel.sql",
+      "line": 9,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/source/oracle-conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/source/oracle-conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/source/oracle-paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/source/oracle-paid_revenue__channel.sql",
+      "line": 7,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/source/oracle-paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/source/oracle-paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/spine-only-experiment/oracle-conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/spine-only-experiment/oracle-conversion_rate__channel.sql",
+      "line": 9,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/spine-only-experiment/oracle-conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/spine-only-experiment/oracle-conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/spine-only-experiment/oracle-paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/spine-only-experiment/oracle-paid_revenue__channel.sql",
+      "line": 7,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/spine-only-experiment/oracle-paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/spine-only-experiment/oracle-paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/target/oracle-conversion_rate__channel.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/target/oracle-conversion_rate__channel.sql",
+      "line": 9,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/target/oracle-conversion_rate__overall.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/target/oracle-conversion_rate__overall.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/target/oracle-paid_revenue__channel.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/target/oracle-paid_revenue__channel.sql",
+      "line": 7,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/target/oracle-paid_revenue__overall.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/target/oracle-paid_revenue__overall.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/powerbi/oracle-Direct-conversion_rate.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/powerbi/oracle-Direct-paid_revenue.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/powerbi/oracle-Indirect-conversion_rate.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/powerbi/oracle-Indirect-paid_revenue.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/powerbi/oracle-overall-conversion_rate.sql",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/powerbi/oracle-overall-conversion_rate.sql",
+      "line": 8,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/powerbi/oracle-overall-paid_revenue.sql",
+      "line": 5,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/powerbi/oracle-overall-paid_revenue.sql",
+      "line": 6,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task05-minimal/showcase-readme.before.md",
+      "line": 3,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log",
+      "line": 11,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log",
+      "line": 15,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log",
+      "line": 19,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log",
+      "line": 21,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log",
+      "line": 23,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log",
+      "line": 25,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-baseline.stderr.log",
+      "line": 27,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log",
+      "line": 11,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log",
+      "line": 15,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log",
+      "line": 19,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log",
+      "line": 21,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log",
+      "line": 23,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log",
+      "line": 25,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/databricks-include-refunded.stderr.log",
+      "line": 27,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/java-test-results.txt",
+      "line": 24,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-from-ossie.stderr.log",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-from-ossie.stderr.log",
+      "line": 7,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-ossie.stderr.log",
+      "line": 7,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-ossie.stderr.log",
+      "line": 7,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 1,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 2,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 3,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 10,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 12,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 13,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 16,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 17,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 20,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 21,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 24,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 25,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 28,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 29,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 32,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 33,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 34,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 37,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 38,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 39,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 42,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 43,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/results/task06-publication/metricflow-to-powerbi.stderr.log",
+      "line": 44,
+      "message": "trailing whitespace."
+    },
+    {
+      "path": "labs/semantic_interop/scripts/setup.py",
+      "line": 9,
+      "message": "new blank line at EOF."
+    },
+    {
+      "path": "labs/semantic_interop/src/semantic_lab/__init__.py",
+      "line": 2,
+      "message": "new blank line at EOF."
+    }
+  ]
+}

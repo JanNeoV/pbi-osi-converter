@@ -1,0 +1,87 @@
+{
+  "provenance": "Unchanged official generated target manifest",
+  "elementary_relaxed_business_policy": false,
+  "include_refunded_revenue_only": true,
+  "comparisons": {
+    "paid_revenue__overall": {
+      "oracle": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "440.00"
+          ]
+        ]
+      },
+      "observed": {
+        "error": "At least one time spine must be configured to use the semantic layer, but none were found.",
+        "phase": "compiler_initialization"
+      },
+      "equal": null
+    },
+    "conversion_rate__overall": {
+      "oracle": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            0.4
+          ]
+        ]
+      },
+      "observed": {
+        "error": "At least one time spine must be configured to use the semantic layer, but none were found.",
+        "phase": "compiler_initialization"
+      },
+      "equal": null
+    },
+    "paid_revenue__channel": {
+      "oracle": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "Indirect",
+            "140.00"
+          ],
+          [
+            "Direct",
+            "300.00"
+          ]
+        ]
+      },
+      "observed": {
+        "error": "At least one time spine must be configured to use the semantic layer, but none were found.",
+        "phase": "compiler_initialization"
+      },
+      "equal": null
+    },
+    "conversion_rate__channel": {
+      "oracle": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            "Direct",
+            0.5
+          ],
+          [
+            "Indirect",
+            0.25
+          ]
+        ]
+      },
+      "observed": {
+        "error": "At least one time spine must be configured to use the semantic layer, but none were found.",
+        "phase": "compiler_initialization"
+      },
+      "equal": null
+    }
+  }
+}

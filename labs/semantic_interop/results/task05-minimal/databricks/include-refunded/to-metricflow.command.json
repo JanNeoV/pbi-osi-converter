@@ -1,0 +1,16 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "-m",
+    "ossie_dbt.cli",
+    "ossie-to-msi",
+    "-i",
+    "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\imported.ossie.yml",
+    "-o",
+    "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\output.manifest.json"
+  ],
+  "cwd": "C:\\github\\pbi-osi-converter",
+  "exit_code": 0,
+  "stdout": "to-metricflow.stdout.log",
+  "stderr": "to-metricflow.stderr.log"
+}

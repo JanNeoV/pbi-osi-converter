@@ -1,0 +1,16 @@
+{
+  "label": "source-tree",
+  "command": [
+    "git",
+    "-C",
+    "<repository>\\.tmp\\task04-databricks\\ossie-current",
+    "rev-parse",
+    "HEAD:converters/databricks/java"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0,
+  "stdout": "source-tree.stdout.log",
+  "stderr": "source-tree.stderr.log",
+  "execution_status": "EXECUTED",
+  "warnings": []
+}

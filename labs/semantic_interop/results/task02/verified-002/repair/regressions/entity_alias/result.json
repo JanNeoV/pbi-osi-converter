@@ -1,0 +1,63 @@
+{
+  "artifact_directory": "regressions/entity_alias",
+  "entity_names": [
+    "item"
+  ],
+  "id": "entity_alias",
+  "issues": [],
+  "mechanism": "entity alias is absent from key set",
+  "metric_expression": "amount",
+  "native": {
+    "columns": [
+      "revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "30.00"
+        }
+      ]
+    ]
+  },
+  "native_matches_oracle": true,
+  "oracle": {
+    "columns": [
+      "revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "30.00"
+        }
+      ]
+    ]
+  },
+  "reduction": {
+    "attempted": "remove cancelled row",
+    "initial_failure": "equal",
+    "kept": false,
+    "reduced_failure": "equal",
+    "selected": "two_rows",
+    "structural": "one metric, one model, one primary entity, only time/status dimensions; source is reexecuted"
+  },
+  "returned": {
+    "columns": [
+      "revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "30.00"
+        }
+      ]
+    ]
+  },
+  "returned_executed": true,
+  "returned_matches_oracle": true,
+  "source_entity_names": [
+    "item"
+  ]
+}

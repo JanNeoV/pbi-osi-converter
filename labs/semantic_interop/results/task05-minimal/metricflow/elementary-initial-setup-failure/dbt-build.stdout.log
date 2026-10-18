@@ -1,0 +1,38 @@
+09:34:59  Running with dbt=1.12.6
+09:34:59  Registered adapter: duckdb=1.11.0
+09:35:01  Found 3 models, 1 metric, 500 macros, 1 semantic model
+09:35:01  
+09:35:01  Concurrency: 1 threads (target='local')
+09:35:01  
+09:35:01  1 of 3 START sql view model main.orders ........................................ [RUN]
+09:35:01  1 of 3 ERROR creating sql view model main.orders ............................... [ERROR in 0.12s]
+09:35:01  2 of 3 START sql view model main.sessions ...................................... [RUN]
+09:35:01  2 of 3 ERROR creating sql view model main.sessions ............................. [ERROR in 0.02s]
+09:35:01  3 of 3 START sql view model main.time_spine .................................... [RUN]
+09:35:01  3 of 3 OK created sql view model main.time_spine ............................... [OK in 0.04s]
+09:35:01  
+09:35:01  Finished running 3 view models in 0 hours 0 minutes and 0.31 seconds (0.31s).
+09:35:01  
+09:35:01  Completed with 2 errors, 0 partial successes, and 0 warnings:
+09:35:01  
+09:35:01  [ERROR]: in model orders (models\orders.sql)
+09:35:01    Runtime Error in model orders (models\orders.sql)
+  Catalog Error: Table with name raw_orders does not exist!
+  Did you mean "pg_attrdef"?
+  
+  LINE 7: from raw_orders o join raw_sessions s on o.session_id = s.sessio...
+               ^
+09:35:01  
+09:35:01    compiled code at target\compiled\conversion_demo\models\orders.sql
+09:35:01  
+09:35:01  [ERROR]: in model sessions (models\sessions.sql)
+09:35:01    Runtime Error in model sessions (models\sessions.sql)
+  Catalog Error: Table with name raw_sessions does not exist!
+  Did you mean "pragma_database_list"?
+  
+  LINE 6: select * from raw_sessions
+                        ^
+09:35:01  
+09:35:01    compiled code at target\compiled\conversion_demo\models\sessions.sql
+09:35:01  
+09:35:01  Done. PASS=1 WARN=0 ERROR=2 SKIP=0 NO-OP=0 REUSED=0 TOTAL=3

@@ -1,0 +1,2 @@
+CHECK: scripts/check_public_repository.py
+PUBLICATION_CHECK_FAILED: Broken local link in labs/semantic_interop/docs/DATABRICKS_HANDOFF.md: ../results/task04/databricks/report.json

@@ -1,0 +1,532 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "labs/semantic_interop/scripts/check_task02.py",
+    "--upstream-python",
+    ".tmp/task02-replay/current-env/Scripts/python.exe",
+    "--repair-python",
+    ".tmp/task02-replay/repair-env/Scripts/python.exe"
+  ],
+  "exit_code": 0,
+  "initial_failure_explanation": "task02-initial-difference.json",
+  "passed": true,
+  "preservation": {
+    "baseline_file": "baseline.json",
+    "historical_artifact_errors": [],
+    "historical_artifact_references_verified": 1871,
+    "historical_files_missing_or_changed": [],
+    "historical_hash_manifests_checked": 14,
+    "historical_result_files_verified_against_baseline": 1301,
+    "historical_result_groups": {
+      "evidence": 37,
+      "task02": 1053,
+      "task03": 210,
+      "validation.json": 1
+    },
+    "historical_unique_artifacts_verified": 1250,
+    "new_files_outside_task04": [],
+    "passed": true
+  },
+  "runs": [
+    {
+      "artifact_hashes_verified": 305,
+      "baseline_diagnostic_summary": {
+        "controlled_data": {
+          "cases": 1,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "INVALID_MODEL": 1
+          }
+        },
+        "controlled_sql": {
+          "cases": 6,
+          "executed": 6,
+          "matching_oracle": 0,
+          "statuses": {
+            "NUMERICAL_MISMATCH": 6
+          }
+        },
+        "level3_legacy_spine": {
+          "cases": 14,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "SEMANTIC_MISMATCH": 14
+          }
+        },
+        "level3_spine": {
+          "cases": 14,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "SEMANTIC_MISMATCH": 14
+          }
+        },
+        "level3_spine_defaults": {
+          "cases": 14,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "SEMANTIC_MISMATCH": 14
+          }
+        },
+        "microsoft": {
+          "cases": 7,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "NOT_EXECUTED": 2,
+            "SEMANTIC_MISMATCH": 1,
+            "UNSUPPORTED": 4
+          }
+        },
+        "native": {
+          "cases": 14,
+          "executed": 14,
+          "matching_oracle": 14,
+          "statuses": {
+            "PASS": 14
+          }
+        },
+        "roundtrip": {
+          "cases": 14,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "SEMANTIC_MISMATCH": 14
+          }
+        },
+        "tmdl_static": {
+          "cases": 9,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "NOT_EXECUTED": 3,
+            "SEMANTIC_MISMATCH": 1,
+            "UNSUPPORTED": 5
+          }
+        }
+      },
+      "comparison_summaries": {
+        "current": {
+          "controlled_data": {
+            "cases": 1,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "INVALID_MODEL": 1
+            }
+          },
+          "controlled_sql": {
+            "cases": 6,
+            "executed": 6,
+            "matching_oracle": 0,
+            "statuses": {
+              "NUMERICAL_MISMATCH": 6
+            }
+          },
+          "level3_legacy_spine": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "level3_spine": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "level3_spine_defaults": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "microsoft": {
+            "cases": 7,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "NOT_EXECUTED": 2,
+              "SEMANTIC_MISMATCH": 1,
+              "UNSUPPORTED": 4
+            }
+          },
+          "native": {
+            "cases": 14,
+            "executed": 14,
+            "matching_oracle": 14,
+            "statuses": {
+              "PASS": 14
+            }
+          },
+          "roundtrip": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "tmdl_static": {
+            "cases": 9,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "NOT_EXECUTED": 3,
+              "SEMANTIC_MISMATCH": 1,
+              "UNSUPPORTED": 5
+            }
+          }
+        },
+        "repair": {
+          "controlled_data": {
+            "cases": 1,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "INVALID_MODEL": 1
+            }
+          },
+          "controlled_sql": {
+            "cases": 6,
+            "executed": 6,
+            "matching_oracle": 0,
+            "statuses": {
+              "NUMERICAL_MISMATCH": 6
+            }
+          },
+          "level3_legacy_spine": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "level3_spine": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "level3_spine_defaults": {
+            "cases": 14,
+            "executed": 11,
+            "matching_oracle": 11,
+            "statuses": {
+              "PASS": 11,
+              "SEMANTIC_MISMATCH": 3
+            }
+          },
+          "microsoft": {
+            "cases": 7,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "NOT_EXECUTED": 3,
+              "UNSUPPORTED": 4
+            }
+          },
+          "native": {
+            "cases": 14,
+            "executed": 14,
+            "matching_oracle": 14,
+            "statuses": {
+              "PASS": 14
+            }
+          },
+          "roundtrip": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "tmdl_static": {
+            "cases": 9,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "NOT_EXECUTED": 3,
+              "SEMANTIC_MISMATCH": 1,
+              "UNSUPPORTED": 5
+            }
+          }
+        }
+      },
+      "report": ".tmp/semantic-lab/run-j306nwx0/report.json",
+      "report_sha256": "2fa07916379ee85f75427ae3518fbbab142e7fe3b4ca44337541991a63fa4bcb",
+      "task02_acceptance": {
+        "accepted": true,
+        "failures": []
+      }
+    },
+    {
+      "artifact_hashes_verified": 305,
+      "baseline_diagnostic_summary": {
+        "controlled_data": {
+          "cases": 1,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "INVALID_MODEL": 1
+          }
+        },
+        "controlled_sql": {
+          "cases": 6,
+          "executed": 6,
+          "matching_oracle": 0,
+          "statuses": {
+            "NUMERICAL_MISMATCH": 6
+          }
+        },
+        "level3_legacy_spine": {
+          "cases": 14,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "SEMANTIC_MISMATCH": 14
+          }
+        },
+        "level3_spine": {
+          "cases": 14,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "SEMANTIC_MISMATCH": 14
+          }
+        },
+        "level3_spine_defaults": {
+          "cases": 14,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "SEMANTIC_MISMATCH": 14
+          }
+        },
+        "microsoft": {
+          "cases": 7,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "NOT_EXECUTED": 2,
+            "SEMANTIC_MISMATCH": 1,
+            "UNSUPPORTED": 4
+          }
+        },
+        "native": {
+          "cases": 14,
+          "executed": 14,
+          "matching_oracle": 14,
+          "statuses": {
+            "PASS": 14
+          }
+        },
+        "roundtrip": {
+          "cases": 14,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "SEMANTIC_MISMATCH": 14
+          }
+        },
+        "tmdl_static": {
+          "cases": 9,
+          "executed": 0,
+          "matching_oracle": 0,
+          "statuses": {
+            "NOT_EXECUTED": 3,
+            "SEMANTIC_MISMATCH": 1,
+            "UNSUPPORTED": 5
+          }
+        }
+      },
+      "comparison_summaries": {
+        "current": {
+          "controlled_data": {
+            "cases": 1,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "INVALID_MODEL": 1
+            }
+          },
+          "controlled_sql": {
+            "cases": 6,
+            "executed": 6,
+            "matching_oracle": 0,
+            "statuses": {
+              "NUMERICAL_MISMATCH": 6
+            }
+          },
+          "level3_legacy_spine": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "level3_spine": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "level3_spine_defaults": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "microsoft": {
+            "cases": 7,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "NOT_EXECUTED": 2,
+              "SEMANTIC_MISMATCH": 1,
+              "UNSUPPORTED": 4
+            }
+          },
+          "native": {
+            "cases": 14,
+            "executed": 14,
+            "matching_oracle": 14,
+            "statuses": {
+              "PASS": 14
+            }
+          },
+          "roundtrip": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "tmdl_static": {
+            "cases": 9,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "NOT_EXECUTED": 3,
+              "SEMANTIC_MISMATCH": 1,
+              "UNSUPPORTED": 5
+            }
+          }
+        },
+        "repair": {
+          "controlled_data": {
+            "cases": 1,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "INVALID_MODEL": 1
+            }
+          },
+          "controlled_sql": {
+            "cases": 6,
+            "executed": 6,
+            "matching_oracle": 0,
+            "statuses": {
+              "NUMERICAL_MISMATCH": 6
+            }
+          },
+          "level3_legacy_spine": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "level3_spine": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "level3_spine_defaults": {
+            "cases": 14,
+            "executed": 11,
+            "matching_oracle": 11,
+            "statuses": {
+              "PASS": 11,
+              "SEMANTIC_MISMATCH": 3
+            }
+          },
+          "microsoft": {
+            "cases": 7,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "NOT_EXECUTED": 3,
+              "UNSUPPORTED": 4
+            }
+          },
+          "native": {
+            "cases": 14,
+            "executed": 14,
+            "matching_oracle": 14,
+            "statuses": {
+              "PASS": 14
+            }
+          },
+          "roundtrip": {
+            "cases": 14,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "SEMANTIC_MISMATCH": 14
+            }
+          },
+          "tmdl_static": {
+            "cases": 9,
+            "executed": 0,
+            "matching_oracle": 0,
+            "statuses": {
+              "NOT_EXECUTED": 3,
+              "SEMANTIC_MISMATCH": 1,
+              "UNSUPPORTED": 5
+            }
+          }
+        }
+      },
+      "report": ".tmp/semantic-lab/run-0yvoj7bl/report.json",
+      "report_sha256": "2fa07916379ee85f75427ae3518fbbab142e7fe3b4ca44337541991a63fa4bcb",
+      "task02_acceptance": {
+        "accepted": true,
+        "failures": []
+      }
+    }
+  ],
+  "validation": {
+    "artifact_hashes_verified": true,
+    "offline_guard": "Python audit hook denies socket.connect and socket.getaddrinfo in worker/dbt subprocesses; not an OS firewall",
+    "passed": true,
+    "repeated_reports_equal": true,
+    "reports": [
+      ".tmp/semantic-lab/run-j306nwx0/report.json",
+      ".tmp/semantic-lab/run-0yvoj7bl/report.json"
+    ]
+  }
+}

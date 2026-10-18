@@ -1,0 +1,17 @@
+/// Manually authored teaching candidate. TOM parsing and DAX execution: NOT_EXECUTED.
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+
+	annotation Task03Provenance = MANUALLY_AUTHORED_CANDIDATE
+	annotation Task03RuntimeExecution = NOT_EXECUTED
+	annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table Sessions
+ref table Orders
+ref table 'Sales Channel'
+ref table 'KPI Selector'
+ref expression FixtureRoot
+ref expression SessionsData
+ref expression OrdersData

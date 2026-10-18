@@ -1,0 +1,18 @@
+{
+  "columns": [
+    "category",
+    "completed_revenue_share"
+  ],
+  "rows": [
+    [
+      {
+        "type": "string",
+        "value": "Zero"
+      },
+      {
+        "type": "null",
+        "value": null
+      }
+    ]
+  ]
+}

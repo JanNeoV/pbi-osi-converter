@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "<repository>\\.tmp\\semantic-lab-venv\\Scripts\\ossie-microsoft.exe",
+    "export",
+    "-i",
+    "<repository>\\labs\\semantic_interop\\results\\task05-minimal\\metricflow\\elementary\\output.ossie.yml",
+    "-o",
+    "<repository>\\labs\\semantic_interop\\results\\task05-minimal\\metricflow\\elementary\\output.model.bim"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0
+}

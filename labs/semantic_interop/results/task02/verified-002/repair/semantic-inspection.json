@@ -1,0 +1,524 @@
+{
+  "native": {
+    "metrics": {
+      "average_order_value": {
+        "equal": true,
+        "expected": {
+          "denominator": {
+            "aggregation": "count_distinct",
+            "expression": "order_id",
+            "filters": [],
+            "model": "orders",
+            "type": "simple"
+          },
+          "numerator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [],
+            "model": "items",
+            "type": "simple"
+          },
+          "type": "ratio"
+        },
+        "observed": {
+          "denominator": {
+            "aggregation": "count_distinct",
+            "expression": "order_id",
+            "filters": [],
+            "model": "orders",
+            "type": "simple"
+          },
+          "numerator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [],
+            "model": "items",
+            "type": "simple"
+          },
+          "type": "ratio"
+        }
+      },
+      "completed_revenue": {
+        "equal": true,
+        "expected": {
+          "aggregation": "sum",
+          "expression": "amount",
+          "filters": [
+            "{{ Dimension('item__status') }} = 'completed'"
+          ],
+          "model": "items",
+          "type": "simple"
+        },
+        "observed": {
+          "aggregation": "sum",
+          "expression": "amount",
+          "filters": [
+            "{{ Dimension('item__status') }} = 'completed'"
+          ],
+          "model": "items",
+          "type": "simple"
+        }
+      },
+      "completed_revenue_share": {
+        "equal": true,
+        "expected": {
+          "denominator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [],
+            "model": "items",
+            "type": "simple"
+          },
+          "numerator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [
+              "{{ Dimension('item__status') }} = 'completed'"
+            ],
+            "model": "items",
+            "type": "simple"
+          },
+          "type": "ratio"
+        },
+        "observed": {
+          "denominator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [],
+            "model": "items",
+            "type": "simple"
+          },
+          "numerator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [
+              "{{ Dimension('item__status') }} = 'completed'"
+            ],
+            "model": "items",
+            "type": "simple"
+          },
+          "type": "ratio"
+        }
+      },
+      "order_count": {
+        "equal": true,
+        "expected": {
+          "aggregation": "count_distinct",
+          "expression": "order_id",
+          "filters": [],
+          "model": "orders",
+          "type": "simple"
+        },
+        "observed": {
+          "aggregation": "count_distinct",
+          "expression": "order_id",
+          "filters": [],
+          "model": "orders",
+          "type": "simple"
+        }
+      },
+      "purchasing_customers": {
+        "equal": true,
+        "expected": {
+          "aggregation": "count_distinct",
+          "expression": "customer_id",
+          "filters": [],
+          "model": "orders",
+          "type": "simple"
+        },
+        "observed": {
+          "aggregation": "count_distinct",
+          "expression": "customer_id",
+          "filters": [],
+          "model": "orders",
+          "type": "simple"
+        }
+      },
+      "revenue": {
+        "equal": true,
+        "expected": {
+          "aggregation": "sum",
+          "expression": "amount",
+          "filters": [],
+          "model": "items",
+          "type": "simple"
+        },
+        "observed": {
+          "aggregation": "sum",
+          "expression": "amount",
+          "filters": [],
+          "model": "items",
+          "type": "simple"
+        }
+      }
+    },
+    "models": {
+      "items": {
+        "equal": true,
+        "expected": {
+          "entities": [
+            [
+              "item",
+              "primary",
+              "item_id"
+            ],
+            [
+              "order",
+              "foreign",
+              "order_id"
+            ],
+            [
+              "product",
+              "foreign",
+              "product_id"
+            ]
+          ],
+          "time_dimension": "order_date"
+        },
+        "observed": {
+          "entities": [
+            [
+              "item",
+              "primary",
+              "item_id"
+            ],
+            [
+              "order",
+              "foreign",
+              "order_id"
+            ],
+            [
+              "product",
+              "foreign",
+              "product_id"
+            ]
+          ],
+          "time_dimension": "order_date"
+        }
+      },
+      "orders": {
+        "equal": true,
+        "expected": {
+          "entities": [
+            [
+              "order",
+              "primary",
+              "order_id"
+            ]
+          ],
+          "time_dimension": "order_date"
+        },
+        "observed": {
+          "entities": [
+            [
+              "order",
+              "primary",
+              "order_id"
+            ]
+          ],
+          "time_dimension": "order_date"
+        }
+      },
+      "products": {
+        "equal": true,
+        "expected": {
+          "entities": [
+            [
+              "product",
+              "primary",
+              "product_id"
+            ]
+          ],
+          "time_dimension": null
+        },
+        "observed": {
+          "entities": [
+            [
+              "product",
+              "primary",
+              "product_id"
+            ]
+          ],
+          "time_dimension": null
+        }
+      }
+    },
+    "project_configuration": {
+      "dsi_package_version": {
+        "major_version": "0",
+        "minor_version": "213",
+        "patch_version": "0"
+      },
+      "metadata": null,
+      "time_spine_table_configurations": [],
+      "time_spines": [
+        {
+          "custom_granularities": [],
+          "node_relation": {
+            "alias": "time_spine",
+            "database": "benchmark",
+            "relation_name": "\"benchmark\".\"main\".\"time_spine\"",
+            "schema_name": "main"
+          },
+          "primary_column": {
+            "name": "date_day",
+            "time_granularity": "day"
+          }
+        }
+      ]
+    },
+    "scope": "fixture aggregation, expression, filters, ratio inputs, declared grain, relationship entities and default time; not a general equivalence proof"
+  },
+  "roundtrip": {
+    "metrics": {
+      "average_order_value": {
+        "equal": true,
+        "expected": {
+          "denominator": {
+            "aggregation": "count_distinct",
+            "expression": "order_id",
+            "filters": [],
+            "model": "orders",
+            "type": "simple"
+          },
+          "numerator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [],
+            "model": "items",
+            "type": "simple"
+          },
+          "type": "ratio"
+        },
+        "observed": {
+          "denominator": {
+            "aggregation": "count_distinct",
+            "expression": "order_id",
+            "filters": [],
+            "model": "orders",
+            "type": "simple"
+          },
+          "numerator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [],
+            "model": "items",
+            "type": "simple"
+          },
+          "type": "ratio"
+        }
+      },
+      "completed_revenue": {
+        "equal": false,
+        "expected": {
+          "aggregation": "sum",
+          "expression": "amount",
+          "filters": [
+            "{{ Dimension('item__status') }} = 'completed'"
+          ],
+          "model": "items",
+          "type": "simple"
+        },
+        "observed": {
+          "aggregation": "sum",
+          "expression": "SUM(CASE WHEN item__status = 'completed' THEN items.amount END)",
+          "filters": [],
+          "model": "orders",
+          "type": "simple"
+        }
+      },
+      "completed_revenue_share": {
+        "equal": false,
+        "expected": {
+          "denominator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [],
+            "model": "items",
+            "type": "simple"
+          },
+          "numerator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [
+              "{{ Dimension('item__status') }} = 'completed'"
+            ],
+            "model": "items",
+            "type": "simple"
+          },
+          "type": "ratio"
+        },
+        "observed": {
+          "denominator": {
+            "aggregation": "sum",
+            "expression": "amount",
+            "filters": [],
+            "model": "items",
+            "type": "simple"
+          },
+          "numerator": {
+            "aggregation": "sum",
+            "expression": "SUM(CASE WHEN item__status = 'completed' THEN items.amount END)",
+            "filters": [],
+            "model": "orders",
+            "type": "simple"
+          },
+          "type": "ratio"
+        }
+      },
+      "order_count": {
+        "equal": true,
+        "expected": {
+          "aggregation": "count_distinct",
+          "expression": "order_id",
+          "filters": [],
+          "model": "orders",
+          "type": "simple"
+        },
+        "observed": {
+          "aggregation": "count_distinct",
+          "expression": "order_id",
+          "filters": [],
+          "model": "orders",
+          "type": "simple"
+        }
+      },
+      "purchasing_customers": {
+        "equal": true,
+        "expected": {
+          "aggregation": "count_distinct",
+          "expression": "customer_id",
+          "filters": [],
+          "model": "orders",
+          "type": "simple"
+        },
+        "observed": {
+          "aggregation": "count_distinct",
+          "expression": "customer_id",
+          "filters": [],
+          "model": "orders",
+          "type": "simple"
+        }
+      },
+      "revenue": {
+        "equal": true,
+        "expected": {
+          "aggregation": "sum",
+          "expression": "amount",
+          "filters": [],
+          "model": "items",
+          "type": "simple"
+        },
+        "observed": {
+          "aggregation": "sum",
+          "expression": "amount",
+          "filters": [],
+          "model": "items",
+          "type": "simple"
+        }
+      }
+    },
+    "models": {
+      "items": {
+        "equal": false,
+        "expected": {
+          "entities": [
+            [
+              "item",
+              "primary",
+              "item_id"
+            ],
+            [
+              "order",
+              "foreign",
+              "order_id"
+            ],
+            [
+              "product",
+              "foreign",
+              "product_id"
+            ]
+          ],
+          "time_dimension": "order_date"
+        },
+        "observed": {
+          "entities": [
+            [
+              "item",
+              "primary",
+              "item_id"
+            ],
+            [
+              "order",
+              "foreign",
+              "order_id"
+            ],
+            [
+              "product",
+              "foreign",
+              "product_id"
+            ]
+          ],
+          "time_dimension": null
+        }
+      },
+      "orders": {
+        "equal": false,
+        "expected": {
+          "entities": [
+            [
+              "order",
+              "primary",
+              "order_id"
+            ]
+          ],
+          "time_dimension": "order_date"
+        },
+        "observed": {
+          "entities": [
+            [
+              "order",
+              "primary",
+              "order_id"
+            ]
+          ],
+          "time_dimension": null
+        }
+      },
+      "products": {
+        "equal": true,
+        "expected": {
+          "entities": [
+            [
+              "product",
+              "primary",
+              "product_id"
+            ]
+          ],
+          "time_dimension": null
+        },
+        "observed": {
+          "entities": [
+            [
+              "product",
+              "primary",
+              "product_id"
+            ]
+          ],
+          "time_dimension": null
+        }
+      }
+    },
+    "project_configuration": {
+      "dsi_package_version": {
+        "major_version": "0",
+        "minor_version": "213",
+        "patch_version": "0"
+      },
+      "metadata": null,
+      "time_spine_table_configurations": [],
+      "time_spines": []
+    },
+    "scope": "fixture aggregation, expression, filters, ratio inputs, declared grain, relationship entities and default time; not a general equivalence proof"
+  }
+}

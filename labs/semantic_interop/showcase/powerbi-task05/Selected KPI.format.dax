@@ -1,0 +1,6 @@
+SWITCH(
+    SELECTEDVALUE('KPI Selector'[KPI], "Conversion Rate"),
+    "Conversion Rate", "0.0%",
+    "Paid Revenue", "#,0.00 ""EUR""",
+    "General Number"
+)

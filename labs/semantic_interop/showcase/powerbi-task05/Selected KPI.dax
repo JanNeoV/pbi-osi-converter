@@ -1,0 +1,7 @@
+Selected KPI =
+SWITCH(
+    SELECTEDVALUE('KPI Selector'[KPI], "Conversion Rate"),
+    "Conversion Rate", [Conversion Rate],
+    "Paid Revenue", [Paid Revenue],
+    BLANK()
+)

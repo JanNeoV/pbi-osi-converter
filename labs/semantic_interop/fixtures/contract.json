@@ -1,0 +1,15 @@
+{
+  "metrics": {
+    "revenue": {"type": "simple", "model": "items", "aggregation": "sum", "expression": "amount", "filters": []},
+    "order_count": {"type": "simple", "model": "orders", "aggregation": "count_distinct", "expression": "order_id", "filters": []},
+    "purchasing_customers": {"type": "simple", "model": "orders", "aggregation": "count_distinct", "expression": "customer_id", "filters": []},
+    "completed_revenue": {"type": "simple", "model": "items", "aggregation": "sum", "expression": "amount", "filters": ["{{ Dimension('item__status') }} = 'completed'"]},
+    "average_order_value": {"type": "ratio", "numerator": "revenue", "denominator": "order_count"},
+    "completed_revenue_share": {"type": "ratio", "numerator": "completed_revenue", "denominator": "revenue"}
+  },
+  "models": {
+    "orders": {"time_dimension": "order_date", "entities": [["order", "primary", "order_id"]]},
+    "items": {"time_dimension": "order_date", "entities": [["item", "primary", "item_id"], ["order", "foreign", "order_id"], ["product", "foreign", "product_id"]]},
+    "products": {"time_dimension": null, "entities": [["product", "primary", "product_id"]]}
+  }
+}

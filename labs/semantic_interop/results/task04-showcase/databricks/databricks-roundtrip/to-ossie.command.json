@@ -1,0 +1,20 @@
+{
+  "label": "to-ossie",
+  "command": [
+    "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+    "-jar",
+    "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+    "import",
+    "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\databricks-roundtrip\\source.metric-view.yml",
+    "-o",
+    "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\databricks-roundtrip\\imported.ossie.yml",
+    "--name",
+    "conversion_demo_databricks"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0,
+  "stdout": "to-ossie.stdout.log",
+  "stderr": "to-ossie.stderr.log",
+  "execution_status": "EXECUTED",
+  "warnings": []
+}

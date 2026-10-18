@@ -1,0 +1,371 @@
+{
+  "canonical_input": "labs/semantic_interop/fixtures/conversion_demo/",
+  "command": ".tmp/semantic-lab-venv/Scripts/python.exe labs/semantic_interop/scripts/run_conversion_platforms.py --capture labs/semantic_interop/results/task04/metricflow",
+  "configuration_reconstructed": false,
+  "converter_commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+  "databricks_and_powerbi": "Existing runner also retains its ancillary MSI-to-Microsoft observation; separate Task04 Power BI-origin cases and Databricks evidence supersede it for the public comparison. No target DAX or Databricks numerical claim.",
+  "date": "2026-10-18",
+  "exit_code": 0,
+  "headline_business_results": [
+    {
+      "case_id": "conversion_rate__overall",
+      "native_matches_oracle": true,
+      "result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "conversion_rate__channel",
+      "native_matches_oracle": true,
+      "result": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.25"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "conversion_rate__month",
+      "native_matches_oracle": true,
+      "result": {
+        "columns": [
+          "session_month",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "float",
+              "value": "0.6"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "float",
+              "value": "0.2"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "paid_revenue__overall",
+      "native_matches_oracle": true,
+      "result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "390.00"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "paid_revenue__channel",
+      "native_matches_oracle": true,
+      "result": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "300.00"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "paid_revenue__month",
+      "native_matches_oracle": true,
+      "result": {
+        "columns": [
+          "session_month",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "decimal",
+              "value": "270.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ]
+        ]
+      }
+    }
+  ],
+  "headline_metrics": [
+    "conversion_rate",
+    "paid_revenue"
+  ],
+  "historical_repair_boundary": "Task02 eleven numerical matches came from separate patched converter code plus explicit source time-spine/default reconstruction. None of those interventions is applied here.",
+  "internal_stage_a": {
+    "accepted": true,
+    "dbt_build_exit_code": 0,
+    "detected_failures": 5,
+    "native_cases": 31,
+    "native_matches": 31,
+    "oracle_reviewed_values_match": true
+  },
+  "native_headline_queries": 11,
+  "native_headline_queries_executed": 11,
+  "native_headline_queries_matching_oracle": 11,
+  "official_ossie_output": "platforms/converted.ossie.yml",
+  "official_reconstructed_manifest": "platforms/roundtrip.manifest.json",
+  "original_definition": "source.metrics.yml (byte-for-byte copy of canonical dbt/models/metrics.yml)",
+  "packages": {
+    "apache-ossie": {
+      "direct_url": {
+        "subdirectory": "python",
+        "url": "https://github.com/apache/ossie.git",
+        "vcs_info": {
+          "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "vcs": "git"
+        }
+      },
+      "version": "0.2.0.dev0"
+    },
+    "apache-ossie-dbt": {
+      "direct_url": {
+        "subdirectory": "converters/dbt",
+        "url": "https://github.com/apache/ossie.git",
+        "vcs_info": {
+          "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "vcs": "git"
+        }
+      },
+      "version": "0.2.0.dev0"
+    },
+    "apache-ossie-microsoft": {
+      "direct_url": {
+        "subdirectory": "converters/microsoft",
+        "url": "https://github.com/apache/ossie.git",
+        "vcs_info": {
+          "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "vcs": "git"
+        }
+      },
+      "version": "0.2.0.dev0"
+    },
+    "dbt-core": {
+      "direct_url": null,
+      "version": "1.12.6"
+    },
+    "dbt-duckdb": {
+      "direct_url": null,
+      "version": "1.11.0"
+    },
+    "dbt-metricflow": {
+      "direct_url": null,
+      "version": "0.15.0"
+    },
+    "duckdb": {
+      "direct_url": null,
+      "version": "1.5.6"
+    },
+    "metricflow": {
+      "direct_url": null,
+      "version": "0.213.0"
+    }
+  },
+  "roundtrip": {
+    "blocker": [
+      "At least one time spine must be configured to use the semantic layer, but none were found."
+    ],
+    "conversion_completed": true,
+    "headline_queries_executed": 0,
+    "headline_queries_requested": 11,
+    "numerical_execution": "NOT_EXECUTED",
+    "oracle_comparison": "NOT_EXECUTED",
+    "outward_converter_issues": [],
+    "return_converter_issues": [],
+    "returned_inventory": {
+      "models": {
+        "orders": {
+          "default_time_dimension": null,
+          "entities": []
+        },
+        "sessions": {
+          "default_time_dimension": null,
+          "entities": []
+        }
+      },
+      "time_spines": 0
+    },
+    "semantic_status": "LOSS_DETECTED",
+    "source_inventory": {
+      "models": {
+        "orders": {
+          "default_time_dimension": "session_date",
+          "entities": [
+            [
+              "order",
+              "EntityType.PRIMARY",
+              "order_id"
+            ],
+            [
+              "session",
+              "EntityType.FOREIGN",
+              "session_id"
+            ]
+          ]
+        },
+        "sessions": {
+          "default_time_dimension": "session_date",
+          "entities": [
+            [
+              "session",
+              "EntityType.PRIMARY",
+              "session_id"
+            ]
+          ]
+        }
+      },
+      "time_spines": 1
+    },
+    "structure_validated": "OssieDocument/PydanticSemanticManifest parsing only; MetricFlow lookup fails"
+  },
+  "scope": "Two public headline metrics only; supporting counts, AOV and 31 total query cases are internal validation. Canonical fixture unchanged.",
+  "semantic_observations": [
+    {
+      "evidence": "Two models/datasets and quoted benchmark.main relation strings remain.",
+      "property": "datasets and relation source strings",
+      "result": "PRESERVED"
+    },
+    {
+      "evidence": "session_date remains time; return assigns day granularity by converter convention.",
+      "property": "time/categorical dimension classification",
+      "result": "PRESERVED_WITH_RECONSTRUCTION"
+    },
+    {
+      "evidence": "Ossie has primary_key session_id/order_id and orders-to-sessions relationship; returned MSI has no entities. Entity fields return as categorical dimensions.",
+      "property": "session and order entity/key relationship",
+      "result": "LOSS_DETECTED"
+    },
+    {
+      "evidence": "Ossie expressions contain is_eligible=true and order_status=paid CASE filters; returned expressions retain these predicates. No target execution establishes equivalent filter semantics.",
+      "property": "eligibility, paid status and aggregate expression text",
+      "result": "PRESERVED_AS_TEXT"
+    },
+    {
+      "evidence": "Source converted_sessions/eligible_sessions references are expanded into expressions in Ossie; return creates conversion_rate__numerator and conversion_rate__denominator helpers.",
+      "property": "conversion_rate ratio dependency graph",
+      "result": "RECONSTRUCTED"
+    },
+    {
+      "evidence": "Source derived metric returns as simple agg=sum with the full aggregate expression stored verbatim, attached to sessions; semantic model measure arrays are empty.",
+      "property": "paid_revenue derived metric and measure metadata",
+      "result": "LOSS_DETECTED"
+    },
+    {
+      "evidence": "Source has one spine and session_date defaults on two models. Returned MSI has zero spines and no defaults.",
+      "property": "time spine and default aggregation time",
+      "result": "LOSS_DETECTED"
+    },
+    {
+      "evidence": "Source headline labels Conversion Rate and Paid Revenue are absent from returned metrics.",
+      "property": "metric display labels",
+      "result": "LOSS_DETECTED"
+    },
+    {
+      "evidence": "Canonical dbt sessions.sql applies the fixed session cohort; orders.sql joins session_date and filters order_date<2026-03-01. Ossie carries physical relation strings, not these SQL transformations. Recreate those sources in another engine; raw CSV orders alone lacks session_date.",
+      "property": "session cohort and observation cutoff preprocessing",
+      "result": "EXTERNAL_SOURCE_ASSUMPTION"
+    }
+  ],
+  "source_manifest": "source.manifest.json",
+  "source_or_target_metadata_repaired": false,
+  "unchanged_official_converter": true,
+  "verification": {
+    "canonical_source_metrics_copy_byte_identical": true,
+    "focused_test_command": ".tmp/semantic-lab-venv/Scripts/python.exe -m pytest -q labs/semantic_interop/tests/test_conversion_platforms.py labs/semantic_interop/tests/test_conversion_demo.py labs/semantic_interop/tests/test_conversion_demo_targets.py",
+    "focused_test_exit_code": 0,
+    "focused_test_result": "44 passed in 37.64s",
+    "official_output_byte_identical_to_task03": [
+      "platforms/converted.ossie.yml",
+      "platforms/roundtrip.manifest.json"
+    ],
+    "prior_capture": "labs/semantic_interop/results/task03/platforms-001/",
+    "report_artifact_hashes_verified": 72
+  },
+  "warnings_and_issues": "platforms/integration.json and console.log (entire captured console text)"
+}

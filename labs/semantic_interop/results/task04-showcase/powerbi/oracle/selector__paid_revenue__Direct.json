@@ -1,0 +1,17 @@
+{
+  "execution": "EXECUTED",
+  "sql": "oracle/selector__paid_revenue__Direct.sql",
+  "typed_result": {
+    "columns": [
+      "paid_revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "300.00"
+        }
+      ]
+    ]
+  }
+}

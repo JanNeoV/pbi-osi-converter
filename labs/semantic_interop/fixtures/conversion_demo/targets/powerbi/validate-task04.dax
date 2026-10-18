@@ -1,0 +1,60 @@
+// Task 04 prospective DAX Query View checks. All DAX execution: NOT_EXECUTED.
+// Execute each EVALUATE against both the authored and reconstructed model after
+// loading the canonical CSVs. Expected values come from independent DuckDB oracles.
+// Case A and B: two headlines; hidden counts below validate measure dependencies.
+EVALUATE
+ROW("Eligible Sessions", [Eligible Sessions], "Converted Sessions", [Converted Sessions],
+    "Conversion Rate", [Conversion Rate], "Paid Revenue", [Paid Revenue])
+// Expected: 10, 4, 0.4, 390.
+
+EVALUATE
+SUMMARIZECOLUMNS('Sales Channel'[sales_channel],
+    "Conversion Rate", [Conversion Rate], "Paid Revenue", [Paid Revenue])
+// Expected Direct: 0.5, 300; Indirect: 0.25, 90.
+
+EVALUATE
+SUMMARIZECOLUMNS(Sessions[session_month],
+    "Conversion Rate", [Conversion Rate], "Paid Revenue", [Paid Revenue])
+// Expected January: 0.6, 270; February: 0.2, 120. Session cohorts, not order months.
+
+EVALUATE
+CALCULATETABLE(
+    ROW("case_id", "february_indirect", "Eligible Sessions", [Eligible Sessions],
+        "Converted Sessions", [Converted Sessions], "Conversion Rate", [Conversion Rate],
+        "Revenue Is Blank", ISBLANK([Paid Revenue])),
+    TREATAS({"Indirect"}, 'Sales Channel'[sales_channel]),
+    TREATAS({DATE(2026, 2, 1)}, Sessions[session_month]))
+// Expected: 2, 0, 0, TRUE. This cohort exists even without a paid order.
+
+EVALUATE
+CALCULATETABLE(
+    ROW("case_id", "empty", "Eligible Sessions", [Eligible Sessions],
+        "Converted Sessions", [Converted Sessions], "Rate Is Blank", ISBLANK([Conversion Rate]),
+        "Revenue Is Blank", ISBLANK([Paid Revenue])),
+    FILTER(ALL(Sessions[session_date]), Sessions[session_date] < DATE(2020, 1, 1)))
+// Expected: 0, 0, TRUE, TRUE.
+
+// Case B only: 12 independent selection/channel tests. No selection and both
+// choices selected use the explicit Conversion Rate default. Numeric values are
+// compared here; verify display formatting separately in a visual.
+EVALUATE
+UNION(
+    ROW("case_id", "none_overall", "Actual", [Selected KPI], "Expected", 0.4),
+    ROW("case_id", "rate_overall", "Actual", CALCULATE([Selected KPI], TREATAS({"Conversion Rate"}, 'KPI Selector'[KPI])), "Expected", 0.4),
+    ROW("case_id", "revenue_overall", "Actual", CALCULATE([Selected KPI], TREATAS({"Paid Revenue"}, 'KPI Selector'[KPI])), "Expected", 390.0),
+    ROW("case_id", "multiple_overall", "Actual", CALCULATE([Selected KPI], TREATAS({"Conversion Rate", "Paid Revenue"}, 'KPI Selector'[KPI])), "Expected", 0.4),
+    ROW("case_id", "none_direct", "Actual", CALCULATE([Selected KPI], TREATAS({"Direct"}, 'Sales Channel'[sales_channel])), "Expected", 0.5),
+    ROW("case_id", "rate_direct", "Actual", CALCULATE([Selected KPI], TREATAS({"Direct"}, 'Sales Channel'[sales_channel]), TREATAS({"Conversion Rate"}, 'KPI Selector'[KPI])), "Expected", 0.5),
+    ROW("case_id", "revenue_direct", "Actual", CALCULATE([Selected KPI], TREATAS({"Direct"}, 'Sales Channel'[sales_channel]), TREATAS({"Paid Revenue"}, 'KPI Selector'[KPI])), "Expected", 300.0),
+    ROW("case_id", "multiple_direct", "Actual", CALCULATE([Selected KPI], TREATAS({"Direct"}, 'Sales Channel'[sales_channel]), TREATAS({"Conversion Rate", "Paid Revenue"}, 'KPI Selector'[KPI])), "Expected", 0.5),
+    ROW("case_id", "none_indirect", "Actual", CALCULATE([Selected KPI], TREATAS({"Indirect"}, 'Sales Channel'[sales_channel])), "Expected", 0.25),
+    ROW("case_id", "rate_indirect", "Actual", CALCULATE([Selected KPI], TREATAS({"Indirect"}, 'Sales Channel'[sales_channel]), TREATAS({"Conversion Rate"}, 'KPI Selector'[KPI])), "Expected", 0.25),
+    ROW("case_id", "revenue_indirect", "Actual", CALCULATE([Selected KPI], TREATAS({"Indirect"}, 'Sales Channel'[sales_channel]), TREATAS({"Paid Revenue"}, 'KPI Selector'[KPI])), "Expected", 90.0),
+    ROW("case_id", "multiple_indirect", "Actual", CALCULATE([Selected KPI], TREATAS({"Indirect"}, 'Sales Channel'[sales_channel]), TREATAS({"Conversion Rate", "Paid Revenue"}, 'KPI Selector'[KPI])), "Expected", 0.25)
+)
+
+// Case B visual check (NOT_EXECUTED): use KPI Selector[KPI] as a slicer and
+// [Selected KPI] on a card/table; set Display units to None. Overall rate displays
+// 40.0%; revenue displays 390.00 EUR. Direct: 50.0% / 300.00 EUR. Indirect:
+// 25.0% / 90.00 EUR. None/multiple selections display the rate with percent format.
+// A preserved formatStringDefinition is metadata evidence, not a rendering test.

@@ -1,0 +1,12 @@
+Converted Sessions =
+COALESCE(
+    CALCULATE(
+        DISTINCTCOUNT(Orders[session_id]),
+        KEEPFILTERS(Sessions[is_eligible] = TRUE()),
+        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),
+        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),
+        KEEPFILTERS(Orders[order_status] = "paid"),
+        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))
+    ),
+    0
+)

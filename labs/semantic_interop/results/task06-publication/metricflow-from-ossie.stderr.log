@@ -1,0 +1,7 @@
+python.exe : Written to .tmp\task06-tutorial-mf-001\after.returned.json
+At line:20 char:1
++ & $py -m ossie_dbt.cli ossie-to-msi -i "$work/after.ossie.yml" -o "$w ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Written to .tmp...r.returned.json:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

@@ -1,0 +1,87 @@
+{
+  "provenance": "SEPARATE RECONSTRUCTION EXPERIMENT: source time spine copied into target",
+  "elementary_relaxed_business_policy": false,
+  "include_refunded_revenue_only": true,
+  "comparisons": {
+    "paid_revenue__overall": {
+      "oracle": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "440.00"
+          ]
+        ]
+      },
+      "observed": {
+        "error": "No primary entity found in semantic_model.reference=SemanticModelReference(semantic_model_name='orders')",
+        "phase": "compiler_initialization"
+      },
+      "equal": null
+    },
+    "conversion_rate__overall": {
+      "oracle": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            0.4
+          ]
+        ]
+      },
+      "observed": {
+        "error": "No primary entity found in semantic_model.reference=SemanticModelReference(semantic_model_name='orders')",
+        "phase": "compiler_initialization"
+      },
+      "equal": null
+    },
+    "paid_revenue__channel": {
+      "oracle": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "Indirect",
+            "140.00"
+          ],
+          [
+            "Direct",
+            "300.00"
+          ]
+        ]
+      },
+      "observed": {
+        "error": "No primary entity found in semantic_model.reference=SemanticModelReference(semantic_model_name='orders')",
+        "phase": "compiler_initialization"
+      },
+      "equal": null
+    },
+    "conversion_rate__channel": {
+      "oracle": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            "Indirect",
+            0.25
+          ],
+          [
+            "Direct",
+            0.5
+          ]
+        ]
+      },
+      "observed": {
+        "error": "No primary entity found in semantic_model.reference=SemanticModelReference(semantic_model_name='orders')",
+        "phase": "compiler_initialization"
+      },
+      "equal": null
+    }
+  }
+}

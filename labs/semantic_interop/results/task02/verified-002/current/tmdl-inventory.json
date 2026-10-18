@@ -1,0 +1,1525 @@
+{
+  "calculated_columns": [],
+  "calculation_groups": [],
+  "columns": [
+    {
+      "data_type": "dateTime",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "date_day",
+      "object_id": "pbi_column_22510723e0c80667",
+      "properties": {
+        "dataType": "dateTime",
+        "sourceColumn": "date_day"
+      },
+      "source_column": "date_day",
+      "source_location": {
+        "column": 5,
+        "end_line": 4,
+        "file": "tables/Calendar.tmdl",
+        "line": 2
+      },
+      "table": "Calendar"
+    },
+    {
+      "data_type": "decimal",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "amount",
+      "object_id": "pbi_column_30c9f6ed44e87abd",
+      "properties": {
+        "dataType": "decimal",
+        "sourceColumn": "amount"
+      },
+      "source_column": "amount",
+      "source_location": {
+        "column": 5,
+        "end_line": 13,
+        "file": "tables/Items.tmdl",
+        "line": 11
+      },
+      "table": "Items"
+    },
+    {
+      "data_type": "int64",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "item_id",
+      "object_id": "pbi_column_d5bf28f6a4dcf51a",
+      "properties": {
+        "dataType": "int64",
+        "sourceColumn": "item_id"
+      },
+      "source_column": "item_id",
+      "source_location": {
+        "column": 5,
+        "end_line": 4,
+        "file": "tables/Items.tmdl",
+        "line": 2
+      },
+      "table": "Items"
+    },
+    {
+      "data_type": "int64",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "order_id",
+      "object_id": "pbi_column_3951e9a55f60d5f9",
+      "properties": {
+        "dataType": "int64",
+        "sourceColumn": "order_id"
+      },
+      "source_column": "order_id",
+      "source_location": {
+        "column": 5,
+        "end_line": 7,
+        "file": "tables/Items.tmdl",
+        "line": 5
+      },
+      "table": "Items"
+    },
+    {
+      "data_type": "int64",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "product_id",
+      "object_id": "pbi_column_824b0dd015b18743",
+      "properties": {
+        "dataType": "int64",
+        "sourceColumn": "product_id"
+      },
+      "source_column": "product_id",
+      "source_location": {
+        "column": 5,
+        "end_line": 10,
+        "file": "tables/Items.tmdl",
+        "line": 8
+      },
+      "table": "Items"
+    },
+    {
+      "data_type": "int64",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "customer_id",
+      "object_id": "pbi_column_e2a2cf67dd0644ec",
+      "properties": {
+        "dataType": "int64",
+        "sourceColumn": "customer_id"
+      },
+      "source_column": "customer_id",
+      "source_location": {
+        "column": 5,
+        "end_line": 7,
+        "file": "tables/Orders.tmdl",
+        "line": 5
+      },
+      "table": "Orders"
+    },
+    {
+      "data_type": "dateTime",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "order_date",
+      "object_id": "pbi_column_55d7f0dddbc1393c",
+      "properties": {
+        "dataType": "dateTime",
+        "sourceColumn": "order_date"
+      },
+      "source_column": "order_date",
+      "source_location": {
+        "column": 5,
+        "end_line": 10,
+        "file": "tables/Orders.tmdl",
+        "line": 8
+      },
+      "table": "Orders"
+    },
+    {
+      "data_type": "int64",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "order_id",
+      "object_id": "pbi_column_8cad0014c18f69ad",
+      "properties": {
+        "dataType": "int64",
+        "sourceColumn": "order_id"
+      },
+      "source_column": "order_id",
+      "source_location": {
+        "column": 5,
+        "end_line": 4,
+        "file": "tables/Orders.tmdl",
+        "line": 2
+      },
+      "table": "Orders"
+    },
+    {
+      "data_type": "dateTime",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "ship_date",
+      "object_id": "pbi_column_f07476651b6292c7",
+      "properties": {
+        "dataType": "dateTime",
+        "sourceColumn": "ship_date"
+      },
+      "source_column": "ship_date",
+      "source_location": {
+        "column": 5,
+        "end_line": 13,
+        "file": "tables/Orders.tmdl",
+        "line": 11
+      },
+      "table": "Orders"
+    },
+    {
+      "data_type": "string",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "status",
+      "object_id": "pbi_column_705691f34ca120c2",
+      "properties": {
+        "dataType": "string",
+        "sourceColumn": "status"
+      },
+      "source_column": "status",
+      "source_location": {
+        "column": 5,
+        "end_line": 16,
+        "file": "tables/Orders.tmdl",
+        "line": 14
+      },
+      "table": "Orders"
+    },
+    {
+      "data_type": "string",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "category",
+      "object_id": "pbi_column_f8b540c9751e50c2",
+      "properties": {
+        "dataType": "string",
+        "sourceColumn": "category"
+      },
+      "source_column": "category",
+      "source_location": {
+        "column": 5,
+        "end_line": 7,
+        "file": "tables/Products.tmdl",
+        "line": 5
+      },
+      "table": "Products"
+    },
+    {
+      "data_type": "int64",
+      "description": "",
+      "display_folder": null,
+      "expression": null,
+      "format_string": null,
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "name": "product_id",
+      "object_id": "pbi_column_9bcd96654dea74f7",
+      "properties": {
+        "dataType": "int64",
+        "sourceColumn": "product_id"
+      },
+      "source_column": "product_id",
+      "source_location": {
+        "column": 5,
+        "end_line": 4,
+        "file": "tables/Products.tmdl",
+        "line": 2
+      },
+      "table": "Products"
+    }
+  ],
+  "dependency_graph": {
+    "edges": [
+      {
+        "from": "pbi_measure_1c07505a2b9f938b",
+        "to": "pbi_measure_923f4a7a277ba515"
+      },
+      {
+        "from": "pbi_measure_1c07505a2b9f938b",
+        "to": "pbi_measure_f78673055ebf4477"
+      },
+      {
+        "from": "pbi_measure_3232ef72cf92f499",
+        "to": "pbi_measure_b5fd00430ee32ed8"
+      },
+      {
+        "from": "pbi_measure_3232ef72cf92f499",
+        "to": "pbi_measure_f78673055ebf4477"
+      },
+      {
+        "from": "pbi_measure_87b9cb690bce228c",
+        "to": "pbi_measure_f78673055ebf4477"
+      },
+      {
+        "from": "pbi_measure_b358df19611329c3",
+        "to": "pbi_measure_f78673055ebf4477"
+      }
+    ],
+    "nodes": [
+      "pbi_measure_3232ef72cf92f499",
+      "pbi_measure_923f4a7a277ba515",
+      "pbi_measure_1c07505a2b9f938b",
+      "pbi_measure_b358df19611329c3",
+      "pbi_measure_f78673055ebf4477",
+      "pbi_measure_87b9cb690bce228c",
+      "pbi_measure_b5fd00430ee32ed8",
+      "pbi_measure_3cbac1d6076e96b4"
+    ]
+  },
+  "diagnostics": [],
+  "extraction_version": "powerbi-tmdl-inventory-v1",
+  "hierarchies": [],
+  "measures": [
+    {
+      "analysis": {
+        "ast": {
+          "denominator": "order_count",
+          "kind": "RATIO",
+          "numerator": "revenue"
+        },
+        "column_dependencies": [],
+        "diagnostics": [],
+        "filters": [],
+        "measure_dependencies": [
+          "order_count",
+          "revenue"
+        ],
+        "normalized_expression": "divide(revenue,order_count)",
+        "pattern": "RATIO",
+        "supported": true,
+        "table_dependencies": []
+      },
+      "dependency_object_ids": [
+        "pbi_measure_b5fd00430ee32ed8",
+        "pbi_measure_f78673055ebf4477"
+      ],
+      "description": "",
+      "display_folder": null,
+      "dynamic_format_string": null,
+      "expression": "DIVIDE([revenue], [order_count])",
+      "expression_hash": "2209defcfbade774ab8b47c60b9d1a1ef915bffc7eb943511eadbd088f6967b7",
+      "format_string": null,
+      "lineage_tag": null,
+      "name": "average_order_value",
+      "object_id": "pbi_measure_3232ef72cf92f499",
+      "source_location": {
+        "column": 5,
+        "end_line": 15,
+        "file": "tables/Items.tmdl",
+        "line": 15
+      },
+      "table": "Items"
+    },
+    {
+      "analysis": {
+        "ast": null,
+        "column_dependencies": [],
+        "diagnostics": [
+          {
+            "code": "DAX_CONTEXT_TRANSITION",
+            "message": "CALCULATE context transition is only supported for COUNTROWS with flat equality filters.",
+            "severity": "ERROR"
+          }
+        ],
+        "filters": [],
+        "measure_dependencies": [],
+        "normalized_expression": "calculate(sum(itemsamount),ordersstatus=completed)",
+        "pattern": null,
+        "supported": false,
+        "table_dependencies": []
+      },
+      "dependency_object_ids": [],
+      "description": "",
+      "display_folder": null,
+      "dynamic_format_string": null,
+      "expression": "CALCULATE(SUM(Items[amount]), Orders[status] = \"completed\")",
+      "expression_hash": "38341fbe63ab736cbe3dfe0d3e6618edd1ed614738eb20a4196ccb9755609b7b",
+      "format_string": null,
+      "lineage_tag": null,
+      "name": "completed_revenue",
+      "object_id": "pbi_measure_923f4a7a277ba515",
+      "source_location": {
+        "column": 5,
+        "end_line": 16,
+        "file": "tables/Items.tmdl",
+        "line": 16
+      },
+      "table": "Items"
+    },
+    {
+      "analysis": {
+        "ast": {
+          "denominator": "revenue",
+          "kind": "RATIO",
+          "numerator": "completed_revenue"
+        },
+        "column_dependencies": [],
+        "diagnostics": [],
+        "filters": [],
+        "measure_dependencies": [
+          "completed_revenue",
+          "revenue"
+        ],
+        "normalized_expression": "divide(completed_revenue,revenue)",
+        "pattern": "RATIO",
+        "supported": true,
+        "table_dependencies": []
+      },
+      "dependency_object_ids": [
+        "pbi_measure_923f4a7a277ba515",
+        "pbi_measure_f78673055ebf4477"
+      ],
+      "description": "",
+      "display_folder": null,
+      "dynamic_format_string": null,
+      "expression": "DIVIDE([completed_revenue], [revenue])",
+      "expression_hash": "27d8f571f5a85c473b220e03845d89226ddcc58bcc01bfff1d8a3de90bd9a6de",
+      "format_string": null,
+      "lineage_tag": null,
+      "name": "completed_revenue_share",
+      "object_id": "pbi_measure_1c07505a2b9f938b",
+      "source_location": {
+        "column": 5,
+        "end_line": 17,
+        "file": "tables/Items.tmdl",
+        "line": 17
+      },
+      "table": "Items"
+    },
+    {
+      "analysis": {
+        "ast": null,
+        "column_dependencies": [],
+        "diagnostics": [
+          {
+            "code": "DAX_FILTER_STATE_DEPENDENCY",
+            "message": "Filter-state function(s) depend on query filters, including filters propagated through relationships, and require manual review: ISCROSSFILTERED.",
+            "severity": "ERROR"
+          }
+        ],
+        "filters": [],
+        "measure_dependencies": [
+          "revenue"
+        ],
+        "normalized_expression": "if(iscrossfiltered(ordersstatus),revenue,blank())",
+        "pattern": null,
+        "supported": false,
+        "table_dependencies": []
+      },
+      "dependency_object_ids": [
+        "pbi_measure_f78673055ebf4477"
+      ],
+      "description": "",
+      "display_folder": null,
+      "dynamic_format_string": null,
+      "expression": "IF(ISCROSSFILTERED(Orders[status]), [revenue], BLANK())",
+      "expression_hash": "efd917d77c64777bc87c081c66d189d34c759d303e465f6924fdf57a141d50a7",
+      "format_string": null,
+      "lineage_tag": null,
+      "name": "context_sensitive",
+      "object_id": "pbi_measure_b358df19611329c3",
+      "source_location": {
+        "column": 5,
+        "end_line": 18,
+        "file": "tables/Items.tmdl",
+        "line": 18
+      },
+      "table": "Items"
+    },
+    {
+      "analysis": {
+        "ast": {
+          "column": "amount",
+          "kind": "SUM",
+          "table": "Items"
+        },
+        "column_dependencies": [
+          "Items[amount]"
+        ],
+        "diagnostics": [],
+        "filters": [],
+        "measure_dependencies": [],
+        "normalized_expression": "sum(itemsamount)",
+        "pattern": "SUM",
+        "supported": true,
+        "table_dependencies": [
+          "Items"
+        ]
+      },
+      "dependency_object_ids": [],
+      "description": "",
+      "display_folder": null,
+      "dynamic_format_string": null,
+      "expression": "SUM(Items[amount])",
+      "expression_hash": "a07b131fb3763800318eebd5756b6221dbd869caa0f0c4fb4f3ec8d3137497de",
+      "format_string": null,
+      "lineage_tag": null,
+      "name": "revenue",
+      "object_id": "pbi_measure_f78673055ebf4477",
+      "source_location": {
+        "column": 5,
+        "end_line": 14,
+        "file": "tables/Items.tmdl",
+        "line": 14
+      },
+      "table": "Items"
+    },
+    {
+      "analysis": {
+        "ast": null,
+        "column_dependencies": [],
+        "diagnostics": [
+          {
+            "code": "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+            "message": "USERELATIONSHIP depends on inactive relationship behavior.",
+            "severity": "ERROR"
+          }
+        ],
+        "filters": [],
+        "measure_dependencies": [
+          "revenue"
+        ],
+        "normalized_expression": "calculate(revenue,userelationship(ordersship_date,calendardate_day))",
+        "pattern": null,
+        "supported": false,
+        "table_dependencies": []
+      },
+      "dependency_object_ids": [
+        "pbi_measure_f78673055ebf4477"
+      ],
+      "description": "",
+      "display_folder": null,
+      "dynamic_format_string": null,
+      "expression": "CALCULATE([revenue], USERELATIONSHIP(Orders[ship_date], Calendar[date_day]))",
+      "expression_hash": "51860769cecb909e961ff828fc462c7f281b59af94c915e518b02dce86e803e1",
+      "format_string": null,
+      "lineage_tag": null,
+      "name": "shipping_revenue",
+      "object_id": "pbi_measure_87b9cb690bce228c",
+      "source_location": {
+        "column": 5,
+        "end_line": 19,
+        "file": "tables/Items.tmdl",
+        "line": 19
+      },
+      "table": "Items"
+    },
+    {
+      "analysis": {
+        "ast": null,
+        "column_dependencies": [],
+        "diagnostics": [
+          {
+            "code": "DAX_FUNCTION_UNSUPPORTED",
+            "message": "Function COALESCE is outside the supported deterministic grammar.",
+            "severity": "ERROR"
+          }
+        ],
+        "filters": [],
+        "measure_dependencies": [],
+        "normalized_expression": "coalesce(distinctcount(ordersorder_id),0)",
+        "pattern": null,
+        "supported": false,
+        "table_dependencies": []
+      },
+      "dependency_object_ids": [],
+      "description": "",
+      "display_folder": null,
+      "dynamic_format_string": null,
+      "expression": "COALESCE(DISTINCTCOUNT(Orders[order_id]), 0)",
+      "expression_hash": "35f09734d38f3e34733c81b92a0e6e2d8dd7d0d8815f7556dba25d8a157f8403",
+      "format_string": null,
+      "lineage_tag": null,
+      "name": "order_count",
+      "object_id": "pbi_measure_b5fd00430ee32ed8",
+      "source_location": {
+        "column": 5,
+        "end_line": 17,
+        "file": "tables/Orders.tmdl",
+        "line": 17
+      },
+      "table": "Orders"
+    },
+    {
+      "analysis": {
+        "ast": null,
+        "column_dependencies": [],
+        "diagnostics": [
+          {
+            "code": "DAX_FUNCTION_UNSUPPORTED",
+            "message": "Function COALESCE is outside the supported deterministic grammar.",
+            "severity": "ERROR"
+          }
+        ],
+        "filters": [],
+        "measure_dependencies": [],
+        "normalized_expression": "coalesce(distinctcountnoblank(orderscustomer_id),0)",
+        "pattern": null,
+        "supported": false,
+        "table_dependencies": []
+      },
+      "dependency_object_ids": [],
+      "description": "",
+      "display_folder": null,
+      "dynamic_format_string": null,
+      "expression": "COALESCE(DISTINCTCOUNTNOBLANK(Orders[customer_id]), 0)",
+      "expression_hash": "a8a291f92557364c9ccc5bd3df19815b132e14d95e394cf172a0c1c524c1632b",
+      "format_string": null,
+      "lineage_tag": null,
+      "name": "purchasing_customers",
+      "object_id": "pbi_measure_3cbac1d6076e96b4",
+      "source_location": {
+        "column": 5,
+        "end_line": 18,
+        "file": "tables/Orders.tmdl",
+        "line": 18
+      },
+      "table": "Orders"
+    }
+  ],
+  "model": {
+    "compatibility_level": 1600,
+    "culture": "en-US",
+    "definition_path": "labs/semantic_interop/fixtures/powerbi/Shop.SemanticModel/definition",
+    "name": "Shop",
+    "object_id": "pbi_model_62728d0f5ac56018",
+    "source_tree_hash": "aacf1bcc9d8188eee81ffdded5cd0d68fbd9c8d035c11d981316e32a8a26bff4",
+    "tmdl_model_name": "Shop"
+  },
+  "object_support_records": [
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_22510723e0c80667",
+      "object_kind": "COLUMN",
+      "object_name": "Calendar[date_day]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 4,
+        "file": "tables/Calendar.tmdl",
+        "line": 2
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_30c9f6ed44e87abd",
+      "object_kind": "COLUMN",
+      "object_name": "Items[amount]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 13,
+        "file": "tables/Items.tmdl",
+        "line": 11
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_d5bf28f6a4dcf51a",
+      "object_kind": "COLUMN",
+      "object_name": "Items[item_id]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 4,
+        "file": "tables/Items.tmdl",
+        "line": 2
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_3951e9a55f60d5f9",
+      "object_kind": "COLUMN",
+      "object_name": "Items[order_id]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 7,
+        "file": "tables/Items.tmdl",
+        "line": 5
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_824b0dd015b18743",
+      "object_kind": "COLUMN",
+      "object_name": "Items[product_id]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 10,
+        "file": "tables/Items.tmdl",
+        "line": 8
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_e2a2cf67dd0644ec",
+      "object_kind": "COLUMN",
+      "object_name": "Orders[customer_id]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 7,
+        "file": "tables/Orders.tmdl",
+        "line": 5
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_55d7f0dddbc1393c",
+      "object_kind": "COLUMN",
+      "object_name": "Orders[order_date]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 10,
+        "file": "tables/Orders.tmdl",
+        "line": 8
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_8cad0014c18f69ad",
+      "object_kind": "COLUMN",
+      "object_name": "Orders[order_id]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 4,
+        "file": "tables/Orders.tmdl",
+        "line": 2
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_f07476651b6292c7",
+      "object_kind": "COLUMN",
+      "object_name": "Orders[ship_date]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 13,
+        "file": "tables/Orders.tmdl",
+        "line": 11
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_705691f34ca120c2",
+      "object_kind": "COLUMN",
+      "object_name": "Orders[status]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 16,
+        "file": "tables/Orders.tmdl",
+        "line": 14
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_f8b540c9751e50c2",
+      "object_kind": "COLUMN",
+      "object_name": "Products[category]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 7,
+        "file": "tables/Products.tmdl",
+        "line": 5
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_COLUMN_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_column_9bcd96654dea74f7",
+      "object_kind": "COLUMN",
+      "object_name": "Products[product_id]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 4,
+        "file": "tables/Products.tmdl",
+        "line": 2
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "SUPPORTED_WITH_MAPPING",
+      "classifier_rule_id": "POWERBI_DAX_SUPPORTED_MAPPING_PENDING",
+      "confidence": "CONDITIONAL",
+      "dependencies": [
+        "pbi_measure_b5fd00430ee32ed8",
+        "pbi_measure_f78673055ebf4477"
+      ],
+      "diagnostics": [],
+      "object_id": "pbi_measure_3232ef72cf92f499",
+      "object_kind": "MEASURE",
+      "object_name": "Items[average_order_value]",
+      "recognized_pattern": "RATIO",
+      "required_mappings": [
+        "canonical.metric"
+      ],
+      "source_location": {
+        "column": 5,
+        "end_line": 15,
+        "file": "tables/Items.tmdl",
+        "line": 15
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "MANUAL_REVIEW_REQUIRED",
+      "classifier_rule_id": "POWERBI_DAX_MANUAL_REVIEW_REQUIRED",
+      "confidence": "UNRESOLVED",
+      "dependencies": [],
+      "diagnostics": [
+        {
+          "code": "DAX_CONTEXT_TRANSITION",
+          "message": "CALCULATE context transition is only supported for COUNTROWS with flat equality filters.",
+          "severity": "ERROR"
+        }
+      ],
+      "object_id": "pbi_measure_923f4a7a277ba515",
+      "object_kind": "MEASURE",
+      "object_name": "Items[completed_revenue]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 16,
+        "file": "tables/Items.tmdl",
+        "line": 16
+      },
+      "unsupported_constructs": [
+        "DAX_CONTEXT_TRANSITION"
+      ]
+    },
+    {
+      "assumptions": [],
+      "classification": "SUPPORTED_WITH_MAPPING",
+      "classifier_rule_id": "POWERBI_DAX_SUPPORTED_MAPPING_PENDING",
+      "confidence": "CONDITIONAL",
+      "dependencies": [
+        "pbi_measure_923f4a7a277ba515",
+        "pbi_measure_f78673055ebf4477"
+      ],
+      "diagnostics": [],
+      "object_id": "pbi_measure_1c07505a2b9f938b",
+      "object_kind": "MEASURE",
+      "object_name": "Items[completed_revenue_share]",
+      "recognized_pattern": "RATIO",
+      "required_mappings": [
+        "canonical.metric"
+      ],
+      "source_location": {
+        "column": 5,
+        "end_line": 17,
+        "file": "tables/Items.tmdl",
+        "line": 17
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "MANUAL_REVIEW_REQUIRED",
+      "classifier_rule_id": "POWERBI_DAX_MANUAL_REVIEW_REQUIRED",
+      "confidence": "UNRESOLVED",
+      "dependencies": [
+        "pbi_measure_f78673055ebf4477"
+      ],
+      "diagnostics": [
+        {
+          "code": "DAX_FILTER_STATE_DEPENDENCY",
+          "message": "Filter-state function(s) depend on query filters, including filters propagated through relationships, and require manual review: ISCROSSFILTERED.",
+          "severity": "ERROR"
+        }
+      ],
+      "object_id": "pbi_measure_b358df19611329c3",
+      "object_kind": "MEASURE",
+      "object_name": "Items[context_sensitive]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 18,
+        "file": "tables/Items.tmdl",
+        "line": 18
+      },
+      "unsupported_constructs": [
+        "DAX_FILTER_STATE_DEPENDENCY"
+      ]
+    },
+    {
+      "assumptions": [],
+      "classification": "SUPPORTED_WITH_MAPPING",
+      "classifier_rule_id": "POWERBI_DAX_SUPPORTED_MAPPING_PENDING",
+      "confidence": "CONDITIONAL",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_measure_f78673055ebf4477",
+      "object_kind": "MEASURE",
+      "object_name": "Items[revenue]",
+      "recognized_pattern": "SUM",
+      "required_mappings": [
+        "canonical.metric"
+      ],
+      "source_location": {
+        "column": 5,
+        "end_line": 14,
+        "file": "tables/Items.tmdl",
+        "line": 14
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "MANUAL_REVIEW_REQUIRED",
+      "classifier_rule_id": "POWERBI_DAX_MANUAL_REVIEW_REQUIRED",
+      "confidence": "UNRESOLVED",
+      "dependencies": [
+        "pbi_measure_f78673055ebf4477"
+      ],
+      "diagnostics": [
+        {
+          "code": "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY",
+          "message": "USERELATIONSHIP depends on inactive relationship behavior.",
+          "severity": "ERROR"
+        }
+      ],
+      "object_id": "pbi_measure_87b9cb690bce228c",
+      "object_kind": "MEASURE",
+      "object_name": "Items[shipping_revenue]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 19,
+        "file": "tables/Items.tmdl",
+        "line": 19
+      },
+      "unsupported_constructs": [
+        "DAX_INACTIVE_RELATIONSHIP_DEPENDENCY"
+      ]
+    },
+    {
+      "assumptions": [],
+      "classification": "UNSUPPORTED",
+      "classifier_rule_id": "POWERBI_DAX_UNSUPPORTED",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [
+        {
+          "code": "DAX_FUNCTION_UNSUPPORTED",
+          "message": "Function COALESCE is outside the supported deterministic grammar.",
+          "severity": "ERROR"
+        }
+      ],
+      "object_id": "pbi_measure_b5fd00430ee32ed8",
+      "object_kind": "MEASURE",
+      "object_name": "Orders[order_count]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 17,
+        "file": "tables/Orders.tmdl",
+        "line": 17
+      },
+      "unsupported_constructs": [
+        "DAX_FUNCTION_UNSUPPORTED"
+      ]
+    },
+    {
+      "assumptions": [],
+      "classification": "UNSUPPORTED",
+      "classifier_rule_id": "POWERBI_DAX_UNSUPPORTED",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [
+        {
+          "code": "DAX_FUNCTION_UNSUPPORTED",
+          "message": "Function COALESCE is outside the supported deterministic grammar.",
+          "severity": "ERROR"
+        }
+      ],
+      "object_id": "pbi_measure_3cbac1d6076e96b4",
+      "object_kind": "MEASURE",
+      "object_name": "Orders[purchasing_customers]",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 5,
+        "end_line": 18,
+        "file": "tables/Orders.tmdl",
+        "line": 18
+      },
+      "unsupported_constructs": [
+        "DAX_FUNCTION_UNSUPPORTED"
+      ]
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_MODEL_DISCOVERY_EVIDENCE",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_model_62728d0f5ac56018",
+      "object_kind": "MODEL",
+      "object_name": "Shop",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 1,
+        "file": "model.tmdl",
+        "line": 1
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_RELATIONSHIP_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [
+        "Items[order_id]",
+        "Orders[order_id]"
+      ],
+      "diagnostics": [],
+      "object_id": "pbi_relationship_d2a15b5d31cda475",
+      "object_kind": "RELATIONSHIP",
+      "object_name": "items_orders",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 1,
+        "end_line": 6,
+        "file": "relationships.tmdl",
+        "line": 1
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_RELATIONSHIP_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [
+        "Items[product_id]",
+        "Products[product_id]"
+      ],
+      "diagnostics": [],
+      "object_id": "pbi_relationship_4045ebd701f1a4b1",
+      "object_kind": "RELATIONSHIP",
+      "object_name": "items_products",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 1,
+        "end_line": 12,
+        "file": "relationships.tmdl",
+        "line": 7
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_RELATIONSHIP_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [
+        "Orders[order_date]",
+        "Calendar[date_day]"
+      ],
+      "diagnostics": [],
+      "object_id": "pbi_relationship_f97082eed6003e86",
+      "object_kind": "RELATIONSHIP",
+      "object_name": "order_date",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 1,
+        "end_line": 16,
+        "file": "relationships.tmdl",
+        "line": 13
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_RELATIONSHIP_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [
+        "Orders[ship_date]",
+        "Calendar[date_day]"
+      ],
+      "diagnostics": [],
+      "object_id": "pbi_relationship_4ba7f54ab353b23c",
+      "object_kind": "RELATIONSHIP",
+      "object_name": "ship_date",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 1,
+        "end_line": 21,
+        "file": "relationships.tmdl",
+        "line": 17
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_table_9c35d85dd32e9fc5",
+      "object_kind": "TABLE",
+      "object_name": "Calendar",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 1,
+        "file": "tables/Calendar.tmdl",
+        "line": 1
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_table_b018afd2eb93afd8",
+      "object_kind": "TABLE",
+      "object_name": "Items",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 1,
+        "file": "tables/Items.tmdl",
+        "line": 1
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_table_d2aed1c2aea6802a",
+      "object_kind": "TABLE",
+      "object_name": "Orders",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 1,
+        "file": "tables/Orders.tmdl",
+        "line": 1
+      },
+      "unsupported_constructs": []
+    },
+    {
+      "assumptions": [],
+      "classification": "TARGET_SPECIFIC",
+      "classifier_rule_id": "POWERBI_PHYSICAL_TABLE_TARGET_SPECIFIC",
+      "confidence": "NOT_APPLICABLE",
+      "dependencies": [],
+      "diagnostics": [],
+      "object_id": "pbi_table_793e653870175ae8",
+      "object_kind": "TABLE",
+      "object_name": "Products",
+      "recognized_pattern": null,
+      "required_mappings": [],
+      "source_location": {
+        "column": 1,
+        "file": "tables/Products.tmdl",
+        "line": 1
+      },
+      "unsupported_constructs": []
+    }
+  ],
+  "partitions": [],
+  "relationships": [
+    {
+      "cross_filter_direction": "oneDirection",
+      "cross_filter_direction_explicit": true,
+      "from": {
+        "column": "order_id",
+        "table": "Items"
+      },
+      "from_cardinality": "many",
+      "from_cardinality_explicit": true,
+      "is_active": true,
+      "is_active_explicit": false,
+      "name": "items_orders",
+      "object_id": "pbi_relationship_d2a15b5d31cda475",
+      "raw_properties": {
+        "crossFilteringBehavior": "oneDirection",
+        "fromCardinality": "many",
+        "fromColumn": "Items.order_id",
+        "toCardinality": "one",
+        "toColumn": "Orders.order_id"
+      },
+      "source_location": {
+        "column": 1,
+        "end_line": 6,
+        "file": "relationships.tmdl",
+        "line": 1
+      },
+      "to": {
+        "column": "order_id",
+        "table": "Orders"
+      },
+      "to_cardinality": "one",
+      "to_cardinality_explicit": true
+    },
+    {
+      "cross_filter_direction": "oneDirection",
+      "cross_filter_direction_explicit": true,
+      "from": {
+        "column": "product_id",
+        "table": "Items"
+      },
+      "from_cardinality": "many",
+      "from_cardinality_explicit": true,
+      "is_active": true,
+      "is_active_explicit": false,
+      "name": "items_products",
+      "object_id": "pbi_relationship_4045ebd701f1a4b1",
+      "raw_properties": {
+        "crossFilteringBehavior": "oneDirection",
+        "fromCardinality": "many",
+        "fromColumn": "Items.product_id",
+        "toCardinality": "one",
+        "toColumn": "Products.product_id"
+      },
+      "source_location": {
+        "column": 1,
+        "end_line": 12,
+        "file": "relationships.tmdl",
+        "line": 7
+      },
+      "to": {
+        "column": "product_id",
+        "table": "Products"
+      },
+      "to_cardinality": "one",
+      "to_cardinality_explicit": true
+    },
+    {
+      "cross_filter_direction": "oneDirection",
+      "cross_filter_direction_explicit": true,
+      "from": {
+        "column": "order_date",
+        "table": "Orders"
+      },
+      "from_cardinality": "many",
+      "from_cardinality_explicit": false,
+      "is_active": true,
+      "is_active_explicit": false,
+      "name": "order_date",
+      "object_id": "pbi_relationship_f97082eed6003e86",
+      "raw_properties": {
+        "crossFilteringBehavior": "oneDirection",
+        "fromColumn": "Orders.order_date",
+        "toColumn": "Calendar.date_day"
+      },
+      "source_location": {
+        "column": 1,
+        "end_line": 16,
+        "file": "relationships.tmdl",
+        "line": 13
+      },
+      "to": {
+        "column": "date_day",
+        "table": "Calendar"
+      },
+      "to_cardinality": "one",
+      "to_cardinality_explicit": false
+    },
+    {
+      "cross_filter_direction": "oneDirection",
+      "cross_filter_direction_explicit": true,
+      "from": {
+        "column": "ship_date",
+        "table": "Orders"
+      },
+      "from_cardinality": "many",
+      "from_cardinality_explicit": false,
+      "is_active": false,
+      "is_active_explicit": true,
+      "name": "ship_date",
+      "object_id": "pbi_relationship_4ba7f54ab353b23c",
+      "raw_properties": {
+        "crossFilteringBehavior": "oneDirection",
+        "fromColumn": "Orders.ship_date",
+        "isActive": "false",
+        "toColumn": "Calendar.date_day"
+      },
+      "source_location": {
+        "column": 1,
+        "end_line": 21,
+        "file": "relationships.tmdl",
+        "line": 17
+      },
+      "to": {
+        "column": "date_day",
+        "table": "Calendar"
+      },
+      "to_cardinality": "one",
+      "to_cardinality_explicit": false
+    }
+  ],
+  "report_references": [],
+  "roles": [],
+  "schema_version": 2,
+  "semantic_hash": "dfe408f80aa03c7c0e1f6ca253d23a1ab41a3afce0e764c41fe00c0e1d66831b",
+  "tables": [
+    {
+      "column_ids": [
+        "pbi_column_22510723e0c80667"
+      ],
+      "description": "",
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "measure_ids": [],
+      "name": "Calendar",
+      "object_id": "pbi_table_9c35d85dd32e9fc5",
+      "partition_ids": [],
+      "source_location": {
+        "column": 1,
+        "file": "tables/Calendar.tmdl",
+        "line": 1
+      }
+    },
+    {
+      "column_ids": [
+        "pbi_column_30c9f6ed44e87abd",
+        "pbi_column_d5bf28f6a4dcf51a",
+        "pbi_column_3951e9a55f60d5f9",
+        "pbi_column_824b0dd015b18743"
+      ],
+      "description": "",
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "measure_ids": [
+        "pbi_measure_3232ef72cf92f499",
+        "pbi_measure_923f4a7a277ba515",
+        "pbi_measure_1c07505a2b9f938b",
+        "pbi_measure_b358df19611329c3",
+        "pbi_measure_f78673055ebf4477",
+        "pbi_measure_87b9cb690bce228c"
+      ],
+      "name": "Items",
+      "object_id": "pbi_table_b018afd2eb93afd8",
+      "partition_ids": [],
+      "source_location": {
+        "column": 1,
+        "file": "tables/Items.tmdl",
+        "line": 1
+      }
+    },
+    {
+      "column_ids": [
+        "pbi_column_e2a2cf67dd0644ec",
+        "pbi_column_55d7f0dddbc1393c",
+        "pbi_column_8cad0014c18f69ad",
+        "pbi_column_f07476651b6292c7",
+        "pbi_column_705691f34ca120c2"
+      ],
+      "description": "",
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "measure_ids": [
+        "pbi_measure_b5fd00430ee32ed8",
+        "pbi_measure_3cbac1d6076e96b4"
+      ],
+      "name": "Orders",
+      "object_id": "pbi_table_d2aed1c2aea6802a",
+      "partition_ids": [],
+      "source_location": {
+        "column": 1,
+        "file": "tables/Orders.tmdl",
+        "line": 1
+      }
+    },
+    {
+      "column_ids": [
+        "pbi_column_f8b540c9751e50c2",
+        "pbi_column_9bcd96654dea74f7"
+      ],
+      "description": "",
+      "is_calculated": false,
+      "is_hidden": false,
+      "lineage_tag": null,
+      "measure_ids": [],
+      "name": "Products",
+      "object_id": "pbi_table_793e653870175ae8",
+      "partition_ids": [],
+      "source_location": {
+        "column": 1,
+        "file": "tables/Products.tmdl",
+        "line": 1
+      }
+    }
+  ]
+}

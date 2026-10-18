@@ -1,0 +1,12 @@
+{
+  "README.md": {
+    "base_sha256": "4d69f847c711b476ff8db437a4013f94f1bbd808c3d5d42b5460b6ff9f38c076",
+    "sha256": "23d305c910cca7c949e131ad0218ef6fdd07141a5ba618624e6833f71d15332c",
+    "reason": "Task 06 public lab navigation and concise findings, preserving the main-branch Power BI/Snowflake introduction and immutable original export provenance."
+  },
+  "scripts/check_public_repository.py": {
+    "base_sha256": "4299af8d5558aba058d8f033fec4f8a4f83fd3acee6e7a15fb1d47f018e16589",
+    "sha256": "893445dc080334df2e0783fd10d01701281451d25d2b723cec9457dc51106b8b",
+    "reason": "Exact revision hashes retain export integrity; validate the one immutable README snapshot from its original location and support CommonMark destinations with spaces, retaining containment and broken-link checks."
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "semantic_models": [
+    {
+      "name": "orders",
+      "defaults": {
+        "agg_time_dimension": "session_date"
+      },
+      "node_relation": {
+        "alias": "orders",
+        "schema_name": "main",
+        "database": "benchmark",
+        "relation_name": "\"benchmark\".\"main\".\"orders\""
+      },
+      "entities": [
+        {
+          "name": "order",
+          "type": "primary",
+          "expr": "order_id",
+          "config": {
+            "meta": {}
+          }
+        }
+      ],
+      "measures": [
+        {
+          "name": "revenue",
+          "agg": "sum",
+          "create_metric": false,
+          "expr": "amount_eur",
+          "config": {
+            "meta": {}
+          }
+        }
+      ],
+      "dimensions": [
+        {
+          "name": "session_date",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          },
+          "config": {
+            "meta": {}
+          }
+        },
+        {
+          "name": "order_status",
+          "type": "categorical",
+          "is_partition": false,
+          "config": {
+            "meta": {}
+          }
+        }
+      ],
+      "config": {
+        "meta": {}
+      }
+    }
+  ],
+  "metrics": [
+    {
+      "name": "paid_revenue",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "measure": {
+          "name": "revenue",
+          "join_to_timespine": false
+        },
+        "expr": "amount_eur",
+        "metrics": [],
+        "input_measures": [
+          {
+            "name": "revenue",
+            "join_to_timespine": false
+          }
+        ],
+        "metric_aggregation_params": {
+          "semantic_model": "orders",
+          "agg": "sum"
+        },
+        "join_to_timespine": false
+      },
+      "label": "Elementary unfiltered sum (not business Paid Revenue)",
+      "config": {
+        "meta": {}
+      }
+    }
+  ],
+  "project_configuration": {
+    "time_spine_table_configurations": [],
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "time_spines": [
+      {
+        "node_relation": {
+          "alias": "time_spine",
+          "schema_name": "main",
+          "database": "benchmark",
+          "relation_name": "\"benchmark\".\"main\".\"time_spine\""
+        },
+        "primary_column": {
+          "name": "date_day",
+          "time_granularity": "day"
+        },
+        "custom_granularities": []
+      }
+    ]
+  },
+  "saved_queries": []
+}

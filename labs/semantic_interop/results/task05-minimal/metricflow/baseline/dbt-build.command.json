@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "<repository>\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "-m",
+    "dbt.cli.main",
+    "build",
+    "--no-partial-parse",
+    "--project-dir",
+    "<repository>\\.tmp\\task05-metricflow-v2\\baseline\\dbt",
+    "--profiles-dir",
+    "<repository>\\.tmp\\task05-metricflow-v2\\baseline\\dbt"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0
+}

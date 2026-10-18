@@ -1,0 +1,125 @@
+...........................................s............F............... [ 43%]
+........................................................................ [ 86%]
+.FF...................                                                   [100%]
+================================== FAILURES ===================================
+________ test_direct_console_entry_point_is_checkout_bound_and_checked ________
+
+    def test_direct_console_entry_point_is_checkout_bound_and_checked() -> None:
+        executable = shutil.which("semantic-agent")
+        if executable is None:
+            pytest.skip("The editable console entry point is not installed")
+        output = TEST_ROOT / "console-entry-output"
+        _remove(output)
+        try:
+            completed = subprocess.run(
+                [
+                    executable,
+                    "demo",
+                    "--fixture",
+                    "semantic-trap",
+                    "--output-dir",
+                    str(output),
+                    "--check",
+                ],
+                cwd=PROJECT_ROOT,
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+>           assert completed.returncode == 0, completed.stderr
+E           AssertionError: POC_DEMO_NOT_ACCEPTED
+E             ERROR_CODE: DEMO_OUTPUT_UNSAFE
+E             STAGE: resolve_output
+E             ARTIFACT: N/A
+E             EXPECTED: stage completes successfully
+E             ACTUAL: Output directory must be a new repository-contained child directory.
+E             DIAGNOSTICS: .tmp/demo-failures/console-entry-output-buzn4_b0/failure-diagnostics.json
+E             REMEDIATION: Review the diagnostic artifact, correct the reported stage, and rerun from the repository root.
+E             
+E           assert 2 == 0
+E            +  where 2 = CompletedProcess(args=['<home>\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\semantic-agent.EXE'....json\nREMEDIATION: Review the diagnostic artifact, correct the reported stage, and rerun from the repository root.\n').returncode
+
+semantic_poc\tests\test_demo.py:625: AssertionError
+____ test_windows_compatible_console_drift_and_committed_proposal_commands ____
+
+canonical_pair = (WindowsPath('<repository>/.tmp/pytest-task9-drift/baseline.yml'), WindowsPath('<repository>/.tmp/pytest-task9-drift/current.yml'))
+
+    def test_windows_compatible_console_drift_and_committed_proposal_commands(
+        canonical_pair: tuple[Path, Path],
+    ) -> None:
+        executable = shutil.which("semantic-agent")
+        assert executable is not None, "editable semantic-agent console entry point is required"
+        drift = subprocess.run(
+            [
+                executable,
+                "check-canonical-drift",
+                "--baseline",
+                str(canonical_pair[0]),
+                "--current",
+                str(canonical_pair[1]),
+                "--json",
+            ],
+            cwd=PROJECT_ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+>       assert drift.returncode == 0, drift.stderr
+E       AssertionError: 
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['<home>\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\semantic-agent.EXE'...CAL_DRIFT_INPUT_INVALID",\n    "message": "Canonical drift inputs must be repository-contained."\n  }\n}\n', stderr='').returncode
+
+semantic_poc\tests\test_task9_canonical_drift.py:114: AssertionError
+________________________ test_console_drift_exit_codes ________________________
+
+canonical_pair = (WindowsPath('<repository>/.tmp/pytest-task9-drift/baseline.yml'), WindowsPath('<repository>/.tmp/pytest-task9-drift/current.yml'))
+
+    def test_console_drift_exit_codes(canonical_pair: tuple[Path, Path]) -> None:
+        executable = shutil.which("semantic-agent")
+        assert executable is not None
+        invalid = subprocess.run(
+            [executable, "check-canonical-drift", "--baseline", "missing.yml", "--current", "missing.yml"],
+            cwd=PROJECT_ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        assert invalid.returncode == 2
+        assert "CANONICAL_DRIFT_INPUT_INVALID" in invalid.stderr
+    
+        unsupported = yaml.safe_load(canonical_pair[1].read_text(encoding="utf-8"))
+        semantic_model = unsupported["semantic_models"][0]
+        measure = next(
+            item
+            for item in semantic_model["measures"]
+            if item["name"] == "valid_sbr_finishers"
+        )
+        measure["agg"] = "median"
+        manual_path = TASK_ROOT / "manual-review.yml"
+        manual_path.write_text(
+            yaml.safe_dump(unsupported, sort_keys=False), encoding="utf-8", newline="\n"
+        )
+        manual = subprocess.run(
+            [
+                executable,
+                "check-canonical-drift",
+                "--baseline",
+                str(canonical_pair[0]),
+                "--current",
+                str(manual_path),
+            ],
+            cwd=PROJECT_ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+>       assert manual.returncode == 3
+E       AssertionError: assert 2 == 3
+E        +  where 2 = CompletedProcess(args=['<home>\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\semantic-agent.EXE'...eturncode=2, stdout='', stderr='CANONICAL_DRIFT_INPUT_INVALID: Canonical drift inputs must be repository-contained.\n').returncode
+
+semantic_poc\tests\test_task9_canonical_drift.py:176: AssertionError
+=========================== short test summary info ===========================
+FAILED semantic_poc/tests/test_demo.py::test_direct_console_entry_point_is_checkout_bound_and_checked
+FAILED semantic_poc/tests/test_task9_canonical_drift.py::test_windows_compatible_console_drift_and_committed_proposal_commands
+FAILED semantic_poc/tests/test_task9_canonical_drift.py::test_console_drift_exit_codes
+3 failed, 162 passed, 1 skipped in 681.92s (0:11:21)

@@ -1,0 +1,1230 @@
+{
+  "artifact_sha256": {
+    "core/from-ossie/converter.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core/from-ossie/input.ossie.yml": "c83fd052aececed1b56ce1031443bd7b7f5dd7ae775aeffeedbfc7e740f5ef04",
+    "core/from-ossie/output.model.bim": "c899fe77ed1a15fc97ce5eeba44442b25600af83e39d39a5396129fe6ac67eff",
+    "core/from-ossie/report.json": "a060864c08e47a42ee7d278989b4a3a5f0c4af617f3cfa46f9f8f79d64cd5ff2",
+    "core/from-ossie/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core/from-ossie/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core/from-ossie/warnings.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "core/report.json": "6dd23d8cd976076b1c1a983d12db356d4d9afc2a16f64069cd5b0608065ab873",
+    "core/source.model.bim": "10aadb5bc1d2b3f75fda23ed45bca5ca77647ba2271f980e5ea0015bb17c9ad6",
+    "core/to-ossie/converter.log": "a9aa1b34c855693a38dd5401e21f0c476d63b841863331352e9ef0e59a50dc48",
+    "core/to-ossie/input.model.bim": "10aadb5bc1d2b3f75fda23ed45bca5ca77647ba2271f980e5ea0015bb17c9ad6",
+    "core/to-ossie/output.ossie.yml": "c83fd052aececed1b56ce1031443bd7b7f5dd7ae775aeffeedbfc7e740f5ef04",
+    "core/to-ossie/report.json": "96051f4ca2a8e2bf7fd4d2b1117581dd6fdb82a6abb18dcdd9ab15ccf6edb9ab",
+    "core/to-ossie/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core/to-ossie/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core/to-ossie/warnings.json": "1506224e1fd22a43762258044def415b6c3fbeb193c34e97847f333d92849643",
+    "oracle/conversion_rate__channel.json": "c4779d92df1413efc1ad638c1a20220c8bb145f58e025001259bb738e950aa99",
+    "oracle/conversion_rate__channel.sql": "49b73311f00248130c10be463984bbaea1665fd40cf3acc1bb089aa1015eb850",
+    "oracle/conversion_rate__month.json": "69b229f86d330ae467c91dfeffb171d0b39ee79ce561e50c34b8d31ee28d3878",
+    "oracle/conversion_rate__month.sql": "7a94d74dd377931e88e5ccc0f566d97ceae10f491e6ab120d2c5bd3d2f80a15c",
+    "oracle/conversion_rate__month_channel.json": "b25787b450879edf969d26bc3de0b535a84aa7682533f880d5a30d70e5bc1409",
+    "oracle/conversion_rate__month_channel.sql": "158dde6b9665e829a04a7e1d1fa739c216a8ddf4b0013d216b23cba9352586bb",
+    "oracle/conversion_rate__overall.json": "d95af445480d1fbb14bed433f0489aa40530578f997cda4911145dfa44192d24",
+    "oracle/conversion_rate__overall.sql": "c6aea307045cc5c9b0209929a2bef983f9fa863ee1d0e0cde14c854506bc57c5",
+    "oracle/paid_revenue__channel.json": "bd0633814eee53423694de84b5fa1a54bbd595c85c58ec4be6ad8a392958b17b",
+    "oracle/paid_revenue__channel.sql": "5da801325782211f97be53bad72f06f3553a243c1996c99e8db6899ac58d732b",
+    "oracle/paid_revenue__month.json": "e664f11bf3857584398b16b74addcf9dfbdffa8648b6ef5cd95b62f5561c4323",
+    "oracle/paid_revenue__month.sql": "c905110a6c14f4aba520bd3da4a1df16570bed281142de647167b10908f4e449",
+    "oracle/paid_revenue__month_channel.json": "2559eb6b5d0e693019f81c6b74a50bba7c89af4211dc7f4e147de0028b58ec28",
+    "oracle/paid_revenue__month_channel.sql": "8a7e1d26771f53c669ddce727976ccd9cd870f41ead8af0cb1d6bc3437239bfd",
+    "oracle/paid_revenue__overall.json": "0f0f9aa101c9e6efcdfa03a745b8b1282527741abf2baf15454ddd2aded95bfe",
+    "oracle/paid_revenue__overall.sql": "cf074c4d17631995355ecff94862d00f338d88470c42aadcb2a7ae1e422b1442",
+    "oracle/report.json": "4f67800b520e209887bc10ede1ee88a65744302facf588b3c7b94e69279b39dc",
+    "oracle/selector__conversion_rate__Direct.json": "4811c1159193b58c58a3fd9a7d2d4538bfcdec758fb18dee9328edfb82a6d258",
+    "oracle/selector__conversion_rate__Direct.sql": "f0ca57fcda7f0042d4686126595a8a46bcb6c15d403e58d588cc7209ea2d7caf",
+    "oracle/selector__conversion_rate__Indirect.json": "c4d013f015e38a0a459f1f77e614d07a774e86080517111fe606fe6873fe151e",
+    "oracle/selector__conversion_rate__Indirect.sql": "9af51267158758bdadd1f48ef0e2892c2bbf31c7a8d54efefca7e42a2d5b039f",
+    "oracle/selector__conversion_rate__overall.json": "d7d28a941b3f156a9e33779f65ddd0819de2f5b4d19de30203ac1463c45e2fa3",
+    "oracle/selector__conversion_rate__overall.sql": "c6aea307045cc5c9b0209929a2bef983f9fa863ee1d0e0cde14c854506bc57c5",
+    "oracle/selector__paid_revenue__Direct.json": "6c19b9fcbf2ed5a3730df051a623ed65b853c83397844d53cad04c49d5406da3",
+    "oracle/selector__paid_revenue__Direct.sql": "29a1c0acc85b663c7081fd3319e601f994a117fd6b7e1f097dddef853248122e",
+    "oracle/selector__paid_revenue__Indirect.json": "d342b86d8d7c7f85bca61ea53eb93586085a4eb68e53d97e6683045025444291",
+    "oracle/selector__paid_revenue__Indirect.sql": "8a19437e2c6b0201596b003c75f755e2804460fc9f17d340b02d54729ba43deb",
+    "oracle/selector__paid_revenue__overall.json": "7d42fc296fb5b57e887c3edb0a24760e9b59e8cd719a8d2eb4316dc897bb9fcb",
+    "oracle/selector__paid_revenue__overall.sql": "cf074c4d17631995355ecff94862d00f338d88470c42aadcb2a7ae1e422b1442",
+    "planned-validation.dax": "8587a3c8e42e32a431abd35d89af3decc679612594630d4928907c1dc9befb34",
+    "switch/from-ossie/converter.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "switch/from-ossie/input.ossie.yml": "f443e32a944f8e2616ba5fc0c4c289c2db7b15ab0ffd8eee3e1eb9c970a3bcc1",
+    "switch/from-ossie/output.model.bim": "92727edb60fcfd2996d427daf751d05fc622ac50438afd2eda353bfc9b4e6f87",
+    "switch/from-ossie/report.json": "689219b35b89c83d2d3ea7e6373e0e5c1eab42702eace21af3fc498ee589973a",
+    "switch/from-ossie/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "switch/from-ossie/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "switch/from-ossie/warnings.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "switch/report.json": "9b2fe3bb1eea2449fda39ecfa1a6d4a01fedea6b71e179a4c953ece0b4aa7a54",
+    "switch/source.model.bim": "29fffba25c060d715fcf6004364f53dea2da8c5396de532363b3a842fea31a0d",
+    "switch/to-ossie/converter.log": "a9aa1b34c855693a38dd5401e21f0c476d63b841863331352e9ef0e59a50dc48",
+    "switch/to-ossie/input.model.bim": "29fffba25c060d715fcf6004364f53dea2da8c5396de532363b3a842fea31a0d",
+    "switch/to-ossie/output.ossie.yml": "f443e32a944f8e2616ba5fc0c4c289c2db7b15ab0ffd8eee3e1eb9c970a3bcc1",
+    "switch/to-ossie/report.json": "e24110764c4b8cf44cf66914b5b3aaa38a3074f8372c6b01c3d031f4193f7bfc",
+    "switch/to-ossie/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "switch/to-ossie/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "switch/to-ossie/warnings.json": "1506224e1fd22a43762258044def415b6c3fbeb193c34e97847f333d92849643"
+  },
+  "cases": {
+    "core": {
+      "bounded_structural_checks": {
+        "columns_equal": true,
+        "complete_measure_properties_equal": true,
+        "complete_normalized_document_equal": true,
+        "dax_expressions_equal": true,
+        "m_expressions_equal": true,
+        "measure_names_equal": true,
+        "partitions_equal": true,
+        "relationships_equal_including_filter_direction": true,
+        "table_names_equal": true
+      },
+      "conversion": "PASS",
+      "execution": {
+        "DAX": "NOT_EXECUTED",
+        "actual_values": null,
+        "comparison_with_oracle": "NOT_EXECUTED"
+      },
+      "legs": {
+        "from_ossie": {
+          "artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\core\\from-ossie\\output.model.bim",
+          "artifact_sha256": "c899fe77ed1a15fc97ce5eeba44442b25600af83e39d39a5396129fe6ac67eff",
+          "conversion": "PASS",
+          "converter": {
+            "commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "distributions": {
+              "apache-ossie": {
+                "direct_url": {
+                  "subdirectory": "python",
+                  "url": "https://github.com/apache/ossie.git",
+                  "vcs_info": {
+                    "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "vcs": "git"
+                  }
+                },
+                "version": "0.2.0.dev0"
+              },
+              "apache-ossie-microsoft": {
+                "direct_url": {
+                  "subdirectory": "converters/microsoft",
+                  "url": "https://github.com/apache/ossie.git",
+                  "vcs_info": {
+                    "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "vcs": "git"
+                  }
+                },
+                "version": "0.2.0.dev0"
+              }
+            },
+            "installed_converter_sha256": {
+              "__init__.py": "2befa65ed0de85b719847947ae2f85ec84e2b437ecb708cfd1e6d41c1d982787",
+              "_common.py": "f0361c7c0b8ee930e3e6257cdf9f21a97d7a5f9c8efe01661ea71f4106b79b09",
+              "_sql_to_dax.py": "797168011bfcc798b4a44e824c53b7fa01d653cf760642e7102794e7281f623f",
+              "cli.py": "0c44036bb510b82a308b47ba7777af5bef91f13fd5da2dc4becd85d44b97dfbf",
+              "engine.py": "6896667cb32608e3b2b85744ccd97fb09d9647a1f5086e545e6afaedab7e1a4e",
+              "ossie_to_semantic_model.py": "fdefffef8680a72d7e65e2da70889d596e9c062de95563706b7c155f03d57cd8",
+              "semantic_model_to_ossie.py": "cdfa0345efd2e956addb3f01a164733f1bf3c42a631f653d5eaf367d3a33e87f",
+              "tom.py": "4bdc6678266cecffc7592e86fef90c59c2cf5969f6a2da0e237efbfadfccd1ff"
+            },
+            "official_source": "https://github.com/apache/ossie/tree/6ebc5e5612467dac405985f44ea078b39c891bee/converters/microsoft",
+            "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+          },
+          "direction": "from-ossie",
+          "input_artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\core\\from-ossie\\input.ossie.yml",
+          "numerical_equivalence": "NOT_EXECUTED",
+          "official_call": "ossie_microsoft.convert_ossie_to_semantic_model(source_yaml)",
+          "semantic_preservation": "UNKNOWN",
+          "semantic_scope": "Only directly inspected converter behavior; no target-engine execution.",
+          "source": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\core\\to-ossie\\output.ossie.yml",
+          "source_sha256": "c83fd052aececed1b56ce1031443bd7b7f5dd7ae775aeffeedbfc7e740f5ef04",
+          "target_inventory": {
+            "measures": [
+              "Eligible Sessions",
+              "Converted Sessions",
+              "Conversion Rate",
+              "Paid Revenue"
+            ],
+            "partitions": {
+              "Orders": [
+                {
+                  "mode": "import",
+                  "name": "Orders",
+                  "source": {
+                    "expression": "OrdersData",
+                    "type": "m"
+                  }
+                }
+              ],
+              "Sales Channel": [
+                {
+                  "mode": "import",
+                  "name": "Sales Channel",
+                  "source": {
+                    "expression": "Table.Distinct(Table.SelectColumns(SessionsData, {\"sales_channel\"}))",
+                    "type": "m"
+                  }
+                }
+              ],
+              "Sessions": [
+                {
+                  "mode": "import",
+                  "name": "Sessions",
+                  "source": {
+                    "expression": "SessionsData",
+                    "type": "m"
+                  }
+                }
+              ]
+            },
+            "tables": [
+              "Sessions",
+              "Orders",
+              "Sales Channel"
+            ],
+            "untranslated_expressions_replaced_by_blank": []
+          },
+          "warnings": []
+        },
+        "to_ossie": {
+          "artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\core\\to-ossie\\output.ossie.yml",
+          "artifact_sha256": "c83fd052aececed1b56ce1031443bd7b7f5dd7ae775aeffeedbfc7e740f5ef04",
+          "conversion": "PASS",
+          "converter": {
+            "commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "distributions": {
+              "apache-ossie": {
+                "direct_url": {
+                  "subdirectory": "python",
+                  "url": "https://github.com/apache/ossie.git",
+                  "vcs_info": {
+                    "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "vcs": "git"
+                  }
+                },
+                "version": "0.2.0.dev0"
+              },
+              "apache-ossie-microsoft": {
+                "direct_url": {
+                  "subdirectory": "converters/microsoft",
+                  "url": "https://github.com/apache/ossie.git",
+                  "vcs_info": {
+                    "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "vcs": "git"
+                  }
+                },
+                "version": "0.2.0.dev0"
+              }
+            },
+            "installed_converter_sha256": {
+              "__init__.py": "2befa65ed0de85b719847947ae2f85ec84e2b437ecb708cfd1e6d41c1d982787",
+              "_common.py": "f0361c7c0b8ee930e3e6257cdf9f21a97d7a5f9c8efe01661ea71f4106b79b09",
+              "_sql_to_dax.py": "797168011bfcc798b4a44e824c53b7fa01d653cf760642e7102794e7281f623f",
+              "cli.py": "0c44036bb510b82a308b47ba7777af5bef91f13fd5da2dc4becd85d44b97dfbf",
+              "engine.py": "6896667cb32608e3b2b85744ccd97fb09d9647a1f5086e545e6afaedab7e1a4e",
+              "ossie_to_semantic_model.py": "fdefffef8680a72d7e65e2da70889d596e9c062de95563706b7c155f03d57cd8",
+              "semantic_model_to_ossie.py": "cdfa0345efd2e956addb3f01a164733f1bf3c42a631f653d5eaf367d3a33e87f",
+              "tom.py": "4bdc6678266cecffc7592e86fef90c59c2cf5969f6a2da0e237efbfadfccd1ff"
+            },
+            "official_source": "https://github.com/apache/ossie/tree/6ebc5e5612467dac405985f44ea078b39c891bee/converters/microsoft",
+            "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+          },
+          "direction": "to-ossie",
+          "input_artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\core\\to-ossie\\input.model.bim",
+          "metric_dialects": {
+            "Conversion Rate": [
+              "DAX"
+            ],
+            "Converted Sessions": [
+              "DAX"
+            ],
+            "Eligible Sessions": [
+              "DAX"
+            ],
+            "Paid Revenue": [
+              "DAX"
+            ]
+          },
+          "numerical_equivalence": "NOT_EXECUTED",
+          "official_call": "ossie_microsoft.convert_semantic_model_to_ossie(source_json)",
+          "ossie_structure": "PASS",
+          "power_bi_vendor_extension_present": true,
+          "semantic_preservation": "UNKNOWN",
+          "semantic_scope": "Only directly inspected converter behavior; no target-engine execution.",
+          "source": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\core\\source.model.bim",
+          "source_sha256": "10aadb5bc1d2b3f75fda23ed45bca5ca77647ba2271f980e5ea0015bb17c9ad6",
+          "warnings": [
+            {
+              "category": "UserWarning",
+              "message": "[model] shared Power Query expressions and parameters ('expressions') has no Apache Ossie counterpart; preserved in the Power BI stash for round trip, but not represented in the Apache Ossie document"
+            }
+          ]
+        }
+      },
+      "measure_dependencies": {
+        "Conversion Rate": [
+          "Converted Sessions",
+          "Eligible Sessions"
+        ],
+        "Converted Sessions": [],
+        "Eligible Sessions": [],
+        "Paid Revenue": []
+      },
+      "numerical_equivalence": "BLOCKED",
+      "parameter_binding": {
+        "FixtureRoot": "C:/github/pbi-osi-converter/labs/semantic_interop/fixtures/conversion_demo/data"
+      },
+      "semantic_preservation": "PASS",
+      "semantic_scope": "Exact normalized native DAX, relationships, columns, partitions, M and formatting metadata; executable semantics unverified.",
+      "source_TOM_validation": {
+        "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`",
+        "status": "NOT_EXECUTED"
+      },
+      "target_TOM_validation": {
+        "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`",
+        "status": "NOT_EXECUTED"
+      }
+    },
+    "switch": {
+      "bounded_structural_checks": {
+        "columns_equal": true,
+        "complete_measure_properties_equal": true,
+        "complete_normalized_document_equal": true,
+        "dax_expressions_equal": true,
+        "exactly_two_selector_choices": true,
+        "m_expressions_equal": true,
+        "measure_names_equal": true,
+        "partitions_equal": true,
+        "relationships_equal_including_filter_direction": true,
+        "selector_disconnected": true,
+        "table_names_equal": true
+      },
+      "conversion": "PASS",
+      "execution": {
+        "DAX": "NOT_EXECUTED",
+        "actual_values": null,
+        "comparison_with_oracle": "NOT_EXECUTED"
+      },
+      "legs": {
+        "from_ossie": {
+          "artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\switch\\from-ossie\\output.model.bim",
+          "artifact_sha256": "92727edb60fcfd2996d427daf751d05fc622ac50438afd2eda353bfc9b4e6f87",
+          "conversion": "PASS",
+          "converter": {
+            "commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "distributions": {
+              "apache-ossie": {
+                "direct_url": {
+                  "subdirectory": "python",
+                  "url": "https://github.com/apache/ossie.git",
+                  "vcs_info": {
+                    "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "vcs": "git"
+                  }
+                },
+                "version": "0.2.0.dev0"
+              },
+              "apache-ossie-microsoft": {
+                "direct_url": {
+                  "subdirectory": "converters/microsoft",
+                  "url": "https://github.com/apache/ossie.git",
+                  "vcs_info": {
+                    "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "vcs": "git"
+                  }
+                },
+                "version": "0.2.0.dev0"
+              }
+            },
+            "installed_converter_sha256": {
+              "__init__.py": "2befa65ed0de85b719847947ae2f85ec84e2b437ecb708cfd1e6d41c1d982787",
+              "_common.py": "f0361c7c0b8ee930e3e6257cdf9f21a97d7a5f9c8efe01661ea71f4106b79b09",
+              "_sql_to_dax.py": "797168011bfcc798b4a44e824c53b7fa01d653cf760642e7102794e7281f623f",
+              "cli.py": "0c44036bb510b82a308b47ba7777af5bef91f13fd5da2dc4becd85d44b97dfbf",
+              "engine.py": "6896667cb32608e3b2b85744ccd97fb09d9647a1f5086e545e6afaedab7e1a4e",
+              "ossie_to_semantic_model.py": "fdefffef8680a72d7e65e2da70889d596e9c062de95563706b7c155f03d57cd8",
+              "semantic_model_to_ossie.py": "cdfa0345efd2e956addb3f01a164733f1bf3c42a631f653d5eaf367d3a33e87f",
+              "tom.py": "4bdc6678266cecffc7592e86fef90c59c2cf5969f6a2da0e237efbfadfccd1ff"
+            },
+            "official_source": "https://github.com/apache/ossie/tree/6ebc5e5612467dac405985f44ea078b39c891bee/converters/microsoft",
+            "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+          },
+          "direction": "from-ossie",
+          "input_artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\switch\\from-ossie\\input.ossie.yml",
+          "numerical_equivalence": "NOT_EXECUTED",
+          "official_call": "ossie_microsoft.convert_ossie_to_semantic_model(source_yaml)",
+          "semantic_preservation": "UNKNOWN",
+          "semantic_scope": "Only directly inspected converter behavior; no target-engine execution.",
+          "source": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\switch\\to-ossie\\output.ossie.yml",
+          "source_sha256": "f443e32a944f8e2616ba5fc0c4c289c2db7b15ab0ffd8eee3e1eb9c970a3bcc1",
+          "target_inventory": {
+            "measures": [
+              "Eligible Sessions",
+              "Converted Sessions",
+              "Conversion Rate",
+              "Paid Revenue",
+              "Selected KPI"
+            ],
+            "partitions": {
+              "KPI Selector": [
+                {
+                  "mode": "import",
+                  "name": "KPI Selector",
+                  "source": {
+                    "expression": "#table(type table [KPI = text], {{\"Conversion Rate\"}, {\"Paid Revenue\"}})",
+                    "type": "m"
+                  }
+                }
+              ],
+              "Orders": [
+                {
+                  "mode": "import",
+                  "name": "Orders",
+                  "source": {
+                    "expression": "OrdersData",
+                    "type": "m"
+                  }
+                }
+              ],
+              "Sales Channel": [
+                {
+                  "mode": "import",
+                  "name": "Sales Channel",
+                  "source": {
+                    "expression": "Table.Distinct(Table.SelectColumns(SessionsData, {\"sales_channel\"}))",
+                    "type": "m"
+                  }
+                }
+              ],
+              "Sessions": [
+                {
+                  "mode": "import",
+                  "name": "Sessions",
+                  "source": {
+                    "expression": "SessionsData",
+                    "type": "m"
+                  }
+                }
+              ]
+            },
+            "tables": [
+              "Sessions",
+              "Orders",
+              "Sales Channel",
+              "KPI Selector"
+            ],
+            "untranslated_expressions_replaced_by_blank": []
+          },
+          "warnings": []
+        },
+        "to_ossie": {
+          "artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\switch\\to-ossie\\output.ossie.yml",
+          "artifact_sha256": "f443e32a944f8e2616ba5fc0c4c289c2db7b15ab0ffd8eee3e1eb9c970a3bcc1",
+          "conversion": "PASS",
+          "converter": {
+            "commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "distributions": {
+              "apache-ossie": {
+                "direct_url": {
+                  "subdirectory": "python",
+                  "url": "https://github.com/apache/ossie.git",
+                  "vcs_info": {
+                    "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "vcs": "git"
+                  }
+                },
+                "version": "0.2.0.dev0"
+              },
+              "apache-ossie-microsoft": {
+                "direct_url": {
+                  "subdirectory": "converters/microsoft",
+                  "url": "https://github.com/apache/ossie.git",
+                  "vcs_info": {
+                    "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+                    "vcs": "git"
+                  }
+                },
+                "version": "0.2.0.dev0"
+              }
+            },
+            "installed_converter_sha256": {
+              "__init__.py": "2befa65ed0de85b719847947ae2f85ec84e2b437ecb708cfd1e6d41c1d982787",
+              "_common.py": "f0361c7c0b8ee930e3e6257cdf9f21a97d7a5f9c8efe01661ea71f4106b79b09",
+              "_sql_to_dax.py": "797168011bfcc798b4a44e824c53b7fa01d653cf760642e7102794e7281f623f",
+              "cli.py": "0c44036bb510b82a308b47ba7777af5bef91f13fd5da2dc4becd85d44b97dfbf",
+              "engine.py": "6896667cb32608e3b2b85744ccd97fb09d9647a1f5086e545e6afaedab7e1a4e",
+              "ossie_to_semantic_model.py": "fdefffef8680a72d7e65e2da70889d596e9c062de95563706b7c155f03d57cd8",
+              "semantic_model_to_ossie.py": "cdfa0345efd2e956addb3f01a164733f1bf3c42a631f653d5eaf367d3a33e87f",
+              "tom.py": "4bdc6678266cecffc7592e86fef90c59c2cf5969f6a2da0e237efbfadfccd1ff"
+            },
+            "official_source": "https://github.com/apache/ossie/tree/6ebc5e5612467dac405985f44ea078b39c891bee/converters/microsoft",
+            "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+          },
+          "direction": "to-ossie",
+          "input_artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\switch\\to-ossie\\input.model.bim",
+          "metric_dialects": {
+            "Conversion Rate": [
+              "DAX"
+            ],
+            "Converted Sessions": [
+              "DAX"
+            ],
+            "Eligible Sessions": [
+              "DAX"
+            ],
+            "Paid Revenue": [
+              "DAX"
+            ],
+            "Selected KPI": [
+              "DAX"
+            ]
+          },
+          "numerical_equivalence": "NOT_EXECUTED",
+          "official_call": "ossie_microsoft.convert_semantic_model_to_ossie(source_json)",
+          "ossie_structure": "PASS",
+          "power_bi_vendor_extension_present": true,
+          "semantic_preservation": "UNKNOWN",
+          "semantic_scope": "Only directly inspected converter behavior; no target-engine execution.",
+          "source": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\switch\\source.model.bim",
+          "source_sha256": "29fffba25c060d715fcf6004364f53dea2da8c5396de532363b3a842fea31a0d",
+          "warnings": [
+            {
+              "category": "UserWarning",
+              "message": "[model] shared Power Query expressions and parameters ('expressions') has no Apache Ossie counterpart; preserved in the Power BI stash for round trip, but not represented in the Apache Ossie document"
+            }
+          ]
+        }
+      },
+      "measure_dependencies": {
+        "Conversion Rate": [
+          "Converted Sessions",
+          "Eligible Sessions"
+        ],
+        "Converted Sessions": [],
+        "Eligible Sessions": [],
+        "Paid Revenue": [],
+        "Selected KPI": [
+          "Conversion Rate",
+          "Paid Revenue"
+        ]
+      },
+      "numerical_equivalence": "BLOCKED",
+      "parameter_binding": {
+        "FixtureRoot": "C:/github/pbi-osi-converter/labs/semantic_interop/fixtures/conversion_demo/data"
+      },
+      "semantic_preservation": "PASS",
+      "semantic_scope": "Exact normalized native DAX, relationships, columns, partitions, M and formatting metadata; executable semantics unverified.",
+      "source_TOM_validation": {
+        "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`",
+        "status": "NOT_EXECUTED"
+      },
+      "switch": {
+        "DAX_expression": "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\n    \"Conversion Rate\", [Conversion Rate],\n    \"Paid Revenue\", [Paid Revenue],\n    BLANK()\n)",
+        "Power_BI_executable": "UNKNOWN",
+        "Power_BI_execution": "NOT_EXECUTED",
+        "dependencies": [
+          "Conversion Rate",
+          "Paid Revenue"
+        ],
+        "dependencies_preservation": "PASS",
+        "disconnected_selector_preservation": "PASS",
+        "dynamic_format_metadata_preservation": "PASS",
+        "exactly_two_selector_choices": true,
+        "expression_preservation": "PASS",
+        "portability_reason": "The expression is DAX and the table/formatting survive in POWER_BI vendor extensions. Their preservation does not provide a target-platform KPI interaction.",
+        "portable_business_semantics": "UNKNOWN",
+        "visual_interaction_execution": "NOT_EXECUTED"
+      },
+      "target_TOM_validation": {
+        "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`",
+        "status": "NOT_EXECUTED"
+      }
+    }
+  },
+  "converter": {
+    "commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+    "distributions": {
+      "apache-ossie": {
+        "direct_url": {
+          "subdirectory": "python",
+          "url": "https://github.com/apache/ossie.git",
+          "vcs_info": {
+            "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "vcs": "git"
+          }
+        },
+        "version": "0.2.0.dev0"
+      },
+      "apache-ossie-microsoft": {
+        "direct_url": {
+          "subdirectory": "converters/microsoft",
+          "url": "https://github.com/apache/ossie.git",
+          "vcs_info": {
+            "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "vcs": "git"
+          }
+        },
+        "version": "0.2.0.dev0"
+      }
+    },
+    "installed_converter_sha256": {
+      "__init__.py": "2befa65ed0de85b719847947ae2f85ec84e2b437ecb708cfd1e6d41c1d982787",
+      "_common.py": "f0361c7c0b8ee930e3e6257cdf9f21a97d7a5f9c8efe01661ea71f4106b79b09",
+      "_sql_to_dax.py": "797168011bfcc798b4a44e824c53b7fa01d653cf760642e7102794e7281f623f",
+      "cli.py": "0c44036bb510b82a308b47ba7777af5bef91f13fd5da2dc4becd85d44b97dfbf",
+      "engine.py": "6896667cb32608e3b2b85744ccd97fb09d9647a1f5086e545e6afaedab7e1a4e",
+      "ossie_to_semantic_model.py": "fdefffef8680a72d7e65e2da70889d596e9c062de95563706b7c155f03d57cd8",
+      "semantic_model_to_ossie.py": "cdfa0345efd2e956addb3f01a164733f1bf3c42a631f653d5eaf367d3a33e87f",
+      "tom.py": "4bdc6678266cecffc7592e86fef90c59c2cf5969f6a2da0e237efbfadfccd1ff"
+    },
+    "official_source": "https://github.com/apache/ossie/tree/6ebc5e5612467dac405985f44ea078b39c891bee/converters/microsoft",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "duckdb_oracle": {
+    "engine": "DuckDB",
+    "execution": "EXECUTED",
+    "headline_queries": {
+      "conversion_rate__channel": {
+        "execution": "EXECUTED",
+        "sql": "oracle/conversion_rate__channel.sql",
+        "typed_result": {
+          "columns": [
+            "sales_channel",
+            "conversion_rate"
+          ],
+          "rows": [
+            [
+              {
+                "type": "string",
+                "value": "Direct"
+              },
+              {
+                "type": "float",
+                "value": "0.5"
+              }
+            ],
+            [
+              {
+                "type": "string",
+                "value": "Indirect"
+              },
+              {
+                "type": "float",
+                "value": "0.25"
+              }
+            ]
+          ]
+        }
+      },
+      "conversion_rate__month": {
+        "execution": "EXECUTED",
+        "sql": "oracle/conversion_rate__month.sql",
+        "typed_result": {
+          "columns": [
+            "session_month",
+            "conversion_rate"
+          ],
+          "rows": [
+            [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "float",
+                "value": "0.6"
+              }
+            ],
+            [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "float",
+                "value": "0.2"
+              }
+            ]
+          ]
+        }
+      },
+      "conversion_rate__month_channel": {
+        "execution": "EXECUTED",
+        "sql": "oracle/conversion_rate__month_channel.sql",
+        "typed_result": {
+          "columns": [
+            "session_month",
+            "sales_channel",
+            "conversion_rate"
+          ],
+          "rows": [
+            [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              },
+              {
+                "type": "float",
+                "value": "0.6666666666666666"
+              }
+            ],
+            [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              },
+              {
+                "type": "float",
+                "value": "0.5"
+              }
+            ],
+            [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              },
+              {
+                "type": "float",
+                "value": "0.3333333333333333"
+              }
+            ],
+            [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              },
+              {
+                "type": "float",
+                "value": "0.0"
+              }
+            ]
+          ]
+        }
+      },
+      "conversion_rate__overall": {
+        "execution": "EXECUTED",
+        "sql": "oracle/conversion_rate__overall.sql",
+        "typed_result": {
+          "columns": [
+            "conversion_rate"
+          ],
+          "rows": [
+            [
+              {
+                "type": "float",
+                "value": "0.4"
+              }
+            ]
+          ]
+        }
+      },
+      "paid_revenue__channel": {
+        "execution": "EXECUTED",
+        "sql": "oracle/paid_revenue__channel.sql",
+        "typed_result": {
+          "columns": [
+            "sales_channel",
+            "paid_revenue"
+          ],
+          "rows": [
+            [
+              {
+                "type": "string",
+                "value": "Direct"
+              },
+              {
+                "type": "decimal",
+                "value": "300.00"
+              }
+            ],
+            [
+              {
+                "type": "string",
+                "value": "Indirect"
+              },
+              {
+                "type": "decimal",
+                "value": "90.00"
+              }
+            ]
+          ]
+        }
+      },
+      "paid_revenue__month": {
+        "execution": "EXECUTED",
+        "sql": "oracle/paid_revenue__month.sql",
+        "typed_result": {
+          "columns": [
+            "session_month",
+            "paid_revenue"
+          ],
+          "rows": [
+            [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "decimal",
+                "value": "270.00"
+              }
+            ],
+            [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "decimal",
+                "value": "120.00"
+              }
+            ]
+          ]
+        }
+      },
+      "paid_revenue__month_channel": {
+        "execution": "EXECUTED",
+        "sql": "oracle/paid_revenue__month_channel.sql",
+        "typed_result": {
+          "columns": [
+            "session_month",
+            "sales_channel",
+            "paid_revenue"
+          ],
+          "rows": [
+            [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              },
+              {
+                "type": "decimal",
+                "value": "180.00"
+              }
+            ],
+            [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              },
+              {
+                "type": "decimal",
+                "value": "90.00"
+              }
+            ],
+            [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              },
+              {
+                "type": "decimal",
+                "value": "120.00"
+              }
+            ],
+            [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              },
+              {
+                "type": "null",
+                "value": null
+              }
+            ]
+          ]
+        }
+      },
+      "paid_revenue__overall": {
+        "execution": "EXECUTED",
+        "sql": "oracle/paid_revenue__overall.sql",
+        "typed_result": {
+          "columns": [
+            "paid_revenue"
+          ],
+          "rows": [
+            [
+              {
+                "type": "decimal",
+                "value": "390.00"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "planned_selector_tests": [
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "overall",
+        "expected_from_duckdb": 0.4,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__conversion_rate__overall",
+        "selection": "none",
+        "unit": "ratio"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "overall",
+        "expected_from_duckdb": 0.4,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__conversion_rate__overall",
+        "selection": "Conversion Rate",
+        "unit": "ratio"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "overall",
+        "expected_from_duckdb": 390.0,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__paid_revenue__overall",
+        "selection": "Paid Revenue",
+        "unit": "EUR"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "overall",
+        "expected_from_duckdb": 0.4,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__conversion_rate__overall",
+        "selection": "multiple",
+        "unit": "ratio"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "Direct",
+        "expected_from_duckdb": 0.5,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__conversion_rate__Direct",
+        "selection": "none",
+        "unit": "ratio"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "Direct",
+        "expected_from_duckdb": 0.5,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__conversion_rate__Direct",
+        "selection": "Conversion Rate",
+        "unit": "ratio"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "Direct",
+        "expected_from_duckdb": 300.0,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__paid_revenue__Direct",
+        "selection": "Paid Revenue",
+        "unit": "EUR"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "Direct",
+        "expected_from_duckdb": 0.5,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__conversion_rate__Direct",
+        "selection": "multiple",
+        "unit": "ratio"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "Indirect",
+        "expected_from_duckdb": 0.25,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__conversion_rate__Indirect",
+        "selection": "none",
+        "unit": "ratio"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "Indirect",
+        "expected_from_duckdb": 0.25,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__conversion_rate__Indirect",
+        "selection": "Conversion Rate",
+        "unit": "ratio"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "Indirect",
+        "expected_from_duckdb": 90.0,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__paid_revenue__Indirect",
+        "selection": "Paid Revenue",
+        "unit": "EUR"
+      },
+      {
+        "DAX_execution": "NOT_EXECUTED",
+        "actual_DAX_value": null,
+        "channel": "Indirect",
+        "expected_from_duckdb": 0.25,
+        "numerical_equivalence": "NOT_EXECUTED",
+        "oracle_comparison": "NOT_EXECUTED",
+        "oracle_reference": "selector__conversion_rate__Indirect",
+        "selection": "multiple",
+        "unit": "ratio"
+      }
+    ],
+    "selector_reference_queries": {
+      "selector__conversion_rate__Direct": {
+        "execution": "EXECUTED",
+        "sql": "oracle/selector__conversion_rate__Direct.sql",
+        "typed_result": {
+          "columns": [
+            "conversion_rate"
+          ],
+          "rows": [
+            [
+              {
+                "type": "float",
+                "value": "0.5"
+              }
+            ]
+          ]
+        }
+      },
+      "selector__conversion_rate__Indirect": {
+        "execution": "EXECUTED",
+        "sql": "oracle/selector__conversion_rate__Indirect.sql",
+        "typed_result": {
+          "columns": [
+            "conversion_rate"
+          ],
+          "rows": [
+            [
+              {
+                "type": "float",
+                "value": "0.25"
+              }
+            ]
+          ]
+        }
+      },
+      "selector__conversion_rate__overall": {
+        "execution": "EXECUTED",
+        "sql": "oracle/selector__conversion_rate__overall.sql",
+        "typed_result": {
+          "columns": [
+            "conversion_rate"
+          ],
+          "rows": [
+            [
+              {
+                "type": "float",
+                "value": "0.4"
+              }
+            ]
+          ]
+        }
+      },
+      "selector__paid_revenue__Direct": {
+        "execution": "EXECUTED",
+        "sql": "oracle/selector__paid_revenue__Direct.sql",
+        "typed_result": {
+          "columns": [
+            "paid_revenue"
+          ],
+          "rows": [
+            [
+              {
+                "type": "decimal",
+                "value": "300.00"
+              }
+            ]
+          ]
+        }
+      },
+      "selector__paid_revenue__Indirect": {
+        "execution": "EXECUTED",
+        "sql": "oracle/selector__paid_revenue__Indirect.sql",
+        "typed_result": {
+          "columns": [
+            "paid_revenue"
+          ],
+          "rows": [
+            [
+              {
+                "type": "decimal",
+                "value": "90.00"
+              }
+            ]
+          ]
+        }
+      },
+      "selector__paid_revenue__overall": {
+        "execution": "EXECUTED",
+        "sql": "oracle/selector__paid_revenue__overall.sql",
+        "typed_result": {
+          "columns": [
+            "paid_revenue"
+          ],
+          "rows": [
+            [
+              {
+                "type": "decimal",
+                "value": "390.00"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "version": "1.5.6"
+  },
+  "engine_availability": {
+    "actual_DAX_values": null,
+    "endpoint_environment_variables_present": {
+      "FABRIC_WORKSPACE_ID": false,
+      "PBI_XMLA_ENDPOINT": false,
+      "POWERBI_WORKSPACE_ID": false,
+      "POWERBI_XMLA_ENDPOINT": false
+    },
+    "engine_execution": "NOT_EXECUTED",
+    "local_processes": [],
+    "numerical_equivalence": "BLOCKED",
+    "platform": "Windows",
+    "provided_xmla_endpoint": false,
+    "reason": "No Power BI/XMLA endpoint or model execution session was supplied for this task.",
+    "tasklist_exit_code": 0
+  },
+  "fixture_sha256_after": {
+    "contract.json": "e5884901eb9c4ab5a61b4e42ccf178d77c1aef5622ddd2301b106b2312e40f2d",
+    "data/additional_order.csv": "6d4086b636352950bfa6ff22c07b0c46993d3ec94777dec228a6b140a2ebcc01",
+    "data/orders.csv": "2c501f5faac1c3b489aa469295cfdcea8a3ec09df6ba3496fe3640d6aaf08ba1",
+    "data/sessions.csv": "648bd14ce8390ed7d1d2a83f39137e0846c0037cd92542ca6be41b8c8db80215",
+    "dbt/dbt_project.yml": "a3e0f7d428a06be2d76ad0dc7302637a019d99763df804d69dda7e8b6b6b987e",
+    "dbt/models/metrics.yml": "3c14e14e40f0ce1fd5caefc3944ce23fe4c257d8381eaf1ed47509974b1f8cc5",
+    "dbt/models/orders.sql": "d5695ab7489d6ca93f4feea506e0c35a1682aba6226449bcf5f8443906f9d313",
+    "dbt/models/sessions.sql": "f1880a6bfcd240a869f6dbda855a4189c9945ef723952de808d5c9f09758be27",
+    "dbt/models/time_spine.sql": "f7de94bb1028bb9a4eafed7cd5f402900e061cc84968d0736468a90b37659900",
+    "dbt/profile.template.yml": "aefffbb7daa5aac40d67364f2355c74cb8b2d20db95df1291bfcf73a77d4e109",
+    "failures/average_of_rates.sql": "8473349f4c6d3e782810c721641a0f911b9b7b781ade92a2081bee95dbb6b857",
+    "failures/incorrect_conversion.sql": "8a5d909f78d844dd3ec193d0e4b05e0abdefa4eabd7d41f6643bee4257a0b8ec",
+    "failures/inner_join.sql": "e2850c262cd4fe9db14eca2813f8cb7d3e1e6f055a25c5c6c6d7af1aa5aed609",
+    "failures/removed_channel_filter.sql": "186d1551b1e57a2ec6d4c213b40f4f188b04ac1a6dc246ed512e1059e49acae7",
+    "failures/wrong_denominator.sql": "2d0bc5e9f9f29bbe01f478e8a0167733330c0747e66897a5e82645cebea93d3c",
+    "oracle/average_paid_order_value.sql": "5dd6891a270758e5b67aebed94d5bca539ad4e432b3d4cd8d14df07db91cdfa3",
+    "oracle/conversion_rate.sql": "c3defe63b5cc292df08df12c2249bb1eac9e87db6c4033c8446d855b9a57deb5",
+    "oracle/converted_sessions.sql": "b6721273deaa0d726c68e2b8dfeb05f1d95166b314ac3eb960c108149220ade3",
+    "oracle/eligible_sessions.sql": "2645730631d68265beaa0cdce201c286360f950f9b2f77a5b374719f1182aa09",
+    "oracle/paid_order_count.sql": "1bf381f65a5fc0f13f09a3068193e153a0635ceb89e3fba0d23ee7ca224942d5",
+    "oracle/paid_revenue.sql": "9ed6f70735bbbb0e57a65f2623d737bc85681cd1c122f7e3c11e3c91b30b03bc",
+    "targets/databricks/README.md": "9756ceccedde40c9fd74d0b2fd701c96cafeb2e93a5afed89832ece453cc6a58",
+    "targets/databricks/metric_view.yaml": "dd3dd44f1b817f0aefaa5c67267fdfa6422521a7968fba06682d3cdeb1866dd1",
+    "targets/databricks/provenance.json": "96b400157f91dde23c5e1986430ac1aca66e7ab1eeb8c69cab9860d9c252bc9b",
+    "targets/databricks/validate.sql": "a67507a06bb0dedd4d83cf7261b027c74a459a8fe71d1d291bc33c2d104d1035",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/database.tmdl": "5d16e73de9d4a4fca2796c8878985d7a6f709cda63dc726230b3b4760ebde58c",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/expressions.tmdl": "cbbb0ad7e698fd8a708f50071b428a2fe793e340763b78bf6ad7ebd900943040",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/model.tmdl": "e677bb521f6af4ddf9bc983ebcd07c92c968efbf22c3537a5ced5b1f4d6aaa13",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/relationships.tmdl": "6a8cdc134a987c453ba21ca4b0b6df0077dd1270edfbd4779329c7694d92b6c1",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/KPI Selector.tmdl": "d414c53d7f50555d8163e822bd0ab2f1d07f696109cee27511b31a957eb18f78",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Orders.tmdl": "4024533143683a0b955262538df7d67717559372654c97dc85d202f417e8915e",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Sales Channel.tmdl": "754582e9f054781bc1ebc6ca29ac69c9944ace505c198e0e1a16bca2730de130",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Sessions.tmdl": "de5d995c6ae3206140cd76ec99f8f1020eed4955692a2276c9e3c11984ed09d1",
+    "targets/powerbi/README.md": "b639603ea1336a2d2d0bfd37a8fe44d1fe6773285d4934eb12aebc839db69769",
+    "targets/powerbi/provenance.json": "a9ab352c7e5a47130383bd810661fd679755cc3c6668beaa9556446cb89d0c90",
+    "targets/powerbi/validate-task04.dax": "8587a3c8e42e32a431abd35d89af3decc679612594630d4928907c1dc9befb34",
+    "targets/powerbi/validate.dax": "51645e6f00e789797a892a873882cc80dfd8322c58f94cdc5b002e69bd706c26"
+  },
+  "fixture_sha256_before": {
+    "contract.json": "e5884901eb9c4ab5a61b4e42ccf178d77c1aef5622ddd2301b106b2312e40f2d",
+    "data/additional_order.csv": "6d4086b636352950bfa6ff22c07b0c46993d3ec94777dec228a6b140a2ebcc01",
+    "data/orders.csv": "2c501f5faac1c3b489aa469295cfdcea8a3ec09df6ba3496fe3640d6aaf08ba1",
+    "data/sessions.csv": "648bd14ce8390ed7d1d2a83f39137e0846c0037cd92542ca6be41b8c8db80215",
+    "dbt/dbt_project.yml": "a3e0f7d428a06be2d76ad0dc7302637a019d99763df804d69dda7e8b6b6b987e",
+    "dbt/models/metrics.yml": "3c14e14e40f0ce1fd5caefc3944ce23fe4c257d8381eaf1ed47509974b1f8cc5",
+    "dbt/models/orders.sql": "d5695ab7489d6ca93f4feea506e0c35a1682aba6226449bcf5f8443906f9d313",
+    "dbt/models/sessions.sql": "f1880a6bfcd240a869f6dbda855a4189c9945ef723952de808d5c9f09758be27",
+    "dbt/models/time_spine.sql": "f7de94bb1028bb9a4eafed7cd5f402900e061cc84968d0736468a90b37659900",
+    "dbt/profile.template.yml": "aefffbb7daa5aac40d67364f2355c74cb8b2d20db95df1291bfcf73a77d4e109",
+    "failures/average_of_rates.sql": "8473349f4c6d3e782810c721641a0f911b9b7b781ade92a2081bee95dbb6b857",
+    "failures/incorrect_conversion.sql": "8a5d909f78d844dd3ec193d0e4b05e0abdefa4eabd7d41f6643bee4257a0b8ec",
+    "failures/inner_join.sql": "e2850c262cd4fe9db14eca2813f8cb7d3e1e6f055a25c5c6c6d7af1aa5aed609",
+    "failures/removed_channel_filter.sql": "186d1551b1e57a2ec6d4c213b40f4f188b04ac1a6dc246ed512e1059e49acae7",
+    "failures/wrong_denominator.sql": "2d0bc5e9f9f29bbe01f478e8a0167733330c0747e66897a5e82645cebea93d3c",
+    "oracle/average_paid_order_value.sql": "5dd6891a270758e5b67aebed94d5bca539ad4e432b3d4cd8d14df07db91cdfa3",
+    "oracle/conversion_rate.sql": "c3defe63b5cc292df08df12c2249bb1eac9e87db6c4033c8446d855b9a57deb5",
+    "oracle/converted_sessions.sql": "b6721273deaa0d726c68e2b8dfeb05f1d95166b314ac3eb960c108149220ade3",
+    "oracle/eligible_sessions.sql": "2645730631d68265beaa0cdce201c286360f950f9b2f77a5b374719f1182aa09",
+    "oracle/paid_order_count.sql": "1bf381f65a5fc0f13f09a3068193e153a0635ceb89e3fba0d23ee7ca224942d5",
+    "oracle/paid_revenue.sql": "9ed6f70735bbbb0e57a65f2623d737bc85681cd1c122f7e3c11e3c91b30b03bc",
+    "targets/databricks/README.md": "9756ceccedde40c9fd74d0b2fd701c96cafeb2e93a5afed89832ece453cc6a58",
+    "targets/databricks/metric_view.yaml": "dd3dd44f1b817f0aefaa5c67267fdfa6422521a7968fba06682d3cdeb1866dd1",
+    "targets/databricks/provenance.json": "96b400157f91dde23c5e1986430ac1aca66e7ab1eeb8c69cab9860d9c252bc9b",
+    "targets/databricks/validate.sql": "a67507a06bb0dedd4d83cf7261b027c74a459a8fe71d1d291bc33c2d104d1035",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/database.tmdl": "5d16e73de9d4a4fca2796c8878985d7a6f709cda63dc726230b3b4760ebde58c",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/expressions.tmdl": "cbbb0ad7e698fd8a708f50071b428a2fe793e340763b78bf6ad7ebd900943040",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/model.tmdl": "e677bb521f6af4ddf9bc983ebcd07c92c968efbf22c3537a5ced5b1f4d6aaa13",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/relationships.tmdl": "6a8cdc134a987c453ba21ca4b0b6df0077dd1270edfbd4779329c7694d92b6c1",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/KPI Selector.tmdl": "d414c53d7f50555d8163e822bd0ab2f1d07f696109cee27511b31a957eb18f78",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Orders.tmdl": "4024533143683a0b955262538df7d67717559372654c97dc85d202f417e8915e",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Sales Channel.tmdl": "754582e9f054781bc1ebc6ca29ac69c9944ace505c198e0e1a16bca2730de130",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Sessions.tmdl": "de5d995c6ae3206140cd76ec99f8f1020eed4955692a2276c9e3c11984ed09d1",
+    "targets/powerbi/README.md": "b639603ea1336a2d2d0bfd37a8fe44d1fe6773285d4934eb12aebc839db69769",
+    "targets/powerbi/provenance.json": "a9ab352c7e5a47130383bd810661fd679755cc3c6668beaa9556446cb89d0c90",
+    "targets/powerbi/validate-task04.dax": "8587a3c8e42e32a431abd35d89af3decc679612594630d4928907c1dc9befb34",
+    "targets/powerbi/validate.dax": "51645e6f00e789797a892a873882cc80dfd8322c58f94cdc5b002e69bd706c26"
+  },
+  "fixture_unchanged": true,
+  "source_origin": "MANUALLY_AUTHORED_NATIVE_FIXTURE_DEFINITION"
+}

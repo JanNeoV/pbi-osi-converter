@@ -1,0 +1,146 @@
+version: 0.2.0.dev0
+name: synthetic_shop
+datasets:
+- name: orders
+  source: '"benchmark"."main"."orders"'
+  primary_key:
+  - order
+  fields:
+  - name: order
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_id
+  - name: order_date
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_date
+    dimension:
+      is_time: true
+  - name: status
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: status
+    dimension:
+      is_time: false
+  - name: order_count_measure
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_id
+  - name: customers_measure
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: customer_id
+- name: items
+  source: '"benchmark"."main"."items"'
+  primary_key:
+  - item
+  fields:
+  - name: item
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: item_id
+  - name: order
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_id
+  - name: product
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: product_id
+  - name: order_date
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_date
+    dimension:
+      is_time: true
+  - name: status
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: status
+    dimension:
+      is_time: false
+  - name: revenue_measure
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: amount
+- name: products
+  source: '"benchmark"."main"."products"'
+  primary_key:
+  - product
+  fields:
+  - name: product
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: product_id
+  - name: category
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: category
+    dimension:
+      is_time: false
+relationships:
+- name: items__orders__order
+  from: items
+  to: orders
+  from_columns:
+  - order
+  to_columns:
+  - order
+- name: items__products__product
+  from: items
+  to: products
+  from_columns:
+  - product
+  to_columns:
+  - product
+metrics:
+- name: revenue
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(items.amount)
+  description: ''
+- name: order_count
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: COUNT(DISTINCT orders.order_id)
+  description: ''
+- name: purchasing_customers
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: COUNT(DISTINCT orders.customer_id)
+  description: ''
+- name: completed_revenue
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(CASE WHEN item__status = 'completed' THEN items.amount END)
+  description: ''
+- name: average_order_value
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: (SUM(items.amount)) / (COUNT(DISTINCT orders.order_id))
+  description: ''
+- name: completed_revenue_share
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: (SUM(CASE WHEN item__status = 'completed' THEN items.amount END))
+        / (SUM(items.amount))
+  description: ''

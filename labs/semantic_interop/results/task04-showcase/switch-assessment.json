@@ -1,0 +1,80 @@
+{
+  "Databricks": {
+    "conversion": "FAIL",
+    "legs": [
+      {
+        "command": {
+          "command": [
+            "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+            "-jar",
+            "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+            "export",
+            "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\powerbi-switch-to-databricks\\input.ossie.yml",
+            "-o",
+            "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\powerbi-switch-to-databricks\\generated.metric-view.yml",
+            "--source",
+            "Sessions"
+          ],
+          "cwd": "<repository>",
+          "execution_status": "EXECUTED",
+          "exit_code": 1,
+          "label": "from-ossie",
+          "stderr": "from-ossie.stderr.log",
+          "stdout": "from-ossie.stdout.log",
+          "warnings": [
+            "Conversion failed: Model 'ConversionDemoSwitch': datasets [KPI Selector] are not reachable from fact 'Sessions' via relationships."
+          ]
+        },
+        "conversion": "FAIL",
+        "direction": "Apache Ossie -> Databricks",
+        "numerical_equivalence": "BLOCKED",
+        "parse_error": null,
+        "runtime_blocker": "No authorized Databricks workspace/SQL warehouse session is available. Metric View creation, analysis and MEASURE queries were not executed.",
+        "semantic_preservation": "UNKNOWN",
+        "source": "input.ossie.yml",
+        "structure_validation": {
+          "validation": "NOT_EXECUTED"
+        },
+        "target": "generated.metric-view.yml"
+      }
+    ],
+    "numerical_equivalence": "BLOCKED",
+    "semantic_preservation": "UNKNOWN"
+  },
+  "MetricFlow": {
+    "conversion": "PASS",
+    "evidence": "to-metricflow/switch/execution.json",
+    "execution": "NOT_EXECUTED",
+    "finding": "DAX selector expression carried as a MetricFlow metric expression; M data partition and executable selector interaction not reconstructed.",
+    "numerical_equivalence": "BLOCKED",
+    "returned_selected_kpi_expression": "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\n    \"Conversion Rate\", [Conversion Rate],\n    \"Paid Revenue\", [Paid Revenue],\n    BLANK()\n)",
+    "selector_schema_present": true,
+    "semantic_preservation": "MISMATCH"
+  },
+  "Power BI": {
+    "conversion": "PASS",
+    "numerical_equivalence": "BLOCKED",
+    "semantic_preservation": "PASS",
+    "semantic_scope": "Exact normalized native DAX, relationships, columns, partitions, M and formatting metadata; executable semantics unverified.",
+    "switch": {
+      "DAX_expression": "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\n    \"Conversion Rate\", [Conversion Rate],\n    \"Paid Revenue\", [Paid Revenue],\n    BLANK()\n)",
+      "Power_BI_executable": "UNKNOWN",
+      "Power_BI_execution": "NOT_EXECUTED",
+      "dependencies": [
+        "Conversion Rate",
+        "Paid Revenue"
+      ],
+      "dependencies_preservation": "PASS",
+      "disconnected_selector_preservation": "PASS",
+      "dynamic_format_metadata_preservation": "PASS",
+      "exactly_two_selector_choices": true,
+      "expression_preservation": "PASS",
+      "portability_reason": "The expression is DAX and the table/formatting survive in POWER_BI vendor extensions. Their preservation does not provide a target-platform KPI interaction.",
+      "portable_business_semantics": "UNKNOWN",
+      "visual_interaction_execution": "NOT_EXECUTED"
+    }
+  },
+  "actual_target_selector_values": null,
+  "expected_selector_cases": "powerbi/oracle/report.json",
+  "portable_interaction": "No executable cross-platform selector interaction demonstrated. The observed Databricks failure is graph reachability of the disconnected table; it occurs before expression translation."
+}

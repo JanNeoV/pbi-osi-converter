@@ -1,0 +1,169 @@
+{
+  "as_of": "2026-10-17",
+  "baseline": "6ebc5e5612467dac405985f44ea078b39c891bee",
+  "changed_paths": [
+    "converters/nvidia/README.md",
+    "converters/nvidia/src/ossie_nvidia_auto_ontology/__init__.py",
+    "converters/nvidia/src/ossie_nvidia_auto_ontology/converter.py",
+    "converters/nvidia/src/ossie_nvidia_auto_ontology/native_converter.py",
+    "converters/nvidia/src/ossie_nvidia_auto_ontology/ontology.py",
+    "converters/nvidia/tests/test_converter.py",
+    "converters/nvidia/tests/test_ontology.py"
+  ],
+  "current": "ef91cb61092c60f4b918016a81cfdbe483e113bc",
+  "issues": [
+    {
+      "html_url": "https://github.com/apache/ossie/issues/317",
+      "number": 317,
+      "state": "open",
+      "state_reason": null,
+      "title": "dbt converter loses derived metric time-context semantics in MetricFlow to Ossie conversion",
+      "updated_at": "2026-08-12T13:00:19Z"
+    },
+    {
+      "html_url": "https://github.com/apache/ossie/issues/444",
+      "number": 444,
+      "state": "closed",
+      "state_reason": "completed",
+      "title": "Microsoft converter: measures on blank / measure-only TMDL tables are stashed in custom_extensions instead of becoming Ossie metrics",
+      "updated_at": "2026-10-11T13:00:43Z"
+    },
+    {
+      "html_url": "https://github.com/apache/ossie/issues/430",
+      "number": 430,
+      "state": "open",
+      "state_reason": null,
+      "title": "dbt: complex-expression fallback metric double-aggregates on round-trip",
+      "updated_at": "2026-09-18T23:31:17Z"
+    },
+    {
+      "html_url": "https://github.com/apache/ossie/issues/461",
+      "number": 461,
+      "state": "open",
+      "state_reason": null,
+      "title": "dbt converter ignores OSSIE_SQL_2026 and picks an expression by array position",
+      "updated_at": "2026-09-25T01:35:14Z"
+    },
+    {
+      "html_url": "https://github.com/apache/ossie/issues/303",
+      "number": 303,
+      "state": "open",
+      "state_reason": null,
+      "title": "msi_to_osi silently discards config.meta instead of mapping it to custom_extensions",
+      "updated_at": "2026-08-04T15:24:04Z"
+    },
+    {
+      "html_url": "https://github.com/apache/ossie/issues/462",
+      "number": 462,
+      "state": "open",
+      "state_reason": null,
+      "title": "ThoughtSpot converter: metrics get no ANSI_SQL sibling, so every metric is dropped on any cross-vendor conversion",
+      "updated_at": "2026-09-25T01:36:47Z"
+    },
+    {
+      "html_url": "https://github.com/apache/ossie/issues/466",
+      "number": 466,
+      "state": "closed",
+      "state_reason": "completed",
+      "title": "ThoughtSpot converter: relationship keys and primary_key are ThoughtSpot display names, not field names or warehouse columns",
+      "updated_at": "2026-09-30T09:34:35Z"
+    },
+    {
+      "html_url": "https://github.com/apache/ossie/issues/576",
+      "number": 576,
+      "state": "open",
+      "state_reason": null,
+      "title": "Add measurements for model portability across converters",
+      "updated_at": "2026-10-16T09:02:37Z"
+    }
+  ],
+  "pulls": [
+    {
+      "base_sha": "814d69721437676e10c94f7bdd6d7637523d1b79",
+      "head_sha": "b9a7c28469834c3ba1f80dc4b88f5f75322eb416",
+      "html_url": "https://github.com/apache/ossie/pull/315",
+      "merge_commit_sha": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 315,
+      "state": "open",
+      "title": "Fix DBT converter round-trip losses entity issue",
+      "updated_at": "2026-09-08T13:00:14Z"
+    },
+    {
+      "base_sha": "d46094031829e3ebf0e4e6f346bbf03e81bd41a9",
+      "head_sha": "53ec91b815294937b8d3141de691139bbaac429d",
+      "html_url": "https://github.com/apache/ossie/pull/318",
+      "merge_commit_sha": null,
+      "merged": false,
+      "merged_at": null,
+      "number": 318,
+      "state": "open",
+      "title": "fix(dbt): warn on non-portable metric semantics",
+      "updated_at": "2026-09-16T13:59:03Z"
+    },
+    {
+      "base_sha": "bc839fb2d2db30c39804d71a1556ae4f8212638f",
+      "head_sha": "04d960191e691750c88a6f5f6d39a9bdadb7b7dd",
+      "html_url": "https://github.com/apache/ossie/pull/437",
+      "merge_commit_sha": "11e24514b766ef84143580d967ffca42ecfb88a3",
+      "merged": false,
+      "merged_at": null,
+      "number": 437,
+      "state": "open",
+      "title": "fix(dbt): preserve aggregate expression semantics",
+      "updated_at": "2026-10-14T16:18:50Z"
+    },
+    {
+      "base_sha": "3ccd9343be9a5a295b0a6088e5a43d296108a427",
+      "head_sha": "7d2b73db3c07f175c07191fd10b57da0c09aa3a0",
+      "html_url": "https://github.com/apache/ossie/pull/464",
+      "merge_commit_sha": "ac54fbf19fd56f85afce3eb064c9d452659cf34c",
+      "merge_in_baseline": true,
+      "merged": true,
+      "merged_at": "2026-09-25T12:34:45Z",
+      "number": 464,
+      "state": "closed",
+      "title": "fix(dbt): read OSSIE_SQL_2026 expressions",
+      "updated_at": "2026-09-25T12:34:45Z"
+    },
+    {
+      "base_sha": "671e74649bf9493497b33c87c650d8644a9dae2d",
+      "head_sha": "3fabee9b4e6d5d17c19d273192b6f9ad24d6e03d",
+      "html_url": "https://github.com/apache/ossie/pull/564",
+      "merge_commit_sha": "a1605a5dd715ab1adcc492057656b493d95b97e0",
+      "merge_in_baseline": true,
+      "merged": true,
+      "merged_at": "2026-10-11T13:00:41Z",
+      "number": 564,
+      "state": "closed",
+      "title": "fix(microsoft): preserve measures on calculated tables",
+      "updated_at": "2026-10-11T13:00:42Z"
+    },
+    {
+      "base_sha": "95314296b725dcff503cf2eb92e89f7cf43c5a95",
+      "head_sha": "79489b48f8e545b5e231cd7a15547d24ca5575dd",
+      "html_url": "https://github.com/apache/ossie/pull/486",
+      "merge_commit_sha": "ed90167a03c3143634b259ea6e6dd32f2f228eed",
+      "merged": false,
+      "merged_at": null,
+      "number": 486,
+      "state": "open",
+      "title": "docs(core-spec): Clarify name resolution for fields, keys, relationships, and metrics",
+      "updated_at": "2026-10-17T01:36:27Z"
+    },
+    {
+      "base_sha": "bc839fb2d2db30c39804d71a1556ae4f8212638f",
+      "head_sha": "3b3fc4ba82b1cde3bc09024a586422f566556bb3",
+      "html_url": "https://github.com/apache/ossie/pull/448",
+      "merge_commit_sha": "891f007945b5666464a45e2c75c1a0a8be9cd7f7",
+      "merge_in_baseline": true,
+      "merged": true,
+      "merged_at": "2026-10-06T09:56:45Z",
+      "number": 448,
+      "state": "closed",
+      "title": "Improve Power BI converter round-trip fidelity",
+      "updated_at": "2026-10-06T09:56:45Z"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "task": "06",
+  "date": "2026-10-18",
+  "state": "COMPLETE",
+  "scope": "Publication documentation, reproducibility, QA and handoff; no new research implementation or fixtures",
+  "repository_base_main_sha": "f0f3da20e6f6f60fb352a0417ae27496b25fa4fd",
+  "branch": "research/semantic-interoperability-lab",
+  "checks": [
+    {
+      "command": [
+        ".tmp/semantic-lab-venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "labs/semantic_interop/tests",
+        "--basetemp",
+        ".tmp/pytest-task06-lab"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 112.67,
+      "log": "regression-0.log"
+    },
+    {
+      "command": [
+        ".tmp/semantic-lab-venv/Scripts/python.exe",
+        "semantic_poc/run_pbi_trial_v2_audit.py",
+        "--check",
+        "--json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 4.42,
+      "log": "regression-1.log"
+    },
+    {
+      "command": [
+        ".tmp/semantic-lab-venv/Scripts/python.exe",
+        "semantic_poc/run_demo.py",
+        "--clean",
+        "--check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 17.14,
+      "log": "regression-2.log"
+    },
+    {
+      "command": [
+        ".tmp/semantic-lab-venv/Scripts/python.exe",
+        "semantic_poc/run_agent_guided_conversion_demo.py",
+        "--clean",
+        "--check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 124.38,
+      "log": "regression-3.log"
+    },
+    {
+      "command": [
+        ".tmp/semantic-lab-venv/Scripts/python.exe",
+        "semantic_poc/run_end_to_end_demo.py",
+        "--clean",
+        "--check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 34.44,
+      "log": "regression-4.log"
+    },
+    {
+      "command": [
+        ".tmp/semantic-lab-venv/Scripts/python.exe",
+        "demo/run_public_demo.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 209.31,
+      "log": "regression-5.log"
+    },
+    {
+      "command": [
+        ".tmp/semantic-lab-venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-m",
+        "not live_agent",
+        "--basetemp",
+        ".tmp/pytest-task06-parent"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 722.49,
+      "log": "regression-6.log"
+    }
+  ],
+  "environment": {
+    "platform": "Windows",
+    "python": "3.12.10",
+    "PATH": "Pinned environment Scripts directory prepended to inherited PATH",
+    "DBT_SEND_ANONYMOUS_USAGE_STATS": "false",
+    "DO_NOT_TRACK": "1"
+  },
+  "lab_result": "84 passed in 111.76s",
+  "parent_result": "171 passed, 1 skipped in 722.11s",
+  "checker_specific_result": "18 passed in 0.22s; included in parent suite",
+  "task02_replay": {
+    "command": [
+      ".tmp/semantic-lab-venv/Scripts/python.exe",
+      "labs/semantic_interop/scripts/check_task02.py",
+      "--upstream-python",
+      ".tmp/task02-replay/current-env/Scripts/python.exe",
+      "--repair-python",
+      ".tmp/task02-replay/repair-env/Scripts/python.exe",
+      "--capture",
+      ".tmp/task06-task02-replay"
+    ],
+    "exit_code": 0,
+    "repeated_reports_equal": true,
+    "artifact_hashes_verified": true,
+    "offline_guard": "Python audit hook denies socket.connect/socket.getaddrinfo in workers and dbt subprocesses",
+    "normalized_report_sha256": "65b6eefb24f16a0bdee5867acd55cd66d3c6fa4fb6667293b4ab64203450ac41"
+  },
+  "isolated_setup": "isolated-setup.json",
+  "manual_exercise_replay": "manual-replay.json",
+  "fresh_java_build": "java-build.json",
+  "preservation": "preservation.json",
+  "runtime_availability": "runtime-availability.json",
+  "native_runtime_scope": {
+    "PowerBI_Desktop_DAX": "NOT_EXECUTED; candidate NOT_VERIFIED",
+    "Databricks_native": "NOT_EXECUTED"
+  },
+  "converted_numerical_happy_path": false,
+  "recording_note": "Initial recorder tried UTF-8 decoding of CP1252 Windows demo output after that demo exited 0; recorder resumed only the remaining parent test command. Retained log transcoding is explicit in log-normalization.json.",
+  "human_next_steps": [
+    "Review and merge the PR into main",
+    "Charlotte records eventual merged main SHA and uses separate Databricks-focused branch",
+    "Power BI owner executes Desktop/DAX validation; Charlotte uses authorized Databricks runtime for native results"
+  ],
+  "passed": true,
+  "markdown_audit": "markdown-audit.json",
+  "powershell_audit": "powershell-audit.json",
+  "whitespace_audit": "whitespace-audit.json",
+  "markdown_result": {
+    "documents": 63,
+    "links_and_anchors": 367,
+    "findings": 0
+  },
+  "PowerShell_parse_result": {
+    "documents": 5,
+    "blocks": 29,
+    "findings": 0
+  },
+  "public_hygiene": {
+    "command": [
+      ".tmp/semantic-lab-venv/Scripts/python.exe",
+      "scripts/check_public_repository.py",
+      "--after-demo"
+    ],
+    "exit_code": 0,
+    "log": "public-hygiene.log"
+  },
+  "clean_checkout": "clean-checkout.json",
+  "historical_custody_scope": {
+    "original_author_workspace_files_unchanged": 1865,
+    "tracked_portable_files_matching_fresh_clone": 1860,
+    "ignored_generated_metadata_records": 5,
+    "fresh_generated_metadata_differences": [
+      "SOURCES.txt"
+    ],
+    "baseline_manifest_modified": false
+  }
+}

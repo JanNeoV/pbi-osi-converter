@@ -1,0 +1,150 @@
+{
+  "conversion_commands": [
+    {
+      "command": [
+        "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-jar",
+        "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+        "import",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\source.metric-view.yml",
+        "-o",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\imported.ossie.yml",
+        "--name",
+        "task05_databricks"
+      ],
+      "cwd": "C:\\github\\pbi-osi-converter",
+      "exit_code": 0,
+      "stdout": "to-ossie.stdout.log",
+      "stderr": "to-ossie.stderr.log"
+    },
+    {
+      "command": [
+        "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-jar",
+        "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+        "export",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\imported.ossie.yml",
+        "-o",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\roundtrip.metric-view.yml"
+      ],
+      "cwd": "C:\\github\\pbi-osi-converter",
+      "exit_code": 0,
+      "stdout": "from-ossie.stdout.log",
+      "stderr": "from-ossie.stderr.log"
+    },
+    {
+      "command": [
+        "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+        "-m",
+        "ossie_dbt.cli",
+        "ossie-to-msi",
+        "-i",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\imported.ossie.yml",
+        "-o",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\output.manifest.json"
+      ],
+      "cwd": "C:\\github\\pbi-osi-converter",
+      "exit_code": 0,
+      "stdout": "to-metricflow.stdout.log",
+      "stderr": "to-metricflow.stderr.log"
+    },
+    {
+      "command": [
+        "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+        "-m",
+        "ossie_microsoft.cli",
+        "export",
+        "-i",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\imported.ossie.yml",
+        "-o",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\databricks\\include-refunded\\output.model.bim"
+      ],
+      "cwd": "C:\\github\\pbi-osi-converter",
+      "exit_code": 0,
+      "stdout": "to-powerbi.stdout.log",
+      "stderr": "to-powerbi.stderr.log"
+    }
+  ],
+  "native_definitions_equal_ignoring_trailing_source_whitespace": true,
+  "numerical_databricks_execution": "NOT_EXECUTED",
+  "powerbi_measures": {
+    "conversion_rate": "BLANK()",
+    "paid_revenue": "BLANK()"
+  },
+  "metricflow_metrics": {
+    "conversion_rate__numerator": {
+      "type": "simple",
+      "type_params": {
+        "expr": "CAST(COUNT(DISTINCT session_id) FILTER(WHERE order_status = 'paid') AS DOUBLE)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "task05_databricks",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      },
+      "filter": null
+    },
+    "conversion_rate__denominator": {
+      "type": "simple",
+      "type_params": {
+        "expr": "NULLIF(COUNT(DISTINCT session_id), 0)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "task05_databricks",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      },
+      "filter": null
+    },
+    "conversion_rate": {
+      "type": "ratio",
+      "type_params": {
+        "numerator": {
+          "name": "conversion_rate__numerator"
+        },
+        "denominator": {
+          "name": "conversion_rate__denominator"
+        },
+        "input_measures": [],
+        "join_to_timespine": false,
+        "is_private": false
+      },
+      "filter": null
+    },
+    "paid_revenue": {
+      "type": "simple",
+      "type_params": {
+        "expr": "SUM(amount_eur) FILTER (WHERE order_status IN ('paid', 'refunded'))",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "task05_databricks",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      },
+      "filter": null
+    }
+  },
+  "metricflow_model_relations": {
+    "task05_databricks": {
+      "alias": "session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n",
+      "schema_name": "session_id, s",
+      "database": "SELECT s",
+      "relation_name": "SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n"
+    }
+  },
+  "metricflow_project_configuration": {
+    "time_spine_table_configurations": [],
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "time_spines": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "-m",
+    "ossie_microsoft.cli",
+    "import",
+    "-i",
+    "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\showcase\\powerbi-task05\\changed-default.model.bim",
+    "-o",
+    "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\output.ossie.yml"
+  ],
+  "cwd": "C:\\github\\pbi-osi-converter",
+  "exit_code": 0,
+  "stdout": "to-ossie.stdout.log",
+  "stderr": "to-ossie.stderr.log"
+}

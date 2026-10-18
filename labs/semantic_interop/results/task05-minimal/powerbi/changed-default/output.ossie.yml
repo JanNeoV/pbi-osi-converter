@@ -1,0 +1,255 @@
+version: 0.2.0.dev0
+name: ConversionDemoSwitch
+datasets:
+- name: Sessions
+  source: Sessions
+  primary_key:
+  - session_id
+  fields:
+  - name: session_id
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: session_id
+    datatype: Integer
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "summarizeBy": "none"}'
+  - name: session_date
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: session_date
+    datatype: Date
+    dimension:
+      is_time: true
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "formatString": "yyyy-MM-dd", "summarizeBy": "none"}'
+  - name: session_month
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: session_month
+    datatype: Date
+    dimension:
+      is_time: true
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "formatString": "yyyy-MM", "summarizeBy": "none"}'
+  - name: sales_channel
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: sales_channel
+    datatype: String
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "isHidden": true, "summarizeBy": "none"}'
+  - name: is_eligible
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: is_eligible
+    datatype: Boolean
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "summarizeBy": "none"}'
+  - name: exclusion_reason
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: exclusion_reason
+    datatype: String
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "summarizeBy": "none"}'
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "partitions": [{"mode": "import", "name": "Sessions", "source": {"expression": ["SessionsData"], "type": "m"}}]}'
+- name: Orders
+  source: Orders
+  primary_key:
+  - order_id
+  fields:
+  - name: order_id
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_id
+    datatype: Integer
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "summarizeBy": "none"}'
+  - name: session_id
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: session_id
+    datatype: Integer
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "summarizeBy": "none"}'
+  - name: order_date
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_date
+    datatype: Date
+    dimension:
+      is_time: true
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "formatString": "yyyy-MM-dd", "summarizeBy": "none"}'
+  - name: amount_eur
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: amount_eur
+    datatype: Decimal
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "formatString": "#,0.00 \"EUR\"", "summarizeBy": "sum"}'
+  - name: order_status
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_status
+    datatype: String
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "summarizeBy": "none"}'
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "partitions": [{"mode": "import", "name": "Orders", "source": {"expression": ["OrdersData"], "type": "m"}}]}'
+- name: Sales Channel
+  source: Sales Channel
+  primary_key:
+  - sales_channel
+  fields:
+  - name: sales_channel
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: sales_channel
+    datatype: String
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "summarizeBy": "none"}'
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "partitions": [{"mode": "import", "name": "Sales Channel", "source": {"expression": ["Table.Distinct(Table.SelectColumns(SessionsData, {\"sales_channel\"}))"], "type": "m"}}]}'
+- name: KPI Selector
+  source: KPI Selector
+  fields:
+  - name: KPI
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: KPI
+    datatype: String
+    custom_extensions:
+    - vendor_name: POWER_BI
+      data: '{"_v": 2, "summarizeBy": "none"}'
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "partitions": [{"mode": "import", "name": "KPI Selector", "source": {"expression": ["#table(type table [KPI = text], {{\"Conversion Rate\"}, {\"Paid Revenue\"}})"], "type": "m"}}]}'
+relationships:
+- name: Sessions_sales_channel_to_Sales Channel_sales_channel
+  from: Sessions
+  to: Sales Channel
+  from_columns:
+  - sales_channel
+  to_columns:
+  - sales_channel
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "crossFilteringBehavior": "oneDirection", "fromCardinality": "many", "isActive": true, "name": "sessions_channel", "normalizedEndpoints": ["Sessions", "sales_channel", "Sales Channel", "sales_channel"], "toCardinality": "one"}'
+- name: Orders_session_id_to_Sessions_session_id
+  from: Orders
+  to: Sessions
+  from_columns:
+  - session_id
+  to_columns:
+  - session_id
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "crossFilteringBehavior": "oneDirection", "fromCardinality": "many", "isActive": true, "name": "orders_session", "normalizedEndpoints": ["Orders", "session_id", "Sessions", "session_id"], "toCardinality": "one"}'
+metrics:
+- name: Eligible Sessions
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: |-
+        COALESCE(
+            CALCULATE(
+                DISTINCTCOUNT(Sessions[session_id]),
+                KEEPFILTERS(Sessions[is_eligible] = TRUE()),
+                KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),
+                KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1))
+            ),
+            0
+        )
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "formatString": "#,0", "isHidden": true, "table": "Sessions"}'
+- name: Converted Sessions
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: |-
+        COALESCE(
+            CALCULATE(
+                DISTINCTCOUNT(Orders[session_id]),
+                KEEPFILTERS(Sessions[is_eligible] = TRUE()),
+                KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),
+                KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),
+                KEEPFILTERS(Orders[order_status] = "paid"),
+                KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))
+            ),
+            0
+        )
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "formatString": "#,0", "isHidden": true, "table": "Sessions"}'
+- name: Conversion Rate
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: DIVIDE([Converted Sessions], [Eligible Sessions])
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "formatString": "0.0%", "table": "Sessions"}'
+- name: Paid Revenue
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: |-
+        CALCULATE(
+            SUM(Orders[amount_eur]),
+            KEEPFILTERS(Sessions[is_eligible] = TRUE()),
+            KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),
+                KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),
+            KEEPFILTERS(Orders[order_status] = "paid"),
+            KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))
+        )
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "formatString": "#,0.00 \"EUR\"", "table": "Sessions"}'
+- name: Selected KPI
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: |-
+        SWITCH(
+            SELECTEDVALUE('KPI Selector'[KPI], "Paid Revenue"),
+            "Conversion Rate", [Conversion Rate],
+            "Paid Revenue", [Paid Revenue],
+            BLANK()
+        )
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "formatString": "0.0%", "formatStringDefinition": {"expression": ["SWITCH(", "    SELECTEDVALUE(''KPI Selector''[KPI], \"Paid Revenue\"),", "    \"Conversion Rate\", \"0.0%\",", "    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",", "    \"General Number\"", ")"]}, "table": "Sessions"}'
+custom_extensions:
+- vendor_name: POWER_BI
+  data: '{"_v": 2, "culture": "en-US", "defaultPowerBIDataSourceVersion": "powerBI_V3", "document": {"compatibilityLevel": 1601}, "expressions": [{"expression": ["let", "    Rows = #table(", "        type table [session_id = Int64.Type, session_date = date, sales_channel = text, is_eligible = logical, exclusion_reason = nullable text],", "        {", "        {1, #date(2026, 1, 5), \"Direct\", true, null},", "        {2, #date(2026, 1, 6), \"Direct\", true, null},", "        {3, #date(2026, 1, 20), \"Direct\", true, null},", "        {4, #date(2026, 2, 1), \"Direct\", true, null},", "        {5, #date(2026, 2, 2), \"Direct\", true, null},", "        {6, #date(2026, 2, 10), \"Direct\", true, null},", "        {7, #date(2026, 1, 7), \"Indirect\", true, null},", "        {8, #date(2026, 1, 21), \"Indirect\", true, null},", "        {9, #date(2026, 2, 3), \"Indirect\", true, null},", "        {10, #date(2026, 2, 5), \"Indirect\", true, null},", "        {11, #date(2026, 1, 8), \"Direct\", false, \"bot\"},", "        {12, #date(2026, 2, 6), \"Indirect\", false, \"internal\"}", "        }", "    ),", "    WithMonth = Table.AddColumn(Rows, \"session_month\", each Date.StartOfMonth([session_date]), type date)", "in", "    WithMonth"], "kind": "m", "name": "SessionsData"}, {"expression": ["let", "    Rows = #table(", "        type table [order_id = Int64.Type, session_id = Int64.Type, order_date = date, amount_eur = Currency.Type, order_status = text],", "        {", "        {1, 1, #date(2026, 1, 5), 100, \"paid\"},", "        {2, 2, #date(2026, 2, 1), 80, \"paid\"},", "        {3, 4, #date(2026, 2, 2), 120, \"paid\"},", "        {4, 7, #date(2026, 1, 7), 90, \"paid\"},", "        {5, 5, #date(2026, 2, 2), 20, \"cancelled\"},", "        {6, 9, #date(2026, 2, 3), 50, \"refunded\"}", "        }", "    )", "in", "    Rows"], "kind": "m", "name": "OrdersData"}], "sourceQueryCulture": "en-US"}'

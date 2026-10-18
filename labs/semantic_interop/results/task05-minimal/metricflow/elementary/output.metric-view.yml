@@ -1,0 +1,14 @@
+version: "1.1"
+source: "\"benchmark\".\"main\".\"orders\""
+dimensions:
+- name: "order"
+  expr: "order_id"
+- name: "session_date"
+  expr: "session_date"
+- name: "order_status"
+  expr: "order_status"
+- name: "revenue"
+  expr: "amount_eur"
+measures:
+- name: "paid_revenue"
+  expr: "SUM(amount_eur)"

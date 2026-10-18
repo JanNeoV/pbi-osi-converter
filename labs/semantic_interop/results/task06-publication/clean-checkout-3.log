@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+AssertionError
+{"protected_files": 1865, "changed_or_missing": ["labs/semantic_interop/src/semantic_interoperability_lab.egg-info/SOURCES.txt"]}

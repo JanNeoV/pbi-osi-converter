@@ -1,0 +1,14 @@
+[
+  {
+    "command": "python -m pytest -q tests (converters/dbt)",
+    "exit_code": 0,
+    "label": "current",
+    "log": "current-dbt-tests.txt"
+  },
+  {
+    "command": "python -m pytest -q tests (converters/dbt)",
+    "exit_code": 0,
+    "label": "pr437",
+    "log": "pr437-dbt-tests.txt"
+  }
+]

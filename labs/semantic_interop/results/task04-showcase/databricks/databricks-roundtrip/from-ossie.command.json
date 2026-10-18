@@ -1,0 +1,18 @@
+{
+  "label": "from-ossie",
+  "command": [
+    "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+    "-jar",
+    "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+    "export",
+    "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\databricks-roundtrip\\imported.ossie.yml",
+    "-o",
+    "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\databricks-roundtrip\\roundtrip.metric-view.yml"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0,
+  "stdout": "from-ossie.stdout.log",
+  "stderr": "from-ossie.stderr.log",
+  "execution_status": "EXECUTED",
+  "warnings": []
+}

@@ -1,0 +1,90 @@
+{
+  "setup_command": [
+    "python",
+    "labs/semantic_interop/scripts/setup.py"
+  ],
+  "benchmark_command": [
+    ".tmp/semantic-lab-venv/Scripts/python.exe",
+    "labs/semantic_interop/scripts/run_conversion_demo.py",
+    "--check"
+  ],
+  "setup_exit_code": 0,
+  "benchmark_exit_code": 0,
+  "directory": ".tmp/task06-clean-export",
+  "source": "Independent export of git publication candidates; no existing execution environment copied",
+  "Python": "3.12.10",
+  "uv": "0.12.17",
+  "installed_distributions": 75,
+  "stage_a": {
+    "accepted": true,
+    "dbt_build_exit_code": 0,
+    "detected_failures": 5,
+    "native_cases": 31,
+    "native_matches": 31,
+    "oracle_reviewed_values_match": true
+  },
+  "platform_execution": {
+    "Apache Ossie conversion": "NOT_EXECUTED",
+    "Databricks runtime": "NOT_EXECUTED",
+    "MetricFlow SQL -> DuckDB": "EXECUTED",
+    "Power BI/DAX runtime": "NOT_EXECUTED"
+  },
+  "tool_versions": {
+    "dbt-core": "1.12.6",
+    "dbt-duckdb": "1.11.0",
+    "duckdb": "1.5.6",
+    "metricflow": "0.213.0"
+  },
+  "input_sha256": {
+    "contract.json": "e5884901eb9c4ab5a61b4e42ccf178d77c1aef5622ddd2301b106b2312e40f2d",
+    "data/additional_order.csv": "6d4086b636352950bfa6ff22c07b0c46993d3ec94777dec228a6b140a2ebcc01",
+    "data/orders.csv": "2c501f5faac1c3b489aa469295cfdcea8a3ec09df6ba3496fe3640d6aaf08ba1",
+    "data/sessions.csv": "648bd14ce8390ed7d1d2a83f39137e0846c0037cd92542ca6be41b8c8db80215",
+    "dbt/dbt_project.yml": "a3e0f7d428a06be2d76ad0dc7302637a019d99763df804d69dda7e8b6b6b987e",
+    "dbt/models/metrics.yml": "3c14e14e40f0ce1fd5caefc3944ce23fe4c257d8381eaf1ed47509974b1f8cc5",
+    "dbt/models/orders.sql": "d5695ab7489d6ca93f4feea506e0c35a1682aba6226449bcf5f8443906f9d313",
+    "dbt/models/sessions.sql": "f1880a6bfcd240a869f6dbda855a4189c9945ef723952de808d5c9f09758be27",
+    "dbt/models/time_spine.sql": "f7de94bb1028bb9a4eafed7cd5f402900e061cc84968d0736468a90b37659900",
+    "dbt/profile.template.yml": "aefffbb7daa5aac40d67364f2355c74cb8b2d20db95df1291bfcf73a77d4e109",
+    "failures/average_of_rates.sql": "8473349f4c6d3e782810c721641a0f911b9b7b781ade92a2081bee95dbb6b857",
+    "failures/incorrect_conversion.sql": "8a5d909f78d844dd3ec193d0e4b05e0abdefa4eabd7d41f6643bee4257a0b8ec",
+    "failures/inner_join.sql": "e2850c262cd4fe9db14eca2813f8cb7d3e1e6f055a25c5c6c6d7af1aa5aed609",
+    "failures/removed_channel_filter.sql": "186d1551b1e57a2ec6d4c213b40f4f188b04ac1a6dc246ed512e1059e49acae7",
+    "failures/wrong_denominator.sql": "2d0bc5e9f9f29bbe01f478e8a0167733330c0747e66897a5e82645cebea93d3c",
+    "oracle/average_paid_order_value.sql": "5dd6891a270758e5b67aebed94d5bca539ad4e432b3d4cd8d14df07db91cdfa3",
+    "oracle/conversion_rate.sql": "c3defe63b5cc292df08df12c2249bb1eac9e87db6c4033c8446d855b9a57deb5",
+    "oracle/converted_sessions.sql": "b6721273deaa0d726c68e2b8dfeb05f1d95166b314ac3eb960c108149220ade3",
+    "oracle/eligible_sessions.sql": "2645730631d68265beaa0cdce201c286360f950f9b2f77a5b374719f1182aa09",
+    "oracle/paid_order_count.sql": "1bf381f65a5fc0f13f09a3068193e153a0635ceb89e3fba0d23ee7ca224942d5",
+    "oracle/paid_revenue.sql": "9ed6f70735bbbb0e57a65f2623d737bc85681cd1c122f7e3c11e3c91b30b03bc",
+    "targets/databricks/README.md": "9756ceccedde40c9fd74d0b2fd701c96cafeb2e93a5afed89832ece453cc6a58",
+    "targets/databricks/metric_view.yaml": "dd3dd44f1b817f0aefaa5c67267fdfa6422521a7968fba06682d3cdeb1866dd1",
+    "targets/databricks/provenance.json": "96b400157f91dde23c5e1986430ac1aca66e7ab1eeb8c69cab9860d9c252bc9b",
+    "targets/databricks/validate.sql": "a67507a06bb0dedd4d83cf7261b027c74a459a8fe71d1d291bc33c2d104d1035",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/database.tmdl": "5d16e73de9d4a4fca2796c8878985d7a6f709cda63dc726230b3b4760ebde58c",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/expressions.tmdl": "cbbb0ad7e698fd8a708f50071b428a2fe793e340763b78bf6ad7ebd900943040",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/model.tmdl": "e677bb521f6af4ddf9bc983ebcd07c92c968efbf22c3537a5ced5b1f4d6aaa13",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/relationships.tmdl": "6a8cdc134a987c453ba21ca4b0b6df0077dd1270edfbd4779329c7694d92b6c1",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/KPI Selector.tmdl": "d414c53d7f50555d8163e822bd0ab2f1d07f696109cee27511b31a957eb18f78",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Orders.tmdl": "4024533143683a0b955262538df7d67717559372654c97dc85d202f417e8915e",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Sales Channel.tmdl": "754582e9f054781bc1ebc6ca29ac69c9944ace505c198e0e1a16bca2730de130",
+    "targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Sessions.tmdl": "de5d995c6ae3206140cd76ec99f8f1020eed4955692a2276c9e3c11984ed09d1",
+    "targets/powerbi/README.md": "b639603ea1336a2d2d0bfd37a8fe44d1fe6773285d4934eb12aebc839db69769",
+    "targets/powerbi/provenance.json": "a9ab352c7e5a47130383bd810661fd679755cc3c6668beaa9556446cb89d0c90",
+    "targets/powerbi/validate-task04.dax": "8587a3c8e42e32a431abd35d89af3decc679612594630d4928907c1dc9befb34",
+    "targets/powerbi/validate.dax": "51645e6f00e789797a892a873882cc80dfd8322c58f94cdc5b002e69bd706c26"
+  },
+  "source_report_sha256": "0391628320ca4b449465eaff31a2406989bf29780a2e3699aa3774a099b0eafa",
+  "full_runtime_tree_retained_only_locally": true,
+  "lab_test_command": [
+    ".tmp/semantic-lab-venv/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "labs/semantic_interop/tests",
+    "--basetemp",
+    ".tmp/pytest-task06-clean-export"
+  ],
+  "lab_test_exit_code": 0,
+  "lab_test_result": "84 passed in 98.19s"
+}

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-18",
+  "state": "COMPLETE",
+  "deliverable_complete": true,
+  "goal_boundary": "Nine paths measured; unsupported conversions retained. No converted numerical equivalence is claimed.",
+  "showcase_command": "supplemental/showcase.command.json",
+  "native_gate": {
+    "accepted": true,
+    "dbt_build_exit_code": 0,
+    "detected_failures": 5,
+    "native_cases": 31,
+    "native_matches": 31,
+    "oracle_reviewed_values_match": true
+  },
+  "native_headline_cases_matching_oracle": 11,
+  "comparison": "paths.json",
+  "switch": "switch-assessment.json",
+  "captured_converter_artifacts_hash_verified": 285,
+  "implementation_hashes_verified": true,
+  "regressions": {
+    "exit_code": 0,
+    "source_unchanged": true,
+    "commands": "supplemental/regression-checks.json",
+    "raw_record": "supplemental/regressions.command.json",
+    "pytest_summaries": [
+      "84 passed in 92.40s (0:01:32)",
+      "165 passed, 1 skipped in 862.78s (0:14:22)"
+    ]
+  },
+  "task02": {
+    "exit_code": 0,
+    "repeated_reports_equal": true,
+    "artifact_hashes_verified": true,
+    "source_unchanged": true,
+    "record": "supplemental/task02.command.json"
+  },
+  "preservation": {
+    "original_fixture_and_evidence_files": 1519,
+    "changed_or_missing": [],
+    "packages_unchanged": true,
+    "package_count": 75,
+    "baseline": "supplemental/baseline.json",
+    "record": "supplemental/preservation.json",
+    "parent_generated_results": "supplemental/parent-results-comparison.json"
+  },
+  "converted_numerical_equivalence_verified": false,
+  "converted_target_numeric_passes": 0,
+  "conversion_counts": {
+    "PASS": 8,
+    "FAIL": 1,
+    "NOT_EXECUTED": 0
+  },
+  "semantic_counts": {
+    "PASS": 2,
+    "MISMATCH": 6,
+    "UNKNOWN": 1
+  },
+  "semantic_PASS_scope": "Exact inspected native definitions only; engine semantics UNKNOWN",
+  "published_pushed_merged_deployed": false
+}

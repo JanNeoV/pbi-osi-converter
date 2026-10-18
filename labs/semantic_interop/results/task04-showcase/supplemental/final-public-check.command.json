@@ -1,0 +1,8 @@
+{
+  "command": [
+    "<repository>\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "scripts/check_public_repository.py",
+    "--after-demo"
+  ],
+  "exit_code": 0
+}

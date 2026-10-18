@@ -1,0 +1,18 @@
+table Orders
+    column order_id
+        dataType: int64
+        sourceColumn: order_id
+    column customer_id
+        dataType: int64
+        sourceColumn: customer_id
+    column order_date
+        dataType: dateTime
+        sourceColumn: order_date
+    column ship_date
+        dataType: dateTime
+        sourceColumn: ship_date
+    column status
+        dataType: string
+        sourceColumn: status
+    measure order_count = COALESCE(DISTINCTCOUNT(Orders[order_id]), 0)
+    measure purchasing_customers = COALESCE(DISTINCTCOUNTNOBLANK(Orders[customer_id]), 0)

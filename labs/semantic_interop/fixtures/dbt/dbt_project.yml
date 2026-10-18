@@ -1,0 +1,10 @@
+name: semantic_lab_fixture
+version: '1.0'
+config-version: 2
+profile: semantic_lab
+model-paths: [models]
+models:
+  semantic_lab_fixture:
+    +materialized: view
+flags:
+  send_anonymous_usage_stats: false

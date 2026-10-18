@@ -1,0 +1,70 @@
+{
+  "name": "conversion_demo",
+  "compatibilityLevel": 1702,
+  "model": {
+    "tables": [
+      {
+        "name": "orders",
+        "columns": [
+          {
+            "name": "order",
+            "sourceColumn": "order_id"
+          },
+          {
+            "name": "session_date",
+            "sourceColumn": "session_date"
+          },
+          {
+            "name": "order_status",
+            "sourceColumn": "order_status"
+          },
+          {
+            "name": "revenue",
+            "sourceColumn": "amount_eur"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "orders",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "orders",
+              "schemaName": "main",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "paid_revenue",
+            "expression": "SUM('orders'[revenue])",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "ANSI_SQL"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "SUM(orders.amount_eur)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": [
+          "let",
+          "    Source = AzureStorage.DataLake(\"https://onelake.dfs.fabric.microsoft.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\")",
+          "in",
+          "    Source"
+        ]
+      }
+    ],
+    "culture": "en-US"
+  }
+}
