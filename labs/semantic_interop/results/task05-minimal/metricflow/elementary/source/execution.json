@@ -1,0 +1,31 @@
+{
+  "provenance": "dbt-generated source manifest",
+  "elementary_relaxed_business_policy": true,
+  "include_refunded_revenue_only": false,
+  "comparisons": {
+    "paid_revenue__overall": {
+      "oracle": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "460.00"
+          ]
+        ]
+      },
+      "observed": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "460.00"
+          ]
+        ],
+        "sql": "-- Read Elements From Semantic Model 'orders'\n-- Metric Time Dimension 'session_date'\n-- Select: ['__paid_revenue']\n-- Select: ['__paid_revenue']\n-- Aggregate Inputs for Simple Metrics\n-- Compute Metrics via Expressions\n-- Write to DataTable\nSELECT\n  SUM(amount_eur) AS paid_revenue\nFROM \"benchmark\".\"main\".\"orders\" orders_src_10000"
+      },
+      "equal": true
+    }
+  }
+}

@@ -1,0 +1,72 @@
+name: Semantic interoperability lab
+
+on:
+  pull_request:
+  push:
+    branches: [main, 'research/**']
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned environment manager
+        run: python -m pip install uv==0.12.17
+      - name: Install locked lab environment
+        run: python labs/semantic_interop/scripts/setup.py
+      - name: Run lab and public regression checks
+        shell: python
+        run: |
+          import os, subprocess
+          executable = '.tmp/semantic-lab-venv/Scripts/python.exe' if os.name == 'nt' else '.tmp/semantic-lab-venv/bin/python'
+          subprocess.run([executable, 'labs/semantic_interop/scripts/check.py'], check=True)
+      - name: Acquire isolated Task 02 environments
+        shell: python
+        run: |
+          import os, subprocess
+          executable = '.tmp/semantic-lab-venv/Scripts/python.exe' if os.name == 'nt' else '.tmp/semantic-lab-venv/bin/python'
+          subprocess.run([executable, 'labs/semantic_interop/scripts/setup_task02.py'], check=True)
+      - name: Verify Task 02 offline and deterministic
+        shell: python
+        run: |
+          import os, subprocess
+          suffix = 'Scripts/python.exe' if os.name == 'nt' else 'bin/python'
+          subprocess.run([f'.tmp/semantic-lab-venv/{suffix}', 'labs/semantic_interop/scripts/check_task02.py',
+                          '--upstream-python', f'.tmp/task02-replay/current-env/{suffix}',
+                          '--repair-python', f'.tmp/task02-replay/repair-env/{suffix}'], check=True)
+      - name: Save generated benchmark evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: semantic-evidence-${{ matrix.os }}
+          include-hidden-files: true
+          path: |
+            .tmp/semantic-lab/run-*/report.json
+            .tmp/semantic-lab/run-*/native/*.sql
+            .tmp/semantic-lab/run-*/oracle/*.json
+            .tmp/semantic-lab/run-*/converted.ossie.yml
+            .tmp/semantic-lab/run-*/roundtrip.manifest.json
+            .tmp/semantic-lab/run-*/converted.model.bim
+            .tmp/semantic-lab/run-*/microsoft-returned.ossie.yml
+            .tmp/semantic-lab/run-*/microsoft-diagnostics.json
+            .tmp/semantic-lab/run-*/semantic-inspection.json
+            .tmp/semantic-lab/run-*/source.manifest.normalized.json
+            .tmp/semantic-lab/run-*/tmdl-inventory.json
+            .tmp/semantic-lab-validation.json
+            .tmp/semantic-lab/run-*/level3_*/**
+            .tmp/semantic-lab/run-*/regressions/**
+            .tmp/semantic-lab/run-*/microsoft-probes/**
+            .tmp/semantic-lab/run-*/current/**
+            .tmp/semantic-lab/run-*/repair/**
+            .tmp/task02-check-*/validation.json

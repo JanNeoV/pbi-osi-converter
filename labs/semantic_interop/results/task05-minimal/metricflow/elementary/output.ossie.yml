@@ -1,0 +1,39 @@
+version: 0.2.0.dev0
+name: conversion_demo
+datasets:
+- name: orders
+  source: '"benchmark"."main"."orders"'
+  primary_key:
+  - order_id
+  fields:
+  - name: order
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_id
+  - name: session_date
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: session_date
+    dimension:
+      is_time: true
+  - name: order_status
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_status
+    dimension:
+      is_time: false
+  - name: revenue
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: amount_eur
+metrics:
+- name: paid_revenue
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(orders.amount_eur)
+  description: ''

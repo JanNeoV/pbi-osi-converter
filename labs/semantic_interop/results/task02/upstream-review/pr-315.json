@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "filename": "converters/dbt/src/ossie_dbt/ossie_to_msi.py",
+      "patch": "@@ -188,7 +188,7 @@ def _classify_field(\n         Aggregation info lives on metrics (`metric_aggregation_params`), not on\n         semantic model measures, so there is no measure classification step.\n         \"\"\"\n-        if field.name in primary_key_cols:\n+        if field.name in primary_key_cols or expr in primary_key_cols:\n             entities.append(\n                 PydanticEntity(\n                     name=field.name,\n@@ -201,7 +201,7 @@ def _classify_field(\n                 )\n             )\n             return\n-        if field.name in unique_key_cols:\n+        if field.name in unique_key_cols or expr in unique_key_cols:\n             entities.append(\n                 PydanticEntity(\n                     name=field.name,\n@@ -214,7 +214,7 @@ def _classify_field(\n                 )\n             )\n             return\n-        if field.name in foreign_key_cols:\n+        if field.name in foreign_key_cols or expr in foreign_key_cols:\n             entities.append(\n                 PydanticEntity(\n                     name=field.name,",
+      "sha": "ca496ecd95c1397dfbd4fc754a6771946b73c105",
+      "status": "modified"
+    },
+    {
+      "filename": "converters/dbt/tests/test_ossie_to_msi.py",
+      "patch": "@@ -23,12 +23,16 @@\n from ossie import OssieDataType, OssieDimension\n from ossie_dbt.msi_to_ossie import MSIToOssieConverter\n from ossie_dbt.ossie_to_msi import OssieToMSIConverter\n+from metricflow_semantic_interfaces.test_utils import semantic_model_with_guaranteed_meta\n from metricflow_semantic_interfaces.type_enums import (\n     AggregationType,\n     DimensionType,\n+    EntityType,\n     MetricType,\n )\n from tests.helpers import (\n+    _entity,\n+    _manifest,\n     _ossie_dataset,\n     _ossie_doc,\n     _ossie_field,\n@@ -445,3 +449,22 @@ def test_ossie_to_msi_to_ossie_preserves_structure(self, snapshot: SnapshotAsser\n         assert metrics[0].name == \"revenue\"\n         assert metrics[0].expression.dialects[0].expression == \"SUM(orders.amount)\"\n         assert ossie_doc.to_ossie_yaml() == snapshot\n+\n+    def test_entity_with_expr_different_from_name_survives_round_trip(self) -> None:\n+        \"\"\"A PRIMARY entity whose expr differs from its name is not lost on MSI -> OSI -> MSI.\"\"\"\n+        orders = semantic_model_with_guaranteed_meta(\n+            name=\"orders\",\n+            entities=[_entity(\"customer_id\", entity_type=EntityType.PRIMARY, expr=\"id\")],\n+        )\n+\n+        ossie_doc = MSIToOssieConverter().convert(_manifest(semantic_models=[orders])).output\n+\n+        assert ossie_doc.semantic_model[0].datasets[0].primary_key == [\"id\"]\n+\n+        back = OssieToMSIConverter().convert(ossie_doc).output\n+        sm = back.semantic_models[0]\n+\n+        assert len(sm.entities) == 1\n+        assert sm.entities[0].name == \"customer_id\"\n+        assert sm.entities[0].expr == \"id\"\n+        assert sm.entities[0].type is EntityType.PRIMARY",
+      "sha": "b9eb92c3cabc9254ea7604c3c93210b0347a9ff7",
+      "status": "modified"
+    }
+  ],
+  "pull": {
+    "base_sha": "814d69721437676e10c94f7bdd6d7637523d1b79",
+    "head_sha": "b9a7c28469834c3ba1f80dc4b88f5f75322eb416",
+    "html_url": "https://github.com/apache/ossie/pull/315",
+    "merge_commit_sha": null,
+    "merged": false,
+    "merged_at": null,
+    "number": 315,
+    "state": "open",
+    "title": "Fix DBT converter round-trip losses entity issue",
+    "updated_at": "2026-09-08T13:00:14Z"
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "path_id": "databricks-roundtrip",
+  "path": "Databricks -> Apache Ossie -> Databricks",
+  "source_authorship": "Existing manually authored canonical native fixture, copied unchanged",
+  "source_fixture": "labs/semantic_interop/fixtures/conversion_demo/targets/databricks/metric_view.yaml",
+  "expected_business_values": {
+    "conversion_rate": {
+      "overall": "0.4",
+      "Direct": "0.5",
+      "Indirect": "0.25"
+    },
+    "paid_revenue": {
+      "overall": "390.00",
+      "currency": "EUR"
+    }
+  },
+  "conversion": "PASS",
+  "semantic_preservation": "PASS",
+  "semantic_scope": "Declarative source definition equality; target engine semantics remain UNKNOWN",
+  "numerical_equivalence": "BLOCKED",
+  "runtime_blocker": "No authorized Databricks workspace/SQL warehouse session is available. Metric View creation, analysis and MEASURE queries were not executed.",
+  "legs": [
+    {
+      "direction": "Databricks -> Apache Ossie",
+      "source": "source.metric-view.yml",
+      "target": "imported.ossie.yml",
+      "conversion": "PASS",
+      "semantic_preservation": "UNKNOWN",
+      "numerical_equivalence": "BLOCKED",
+      "structure_validation": {
+        "validation": "PASS",
+        "method": "Official OssieDocument.model_validate"
+      },
+      "parse_error": null,
+      "command": {
+        "label": "to-ossie",
+        "command": [
+          "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+          "-jar",
+          "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+          "import",
+          "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\databricks-roundtrip\\source.metric-view.yml",
+          "-o",
+          "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\databricks-roundtrip\\imported.ossie.yml",
+          "--name",
+          "conversion_demo_databricks"
+        ],
+        "cwd": "<repository>",
+        "exit_code": 0,
+        "stdout": "to-ossie.stdout.log",
+        "stderr": "to-ossie.stderr.log",
+        "execution_status": "EXECUTED",
+        "warnings": []
+      },
+      "runtime_blocker": "No authorized Databricks workspace/SQL warehouse session is available. Metric View creation, analysis and MEASURE queries were not executed."
+    },
+    {
+      "direction": "Apache Ossie -> Databricks",
+      "source": "imported.ossie.yml",
+      "target": "roundtrip.metric-view.yml",
+      "conversion": "PASS",
+      "semantic_preservation": "UNKNOWN",
+      "numerical_equivalence": "BLOCKED",
+      "structure_validation": {
+        "validation": "PASS",
+        "method": "YAML_MAPPING_ONLY; Databricks analyzer not executed"
+      },
+      "parse_error": null,
+      "command": {
+        "label": "from-ossie",
+        "command": [
+          "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+          "-jar",
+          "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+          "export",
+          "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\databricks-roundtrip\\imported.ossie.yml",
+          "-o",
+          "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\databricks-roundtrip\\roundtrip.metric-view.yml"
+        ],
+        "cwd": "<repository>",
+        "exit_code": 0,
+        "stdout": "from-ossie.stdout.log",
+        "stderr": "from-ossie.stderr.log",
+        "execution_status": "EXECUTED",
+        "warnings": []
+      },
+      "runtime_blocker": "No authorized Databricks workspace/SQL warehouse session is available. Metric View creation, analysis and MEASURE queries were not executed."
+    }
+  ],
+  "definition_comparison": {
+    "parsed_yaml_equal": false,
+    "definitions_equal_ignoring_source_sql_trailing_whitespace": true,
+    "source_sql_trailing_whitespace_changed": true,
+    "comparison_scope": "Complete YAML values including source SQL, expressions, filter and comment properties; ignores YAML formatting and YAML # comments. A separate comparison ignores only trailing whitespace of the whole source SQL string.",
+    "differing_top_level_keys": [
+      "source"
+    ]
+  },
+  "provenance": {
+    "converter_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+    "converter_version": "0.1.0-SNAPSHOT",
+    "official_source": "https://github.com/apache/ossie/tree/53418ba8a4b8a20951334fdb9d9638aa34b514e3/converters/databricks/java",
+    "java": "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+    "jar": "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+    "jar_sha256": "09af8c0868cd56eac6a2de0e07dd59c1288506d4dd5779c9db2d3fbcec1e490f",
+    "converter_modified": false,
+    "runtime": "NOT_EXECUTED",
+    "matches_recorded_task04_jar": true,
+    "build_evidence": "prior-build.report.json (historical build; no fresh Maven build claimed)",
+    "pinned_source_verified": true,
+    "official_build_verified": true,
+    "commands": [
+      {
+        "label": "java-version",
+        "command": [
+          "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+          "-version"
+        ],
+        "cwd": "<repository>",
+        "exit_code": 0,
+        "stdout": "java-version.stdout.log",
+        "stderr": "java-version.stderr.log",
+        "execution_status": "EXECUTED",
+        "warnings": [
+          "openjdk version \"21.0.12.1\" 2026-08-18 LTS",
+          "OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)",
+          "OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+        ]
+      },
+      {
+        "label": "source-commit",
+        "command": [
+          "git",
+          "-C",
+          "<repository>\\.tmp\\task04-databricks\\ossie-current",
+          "rev-parse",
+          "HEAD"
+        ],
+        "cwd": "<repository>",
+        "exit_code": 0,
+        "stdout": "source-commit.stdout.log",
+        "stderr": "source-commit.stderr.log",
+        "execution_status": "EXECUTED",
+        "warnings": []
+      },
+      {
+        "label": "source-status",
+        "command": [
+          "git",
+          "-C",
+          "<repository>\\.tmp\\task04-databricks\\ossie-current",
+          "status",
+          "--porcelain",
+          "--",
+          "converters/databricks/java"
+        ],
+        "cwd": "<repository>",
+        "exit_code": 0,
+        "stdout": "source-status.stdout.log",
+        "stderr": "source-status.stderr.log",
+        "execution_status": "EXECUTED",
+        "warnings": []
+      },
+      {
+        "label": "source-tree",
+        "command": [
+          "git",
+          "-C",
+          "<repository>\\.tmp\\task04-databricks\\ossie-current",
+          "rev-parse",
+          "HEAD:converters/databricks/java"
+        ],
+        "cwd": "<repository>",
+        "exit_code": 0,
+        "stdout": "source-tree.stdout.log",
+        "stderr": "source-tree.stderr.log",
+        "execution_status": "EXECUTED",
+        "warnings": []
+      }
+    ]
+  },
+  "artifact_sha256": {
+    "definition-comparison.json": "925384ac8c60576af01910b989504e2bd1d5979b7c33603690e409b12be6af6e",
+    "from-ossie.command.json": "e40ea335d277eecd3d89bc86d0eb64fad9b355a6fc62ba9713baa04017b05455",
+    "from-ossie.leg.json": "142cc1a2b1527631f633ce0fba6db921f855ae1b9d1eb8d9e5dd9aab80ad09bd",
+    "from-ossie.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "from-ossie.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "from-ossie.structure-validation.json": "066eb4c90f2dbfa1fc9975d181681196dc85f2667dccb25ce2d8285985786a10",
+    "imported.ossie.yml": "b6cf7ddd0cd2cb058fe856e6e4a4c52a1400c3cc67b1b906a2dde627deb530fb",
+    "java-version.command.json": "9a1230441ce8a7d624ca6c204f224d4b398c43db4603c8c7d171f1ef88b8785f",
+    "java-version.stderr.log": "c09b3f6e7993628681d0f0e0fdfa12ccbfef6d7798ad260ec13807486db8b267",
+    "java-version.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prior-build.build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prior-build.build.stdout.log": "437707f4029af9739da7e726eccbb4f9fc7f38b1f50d553c78a05858c7129488",
+    "prior-build.report.json": "75884ea9e2bfb6c8672a80d8c57a6b84c359d502eddae300b5e47c2255044d7b",
+    "prior-build.source-provenance.json": "a7e8ace0d05f91c91c005fac47a4cd7829227c16c8eb0cc7ae94d81fe64b85b8",
+    "provenance.json": "37752c37f34bd2be1e44a44ce973c6a8f61c54d915083d1dc07d7a4312870ffd",
+    "roundtrip.metric-view.yml": "b57082e9a43647215d0378a8662ca0f7dd18b3a5bff489600cdd448616abb15c",
+    "source-commit.command.json": "1b66122b08453cf9c6d1a0ca438db054a730a6eeb1f2322dab444b20bc340420",
+    "source-commit.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source-commit.stdout.log": "96dee8598ff036a2303a6b5f5e40c7fd0be958279d46174c37593d1f18a02c2d",
+    "source-status.command.json": "606650061560f881dec39afe09b0b5cf62310e6c59031517f8cecb0d12a3e83c",
+    "source-status.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source-status.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source-tree.command.json": "e35061316988eb7993c6365d68f64c51b8d42f6da357ffb7a61b5f489d6000ba",
+    "source-tree.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source-tree.stdout.log": "9d7424bace5324511d4d5edfcc75731334bd72e5ad76bc74686ea2dc7a1bdeb9",
+    "source.metric-view.yml": "dd3dd44f1b817f0aefaa5c67267fdfa6422521a7968fba06682d3cdeb1866dd1",
+    "to-ossie.command.json": "2faae5a409deedf6f49bfd624280f97fd04fb4e8267e8605c6a2507132e8c89d",
+    "to-ossie.leg.json": "b30949d0e2cb4dfe71a63e79ce1a4b610e58ae62ad76d7b5517a7eacb5563d42",
+    "to-ossie.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "to-ossie.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "to-ossie.structure-validation.json": "24617ece7c2ef403a50608daf122c7bbf2fc4915e3f7fb57080c6272285f4a2b"
+  }
+}

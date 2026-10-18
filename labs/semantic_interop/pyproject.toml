@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic-interoperability-lab"
+version = "0.1.0"
+description = "Synthetic semantic conversion and numerical correctness benchmark"
+requires-python = ">=3.12,<3.13"
+license = "Apache-2.0"
+dependencies = [
+  "triathlon-semantic-contract-poc",
+  "dbt-metricflow==0.15.0",
+  "metricflow==0.213.0",
+  "dbt-core==1.12.6",
+  "dbt-duckdb==1.11.0",
+  "duckdb==1.5.6",
+  "apache-ossie",
+  "apache-ossie-dbt",
+  "apache-ossie-microsoft",
+  "pytest==8.4.2",
+]
+
+[tool.uv.sources]
+triathlon-semantic-contract-poc = { path = "../..", editable = true }
+apache-ossie = { git = "https://github.com/apache/ossie.git", rev = "6ebc5e5612467dac405985f44ea078b39c891bee", subdirectory = "python" }
+apache-ossie-dbt = { git = "https://github.com/apache/ossie.git", rev = "6ebc5e5612467dac405985f44ea078b39c891bee", subdirectory = "converters/dbt" }
+apache-ossie-microsoft = { git = "https://github.com/apache/ossie.git", rev = "6ebc5e5612467dac405985f44ea078b39c891bee", subdirectory = "converters/microsoft" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"
+

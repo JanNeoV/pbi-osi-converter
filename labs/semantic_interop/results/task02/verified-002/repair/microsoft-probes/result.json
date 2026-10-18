@@ -1,0 +1,308 @@
+{
+  "dax_probe": {
+    "imported_metric_names": [
+      "DoubleRevenue",
+      "Revenue"
+    ],
+    "relationships": [
+      {
+        "crossFilteringBehavior": "oneDirection",
+        "fromCardinality": "many",
+        "fromColumn": "id",
+        "fromTable": "Fact",
+        "isActive": true,
+        "name": "fact_dim",
+        "toCardinality": "one",
+        "toColumn": "id",
+        "toTable": "Dim"
+      }
+    ],
+    "returned_measures": {
+      "DoubleRevenue": {
+        "expression": "[Revenue] * 2",
+        "isHidden": true,
+        "name": "DoubleRevenue",
+        "table": "Measures"
+      },
+      "Revenue": {
+        "displayFolder": "Finance",
+        "expression": "SUM(Fact[amount])",
+        "formatString": "0.00",
+        "name": "Revenue",
+        "table": "Measures"
+      }
+    },
+    "runtime": "NOT_EXECUTED",
+    "warnings": [
+      "[table 'Measures'] calculated tables are not converted to Apache Ossie; excluded from the Apache Ossie model as a dataset; its measures are exported as Apache Ossie metrics and the table definition is preserved in custom_extensions"
+    ]
+  },
+  "execution_status": "NOT_EXECUTED",
+  "matrix": [
+    {
+      "annotations": [
+        {
+          "name": "OssieExpressionDialect",
+          "value": "ANSI_SQL"
+        },
+        {
+          "name": "OssieExpression",
+          "value": "(SUM(items.amount)) / (COUNT(DISTINCT orders.order_id))"
+        }
+      ],
+      "classification": "EXPECTED_LOSS",
+      "dax": "BLANK()",
+      "execution_status": "NOT_EXECUTED",
+      "metric": "average_order_value",
+      "source": {
+        "ai_context": null,
+        "custom_extensions": null,
+        "datatype": null,
+        "description": "",
+        "expression": {
+          "dialects": [
+            {
+              "dialect": "ANSI_SQL",
+              "expression": "(SUM(items.amount)) / (COUNT(DISTINCT orders.order_id))"
+            }
+          ]
+        },
+        "name": "average_order_value"
+      },
+      "warnings": [
+        "[metric 'average_order_value'] a 'ANSI_SQL' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+        "[metric 'average_order_value'] no home table recorded; the measure is placed on 'orders'"
+      ]
+    },
+    {
+      "annotations": [
+        {
+          "name": "OssieExpressionDialect",
+          "value": "ANSI_SQL"
+        },
+        {
+          "name": "OssieExpression",
+          "value": "SUM(CASE WHEN item__status = 'completed' THEN items.amount END)"
+        }
+      ],
+      "classification": "EXPECTED_LOSS",
+      "dax": "BLANK()",
+      "execution_status": "NOT_EXECUTED",
+      "metric": "completed_revenue",
+      "source": {
+        "ai_context": null,
+        "custom_extensions": null,
+        "datatype": null,
+        "description": "",
+        "expression": {
+          "dialects": [
+            {
+              "dialect": "ANSI_SQL",
+              "expression": "SUM(CASE WHEN item__status = 'completed' THEN items.amount END)"
+            }
+          ]
+        },
+        "name": "completed_revenue"
+      },
+      "warnings": [
+        "[metric 'completed_revenue'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+        "[metric 'completed_revenue'] no home table recorded; the measure is placed on 'orders'"
+      ]
+    },
+    {
+      "annotations": [
+        {
+          "name": "OssieExpressionDialect",
+          "value": "ANSI_SQL"
+        },
+        {
+          "name": "OssieExpression",
+          "value": "(SUM(CASE WHEN item__status = 'completed' THEN items.amount END)) / (SUM(items.amount))"
+        }
+      ],
+      "classification": "EXPECTED_LOSS",
+      "dax": "BLANK()",
+      "execution_status": "NOT_EXECUTED",
+      "metric": "completed_revenue_share",
+      "source": {
+        "ai_context": null,
+        "custom_extensions": null,
+        "datatype": null,
+        "description": "",
+        "expression": {
+          "dialects": [
+            {
+              "dialect": "ANSI_SQL",
+              "expression": "(SUM(CASE WHEN item__status = 'completed' THEN items.amount END)) / (SUM(items.amount))"
+            }
+          ]
+        },
+        "name": "completed_revenue_share"
+      },
+      "warnings": [
+        "[metric 'completed_revenue_share'] a 'ANSI_SQL' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+        "[metric 'completed_revenue_share'] no home table recorded; the measure is placed on 'orders'"
+      ]
+    },
+    {
+      "annotations": [
+        {
+          "name": "OssieExpressionDialect",
+          "value": "ANSI_SQL"
+        },
+        {
+          "name": "OssieExpression",
+          "value": "COUNT(DISTINCT orders.order_id)"
+        }
+      ],
+      "classification": "CONVERTER_DEFECT",
+      "dax": "BLANK()",
+      "execution_status": "NOT_EXECUTED",
+      "metric": "order_count",
+      "source": {
+        "ai_context": null,
+        "custom_extensions": null,
+        "datatype": null,
+        "description": "",
+        "expression": {
+          "dialects": [
+            {
+              "dialect": "ANSI_SQL",
+              "expression": "COUNT(DISTINCT orders.order_id)"
+            }
+          ]
+        },
+        "name": "order_count"
+      },
+      "warnings": [
+        "[metric 'order_count'] a 'ANSI_SQL' expression could not be translated to DAX (column 'orders.order_id' does not resolve to exactly one dataset field), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+        "[metric 'order_count'] no home table recorded; the measure is placed on 'orders'"
+      ]
+    },
+    {
+      "annotations": [
+        {
+          "name": "OssieExpressionDialect",
+          "value": "ANSI_SQL"
+        },
+        {
+          "name": "OssieExpression",
+          "value": "COUNT(DISTINCT orders.customer_id)"
+        }
+      ],
+      "classification": "UNKNOWN",
+      "dax": "DISTINCTCOUNTNOBLANK('orders'[customers_measure])",
+      "execution_status": "NOT_EXECUTED",
+      "metric": "purchasing_customers",
+      "source": {
+        "ai_context": null,
+        "custom_extensions": null,
+        "datatype": null,
+        "description": "",
+        "expression": {
+          "dialects": [
+            {
+              "dialect": "ANSI_SQL",
+              "expression": "COUNT(DISTINCT orders.customer_id)"
+            }
+          ]
+        },
+        "name": "purchasing_customers"
+      },
+      "warnings": [
+        "[metric 'purchasing_customers'] no home table recorded; the measure is placed on 'orders'"
+      ]
+    },
+    {
+      "annotations": [
+        {
+          "name": "OssieExpressionDialect",
+          "value": "ANSI_SQL"
+        },
+        {
+          "name": "OssieExpression",
+          "value": "SUM(items.amount)"
+        }
+      ],
+      "classification": "UNKNOWN",
+      "dax": "SUM('items'[revenue_measure])",
+      "execution_status": "NOT_EXECUTED",
+      "metric": "revenue",
+      "source": {
+        "ai_context": null,
+        "custom_extensions": null,
+        "datatype": null,
+        "description": "",
+        "expression": {
+          "dialects": [
+            {
+              "dialect": "ANSI_SQL",
+              "expression": "SUM(items.amount)"
+            }
+          ]
+        },
+        "name": "revenue"
+      },
+      "warnings": [
+        "[metric 'revenue'] no home table recorded; the measure is placed on 'orders'"
+      ]
+    }
+  ],
+  "relationship_source": [
+    {
+      "ai_context": null,
+      "custom_extensions": null,
+      "from": "items",
+      "from_columns": [
+        "order"
+      ],
+      "name": "items__orders__order",
+      "to": "orders",
+      "to_columns": [
+        "order"
+      ]
+    },
+    {
+      "ai_context": null,
+      "custom_extensions": null,
+      "from": "items",
+      "from_columns": [
+        "product"
+      ],
+      "name": "items__products__product",
+      "to": "products",
+      "to_columns": [
+        "product"
+      ]
+    }
+  ],
+  "relationship_target": [
+    {
+      "fromColumn": "order",
+      "fromTable": "items",
+      "name": "items__orders__order",
+      "toColumn": "order",
+      "toTable": "orders"
+    },
+    {
+      "fromColumn": "product",
+      "fromTable": "items",
+      "name": "items__products__product",
+      "toColumn": "product",
+      "toTable": "products"
+    }
+  ],
+  "warnings": [
+    "[metric 'revenue'] no home table recorded; the measure is placed on 'orders'",
+    "[metric 'order_count'] a 'ANSI_SQL' expression could not be translated to DAX (column 'orders.order_id' does not resolve to exactly one dataset field), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+    "[metric 'order_count'] no home table recorded; the measure is placed on 'orders'",
+    "[metric 'purchasing_customers'] no home table recorded; the measure is placed on 'orders'",
+    "[metric 'completed_revenue'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+    "[metric 'completed_revenue'] no home table recorded; the measure is placed on 'orders'",
+    "[metric 'average_order_value'] a 'ANSI_SQL' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+    "[metric 'average_order_value'] no home table recorded; the measure is placed on 'orders'",
+    "[metric 'completed_revenue_share'] a 'ANSI_SQL' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+    "[metric 'completed_revenue_share'] no home table recorded; the measure is placed on 'orders'",
+    "[DatabaseQuery] no workspaceId/itemId given; the Direct Lake source uses placeholder ids"
+  ]
+}

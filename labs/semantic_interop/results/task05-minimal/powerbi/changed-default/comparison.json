@@ -1,0 +1,107 @@
+{
+  "source": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\showcase\\powerbi-task05\\changed-default.model.bim",
+  "commands": {
+    "to-ossie": {
+      "command": [
+        "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+        "-m",
+        "ossie_microsoft.cli",
+        "import",
+        "-i",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\showcase\\powerbi-task05\\changed-default.model.bim",
+        "-o",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\output.ossie.yml"
+      ],
+      "cwd": "C:\\github\\pbi-osi-converter",
+      "exit_code": 0,
+      "stdout": "to-ossie.stdout.log",
+      "stderr": "to-ossie.stderr.log"
+    },
+    "from-ossie": {
+      "command": [
+        "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+        "-m",
+        "ossie_microsoft.cli",
+        "export",
+        "-i",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\output.ossie.yml",
+        "-o",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\roundtrip.model.bim"
+      ],
+      "cwd": "C:\\github\\pbi-osi-converter",
+      "exit_code": 0,
+      "stdout": "from-ossie.stdout.log",
+      "stderr": "from-ossie.stderr.log"
+    },
+    "to-metricflow": {
+      "command": [
+        "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+        "-m",
+        "ossie_dbt.cli",
+        "ossie-to-msi",
+        "-i",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\output.ossie.yml",
+        "-o",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\target.manifest.json"
+      ],
+      "cwd": "C:\\github\\pbi-osi-converter",
+      "exit_code": 0,
+      "stdout": "to-metricflow.stdout.log",
+      "stderr": "to-metricflow.stderr.log"
+    },
+    "to-databricks": {
+      "command": [
+        "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-jar",
+        "C:\\github\\pbi-osi-converter\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+        "export",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\output.ossie.yml",
+        "-o",
+        "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task05-minimal\\powerbi\\changed-default\\target.metric-view.yml",
+        "--source",
+        "Sessions"
+      ],
+      "cwd": "C:\\github\\pbi-osi-converter",
+      "exit_code": 1,
+      "stdout": "to-databricks.stdout.log",
+      "stderr": "to-databricks.stderr.log"
+    }
+  },
+  "bounded_structural_checks": {
+    "table_names_equal": true,
+    "measure_names_equal": true,
+    "dax_expressions_equal": true,
+    "complete_measure_properties_equal": true,
+    "relationships_equal_including_filter_direction": true,
+    "columns_equal": true,
+    "partitions_equal": true,
+    "m_expressions_equal": true,
+    "complete_normalized_document_equal": true,
+    "selector_disconnected": true,
+    "exactly_two_selector_choices": true
+  },
+  "measure_dependencies": {
+    "Conversion Rate": [
+      "Converted Sessions",
+      "Eligible Sessions"
+    ],
+    "Converted Sessions": [],
+    "Eligible Sessions": [],
+    "Paid Revenue": [],
+    "Selected KPI": [
+      "Conversion Rate",
+      "Paid Revenue"
+    ]
+  },
+  "source_TOM": {
+    "status": "NOT_EXECUTED",
+    "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`"
+  },
+  "target_TOM": {
+    "status": "NOT_EXECUTED",
+    "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`"
+  },
+  "Desktop_open": "NOT_EXECUTED",
+  "DAX_execution": "NOT_EXECUTED",
+  "numerical_comparison": "BLOCKED"
+}

@@ -1,0 +1,113 @@
+{
+  "verified_on": "2026-10-18",
+  "main_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+  "baseline_commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+  "installed_and_current_package_versions": {
+    "apache-ossie": "0.2.0.dev0",
+    "apache-ossie-dbt": "0.2.0.dev0",
+    "apache-ossie-microsoft": "0.2.0.dev0"
+  },
+  "dbt_and_microsoft_readmes_equal_at_both_commits": true,
+  "directions": {
+    "dbt": [
+      "MSI -> Ossie",
+      "Ossie -> MSI"
+    ],
+    "microsoft": [
+      "TMSL -> Ossie",
+      "Ossie -> TMSL",
+      "TMDL input/output requires optional TOM"
+    ],
+    "databricks": [
+      "Ossie -> Metric View YAML",
+      "Metric View YAML -> Ossie"
+    ]
+  },
+  "scope": "README and project version comparison; identical development version is not proof of identical converter code or outputs. Baseline is not upgraded. Databricks independent current-source build has its own provenance.",
+  "official_sources": [
+    {
+      "upstream_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+      "source_path": "converters/dbt/pyproject.toml",
+      "url": "https://github.com/apache/ossie/blob/53418ba8a4b8a20951334fdb9d9638aa34b514e3/converters/dbt/pyproject.toml",
+      "sha256": "f23b59d4d36dc3692ab3a0728c0ffd7f265373ba3358389043f81a0bab28e27d",
+      "local_capture": ".tmp/task04-upstream-documents/53418ba8a4b8-converters_dbt_pyproject.toml"
+    },
+    {
+      "upstream_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+      "source_path": "converters/dbt/README.md",
+      "url": "https://github.com/apache/ossie/blob/53418ba8a4b8a20951334fdb9d9638aa34b514e3/converters/dbt/README.md",
+      "sha256": "5f23c2f88d17d8b45b26b386cc861b3b4c4817bd8069ed574fa8a749374973c0",
+      "local_capture": ".tmp/task04-upstream-documents/53418ba8a4b8-converters_dbt_README.md"
+    },
+    {
+      "upstream_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+      "source_path": "converters/microsoft/pyproject.toml",
+      "url": "https://github.com/apache/ossie/blob/53418ba8a4b8a20951334fdb9d9638aa34b514e3/converters/microsoft/pyproject.toml",
+      "sha256": "28b398004c312de02f71ff78ae9d8354e08843a7a3e7f960199b2b1e3c41131e",
+      "local_capture": ".tmp/task04-upstream-documents/53418ba8a4b8-converters_microsoft_pyproject.toml"
+    },
+    {
+      "upstream_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+      "source_path": "converters/microsoft/README.md",
+      "url": "https://github.com/apache/ossie/blob/53418ba8a4b8a20951334fdb9d9638aa34b514e3/converters/microsoft/README.md",
+      "sha256": "a997da3070f73d8241bfa804c359f272b181ed9adce4c966120799a92b40043d",
+      "local_capture": ".tmp/task04-upstream-documents/53418ba8a4b8-converters_microsoft_README.md"
+    },
+    {
+      "upstream_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+      "source_path": "python/pyproject.toml",
+      "url": "https://github.com/apache/ossie/blob/53418ba8a4b8a20951334fdb9d9638aa34b514e3/python/pyproject.toml",
+      "sha256": "9503a8f0604336c2c4378e08f8b72588bc87dd458f1c6d0fe6d67b47de0addf1",
+      "local_capture": ".tmp/task04-upstream-documents/53418ba8a4b8-python_pyproject.toml"
+    },
+    {
+      "upstream_commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+      "source_path": "converters/dbt/pyproject.toml",
+      "url": "https://github.com/apache/ossie/blob/6ebc5e5612467dac405985f44ea078b39c891bee/converters/dbt/pyproject.toml",
+      "sha256": "f23b59d4d36dc3692ab3a0728c0ffd7f265373ba3358389043f81a0bab28e27d",
+      "local_capture": ".tmp/task04-upstream-documents/6ebc5e561246-converters_dbt_pyproject.toml"
+    },
+    {
+      "upstream_commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+      "source_path": "converters/dbt/README.md",
+      "url": "https://github.com/apache/ossie/blob/6ebc5e5612467dac405985f44ea078b39c891bee/converters/dbt/README.md",
+      "sha256": "5f23c2f88d17d8b45b26b386cc861b3b4c4817bd8069ed574fa8a749374973c0",
+      "local_capture": ".tmp/task04-upstream-documents/6ebc5e561246-converters_dbt_README.md"
+    },
+    {
+      "upstream_commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+      "source_path": "converters/microsoft/pyproject.toml",
+      "url": "https://github.com/apache/ossie/blob/6ebc5e5612467dac405985f44ea078b39c891bee/converters/microsoft/pyproject.toml",
+      "sha256": "28b398004c312de02f71ff78ae9d8354e08843a7a3e7f960199b2b1e3c41131e",
+      "local_capture": ".tmp/task04-upstream-documents/6ebc5e561246-converters_microsoft_pyproject.toml"
+    },
+    {
+      "upstream_commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+      "source_path": "converters/microsoft/README.md",
+      "url": "https://github.com/apache/ossie/blob/6ebc5e5612467dac405985f44ea078b39c891bee/converters/microsoft/README.md",
+      "sha256": "a997da3070f73d8241bfa804c359f272b181ed9adce4c966120799a92b40043d",
+      "local_capture": ".tmp/task04-upstream-documents/6ebc5e561246-converters_microsoft_README.md"
+    },
+    {
+      "upstream_commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+      "source_path": "python/pyproject.toml",
+      "url": "https://github.com/apache/ossie/blob/6ebc5e5612467dac405985f44ea078b39c891bee/python/pyproject.toml",
+      "sha256": "9503a8f0604336c2c4378e08f8b72588bc87dd458f1c6d0fe6d67b47de0addf1",
+      "local_capture": ".tmp/task04-upstream-documents/6ebc5e561246-python_pyproject.toml"
+    }
+  ],
+  "official_source_trees": {
+    "6ebc5e5612467dac405985f44ea078b39c891bee": {
+      "python": "431bc95a0a7aa86e499714dcd0c644e670faaaab",
+      "converters/dbt": "e4e581f48e297493e96adbf7e553471d27bb96bb",
+      "converters/microsoft": "45e5388454207d9e1d31f90987331ca42add9723"
+    },
+    "53418ba8a4b8a20951334fdb9d9638aa34b514e3": {
+      "python": "431bc95a0a7aa86e499714dcd0c644e670faaaab",
+      "converters/dbt": "e4e581f48e297493e96adbf7e553471d27bb96bb",
+      "converters/microsoft": "45e5388454207d9e1d31f90987331ca42add9723"
+    }
+  },
+  "reviewed_python_converter_trees_identical": true,
+  "source_tree_verification_command": "git -C .tmp/task04-databricks/ossie-current rev-parse COMMIT:PATH"
+}

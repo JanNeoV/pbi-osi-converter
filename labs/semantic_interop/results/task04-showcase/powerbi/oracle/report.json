@@ -1,0 +1,545 @@
+{
+  "engine": "DuckDB",
+  "execution": "EXECUTED",
+  "headline_queries": {
+    "conversion_rate__channel": {
+      "execution": "EXECUTED",
+      "sql": "oracle/conversion_rate__channel.sql",
+      "typed_result": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.25"
+            }
+          ]
+        ]
+      }
+    },
+    "conversion_rate__month": {
+      "execution": "EXECUTED",
+      "sql": "oracle/conversion_rate__month.sql",
+      "typed_result": {
+        "columns": [
+          "session_month",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "float",
+              "value": "0.6"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "float",
+              "value": "0.2"
+            }
+          ]
+        ]
+      }
+    },
+    "conversion_rate__month_channel": {
+      "execution": "EXECUTED",
+      "sql": "oracle/conversion_rate__month_channel.sql",
+      "typed_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.6666666666666666"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.3333333333333333"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      }
+    },
+    "conversion_rate__overall": {
+      "execution": "EXECUTED",
+      "sql": "oracle/conversion_rate__overall.sql",
+      "typed_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      }
+    },
+    "paid_revenue__channel": {
+      "execution": "EXECUTED",
+      "sql": "oracle/paid_revenue__channel.sql",
+      "typed_result": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "300.00"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ]
+        ]
+      }
+    },
+    "paid_revenue__month": {
+      "execution": "EXECUTED",
+      "sql": "oracle/paid_revenue__month.sql",
+      "typed_result": {
+        "columns": [
+          "session_month",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "decimal",
+              "value": "270.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ]
+        ]
+      }
+    },
+    "paid_revenue__month_channel": {
+      "execution": "EXECUTED",
+      "sql": "oracle/paid_revenue__month_channel.sql",
+      "typed_result": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "180.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      }
+    },
+    "paid_revenue__overall": {
+      "execution": "EXECUTED",
+      "sql": "oracle/paid_revenue__overall.sql",
+      "typed_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "390.00"
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "planned_selector_tests": [
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "overall",
+      "expected_from_duckdb": 0.4,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__conversion_rate__overall",
+      "selection": "none",
+      "unit": "ratio"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "overall",
+      "expected_from_duckdb": 0.4,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__conversion_rate__overall",
+      "selection": "Conversion Rate",
+      "unit": "ratio"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "overall",
+      "expected_from_duckdb": 390.0,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__paid_revenue__overall",
+      "selection": "Paid Revenue",
+      "unit": "EUR"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "overall",
+      "expected_from_duckdb": 0.4,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__conversion_rate__overall",
+      "selection": "multiple",
+      "unit": "ratio"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "Direct",
+      "expected_from_duckdb": 0.5,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__conversion_rate__Direct",
+      "selection": "none",
+      "unit": "ratio"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "Direct",
+      "expected_from_duckdb": 0.5,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__conversion_rate__Direct",
+      "selection": "Conversion Rate",
+      "unit": "ratio"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "Direct",
+      "expected_from_duckdb": 300.0,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__paid_revenue__Direct",
+      "selection": "Paid Revenue",
+      "unit": "EUR"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "Direct",
+      "expected_from_duckdb": 0.5,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__conversion_rate__Direct",
+      "selection": "multiple",
+      "unit": "ratio"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "Indirect",
+      "expected_from_duckdb": 0.25,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__conversion_rate__Indirect",
+      "selection": "none",
+      "unit": "ratio"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "Indirect",
+      "expected_from_duckdb": 0.25,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__conversion_rate__Indirect",
+      "selection": "Conversion Rate",
+      "unit": "ratio"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "Indirect",
+      "expected_from_duckdb": 90.0,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__paid_revenue__Indirect",
+      "selection": "Paid Revenue",
+      "unit": "EUR"
+    },
+    {
+      "DAX_execution": "NOT_EXECUTED",
+      "actual_DAX_value": null,
+      "channel": "Indirect",
+      "expected_from_duckdb": 0.25,
+      "numerical_equivalence": "NOT_EXECUTED",
+      "oracle_comparison": "NOT_EXECUTED",
+      "oracle_reference": "selector__conversion_rate__Indirect",
+      "selection": "multiple",
+      "unit": "ratio"
+    }
+  ],
+  "selector_reference_queries": {
+    "selector__conversion_rate__Direct": {
+      "execution": "EXECUTED",
+      "sql": "oracle/selector__conversion_rate__Direct.sql",
+      "typed_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ]
+        ]
+      }
+    },
+    "selector__conversion_rate__Indirect": {
+      "execution": "EXECUTED",
+      "sql": "oracle/selector__conversion_rate__Indirect.sql",
+      "typed_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.25"
+            }
+          ]
+        ]
+      }
+    },
+    "selector__conversion_rate__overall": {
+      "execution": "EXECUTED",
+      "sql": "oracle/selector__conversion_rate__overall.sql",
+      "typed_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      }
+    },
+    "selector__paid_revenue__Direct": {
+      "execution": "EXECUTED",
+      "sql": "oracle/selector__paid_revenue__Direct.sql",
+      "typed_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "300.00"
+            }
+          ]
+        ]
+      }
+    },
+    "selector__paid_revenue__Indirect": {
+      "execution": "EXECUTED",
+      "sql": "oracle/selector__paid_revenue__Indirect.sql",
+      "typed_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ]
+        ]
+      }
+    },
+    "selector__paid_revenue__overall": {
+      "execution": "EXECUTED",
+      "sql": "oracle/selector__paid_revenue__overall.sql",
+      "typed_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "390.00"
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "version": "1.5.6"
+}

@@ -1,0 +1,135 @@
+{
+  "databricks_conversion": {
+    "execution_status": "NOT_EXECUTED",
+    "reason": "Official Java adapter requires Java 21+ and a built JAR (Maven 3.6+ to build). No ready JAR/toolchain supplied; no installation or substitute converter attempted."
+  },
+  "microsoft_conversion": {
+    "DAX_execution": "NOT_EXECUTED",
+    "TOM_validation": "NOT_EXECUTED",
+    "emitted_measures": {
+      "average_paid_order_value": "BLANK()",
+      "conversion_rate": "BLANK()",
+      "converted_sessions": "BLANK()",
+      "converted_sessions_base": "BLANK()",
+      "eligible_sessions": "BLANK()",
+      "paid_order_count": "BLANK()",
+      "paid_order_count_base": "BLANK()",
+      "paid_revenue": "BLANK()",
+      "paid_revenue_base": "BLANK()"
+    },
+    "execution_status": "EXECUTED",
+    "json_structure_readable": true,
+    "placeholder_measures": [
+      "average_paid_order_value",
+      "conversion_rate",
+      "converted_sessions",
+      "converted_sessions_base",
+      "eligible_sessions",
+      "paid_order_count",
+      "paid_order_count_base",
+      "paid_revenue",
+      "paid_revenue_base"
+    ],
+    "provenance": "Unmodified official Ossie Microsoft TMSL export; not the authored TMDL candidate",
+    "relationships": [],
+    "warnings": [
+      "[metric 'eligible_sessions'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+      "[metric 'eligible_sessions'] no home table recorded; the measure is placed on 'sessions'",
+      "[metric 'converted_sessions_base'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+      "[metric 'converted_sessions_base'] no home table recorded; the measure is placed on 'sessions'",
+      "[metric 'paid_revenue_base'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+      "[metric 'paid_revenue_base'] no home table recorded; the measure is placed on 'sessions'",
+      "[metric 'paid_order_count_base'] a 'ANSI_SQL' expression could not be translated to DAX (only an aggregate over a single column reference is translated), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+      "[metric 'paid_order_count_base'] no home table recorded; the measure is placed on 'sessions'",
+      "[metric 'conversion_rate'] a 'ANSI_SQL' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+      "[metric 'conversion_rate'] no home table recorded; the measure is placed on 'sessions'",
+      "[metric 'average_paid_order_value'] a 'ANSI_SQL' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+      "[metric 'average_paid_order_value'] no home table recorded; the measure is placed on 'sessions'",
+      "[metric 'converted_sessions'] a 'ANSI_SQL' expression could not be translated to DAX (only a single aggregate over one column translates unambiguously to DAX), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+      "[metric 'converted_sessions'] no home table recorded; the measure is placed on 'sessions'",
+      "[metric 'paid_revenue'] a 'ANSI_SQL' expression could not be translated to DAX (only a single aggregate over one column translates unambiguously to DAX), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+      "[metric 'paid_revenue'] no home table recorded; the measure is placed on 'sessions'",
+      "[metric 'paid_order_count'] a 'ANSI_SQL' expression could not be translated to DAX (only a single aggregate over one column translates unambiguously to DAX), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it.",
+      "[metric 'paid_order_count'] no home table recorded; the measure is placed on 'sessions'",
+      "[relationship 'orders__sessions__session'] column 'orders'[session_id] is not in the model; relationship skipped",
+      "[DatabaseQuery] no workspaceId/itemId given; the Direct Lake source uses placeholder ids"
+    ]
+  },
+  "ossie_commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+  "ossie_conversion": {
+    "conversion_succeeded": true,
+    "execution_status": "EXECUTED",
+    "issues": [],
+    "provenance": "Unmodified official MSIToOssieConverter output",
+    "pydantic_structure_valid": true
+  },
+  "roundtrip_conversion": {
+    "configuration_reconstructed": false,
+    "execution_status": "EXECUTED",
+    "issues": [],
+    "metadata_changed": true,
+    "numerically_executed": 0,
+    "oracle_matches": 0,
+    "provenance": "Unmodified official OssieToMSIConverter output",
+    "pydantic_structure_valid": true,
+    "requested_comparisons": 31,
+    "source_inventory": {
+      "models": {
+        "orders": {
+          "default_time_dimension": "session_date",
+          "entities": [
+            [
+              "order",
+              "EntityType.PRIMARY",
+              "order_id"
+            ],
+            [
+              "session",
+              "EntityType.FOREIGN",
+              "session_id"
+            ]
+          ]
+        },
+        "sessions": {
+          "default_time_dimension": "session_date",
+          "entities": [
+            [
+              "session",
+              "EntityType.PRIMARY",
+              "session_id"
+            ]
+          ]
+        }
+      },
+      "time_spines": 1
+    },
+    "target_inventory": {
+      "models": {
+        "orders": {
+          "default_time_dimension": null,
+          "entities": []
+        },
+        "sessions": {
+          "default_time_dimension": null,
+          "entities": []
+        }
+      },
+      "time_spines": 0
+    }
+  },
+  "source_model": {
+    "authorship": "Manually authored dbt/MetricFlow source",
+    "dbt_build_valid": true,
+    "native_executed_matches": 31
+  },
+  "target_runtime": {
+    "Databricks": "NOT_EXECUTED",
+    "Power BI/DAX": "NOT_EXECUTED",
+    "TOM": "NOT_EXECUTED"
+  },
+  "tool_versions": {
+    "apache-ossie": "0.2.0.dev0",
+    "apache-ossie-dbt": "0.2.0.dev0",
+    "apache-ossie-microsoft": "0.2.0.dev0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "labs/semantic_interop/tests/test_showcase_databricks.py",
+    "--basetemp",
+    ".tmp/pytest-task05-databricks"
+  ],
+  "cwd": "C:\\github\\pbi-osi-converter",
+  "exit_code": 0
+}

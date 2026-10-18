@@ -1,0 +1,13 @@
+{
+  "columns": [
+    "average_order_value"
+  ],
+  "rows": [
+    [
+      {
+        "type": "float",
+        "value": "33.1625"
+      }
+    ]
+  ]
+}

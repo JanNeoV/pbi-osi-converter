@@ -1,0 +1,31 @@
+version: "0.2.0.dev0"
+name: "task05_databricks"
+description: "Task 05 two-metric exercise; Databricks runtime NOT_EXECUTED"
+datasets:
+- name: "task05_databricks"
+  source: "SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n\
+    \       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions\
+    \ AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n\
+    \ AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n\
+    \  AND s.session_date < DATE '2026-03-01'\n"
+  fields:
+  - name: "sales_channel"
+    expression:
+      dialects:
+      - dialect: "OSSIE_SQL_2026"
+        expression: "sales_channel"
+metrics:
+- name: "conversion_rate"
+  expression:
+    dialects:
+    - dialect: "DATABRICKS"
+      expression: "CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid')\
+        \ AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0)"
+- name: "paid_revenue"
+  expression:
+    dialects:
+    - dialect: "DATABRICKS"
+      expression: "SUM(amount_eur) FILTER (WHERE order_status = 'paid')"
+custom_extensions:
+- vendor_name: "DATABRICKS"
+  data: "{\"_v\": 1, \"filter\": \"is_eligible = true\"}"

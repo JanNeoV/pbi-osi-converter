@@ -1,0 +1,174 @@
+{
+  "semantic_models": [
+    {
+      "name": "Sessions",
+      "node_relation": {
+        "alias": "Sessions",
+        "schema_name": "",
+        "relation_name": ".Sessions"
+      },
+      "entities": [
+        {
+          "name": "session_id",
+          "type": "primary"
+        },
+        {
+          "name": "sales_channel",
+          "type": "foreign"
+        }
+      ],
+      "measures": [],
+      "dimensions": [
+        {
+          "name": "session_date",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          }
+        },
+        {
+          "name": "session_month",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          }
+        },
+        {
+          "name": "is_eligible",
+          "type": "categorical",
+          "is_partition": false
+        },
+        {
+          "name": "exclusion_reason",
+          "type": "categorical",
+          "is_partition": false
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "node_relation": {
+        "alias": "Orders",
+        "schema_name": "",
+        "relation_name": ".Orders"
+      },
+      "entities": [
+        {
+          "name": "order_id",
+          "type": "primary"
+        },
+        {
+          "name": "session_id",
+          "type": "foreign"
+        }
+      ],
+      "measures": [],
+      "dimensions": [
+        {
+          "name": "order_date",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          }
+        },
+        {
+          "name": "amount_eur",
+          "type": "categorical",
+          "is_partition": false
+        },
+        {
+          "name": "order_status",
+          "type": "categorical",
+          "is_partition": false
+        }
+      ]
+    },
+    {
+      "name": "Sales Channel",
+      "node_relation": {
+        "alias": "Sales Channel",
+        "schema_name": "",
+        "relation_name": ".Sales Channel"
+      },
+      "entities": [
+        {
+          "name": "sales_channel",
+          "type": "primary"
+        }
+      ],
+      "measures": [],
+      "dimensions": []
+    }
+  ],
+  "metrics": [
+    {
+      "name": "Eligible Sessions",
+      "type": "simple",
+      "type_params": {
+        "expr": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Sessions[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "Sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "Converted Sessions",
+      "type": "simple",
+      "type_params": {
+        "expr": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Orders[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n        KEEPFILTERS(Orders[order_status] = \"paid\"),\n        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "Sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "Conversion Rate",
+      "type": "simple",
+      "type_params": {
+        "expr": "DIVIDE([Converted Sessions], [Eligible Sessions])",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "Sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "Paid Revenue",
+      "type": "simple",
+      "type_params": {
+        "expr": "CALCULATE(\n    SUM(Orders[amount_eur]),\n    KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n    KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n    KEEPFILTERS(Orders[order_status] = \"paid\"),\n    KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "Sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    }
+  ],
+  "project_configuration": {
+    "time_spine_table_configurations": [],
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "time_spines": []
+  },
+  "saved_queries": []
+}

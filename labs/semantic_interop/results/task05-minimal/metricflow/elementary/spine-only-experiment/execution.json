@@ -1,0 +1,24 @@
+{
+  "provenance": "SEPARATE RECONSTRUCTION EXPERIMENT: source time spine copied into target",
+  "elementary_relaxed_business_policy": true,
+  "include_refunded_revenue_only": false,
+  "comparisons": {
+    "paid_revenue__overall": {
+      "oracle": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "460.00"
+          ]
+        ]
+      },
+      "observed": {
+        "error": "No primary entity found in semantic_model.reference=SemanticModelReference(semantic_model_name='orders')",
+        "phase": "compiler_initialization"
+      },
+      "equal": null
+    }
+  }
+}

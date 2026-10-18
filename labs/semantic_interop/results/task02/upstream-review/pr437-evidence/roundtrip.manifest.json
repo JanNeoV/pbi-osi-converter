@@ -1,0 +1,282 @@
+{
+  "semantic_models": [
+    {
+      "name": "orders",
+      "node_relation": {
+        "alias": "\"orders\"",
+        "schema_name": "\"main\"",
+        "database": "\"benchmark\"",
+        "relation_name": "\"benchmark\".\"main\".\"orders\""
+      },
+      "entities": [],
+      "measures": [],
+      "dimensions": [
+        {
+          "name": "order",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "order_id"
+        },
+        {
+          "name": "order_date",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          }
+        },
+        {
+          "name": "status",
+          "type": "categorical",
+          "is_partition": false
+        },
+        {
+          "name": "order_count_measure",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "order_id"
+        },
+        {
+          "name": "customers_measure",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "customer_id"
+        }
+      ]
+    },
+    {
+      "name": "items",
+      "node_relation": {
+        "alias": "\"items\"",
+        "schema_name": "\"main\"",
+        "database": "\"benchmark\"",
+        "relation_name": "\"benchmark\".\"main\".\"items\""
+      },
+      "entities": [],
+      "measures": [],
+      "dimensions": [
+        {
+          "name": "item",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "item_id"
+        },
+        {
+          "name": "order",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "order_id"
+        },
+        {
+          "name": "product",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "product_id"
+        },
+        {
+          "name": "order_date",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          }
+        },
+        {
+          "name": "status",
+          "type": "categorical",
+          "is_partition": false
+        },
+        {
+          "name": "revenue_measure",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "amount"
+        }
+      ]
+    },
+    {
+      "name": "products",
+      "node_relation": {
+        "alias": "\"products\"",
+        "schema_name": "\"main\"",
+        "database": "\"benchmark\"",
+        "relation_name": "\"benchmark\".\"main\".\"products\""
+      },
+      "entities": [],
+      "measures": [],
+      "dimensions": [
+        {
+          "name": "product",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "product_id"
+        },
+        {
+          "name": "category",
+          "type": "categorical",
+          "is_partition": false
+        }
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "name": "revenue",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "amount",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "items",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "order_count",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "order_id",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "orders",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "purchasing_customers",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "customer_id",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "orders",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "completed_revenue",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "CASE WHEN item__status = 'completed' THEN amount END",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "items",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "average_order_value__numerator",
+      "type": "simple",
+      "type_params": {
+        "expr": "amount",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "items",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "average_order_value__denominator",
+      "type": "simple",
+      "type_params": {
+        "expr": "order_id",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "orders",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "average_order_value",
+      "description": "",
+      "type": "ratio",
+      "type_params": {
+        "numerator": {
+          "name": "average_order_value__numerator"
+        },
+        "denominator": {
+          "name": "average_order_value__denominator"
+        },
+        "input_measures": [],
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "completed_revenue_share__numerator",
+      "type": "simple",
+      "type_params": {
+        "expr": "CASE WHEN item__status = 'completed' THEN amount END",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "items",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "completed_revenue_share__denominator",
+      "type": "simple",
+      "type_params": {
+        "expr": "amount",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "items",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "completed_revenue_share",
+      "description": "",
+      "type": "ratio",
+      "type_params": {
+        "numerator": {
+          "name": "completed_revenue_share__numerator"
+        },
+        "denominator": {
+          "name": "completed_revenue_share__denominator"
+        },
+        "input_measures": [],
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    }
+  ],
+  "project_configuration": {
+    "time_spine_table_configurations": [],
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "time_spines": []
+  },
+  "saved_queries": []
+}

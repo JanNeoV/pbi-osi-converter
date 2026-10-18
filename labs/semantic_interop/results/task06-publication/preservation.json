@@ -1,0 +1,42 @@
+{
+  "historical_baseline": "labs/semantic_interop/results/task05-minimal/baseline.json",
+  "protected_files": 1865,
+  "changed_or_missing": [],
+  "task06_retained_evidence_fixtures_and_dependency_snapshot_files": 2134,
+  "task06_snapshot_changed_or_missing": [],
+  "task05_evidence_and_model_artifacts_checked": 316,
+  "task05_evidence_and_model_artifact_changes": [],
+  "packages_unchanged": true,
+  "package_records": 77,
+  "installed_converter_modules_unchanged": {
+    "ossie": {
+      "__init__.py": true,
+      "models.py": true
+    },
+    "ossie_dbt": {
+      "__init__.py": true,
+      "cli.py": true,
+      "converter_issues.py": true,
+      "expression_utils.py": true,
+      "filter_utils.py": true,
+      "msi_to_ossie.py": true,
+      "ossie_to_msi.py": true
+    },
+    "ossie_microsoft": {
+      "__init__.py": true,
+      "_common.py": true,
+      "_sql_to_dax.py": true,
+      "cli.py": true,
+      "engine.py": true,
+      "ossie_to_semantic_model.py": true,
+      "semantic_model_to_ossie.py": true,
+      "tom.py": true
+    }
+  },
+  "intentional_task05_documentation_revisions": [
+    "labs/semantic_interop/showcase/DATABRICKS_HANDOFF.md",
+    "labs/semantic_interop/showcase/README.md",
+    "labs/semantic_interop/showcase/TUTORIAL.md"
+  ],
+  "passed": true
+}

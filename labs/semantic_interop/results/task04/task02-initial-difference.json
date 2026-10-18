@@ -1,0 +1,50 @@
+{
+  "command_record": "task02-command.json",
+  "exact_report_differences": [
+    {
+      "after": "81303dc0bf350d67bd69be36863affff169064e6cd50db0f6178be6bd466f528",
+      "before": "fac74d3d7d98cb010ada6abccbc062a263eb3c933792b36514a137dc1c6c35e1",
+      "pointer": "/artifact_sha256/current~1report.json"
+    },
+    {
+      "after": "48f4835de95812a1ba3d9163dbd6b663b39ad690a43a6520f87ae93b26a14db9",
+      "before": "2ffbe0144ba009e5f0e7d8ad22815165b4d9c1ffb79ae31f4664f99a9ebb38f7",
+      "pointer": "/artifact_sha256/repair~1report.json"
+    },
+    {
+      "after": "d77d43ff587a327c57e749914cba5b38688617770f94a05f164ce3c0efbbe44d",
+      "change": "added",
+      "pointer": "/semantic_diagnostics/implementation_sha256/labs~1semantic_interop~1scripts~1run_powerbi_showcase.py"
+    }
+  ],
+  "explanation": "The only underlying difference was addition of run_powerbi_showcase.py to the fingerprint of all lab scripts during concurrent Task04 work. Both nested current/repair reports differ only at that fingerprint; their parent artifact hashes consequently changed. All individual Task02 acceptance checks passed. Stable-code retry is required; no converter/runtime correctness failure is inferred.",
+  "failed_check": "Normalized reports are not deterministic; inspect both retained runs",
+  "first_acceptance": {
+    "accepted": true,
+    "failures": []
+  },
+  "first_report": ".tmp/semantic-lab/run-yu0ho35e/report.json",
+  "first_report_sha256": "679944b7146f07762ee3050a13f8730e8954320563d83b1667ac3795ee6d4d4b",
+  "nested_report_differences": {
+    "current": [
+      {
+        "after": "d77d43ff587a327c57e749914cba5b38688617770f94a05f164ce3c0efbbe44d",
+        "before": "ece20362fc2ccdfff043cc8613a01bf560d242095eabbefd080ab892ad0fe647",
+        "pointer": "/semantic_diagnostics/implementation_sha256/labs~1semantic_interop~1scripts~1run_powerbi_showcase.py"
+      }
+    ],
+    "repair": [
+      {
+        "after": "d77d43ff587a327c57e749914cba5b38688617770f94a05f164ce3c0efbbe44d",
+        "before": "ece20362fc2ccdfff043cc8613a01bf560d242095eabbefd080ab892ad0fe647",
+        "pointer": "/semantic_diagnostics/implementation_sha256/labs~1semantic_interop~1scripts~1run_powerbi_showcase.py"
+      }
+    ]
+  },
+  "second_acceptance": {
+    "accepted": true,
+    "failures": []
+  },
+  "second_report": ".tmp/semantic-lab/run-wq4xo58t/report.json",
+  "second_report_sha256": "8882ce059d6bfcdda44f6ef13674e02a6b36af4315b4605f76725aeae314b7eb"
+}

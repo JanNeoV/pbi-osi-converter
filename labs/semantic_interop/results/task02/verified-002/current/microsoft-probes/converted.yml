@@ -1,0 +1,64 @@
+version: 0.2.0.dev0
+name: static_probe
+datasets:
+- name: Fact
+  source: main.Fact
+  fields:
+  - name: id
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: id
+    datatype: Integer
+  - name: amount
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: amount
+    datatype: Decimal
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "partitions": [{"mode": "directLake", "name": "Fact", "source": {"entityName": "Fact", "expressionSource": "DatabaseQuery", "schemaName": "main", "type": "entity"}}]}'
+- name: Dim
+  source: main.Dim
+  fields:
+  - name: id
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: id
+    datatype: Integer
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "partitions": [{"mode": "directLake", "name": "Dim", "source": {"entityName": "Dim", "expressionSource": "DatabaseQuery", "schemaName": "main", "type": "entity"}}]}'
+relationships:
+- name: Fact_id_to_Dim_id
+  from: Fact
+  to: Dim
+  from_columns:
+  - id
+  to_columns:
+  - id
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "crossFilteringBehavior": "oneDirection", "fromCardinality": "many", "isActive": true, "name": "fact_dim", "normalizedEndpoints": ["Fact", "id", "Dim", "id"], "toCardinality": "one"}'
+metrics:
+- name: Revenue
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: SUM(Fact[amount])
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "displayFolder": "Finance", "formatString": "0.00", "table": "Measures"}'
+- name: DoubleRevenue
+  expression:
+    dialects:
+    - dialect: DAX
+      expression: '[Revenue] * 2'
+  custom_extensions:
+  - vendor_name: POWER_BI
+    data: '{"_v": 2, "isHidden": true, "table": "Measures"}'
+custom_extensions:
+- vendor_name: POWER_BI
+  data: '{"_v": 2, "document": {"compatibilityLevel": 1600}, "excludedTables": [{"columns": [{"dataType": "int64", "isHidden": true, "name": "_", "type": "calculatedTableColumn"}], "name": "Measures", "partitions": [{"mode": "import", "name": "Measures", "source": {"expression": "ROW(\"_\", 1)", "type": "calculated"}}]}]}'

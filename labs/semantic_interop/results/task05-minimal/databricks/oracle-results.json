@@ -1,0 +1,43 @@
+{
+  "engine": "DuckDB 1.5.6",
+  "scope": "Independent SQL oracle only; no Databricks runtime or generated target model execution",
+  "sql": "labs/semantic_interop/showcase/databricks-task05/oracle.sql",
+  "results": [
+    {
+      "columns": [
+        "conversion_rate",
+        "baseline_paid_revenue",
+        "include_refunded_revenue"
+      ],
+      "rows": [
+        [
+          0.4,
+          "390.00",
+          "440.00"
+        ]
+      ]
+    },
+    {
+      "columns": [
+        "sales_channel",
+        "conversion_rate",
+        "baseline_paid_revenue",
+        "include_refunded_revenue"
+      ],
+      "rows": [
+        [
+          "Direct",
+          0.5,
+          "300.00",
+          "300.00"
+        ],
+        [
+          "Indirect",
+          0.25,
+          "90.00",
+          "140.00"
+        ]
+      ]
+    }
+  ]
+}

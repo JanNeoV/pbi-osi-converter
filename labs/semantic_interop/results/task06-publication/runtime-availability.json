@@ -1,0 +1,15 @@
+{
+  "environment_variable_presence_only": {
+    "DATABRICKS_HOST": false,
+    "DATABRICKS_TOKEN": false,
+    "DATABRICKS_WAREHOUSE_ID": false,
+    "DATABRICKS_CONFIG_PROFILE": false,
+    "POWERBI_XMLA_ENDPOINT": false,
+    "PBI_XMLA_ENDPOINT": false,
+    "POWERBI_WORKSPACE_ID": false,
+    "FABRIC_WORKSPACE_ID": false
+  },
+  "powerbi_process_names": [],
+  "databricks_cli_available": false,
+  "scope": "No supplied native runtime connection found via available connectors, common environment-variable presence, CLI availability or active Power BI engine processes; no credential values read or retained."
+}

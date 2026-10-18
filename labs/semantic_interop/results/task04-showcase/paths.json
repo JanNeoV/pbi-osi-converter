@@ -1,0 +1,178 @@
+{
+  "claim_boundaries": {
+    "conversion": "PASS means both official converter directions emitted parseable artifacts; warnings and dropped constructs may still exist.",
+    "numerical": "PASS requires actual target-generated/executed queries matching the independent oracle; BLOCKED means prerequisites or target initialization prevent comparison.",
+    "outbound_numerical": "Ossie is an interchange artifact, so individual source-to-Ossie legs have no numerical execution; NOT_EXECUTED is deliberate.",
+    "semantic": "PASS is bounded to inspected declarative-definition preservation, not execution. MISMATCH records concrete contract/configuration loss. UNKNOWN means insufficient evidence."
+  },
+  "paths": [
+    {
+      "conversion": "PASS",
+      "legs": [
+        "metricflow/to-ossie/leg.json",
+        "to-metricflow/metricflow/leg.json"
+      ],
+      "numerical_equivalence": "BLOCKED",
+      "reason": "Time spine, entities and default aggregation-time settings absent on return; target initialization blocked.",
+      "semantic_preservation": "MISMATCH",
+      "semantic_scope": "Static contract-loss evidence; no numerical equivalence established",
+      "source": "MetricFlow",
+      "target": "MetricFlow",
+      "via": "Apache Ossie"
+    },
+    {
+      "conversion": "PASS",
+      "legs": [
+        "powerbi/core/to-ossie/report.json",
+        "powerbi/core/from-ossie/report.json"
+      ],
+      "numerical_equivalence": "BLOCKED",
+      "reason": "Exact normalized native definitions preserved, including DAX and Power BI extensions. DAX execution UNKNOWN.",
+      "semantic_preservation": "PASS",
+      "semantic_scope": "Exact normalized native DAX, relationships, columns, partitions, M and formatting metadata; executable semantics unverified.",
+      "source": "Power BI",
+      "target": "Power BI",
+      "via": "Apache Ossie"
+    },
+    {
+      "conversion": "PASS",
+      "legs": [
+        "databricks/databricks-roundtrip/to-ossie.leg.json",
+        "databricks/databricks-roundtrip/from-ossie.leg.json"
+      ],
+      "numerical_equivalence": "BLOCKED",
+      "reason": "Native SQL source, top-level filter, dimensions and measures replayed; trailing source whitespace ignored. Databricks execution UNKNOWN.",
+      "semantic_preservation": "PASS",
+      "semantic_scope": "Declarative source definition equality; target engine semantics remain UNKNOWN",
+      "source": "Databricks",
+      "target": "Databricks",
+      "via": "Apache Ossie"
+    },
+    {
+      "conversion": "PASS",
+      "legs": [
+        "metricflow/to-ossie/leg.json",
+        "to-powerbi/metricflow/report.json"
+      ],
+      "numerical_equivalence": "BLOCKED",
+      "reason": "Headline measures replaced by annotated BLANK(); warnings preserve the untranslated expressions.",
+      "semantic_preservation": "MISMATCH",
+      "semantic_scope": "Static contract-loss evidence; no numerical equivalence established",
+      "source": "MetricFlow",
+      "target": "Power BI",
+      "via": "Apache Ossie"
+    },
+    {
+      "conversion": "PASS",
+      "legs": [
+        "databricks/databricks-roundtrip/to-ossie.leg.json",
+        "to-powerbi/databricks/report.json"
+      ],
+      "numerical_equivalence": "BLOCKED",
+      "reason": "Headline measures replaced by annotated BLANK(); warnings preserve the untranslated expressions.",
+      "semantic_preservation": "MISMATCH",
+      "semantic_scope": "Static contract-loss evidence; no numerical equivalence established",
+      "source": "Databricks",
+      "target": "Power BI",
+      "via": "Apache Ossie"
+    },
+    {
+      "conversion": "PASS",
+      "legs": [
+        "metricflow/to-ossie/leg.json",
+        "databricks/metricflow-to-databricks/from-ossie.leg.json"
+      ],
+      "numerical_equivalence": "BLOCKED",
+      "reason": [
+        {
+          "kind": "UNRESOLVED_METRICFLOW_TOKENS",
+          "scope": "Static comparison with canonical raw/derived column and dimension names; no Databricks analyzer executed",
+          "tokens": [
+            "session__is_eligible",
+            "order__order_status"
+          ]
+        }
+      ],
+      "semantic_preservation": "MISMATCH",
+      "semantic_scope": "Static contract-loss evidence; no numerical equivalence established",
+      "source": "MetricFlow",
+      "target": "Databricks",
+      "via": "Apache Ossie"
+    },
+    {
+      "conversion": "FAIL",
+      "legs": [
+        "powerbi/core/to-ossie/report.json",
+        "databricks/powerbi-to-databricks/from-ossie.leg.json"
+      ],
+      "numerical_equivalence": "BLOCKED",
+      "reason": [
+        [
+          "Conversion failed: Dataset 'Sessions': source 'Sessions' must be a 3-part catalog.schema.table identifier or a SELECT/WITH subquery"
+        ]
+      ],
+      "semantic_preservation": "UNKNOWN",
+      "semantic_scope": "Static contract-loss evidence; no numerical equivalence established",
+      "source": "Power BI",
+      "target": "Databricks",
+      "via": "Apache Ossie"
+    },
+    {
+      "conversion": "PASS",
+      "legs": [
+        "powerbi/core/to-ossie/report.json",
+        "to-metricflow/powerbi/leg.json"
+      ],
+      "numerical_equivalence": "BLOCKED",
+      "reason": {
+        "finding": "Vendor DAX copied into MetricFlow expressions without translation; native M partitions and Power BI semantics not reconstructed.",
+        "returned_expressions": {
+          "Conversion Rate": "DIVIDE([Converted Sessions], [Eligible Sessions])",
+          "Converted Sessions": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Orders[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n        KEEPFILTERS(Orders[order_status] = \"paid\"),\n        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+          "Eligible Sessions": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Sessions[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+          "Paid Revenue": "CALCULATE(\n    SUM(Orders[amount_eur]),\n    KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n    KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n    KEEPFILTERS(Orders[order_status] = \"paid\"),\n    KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n)"
+        }
+      },
+      "semantic_preservation": "MISMATCH",
+      "semantic_scope": "Static contract-loss evidence; no numerical equivalence established",
+      "source": "Power BI",
+      "target": "MetricFlow",
+      "via": "Apache Ossie"
+    },
+    {
+      "conversion": "PASS",
+      "legs": [
+        "databricks/databricks-roundtrip/to-ossie.leg.json",
+        "to-metricflow/databricks/leg.json"
+      ],
+      "numerical_equivalence": "BLOCKED",
+      "reason": {
+        "finding": "Native Metric View top-level eligibility filter has no returned MetricFlow filter; SQL query source also split into relation-name components.",
+        "returned_metric_filters": {
+          "average_paid_order_value": null,
+          "average_paid_order_value__denominator": null,
+          "average_paid_order_value__numerator": null,
+          "conversion_rate": null,
+          "conversion_rate__denominator": null,
+          "conversion_rate__numerator": null,
+          "converted_sessions": null,
+          "eligible_sessions": null,
+          "paid_order_count": null,
+          "paid_revenue": null
+        },
+        "returned_model_relation": {
+          "alias": "session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n",
+          "database": "SELECT s",
+          "relation_name": "SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n",
+          "schema_name": "session_id, s"
+        },
+        "source_filter": "is_eligible = true"
+      },
+      "semantic_preservation": "MISMATCH",
+      "semantic_scope": "Static contract-loss evidence; no numerical equivalence established",
+      "source": "Databricks",
+      "target": "MetricFlow",
+      "via": "Apache Ossie"
+    }
+  ]
+}

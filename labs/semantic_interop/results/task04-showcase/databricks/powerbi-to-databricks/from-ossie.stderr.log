@@ -1,0 +1,1 @@
+Conversion failed: Dataset 'Sessions': source 'Sessions' must be a 3-part catalog.schema.table identifier or a SELECT/WITH subquery

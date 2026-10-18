@@ -1,0 +1,13 @@
+{
+  "columns": [
+    "average_order_value"
+  ],
+  "rows": [
+    [
+      {
+        "type": "null",
+        "value": null
+      }
+    ]
+  ]
+}

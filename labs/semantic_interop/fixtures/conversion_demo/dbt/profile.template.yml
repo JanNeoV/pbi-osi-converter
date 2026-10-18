@@ -1,0 +1,8 @@
+conversion_demo:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: benchmark.duckdb
+      schema: main
+      threads: 1

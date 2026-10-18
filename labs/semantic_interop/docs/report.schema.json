@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Semantic interoperability lab evidence v1",
+  "type": "object",
+  "required": ["schema_version", "scope", "tool_versions", "ossie_commit", "input_sha256", "artifact_sha256", "integration", "cases", "acceptance"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "semantic_diagnostics": {
+      "type": "object",
+      "required": ["schema_version", "environment", "findings", "experiments", "regressions", "summary"],
+      "properties": {
+        "schema_version": {"const": 1},
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "construct", "expected", "observed", "classification", "rationale", "stage", "source", "target", "affected_queries", "evidence_quality"],
+            "properties": {
+              "classification": {"enum": ["PRESERVED", "CONFIGURATION_GAP", "CONVERTER_DEFECT", "EXPRESSIVENESS_LIMITATION", "EXPECTED_LOSS", "UNKNOWN"]},
+              "source": {"type": "object", "required": ["artifact", "pointer", "sha256"]},
+              "target": {"type": "object", "required": ["artifact", "pointer", "sha256"]}
+            }
+          }
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["case_id", "metric_id", "path", "scenario", "source_representation", "target_representation", "method", "evidence_types", "structural_validity", "semantic_preservation", "semantic_coverage", "unsupported_constructs", "sql_execution_available", "execution_status", "reference", "observed", "comparison", "diagnostics", "artifacts", "status", "controlled_failure", "failure_detection"],
+        "properties": {
+          "status": {"enum": ["PASS", "NUMERICAL_MISMATCH", "SEMANTIC_MISMATCH", "UNSUPPORTED", "NOT_EXECUTED", "INVALID_MODEL"]},
+          "execution_status": {"enum": ["EXECUTED", "NOT_EXECUTED"]},
+          "structural_validity": {"type": ["boolean", "null"]},
+          "semantic_preservation": {"type": ["boolean", "null"]},
+          "failure_detection": {"enum": ["DETECTED", "UNDETECTED", "UNTESTABLE", null]}
+        },
+        "allOf": [{
+          "if": {"properties": {"status": {"const": "PASS"}}},
+          "then": {"properties": {
+            "execution_status": {"const": "EXECUTED"},
+            "structural_validity": {"const": true},
+            "semantic_preservation": {"const": true},
+            "unsupported_constructs": {"maxItems": 0},
+            "comparison": {"type": "object", "required": ["equal"], "properties": {"equal": {"const": true}}}
+          }}
+        }]
+      }
+    }
+  }
+}

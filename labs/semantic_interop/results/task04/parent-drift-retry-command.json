@@ -1,0 +1,14 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "semantic_poc/tests/test_task9_canonical_drift.py::test_windows_compatible_console_drift_and_committed_proposal_commands",
+    "semantic_poc/tests/test_task9_canonical_drift.py::test_console_drift_exit_codes",
+    "--basetemp",
+    ".tmp/pytest-task04-drift-retry"
+  ],
+  "PATH_prepend": ".tmp/semantic-lab-venv/Scripts",
+  "exit_code": 0
+}

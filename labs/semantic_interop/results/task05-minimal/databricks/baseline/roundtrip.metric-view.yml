@@ -1,0 +1,17 @@
+version: "1.1"
+source: "SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n  \
+  \     o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions\
+  \ AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n\
+  \ AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n\
+  \  AND s.session_date < DATE '2026-03-01'"
+comment: "Task 05 two-metric exercise; Databricks runtime NOT_EXECUTED"
+filter: "is_eligible = true"
+dimensions:
+- name: "sales_channel"
+  expr: "sales_channel"
+measures:
+- name: "conversion_rate"
+  expr: "CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE)\
+    \ / NULLIF(COUNT(DISTINCT session_id), 0)"
+- name: "paid_revenue"
+  expr: "SUM(amount_eur) FILTER (WHERE order_status = 'paid')"

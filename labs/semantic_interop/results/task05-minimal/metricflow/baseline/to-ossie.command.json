@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "<repository>\\.tmp\\semantic-lab-venv\\Scripts\\ossie-dbt.exe",
+    "msi-to-ossie",
+    "-i",
+    "<repository>\\.tmp\\task05-metricflow-v2\\baseline\\dbt\\target\\semantic_manifest.json",
+    "-o",
+    "<repository>\\labs\\semantic_interop\\results\\task05-minimal\\metricflow\\baseline\\output.ossie.yml",
+    "--model-name",
+    "conversion_demo"
+  ],
+  "cwd": "<repository>",
+  "exit_code": 0
+}

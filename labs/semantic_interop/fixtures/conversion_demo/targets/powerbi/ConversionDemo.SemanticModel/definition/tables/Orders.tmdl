@@ -1,0 +1,33 @@
+/// Manually authored candidate: order-grain data; each order belongs to one originating session.
+table Orders
+	column order_id
+		dataType: int64
+		isKey
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column session_id
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: session_id
+
+	column order_date
+		dataType: dateTime
+		formatString: yyyy-MM-dd
+		summarizeBy: none
+		sourceColumn: order_date
+
+	column amount_eur
+		dataType: decimal
+		formatString: #,0.00 "EUR"
+		summarizeBy: sum
+		sourceColumn: amount_eur
+
+	column order_status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: order_status
+
+	partition Orders = m
+		mode: import
+		source = OrdersData

@@ -1,0 +1,49 @@
+{
+  "java_converter_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+  "version": "0.1.0-SNAPSHOT",
+  "jar_sha256": "09af8c0868cd56eac6a2de0e07dd59c1288506d4dd5779c9db2d3fbcec1e490f",
+  "official_converters_modified": false,
+  "runtime": "NOT_EXECUTED",
+  "python_packages": {
+    "apache-ossie": {
+      "version": "0.2.0.dev0",
+      "direct_url": {
+        "url": "https://github.com/apache/ossie.git",
+        "vcs_info": {
+          "vcs": "git",
+          "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee"
+        },
+        "subdirectory": "python"
+      }
+    },
+    "apache-ossie-dbt": {
+      "version": "0.2.0.dev0",
+      "direct_url": {
+        "url": "https://github.com/apache/ossie.git",
+        "vcs_info": {
+          "vcs": "git",
+          "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee"
+        },
+        "subdirectory": "converters/dbt"
+      }
+    },
+    "apache-ossie-microsoft": {
+      "version": "0.2.0.dev0",
+      "direct_url": {
+        "url": "https://github.com/apache/ossie.git",
+        "vcs_info": {
+          "vcs": "git",
+          "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee"
+        },
+        "subdirectory": "converters/microsoft"
+      }
+    },
+    "duckdb": {
+      "version": "1.5.6",
+      "direct_url": {}
+    }
+  }
+}

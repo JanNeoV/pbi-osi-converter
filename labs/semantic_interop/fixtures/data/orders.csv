@@ -1,0 +1,9 @@
+order_id,customer_id,order_date,ship_date,status
+1,1,2024-02-28,2024-02-29,completed
+2,1,2024-02-29,2024-03-01,cancelled
+3,2,2024-03-01,2024-03-02,completed
+4,3,2025-12-31,2026-01-02,completed
+5,999,2026-01-01,2026-01-03,pending
+6,,2026-01-01,2026-01-02,completed
+7,2,2026-01-02,,completed
+8,4,2026-01-03,,cancelled

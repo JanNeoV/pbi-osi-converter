@@ -1,0 +1,7 @@
+table Products
+    column product_id
+        dataType: int64
+        sourceColumn: product_id
+    column category
+        dataType: string
+        sourceColumn: category

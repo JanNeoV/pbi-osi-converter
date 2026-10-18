@@ -1,0 +1,231 @@
+{
+  "name": "conversion_demo",
+  "compatibilityLevel": 1702,
+  "model": {
+    "tables": [
+      {
+        "name": "sessions",
+        "columns": [
+          {
+            "name": "session",
+            "sourceColumn": "session_id"
+          },
+          {
+            "name": "session_date",
+            "sourceColumn": "session_date"
+          },
+          {
+            "name": "sales_channel",
+            "sourceColumn": "sales_channel"
+          },
+          {
+            "name": "is_eligible",
+            "sourceColumn": "is_eligible"
+          },
+          {
+            "name": "session_count",
+            "sourceColumn": "session_id"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "sessions",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "sessions",
+              "schemaName": "main",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "eligible_sessions",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "ANSI_SQL"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END)"
+              }
+            ]
+          },
+          {
+            "name": "converted_sessions_base",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "ANSI_SQL"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.session_id END)"
+              }
+            ]
+          },
+          {
+            "name": "paid_revenue_base",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "ANSI_SQL"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "SUM(CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.amount_eur END)"
+              }
+            ]
+          },
+          {
+            "name": "paid_order_count_base",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "ANSI_SQL"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.order_id END)"
+              }
+            ]
+          },
+          {
+            "name": "conversion_rate",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "ANSI_SQL"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "(COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.session_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END)) / (COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END))"
+              }
+            ]
+          },
+          {
+            "name": "average_paid_order_value",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "ANSI_SQL"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "(SUM(CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.amount_eur END) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END)) / (COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.order_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END))"
+              }
+            ]
+          },
+          {
+            "name": "converted_sessions",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "ANSI_SQL"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.session_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END)"
+              }
+            ]
+          },
+          {
+            "name": "paid_revenue",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "ANSI_SQL"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "SUM(CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.amount_eur END) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END)"
+              }
+            ]
+          },
+          {
+            "name": "paid_order_count",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "ANSI_SQL"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.order_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "orders",
+        "columns": [
+          {
+            "name": "order",
+            "sourceColumn": "order_id"
+          },
+          {
+            "name": "session",
+            "sourceColumn": "session_id"
+          },
+          {
+            "name": "session_date",
+            "sourceColumn": "session_date"
+          },
+          {
+            "name": "order_status",
+            "sourceColumn": "order_status"
+          },
+          {
+            "name": "converted_session_count",
+            "sourceColumn": "session_id"
+          },
+          {
+            "name": "order_count",
+            "sourceColumn": "order_id"
+          },
+          {
+            "name": "revenue",
+            "sourceColumn": "amount_eur"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "orders",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "orders",
+              "schemaName": "main",
+              "expressionSource": "DatabaseQuery"
+            }
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": [
+          "let",
+          "    Source = AzureStorage.DataLake(\"https://onelake.dfs.fabric.microsoft.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\")",
+          "in",
+          "    Source"
+        ]
+      }
+    ],
+    "culture": "en-US"
+  }
+}

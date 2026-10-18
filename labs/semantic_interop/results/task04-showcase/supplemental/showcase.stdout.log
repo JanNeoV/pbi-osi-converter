@@ -1,0 +1,14 @@
+Executing unchanged canonical MetricFlow benchmark
+Executing Power BI core and SWITCH round trips
+Executing Databricks native and cross-platform converter legs
+{
+  "output": "labs/semantic_interop/results/task04-showcase",
+  "native_gate": {
+    "dbt_build_exit_code": 0,
+    "oracle_reviewed_values_match": true,
+    "native_cases": 31,
+    "native_matches": 31,
+    "detected_failures": 5,
+    "accepted": true
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "date": "2026-10-18",
+  "branch": "research/semantic-interoperability-lab",
+  "head": "d44aabfd196a57b56afef4debec64bcc37a95c8a",
+  "accepted": true,
+  "pending": [],
+  "canonical_fixture": "labs/semantic_interop/fixtures/conversion_demo/",
+  "headline_metrics": [
+    "conversion_rate",
+    "paid_revenue"
+  ],
+  "canonical_data_unchanged": true,
+  "preservation_record": "preservation.json",
+  "historical_preservation_record": "task02-final.json",
+  "lab_tests": {
+    "command": ".tmp/semantic-lab-venv/Scripts/python.exe -m pytest -q labs/semantic_interop/tests --basetemp .tmp/pytest-task04-lab",
+    "exit_code": 0,
+    "passed": 78,
+    "log": "lab-regression.log"
+  },
+  "task02": {
+    "command_record": "task02-final-command.json",
+    "evidence": "task02-final.json",
+    "exit_code": 0,
+    "repeated_reports_equal": true
+  },
+  "metricflow": {
+    "command": ".tmp/semantic-lab-venv/Scripts/python.exe labs/semantic_interop/scripts/run_conversion_platforms.py --capture labs/semantic_interop/results/task04/metricflow",
+    "report": "metricflow/report.json",
+    "headline_native_matching_oracle": 11,
+    "headline_unchanged_roundtrip_executed": 0,
+    "roundtrip_blocker": "missing time spine; additional static entity/default/metric metadata loss",
+    "artifact_hashes_verified": 72
+  },
+  "powerbi": {
+    "command": ".tmp/semantic-lab-venv/Scripts/python.exe labs/semantic_interop/scripts/run_powerbi_showcase.py --output labs/semantic_interop/results/task04/powerbi-001",
+    "report": "powerbi-001/report.json",
+    "cases_completed": 2,
+    "bounded_checks_passed": [
+      9,
+      11
+    ],
+    "artifact_hashes_verified": 20,
+    "TOM": "NOT_EXECUTED",
+    "DAX": "NOT_EXECUTED",
+    "oracle_comparison": "NOT_EXECUTED"
+  },
+  "databricks": {
+    "exact_commands": "databricks/commands.json",
+    "report": "databricks/report.json",
+    "upstream_tests_passed": 100,
+    "export_exit_code": 0,
+    "import_exit_code": 0,
+    "artifact_hashes_verified": 16,
+    "engine_analysis": "NOT_EXECUTED",
+    "numerical_execution": "NOT_EXECUTED",
+    "oracle_comparison": "NOT_EXECUTED",
+    "blockers": [
+      "namespace binding",
+      "unresolved MetricFlow dimension tokens",
+      "missing session_month dimension",
+      "review/rework of native one-to-many aggregates across source predicates"
+    ]
+  },
+  "official_upstream_review": "upstream-review/review.json",
+  "baseline_packages_unchanged": true,
+  "initial_check_failures": {
+    "regressions-command.json": "Public checker rejected copied upstream package author emails and relative README links; raw documents moved to .tmp, source URL/hash review retained.",
+    "regressions-final-command.json": "Public checker ran while Databricks capture/report was still being built; final check to be rerun after all documents/captures exist.",
+    "task02-command.json": "New Power BI script changed provenance fingerprints during concurrent work; exact diff and stable retry retained.",
+    ".tmp/task04-public-final.log": "A pre-inventory public check found the validation link before file-changes.json had been written; the final post-inventory check resolves it."
+  },
+  "changed_file_inventory": "file-changes.json",
+  "pushed_merged_published_deployed": false,
+  "charlotte_ready_meaning": "Independent research handoff ready to reproduce conversion and continue; generated Databricks runtime is not certified.",
+  "public_repository_check": {
+    "command": ".tmp/semantic-lab-venv/Scripts/python.exe scripts/check_public_repository.py --after-demo",
+    "exit_code": 0,
+    "result": "PUBLIC_REPOSITORY_CHECK_ACCEPTED",
+    "log": "public-check.log",
+    "final_post_inventory_log_source": ".tmp/task04-public-sealed.log"
+  },
+  "git_whitespace_check": {
+    "command": "git diff --check",
+    "exit_code": 0
+  },
+  "parent_tests": {
+    "initial_command": ".tmp/semantic-lab-venv/Scripts/python.exe -m pytest -q -m \"not live_agent\" --basetemp .tmp/pytest-task04-parent",
+    "initial_exit_code": 1,
+    "initial_result": {
+      "passed": 162,
+      "failed": 3,
+      "skipped": 1
+    },
+    "initial_log": "parent-regression-initial.log",
+    "original_local_log": ".tmp/task04-parent.log",
+    "original_log_sha256": "0c4cf089a590223d476ca83bd509d962d929f0f61c4d65bef894f32e6add9fb6",
+    "published_log_redactions": "Local user-home and repository path tokens only; original log retained unchanged under .tmp.",
+    "diagnosis": "All three failed tests resolved the global semantic-agent entry point. No product-code failure or implementation change was required.",
+    "retry_commands": [
+      "parent-console-retry-command.json",
+      "parent-drift-retry-command.json"
+    ],
+    "retry_logs": [
+      "parent-console-retry.log",
+      "parent-drift-retry.log"
+    ],
+    "retry_PATH_prepend": ".tmp/semantic-lab-venv/Scripts",
+    "retry_passed": [
+      1,
+      2
+    ],
+    "aggregate": {
+      "distinct_passed": 165,
+      "skipped": 1,
+      "failed_remaining": 0
+    },
+    "boundary": "Full suite initially exited 1; all three failing cases passed in targeted retries with corrected PATH. No fresh full-suite exit-0 claim."
+  },
+  "charlotte_ready": "YES",
+  "remaining_databricks_prerequisites": [
+    "Java 21+ and Maven 3.6+ for a fresh offline build, or reuse the recorded isolated JDK/JAR; baseline environment remains unchanged.",
+    "Authorized Databricks workspace, Unity Catalog catalog/schema/volume and USE/CREATE TABLE/CREATE VIEW/SELECT/READ VOLUME plus upload privileges.",
+    "Spark notebook compute for the documented ingestion block and compatible SQL compute; generated native one-to-many joins require DBR 18.1+ or a verified compatible SQL warehouse.",
+    "Upload the exact canonical CSVs and create the dbt-equivalent sessions/orders source views.",
+    "Retain generated YAML unchanged; bind namespaces, resolve source tokens, add session_month, and review/rework cross-source native aggregates only in a separately labeled continuation, or execute the separately authored lane.",
+    "Run actual Databricks analyzer/queries and capture typed results for independent oracle comparison."
+  ],
+  "final_integrity_verification": {
+    "historical_files_unchanged": 1301,
+    "metricflow_report_artifact_hashes": 72,
+    "metricflow_supplemental_artifact_hashes": 77,
+    "powerbi_artifact_hashes": 20,
+    "databricks_artifact_hashes": 16,
+    "inventory_content_hashes_valid": true,
+    "missing_original_files": 0,
+    "git_diff_check_exit_code": 0
+  },
+  "changed_file_counts": {
+    "modified_existing_documentation_files": 5,
+    "added_files_including_sealed_evidence": 142
+  },
+  "git_status_boundary": "Branch and HEAD unchanged. Starting uncommitted Task03 work preserved; root README and public checker unchanged from Task04 start."
+}

@@ -1,0 +1,48 @@
+{
+  "direction": "Apache Ossie -> Databricks",
+  "source": "input.ossie.yml",
+  "target": "generated.metric-view.yml",
+  "conversion": "PASS",
+  "semantic_preservation": "MISMATCH",
+  "numerical_equivalence": "BLOCKED",
+  "structure_validation": {
+    "validation": "PASS",
+    "method": "YAML_MAPPING_ONLY; Databricks analyzer not executed"
+  },
+  "parse_error": null,
+  "command": {
+    "label": "from-ossie",
+    "command": [
+      "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+      "-jar",
+      "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+      "export",
+      "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\metricflow-to-databricks\\input.ossie.yml",
+      "-o",
+      "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\metricflow-to-databricks\\generated.metric-view.yml",
+      "--source",
+      "sessions"
+    ],
+    "cwd": "<repository>",
+    "exit_code": 0,
+    "stdout": "from-ossie.stdout.log",
+    "stderr": "from-ossie.stderr.log",
+    "execution_status": "EXECUTED",
+    "warnings": [
+      "Conversion notices (12):",
+      "  [field 'session_date'] dimension.is_time has no Metric View counterpart; dropped",
+      "  [field 'sales_channel'] dimension.is_time has no Metric View counterpart; dropped",
+      "  [field 'is_eligible'] dimension.is_time has no Metric View counterpart; dropped",
+      "  [field 'order'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+      "  [field 'session'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+      "  [field 'session_date'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+      "  [field 'order_status'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+      "  [field 'converted_session_count'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+      "  [field 'order_count'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+      "  [field 'revenue'] column on a one-to-many-joined table cannot be a dimension (must resolve to one value per source row); dropped",
+      "  [dataset 'sessions'] primary_key/unique_keys not stored as columns; used to set rely.at_most_one_match on a matching many_to_one join where applicable",
+      "  [dataset 'orders'] primary_key/unique_keys not stored as columns; used to set rely.at_most_one_match on a matching many_to_one join where applicable"
+    ]
+  },
+  "runtime_blocker": "No authorized Databricks workspace/SQL warehouse session is available. Metric View creation, analysis and MEASURE queries were not executed."
+}

@@ -1,0 +1,14 @@
+{
+  "sample_status": "NOT_VERIFIED",
+  "format": "TMSL candidate; no authored PBIP or report claimed working",
+  "data_origin": "Task03 fixtures/conversion_demo/data/{sessions,orders}.csv verbatim rows embedded as M #table",
+  "fixture_files": {
+    "sessions.csv": "648bd14ce8390ed7d1d2a83f39137e0846c0037cd92542ca6be41b8c8db80215",
+    "orders.csv": "2c501f5faac1c3b489aa469295cfdcea8a3ec09df6ba3496fe3640d6aaf08ba1"
+  },
+  "Desktop_open": "NOT_EXECUTED",
+  "TOM_validation": "NOT_EXECUTED",
+  "DAX_execution": "NOT_EXECUTED",
+  "credentials_required": false,
+  "changed_default": "Only Selected KPI SELECTEDVALUE alternate result and matching dynamic format SELECTEDVALUE alternate result changed from Conversion Rate to Paid Revenue"
+}

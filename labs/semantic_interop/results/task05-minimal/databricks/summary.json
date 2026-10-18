@@ -1,0 +1,13 @@
+{
+  "scope": "Two headline measures reduced from unchanged Task03 native model; official converters unmodified",
+  "baseline_paid_revenue": "390.00",
+  "include_refunded_paid_revenue": "440.00",
+  "conversion_rate": 0.4,
+  "databricks_roundtrip_definitions": "PASS",
+  "databricks_runtime": "NOT_EXECUTED",
+  "cross_platform_execution": "BLOCKED",
+  "cross_platform_definition_observations": {
+    "Power BI": "Both headline measures replaced with BLANK; DATABRICKS top-level eligibility extension dropped",
+    "MetricFlow": "SQL-query source split as a dotted relation; no eligible filter reconstructed; source expression copied as complex expression"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "provenance": "dbt-generated source manifest",
+  "elementary_relaxed_business_policy": false,
+  "include_refunded_revenue_only": true,
+  "comparisons": {
+    "paid_revenue__overall": {
+      "oracle": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "440.00"
+          ]
+        ]
+      },
+      "observed": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "440.00"
+          ]
+        ],
+        "sql": "-- Compute Metrics via Expressions\n-- Write to DataTable\nWITH sma_10002_cte AS (\n  -- Read Elements From Semantic Model 'sessions'\n  -- Metric Time Dimension 'session_date'\n  SELECT\n    session_id AS session\n    , is_eligible\n    , is_eligible AS session__is_eligible\n    , session_id AS __eligible_sessions\n  FROM \"benchmark\".\"main\".\"sessions\" sessions_src_10000\n)\n\nSELECT\n  paid_revenue_base + 0 * eligible_sessions AS paid_revenue\nFROM (\n  -- Combine Aggregated Outputs\n  SELECT\n    MAX(subq_10.paid_revenue_base) AS paid_revenue_base\n    , MAX(subq_16.eligible_sessions) AS eligible_sessions\n  FROM (\n    -- Constrain Output with WHERE\n    -- Select: ['__paid_revenue_base']\n    -- Aggregate Inputs for Simple Metrics\n    -- Compute Metrics via Expressions\n    SELECT\n      SUM(paid_revenue_base) AS paid_revenue_base\n    FROM (\n      -- Join Standard Outputs\n      -- Select: ['__paid_revenue_base', 'session__is_eligible', 'order__order_status']\n      SELECT\n        orders_src_10000.order_status AS order__order_status\n        , sma_10002_cte.is_eligible AS session__is_eligible\n        , orders_src_10000.amount_eur AS paid_revenue_base\n      FROM \"benchmark\".\"main\".\"orders\" orders_src_10000\n      LEFT OUTER JOIN\n        sma_10002_cte\n      ON\n        orders_src_10000.session_id = sma_10002_cte.session\n    ) subq_6\n    WHERE session__is_eligible = true AND order__order_status IN ('paid', 'refunded')\n  ) subq_10\n  CROSS JOIN (\n    -- Constrain Output with WHERE\n    -- Select: ['__eligible_sessions']\n    -- Aggregate Inputs for Simple Metrics\n    -- Compute Metrics via Expressions\n    SELECT\n      COUNT(DISTINCT eligible_sessions) AS eligible_sessions\n    FROM (\n      -- Read From CTE For node_id=sma_10002\n      -- Select: ['__eligible_sessions', 'session__is_eligible']\n      SELECT\n        session__is_eligible\n        , __eligible_sessions AS eligible_sessions\n      FROM sma_10002_cte\n    ) subq_12\n    WHERE session__is_eligible = true\n  ) subq_16\n) subq_17"
+      },
+      "equal": true
+    },
+    "conversion_rate__overall": {
+      "oracle": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            0.4
+          ]
+        ]
+      },
+      "observed": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            0.4
+          ]
+        ],
+        "sql": "-- Combine Aggregated Outputs\n-- Compute Metrics via Expressions\n-- Write to DataTable\nWITH sma_10002_cte AS (\n  -- Read Elements From Semantic Model 'sessions'\n  -- Metric Time Dimension 'session_date'\n  SELECT\n    session_id AS session\n    , is_eligible\n    , is_eligible AS session__is_eligible\n    , session_id AS __eligible_sessions\n  FROM \"benchmark\".\"main\".\"sessions\" sessions_src_10000\n)\n\n, cm_5_cte AS (\n  -- Constrain Output with WHERE\n  -- Select: ['__eligible_sessions']\n  -- Aggregate Inputs for Simple Metrics\n  -- Compute Metrics via Expressions\n  SELECT\n    COUNT(DISTINCT eligible_sessions) AS eligible_sessions\n  FROM (\n    -- Read From CTE For node_id=sma_10002\n    -- Select: ['__eligible_sessions', 'session__is_eligible']\n    SELECT\n      session__is_eligible\n      , __eligible_sessions AS eligible_sessions\n    FROM sma_10002_cte\n  ) subq_12\n  WHERE session__is_eligible = true\n)\n\nSELECT\n  CAST(MAX(subq_18.converted_sessions) AS DOUBLE) / CAST(NULLIF(MAX(cm_5_cte.eligible_sessions), 0) AS DOUBLE) AS conversion_rate\nFROM (\n  -- Compute Metrics via Expressions\n  SELECT\n    COALESCE(converted_sessions_base, 0) + 0 * eligible_sessions AS converted_sessions\n  FROM (\n    -- Combine Aggregated Outputs\n    SELECT\n      MAX(subq_10.converted_sessions_base) AS converted_sessions_base\n      , MAX(cm_5_cte.eligible_sessions) AS eligible_sessions\n    FROM (\n      -- Constrain Output with WHERE\n      -- Select: ['__converted_sessions_base']\n      -- Aggregate Inputs for Simple Metrics\n      -- Compute Metrics via Expressions\n      SELECT\n        COUNT(DISTINCT converted_sessions_base) AS converted_sessions_base\n      FROM (\n        -- Join Standard Outputs\n        -- Select: ['__converted_sessions_base', 'session__is_eligible', 'order__order_status']\n        SELECT\n          orders_src_10000.order_status AS order__order_status\n          , sma_10002_cte.is_eligible AS session__is_eligible\n          , orders_src_10000.session_id AS converted_sessions_base\n        FROM \"benchmark\".\"main\".\"orders\" orders_src_10000\n        LEFT OUTER JOIN\n          sma_10002_cte\n        ON\n          orders_src_10000.session_id = sma_10002_cte.session\n      ) subq_6\n      WHERE session__is_eligible = true AND order__order_status = 'paid'\n    ) subq_10\n    CROSS JOIN\n      cm_5_cte\n  ) subq_17\n) subq_18\nCROSS JOIN\n  cm_5_cte"
+      },
+      "equal": true
+    },
+    "paid_revenue__channel": {
+      "oracle": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "Indirect",
+            "140.00"
+          ],
+          [
+            "Direct",
+            "300.00"
+          ]
+        ]
+      },
+      "observed": {
+        "columns": [
+          "session__sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            "Direct",
+            "300.00"
+          ],
+          [
+            "Indirect",
+            "140.00"
+          ]
+        ],
+        "sql": "-- Compute Metrics via Expressions\n-- Write to DataTable\nWITH sma_10002_cte AS (\n  -- Read Elements From Semantic Model 'sessions'\n  -- Metric Time Dimension 'session_date'\n  SELECT\n    session_id AS session\n    , sales_channel\n    , is_eligible\n    , sales_channel AS session__sales_channel\n    , is_eligible AS session__is_eligible\n    , session_id AS __eligible_sessions\n  FROM \"benchmark\".\"main\".\"sessions\" sessions_src_10000\n)\n\nSELECT\n  session__sales_channel AS session__sales_channel\n  , paid_revenue_base + 0 * eligible_sessions AS paid_revenue\nFROM (\n  -- Combine Aggregated Outputs\n  SELECT\n    COALESCE(subq_10.session__sales_channel, subq_16.session__sales_channel) AS session__sales_channel\n    , MAX(subq_10.paid_revenue_base) AS paid_revenue_base\n    , MAX(subq_16.eligible_sessions) AS eligible_sessions\n  FROM (\n    -- Constrain Output with WHERE\n    -- Select: ['__paid_revenue_base', 'session__sales_channel']\n    -- Aggregate Inputs for Simple Metrics\n    -- Compute Metrics via Expressions\n    SELECT\n      session__sales_channel\n      , SUM(paid_revenue_base) AS paid_revenue_base\n    FROM (\n      -- Join Standard Outputs\n      -- Select: ['__paid_revenue_base', 'session__sales_channel', 'session__is_eligible', 'order__order_status']\n      SELECT\n        orders_src_10000.order_status AS order__order_status\n        , sma_10002_cte.sales_channel AS session__sales_channel\n        , sma_10002_cte.is_eligible AS session__is_eligible\n        , orders_src_10000.amount_eur AS paid_revenue_base\n      FROM \"benchmark\".\"main\".\"orders\" orders_src_10000\n      LEFT OUTER JOIN\n        sma_10002_cte\n      ON\n        orders_src_10000.session_id = sma_10002_cte.session\n    ) subq_6\n    WHERE session__is_eligible = true AND order__order_status IN ('paid', 'refunded')\n    GROUP BY\n      session__sales_channel\n  ) subq_10\n  FULL OUTER JOIN (\n    -- Constrain Output with WHERE\n    -- Select: ['__eligible_sessions', 'session__sales_channel']\n    -- Aggregate Inputs for Simple Metrics\n    -- Compute Metrics via Expressions\n    SELECT\n      session__sales_channel\n      , COUNT(DISTINCT eligible_sessions) AS eligible_sessions\n    FROM (\n      -- Read From CTE For node_id=sma_10002\n      -- Select: ['__eligible_sessions', 'session__sales_channel', 'session__is_eligible']\n      SELECT\n        session__sales_channel\n        , session__is_eligible\n        , __eligible_sessions AS eligible_sessions\n      FROM sma_10002_cte\n    ) subq_12\n    WHERE session__is_eligible = true\n    GROUP BY\n      session__sales_channel\n  ) subq_16\n  ON\n    subq_10.session__sales_channel = subq_16.session__sales_channel\n  GROUP BY\n    COALESCE(subq_10.session__sales_channel, subq_16.session__sales_channel)\n) subq_17"
+      },
+      "equal": true
+    },
+    "conversion_rate__channel": {
+      "oracle": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            "Direct",
+            0.5
+          ],
+          [
+            "Indirect",
+            0.25
+          ]
+        ]
+      },
+      "observed": {
+        "columns": [
+          "session__sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            "Indirect",
+            0.25
+          ],
+          [
+            "Direct",
+            0.5
+          ]
+        ],
+        "sql": "-- Compute Metrics via Expressions\n-- Write to DataTable\nWITH sma_10002_cte AS (\n  -- Read Elements From Semantic Model 'sessions'\n  -- Metric Time Dimension 'session_date'\n  SELECT\n    session_id AS session\n    , sales_channel\n    , is_eligible\n    , sales_channel AS session__sales_channel\n    , is_eligible AS session__is_eligible\n    , session_id AS __eligible_sessions\n  FROM \"benchmark\".\"main\".\"sessions\" sessions_src_10000\n)\n\n, cm_5_cte AS (\n  -- Constrain Output with WHERE\n  -- Select: ['__eligible_sessions', 'session__sales_channel']\n  -- Aggregate Inputs for Simple Metrics\n  -- Compute Metrics via Expressions\n  SELECT\n    session__sales_channel\n    , COUNT(DISTINCT eligible_sessions) AS eligible_sessions\n  FROM (\n    -- Read From CTE For node_id=sma_10002\n    -- Select: ['__eligible_sessions', 'session__sales_channel', 'session__is_eligible']\n    SELECT\n      session__sales_channel\n      , session__is_eligible\n      , __eligible_sessions AS eligible_sessions\n    FROM sma_10002_cte\n  ) subq_12\n  WHERE session__is_eligible = true\n  GROUP BY\n    session__sales_channel\n)\n\nSELECT\n  session__sales_channel AS session__sales_channel\n  , CAST(converted_sessions AS DOUBLE) / CAST(NULLIF(eligible_sessions, 0) AS DOUBLE) AS conversion_rate\nFROM (\n  -- Combine Aggregated Outputs\n  SELECT\n    COALESCE(subq_18.session__sales_channel, cm_5_cte.session__sales_channel) AS session__sales_channel\n    , MAX(subq_18.converted_sessions) AS converted_sessions\n    , MAX(cm_5_cte.eligible_sessions) AS eligible_sessions\n  FROM (\n    -- Compute Metrics via Expressions\n    SELECT\n      session__sales_channel\n      , COALESCE(converted_sessions_base, 0) + 0 * eligible_sessions AS converted_sessions\n    FROM (\n      -- Combine Aggregated Outputs\n      SELECT\n        COALESCE(subq_10.session__sales_channel, cm_5_cte.session__sales_channel) AS session__sales_channel\n        , MAX(subq_10.converted_sessions_base) AS converted_sessions_base\n        , MAX(cm_5_cte.eligible_sessions) AS eligible_sessions\n      FROM (\n        -- Constrain Output with WHERE\n        -- Select: ['__converted_sessions_base', 'session__sales_channel']\n        -- Aggregate Inputs for Simple Metrics\n        -- Compute Metrics via Expressions\n        SELECT\n          session__sales_channel\n          , COUNT(DISTINCT converted_sessions_base) AS converted_sessions_base\n        FROM (\n          -- Join Standard Outputs\n          -- Select: ['__converted_sessions_base', 'session__sales_channel', 'session__is_eligible', 'order__order_status']\n          SELECT\n            orders_src_10000.order_status AS order__order_status\n            , sma_10002_cte.sales_channel AS session__sales_channel\n            , sma_10002_cte.is_eligible AS session__is_eligible\n            , orders_src_10000.session_id AS converted_sessions_base\n          FROM \"benchmark\".\"main\".\"orders\" orders_src_10000\n          LEFT OUTER JOIN\n            sma_10002_cte\n          ON\n            orders_src_10000.session_id = sma_10002_cte.session\n        ) subq_6\n        WHERE session__is_eligible = true AND order__order_status = 'paid'\n        GROUP BY\n          session__sales_channel\n      ) subq_10\n      FULL OUTER JOIN\n        cm_5_cte\n      ON\n        subq_10.session__sales_channel = cm_5_cte.session__sales_channel\n      GROUP BY\n        COALESCE(subq_10.session__sales_channel, cm_5_cte.session__sales_channel)\n    ) subq_17\n  ) subq_18\n  FULL OUTER JOIN\n    cm_5_cte\n  ON\n    subq_18.session__sales_channel = cm_5_cte.session__sales_channel\n  GROUP BY\n    COALESCE(subq_18.session__sales_channel, cm_5_cte.session__sales_channel)\n) subq_20"
+      },
+      "equal": true
+    }
+  }
+}

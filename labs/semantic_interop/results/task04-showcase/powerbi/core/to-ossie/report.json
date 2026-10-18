@@ -1,0 +1,76 @@
+{
+  "artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\core\\to-ossie\\output.ossie.yml",
+  "artifact_sha256": "c83fd052aececed1b56ce1031443bd7b7f5dd7ae775aeffeedbfc7e740f5ef04",
+  "conversion": "PASS",
+  "converter": {
+    "commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+    "distributions": {
+      "apache-ossie": {
+        "direct_url": {
+          "subdirectory": "python",
+          "url": "https://github.com/apache/ossie.git",
+          "vcs_info": {
+            "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "vcs": "git"
+          }
+        },
+        "version": "0.2.0.dev0"
+      },
+      "apache-ossie-microsoft": {
+        "direct_url": {
+          "subdirectory": "converters/microsoft",
+          "url": "https://github.com/apache/ossie.git",
+          "vcs_info": {
+            "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "vcs": "git"
+          }
+        },
+        "version": "0.2.0.dev0"
+      }
+    },
+    "installed_converter_sha256": {
+      "__init__.py": "2befa65ed0de85b719847947ae2f85ec84e2b437ecb708cfd1e6d41c1d982787",
+      "_common.py": "f0361c7c0b8ee930e3e6257cdf9f21a97d7a5f9c8efe01661ea71f4106b79b09",
+      "_sql_to_dax.py": "797168011bfcc798b4a44e824c53b7fa01d653cf760642e7102794e7281f623f",
+      "cli.py": "0c44036bb510b82a308b47ba7777af5bef91f13fd5da2dc4becd85d44b97dfbf",
+      "engine.py": "6896667cb32608e3b2b85744ccd97fb09d9647a1f5086e545e6afaedab7e1a4e",
+      "ossie_to_semantic_model.py": "fdefffef8680a72d7e65e2da70889d596e9c062de95563706b7c155f03d57cd8",
+      "semantic_model_to_ossie.py": "cdfa0345efd2e956addb3f01a164733f1bf3c42a631f653d5eaf367d3a33e87f",
+      "tom.py": "4bdc6678266cecffc7592e86fef90c59c2cf5969f6a2da0e237efbfadfccd1ff"
+    },
+    "official_source": "https://github.com/apache/ossie/tree/6ebc5e5612467dac405985f44ea078b39c891bee/converters/microsoft",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "direction": "to-ossie",
+  "input_artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\core\\to-ossie\\input.model.bim",
+  "metric_dialects": {
+    "Conversion Rate": [
+      "DAX"
+    ],
+    "Converted Sessions": [
+      "DAX"
+    ],
+    "Eligible Sessions": [
+      "DAX"
+    ],
+    "Paid Revenue": [
+      "DAX"
+    ]
+  },
+  "numerical_equivalence": "NOT_EXECUTED",
+  "official_call": "ossie_microsoft.convert_semantic_model_to_ossie(source_json)",
+  "ossie_structure": "PASS",
+  "power_bi_vendor_extension_present": true,
+  "semantic_preservation": "UNKNOWN",
+  "semantic_scope": "Only directly inspected converter behavior; no target-engine execution.",
+  "source": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\powerbi\\core\\source.model.bim",
+  "source_sha256": "10aadb5bc1d2b3f75fda23ed45bca5ca77647ba2271f980e5ea0015bb17c9ad6",
+  "warnings": [
+    {
+      "category": "UserWarning",
+      "message": "[model] shared Power Query expressions and parameters ('expressions') has no Apache Ossie counterpart; preserved in the Power BI stash for round trip, but not represented in the Apache Ossie document"
+    }
+  ]
+}

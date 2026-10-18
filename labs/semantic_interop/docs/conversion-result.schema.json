@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Conversion teaching demo comparison record",
+  "description": "Small fixture-specific envelope reusing the lab's typed tables and comparison object. It is not the historical research report schema.",
+  "type": "object",
+  "required": ["case_id", "business_question", "source_platform", "target_platform", "conversion_path", "execution_status", "semantic_status", "oracle_result", "target_result", "comparison_result", "evidence_reference"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "business_question": {"type": "string"},
+    "source_platform": {"type": "string"},
+    "target_platform": {"type": "string"},
+    "conversion_path": {"type": "string"},
+    "execution_status": {"enum": ["EXECUTED", "NOT_EXECUTED"]},
+    "semantic_status": {"enum": ["BOUNDED_MATCH", "INJECTED_FAILURE", "LOSS_DETECTED", "UNKNOWN"]},
+    "oracle_result": {"type": "object", "required": ["columns", "rows"]},
+    "target_result": {"type": ["object", "null"]},
+    "comparison_result": {"type": ["object", "null"]},
+    "evidence_reference": {"type": "array", "items": {"type": "string"}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"execution_status": {"const": "NOT_EXECUTED"}}},
+      "then": {"properties": {"target_result": {"type": "null"}, "comparison_result": {"type": "null"}}}
+    },
+    {
+      "if": {"properties": {"semantic_status": {"const": "BOUNDED_MATCH"}}},
+      "then": {"properties": {"execution_status": {"const": "EXECUTED"}, "comparison_result": {"type": "object", "required": ["equal"], "properties": {"equal": {"const": true}}}}}
+    }
+  ]
+}

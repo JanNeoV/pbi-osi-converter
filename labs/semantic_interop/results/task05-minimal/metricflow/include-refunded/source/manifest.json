@@ -1,0 +1,473 @@
+{
+  "semantic_models": [
+    {
+      "name": "sessions",
+      "defaults": {
+        "agg_time_dimension": "session_date"
+      },
+      "node_relation": {
+        "alias": "sessions",
+        "schema_name": "main",
+        "database": "benchmark",
+        "relation_name": "\"benchmark\".\"main\".\"sessions\""
+      },
+      "entities": [
+        {
+          "name": "session",
+          "type": "primary",
+          "expr": "session_id",
+          "config": {
+            "meta": {}
+          }
+        }
+      ],
+      "measures": [
+        {
+          "name": "session_count",
+          "agg": "count_distinct",
+          "create_metric": false,
+          "expr": "session_id",
+          "config": {
+            "meta": {}
+          }
+        }
+      ],
+      "dimensions": [
+        {
+          "name": "session_date",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          },
+          "config": {
+            "meta": {}
+          }
+        },
+        {
+          "name": "sales_channel",
+          "type": "categorical",
+          "is_partition": false,
+          "config": {
+            "meta": {}
+          }
+        },
+        {
+          "name": "is_eligible",
+          "type": "categorical",
+          "is_partition": false,
+          "config": {
+            "meta": {}
+          }
+        }
+      ],
+      "config": {
+        "meta": {}
+      }
+    },
+    {
+      "name": "orders",
+      "defaults": {
+        "agg_time_dimension": "session_date"
+      },
+      "node_relation": {
+        "alias": "orders",
+        "schema_name": "main",
+        "database": "benchmark",
+        "relation_name": "\"benchmark\".\"main\".\"orders\""
+      },
+      "entities": [
+        {
+          "name": "order",
+          "type": "primary",
+          "expr": "order_id",
+          "config": {
+            "meta": {}
+          }
+        },
+        {
+          "name": "session",
+          "type": "foreign",
+          "expr": "session_id",
+          "config": {
+            "meta": {}
+          }
+        }
+      ],
+      "measures": [
+        {
+          "name": "converted_session_count",
+          "agg": "count_distinct",
+          "create_metric": false,
+          "expr": "session_id",
+          "config": {
+            "meta": {}
+          }
+        },
+        {
+          "name": "order_count",
+          "agg": "count_distinct",
+          "create_metric": false,
+          "expr": "order_id",
+          "config": {
+            "meta": {}
+          }
+        },
+        {
+          "name": "revenue",
+          "agg": "sum",
+          "create_metric": false,
+          "expr": "amount_eur",
+          "config": {
+            "meta": {}
+          }
+        }
+      ],
+      "dimensions": [
+        {
+          "name": "session_date",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          },
+          "config": {
+            "meta": {}
+          }
+        },
+        {
+          "name": "order_status",
+          "type": "categorical",
+          "is_partition": false,
+          "config": {
+            "meta": {}
+          }
+        }
+      ],
+      "config": {
+        "meta": {}
+      }
+    }
+  ],
+  "metrics": [
+    {
+      "name": "eligible_sessions",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "measure": {
+          "name": "session_count",
+          "join_to_timespine": false
+        },
+        "expr": "session_id",
+        "metrics": [],
+        "input_measures": [
+          {
+            "name": "session_count",
+            "join_to_timespine": false
+          }
+        ],
+        "metric_aggregation_params": {
+          "semantic_model": "sessions",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false
+      },
+      "filter": {
+        "where_filters": [
+          {
+            "where_sql_template": "{{ Dimension('session__is_eligible') }} = true"
+          }
+        ]
+      },
+      "label": "Eligible Sessions",
+      "config": {
+        "meta": {}
+      }
+    },
+    {
+      "name": "converted_sessions_base",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "measure": {
+          "name": "converted_session_count",
+          "join_to_timespine": false
+        },
+        "expr": "session_id",
+        "metrics": [],
+        "input_measures": [
+          {
+            "name": "converted_session_count",
+            "join_to_timespine": false
+          }
+        ],
+        "metric_aggregation_params": {
+          "semantic_model": "orders",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false
+      },
+      "filter": {
+        "where_filters": [
+          {
+            "where_sql_template": "{{ Dimension('session__is_eligible') }} = true AND {{ Dimension('order__order_status') }} = 'paid'"
+          }
+        ]
+      },
+      "label": "Converted Sessions (base)",
+      "config": {
+        "meta": {}
+      }
+    },
+    {
+      "name": "paid_revenue_base",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "measure": {
+          "name": "revenue",
+          "join_to_timespine": false
+        },
+        "expr": "amount_eur",
+        "metrics": [],
+        "input_measures": [
+          {
+            "name": "revenue",
+            "join_to_timespine": false
+          }
+        ],
+        "metric_aggregation_params": {
+          "semantic_model": "orders",
+          "agg": "sum"
+        },
+        "join_to_timespine": false
+      },
+      "filter": {
+        "where_filters": [
+          {
+            "where_sql_template": "{{ Dimension('session__is_eligible') }} = true AND {{ Dimension('order__order_status') }} IN ('paid', 'refunded')"
+          }
+        ]
+      },
+      "label": "Paid Revenue (session cohort) (base)",
+      "config": {
+        "meta": {}
+      }
+    },
+    {
+      "name": "paid_order_count_base",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "measure": {
+          "name": "order_count",
+          "join_to_timespine": false
+        },
+        "expr": "order_id",
+        "metrics": [],
+        "input_measures": [
+          {
+            "name": "order_count",
+            "join_to_timespine": false
+          }
+        ],
+        "metric_aggregation_params": {
+          "semantic_model": "orders",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false
+      },
+      "filter": {
+        "where_filters": [
+          {
+            "where_sql_template": "{{ Dimension('session__is_eligible') }} = true AND {{ Dimension('order__order_status') }} = 'paid'"
+          }
+        ]
+      },
+      "label": "Paid Order Count (base)",
+      "config": {
+        "meta": {}
+      }
+    },
+    {
+      "name": "conversion_rate",
+      "description": "",
+      "type": "ratio",
+      "type_params": {
+        "numerator": {
+          "name": "converted_sessions"
+        },
+        "denominator": {
+          "name": "eligible_sessions"
+        },
+        "metrics": [],
+        "input_measures": [
+          {
+            "name": "converted_session_count",
+            "join_to_timespine": false
+          },
+          {
+            "name": "session_count",
+            "join_to_timespine": false
+          }
+        ],
+        "join_to_timespine": false
+      },
+      "label": "Conversion Rate",
+      "config": {
+        "meta": {}
+      }
+    },
+    {
+      "name": "average_paid_order_value",
+      "description": "",
+      "type": "ratio",
+      "type_params": {
+        "numerator": {
+          "name": "paid_revenue"
+        },
+        "denominator": {
+          "name": "paid_order_count"
+        },
+        "metrics": [],
+        "input_measures": [
+          {
+            "name": "revenue",
+            "join_to_timespine": false
+          },
+          {
+            "name": "session_count",
+            "join_to_timespine": false
+          },
+          {
+            "name": "order_count",
+            "join_to_timespine": false
+          }
+        ],
+        "join_to_timespine": false
+      },
+      "label": "Average Paid Order Value",
+      "config": {
+        "meta": {}
+      }
+    },
+    {
+      "name": "converted_sessions",
+      "description": "",
+      "type": "derived",
+      "type_params": {
+        "expr": "COALESCE(converted_sessions_base, 0) + 0 * eligible_sessions",
+        "metrics": [
+          {
+            "name": "converted_sessions_base"
+          },
+          {
+            "name": "eligible_sessions"
+          }
+        ],
+        "input_measures": [
+          {
+            "name": "converted_session_count",
+            "join_to_timespine": false
+          },
+          {
+            "name": "session_count",
+            "join_to_timespine": false
+          }
+        ],
+        "join_to_timespine": false
+      },
+      "label": "Converted Sessions",
+      "config": {
+        "meta": {}
+      }
+    },
+    {
+      "name": "paid_revenue",
+      "description": "",
+      "type": "derived",
+      "type_params": {
+        "expr": "paid_revenue_base + 0 * eligible_sessions",
+        "metrics": [
+          {
+            "name": "paid_revenue_base"
+          },
+          {
+            "name": "eligible_sessions"
+          }
+        ],
+        "input_measures": [
+          {
+            "name": "revenue",
+            "join_to_timespine": false
+          },
+          {
+            "name": "session_count",
+            "join_to_timespine": false
+          }
+        ],
+        "join_to_timespine": false
+      },
+      "label": "Paid Revenue",
+      "config": {
+        "meta": {}
+      }
+    },
+    {
+      "name": "paid_order_count",
+      "description": "",
+      "type": "derived",
+      "type_params": {
+        "expr": "COALESCE(paid_order_count_base, 0) + 0 * eligible_sessions",
+        "metrics": [
+          {
+            "name": "paid_order_count_base"
+          },
+          {
+            "name": "eligible_sessions"
+          }
+        ],
+        "input_measures": [
+          {
+            "name": "order_count",
+            "join_to_timespine": false
+          },
+          {
+            "name": "session_count",
+            "join_to_timespine": false
+          }
+        ],
+        "join_to_timespine": false
+      },
+      "label": "Paid Order Count",
+      "config": {
+        "meta": {}
+      }
+    }
+  ],
+  "project_configuration": {
+    "time_spine_table_configurations": [],
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "time_spines": [
+      {
+        "node_relation": {
+          "alias": "time_spine",
+          "schema_name": "main",
+          "database": "benchmark",
+          "relation_name": "\"benchmark\".\"main\".\"time_spine\""
+        },
+        "primary_column": {
+          "name": "date_day",
+          "time_granularity": "day"
+        },
+        "custom_granularities": []
+      }
+    ]
+  },
+  "saved_queries": []
+}

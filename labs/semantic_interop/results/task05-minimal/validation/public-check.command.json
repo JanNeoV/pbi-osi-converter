@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "scripts/check_public_repository.py",
+    "--after-demo"
+  ],
+  "cwd": "C:\\github\\pbi-osi-converter",
+  "started_at_utc": "2026-10-18T09:36:06.863837+00:00",
+  "completed_at_utc": "2026-10-18T09:36:28.298274+00:00",
+  "exit_code": 0,
+  "stdout": "public-check.stdout.log",
+  "stderr": "public-check.stderr.log"
+}

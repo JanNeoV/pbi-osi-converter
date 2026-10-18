@@ -1,0 +1,9 @@
+CHECK: scripts/check_public_repository.py
+PUBLICATION_CHECK_FAILED: email address: labs/semantic_interop/results/task04/upstream-review/53418ba8a4b8-converters_dbt_pyproject.toml
+PUBLICATION_CHECK_FAILED: email address: labs/semantic_interop/results/task04/upstream-review/53418ba8a4b8-converters_microsoft_pyproject.toml
+PUBLICATION_CHECK_FAILED: email address: labs/semantic_interop/results/task04/upstream-review/53418ba8a4b8-python_pyproject.toml
+PUBLICATION_CHECK_FAILED: email address: labs/semantic_interop/results/task04/upstream-review/6ebc5e561246-converters_dbt_pyproject.toml
+PUBLICATION_CHECK_FAILED: email address: labs/semantic_interop/results/task04/upstream-review/6ebc5e561246-converters_microsoft_pyproject.toml
+PUBLICATION_CHECK_FAILED: email address: labs/semantic_interop/results/task04/upstream-review/6ebc5e561246-python_pyproject.toml
+PUBLICATION_CHECK_FAILED: Broken local link in labs/semantic_interop/results/task04/upstream-review/53418ba8a4b8-converters_microsoft_README.md: ../README.md
+PUBLICATION_CHECK_FAILED: Broken local link in labs/semantic_interop/results/task04/upstream-review/6ebc5e561246-converters_microsoft_README.md: ../README.md

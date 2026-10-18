@@ -1,0 +1,13 @@
+{
+  "columns": [
+    "revenue"
+  ],
+  "rows": [
+    [
+      {
+        "type": "decimal",
+        "value": "50.30"
+      }
+    ]
+  ]
+}

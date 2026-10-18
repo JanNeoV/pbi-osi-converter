@@ -1,0 +1,891 @@
+{
+  "relative_to": "repository root",
+  "baseline": "labs/semantic_interop/results/task04/baseline.json",
+  "modified_original_files": 5,
+  "added_files": 142,
+  "note": "Inventory and final validation metadata intentionally have no self/cyclic content hash. Converter artifacts are independently bound by report manifests. Runtime builds/tools remain under ignored .tmp.",
+  "changes": [
+    {
+      "path": "labs/semantic_interop/README.md",
+      "change": "MODIFIED",
+      "before_sha256": "b2ca29d7ce0b3d4a66ee8aa26f1148966902ca99a8f7b3c230c6eba8ec78d15e",
+      "after_sha256": "972b8e686aa8dfaf5ec3b9914da33e6ba96ee279916eb2360cb8f4cf24075202"
+    },
+    {
+      "path": "labs/semantic_interop/docs/CONVERSION_ARTICLE_DRAFT.md",
+      "change": "MODIFIED",
+      "before_sha256": "26589457321747bf29028c0f2c29a70dfa280e7027dc31877c28330deb94288e",
+      "after_sha256": "a36b0645be8c9800f5afb7c2f28f062a59808d82e3169b1c9c68c1fbb0d9d3c9"
+    },
+    {
+      "path": "labs/semantic_interop/docs/CONVERSION_DEMO.md",
+      "change": "MODIFIED",
+      "before_sha256": "29b48f741d8d34f9c33d2370ec8fa5e76c164baad8e2967e962b3c39eb3b0a6b",
+      "after_sha256": "c39efa3571a0431554789ee7d96dfdec9da8a4b9071547cf4ce004cd019d1bdd"
+    },
+    {
+      "path": "labs/semantic_interop/docs/DATABRICKS_HANDOFF.md",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "f31a91ea9ae7f1e72f6ed80d405243309de2c3e369aaa2a98905c502dac0d742"
+    },
+    {
+      "path": "labs/semantic_interop/docs/TASK03_VALIDATION.md",
+      "change": "MODIFIED",
+      "before_sha256": "2d0f0de3d42b7dcbeeedbebde7c2f4ac5a3e479123fd4ca10777124db92a4b90",
+      "after_sha256": "9064b3dbc605be8aa7785aa2a9c3d641f892357d2bbead84384869e6541a2cd3"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/README.md",
+      "change": "MODIFIED",
+      "before_sha256": "3f69f64ab19b8e43b121a2e98695419a0f7f9af143803c0257080f02b800f82e",
+      "after_sha256": "b639603ea1336a2d2d0bfd37a8fe44d1fe6773285d4934eb12aebc839db69769"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/validate-task04.dax",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "8587a3c8e42e32a431abd35d89af3decc679612594630d4928907c1dc9befb34"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/baseline.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "2dac051d413b36837d92f5e5248c6999b29034edad6d8d7adc9669d1381e8397"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stderr.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/build.stdout.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "437707f4029af9739da7e726eccbb4f9fc7f38b1f50d553c78a05858c7129488"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/commands.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "a408a20d6e2aa7b750d50784046d61bb44680ae81590b6ba90f2ed754001a8e1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/export.stderr.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "ccd6216f84aad70d3340e2d67402bd0f13267ffd94e16ac671cd1d3a3168abc0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/export.stdout.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/generated.metric-view.yml",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "68a0141b3c9979dcac82f4934a043f77807800a63fdf254191805799b273a03a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/import.stderr.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/import.stdout.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/input.ossie.yml",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "903a98b9e95c30632bd63fb670e507f4e0eab1cbb62e1a35744ce5332c200360"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/java-version.stderr.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "c09b3f6e7993628681d0f0e0fdfa12ccbfef6d7798ad260ec13807486db8b267"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/java-version.stdout.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/maven-version.stderr.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/maven-version.stdout.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "06e787908c2fbd7901114bc76ee948f027e2afed79427ad9eda720c44423e327"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/reimported.ossie.yml",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "35fadee0a2764f2b2749cfb4fdbbe4ff48175a6d7277fe08ab1445c6eba4440b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/report.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "75884ea9e2bfb6c8672a80d8c57a6b84c359d502eddae300b5e47c2255044d7b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/source-provenance.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "a7e8ace0d05f91c91c005fac47a4cd7829227c16c8eb0cc7ae94d81fe64b85b8"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/databricks/structure-validation.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "0bdac42c0cce09ab27da16e1ff9f267488b8d81ff6d88332bdea599fdde715ae"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/lab-regression.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "348f3094d47e8ec864d58b4494827da4373393fafd45bc629b4a86f0c1fe88d1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/console.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "339ec197f9a1259d7c8458b56953aba55ddd28da24be6198fb0be25210168a60"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/dbt-build.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "8ba16328681bf02a2a2c8927d5375ddcce8ce482d8e2ce844dfed984ef24ce32"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/evidence-hashes.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "510001b0e35b39088a4424a17e22d9f42237670705d0c3ef9a7ec21808b054c1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/failures/average_of_rates.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "b28ab0e6dbdcbf86c526c9df5d77c9f91f2df3e019719f00b534609be0ab67a7"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/failures/incorrect_conversion.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "f2f6b92e3fa3a5493943773e06b5482ed4a9bcec73913cbfdf3c1ad2353fb41b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/failures/inner_join.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "df5091a4f428c1193b6a08c3af68cfc8bc89c6145cca005e16741a24369bbf22"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/failures/removed_channel_filter.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "4e47e3ea13ce11e715c30c003147ac6dc284b33f2dacdde27d412323b89493b4"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/failures/wrong_denominator.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "cd4e1a9e22b8f54f22ae9840dfe41129019d3b00276551cb8271545b1541981b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/headline-summary.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "8c79b492181fc06369034fdf883a1c08a199b8bbead790e3d771879b7641f6ca"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/average_paid_order_value__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "cc6460b2c3cecc415097f47ca6509ccc9928d1fd700e846b7efb1d6d19142b1c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/average_paid_order_value__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "39fb5bec0c1d7cb7efbb74f3bae2d00e8ee1d26729249edb1f6709114759d811"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/average_paid_order_value__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "4942be2f4bf5b60f280fd3b6feabb942a73803bad713f3aad6a18dbde881c23d"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/average_paid_order_value__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "2406b510bac9d3df823c312f1f1b94978cdd18e253defa985fca5d31cd818502"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/average_paid_order_value__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "dff5ec57cee0ad54dfd9b5522ff6231c91c67cfed2761483cb75786066ffe8af"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/conversion_rate__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "26b008fafd31d5ca21d13366e7378dab9fe9c8deb3ed7093abad0a745659273b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/conversion_rate__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "d44bab5e31bbac7db4a3f6ffd847f0f97769f89c3058f01103415d51a52d250a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/conversion_rate__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "4573fb5cf49b4baf156ff8314fedaa032a1a3d10705e559c453cdd334067dce5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/conversion_rate__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "85cc901ccf8033135ab8effa0ce5770ff71e88ea354570caf79e76950b9f03a2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/conversion_rate__nonconverting.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "c7390333660007463c1bf33e8da6b5f0087c9391e8897f825a23342e1c939de5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/conversion_rate__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "7b6b4ad718bbb5ff14cb224cc7e253403c455f28998b2dff557d63bc37e3cc87"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/converted_sessions__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "923d73cb5263e224f6df37162cac2144e43885d009f1ca9161c4fccb60702872"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/converted_sessions__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "d6e226907f307949e9b062b6979c0a8f5d028caf1dc57eae17d00e3ee0b79ac2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/converted_sessions__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "c4fd56a64658a6c2f51bde867ebbd20ff5c93db7e9449fd3638b6359d74dd729"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/converted_sessions__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "dc3d846cf28e5d25c8948fa34fe108c68b1ddc52fd028f7a96f9c1494c20d921"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/converted_sessions__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "0aa0eb8238ae63745a313408c8caf4ee6954f434e89a0a2d7eaa9758e804fc78"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/eligible_sessions__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e0dcfa48b1ef5cc5da271ac2df7a4266efd70b6352b23efbe58deed3d15b9668"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/eligible_sessions__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "ad38c6ffaf6c64f6a4e0b6f6ad23ab7b65cb47488410cd13124ba9cd472d3054"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/eligible_sessions__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "32662e1bda8f47a848b45a570ab3bd09279e5ef58d169dfda8bd044a6ff4dc0b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/eligible_sessions__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "83702d2898f98fcf072f90c43f5c5a7817e11e58835c519fcc056c90597392de"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/eligible_sessions__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "b68ea77ac515be6d8c65e854e9605cfe44388510b508588999732e091a2a07fa"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/paid_order_count__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "260dcce77b1b448d0a74de16b9039bde90df70d4b61f1b2dd72f6cbf924b0f5b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/paid_order_count__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "bc7d0f04b5df4bef33ce90418edc69755a095d8481e50c9eb2979a92a3a40ab1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/paid_order_count__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "8b359e3f1fb61420df1a2cbd2cfdedad8a2d6968f49ddf786ebd1c0888deb1e6"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/paid_order_count__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "430aed16af370bf7993f3e6347257e05bf57a2c4a79a2178a3cd0d33444d8a09"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/paid_order_count__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "cf57b7fa8e6466dd2894a63baa8f5852bde88a845e5e37e0ce60774a93b4955b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/paid_revenue__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "1cbbb72aff217797f106ff623ac6f1d65cb86b357db73e9995271de024de37af"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/paid_revenue__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "2c96edeb22144364f308e238d0ec35afe414c08c45610ca0b5e58a13ddb79541"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/paid_revenue__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "16c36a94c64e8b4951739b5c8fdd3fc8fc1b4ee811d0f3e0035d8a07dfeb6cfd"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/paid_revenue__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "29eda6044d6e721abd9cb311a6850d575159f140328d2615cbbdebd06e54c1b0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/native/paid_revenue__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "b684107ddaccf713063028ab58bc295e236e1a03678667a62b1889d8cebb937c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "98475d5ce3a9a94607b57dc0b3ac7d34160724bc819f3885bfbac6c2839e2ad9"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "62778d34700bc2252c836a31708864c5747ec409da0f66258e17788dc21fb5d9"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "b948c35e35cfaa0aae0da49b9e4320246d83dc45f80f649192522abe0dcdad62"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "6212119296c1883070d604d9ab833956315667da0388b2ab3d351b25c85b1698"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/average_paid_order_value__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "c988172f7c3dd5c0e69b6b20127142d6c9f7f69b49d78d8fee5a3ba06d7bd1a2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "49b73311f00248130c10be463984bbaea1665fd40cf3acc1bb089aa1015eb850"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "6c3d1319462cc189aeeb31cad4ad95d597400f9fc3e02c8c88a94ee132618cb2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "7a94d74dd377931e88e5ccc0f566d97ceae10f491e6ab120d2c5bd3d2f80a15c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "158dde6b9665e829a04a7e1d1fa739c216a8ddf4b0013d216b23cba9352586bb"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__nonconverting.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "84dc76a44d7c021f99d1fefc9e0839fb0228c3088994a56b711feff8a38c7b04"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/conversion_rate__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "c6aea307045cc5c9b0209929a2bef983f9fa863ee1d0e0cde14c854506bc57c5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "7ceaa0b843e1e613e231862bcfea7eeee80df9901848c778ae3153dcbf0264fc"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "75fa71852a2560ab2a3a62a6e538352ebe80bc2a976059d4aab30f74a6c3092a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e32a4730f68169dee9daf74561cc0bfcf2bf2c3b6033acb823b8d05ead48b529"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "0d95f03d3fb79535c7d715bb3b9dcb490a053e6ef1ed3a18a2242aa021b964c0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/converted_sessions__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "384655515308ac92180bb454bee570e09ec797a9b689c6eb91d544b3e58d1b6a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "f183c31b4e2e65077905c4cf57f300ee777fda4b47fdf313778c35ac54c31933"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "4842afd12b7ea72cdf872c8f3142c1ce908e0e65488ffad9ebead56867984d24"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e5f40bd559c3c606e34900ca9b3dc0cee39ac8cd8ac1e88f1a528b83d50d0008"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "a25df1486f79235e011465946faf88b6cb05b331977826542dd8973429ae20b1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/eligible_sessions__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "830b549de375187e1e44576070c5643b551eddde1cf8c34b0c7c1f94b04e8b74"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "ac197283dd226fced811145b10d2b59ce7d4bef65e4c52235cb89d498780e363"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "abf8b69c284bab3f68f947f9762a10e125aa17561d199288b739bf64377d99f5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "97279cd1d4c86b59ea072d6931867c3f40ab9cf9617965d47430288bb7758a24"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "f3666890eb86fd535a0ae16311c0aa0d80c7be5628da4c0fe95fb3400201ba07"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_order_count__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e64f259816660669da715fcc2077c7f93cc7873d39feae9fddc7e5c93d4a0106"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "5da801325782211f97be53bad72f06f3553a243c1996c99e8db6899ac58d732b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__empty.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "3d50e9cede14f568ed0731a3edf4a242f5e9dcdaa3d40c77f723aa47caa22c5c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "c905110a6c14f4aba520bd3da4a1df16570bed281142de647167b10908f4e449"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "8a7e1d26771f53c669ddce727976ccd9cd870f41ead8af0cb1d6bc3437239bfd"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/oracle/paid_revenue__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "cf074c4d17631995355ecff94862d00f338d88470c42aadcb2a7ae1e422b1442"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/platforms/converted.model.bim",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "9f55bc36cd8703cb8d23aaa0440aff3f1e02110557ca5a92d87a1ee3ee559be0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/platforms/converted.ossie.yml",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "903a98b9e95c30632bd63fb670e507f4e0eab1cbb62e1a35744ce5332c200360"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/platforms/integration.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e7b8ba153e96b6503b148976fd071e8d67084c59948a94ab9c96f6eea505a148"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/platforms/roundtrip.manifest.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "c0825b248558bf70fe25ff035a0410056ca2ac97738f017488638655552287ee"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/report.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "8d64c8862f2a6ddc0b474999a3c6aaa03c42872ea2af0ecba406192074c0b50d"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/source.manifest.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "e6d61a6e2ad73f26d84e660d382c80835af33a571a4251af558ee09be1e8551b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/metricflow/source.metrics.yml",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "3c14e14e40f0ce1fd5caefc3944ce23fe4c257d8381eaf1ed47509974b1f8cc5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-console-retry-command.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "8ac6d2a1ac70a0ee84104038e6ce517a05f2f1e6ea6ff40286e32f4c0b706676"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-console-retry.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "718c5ccb9723008aa07e9d79620534ac65ef799b3bd0a48da1c10ffdef33ed66"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-drift-retry-command.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "53f86daec9d6dcbcdc7ee71848c4d0bdcc0e28c5f11b0b1dd507f88e8496542c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-drift-retry.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "30195a480e53bd5144d4723c7a83cd4c7e6c69ec3e9b032111ffcb9e91364d5a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/parent-regression-initial.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "b32868c1fa8f61eb472d5ec78099dafbad40b625a96d2ab42c99b2b6f3922d1b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-a/authored.model.bim",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "22d13c64ec8e655912d19503fb58bd45d51d7f4d7c639e2a84353ffad4b43af3"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-a/converter.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "a9aa1b34c855693a38dd5401e21f0c476d63b841863331352e9ef0e59a50dc48"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-a/generated.ossie.yml",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "1b16ed8731c3f96797e0eae51f0c0c1ff4c4005a20cce0ced5ed6a7219ee3641"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-a/reconstructed.model.bim",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "ea7c8dca12167cb322b1beb59e535c79d6d28e21ab744b2c09962570d08c2973"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-a/validation.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": null
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-a/warnings.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "1506224e1fd22a43762258044def415b6c3fbeb193c34e97847f333d92849643"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-b/authored.model.bim",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "c279a0a03de79d1349e069eaa61fdb458a3bda8a0065a878ba2a769c1c0b0947"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-b/converter.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "a9aa1b34c855693a38dd5401e21f0c476d63b841863331352e9ef0e59a50dc48"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-b/generated.ossie.yml",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "d861e27dfe117cc8408ea0c514e7c29715920785e387cac473bfb712dbd50727"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-b/reconstructed.model.bim",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "85a52b14aa07b7499a793669a5ac771f05ace82eca353c11e03f30391059b8be"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-b/validation.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": null
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/case-b/warnings.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "1506224e1fd22a43762258044def415b6c3fbeb193c34e97847f333d92849643"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/conversion_rate__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "49b73311f00248130c10be463984bbaea1665fd40cf3acc1bb089aa1015eb850"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/conversion_rate__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "7a94d74dd377931e88e5ccc0f566d97ceae10f491e6ab120d2c5bd3d2f80a15c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/conversion_rate__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "158dde6b9665e829a04a7e1d1fa739c216a8ddf4b0013d216b23cba9352586bb"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/conversion_rate__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "c6aea307045cc5c9b0209929a2bef983f9fa863ee1d0e0cde14c854506bc57c5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/paid_revenue__channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "5da801325782211f97be53bad72f06f3553a243c1996c99e8db6899ac58d732b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/paid_revenue__month.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "c905110a6c14f4aba520bd3da4a1df16570bed281142de647167b10908f4e449"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/paid_revenue__month_channel.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "8a7e1d26771f53c669ddce727976ccd9cd870f41ead8af0cb1d6bc3437239bfd"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/oracle/paid_revenue__overall.sql",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "cf074c4d17631995355ecff94862d00f338d88470c42aadcb2a7ae1e422b1442"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/powerbi-001/report.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "fedac6c8ab5a02802e09d38383be8dabe9dd591aa66c154d2a883ff0eeb29387"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/preservation.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "386890ab47bb5fd499e21c8a2576a2a69a4acd0cc69f512531bd235993dc26b3"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/public-check.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "0c29b1dd2ef0fc15b80b4e8ac1b77ed7a0aa25b1be9843e7489c47cafef33790"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/regressions-command.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "2b82fc8c4b9f582a7355f51fa8a0bdc4b7c9d6272c886cfabea8c136036ec4dc"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/regressions-final-command.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "2b82fc8c4b9f582a7355f51fa8a0bdc4b7c9d6272c886cfabea8c136036ec4dc"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/regressions-final.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "88cb2ac44757836fb83a42ce76dcc2a1fd9ce2cc123eb7dc0fad1dcca3ac9864"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/regressions.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "855c8daee93f97e9fa49d5fe539c7e148e2defae48e44c3c23b60d2616cbd394"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/task02-command.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "db1b32e7aa38265eaf9a255fa8b6c958fb87db76548ae41c44c19319f929c100"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/task02-final-command.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "d5e2d91787fe40c0596f025c08dbeef477941e69c193084b6806c07fe1ee2d2d"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/task02-final.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "5e4efa18dfa77edfd292f1e53485b6b5315df7ce3d80f06a6a256c9801b0be07"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/task02-final.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "a5278733675132f9053e7b34c0bb909cb49012230a32ebd759450c5b3c2a540b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/task02-initial-difference.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "f451b9529cb0e79d8949b01d47cd51034d0026737cec3f6b2b6bdd1d3425692e"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/task02-regression.log",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "59721870b5c573b449c504000fcb46ad6b89d762c9c8d1df9101a473cb7dc843"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/upstream-review/current-commit.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "2f290e236995db6072d8f7ccdccefb2ee819d27f717089bc6c5435dd4aca299a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/upstream-review/review.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "6b8f78a516b443e765a59fcbc77a87cfb0cdeb2ab78efc5868542b619ccaf8f1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/validation.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": null
+    },
+    {
+      "path": "labs/semantic_interop/scripts/run_powerbi_showcase.py",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "2bff1976f5fe6704dd6d8db4a2549c23e81949974de9e60bf3389067feb65679"
+    },
+    {
+      "path": "labs/semantic_interop/results/task04/file-changes.json",
+      "change": "ADDED",
+      "before_sha256": null,
+      "after_sha256": null
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "source_json_parse": "PASS",
+  "changed_json_parse": "PASS",
+  "exactly_two_intended_default_edits": "PASS",
+  "external_credentials_or_file_source": "NONE",
+  "source_fixture_hashes_still_equal": true,
+  "DAX_runtime": "NOT_EXECUTED",
+  "model_openability": "NOT_VERIFIED"
+}

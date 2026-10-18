@@ -1,0 +1,74 @@
+{
+  "databricks-baseline.stderr.log": {
+    "original_sha256": "e87394a2b664768631f1262b38b8444049ed3c18b73439e001881be7695759cd",
+    "original_encoding": "utf-16",
+    "retained_sha256": "fa6a86aca55d1c9731c1b285195feb2f721be4c712be62237df3d20f545d0732",
+    "normalization": "UTF-8 / LF only; no warnings omitted"
+  },
+  "databricks-include-refunded.stderr.log": {
+    "original_sha256": "e87394a2b664768631f1262b38b8444049ed3c18b73439e001881be7695759cd",
+    "original_encoding": "utf-16",
+    "retained_sha256": "fa6a86aca55d1c9731c1b285195feb2f721be4c712be62237df3d20f545d0732",
+    "normalization": "UTF-8 / LF only; no warnings omitted"
+  },
+  "metricflow-from-ossie.stderr.log": {
+    "original_sha256": "9247d683b8771f3af2cb207b5ec21b1e6f6366c05f34702b24919df48fdf9b5f",
+    "original_encoding": "utf-16",
+    "retained_sha256": "2a8e630a4f575839b82ef5b31b3834602207d06e75d4a692c8a71dda2fbd5d2f",
+    "normalization": "UTF-8 / LF only; no warnings omitted"
+  },
+  "metricflow-to-ossie.stderr.log": {
+    "original_sha256": "128c2ca9e15536c6fea6c923cc49cf28837389d521f73f231ae14172f5967623",
+    "original_encoding": "utf-16",
+    "retained_sha256": "9025af6d89310d831f18cb04026a61f81043dd75c60bdcdf9f9b780562854733",
+    "normalization": "UTF-8 / LF only; no warnings omitted"
+  },
+  "metricflow-to-powerbi.stderr.log": {
+    "original_sha256": "feb9f8d7e78bc2f5c3e09e6d14e7d0f3a6a708622e96d7b409b4293540f845b4",
+    "original_encoding": "utf-16",
+    "retained_sha256": "758f083892a362d342ace83cfda9ee0454a9eb4e2400b8e3eef020c2a3d9c1a2",
+    "normalization": "UTF-8 / LF only; no warnings omitted"
+  },
+  "regression-0.log": {
+    "original_sha256": "27e925c472338275243aabdeee774b60676f20a957614b978945b3649d552344",
+    "original_encoding": "utf-8",
+    "retained_sha256": "4968c647482151a2cdab411f06ddc2aca93e0c28ce839c2961521693945c768f",
+    "normalization": "UTF-8 / LF only; output retained"
+  },
+  "regression-1.log": {
+    "original_sha256": "fbf3a3442011e9d3ae84c0c875714c7c1dbf29514b61bb7958da82544e5aceac",
+    "original_encoding": "utf-8",
+    "retained_sha256": "ba871703c5d534c7f0fad509795f794aaa8c00018437ffa0898af1ab7451c619",
+    "normalization": "UTF-8 / LF only; output retained"
+  },
+  "regression-2.log": {
+    "original_sha256": "ba316b0ebe00b71696cb61c2bcbb79d0fb38aee842d1019569b9bb82e2404b38",
+    "original_encoding": "utf-8",
+    "retained_sha256": "816d9953ba5733b185dda090efe380e4cb7ee51aba7675e12a0b1466d0ad1be8",
+    "normalization": "UTF-8 / LF only; output retained"
+  },
+  "regression-3.log": {
+    "original_sha256": "b994b5e7e832fab3d5b2d6b66e2766327422a6c9e73efbabf713fa2b939a194a",
+    "original_encoding": "utf-8",
+    "retained_sha256": "7bd577be1346e19249d2d1e25fc318689d9b5b72a7be88cae86894c7c670bdf0",
+    "normalization": "UTF-8 / LF only; output retained"
+  },
+  "regression-4.log": {
+    "original_sha256": "00988f42adf7e7901b238eaad13730d6123cd372c31874f5fccc152b22470b5d",
+    "original_encoding": "utf-8",
+    "retained_sha256": "4230b48c7356c67a9700897796097370fd249e21a7aa4aacbf82656d1e8f72c8",
+    "normalization": "UTF-8 / LF only; output retained"
+  },
+  "regression-5.log": {
+    "original_sha256": "c0e53910daf9ee39a33a1ef1ab1ad91ce3cdd246e8ba36140eb31fcebbe5a651",
+    "original_encoding": "cp1252",
+    "retained_sha256": "af435384b45e5a5d3901633a4083645f0081044cee51d54d995934797c1284d7",
+    "normalization": "UTF-8 / LF only; output retained"
+  },
+  "regression-6.log": {
+    "original_sha256": "e11f571ac2f12bd68a2a8011702a493a2e9162a46e3aac21ff0a1dc42cfca264",
+    "original_encoding": "utf-8",
+    "retained_sha256": "67a45ac46e1529f8b3d433b51f4174f89bd84db912ea4c043312758ed0c8df19",
+    "normalization": "UTF-8 / LF only; output retained"
+  }
+}

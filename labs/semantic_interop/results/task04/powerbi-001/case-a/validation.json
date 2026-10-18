@@ -1,0 +1,58 @@
+{
+  "DAX_execution": "NOT_EXECUTED",
+  "bounded_structural_checks": {
+    "columns_equal": true,
+    "complete_measure_properties_equal": true,
+    "complete_normalized_document_equal": true,
+    "dax_expressions_equal": true,
+    "m_expressions_equal": true,
+    "measure_names_equal": true,
+    "partitions_equal": true,
+    "relationships_equal_including_filter_direction": true,
+    "table_names_equal": true
+  },
+  "conversion_completed": true,
+  "measure_dependencies": {
+    "Conversion Rate": [
+      "Converted Sessions",
+      "Eligible Sessions"
+    ],
+    "Converted Sessions": [],
+    "Eligible Sessions": [],
+    "Paid Revenue": []
+  },
+  "metric_dialects": {
+    "Conversion Rate": [
+      "DAX"
+    ],
+    "Converted Sessions": [
+      "DAX"
+    ],
+    "Eligible Sessions": [
+      "DAX"
+    ],
+    "Paid Revenue": [
+      "DAX"
+    ]
+  },
+  "oracle_comparison": "NOT_EXECUTED",
+  "ossie_pydantic_structure_valid": true,
+  "power_bi_extensions_present": true,
+  "provenance": "Explicitly authored minimal TMSL input; unmodified official converters; generated output unedited",
+  "reconstructed_TOM_validation": {
+    "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`",
+    "status": "NOT_EXECUTED"
+  },
+  "semantics": "Bounded DAX, relationship, M and format metadata preserved; engine semantics NOT_EXECUTED",
+  "source_TOM_validation": {
+    "reason": "TOM validation and TMDL serialization require the optional 'tom' extra; install with `pip install apache-ossie-microsoft[tom]`",
+    "status": "NOT_EXECUTED"
+  },
+  "visual_formatting": "NOT_EXECUTED",
+  "warnings": [
+    {
+      "category": "UserWarning",
+      "message": "[model] shared Power Query expressions and parameters ('expressions') has no Apache Ossie counterpart; preserved in the Power BI stash for round trip, but not represented in the Apache Ossie document"
+    }
+  ]
+}

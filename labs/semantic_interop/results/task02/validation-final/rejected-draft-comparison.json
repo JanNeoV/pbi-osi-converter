@@ -1,0 +1,11 @@
+{
+  "reports": [
+    ".tmp/semantic-lab/run-obw01iw8/report.json",
+    ".tmp/semantic-lab/run-s_yw_y8w/report.json"
+  ],
+  "differences": [
+    "/semantic_diagnostics/implementation_sha256/labs/semantic_interop/tests/test_semantic_loss_regressions.py"
+  ],
+  "query_case_results_identical": true,
+  "reason": "Test import cleanup occurred during the run; implementation and dependent child-report hashes changed. Capture was correctly refused. Final pair rerun after source stabilization."
+}

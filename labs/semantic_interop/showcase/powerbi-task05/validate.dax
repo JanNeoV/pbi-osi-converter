@@ -1,0 +1,38 @@
+// Run separately against baseline source and the actual generated roundtrip model.
+// All actual Power BI execution remains NOT_EXECUTED in the delivered evidence.
+EVALUATE
+ROW("Conversion Rate", [Conversion Rate], "Paid Revenue", [Paid Revenue],
+    "Selected KPI default", [Selected KPI])
+// Baseline expected: 0.4, 390, 0.4. Changed-default expected: 0.4, 390, 390.
+
+EVALUATE
+SUMMARIZECOLUMNS('Sales Channel'[sales_channel],
+    "Conversion Rate", [Conversion Rate], "Paid Revenue", [Paid Revenue],
+    "Selected KPI default", [Selected KPI])
+// Direct: 0.5, 300; Indirect: 0.25, 90.
+// Default equals rate in baseline; equals revenue in changed-default.
+
+EVALUATE
+UNION(
+    ROW("Selection", "none", "Actual", [Selected KPI]),
+    ROW("Selection", "Conversion Rate", "Actual",
+        CALCULATE([Selected KPI], TREATAS({"Conversion Rate"}, 'KPI Selector'[KPI]))),
+    ROW("Selection", "Paid Revenue", "Actual",
+        CALCULATE([Selected KPI], TREATAS({"Paid Revenue"}, 'KPI Selector'[KPI]))),
+    ROW("Selection", "multiple", "Actual",
+        CALCULATE([Selected KPI], TREATAS({"Conversion Rate", "Paid Revenue"}, 'KPI Selector'[KPI])))
+)
+// Baseline expected: 0.4, 0.4, 390, 0.4.
+// Changed-default expected: 390, 0.4, 390, 390.
+// Repeat with Direct and Indirect channel slicers in the report. A DAX Query View
+// query does not inherit report slicers; use the query below for query filtering.
+
+EVALUATE
+CALCULATETABLE(
+    ROW("Channel", "Indirect", "Conversion Rate", [Conversion Rate],
+        "Paid Revenue", [Paid Revenue], "Selected KPI default", [Selected KPI]),
+    TREATAS({"Indirect"}, 'Sales Channel'[sales_channel]))
+// Expected: 0.25, 90; default 0.25 before / 90 after.
+
+// Separately verify the report Card displays percent or EUR using the dynamic
+// format expression. The query's numeric result does not verify visual units.

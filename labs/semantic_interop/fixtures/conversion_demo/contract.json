@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "currency": "EUR",
+  "session_cohort": "2026-01-01 <= session_date < 2026-03-01",
+  "observation_cutoff": "order_date < 2026-03-01",
+  "status_assumption": "Whole-order status snapshot at cutoff; no status history, partial refunds, tax, or currency conversion",
+  "attribution": "One originating session per order; one channel per session. All paid orders observed before cutoff are attributed to the originating session month, even if order month differs.",
+  "zero_denominator": null,
+  "dimensions": {"sales_channel": "raw_sessions.sales_channel", "session_month": "DATE_TRUNC('month', raw_sessions.session_date)"},
+  "metrics": {
+    "eligible_sessions": {"definition": "COUNT(DISTINCT session_id) WHERE is_eligible = true", "grain": "session", "unit": "sessions", "features": ["eligibility filter", "distinct count"]},
+    "converted_sessions": {"definition": "Distinct eligible sessions with at least one paid order before cutoff", "grain": "session", "unit": "sessions", "features": ["relationship", "paid filter", "distinct session count"]},
+    "conversion_rate": {"definition": "converted_sessions / NULLIF(eligible_sessions, 0)", "grain": "requested cohort", "unit": "ratio", "features": ["ratio", "weighted aggregation"]},
+    "paid_revenue": {"definition": "SUM(amount_eur) for paid orders before cutoff belonging to eligible session cohorts", "grain": "order", "unit": "EUR", "features": ["status filter", "eligibility", "session cohort attribution"]},
+    "paid_order_count": {"definition": "COUNT(DISTINCT order_id) for paid orders before cutoff belonging to eligible sessions", "grain": "order", "unit": "orders", "features": ["paid filter", "order grain"]},
+    "average_paid_order_value": {"definition": "paid_revenue / NULLIF(paid_order_count, 0)", "grain": "requested cohort", "unit": "EUR/order", "features": ["ratio", "order denominator"]}
+  }
+}

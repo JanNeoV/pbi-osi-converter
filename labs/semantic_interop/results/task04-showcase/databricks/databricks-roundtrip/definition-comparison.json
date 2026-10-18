@@ -1,0 +1,9 @@
+{
+  "parsed_yaml_equal": false,
+  "definitions_equal_ignoring_source_sql_trailing_whitespace": true,
+  "source_sql_trailing_whitespace_changed": true,
+  "comparison_scope": "Complete YAML values including source SQL, expressions, filter and comment properties; ignores YAML formatting and YAML # comments. A separate comparison ignores only trailing whitespace of the whole source SQL string.",
+  "differing_top_level_keys": [
+    "source"
+  ]
+}

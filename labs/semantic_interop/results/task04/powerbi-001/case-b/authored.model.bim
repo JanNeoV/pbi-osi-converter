@@ -1,0 +1,230 @@
+{
+  "compatibilityLevel": 1601,
+  "model": {
+    "culture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "expression": "\"__SET_ABSOLUTE_CONVERSION_DEMO_DATA_DIRECTORY__\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "kind": "m",
+        "name": "FixtureRoot"
+      },
+      {
+        "expression": "let\n    Csv = Csv.Document(File.Contents(FixtureRoot & \"/sessions.csv\"), [Delimiter=\",\", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),\n    Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars=true]),\n    Typed = Table.TransformColumnTypes(Headers, {{\"session_id\", Int64.Type}, {\"session_date\", type date}, {\"sales_channel\", type text}, {\"is_eligible\", type logical}, {\"exclusion_reason\", type text}}, \"en-US\"),\n    WithMonth = Table.AddColumn(Typed, \"session_month\", each Date.StartOfMonth([session_date]), type date)\nin\n    WithMonth",
+        "kind": "m",
+        "name": "SessionsData"
+      },
+      {
+        "expression": "let\n    Csv = Csv.Document(File.Contents(FixtureRoot & \"/orders.csv\"), [Delimiter=\",\", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),\n    Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars=true]),\n    Typed = Table.TransformColumnTypes(Headers, {{\"order_id\", Int64.Type}, {\"session_id\", Int64.Type}, {\"order_date\", type date}, {\"amount_eur\", Currency.Type}, {\"order_status\", type text}}, \"en-US\")\nin\n    Typed",
+        "kind": "m",
+        "name": "OrdersData"
+      }
+    ],
+    "relationships": [
+      {
+        "crossFilteringBehavior": "oneDirection",
+        "fromCardinality": "many",
+        "fromColumn": "sales_channel",
+        "fromTable": "Sessions",
+        "isActive": true,
+        "name": "sessions_channel",
+        "toCardinality": "one",
+        "toColumn": "sales_channel",
+        "toTable": "Sales Channel"
+      },
+      {
+        "crossFilteringBehavior": "oneDirection",
+        "fromCardinality": "many",
+        "fromColumn": "session_id",
+        "fromTable": "Orders",
+        "isActive": true,
+        "name": "orders_session",
+        "toCardinality": "one",
+        "toColumn": "session_id",
+        "toTable": "Sessions"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "columns": [
+          {
+            "dataType": "int64",
+            "isKey": true,
+            "name": "session_id",
+            "sourceColumn": "session_id",
+            "summarizeBy": "none"
+          },
+          {
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM-dd",
+            "name": "session_date",
+            "sourceColumn": "session_date",
+            "summarizeBy": "none"
+          },
+          {
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM",
+            "name": "session_month",
+            "sourceColumn": "session_month",
+            "summarizeBy": "none"
+          },
+          {
+            "dataType": "string",
+            "isHidden": true,
+            "name": "sales_channel",
+            "sourceColumn": "sales_channel",
+            "summarizeBy": "none"
+          },
+          {
+            "dataType": "boolean",
+            "name": "is_eligible",
+            "sourceColumn": "is_eligible",
+            "summarizeBy": "none"
+          },
+          {
+            "dataType": "string",
+            "name": "exclusion_reason",
+            "sourceColumn": "exclusion_reason",
+            "summarizeBy": "none"
+          }
+        ],
+        "measures": [
+          {
+            "expression": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Sessions[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+            "formatString": "#,0",
+            "isHidden": true,
+            "name": "Eligible Sessions"
+          },
+          {
+            "expression": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Orders[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n        KEEPFILTERS(Orders[order_status] = \"paid\"),\n        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+            "formatString": "#,0",
+            "isHidden": true,
+            "name": "Converted Sessions"
+          },
+          {
+            "expression": "DIVIDE([Converted Sessions], [Eligible Sessions])",
+            "formatString": "0.0%",
+            "name": "Conversion Rate"
+          },
+          {
+            "expression": "CALCULATE(\n    SUM(Orders[amount_eur]),\n    KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n    KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n    KEEPFILTERS(Orders[order_status] = \"paid\"),\n    KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n)",
+            "formatString": "#,0.00 \"EUR\"",
+            "name": "Paid Revenue"
+          },
+          {
+            "expression": "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\n    \"Conversion Rate\", [Conversion Rate],\n    \"Paid Revenue\", [Paid Revenue],\n    BLANK()\n)",
+            "formatString": "0.0%",
+            "formatStringDefinition": {
+              "expression": "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\n    \"Conversion Rate\", \"0.0%\",\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\n    \"General Number\"\n)"
+            },
+            "name": "Selected KPI"
+          }
+        ],
+        "name": "Sessions",
+        "partitions": [
+          {
+            "mode": "import",
+            "name": "Sessions",
+            "source": {
+              "expression": "SessionsData",
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "dataType": "int64",
+            "isKey": true,
+            "name": "order_id",
+            "sourceColumn": "order_id",
+            "summarizeBy": "none"
+          },
+          {
+            "dataType": "int64",
+            "name": "session_id",
+            "sourceColumn": "session_id",
+            "summarizeBy": "none"
+          },
+          {
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM-dd",
+            "name": "order_date",
+            "sourceColumn": "order_date",
+            "summarizeBy": "none"
+          },
+          {
+            "dataType": "decimal",
+            "formatString": "#,0.00 \"EUR\"",
+            "name": "amount_eur",
+            "sourceColumn": "amount_eur",
+            "summarizeBy": "sum"
+          },
+          {
+            "dataType": "string",
+            "name": "order_status",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          }
+        ],
+        "name": "Orders",
+        "partitions": [
+          {
+            "mode": "import",
+            "name": "Orders",
+            "source": {
+              "expression": "OrdersData",
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "dataType": "string",
+            "isKey": true,
+            "name": "sales_channel",
+            "sourceColumn": "sales_channel",
+            "summarizeBy": "none"
+          }
+        ],
+        "name": "Sales Channel",
+        "partitions": [
+          {
+            "mode": "import",
+            "name": "Sales Channel",
+            "source": {
+              "expression": "Table.Distinct(Table.SelectColumns(SessionsData, {\"sales_channel\"}))",
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "dataType": "string",
+            "name": "KPI",
+            "sourceColumn": "KPI",
+            "summarizeBy": "none"
+          }
+        ],
+        "name": "KPI Selector",
+        "partitions": [
+          {
+            "mode": "import",
+            "name": "KPI Selector",
+            "source": {
+              "expression": "#table(type table [KPI = text], {{\"Conversion Rate\"}, {\"Paid Revenue\"}})",
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "name": "ConversionDemoSwitch"
+}

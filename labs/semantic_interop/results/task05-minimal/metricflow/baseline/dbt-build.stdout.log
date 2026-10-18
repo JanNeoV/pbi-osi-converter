@@ -1,0 +1,18 @@
+09:35:36  Running with dbt=1.12.6
+09:35:36  Registered adapter: duckdb=1.11.0
+09:35:38  Found 3 models, 9 metrics, 500 macros, 2 semantic models
+09:35:38  
+09:35:38  Concurrency: 1 threads (target='local')
+09:35:38  
+09:35:38  1 of 3 START sql view model main.orders ........................................ [RUN]
+09:35:39  1 of 3 OK created sql view model main.orders ................................... [OK in 0.07s]
+09:35:39  2 of 3 START sql view model main.sessions ...................................... [RUN]
+09:35:39  2 of 3 OK created sql view model main.sessions ................................. [OK in 0.02s]
+09:35:39  3 of 3 START sql view model main.time_spine .................................... [RUN]
+09:35:39  3 of 3 OK created sql view model main.time_spine ............................... [OK in 0.02s]
+09:35:39  
+09:35:39  Finished running 3 view models in 0 hours 0 minutes and 0.27 seconds (0.27s).
+09:35:39  
+09:35:39  Completed successfully
+09:35:39  
+09:35:39  Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=3

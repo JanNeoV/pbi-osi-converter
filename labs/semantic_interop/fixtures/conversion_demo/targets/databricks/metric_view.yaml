@@ -1,0 +1,39 @@
+# MANUALLY_AUTHORED_CANDIDATE; not official converter output. Runtime: NOT_EXECUTED.
+# Replace demo.semantic_interop with the contributor's Unity Catalog catalog.schema.
+# YAML 1.1 comment metadata: Databricks Runtime 17.3+ or suitable SQL warehouse.
+version: "1.1"
+comment: "Candidate session-cohort conversion metrics, observed before 2026-03-01 exclusive; runtime NOT_EXECUTED"
+source: |
+  SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,
+         o.order_id, o.order_date, o.amount_eur, o.order_status
+  FROM demo.semantic_interop.sessions AS s
+  LEFT JOIN demo.semantic_interop.orders AS o
+    ON s.session_id = o.session_id
+   AND o.order_date < DATE '2026-03-01'
+  WHERE s.session_date >= DATE '2026-01-01'
+    AND s.session_date < DATE '2026-03-01'
+filter: is_eligible = true
+dimensions:
+  - name: sales_channel
+    expr: sales_channel
+    comment: "One channel per originating session"
+  - name: session_month
+    expr: "CAST(DATE_TRUNC('MONTH', session_date) AS DATE)"
+    comment: "Session cohort month, not transaction month"
+measures:
+  - name: eligible_sessions
+    expr: "COUNT(DISTINCT session_id)"
+    comment: "Includes eligible sessions without orders; distinct survives multiple orders"
+  - name: converted_sessions
+    expr: "COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid')"
+  - name: conversion_rate
+    expr: "CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0)"
+    comment: "Recompute the aggregate ratio at the requested grain; zero denominator returns NULL"
+  - name: paid_revenue
+    expr: "SUM(amount_eur) FILTER (WHERE order_status = 'paid')"
+    comment: "EUR attributed to session month; empty paid sums remain NULL"
+  - name: paid_order_count
+    expr: "COUNT(DISTINCT order_id) FILTER (WHERE order_status = 'paid')"
+  - name: average_paid_order_value
+    expr: "(SUM(amount_eur) FILTER (WHERE order_status = 'paid')) / NULLIF(COUNT(DISTINCT order_id) FILTER (WHERE order_status = 'paid'), 0)"
+    comment: "Paid revenue divided by paid orders, not converted sessions"

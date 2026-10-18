@@ -1,0 +1,46 @@
+{
+  "conversion": "PASS",
+  "direction": "to-ossie",
+  "findings": [
+    "Ossie output omits the source MetricFlow time-spine configuration and default aggregation-time settings; reconstruction is not applied. Entity/key information is inspected separately on return."
+  ],
+  "input": "input.manifest.json",
+  "input_sha256": "e6d61a6e2ad73f26d84e660d382c80835af33a571a4251af558ee09be1e8551b",
+  "issues": [],
+  "numerical_equivalence": "NOT_EXECUTED",
+  "official_api": "ossie_dbt.MSIToOssieConverter.convert",
+  "output": "output.ossie.yml",
+  "output_sha256": "903a98b9e95c30632bd63fb670e507f4e0eab1cbb62e1a35744ce5332c200360",
+  "semantic_preservation": "MISMATCH",
+  "source_inventory": {
+    "models": {
+      "orders": {
+        "default_time_dimension": "session_date",
+        "entities": [
+          [
+            "order",
+            "EntityType.PRIMARY",
+            "order_id"
+          ],
+          [
+            "session",
+            "EntityType.FOREIGN",
+            "session_id"
+          ]
+        ]
+      },
+      "sessions": {
+        "default_time_dimension": "session_date",
+        "entities": [
+          [
+            "session",
+            "EntityType.PRIMARY",
+            "session_id"
+          ]
+        ]
+      }
+    },
+    "time_spines": 1
+  },
+  "warnings": []
+}

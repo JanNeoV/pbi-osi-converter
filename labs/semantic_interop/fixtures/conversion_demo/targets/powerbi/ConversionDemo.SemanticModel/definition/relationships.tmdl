@@ -1,0 +1,17 @@
+/// Filter flows from the channel dimension to sessions, without removing sessions lacking orders.
+relationship sessions_channel
+	fromColumn: Sessions.sales_channel
+	toColumn: 'Sales Channel'.sales_channel
+	fromCardinality: many
+	toCardinality: one
+	crossFilteringBehavior: oneDirection
+	isActive: true
+
+/// Filter flows from sessions to orders. Orders never filter the denominator back to ordering sessions.
+relationship orders_session
+	fromColumn: Orders.session_id
+	toColumn: Sessions.session_id
+	fromCardinality: many
+	toCardinality: one
+	crossFilteringBehavior: oneDirection
+	isActive: true

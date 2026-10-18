@@ -1,0 +1,1 @@
+Conversion failed: Model 'ConversionDemoSwitch': datasets [KPI Selector] are not reachable from fact 'Sessions' via relationships.

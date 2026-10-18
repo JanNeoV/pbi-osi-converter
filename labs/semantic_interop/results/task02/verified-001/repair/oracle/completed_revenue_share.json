@@ -1,0 +1,13 @@
+{
+  "columns": [
+    "completed_revenue_share"
+  ],
+  "rows": [
+    [
+      {
+        "type": "float",
+        "value": "0.7361477572559367"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "converter_commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+  "converter_version": "0.1.0-SNAPSHOT",
+  "official_source": "https://github.com/apache/ossie/tree/53418ba8a4b8a20951334fdb9d9638aa34b514e3/converters/databricks/java",
+  "java": "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+  "jar": "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+  "jar_sha256": "09af8c0868cd56eac6a2de0e07dd59c1288506d4dd5779c9db2d3fbcec1e490f",
+  "converter_modified": false,
+  "runtime": "NOT_EXECUTED",
+  "matches_recorded_task04_jar": true,
+  "build_evidence": "prior-build.report.json (historical build; no fresh Maven build claimed)",
+  "pinned_source_verified": true,
+  "official_build_verified": true,
+  "commands": [
+    {
+      "label": "java-version",
+      "command": [
+        "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-version"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "stdout": "java-version.stdout.log",
+      "stderr": "java-version.stderr.log",
+      "execution_status": "EXECUTED",
+      "warnings": [
+        "openjdk version \"21.0.12.1\" 2026-08-18 LTS",
+        "OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)",
+        "OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+      ]
+    },
+    {
+      "label": "source-commit",
+      "command": [
+        "git",
+        "-C",
+        "<repository>\\.tmp\\task04-databricks\\ossie-current",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "stdout": "source-commit.stdout.log",
+      "stderr": "source-commit.stderr.log",
+      "execution_status": "EXECUTED",
+      "warnings": []
+    },
+    {
+      "label": "source-status",
+      "command": [
+        "git",
+        "-C",
+        "<repository>\\.tmp\\task04-databricks\\ossie-current",
+        "status",
+        "--porcelain",
+        "--",
+        "converters/databricks/java"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "stdout": "source-status.stdout.log",
+      "stderr": "source-status.stderr.log",
+      "execution_status": "EXECUTED",
+      "warnings": []
+    },
+    {
+      "label": "source-tree",
+      "command": [
+        "git",
+        "-C",
+        "<repository>\\.tmp\\task04-databricks\\ossie-current",
+        "rev-parse",
+        "HEAD:converters/databricks/java"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "stdout": "source-tree.stdout.log",
+      "stderr": "source-tree.stderr.log",
+      "execution_status": "EXECUTED",
+      "warnings": []
+    }
+  ]
+}

@@ -36,6 +36,13 @@ PATTERNS = {
     "GitHub token": re.compile(r"\bgh[pousr]_[A-Za-z0-9]{20,}\b"),
 }
 
+# Evidence snapshots keep the bytes and relative links of their original document.
+# Resolve only this known snapshot from its original location; still check every link.
+HISTORICAL_MARKDOWN_ORIGINS = {
+    "labs/semantic_interop/results/task05-minimal/showcase-readme.before.md":
+        "labs/semantic_interop/showcase/README.md",
+}
+
 
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -90,14 +97,20 @@ def _scan_text(path: Path, errors: list[str]) -> None:
 def _check_links(errors: list[str]) -> None:
     pattern = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
     for markdown in ROOT.rglob("*.md"):
-        if _ignored_runtime(markdown.relative_to(ROOT).as_posix()):
+        relative = markdown.relative_to(ROOT).as_posix()
+        if _ignored_runtime(relative):
             continue
+        origin = HISTORICAL_MARKDOWN_ORIGINS.get(relative)
+        link_base = (ROOT / origin).parent if origin else markdown.parent
         text = markdown.read_text(encoding="utf-8")
         for raw in pattern.findall(text):
-            target = raw.strip().split("#", 1)[0]
+            target = raw.strip()
+            if target.startswith("<") and target.endswith(">"):
+                target = target[1:-1]
+            target = target.split("#", 1)[0]
             if not target or re.match(r"^[a-z]+://", target, re.I):
                 continue
-            candidate = (markdown.parent / target).resolve()
+            candidate = (link_base / target).resolve()
             if not candidate.is_relative_to(ROOT.resolve()) or not candidate.exists():
                 errors.append(f"Broken local link in {markdown.relative_to(ROOT).as_posix()}: {raw}")
 
@@ -143,9 +156,29 @@ def _check_provenance(errors: list[str], *, after_demo: bool) -> None:
         errors.append("Public provenance has no private source commit.")
     if not value.get("private_source_dirty") and value.get("local_review_only"):
         errors.append("Clean-source provenance cannot be local-review-only.")
+    # Keep the original export manifest immutable. Reviewed documentation and
+    # checker revisions bind both historical and current content to exact hashes.
+    revision_path = ROOT / "docs/PUBLIC_REVISIONS.json"
+    revised_hashes = {}
+    if revision_path.exists():
+        try:
+            revisions = json.loads(revision_path.read_text(encoding="utf-8"))
+            if not isinstance(revisions, dict) or not revisions.keys() <= {"README.md", "scripts/check_public_repository.py"}:
+                raise ValueError("Only documentation and checker revisions are allowed")
+            for relative, revision in revisions.items():
+                original_hash = value.get("exported_files", {}).get(relative, {}).get("sha256")
+                if (not isinstance(revision, dict) or not original_hash or revision.get("base_sha256") != original_hash
+                        or not isinstance(revision.get("sha256"), str)
+                        or not re.fullmatch(r"[0-9a-f]{64}", revision["sha256"])
+                        or not isinstance(revision.get("reason"), str) or not revision["reason"].strip()):
+                    raise ValueError("Invalid revision")
+                revised_hashes[relative] = revision["sha256"]
+        except (OSError, UnicodeError, ValueError):
+            errors.append("Public revision is invalid or does not bind the original export hash.")
     for relative, record in value.get("exported_files", {}).items():
         path = ROOT.joinpath(*PurePosixPath(relative).parts)
-        if not path.is_file() or _sha256(path) != record.get("sha256"):
+        expected_hash = revised_hashes.get(relative, record.get("sha256"))
+        if not path.is_file() or _sha256(path) != expected_hash:
             errors.append(f"Exported provenance hash mismatch: {relative}")
     if after_demo:
         for relative, record in value.get("protected_inputs", {}).items():

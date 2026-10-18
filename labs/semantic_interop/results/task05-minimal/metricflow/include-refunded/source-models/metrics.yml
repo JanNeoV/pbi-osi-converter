@@ -1,0 +1,122 @@
+version: 2
+models:
+- name: time_spine
+  time_spine:
+    standard_granularity_column: date_day
+  columns:
+  - name: date_day
+    granularity: day
+semantic_models:
+- name: sessions
+  model: ref('sessions')
+  defaults:
+    agg_time_dimension: session_date
+  entities:
+  - name: session
+    type: primary
+    expr: session_id
+  dimensions:
+  - name: session_date
+    type: time
+    type_params:
+      time_granularity: day
+  - name: sales_channel
+    type: categorical
+  - name: is_eligible
+    type: categorical
+  measures:
+  - name: session_count
+    agg: count_distinct
+    expr: session_id
+- name: orders
+  model: ref('orders')
+  defaults:
+    agg_time_dimension: session_date
+  entities:
+  - name: order
+    type: primary
+    expr: order_id
+  - name: session
+    type: foreign
+    expr: session_id
+  dimensions:
+  - name: session_date
+    type: time
+    type_params:
+      time_granularity: day
+  - name: order_status
+    type: categorical
+  measures:
+  - name: converted_session_count
+    agg: count_distinct
+    expr: session_id
+  - name: order_count
+    agg: count_distinct
+    expr: order_id
+  - name: revenue
+    agg: sum
+    expr: amount_eur
+metrics:
+- name: eligible_sessions
+  label: Eligible Sessions
+  type: simple
+  type_params:
+    measure: session_count
+  filter: '{{ Dimension(''session__is_eligible'') }} = true'
+- name: converted_sessions_base
+  label: Converted Sessions (base)
+  type: simple
+  type_params:
+    measure: converted_session_count
+  filter: '{{ Dimension(''session__is_eligible'') }} = true AND {{ Dimension(''order__order_status'')
+    }} = ''paid'''
+- name: paid_revenue_base
+  label: Paid Revenue (session cohort) (base)
+  type: simple
+  type_params:
+    measure: revenue
+  filter: '{{ Dimension(''session__is_eligible'') }} = true AND {{ Dimension(''order__order_status'')
+    }} IN (''paid'', ''refunded'')'
+- name: paid_order_count_base
+  label: Paid Order Count (base)
+  type: simple
+  type_params:
+    measure: order_count
+  filter: '{{ Dimension(''session__is_eligible'') }} = true AND {{ Dimension(''order__order_status'')
+    }} = ''paid'''
+- name: conversion_rate
+  label: Conversion Rate
+  type: ratio
+  type_params:
+    numerator: converted_sessions
+    denominator: eligible_sessions
+- name: average_paid_order_value
+  label: Average Paid Order Value
+  type: ratio
+  type_params:
+    numerator: paid_revenue
+    denominator: paid_order_count
+- name: converted_sessions
+  label: Converted Sessions
+  type: derived
+  type_params:
+    expr: COALESCE(converted_sessions_base, 0) + 0 * eligible_sessions
+    metrics:
+    - name: converted_sessions_base
+    - name: eligible_sessions
+- name: paid_revenue
+  label: Paid Revenue
+  type: derived
+  type_params:
+    expr: paid_revenue_base + 0 * eligible_sessions
+    metrics:
+    - name: paid_revenue_base
+    - name: eligible_sessions
+- name: paid_order_count
+  label: Paid Order Count
+  type: derived
+  type_params:
+    expr: COALESCE(paid_order_count_base, 0) + 0 * eligible_sessions
+    metrics:
+    - name: paid_order_count_base
+    - name: eligible_sessions

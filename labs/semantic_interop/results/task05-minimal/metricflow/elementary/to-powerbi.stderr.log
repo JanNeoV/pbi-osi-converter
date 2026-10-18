@@ -1,0 +1,3 @@
+[metric 'paid_revenue'] no home table recorded; the measure is placed on 'orders'
+[DatabaseQuery] no workspaceId/itemId given; the Direct Lake source uses placeholder ids
+2 construct(s) could not be converted faithfully; see the messages above.

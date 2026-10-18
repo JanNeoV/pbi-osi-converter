@@ -10,6 +10,9 @@ A public, offline proof of concept for auditing a captured Power BI-to-Snowflake
 
 **Related work:** [Analytical AI agent evaluation](https://github.com/JanNeoV/ai-agent-evaluation-lab) · [Technical articles](https://medium.com/@jan.busse)
 
+**Cross-platform lab:** [Semantic Interoperability & Correctness Lab](labs/semantic_interop/showcase/README.md)
+— reproduce two business metrics across MetricFlow, Power BI and Databricks converters using Apache Ossie.
+
 ## Five-minute quickstart
 
 Use Python 3.10 or newer. No Snowflake, Power BI, OpenAI, or other cloud
@@ -49,6 +52,50 @@ pauses and remains fully offline.
 
 Counts from the captured 46-measure audit must not be combined with counts from
 the later synthetic fixtures.
+
+## Semantic Interoperability & Correctness Lab
+
+**Can the same business metrics survive conversion between MetricFlow, Power BI
+and Databricks using Apache Ossie?**
+
+Apache Ossie is an open semantic interchange format with platform converters.
+MetricFlow, Power BI and Databricks have their own metric definitions and execution
+engines; Ossie exchanges model descriptions between them. A semantic model carries
+more than a metric name: aggregation, eligible rows, relationships, date roles,
+filter context and dependencies determine the business answer.
+
+The lab uses **12 sessions and six orders**, with two headline metrics:
+
+| Metric | Expected overall result |
+|---|---:|
+| Conversion Rate | **40%** |
+| Paid Revenue | **390 EUR** |
+
+Direct converts at **50%** (3/6); Indirect at **25%** (1/4). Overall is **4/10 = 40%**,
+not the unweighted average, 37.5%. Expanding the revenue filter to include the
+existing refunded order changes **390 to 440 EUR**; Conversion Rate stays **40%**.
+These are [executed MetricFlow/DuckDB source results](labs/semantic_interop/results/task05-minimal/metricflow/include-refunded/source/execution.json).
+
+Successful file conversion does not guarantee the same calculation. The
+[nine investigated paths](labs/semantic_interop/showcase/RESULTS.md) produced
+eight outputs and one converter failure. Two native round trips preserve inspected
+definitions; six paths have static semantic mismatches. **No unchanged conversion
+has a numerically verified target result.** Power BI and Databricks runtime execution
+remains unverified; returned MetricFlow models stop at missing configuration.
+
+Start with the demonstration, then choose the exercise for your platform:
+
+1. [Five-minute demonstration](labs/semantic_interop/showcase/README.md)
+2. [Offline installation and execution](labs/semantic_interop/README.md#offline-quickstart)
+3. [Hands-on interoperability tutorial](labs/semantic_interop/showcase/TUTORIAL.md)
+4. [Power BI example and manual Desktop setup](labs/semantic_interop/showcase/TUTORIAL.md#exercise-b-power-bi-change-the-default-kpi) — TMSL candidate **NOT_VERIFIED**
+5. [Databricks continuation guide for Charlotte](labs/semantic_interop/showcase/DATABRICKS_HANDOFF.md)
+6. [Verified results and research limitations](labs/semantic_interop/showcase/RESULTS.md)
+7. [Technical article draft](labs/semantic_interop/docs/CONVERSION_ARTICLE_DRAFT.md)
+
+The lab is separate from the captured Power BI/Snowflake assurance project above.
+Historical Task 02 results use a different fixture and remain separately reported
+in the [evidence guide](labs/semantic_interop/showcase/RESULTS.md#historical-evidence).
 
 ## What converted well
 

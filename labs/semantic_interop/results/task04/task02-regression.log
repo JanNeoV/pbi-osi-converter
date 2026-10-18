@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\github\pbi-osi-converter\labs\semantic_interop\scripts\check_task02.py", line 48, in <module>
+    main()
+  File "C:\github\pbi-osi-converter\labs\semantic_interop\scripts\check_task02.py", line 37, in main
+    assert results[0][1] == results[1][1], "Normalized reports are not deterministic; inspect both retained runs"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Normalized reports are not deterministic; inspect both retained runs

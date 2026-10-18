@@ -1,0 +1,4 @@
+table Calendar
+    column date_day
+        dataType: dateTime
+        sourceColumn: date_day

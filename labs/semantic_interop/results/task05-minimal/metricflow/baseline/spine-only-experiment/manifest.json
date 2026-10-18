@@ -1,0 +1,322 @@
+{
+  "semantic_models": [
+    {
+      "name": "sessions",
+      "node_relation": {
+        "alias": "\"sessions\"",
+        "schema_name": "\"main\"",
+        "database": "\"benchmark\"",
+        "relation_name": "\"benchmark\".\"main\".\"sessions\""
+      },
+      "entities": [],
+      "measures": [],
+      "dimensions": [
+        {
+          "name": "session",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "session_id"
+        },
+        {
+          "name": "session_date",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          }
+        },
+        {
+          "name": "sales_channel",
+          "type": "categorical",
+          "is_partition": false
+        },
+        {
+          "name": "is_eligible",
+          "type": "categorical",
+          "is_partition": false
+        },
+        {
+          "name": "session_count",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "session_id"
+        }
+      ]
+    },
+    {
+      "name": "orders",
+      "node_relation": {
+        "alias": "\"orders\"",
+        "schema_name": "\"main\"",
+        "database": "\"benchmark\"",
+        "relation_name": "\"benchmark\".\"main\".\"orders\""
+      },
+      "entities": [],
+      "measures": [],
+      "dimensions": [
+        {
+          "name": "order",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "order_id"
+        },
+        {
+          "name": "session",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "session_id"
+        },
+        {
+          "name": "session_date",
+          "type": "time",
+          "is_partition": false,
+          "type_params": {
+            "time_granularity": "day"
+          }
+        },
+        {
+          "name": "order_status",
+          "type": "categorical",
+          "is_partition": false
+        },
+        {
+          "name": "converted_session_count",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "session_id"
+        },
+        {
+          "name": "order_count",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "order_id"
+        },
+        {
+          "name": "revenue",
+          "type": "categorical",
+          "is_partition": false,
+          "expr": "amount_eur"
+        }
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "name": "eligible_sessions",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "CASE WHEN session__is_eligible = TRUE THEN session_id END",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "sessions",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "converted_sessions_base",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "CASE WHEN session__is_eligible = TRUE AND order__order_status = 'paid' THEN session_id END",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "orders",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "paid_revenue_base",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "SUM(CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.amount_eur END)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "paid_order_count_base",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "CASE WHEN session__is_eligible = TRUE AND order__order_status = 'paid' THEN order_id END",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "orders",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "conversion_rate__numerator",
+      "type": "simple",
+      "type_params": {
+        "expr": "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = TRUE AND order__order_status = 'paid' THEN orders.session_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = TRUE THEN sessions.session_id END)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "conversion_rate__denominator",
+      "type": "simple",
+      "type_params": {
+        "expr": "CASE WHEN session__is_eligible = TRUE THEN session_id END",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "sessions",
+          "agg": "count_distinct"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "conversion_rate",
+      "description": "",
+      "type": "ratio",
+      "type_params": {
+        "numerator": {
+          "name": "conversion_rate__numerator"
+        },
+        "denominator": {
+          "name": "conversion_rate__denominator"
+        },
+        "input_measures": [],
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "average_paid_order_value__numerator",
+      "type": "simple",
+      "type_params": {
+        "expr": "SUM(CASE WHEN session__is_eligible = TRUE AND order__order_status = 'paid' THEN orders.amount_eur END) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = TRUE THEN sessions.session_id END)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "average_paid_order_value__denominator",
+      "type": "simple",
+      "type_params": {
+        "expr": "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = TRUE AND order__order_status = 'paid' THEN orders.order_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = TRUE THEN sessions.session_id END)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "average_paid_order_value",
+      "description": "",
+      "type": "ratio",
+      "type_params": {
+        "numerator": {
+          "name": "average_paid_order_value__numerator"
+        },
+        "denominator": {
+          "name": "average_paid_order_value__denominator"
+        },
+        "input_measures": [],
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "converted_sessions",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.session_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "paid_revenue",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "SUM(CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.amount_eur END) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    },
+    {
+      "name": "paid_order_count",
+      "description": "",
+      "type": "simple",
+      "type_params": {
+        "expr": "COALESCE(COUNT(DISTINCT CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.order_id END), 0) + 0 * COUNT(DISTINCT CASE WHEN session__is_eligible = true THEN sessions.session_id END)",
+        "input_measures": [],
+        "metric_aggregation_params": {
+          "semantic_model": "sessions",
+          "agg": "sum"
+        },
+        "join_to_timespine": false,
+        "is_private": false
+      }
+    }
+  ],
+  "project_configuration": {
+    "time_spine_table_configurations": [],
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "time_spines": [
+      {
+        "node_relation": {
+          "alias": "time_spine",
+          "schema_name": "main",
+          "database": "benchmark",
+          "relation_name": "\"benchmark\".\"main\".\"time_spine\""
+        },
+        "primary_column": {
+          "name": "date_day",
+          "time_granularity": "day"
+        },
+        "custom_granularities": []
+      }
+    ]
+  },
+  "saved_queries": []
+}

@@ -1,0 +1,34 @@
+{
+  "conversion": "PASS",
+  "direction": "from-ossie",
+  "input": "input.ossie.yml",
+  "input_sha256": "b6cf7ddd0cd2cb058fe856e6e4a4c52a1400c3cc67b1b906a2dde627deb530fb",
+  "issues": [],
+  "numerical_equivalence": "NOT_EXECUTED",
+  "official_api": "ossie_dbt.OssieToMSIConverter.convert",
+  "output": "output.manifest.json",
+  "output_sha256": "fdfd21780db2681612bd6d00bcd327754034c1b278e2ebc9f5318cc76fa84ad7",
+  "semantic_preservation": "UNKNOWN",
+  "target_inventory": {
+    "models": {
+      "conversion_demo_databricks": {
+        "default_time_dimension": null,
+        "entities": []
+      }
+    },
+    "time_spines": 0
+  },
+  "target_metric_names": [
+    "eligible_sessions",
+    "converted_sessions",
+    "conversion_rate__numerator",
+    "conversion_rate__denominator",
+    "conversion_rate",
+    "paid_revenue",
+    "paid_order_count",
+    "average_paid_order_value__numerator",
+    "average_paid_order_value__denominator",
+    "average_paid_order_value"
+  ],
+  "warnings": []
+}

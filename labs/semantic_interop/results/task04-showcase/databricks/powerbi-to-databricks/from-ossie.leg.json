@@ -1,0 +1,35 @@
+{
+  "direction": "Apache Ossie -> Databricks",
+  "source": "input.ossie.yml",
+  "target": "generated.metric-view.yml",
+  "conversion": "FAIL",
+  "semantic_preservation": "UNKNOWN",
+  "numerical_equivalence": "BLOCKED",
+  "structure_validation": {
+    "validation": "NOT_EXECUTED"
+  },
+  "parse_error": null,
+  "command": {
+    "label": "from-ossie",
+    "command": [
+      "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+      "-jar",
+      "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+      "export",
+      "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\powerbi-to-databricks\\input.ossie.yml",
+      "-o",
+      "<repository>\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\powerbi-to-databricks\\generated.metric-view.yml",
+      "--source",
+      "Sessions"
+    ],
+    "cwd": "<repository>",
+    "exit_code": 1,
+    "stdout": "from-ossie.stdout.log",
+    "stderr": "from-ossie.stderr.log",
+    "execution_status": "EXECUTED",
+    "warnings": [
+      "Conversion failed: Dataset 'Sessions': source 'Sessions' must be a 3-part catalog.schema.table identifier or a SELECT/WITH subquery"
+    ]
+  },
+  "runtime_blocker": "No authorized Databricks workspace/SQL warehouse session is available. Metric View creation, analysis and MEASURE queries were not executed."
+}

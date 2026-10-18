@@ -1,0 +1,186 @@
+{
+  "artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\to-powerbi\\databricks\\output.model.bim",
+  "artifact_sha256": "2716481687520b72e6ec5e8285bcdeda7c0e1386d9b67024ed8a7a7aa88254c9",
+  "conversion": "PASS",
+  "converter": {
+    "commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+    "distributions": {
+      "apache-ossie": {
+        "direct_url": {
+          "subdirectory": "python",
+          "url": "https://github.com/apache/ossie.git",
+          "vcs_info": {
+            "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "vcs": "git"
+          }
+        },
+        "version": "0.2.0.dev0"
+      },
+      "apache-ossie-microsoft": {
+        "direct_url": {
+          "subdirectory": "converters/microsoft",
+          "url": "https://github.com/apache/ossie.git",
+          "vcs_info": {
+            "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee",
+            "vcs": "git"
+          }
+        },
+        "version": "0.2.0.dev0"
+      }
+    },
+    "installed_converter_sha256": {
+      "__init__.py": "2befa65ed0de85b719847947ae2f85ec84e2b437ecb708cfd1e6d41c1d982787",
+      "_common.py": "f0361c7c0b8ee930e3e6257cdf9f21a97d7a5f9c8efe01661ea71f4106b79b09",
+      "_sql_to_dax.py": "797168011bfcc798b4a44e824c53b7fa01d653cf760642e7102794e7281f623f",
+      "cli.py": "0c44036bb510b82a308b47ba7777af5bef91f13fd5da2dc4becd85d44b97dfbf",
+      "engine.py": "6896667cb32608e3b2b85744ccd97fb09d9647a1f5086e545e6afaedab7e1a4e",
+      "ossie_to_semantic_model.py": "fdefffef8680a72d7e65e2da70889d596e9c062de95563706b7c155f03d57cd8",
+      "semantic_model_to_ossie.py": "cdfa0345efd2e956addb3f01a164733f1bf3c42a631f653d5eaf367d3a33e87f",
+      "tom.py": "4bdc6678266cecffc7592e86fef90c59c2cf5969f6a2da0e237efbfadfccd1ff"
+    },
+    "official_source": "https://github.com/apache/ossie/tree/6ebc5e5612467dac405985f44ea078b39c891bee/converters/microsoft",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "direction": "from-ossie",
+  "input_artifact": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\to-powerbi\\databricks\\input.ossie.yml",
+  "numerical_equivalence": "NOT_EXECUTED",
+  "official_call": "ossie_microsoft.convert_ossie_to_semantic_model(source_yaml)",
+  "semantic_preservation": "MISMATCH",
+  "semantic_reason": "Official converter substituted BLANK() for untranslated source expressions.",
+  "semantic_scope": "Only directly inspected converter behavior; no target-engine execution.",
+  "source": "C:\\github\\pbi-osi-converter\\labs\\semantic_interop\\results\\task04-showcase\\databricks\\databricks-roundtrip\\imported.ossie.yml",
+  "source_sha256": "b6cf7ddd0cd2cb058fe856e6e4a4c52a1400c3cc67b1b906a2dde627deb530fb",
+  "target_inventory": {
+    "measures": [
+      "eligible_sessions",
+      "converted_sessions",
+      "conversion_rate",
+      "paid_revenue",
+      "paid_order_count",
+      "average_paid_order_value"
+    ],
+    "partitions": {
+      "conversion_demo_databricks": [
+        {
+          "mode": "import",
+          "name": "conversion_demo_databricks",
+          "source": {
+            "expression": [
+              "let",
+              "    Source = Sql.Database(\"localhost\", \"database\", [Query=\"SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,",
+              "       o.order_id, o.order_date, o.amount_eur, o.order_status",
+              "FROM demo.semantic_interop.sessions AS s",
+              "LEFT JOIN demo.semantic_interop.orders AS o",
+              "  ON s.session_id = o.session_id",
+              " AND o.order_date < DATE '2026-03-01'",
+              "WHERE s.session_date >= DATE '2026-01-01'",
+              "  AND s.session_date < DATE '2026-03-01'\"])",
+              "in",
+              "    Source"
+            ],
+            "type": "m"
+          }
+        }
+      ]
+    },
+    "tables": [
+      "conversion_demo_databricks"
+    ],
+    "untranslated_expressions_replaced_by_blank": [
+      {
+        "measure": "eligible_sessions",
+        "original_dialect": "DATABRICKS",
+        "original_expression": "COUNT(DISTINCT session_id)"
+      },
+      {
+        "measure": "converted_sessions",
+        "original_dialect": "DATABRICKS",
+        "original_expression": "COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid')"
+      },
+      {
+        "measure": "conversion_rate",
+        "original_dialect": "DATABRICKS",
+        "original_expression": "CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0)"
+      },
+      {
+        "measure": "paid_revenue",
+        "original_dialect": "DATABRICKS",
+        "original_expression": "SUM(amount_eur) FILTER (WHERE order_status = 'paid')"
+      },
+      {
+        "measure": "paid_order_count",
+        "original_dialect": "DATABRICKS",
+        "original_expression": "COUNT(DISTINCT order_id) FILTER (WHERE order_status = 'paid')"
+      },
+      {
+        "measure": "average_paid_order_value",
+        "original_dialect": "DATABRICKS",
+        "original_expression": "(SUM(amount_eur) FILTER (WHERE order_status = 'paid')) / NULLIF(COUNT(DISTINCT order_id) FILTER (WHERE order_status = 'paid'), 0)"
+      }
+    ]
+  },
+  "warnings": [
+    {
+      "category": "UserWarning",
+      "message": "[model] custom_extensions for vendor 'DATABRICKS' have no Power BI equivalent and are dropped"
+    },
+    {
+      "category": "UserWarning",
+      "message": "[dataset 'conversion_demo_databricks' field 'session_month'] a 'OSSIE_SQL_2026' expression could not be translated to DAX (only string concatenation is translated for a calculated column), and Power BI evaluates a measure or calculated column only as DAX; the calculated column uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+    },
+    {
+      "category": "UserWarning",
+      "message": "[dataset 'conversion_demo_databricks'] Direct Lake cannot read a query source; using an import partition"
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'eligible_sessions'] a 'DATABRICKS' expression could not be translated to DAX (column 'session_id' does not resolve to exactly one dataset field), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'eligible_sessions'] no home table recorded; the measure is placed on 'conversion_demo_databricks'"
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'converted_sessions'] a 'DATABRICKS' expression could not be translated to DAX (only a single aggregate over one column translates unambiguously to DAX), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'converted_sessions'] no home table recorded; the measure is placed on 'conversion_demo_databricks'"
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'conversion_rate'] a 'DATABRICKS' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'conversion_rate'] no home table recorded; the measure is placed on 'conversion_demo_databricks'"
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'paid_revenue'] a 'DATABRICKS' expression could not be translated to DAX (only a single aggregate over one column translates unambiguously to DAX), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'paid_revenue'] no home table recorded; the measure is placed on 'conversion_demo_databricks'"
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'paid_order_count'] a 'DATABRICKS' expression could not be translated to DAX (only a single aggregate over one column translates unambiguously to DAX), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'paid_order_count'] no home table recorded; the measure is placed on 'conversion_demo_databricks'"
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'average_paid_order_value'] a 'DATABRICKS' expression could not be translated to DAX (only supported aggregate expressions can be used in a metric), and Power BI evaluates a measure or calculated column only as DAX; the measure uses BLANK() and preserves the original dialect and expression as annotations. Supply a 'DAX' expression to convert it."
+    },
+    {
+      "category": "UserWarning",
+      "message": "[metric 'average_paid_order_value'] no home table recorded; the measure is placed on 'conversion_demo_databricks'"
+    }
+  ]
+}

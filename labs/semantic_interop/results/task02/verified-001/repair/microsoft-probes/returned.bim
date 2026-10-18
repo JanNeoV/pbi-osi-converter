@@ -1,0 +1,105 @@
+{
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "relationships": [
+      {
+        "crossFilteringBehavior": "oneDirection",
+        "fromCardinality": "many",
+        "fromColumn": "id",
+        "fromTable": "Fact",
+        "isActive": true,
+        "name": "fact_dim",
+        "toCardinality": "one",
+        "toColumn": "id",
+        "toTable": "Dim"
+      }
+    ],
+    "tables": [
+      {
+        "columns": [
+          {
+            "dataType": "int64",
+            "name": "id",
+            "sourceColumn": "id"
+          },
+          {
+            "dataType": "decimal",
+            "name": "amount",
+            "sourceColumn": "amount"
+          }
+        ],
+        "name": "Fact",
+        "partitions": [
+          {
+            "mode": "directLake",
+            "name": "Fact",
+            "source": {
+              "entityName": "Fact",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "main",
+              "type": "entity"
+            }
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "dataType": "int64",
+            "name": "id",
+            "sourceColumn": "id"
+          }
+        ],
+        "name": "Dim",
+        "partitions": [
+          {
+            "mode": "directLake",
+            "name": "Dim",
+            "source": {
+              "entityName": "Dim",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "main",
+              "type": "entity"
+            }
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "dataType": "int64",
+            "isHidden": true,
+            "name": "_",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "measures": [
+          {
+            "displayFolder": "Finance",
+            "expression": "SUM(Fact[amount])",
+            "formatString": "0.00",
+            "name": "Revenue"
+          },
+          {
+            "expression": "[Revenue] * 2",
+            "isHidden": true,
+            "name": "DoubleRevenue"
+          }
+        ],
+        "name": "Measures",
+        "partitions": [
+          {
+            "mode": "import",
+            "name": "Measures",
+            "source": {
+              "expression": "ROW(\"_\", 1)",
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "name": "static_probe"
+}

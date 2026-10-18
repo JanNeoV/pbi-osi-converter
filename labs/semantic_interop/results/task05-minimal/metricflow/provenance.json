@@ -1,0 +1,58 @@
+{
+  "helper_sha256": "1da94cfa43ba684f7e129d21de191e49059fb534a0674bcf9b82e8dc97d113e3",
+  "packages": {
+    "apache-ossie": {
+      "version": "0.2.0.dev0",
+      "source": {
+        "url": "https://github.com/apache/ossie.git",
+        "vcs_info": {
+          "vcs": "git",
+          "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee"
+        },
+        "subdirectory": "python"
+      }
+    },
+    "apache-ossie-dbt": {
+      "version": "0.2.0.dev0",
+      "source": {
+        "url": "https://github.com/apache/ossie.git",
+        "vcs_info": {
+          "vcs": "git",
+          "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee"
+        },
+        "subdirectory": "converters/dbt"
+      }
+    },
+    "apache-ossie-microsoft": {
+      "version": "0.2.0.dev0",
+      "source": {
+        "url": "https://github.com/apache/ossie.git",
+        "vcs_info": {
+          "vcs": "git",
+          "commit_id": "6ebc5e5612467dac405985f44ea078b39c891bee",
+          "requested_revision": "6ebc5e5612467dac405985f44ea078b39c891bee"
+        },
+        "subdirectory": "converters/microsoft"
+      }
+    },
+    "metricflow": {
+      "version": "0.213.0",
+      "source": null
+    },
+    "dbt-core": {
+      "version": "1.12.6",
+      "source": null
+    },
+    "dbt-duckdb": {
+      "version": "1.11.0",
+      "source": null
+    },
+    "duckdb": {
+      "version": "1.5.6",
+      "source": null
+    }
+  },
+  "jar_sha256": "09af8c0868cd56eac6a2de0e07dd59c1288506d4dd5779c9db2d3fbcec1e490f"
+}

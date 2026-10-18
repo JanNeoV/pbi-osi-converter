@@ -1,0 +1,10 @@
+name: conversion_demo
+version: '1.0'
+config-version: 2
+profile: conversion_demo
+model-paths: [models]
+models:
+  conversion_demo:
+    +materialized: view
+flags:
+  send_anonymous_usage_stats: false

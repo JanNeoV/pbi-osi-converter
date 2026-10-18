@@ -1,0 +1,64 @@
+{
+  "conversion": "PASS",
+  "direction": "from-ossie",
+  "input": "input.ossie.yml",
+  "input_sha256": "c83fd052aececed1b56ce1031443bd7b7f5dd7ae775aeffeedbfc7e740f5ef04",
+  "issues": [],
+  "numerical_equivalence": "NOT_EXECUTED",
+  "official_api": "ossie_dbt.OssieToMSIConverter.convert",
+  "output": "output.manifest.json",
+  "output_sha256": "ff990af8cc3a9f0f6ed9b44ad8da27b137085a34c361f51d578bbb3e28439a89",
+  "semantic_preservation": "UNKNOWN",
+  "target_inventory": {
+    "models": {
+      "Orders": {
+        "default_time_dimension": null,
+        "entities": [
+          [
+            "order_id",
+            "EntityType.PRIMARY",
+            null
+          ],
+          [
+            "session_id",
+            "EntityType.FOREIGN",
+            null
+          ]
+        ]
+      },
+      "Sales Channel": {
+        "default_time_dimension": null,
+        "entities": [
+          [
+            "sales_channel",
+            "EntityType.PRIMARY",
+            null
+          ]
+        ]
+      },
+      "Sessions": {
+        "default_time_dimension": null,
+        "entities": [
+          [
+            "session_id",
+            "EntityType.PRIMARY",
+            null
+          ],
+          [
+            "sales_channel",
+            "EntityType.FOREIGN",
+            null
+          ]
+        ]
+      }
+    },
+    "time_spines": 0
+  },
+  "target_metric_names": [
+    "Eligible Sessions",
+    "Converted Sessions",
+    "Conversion Rate",
+    "Paid Revenue"
+  ],
+  "warnings": []
+}

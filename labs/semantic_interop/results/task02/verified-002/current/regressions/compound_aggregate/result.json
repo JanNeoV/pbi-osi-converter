@@ -1,0 +1,54 @@
+{
+  "artifact_directory": "regressions/compound_aggregate",
+  "entity_names": [
+    "item_id"
+  ],
+  "id": "compound_aggregate",
+  "issues": [],
+  "mechanism": "nested aggregate fallback",
+  "metric_expression": "SUM(CASE WHEN status = 'completed' THEN amount END)",
+  "native": {
+    "columns": [
+      "revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "10.00"
+        }
+      ]
+    ]
+  },
+  "native_matches_oracle": true,
+  "oracle": {
+    "columns": [
+      "revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "10.00"
+        }
+      ]
+    ]
+  },
+  "reduction": {
+    "attempted": "remove cancelled row",
+    "initial_failure": "nested_aggregation",
+    "kept": true,
+    "reduced_failure": "nested_aggregation",
+    "selected": "one_row",
+    "structural": "one metric, one model, one primary entity, only time/status dimensions; source is reexecuted"
+  },
+  "returned": {
+    "error": "Binder Error: aggregate function calls cannot be nested\n\nLINE 9:   SUM(SUM(CASE WHEN status = 'completed' THEN amount END)) AS...\n              ^",
+    "phase": "compile_or_execute"
+  },
+  "returned_executed": false,
+  "returned_matches_oracle": false,
+  "source_entity_names": [
+    "item_id"
+  ]
+}

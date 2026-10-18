@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {"item_id": 1, "order_date": "2026-01-01", "status": "completed", "amount": "10.00"},
+    {"item_id": 2, "order_date": "2026-01-02", "status": "cancelled", "amount": "20.00"}
+  ],
+  "cases": [
+    {"id": "entity_alias", "entity": "item", "expr": "amount", "filter": null,
+     "oracle": "SELECT SUM(amount) AS revenue FROM regression_items", "mechanism": "entity alias is absent from key set"},
+    {"id": "compound_aggregate", "entity": "item_id", "expr": "CASE WHEN status = 'completed' THEN amount END", "filter": null,
+     "oracle": "SELECT SUM(amount) AS revenue FROM regression_items WHERE status = 'completed'", "mechanism": "nested aggregate fallback"},
+    {"id": "metric_filter", "entity": "item_id", "expr": "amount", "filter": "{{ Dimension('item_id__status') }} = 'completed'",
+     "oracle": "SELECT SUM(amount) AS revenue FROM regression_items WHERE status = 'completed'", "mechanism": "unresolved MetricFlow dimension token in SQL filter"}
+  ]
+}

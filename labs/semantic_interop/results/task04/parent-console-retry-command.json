@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "semantic_poc/tests/test_demo.py::test_direct_console_entry_point_is_checkout_bound_and_checked",
+    "--basetemp",
+    ".tmp/pytest-task04-console-retry"
+  ],
+  "PATH_prepend": ".tmp/semantic-lab-venv/Scripts",
+  "exit_code": 0
+}

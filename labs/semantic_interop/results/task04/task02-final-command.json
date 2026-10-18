@@ -1,0 +1,11 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "labs/semantic_interop/scripts/check_task02.py",
+    "--upstream-python",
+    ".tmp/task02-replay/current-env/Scripts/python.exe",
+    "--repair-python",
+    ".tmp/task02-replay/repair-env/Scripts/python.exe"
+  ],
+  "exit_code": 0
+}

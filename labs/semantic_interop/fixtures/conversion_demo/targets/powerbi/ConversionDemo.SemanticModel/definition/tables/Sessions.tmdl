@@ -1,0 +1,128 @@
+/// Manually authored candidate: raw sessions and session-cohort business measures.
+table Sessions
+	column session_id
+		dataType: int64
+		isKey
+		summarizeBy: none
+		sourceColumn: session_id
+
+	column session_date
+		dataType: dateTime
+		formatString: yyyy-MM-dd
+		summarizeBy: none
+		sourceColumn: session_date
+
+	column session_month
+		dataType: dateTime
+		formatString: yyyy-MM
+		summarizeBy: none
+		sourceColumn: session_month
+
+	column sales_channel
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: sales_channel
+
+	column is_eligible
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_eligible
+
+	column exclusion_reason
+		dataType: string
+		summarizeBy: none
+		sourceColumn: exclusion_reason
+
+	/// Core metric: distinct eligible sessions observed before the fixed exclusive cutoff.
+	measure 'Eligible Sessions' =
+			COALESCE(
+			    CALCULATE(
+			        DISTINCTCOUNT(Sessions[session_id]),
+			        KEEPFILTERS(Sessions[is_eligible] = TRUE()),
+			        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),
+			        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1))
+			    ),
+			    0
+			)
+		formatString: #,0
+		displayFolder: Core Business Metrics
+
+	/// Core metric: one eligible session qualifies once even if it has several paid orders.
+	measure 'Converted Sessions' =
+			COALESCE(
+			    CALCULATE(
+			        DISTINCTCOUNT(Orders[session_id]),
+			        KEEPFILTERS(Sessions[is_eligible] = TRUE()),
+			        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),
+			        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),
+			        KEEPFILTERS(Orders[order_status] = "paid"),
+			        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))
+			    ),
+			    0
+			)
+		formatString: #,0
+		displayFolder: Core Business Metrics
+
+	/// Core metric: ratio of aggregated session counts; zero denominator returns BLANK.
+	measure 'Conversion Rate' = DIVIDE([Converted Sessions], [Eligible Sessions])
+		formatString: 0.0%
+		displayFolder: Core Business Metrics
+
+	/// Core metric: paid EUR amounts attributed to the originating session cohort, observed before cutoff.
+	measure 'Paid Revenue' =
+			CALCULATE(
+			    SUM(Orders[amount_eur]),
+			    KEEPFILTERS(Sessions[is_eligible] = TRUE()),
+			    KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),
+			        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),
+			    KEEPFILTERS(Orders[order_status] = "paid"),
+			    KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))
+			)
+		formatString: #,0.00 "EUR"
+		displayFolder: Core Business Metrics
+
+	/// Supporting core metric: paid orders, not converted sessions.
+	measure 'Paid Order Count' =
+			COALESCE(
+			    CALCULATE(
+			        DISTINCTCOUNT(Orders[order_id]),
+			        KEEPFILTERS(Sessions[is_eligible] = TRUE()),
+			        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),
+			        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),
+			        KEEPFILTERS(Orders[order_status] = "paid"),
+			        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))
+			    ),
+			    0
+			)
+		formatString: #,0
+		displayFolder: Core Business Metrics
+
+	/// Core metric: revenue divided by paid orders, not by converted sessions.
+	measure 'Average Paid Order Value' = DIVIDE([Paid Revenue], [Paid Order Count])
+		formatString: #,0.00 "EUR"
+		displayFolder: Core Business Metrics
+
+	/// Power BI presentation logic only. No or multiple selected KPI values both default to Conversion Rate.
+	measure 'Selected KPI' =
+			SWITCH(
+			    SELECTEDVALUE('KPI Selector'[KPI], "Conversion Rate"),
+			    "Conversion Rate", [Conversion Rate],
+			    "Paid Revenue", [Paid Revenue],
+			    "Eligible Sessions", [Eligible Sessions],
+			    BLANK()
+			)
+		formatString: 0.0%
+		formatStringDefinition =
+			SWITCH(
+			    SELECTEDVALUE('KPI Selector'[KPI], "Conversion Rate"),
+			    "Conversion Rate", "0.0%",
+			    "Paid Revenue", "#,0.00 ""EUR""",
+			    "Eligible Sessions", "#,0",
+			    "General Number"
+			)
+		displayFolder: Power BI Presentation
+
+	partition Sessions = m
+		mode: import
+		source = SessionsData

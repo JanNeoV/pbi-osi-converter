@@ -1,0 +1,466 @@
+{
+  "interventions": [
+    {
+      "after": [
+        {
+          "custom_granularities": [],
+          "node_relation": {
+            "alias": "time_spine",
+            "database": "benchmark",
+            "relation_name": "\"benchmark\".\"main\".\"time_spine\"",
+            "schema_name": "main"
+          },
+          "primary_column": {
+            "name": "date_day",
+            "time_granularity": "day"
+          }
+        }
+      ],
+      "before": [],
+      "pointer": "/project_configuration/time_spines"
+    },
+    {
+      "after": [
+        {
+          "config": null,
+          "defaults": {
+            "agg_time_dimension": "order_date"
+          },
+          "description": null,
+          "dimensions": [
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": null,
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "order_date",
+              "type": "time",
+              "type_params": {
+                "time_granularity": "day",
+                "validity_params": null
+              }
+            },
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": null,
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "status",
+              "type": "categorical",
+              "type_params": null
+            },
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": "order_id",
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "order_count_measure",
+              "type": "categorical",
+              "type_params": null
+            },
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": "customer_id",
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "customers_measure",
+              "type": "categorical",
+              "type_params": null
+            }
+          ],
+          "entities": [
+            {
+              "config": null,
+              "description": null,
+              "expr": "order_id",
+              "label": null,
+              "metadata": null,
+              "name": "order",
+              "role": null,
+              "type": "primary"
+            }
+          ],
+          "label": null,
+          "measures": [],
+          "metadata": null,
+          "name": "orders",
+          "node_relation": {
+            "alias": "\"orders\"",
+            "database": "\"benchmark\"",
+            "relation_name": "\"benchmark\".\"main\".\"orders\"",
+            "schema_name": "\"main\""
+          },
+          "primary_entity": null
+        },
+        {
+          "config": null,
+          "defaults": {
+            "agg_time_dimension": "order_date"
+          },
+          "description": null,
+          "dimensions": [
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": null,
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "order_date",
+              "type": "time",
+              "type_params": {
+                "time_granularity": "day",
+                "validity_params": null
+              }
+            },
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": null,
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "status",
+              "type": "categorical",
+              "type_params": null
+            },
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": "amount",
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "revenue_measure",
+              "type": "categorical",
+              "type_params": null
+            }
+          ],
+          "entities": [
+            {
+              "config": null,
+              "description": null,
+              "expr": "item_id",
+              "label": null,
+              "metadata": null,
+              "name": "item",
+              "role": null,
+              "type": "primary"
+            },
+            {
+              "config": null,
+              "description": null,
+              "expr": "order_id",
+              "label": null,
+              "metadata": null,
+              "name": "order",
+              "role": null,
+              "type": "foreign"
+            },
+            {
+              "config": null,
+              "description": null,
+              "expr": "product_id",
+              "label": null,
+              "metadata": null,
+              "name": "product",
+              "role": null,
+              "type": "foreign"
+            }
+          ],
+          "label": null,
+          "measures": [],
+          "metadata": null,
+          "name": "items",
+          "node_relation": {
+            "alias": "\"items\"",
+            "database": "\"benchmark\"",
+            "relation_name": "\"benchmark\".\"main\".\"items\"",
+            "schema_name": "\"main\""
+          },
+          "primary_entity": null
+        },
+        {
+          "config": null,
+          "defaults": null,
+          "description": null,
+          "dimensions": [
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": null,
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "category",
+              "type": "categorical",
+              "type_params": null
+            }
+          ],
+          "entities": [
+            {
+              "config": null,
+              "description": null,
+              "expr": "product_id",
+              "label": null,
+              "metadata": null,
+              "name": "product",
+              "role": null,
+              "type": "primary"
+            }
+          ],
+          "label": null,
+          "measures": [],
+          "metadata": null,
+          "name": "products",
+          "node_relation": {
+            "alias": "\"products\"",
+            "database": "\"benchmark\"",
+            "relation_name": "\"benchmark\".\"main\".\"products\"",
+            "schema_name": "\"main\""
+          },
+          "primary_entity": null
+        }
+      ],
+      "before": [
+        {
+          "config": null,
+          "defaults": null,
+          "description": null,
+          "dimensions": [
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": null,
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "order_date",
+              "type": "time",
+              "type_params": {
+                "time_granularity": "day",
+                "validity_params": null
+              }
+            },
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": null,
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "status",
+              "type": "categorical",
+              "type_params": null
+            },
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": "order_id",
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "order_count_measure",
+              "type": "categorical",
+              "type_params": null
+            },
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": "customer_id",
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "customers_measure",
+              "type": "categorical",
+              "type_params": null
+            }
+          ],
+          "entities": [
+            {
+              "config": null,
+              "description": null,
+              "expr": "order_id",
+              "label": null,
+              "metadata": null,
+              "name": "order",
+              "role": null,
+              "type": "primary"
+            }
+          ],
+          "label": null,
+          "measures": [],
+          "metadata": null,
+          "name": "orders",
+          "node_relation": {
+            "alias": "\"orders\"",
+            "database": "\"benchmark\"",
+            "relation_name": "\"benchmark\".\"main\".\"orders\"",
+            "schema_name": "\"main\""
+          },
+          "primary_entity": null
+        },
+        {
+          "config": null,
+          "defaults": null,
+          "description": null,
+          "dimensions": [
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": null,
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "order_date",
+              "type": "time",
+              "type_params": {
+                "time_granularity": "day",
+                "validity_params": null
+              }
+            },
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": null,
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "status",
+              "type": "categorical",
+              "type_params": null
+            },
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": "amount",
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "revenue_measure",
+              "type": "categorical",
+              "type_params": null
+            }
+          ],
+          "entities": [
+            {
+              "config": null,
+              "description": null,
+              "expr": "item_id",
+              "label": null,
+              "metadata": null,
+              "name": "item",
+              "role": null,
+              "type": "primary"
+            },
+            {
+              "config": null,
+              "description": null,
+              "expr": "order_id",
+              "label": null,
+              "metadata": null,
+              "name": "order",
+              "role": null,
+              "type": "foreign"
+            },
+            {
+              "config": null,
+              "description": null,
+              "expr": "product_id",
+              "label": null,
+              "metadata": null,
+              "name": "product",
+              "role": null,
+              "type": "foreign"
+            }
+          ],
+          "label": null,
+          "measures": [],
+          "metadata": null,
+          "name": "items",
+          "node_relation": {
+            "alias": "\"items\"",
+            "database": "\"benchmark\"",
+            "relation_name": "\"benchmark\".\"main\".\"items\"",
+            "schema_name": "\"main\""
+          },
+          "primary_entity": null
+        },
+        {
+          "config": null,
+          "defaults": null,
+          "description": null,
+          "dimensions": [
+            {
+              "config": null,
+              "datatype": null,
+              "description": null,
+              "expr": null,
+              "is_partition": false,
+              "label": null,
+              "metadata": null,
+              "name": "category",
+              "type": "categorical",
+              "type_params": null
+            }
+          ],
+          "entities": [
+            {
+              "config": null,
+              "description": null,
+              "expr": "product_id",
+              "label": null,
+              "metadata": null,
+              "name": "product",
+              "role": null,
+              "type": "primary"
+            }
+          ],
+          "label": null,
+          "measures": [],
+          "metadata": null,
+          "name": "products",
+          "node_relation": {
+            "alias": "\"products\"",
+            "database": "\"benchmark\"",
+            "relation_name": "\"benchmark\".\"main\".\"products\"",
+            "schema_name": "\"main\""
+          },
+          "primary_entity": null
+        }
+      ],
+      "pointer": "/semantic_models"
+    }
+  ],
+  "label": "level3_spine_defaults",
+  "level": 3,
+  "lossless_roundtrip_claim": false,
+  "manifest_sha256": "b971ab5aedee2204ba93e078636fc1547f0fdc835766128d31728697904e8f02",
+  "parent_manifest": "roundtrip.canonical.json",
+  "parent_sha256": "771c71487b4094041cee2ad989771f6eb4c516dad22f4c0356679c41a0e9a8a0",
+  "schema_version": 1,
+  "source_manifest": "source.manifest.normalized.json"
+}

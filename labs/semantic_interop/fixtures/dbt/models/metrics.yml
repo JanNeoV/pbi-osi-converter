@@ -1,0 +1,103 @@
+version: 2
+models:
+  - name: time_spine
+    time_spine:
+      standard_granularity_column: date_day
+    columns:
+      - name: date_day
+        granularity: day
+
+semantic_models:
+  - name: orders
+    model: ref('orders')
+    defaults:
+      agg_time_dimension: order_date
+    entities:
+      - name: order
+        type: primary
+        expr: order_id
+    dimensions:
+      - name: order_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: status
+        type: categorical
+    measures:
+      - name: order_count_measure
+        agg: count_distinct
+        expr: order_id
+      - name: customers_measure
+        agg: count_distinct
+        expr: customer_id
+
+  - name: items
+    model: ref('items')
+    defaults:
+      agg_time_dimension: order_date
+    entities:
+      - name: item
+        type: primary
+        expr: item_id
+      - name: order
+        type: foreign
+        expr: order_id
+      - name: product
+        type: foreign
+        expr: product_id
+    dimensions:
+      - name: order_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: status
+        type: categorical
+    measures:
+      - name: revenue_measure
+        agg: sum
+        expr: amount
+
+  - name: products
+    model: ref('products')
+    entities:
+      - name: product
+        type: primary
+        expr: product_id
+    dimensions:
+      - name: category
+        type: categorical
+
+metrics:
+  - name: revenue
+    label: Revenue
+    type: simple
+    type_params:
+      measure: revenue_measure
+  - name: order_count
+    label: Orders
+    type: simple
+    type_params:
+      measure: order_count_measure
+  - name: purchasing_customers
+    label: Purchasing customers
+    type: simple
+    type_params:
+      measure: customers_measure
+  - name: completed_revenue
+    label: Completed revenue
+    type: simple
+    type_params:
+      measure: revenue_measure
+    filter: "{{ Dimension('item__status') }} = 'completed'"
+  - name: average_order_value
+    label: Average order value
+    type: ratio
+    type_params:
+      numerator: revenue
+      denominator: order_count
+  - name: completed_revenue_share
+    label: Completed revenue share
+    type: ratio
+    type_params:
+      numerator: completed_revenue
+      denominator: revenue

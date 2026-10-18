@@ -1,0 +1,9 @@
+{
+  "command": [
+    "C:\\github\\pbi-osi-converter\\.tmp\\semantic-lab-venv\\Scripts\\python.exe",
+    "labs/semantic_interop/scripts/run_showcase.py",
+    "--output",
+    "labs/semantic_interop/results/task04-showcase"
+  ],
+  "exit_code": 0
+}

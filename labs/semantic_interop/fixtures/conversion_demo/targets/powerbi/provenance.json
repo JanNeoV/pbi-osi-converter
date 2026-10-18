@@ -1,0 +1,9 @@
+{
+  "artifact_origin": "MANUALLY_AUTHORED_CANDIDATE",
+  "conversion_execution_status": "NOT_EXECUTED",
+  "runtime_execution_status": "NOT_EXECUTED",
+  "validation_queries_execution_status": "NOT_EXECUTED",
+  "structural_validation": "REPOSITORY_STATIC_INVENTORY_ONLY",
+  "semantic_status": "TARGET_RUNTIME_UNVERIFIED",
+  "comparison_result": "NOT_EXECUTED"
+}

@@ -1,0 +1,202 @@
+{
+  "metricflow_to_databricks": {
+    "source_filter": "{{ Dimension('session__is_eligible') }} = true AND {{ Dimension('order__order_status') }} = 'paid'",
+    "generated_ossie_metric": {
+      "name": "paid_revenue_base",
+      "expression": {
+        "dialects": [
+          {
+            "dialect": "ANSI_SQL",
+            "expression": "SUM(CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.amount_eur END)"
+          }
+        ]
+      },
+      "description": ""
+    },
+    "generated_databricks_measure": {
+      "name": "paid_revenue_base",
+      "expr": "SUM(CASE WHEN session__is_eligible = true AND order__order_status = 'paid' THEN orders.amount_eur END)"
+    },
+    "actual_session_fields": [
+      [
+        "session_id",
+        "BIGINT",
+        "YES",
+        null,
+        null,
+        null
+      ],
+      [
+        "session_date",
+        "DATE",
+        "YES",
+        null,
+        null,
+        null
+      ],
+      [
+        "sales_channel",
+        "VARCHAR",
+        "YES",
+        null,
+        null,
+        null
+      ],
+      [
+        "is_eligible",
+        "BOOLEAN",
+        "YES",
+        null,
+        null,
+        null
+      ],
+      [
+        "exclusion_reason",
+        "VARCHAR",
+        "YES",
+        null,
+        null,
+        null
+      ]
+    ],
+    "actual_order_fields": [
+      [
+        "order_id",
+        "BIGINT",
+        "YES",
+        null,
+        null,
+        null
+      ],
+      [
+        "session_id",
+        "BIGINT",
+        "YES",
+        null,
+        null,
+        null
+      ],
+      [
+        "order_date",
+        "DATE",
+        "YES",
+        null,
+        null,
+        null
+      ],
+      [
+        "amount_eur",
+        "BIGINT",
+        "YES",
+        null,
+        null,
+        null
+      ],
+      [
+        "order_status",
+        "VARCHAR",
+        "YES",
+        null,
+        null,
+        null
+      ]
+    ],
+    "conclusion": "First business-meaning blocker is MetricFlow filter-name lowering without physical column resolution. Databricks preserves unresolved tokens; analyzer NOT_EXECUTED.",
+    "classification": [
+      "Unsupported semantic construct",
+      "Lost or altered business definition",
+      "Missing target runtime"
+    ],
+    "pinned_source": {
+      "commit": "6ebc5e5612467dac405985f44ea078b39c891bee",
+      "file": "converters/dbt/src/ossie_dbt/filter_utils.py",
+      "function": "_collect_filter_sql",
+      "local_line": 134
+    }
+  },
+  "powerbi_to_databricks": {
+    "datasets": [
+      {
+        "name": "Sessions",
+        "source": "Sessions"
+      },
+      {
+        "name": "Orders",
+        "source": "Orders"
+      },
+      {
+        "name": "Sales Channel",
+        "source": "Sales Channel"
+      }
+    ],
+    "stderr": "Conversion failed: Dataset 'Sessions': source 'Sessions' must be a 3-part catalog.schema.table identifier or a SELECT/WITH subquery\n",
+    "classification": [
+      "Missing execution configuration",
+      "Converter execution failure",
+      "Missing target runtime"
+    ],
+    "conclusion": "Source validation fails before DAX metric handling; no target emitted. No analyzer or numerical claim.",
+    "pinned_source": {
+      "commit": "53418ba8a4b8a20951334fdb9d9638aa34b514e3",
+      "file": "converters/databricks/java/src/main/java/org/apache/ossie/converter/databricks/OssieToMetricView.java",
+      "local_line": 187
+    }
+  },
+  "powerbi_switch_to_databricks": {
+    "dataset_names": [
+      "Sessions",
+      "Orders",
+      "Sales Channel",
+      "KPI Selector"
+    ],
+    "relationships": [
+      {
+        "name": "Sessions_sales_channel_to_Sales Channel_sales_channel",
+        "from": "Sessions",
+        "to": "Sales Channel",
+        "from_columns": [
+          "sales_channel"
+        ],
+        "to_columns": [
+          "sales_channel"
+        ],
+        "custom_extensions": [
+          {
+            "vendor_name": "POWER_BI",
+            "data": "{\"_v\": 2, \"crossFilteringBehavior\": \"oneDirection\", \"fromCardinality\": \"many\", \"isActive\": true, \"name\": \"sessions_channel\", \"normalizedEndpoints\": [\"Sessions\", \"sales_channel\", \"Sales Channel\", \"sales_channel\"], \"toCardinality\": \"one\"}"
+          }
+        ]
+      },
+      {
+        "name": "Orders_session_id_to_Sessions_session_id",
+        "from": "Orders",
+        "to": "Sessions",
+        "from_columns": [
+          "session_id"
+        ],
+        "to_columns": [
+          "session_id"
+        ],
+        "custom_extensions": [
+          {
+            "vendor_name": "POWER_BI",
+            "data": "{\"_v\": 2, \"crossFilteringBehavior\": \"oneDirection\", \"fromCardinality\": \"many\", \"isActive\": true, \"name\": \"orders_session\", \"normalizedEndpoints\": [\"Orders\", \"session_id\", \"Sessions\", \"session_id\"], \"toCardinality\": \"one\"}"
+          }
+        ]
+      }
+    ],
+    "stderr": "Conversion failed: Model 'ConversionDemoSwitch': datasets [KPI Selector] are not reachable from fact 'Sessions' via relationships.\n",
+    "classification": [
+      "Unsupported semantic construct",
+      "Converter execution failure",
+      "Missing target runtime"
+    ],
+    "conclusion": "Join-tree reachability rejects disconnected selector before physical source or DAX handling; no target emitted."
+  },
+  "historical_diagnoses_read": [
+    "labs/semantic_interop/results/task02/verified-003/semantic-inspection.json",
+    "labs/semantic_interop/results/task02/upstream-review/review.json",
+    "labs/semantic_interop/results/task03/validation.json"
+  ],
+  "task05_vendor_extension_scope": "Native DATABRICKS metric text plus eligibility extension survives only demonstrated native roundtrip. Cross-vendor outputs were measured independently."
+}

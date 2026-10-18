@@ -1,0 +1,71 @@
+{
+  "name": "task05_databricks",
+  "compatibilityLevel": 1550,
+  "model": {
+    "tables": [
+      {
+        "name": "task05_databricks",
+        "columns": [
+          {
+            "name": "sales_channel",
+            "sourceColumn": "sales_channel"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "task05_databricks",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"localhost\", \"database\", [Query=\"SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,",
+                "       o.order_id, o.order_date, o.amount_eur, o.order_status",
+                "FROM demo.semantic_interop.sessions AS s",
+                "LEFT JOIN demo.semantic_interop.orders AS o",
+                "  ON s.session_id = o.session_id",
+                " AND o.order_date < DATE '2026-03-01'",
+                "WHERE s.session_date >= DATE '2026-01-01'",
+                "  AND s.session_date < DATE '2026-03-01'\"])",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "conversion_rate",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "DATABRICKS"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0)"
+              }
+            ]
+          },
+          {
+            "name": "paid_revenue",
+            "expression": "BLANK()",
+            "annotations": [
+              {
+                "name": "OssieExpressionDialect",
+                "value": "DATABRICKS"
+              },
+              {
+                "name": "OssieExpression",
+                "value": "SUM(amount_eur) FILTER (WHERE order_status = 'paid')"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "description": "Task 05 two-metric exercise; Databricks runtime NOT_EXECUTED",
+    "culture": "en-US"
+  }
+}

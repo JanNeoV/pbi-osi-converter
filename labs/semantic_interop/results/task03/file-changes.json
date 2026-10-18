@@ -1,0 +1,1051 @@
+{
+  "modified_original_files": {
+    "README.md": {
+      "before_sha256": "4d69f847c711b476ff8db437a4013f94f1bbd808c3d5d42b5460b6ff9f38c076",
+      "after_sha256": "7426f44aaedaac32d48d9279727cdaad92aa122fd9fb57673091f4366399eb99"
+    },
+    "labs/semantic_interop/README.md": {
+      "before_sha256": "d7be51ab931a723265edb4b2572989283a616a9d1a88a0b698ce9d044de4e917",
+      "after_sha256": "b2ca29d7ce0b3d4a66ee8aa26f1148966902ca99a8f7b3c230c6eba8ec78d15e"
+    },
+    "scripts/check_public_repository.py": {
+      "before_sha256": "4299af8d5558aba058d8f033fec4f8a4f83fd3acee6e7a15fb1d47f018e16589",
+      "after_sha256": "e57e5937c50243e532dc46629052393b552e09d9816a64c3ed156b212ffaa053"
+    }
+  },
+  "added_files": [
+    {
+      "path": "docs/PUBLIC_REVISIONS.json",
+      "sha256": "7b530917772d6f4afdbf86f0c27fa16d2245528c5265d5062959efb41fd20821"
+    },
+    {
+      "path": "labs/semantic_interop/docs/CONVERSION_ARTICLE_DRAFT.md",
+      "sha256": "26589457321747bf29028c0f2c29a70dfa280e7027dc31877c28330deb94288e"
+    },
+    {
+      "path": "labs/semantic_interop/docs/CONVERSION_DEMO.md",
+      "sha256": "29b48f741d8d34f9c33d2370ec8fa5e76c164baad8e2967e962b3c39eb3b0a6b"
+    },
+    {
+      "path": "labs/semantic_interop/docs/TASK03_VALIDATION.md",
+      "sha256": "2d0f0de3d42b7dcbeeedbebde7c2f4ac5a3e479123fd4ca10777124db92a4b90"
+    },
+    {
+      "path": "labs/semantic_interop/docs/conversion-result.schema.json",
+      "sha256": "c9701e6f4eeef6e119f5212b09e3e2736441b1e3cd262f1dacd73b456cc16738"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/contract.json",
+      "sha256": "e5884901eb9c4ab5a61b4e42ccf178d77c1aef5622ddd2301b106b2312e40f2d"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/data/additional_order.csv",
+      "sha256": "6d4086b636352950bfa6ff22c07b0c46993d3ec94777dec228a6b140a2ebcc01"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/data/orders.csv",
+      "sha256": "2c501f5faac1c3b489aa469295cfdcea8a3ec09df6ba3496fe3640d6aaf08ba1"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/data/sessions.csv",
+      "sha256": "648bd14ce8390ed7d1d2a83f39137e0846c0037cd92542ca6be41b8c8db80215"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/dbt/dbt_project.yml",
+      "sha256": "a3e0f7d428a06be2d76ad0dc7302637a019d99763df804d69dda7e8b6b6b987e"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/dbt/models/metrics.yml",
+      "sha256": "3c14e14e40f0ce1fd5caefc3944ce23fe4c257d8381eaf1ed47509974b1f8cc5"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/dbt/models/orders.sql",
+      "sha256": "d5695ab7489d6ca93f4feea506e0c35a1682aba6226449bcf5f8443906f9d313"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/dbt/models/sessions.sql",
+      "sha256": "f1880a6bfcd240a869f6dbda855a4189c9945ef723952de808d5c9f09758be27"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/dbt/models/time_spine.sql",
+      "sha256": "f7de94bb1028bb9a4eafed7cd5f402900e061cc84968d0736468a90b37659900"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/dbt/profile.template.yml",
+      "sha256": "aefffbb7daa5aac40d67364f2355c74cb8b2d20db95df1291bfcf73a77d4e109"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/failures/average_of_rates.sql",
+      "sha256": "8473349f4c6d3e782810c721641a0f911b9b7b781ade92a2081bee95dbb6b857"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/failures/incorrect_conversion.sql",
+      "sha256": "8a5d909f78d844dd3ec193d0e4b05e0abdefa4eabd7d41f6643bee4257a0b8ec"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/failures/inner_join.sql",
+      "sha256": "e2850c262cd4fe9db14eca2813f8cb7d3e1e6f055a25c5c6c6d7af1aa5aed609"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/failures/removed_channel_filter.sql",
+      "sha256": "186d1551b1e57a2ec6d4c213b40f4f188b04ac1a6dc246ed512e1059e49acae7"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/failures/wrong_denominator.sql",
+      "sha256": "2d0bc5e9f9f29bbe01f478e8a0167733330c0747e66897a5e82645cebea93d3c"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/oracle/average_paid_order_value.sql",
+      "sha256": "5dd6891a270758e5b67aebed94d5bca539ad4e432b3d4cd8d14df07db91cdfa3"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/oracle/conversion_rate.sql",
+      "sha256": "c3defe63b5cc292df08df12c2249bb1eac9e87db6c4033c8446d855b9a57deb5"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/oracle/converted_sessions.sql",
+      "sha256": "b6721273deaa0d726c68e2b8dfeb05f1d95166b314ac3eb960c108149220ade3"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/oracle/eligible_sessions.sql",
+      "sha256": "2645730631d68265beaa0cdce201c286360f950f9b2f77a5b374719f1182aa09"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/oracle/paid_order_count.sql",
+      "sha256": "1bf381f65a5fc0f13f09a3068193e153a0635ceb89e3fba0d23ee7ca224942d5"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/oracle/paid_revenue.sql",
+      "sha256": "9ed6f70735bbbb0e57a65f2623d737bc85681cd1c122f7e3c11e3c91b30b03bc"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/databricks/README.md",
+      "sha256": "9756ceccedde40c9fd74d0b2fd701c96cafeb2e93a5afed89832ece453cc6a58"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/databricks/metric_view.yaml",
+      "sha256": "dd3dd44f1b817f0aefaa5c67267fdfa6422521a7968fba06682d3cdeb1866dd1"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/databricks/provenance.json",
+      "sha256": "96b400157f91dde23c5e1986430ac1aca66e7ab1eeb8c69cab9860d9c252bc9b"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/databricks/validate.sql",
+      "sha256": "a67507a06bb0dedd4d83cf7261b027c74a459a8fe71d1d291bc33c2d104d1035"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/ConversionDemo.SemanticModel/definition/database.tmdl",
+      "sha256": "5d16e73de9d4a4fca2796c8878985d7a6f709cda63dc726230b3b4760ebde58c"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/ConversionDemo.SemanticModel/definition/expressions.tmdl",
+      "sha256": "cbbb0ad7e698fd8a708f50071b428a2fe793e340763b78bf6ad7ebd900943040"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/ConversionDemo.SemanticModel/definition/model.tmdl",
+      "sha256": "e677bb521f6af4ddf9bc983ebcd07c92c968efbf22c3537a5ced5b1f4d6aaa13"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/ConversionDemo.SemanticModel/definition/relationships.tmdl",
+      "sha256": "6a8cdc134a987c453ba21ca4b0b6df0077dd1270edfbd4779329c7694d92b6c1"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/ConversionDemo.SemanticModel/definition/tables/KPI Selector.tmdl",
+      "sha256": "d414c53d7f50555d8163e822bd0ab2f1d07f696109cee27511b31a957eb18f78"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Orders.tmdl",
+      "sha256": "4024533143683a0b955262538df7d67717559372654c97dc85d202f417e8915e"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Sales Channel.tmdl",
+      "sha256": "754582e9f054781bc1ebc6ca29ac69c9944ace505c198e0e1a16bca2730de130"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/ConversionDemo.SemanticModel/definition/tables/Sessions.tmdl",
+      "sha256": "de5d995c6ae3206140cd76ec99f8f1020eed4955692a2276c9e3c11984ed09d1"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/README.md",
+      "sha256": "3f69f64ab19b8e43b121a2e98695419a0f7f9af143803c0257080f02b800f82e"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/provenance.json",
+      "sha256": "a9ab352c7e5a47130383bd810661fd679755cc3c6668beaa9556446cb89d0c90"
+    },
+    {
+      "path": "labs/semantic_interop/fixtures/conversion_demo/targets/powerbi/validate.dax",
+      "sha256": "51645e6f00e789797a892a873882cc80dfd8322c58f94cdc5b002e69bd706c26"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/baseline.json",
+      "sha256": "3aff2e543e94f278d2e08d463a7e69763f4f0e8ae0c9f243058eb1de69d5c6f6"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/average_paid_order_value__channel.sql",
+      "sha256": "cc6460b2c3cecc415097f47ca6509ccc9928d1fd700e846b7efb1d6d19142b1c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/average_paid_order_value__empty.sql",
+      "sha256": "39fb5bec0c1d7cb7efbb74f3bae2d00e8ee1d26729249edb1f6709114759d811"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/average_paid_order_value__month.sql",
+      "sha256": "4942be2f4bf5b60f280fd3b6feabb942a73803bad713f3aad6a18dbde881c23d"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/average_paid_order_value__month_channel.sql",
+      "sha256": "2406b510bac9d3df823c312f1f1b94978cdd18e253defa985fca5d31cd818502"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/average_paid_order_value__overall.sql",
+      "sha256": "dff5ec57cee0ad54dfd9b5522ff6231c91c67cfed2761483cb75786066ffe8af"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/conversion_rate__channel.sql",
+      "sha256": "26b008fafd31d5ca21d13366e7378dab9fe9c8deb3ed7093abad0a745659273b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/conversion_rate__empty.sql",
+      "sha256": "d44bab5e31bbac7db4a3f6ffd847f0f97769f89c3058f01103415d51a52d250a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/conversion_rate__month.sql",
+      "sha256": "4573fb5cf49b4baf156ff8314fedaa032a1a3d10705e559c453cdd334067dce5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/conversion_rate__month_channel.sql",
+      "sha256": "85cc901ccf8033135ab8effa0ce5770ff71e88ea354570caf79e76950b9f03a2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/conversion_rate__nonconverting.sql",
+      "sha256": "c7390333660007463c1bf33e8da6b5f0087c9391e8897f825a23342e1c939de5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/conversion_rate__overall.sql",
+      "sha256": "7b6b4ad718bbb5ff14cb224cc7e253403c455f28998b2dff557d63bc37e3cc87"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/converted_sessions__channel.sql",
+      "sha256": "923d73cb5263e224f6df37162cac2144e43885d009f1ca9161c4fccb60702872"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/converted_sessions__empty.sql",
+      "sha256": "d6e226907f307949e9b062b6979c0a8f5d028caf1dc57eae17d00e3ee0b79ac2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/converted_sessions__month.sql",
+      "sha256": "c4fd56a64658a6c2f51bde867ebbd20ff5c93db7e9449fd3638b6359d74dd729"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/converted_sessions__month_channel.sql",
+      "sha256": "dc3d846cf28e5d25c8948fa34fe108c68b1ddc52fd028f7a96f9c1494c20d921"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/converted_sessions__overall.sql",
+      "sha256": "0aa0eb8238ae63745a313408c8caf4ee6954f434e89a0a2d7eaa9758e804fc78"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/eligible_sessions__channel.sql",
+      "sha256": "e0dcfa48b1ef5cc5da271ac2df7a4266efd70b6352b23efbe58deed3d15b9668"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/eligible_sessions__empty.sql",
+      "sha256": "ad38c6ffaf6c64f6a4e0b6f6ad23ab7b65cb47488410cd13124ba9cd472d3054"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/eligible_sessions__month.sql",
+      "sha256": "32662e1bda8f47a848b45a570ab3bd09279e5ef58d169dfda8bd044a6ff4dc0b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/eligible_sessions__month_channel.sql",
+      "sha256": "83702d2898f98fcf072f90c43f5c5a7817e11e58835c519fcc056c90597392de"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/eligible_sessions__overall.sql",
+      "sha256": "b68ea77ac515be6d8c65e854e9605cfe44388510b508588999732e091a2a07fa"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/paid_order_count__channel.sql",
+      "sha256": "260dcce77b1b448d0a74de16b9039bde90df70d4b61f1b2dd72f6cbf924b0f5b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/paid_order_count__empty.sql",
+      "sha256": "bc7d0f04b5df4bef33ce90418edc69755a095d8481e50c9eb2979a92a3a40ab1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/paid_order_count__month.sql",
+      "sha256": "8b359e3f1fb61420df1a2cbd2cfdedad8a2d6968f49ddf786ebd1c0888deb1e6"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/paid_order_count__month_channel.sql",
+      "sha256": "430aed16af370bf7993f3e6347257e05bf57a2c4a79a2178a3cd0d33444d8a09"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/paid_order_count__overall.sql",
+      "sha256": "cf57b7fa8e6466dd2894a63baa8f5852bde88a845e5e37e0ce60774a93b4955b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/paid_revenue__channel.sql",
+      "sha256": "1cbbb72aff217797f106ff623ac6f1d65cb86b357db73e9995271de024de37af"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/paid_revenue__empty.sql",
+      "sha256": "2c96edeb22144364f308e238d0ec35afe414c08c45610ca0b5e58a13ddb79541"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/paid_revenue__month.sql",
+      "sha256": "16c36a94c64e8b4951739b5c8fdd3fc8fc1b4ee811d0f3e0035d8a07dfeb6cfd"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/paid_revenue__month_channel.sql",
+      "sha256": "29eda6044d6e721abd9cb311a6850d575159f140328d2615cbbdebd06e54c1b0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/native/paid_revenue__overall.sql",
+      "sha256": "b684107ddaccf713063028ab58bc295e236e1a03678667a62b1889d8cebb937c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__channel.sql",
+      "sha256": "98475d5ce3a9a94607b57dc0b3ac7d34160724bc819f3885bfbac6c2839e2ad9"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__empty.sql",
+      "sha256": "62778d34700bc2252c836a31708864c5747ec409da0f66258e17788dc21fb5d9"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__month.sql",
+      "sha256": "b948c35e35cfaa0aae0da49b9e4320246d83dc45f80f649192522abe0dcdad62"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__month_channel.sql",
+      "sha256": "6212119296c1883070d604d9ab833956315667da0388b2ab3d351b25c85b1698"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/average_paid_order_value__overall.sql",
+      "sha256": "c988172f7c3dd5c0e69b6b20127142d6c9f7f69b49d78d8fee5a3ba06d7bd1a2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__channel.sql",
+      "sha256": "49b73311f00248130c10be463984bbaea1665fd40cf3acc1bb089aa1015eb850"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__empty.sql",
+      "sha256": "6c3d1319462cc189aeeb31cad4ad95d597400f9fc3e02c8c88a94ee132618cb2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__month.sql",
+      "sha256": "7a94d74dd377931e88e5ccc0f566d97ceae10f491e6ab120d2c5bd3d2f80a15c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__month_channel.sql",
+      "sha256": "158dde6b9665e829a04a7e1d1fa739c216a8ddf4b0013d216b23cba9352586bb"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__nonconverting.sql",
+      "sha256": "84dc76a44d7c021f99d1fefc9e0839fb0228c3088994a56b711feff8a38c7b04"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/conversion_rate__overall.sql",
+      "sha256": "c6aea307045cc5c9b0209929a2bef983f9fa863ee1d0e0cde14c854506bc57c5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__channel.sql",
+      "sha256": "7ceaa0b843e1e613e231862bcfea7eeee80df9901848c778ae3153dcbf0264fc"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__empty.sql",
+      "sha256": "75fa71852a2560ab2a3a62a6e538352ebe80bc2a976059d4aab30f74a6c3092a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__month.sql",
+      "sha256": "e32a4730f68169dee9daf74561cc0bfcf2bf2c3b6033acb823b8d05ead48b529"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__month_channel.sql",
+      "sha256": "0d95f03d3fb79535c7d715bb3b9dcb490a053e6ef1ed3a18a2242aa021b964c0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/converted_sessions__overall.sql",
+      "sha256": "384655515308ac92180bb454bee570e09ec797a9b689c6eb91d544b3e58d1b6a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__channel.sql",
+      "sha256": "f183c31b4e2e65077905c4cf57f300ee777fda4b47fdf313778c35ac54c31933"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__empty.sql",
+      "sha256": "4842afd12b7ea72cdf872c8f3142c1ce908e0e65488ffad9ebead56867984d24"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__month.sql",
+      "sha256": "e5f40bd559c3c606e34900ca9b3dc0cee39ac8cd8ac1e88f1a528b83d50d0008"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__month_channel.sql",
+      "sha256": "a25df1486f79235e011465946faf88b6cb05b331977826542dd8973429ae20b1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/eligible_sessions__overall.sql",
+      "sha256": "830b549de375187e1e44576070c5643b551eddde1cf8c34b0c7c1f94b04e8b74"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__channel.sql",
+      "sha256": "ac197283dd226fced811145b10d2b59ce7d4bef65e4c52235cb89d498780e363"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__empty.sql",
+      "sha256": "abf8b69c284bab3f68f947f9762a10e125aa17561d199288b739bf64377d99f5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__month.sql",
+      "sha256": "97279cd1d4c86b59ea072d6931867c3f40ab9cf9617965d47430288bb7758a24"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__month_channel.sql",
+      "sha256": "f3666890eb86fd535a0ae16311c0aa0d80c7be5628da4c0fe95fb3400201ba07"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_order_count__overall.sql",
+      "sha256": "e64f259816660669da715fcc2077c7f93cc7873d39feae9fddc7e5c93d4a0106"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__channel.sql",
+      "sha256": "5da801325782211f97be53bad72f06f3553a243c1996c99e8db6899ac58d732b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__empty.sql",
+      "sha256": "3d50e9cede14f568ed0731a3edf4a242f5e9dcdaa3d40c77f723aa47caa22c5c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__month.sql",
+      "sha256": "c905110a6c14f4aba520bd3da4a1df16570bed281142de647167b10908f4e449"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__month_channel.sql",
+      "sha256": "8a7e1d26771f53c669ddce727976ccd9cd870f41ead8af0cb1d6bc3437239bfd"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/oracle/paid_revenue__overall.sql",
+      "sha256": "cf074c4d17631995355ecff94862d00f338d88470c42aadcb2a7ae1e422b1442"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/report.json",
+      "sha256": "2827b4ba248bedcdcfdeacd8c96b9c1196e4faa5365c857f32319bee632e7323"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/edge-001/source.manifest.json",
+      "sha256": "e6d61a6e2ad73f26d84e660d382c80835af33a571a4251af558ee09be1e8551b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/failures/average_of_rates.sql",
+      "sha256": "b28ab0e6dbdcbf86c526c9df5d77c9f91f2df3e019719f00b534609be0ab67a7"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/failures/incorrect_conversion.sql",
+      "sha256": "f2f6b92e3fa3a5493943773e06b5482ed4a9bcec73913cbfdf3c1ad2353fb41b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/failures/inner_join.sql",
+      "sha256": "df5091a4f428c1193b6a08c3af68cfc8bc89c6145cca005e16741a24369bbf22"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/failures/removed_channel_filter.sql",
+      "sha256": "4e47e3ea13ce11e715c30c003147ac6dc284b33f2dacdde27d412323b89493b4"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/failures/wrong_denominator.sql",
+      "sha256": "cd4e1a9e22b8f54f22ae9840dfe41129019d3b00276551cb8271545b1541981b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/average_paid_order_value__channel.sql",
+      "sha256": "cc6460b2c3cecc415097f47ca6509ccc9928d1fd700e846b7efb1d6d19142b1c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/average_paid_order_value__empty.sql",
+      "sha256": "39fb5bec0c1d7cb7efbb74f3bae2d00e8ee1d26729249edb1f6709114759d811"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/average_paid_order_value__month.sql",
+      "sha256": "4942be2f4bf5b60f280fd3b6feabb942a73803bad713f3aad6a18dbde881c23d"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/average_paid_order_value__month_channel.sql",
+      "sha256": "2406b510bac9d3df823c312f1f1b94978cdd18e253defa985fca5d31cd818502"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/average_paid_order_value__overall.sql",
+      "sha256": "dff5ec57cee0ad54dfd9b5522ff6231c91c67cfed2761483cb75786066ffe8af"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/conversion_rate__channel.sql",
+      "sha256": "26b008fafd31d5ca21d13366e7378dab9fe9c8deb3ed7093abad0a745659273b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/conversion_rate__empty.sql",
+      "sha256": "d44bab5e31bbac7db4a3f6ffd847f0f97769f89c3058f01103415d51a52d250a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/conversion_rate__month.sql",
+      "sha256": "4573fb5cf49b4baf156ff8314fedaa032a1a3d10705e559c453cdd334067dce5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/conversion_rate__month_channel.sql",
+      "sha256": "85cc901ccf8033135ab8effa0ce5770ff71e88ea354570caf79e76950b9f03a2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/conversion_rate__nonconverting.sql",
+      "sha256": "c7390333660007463c1bf33e8da6b5f0087c9391e8897f825a23342e1c939de5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/conversion_rate__overall.sql",
+      "sha256": "7b6b4ad718bbb5ff14cb224cc7e253403c455f28998b2dff557d63bc37e3cc87"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/converted_sessions__channel.sql",
+      "sha256": "923d73cb5263e224f6df37162cac2144e43885d009f1ca9161c4fccb60702872"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/converted_sessions__empty.sql",
+      "sha256": "d6e226907f307949e9b062b6979c0a8f5d028caf1dc57eae17d00e3ee0b79ac2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/converted_sessions__month.sql",
+      "sha256": "c4fd56a64658a6c2f51bde867ebbd20ff5c93db7e9449fd3638b6359d74dd729"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/converted_sessions__month_channel.sql",
+      "sha256": "dc3d846cf28e5d25c8948fa34fe108c68b1ddc52fd028f7a96f9c1494c20d921"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/converted_sessions__overall.sql",
+      "sha256": "0aa0eb8238ae63745a313408c8caf4ee6954f434e89a0a2d7eaa9758e804fc78"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/eligible_sessions__channel.sql",
+      "sha256": "e0dcfa48b1ef5cc5da271ac2df7a4266efd70b6352b23efbe58deed3d15b9668"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/eligible_sessions__empty.sql",
+      "sha256": "ad38c6ffaf6c64f6a4e0b6f6ad23ab7b65cb47488410cd13124ba9cd472d3054"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/eligible_sessions__month.sql",
+      "sha256": "32662e1bda8f47a848b45a570ab3bd09279e5ef58d169dfda8bd044a6ff4dc0b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/eligible_sessions__month_channel.sql",
+      "sha256": "83702d2898f98fcf072f90c43f5c5a7817e11e58835c519fcc056c90597392de"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/eligible_sessions__overall.sql",
+      "sha256": "b68ea77ac515be6d8c65e854e9605cfe44388510b508588999732e091a2a07fa"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/paid_order_count__channel.sql",
+      "sha256": "260dcce77b1b448d0a74de16b9039bde90df70d4b61f1b2dd72f6cbf924b0f5b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/paid_order_count__empty.sql",
+      "sha256": "bc7d0f04b5df4bef33ce90418edc69755a095d8481e50c9eb2979a92a3a40ab1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/paid_order_count__month.sql",
+      "sha256": "8b359e3f1fb61420df1a2cbd2cfdedad8a2d6968f49ddf786ebd1c0888deb1e6"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/paid_order_count__month_channel.sql",
+      "sha256": "430aed16af370bf7993f3e6347257e05bf57a2c4a79a2178a3cd0d33444d8a09"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/paid_order_count__overall.sql",
+      "sha256": "cf57b7fa8e6466dd2894a63baa8f5852bde88a845e5e37e0ce60774a93b4955b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/paid_revenue__channel.sql",
+      "sha256": "1cbbb72aff217797f106ff623ac6f1d65cb86b357db73e9995271de024de37af"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/paid_revenue__empty.sql",
+      "sha256": "2c96edeb22144364f308e238d0ec35afe414c08c45610ca0b5e58a13ddb79541"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/paid_revenue__month.sql",
+      "sha256": "16c36a94c64e8b4951739b5c8fdd3fc8fc1b4ee811d0f3e0035d8a07dfeb6cfd"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/paid_revenue__month_channel.sql",
+      "sha256": "29eda6044d6e721abd9cb311a6850d575159f140328d2615cbbdebd06e54c1b0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/native/paid_revenue__overall.sql",
+      "sha256": "b684107ddaccf713063028ab58bc295e236e1a03678667a62b1889d8cebb937c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__channel.sql",
+      "sha256": "98475d5ce3a9a94607b57dc0b3ac7d34160724bc819f3885bfbac6c2839e2ad9"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__empty.sql",
+      "sha256": "62778d34700bc2252c836a31708864c5747ec409da0f66258e17788dc21fb5d9"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__month.sql",
+      "sha256": "b948c35e35cfaa0aae0da49b9e4320246d83dc45f80f649192522abe0dcdad62"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__month_channel.sql",
+      "sha256": "6212119296c1883070d604d9ab833956315667da0388b2ab3d351b25c85b1698"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/average_paid_order_value__overall.sql",
+      "sha256": "c988172f7c3dd5c0e69b6b20127142d6c9f7f69b49d78d8fee5a3ba06d7bd1a2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__channel.sql",
+      "sha256": "49b73311f00248130c10be463984bbaea1665fd40cf3acc1bb089aa1015eb850"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__empty.sql",
+      "sha256": "6c3d1319462cc189aeeb31cad4ad95d597400f9fc3e02c8c88a94ee132618cb2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__month.sql",
+      "sha256": "7a94d74dd377931e88e5ccc0f566d97ceae10f491e6ab120d2c5bd3d2f80a15c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__month_channel.sql",
+      "sha256": "158dde6b9665e829a04a7e1d1fa739c216a8ddf4b0013d216b23cba9352586bb"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__nonconverting.sql",
+      "sha256": "84dc76a44d7c021f99d1fefc9e0839fb0228c3088994a56b711feff8a38c7b04"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/conversion_rate__overall.sql",
+      "sha256": "c6aea307045cc5c9b0209929a2bef983f9fa863ee1d0e0cde14c854506bc57c5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__channel.sql",
+      "sha256": "7ceaa0b843e1e613e231862bcfea7eeee80df9901848c778ae3153dcbf0264fc"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__empty.sql",
+      "sha256": "75fa71852a2560ab2a3a62a6e538352ebe80bc2a976059d4aab30f74a6c3092a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__month.sql",
+      "sha256": "e32a4730f68169dee9daf74561cc0bfcf2bf2c3b6033acb823b8d05ead48b529"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__month_channel.sql",
+      "sha256": "0d95f03d3fb79535c7d715bb3b9dcb490a053e6ef1ed3a18a2242aa021b964c0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/converted_sessions__overall.sql",
+      "sha256": "384655515308ac92180bb454bee570e09ec797a9b689c6eb91d544b3e58d1b6a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__channel.sql",
+      "sha256": "f183c31b4e2e65077905c4cf57f300ee777fda4b47fdf313778c35ac54c31933"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__empty.sql",
+      "sha256": "4842afd12b7ea72cdf872c8f3142c1ce908e0e65488ffad9ebead56867984d24"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__month.sql",
+      "sha256": "e5f40bd559c3c606e34900ca9b3dc0cee39ac8cd8ac1e88f1a528b83d50d0008"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__month_channel.sql",
+      "sha256": "a25df1486f79235e011465946faf88b6cb05b331977826542dd8973429ae20b1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/eligible_sessions__overall.sql",
+      "sha256": "830b549de375187e1e44576070c5643b551eddde1cf8c34b0c7c1f94b04e8b74"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__channel.sql",
+      "sha256": "ac197283dd226fced811145b10d2b59ce7d4bef65e4c52235cb89d498780e363"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__empty.sql",
+      "sha256": "abf8b69c284bab3f68f947f9762a10e125aa17561d199288b739bf64377d99f5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__month.sql",
+      "sha256": "97279cd1d4c86b59ea072d6931867c3f40ab9cf9617965d47430288bb7758a24"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__month_channel.sql",
+      "sha256": "f3666890eb86fd535a0ae16311c0aa0d80c7be5628da4c0fe95fb3400201ba07"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_order_count__overall.sql",
+      "sha256": "e64f259816660669da715fcc2077c7f93cc7873d39feae9fddc7e5c93d4a0106"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__channel.sql",
+      "sha256": "5da801325782211f97be53bad72f06f3553a243c1996c99e8db6899ac58d732b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__empty.sql",
+      "sha256": "3d50e9cede14f568ed0731a3edf4a242f5e9dcdaa3d40c77f723aa47caa22c5c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__month.sql",
+      "sha256": "c905110a6c14f4aba520bd3da4a1df16570bed281142de647167b10908f4e449"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__month_channel.sql",
+      "sha256": "8a7e1d26771f53c669ddce727976ccd9cd870f41ead8af0cb1d6bc3437239bfd"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/oracle/paid_revenue__overall.sql",
+      "sha256": "cf074c4d17631995355ecff94862d00f338d88470c42aadcb2a7ae1e422b1442"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/platforms/converted.model.bim",
+      "sha256": "9f55bc36cd8703cb8d23aaa0440aff3f1e02110557ca5a92d87a1ee3ee559be0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/platforms/converted.ossie.yml",
+      "sha256": "903a98b9e95c30632bd63fb670e507f4e0eab1cbb62e1a35744ce5332c200360"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/platforms/integration.json",
+      "sha256": "e7b8ba153e96b6503b148976fd071e8d67084c59948a94ab9c96f6eea505a148"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/platforms/roundtrip.manifest.json",
+      "sha256": "c0825b248558bf70fe25ff035a0410056ca2ac97738f017488638655552287ee"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/report.json",
+      "sha256": "8d64c8862f2a6ddc0b474999a3c6aaa03c42872ea2af0ecba406192074c0b50d"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/platforms-001/source.manifest.json",
+      "sha256": "e6d61a6e2ad73f26d84e660d382c80835af33a571a4251af558ee09be1e8551b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/failures/average_of_rates.sql",
+      "sha256": "b28ab0e6dbdcbf86c526c9df5d77c9f91f2df3e019719f00b534609be0ab67a7"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/failures/incorrect_conversion.sql",
+      "sha256": "f2f6b92e3fa3a5493943773e06b5482ed4a9bcec73913cbfdf3c1ad2353fb41b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/failures/inner_join.sql",
+      "sha256": "df5091a4f428c1193b6a08c3af68cfc8bc89c6145cca005e16741a24369bbf22"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/failures/removed_channel_filter.sql",
+      "sha256": "4e47e3ea13ce11e715c30c003147ac6dc284b33f2dacdde27d412323b89493b4"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/failures/wrong_denominator.sql",
+      "sha256": "cd4e1a9e22b8f54f22ae9840dfe41129019d3b00276551cb8271545b1541981b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/average_paid_order_value__channel.sql",
+      "sha256": "cc6460b2c3cecc415097f47ca6509ccc9928d1fd700e846b7efb1d6d19142b1c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/average_paid_order_value__empty.sql",
+      "sha256": "39fb5bec0c1d7cb7efbb74f3bae2d00e8ee1d26729249edb1f6709114759d811"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/average_paid_order_value__month.sql",
+      "sha256": "4942be2f4bf5b60f280fd3b6feabb942a73803bad713f3aad6a18dbde881c23d"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/average_paid_order_value__month_channel.sql",
+      "sha256": "2406b510bac9d3df823c312f1f1b94978cdd18e253defa985fca5d31cd818502"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/average_paid_order_value__overall.sql",
+      "sha256": "dff5ec57cee0ad54dfd9b5522ff6231c91c67cfed2761483cb75786066ffe8af"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/conversion_rate__channel.sql",
+      "sha256": "26b008fafd31d5ca21d13366e7378dab9fe9c8deb3ed7093abad0a745659273b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/conversion_rate__empty.sql",
+      "sha256": "d44bab5e31bbac7db4a3f6ffd847f0f97769f89c3058f01103415d51a52d250a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/conversion_rate__month.sql",
+      "sha256": "4573fb5cf49b4baf156ff8314fedaa032a1a3d10705e559c453cdd334067dce5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/conversion_rate__month_channel.sql",
+      "sha256": "85cc901ccf8033135ab8effa0ce5770ff71e88ea354570caf79e76950b9f03a2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/conversion_rate__nonconverting.sql",
+      "sha256": "c7390333660007463c1bf33e8da6b5f0087c9391e8897f825a23342e1c939de5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/conversion_rate__overall.sql",
+      "sha256": "7b6b4ad718bbb5ff14cb224cc7e253403c455f28998b2dff557d63bc37e3cc87"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/converted_sessions__channel.sql",
+      "sha256": "923d73cb5263e224f6df37162cac2144e43885d009f1ca9161c4fccb60702872"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/converted_sessions__empty.sql",
+      "sha256": "d6e226907f307949e9b062b6979c0a8f5d028caf1dc57eae17d00e3ee0b79ac2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/converted_sessions__month.sql",
+      "sha256": "c4fd56a64658a6c2f51bde867ebbd20ff5c93db7e9449fd3638b6359d74dd729"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/converted_sessions__month_channel.sql",
+      "sha256": "dc3d846cf28e5d25c8948fa34fe108c68b1ddc52fd028f7a96f9c1494c20d921"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/converted_sessions__overall.sql",
+      "sha256": "0aa0eb8238ae63745a313408c8caf4ee6954f434e89a0a2d7eaa9758e804fc78"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/eligible_sessions__channel.sql",
+      "sha256": "e0dcfa48b1ef5cc5da271ac2df7a4266efd70b6352b23efbe58deed3d15b9668"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/eligible_sessions__empty.sql",
+      "sha256": "ad38c6ffaf6c64f6a4e0b6f6ad23ab7b65cb47488410cd13124ba9cd472d3054"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/eligible_sessions__month.sql",
+      "sha256": "32662e1bda8f47a848b45a570ab3bd09279e5ef58d169dfda8bd044a6ff4dc0b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/eligible_sessions__month_channel.sql",
+      "sha256": "83702d2898f98fcf072f90c43f5c5a7817e11e58835c519fcc056c90597392de"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/eligible_sessions__overall.sql",
+      "sha256": "b68ea77ac515be6d8c65e854e9605cfe44388510b508588999732e091a2a07fa"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/paid_order_count__channel.sql",
+      "sha256": "260dcce77b1b448d0a74de16b9039bde90df70d4b61f1b2dd72f6cbf924b0f5b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/paid_order_count__empty.sql",
+      "sha256": "bc7d0f04b5df4bef33ce90418edc69755a095d8481e50c9eb2979a92a3a40ab1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/paid_order_count__month.sql",
+      "sha256": "8b359e3f1fb61420df1a2cbd2cfdedad8a2d6968f49ddf786ebd1c0888deb1e6"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/paid_order_count__month_channel.sql",
+      "sha256": "430aed16af370bf7993f3e6347257e05bf57a2c4a79a2178a3cd0d33444d8a09"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/paid_order_count__overall.sql",
+      "sha256": "cf57b7fa8e6466dd2894a63baa8f5852bde88a845e5e37e0ce60774a93b4955b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/paid_revenue__channel.sql",
+      "sha256": "1cbbb72aff217797f106ff623ac6f1d65cb86b357db73e9995271de024de37af"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/paid_revenue__empty.sql",
+      "sha256": "2c96edeb22144364f308e238d0ec35afe414c08c45610ca0b5e58a13ddb79541"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/paid_revenue__month.sql",
+      "sha256": "16c36a94c64e8b4951739b5c8fdd3fc8fc1b4ee811d0f3e0035d8a07dfeb6cfd"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/paid_revenue__month_channel.sql",
+      "sha256": "29eda6044d6e721abd9cb311a6850d575159f140328d2615cbbdebd06e54c1b0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/native/paid_revenue__overall.sql",
+      "sha256": "b684107ddaccf713063028ab58bc295e236e1a03678667a62b1889d8cebb937c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__channel.sql",
+      "sha256": "98475d5ce3a9a94607b57dc0b3ac7d34160724bc819f3885bfbac6c2839e2ad9"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__empty.sql",
+      "sha256": "62778d34700bc2252c836a31708864c5747ec409da0f66258e17788dc21fb5d9"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__month.sql",
+      "sha256": "b948c35e35cfaa0aae0da49b9e4320246d83dc45f80f649192522abe0dcdad62"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__month_channel.sql",
+      "sha256": "6212119296c1883070d604d9ab833956315667da0388b2ab3d351b25c85b1698"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/average_paid_order_value__overall.sql",
+      "sha256": "c988172f7c3dd5c0e69b6b20127142d6c9f7f69b49d78d8fee5a3ba06d7bd1a2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__channel.sql",
+      "sha256": "49b73311f00248130c10be463984bbaea1665fd40cf3acc1bb089aa1015eb850"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__empty.sql",
+      "sha256": "6c3d1319462cc189aeeb31cad4ad95d597400f9fc3e02c8c88a94ee132618cb2"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__month.sql",
+      "sha256": "7a94d74dd377931e88e5ccc0f566d97ceae10f491e6ab120d2c5bd3d2f80a15c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__month_channel.sql",
+      "sha256": "158dde6b9665e829a04a7e1d1fa739c216a8ddf4b0013d216b23cba9352586bb"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__nonconverting.sql",
+      "sha256": "84dc76a44d7c021f99d1fefc9e0839fb0228c3088994a56b711feff8a38c7b04"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/conversion_rate__overall.sql",
+      "sha256": "c6aea307045cc5c9b0209929a2bef983f9fa863ee1d0e0cde14c854506bc57c5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__channel.sql",
+      "sha256": "7ceaa0b843e1e613e231862bcfea7eeee80df9901848c778ae3153dcbf0264fc"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__empty.sql",
+      "sha256": "75fa71852a2560ab2a3a62a6e538352ebe80bc2a976059d4aab30f74a6c3092a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__month.sql",
+      "sha256": "e32a4730f68169dee9daf74561cc0bfcf2bf2c3b6033acb823b8d05ead48b529"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__month_channel.sql",
+      "sha256": "0d95f03d3fb79535c7d715bb3b9dcb490a053e6ef1ed3a18a2242aa021b964c0"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/converted_sessions__overall.sql",
+      "sha256": "384655515308ac92180bb454bee570e09ec797a9b689c6eb91d544b3e58d1b6a"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__channel.sql",
+      "sha256": "f183c31b4e2e65077905c4cf57f300ee777fda4b47fdf313778c35ac54c31933"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__empty.sql",
+      "sha256": "4842afd12b7ea72cdf872c8f3142c1ce908e0e65488ffad9ebead56867984d24"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__month.sql",
+      "sha256": "e5f40bd559c3c606e34900ca9b3dc0cee39ac8cd8ac1e88f1a528b83d50d0008"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__month_channel.sql",
+      "sha256": "a25df1486f79235e011465946faf88b6cb05b331977826542dd8973429ae20b1"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/eligible_sessions__overall.sql",
+      "sha256": "830b549de375187e1e44576070c5643b551eddde1cf8c34b0c7c1f94b04e8b74"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__channel.sql",
+      "sha256": "ac197283dd226fced811145b10d2b59ce7d4bef65e4c52235cb89d498780e363"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__empty.sql",
+      "sha256": "abf8b69c284bab3f68f947f9762a10e125aa17561d199288b739bf64377d99f5"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__month.sql",
+      "sha256": "97279cd1d4c86b59ea072d6931867c3f40ab9cf9617965d47430288bb7758a24"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__month_channel.sql",
+      "sha256": "f3666890eb86fd535a0ae16311c0aa0d80c7be5628da4c0fe95fb3400201ba07"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_order_count__overall.sql",
+      "sha256": "e64f259816660669da715fcc2077c7f93cc7873d39feae9fddc7e5c93d4a0106"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__channel.sql",
+      "sha256": "5da801325782211f97be53bad72f06f3553a243c1996c99e8db6899ac58d732b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__empty.sql",
+      "sha256": "3d50e9cede14f568ed0731a3edf4a242f5e9dcdaa3d40c77f723aa47caa22c5c"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__month.sql",
+      "sha256": "c905110a6c14f4aba520bd3da4a1df16570bed281142de647167b10908f4e449"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__month_channel.sql",
+      "sha256": "8a7e1d26771f53c669ddce727976ccd9cd870f41ead8af0cb1d6bc3437239bfd"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/oracle/paid_revenue__overall.sql",
+      "sha256": "cf074c4d17631995355ecff94862d00f338d88470c42aadcb2a7ae1e422b1442"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/report.json",
+      "sha256": "92fb103bc93b39d9b155455b67bf61e7b65ea723143e5731c645a53e50367b99"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-001/source.manifest.json",
+      "sha256": "e6d61a6e2ad73f26d84e660d382c80835af33a571a4251af558ee09be1e8551b"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/stage-a-validation.json",
+      "sha256": "90d38f4c717b701674f3d08024b3a7bd0ee6ee5f637f09916a4aeff5f6c5ca1e"
+    },
+    {
+      "path": "labs/semantic_interop/results/task03/validation.json",
+      "sha256": "4443571157d0449c53e924f6ac9b71e6aeb6a0b102c78bc87c434de29598c778"
+    },
+    {
+      "path": "labs/semantic_interop/scripts/run_conversion_demo.py",
+      "sha256": "77bffb0e28d9a237bf5913011d0200861697fd4d5318a726b1225fda98342f01"
+    },
+    {
+      "path": "labs/semantic_interop/scripts/run_conversion_platforms.py",
+      "sha256": "76ad82e0921c9445b917425ea2531958222449ef2b1047bc2055ccd45fd58987"
+    },
+    {
+      "path": "labs/semantic_interop/src/semantic_lab/conversion_demo.py",
+      "sha256": "42db615ec8c16fabeecd75793c72ee6b94c3c807938d74991948bb1779e56fd0"
+    },
+    {
+      "path": "labs/semantic_interop/src/semantic_lab/conversion_platforms.py",
+      "sha256": "c140a29b507f74b025c4b0c2fe09118cb77f0e18fa48c6a89623ab6fbaedfc1f"
+    },
+    {
+      "path": "labs/semantic_interop/tests/test_conversion_demo.py",
+      "sha256": "eade176e373302ff249bf8c5bfa0cffe6e024e0dfa0f6ce4bc41d45783fc77de"
+    },
+    {
+      "path": "labs/semantic_interop/tests/test_conversion_demo_targets.py",
+      "sha256": "5cf1b67ec2c6763d8c3f583220f0ccad93960eed03a9a794468491e92933d567"
+    },
+    {
+      "path": "labs/semantic_interop/tests/test_conversion_platforms.py",
+      "sha256": "6d3a78fd1710a4b32d9b5006edce362ca2290d894c6bb012cf697737d1cac257"
+    },
+    {
+      "path": "tests/test_readme_revision.py",
+      "sha256": "9d4511475f202580960b2dec11f2d5231b31d6721dd11d639c7dbdd2a589a99d"
+    }
+  ],
+  "inventory_note": "The inventory excludes its own self-referential checksum; all other added files are listed."
+}

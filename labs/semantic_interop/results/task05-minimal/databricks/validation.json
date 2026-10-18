@@ -1,0 +1,12 @@
+{
+  "official_ossie_schema_validation": "PASS_BOTH_LANES",
+  "embedded_runtime_setup_exactly_matches_canonical_csv_rows": true,
+  "native_definition_equality": "PASS_BOTH_LANES_IGNORE_ONLY_SOURCE_TRAILING_WHITESPACE",
+  "official_converter_calls": 8,
+  "all_converter_exit_codes": 0,
+  "databricks_runtime_execution": "NOT_EXECUTED",
+  "databricks_numerical_equivalence": "BLOCKED",
+  "duckdb_oracle": "0.4 / 390.00 baseline, 0.4 / 440.00 include-refunded",
+  "existing_regression_suite_exit_code": 0,
+  "new_tests_added": false
+}

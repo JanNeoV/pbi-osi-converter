@@ -1,0 +1,54 @@
+{
+  "artifact_directory": "regressions/metric_filter",
+  "entity_names": [
+    "item_id"
+  ],
+  "id": "metric_filter",
+  "issues": [],
+  "mechanism": "unresolved MetricFlow dimension token in SQL filter",
+  "metric_expression": "SUM(CASE WHEN item_id__status = 'completed' THEN items.amount END)",
+  "native": {
+    "columns": [
+      "revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "10.00"
+        }
+      ]
+    ]
+  },
+  "native_matches_oracle": true,
+  "oracle": {
+    "columns": [
+      "revenue"
+    ],
+    "rows": [
+      [
+        {
+          "type": "decimal",
+          "value": "10.00"
+        }
+      ]
+    ]
+  },
+  "reduction": {
+    "attempted": "remove cancelled row",
+    "initial_failure": "unresolved_column",
+    "kept": true,
+    "reduced_failure": "unresolved_column",
+    "selected": "one_row",
+    "structural": "one metric, one model, one primary entity, only time/status dimensions; source is reexecuted"
+  },
+  "returned": {
+    "error": "Binder Error: Referenced column \"item_id__status\" not found in FROM clause!\nCandidate bindings: \"item_id\"\n\nLINE 9:   SUM(SUM(CASE WHEN item_id__status = 'completed' THEN items.amount END)) AS...\n                            ^",
+    "phase": "compile_or_execute"
+  },
+  "returned_executed": false,
+  "returned_matches_oracle": false,
+  "source_entity_names": [
+    "item_id"
+  ]
+}

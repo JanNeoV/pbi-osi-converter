@@ -1,0 +1,1755 @@
+{
+  "purpose": "Independent authored native source contract sanity review",
+  "databricks_runtime": "NOT_EXECUTED",
+  "power_bi_runtime": "NOT_EXECUTED",
+  "converter_execution": "NOT_EXECUTED",
+  "databricks_source_sql_in_duckdb": [
+    {
+      "case": "conversion_rate__overall",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0) AS conversion_rate FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true",
+      "oracle_sql": "SELECT  COUNT(DISTINCT CASE WHEN EXISTS (\n    SELECT 1 FROM raw_orders o WHERE o.session_id = s.session_id\n      AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\n  ) THEN s.session_id END)::DOUBLE / NULLIF(COUNT(DISTINCT s.session_id), 0) AS conversion_rate\nFROM raw_sessions s\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' \n\n",
+      "observed": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "conversion_rate",
+            "keys": [],
+            "expected": {
+              "type": "float",
+              "value": "0.4"
+            },
+            "observed": {
+              "type": "float",
+              "value": "0.4"
+            },
+            "equal": true,
+            "absolute": "0.0",
+            "relative": "0.0"
+          }
+        ]
+      }
+    },
+    {
+      "case": "conversion_rate__channel",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT sales_channel AS sales_channel, CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0) AS conversion_rate FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true GROUP BY 1",
+      "oracle_sql": "SELECT s.sales_channel, COUNT(DISTINCT CASE WHEN EXISTS (\n    SELECT 1 FROM raw_orders o WHERE o.session_id = s.session_id\n      AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\n  ) THEN s.session_id END)::DOUBLE / NULLIF(COUNT(DISTINCT s.session_id), 0) AS conversion_rate\nFROM raw_sessions s\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' \nGROUP BY 1\n",
+      "observed": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.25"
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.25"
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "conversion_rate",
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "float",
+              "value": "0.25"
+            },
+            "observed": {
+              "type": "float",
+              "value": "0.25"
+            },
+            "equal": true,
+            "absolute": "0.0",
+            "relative": "0.0"
+          },
+          {
+            "column": "conversion_rate",
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "float",
+              "value": "0.5"
+            },
+            "observed": {
+              "type": "float",
+              "value": "0.5"
+            },
+            "equal": true,
+            "absolute": "0.0",
+            "relative": "0.0"
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          }
+        ]
+      }
+    },
+    {
+      "case": "conversion_rate__month",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT CAST(DATE_TRUNC('MONTH', session_date) AS DATE) AS session_month, CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0) AS conversion_rate FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true GROUP BY 1",
+      "oracle_sql": "SELECT CAST(DATE_TRUNC('month', s.session_date) AS DATE) AS session_month, COUNT(DISTINCT CASE WHEN EXISTS (\n    SELECT 1 FROM raw_orders o WHERE o.session_id = s.session_id\n      AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\n  ) THEN s.session_id END)::DOUBLE / NULLIF(COUNT(DISTINCT s.session_id), 0) AS conversion_rate\nFROM raw_sessions s\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' \nGROUP BY 1\n",
+      "observed": {
+        "columns": [
+          "session_month",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "float",
+              "value": "0.6"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "float",
+              "value": "0.2"
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "session_month",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "float",
+              "value": "0.6"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "float",
+              "value": "0.2"
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "conversion_rate",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "expected": {
+              "type": "float",
+              "value": "0.2"
+            },
+            "observed": {
+              "type": "float",
+              "value": "0.2"
+            },
+            "equal": true,
+            "absolute": "0.0",
+            "relative": "0.0"
+          },
+          {
+            "column": "conversion_rate",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "expected": {
+              "type": "float",
+              "value": "0.6"
+            },
+            "observed": {
+              "type": "float",
+              "value": "0.6"
+            },
+            "equal": true,
+            "absolute": "0.0",
+            "relative": "0.0"
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          }
+        ]
+      }
+    },
+    {
+      "case": "conversion_rate__month_channel",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT CAST(DATE_TRUNC('MONTH', session_date) AS DATE) AS session_month, sales_channel AS sales_channel, CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0) AS conversion_rate FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true GROUP BY 1, 2",
+      "oracle_sql": "SELECT CAST(DATE_TRUNC('month', s.session_date) AS DATE) AS session_month, s.sales_channel, COUNT(DISTINCT CASE WHEN EXISTS (\n    SELECT 1 FROM raw_orders o WHERE o.session_id = s.session_id\n      AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\n  ) THEN s.session_id END)::DOUBLE / NULLIF(COUNT(DISTINCT s.session_id), 0) AS conversion_rate\nFROM raw_sessions s\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' \nGROUP BY 1, 2\n",
+      "observed": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.6666666666666666"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.3333333333333333"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.6666666666666666"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.3333333333333333"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "conversion_rate",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "float",
+              "value": "0.0"
+            },
+            "observed": {
+              "type": "float",
+              "value": "0.0"
+            },
+            "equal": true,
+            "absolute": "0.0",
+            "relative": null
+          },
+          {
+            "column": "conversion_rate",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "float",
+              "value": "0.3333333333333333"
+            },
+            "observed": {
+              "type": "float",
+              "value": "0.3333333333333333"
+            },
+            "equal": true,
+            "absolute": "0.0",
+            "relative": "0.0"
+          },
+          {
+            "column": "conversion_rate",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "float",
+              "value": "0.5"
+            },
+            "observed": {
+              "type": "float",
+              "value": "0.5"
+            },
+            "equal": true,
+            "absolute": "0.0",
+            "relative": "0.0"
+          },
+          {
+            "column": "conversion_rate",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "float",
+              "value": "0.6666666666666666"
+            },
+            "observed": {
+              "type": "float",
+              "value": "0.6666666666666666"
+            },
+            "equal": true,
+            "absolute": "0.0",
+            "relative": "0.0"
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          }
+        ]
+      }
+    },
+    {
+      "case": "conversion_rate__empty",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0) AS conversion_rate FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true AND session_date < DATE '2020-01-01'",
+      "oracle_sql": "SELECT  COUNT(DISTINCT CASE WHEN EXISTS (\n    SELECT 1 FROM raw_orders o WHERE o.session_id = s.session_id\n      AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\n  ) THEN s.session_id END)::DOUBLE / NULLIF(COUNT(DISTINCT s.session_id), 0) AS conversion_rate\nFROM raw_sessions s\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' AND (s.session_date < DATE '2020-01-01')\n\n",
+      "observed": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "conversion_rate",
+            "keys": [],
+            "expected": {
+              "type": "null",
+              "value": null
+            },
+            "observed": {
+              "type": "null",
+              "value": null
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          }
+        ]
+      }
+    },
+    {
+      "case": "paid_revenue__overall",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT SUM(amount_eur) FILTER (WHERE order_status = 'paid') AS paid_revenue FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true",
+      "oracle_sql": "SELECT  SUM(o.amount_eur) AS paid_revenue\nFROM raw_sessions s LEFT JOIN raw_orders o ON s.session_id = o.session_id\n  AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' \n\n",
+      "observed": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "390.00"
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "390.00"
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "paid_revenue",
+            "keys": [],
+            "expected": {
+              "type": "decimal",
+              "value": "390.00"
+            },
+            "observed": {
+              "type": "decimal",
+              "value": "390.00"
+            },
+            "equal": true,
+            "absolute": "0.00",
+            "relative": "0"
+          }
+        ]
+      }
+    },
+    {
+      "case": "paid_revenue__channel",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT sales_channel AS sales_channel, SUM(amount_eur) FILTER (WHERE order_status = 'paid') AS paid_revenue FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true GROUP BY 1",
+      "oracle_sql": "SELECT s.sales_channel, SUM(o.amount_eur) AS paid_revenue\nFROM raw_sessions s LEFT JOIN raw_orders o ON s.session_id = o.session_id\n  AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' \nGROUP BY 1\n",
+      "observed": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "300.00"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "300.00"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "paid_revenue",
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "decimal",
+              "value": "300.00"
+            },
+            "observed": {
+              "type": "decimal",
+              "value": "300.00"
+            },
+            "equal": true,
+            "absolute": "0.00",
+            "relative": "0"
+          },
+          {
+            "column": "paid_revenue",
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "decimal",
+              "value": "90.00"
+            },
+            "observed": {
+              "type": "decimal",
+              "value": "90.00"
+            },
+            "equal": true,
+            "absolute": "0.00",
+            "relative": "0"
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          }
+        ]
+      }
+    },
+    {
+      "case": "paid_revenue__month",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT CAST(DATE_TRUNC('MONTH', session_date) AS DATE) AS session_month, SUM(amount_eur) FILTER (WHERE order_status = 'paid') AS paid_revenue FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true GROUP BY 1",
+      "oracle_sql": "SELECT CAST(DATE_TRUNC('month', s.session_date) AS DATE) AS session_month, SUM(o.amount_eur) AS paid_revenue\nFROM raw_sessions s LEFT JOIN raw_orders o ON s.session_id = o.session_id\n  AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' \nGROUP BY 1\n",
+      "observed": {
+        "columns": [
+          "session_month",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "decimal",
+              "value": "270.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "session_month",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "decimal",
+              "value": "270.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "paid_revenue",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "expected": {
+              "type": "decimal",
+              "value": "120.00"
+            },
+            "observed": {
+              "type": "decimal",
+              "value": "120.00"
+            },
+            "equal": true,
+            "absolute": "0.00",
+            "relative": "0"
+          },
+          {
+            "column": "paid_revenue",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "expected": {
+              "type": "decimal",
+              "value": "270.00"
+            },
+            "observed": {
+              "type": "decimal",
+              "value": "270.00"
+            },
+            "equal": true,
+            "absolute": "0.00",
+            "relative": "0"
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          }
+        ]
+      }
+    },
+    {
+      "case": "paid_revenue__month_channel",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT CAST(DATE_TRUNC('MONTH', session_date) AS DATE) AS session_month, sales_channel AS sales_channel, SUM(amount_eur) FILTER (WHERE order_status = 'paid') AS paid_revenue FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true GROUP BY 1, 2",
+      "oracle_sql": "SELECT CAST(DATE_TRUNC('month', s.session_date) AS DATE) AS session_month, s.sales_channel, SUM(o.amount_eur) AS paid_revenue\nFROM raw_sessions s LEFT JOIN raw_orders o ON s.session_id = o.session_id\n  AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' \nGROUP BY 1, 2\n",
+      "observed": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "180.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "session_month",
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "180.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "120.00"
+            }
+          ],
+          [
+            {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "paid_revenue",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "decimal",
+              "value": "120.00"
+            },
+            "observed": {
+              "type": "decimal",
+              "value": "120.00"
+            },
+            "equal": true,
+            "absolute": "0.00",
+            "relative": "0"
+          },
+          {
+            "column": "paid_revenue",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "decimal",
+              "value": "180.00"
+            },
+            "observed": {
+              "type": "decimal",
+              "value": "180.00"
+            },
+            "equal": true,
+            "absolute": "0.00",
+            "relative": "0"
+          },
+          {
+            "column": "paid_revenue",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "decimal",
+              "value": "90.00"
+            },
+            "observed": {
+              "type": "decimal",
+              "value": "90.00"
+            },
+            "equal": true,
+            "absolute": "0.00",
+            "relative": "0"
+          },
+          {
+            "column": "paid_revenue",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "null",
+              "value": null
+            },
+            "observed": {
+              "type": "null",
+              "value": null
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Direct"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "sales_channel",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "observed": {
+              "type": "string",
+              "value": "Indirect"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-01-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-01-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Direct"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          },
+          {
+            "column": "session_month",
+            "keys": [
+              {
+                "type": "date",
+                "value": "2026-02-01"
+              },
+              {
+                "type": "string",
+                "value": "Indirect"
+              }
+            ],
+            "expected": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "observed": {
+              "type": "date",
+              "value": "2026-02-01"
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          }
+        ]
+      }
+    },
+    {
+      "case": "paid_revenue__empty",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT SUM(amount_eur) FILTER (WHERE order_status = 'paid') AS paid_revenue FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true AND session_date < DATE '2020-01-01'",
+      "oracle_sql": "SELECT  SUM(o.amount_eur) AS paid_revenue\nFROM raw_sessions s LEFT JOIN raw_orders o ON s.session_id = o.session_id\n  AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' AND (s.session_date < DATE '2020-01-01')\n\n",
+      "observed": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "null",
+              "value": null
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "paid_revenue",
+            "keys": [],
+            "expected": {
+              "type": "null",
+              "value": null
+            },
+            "observed": {
+              "type": "null",
+              "value": null
+            },
+            "equal": true,
+            "absolute": null,
+            "relative": null
+          }
+        ]
+      }
+    },
+    {
+      "case": "conversion_rate__nonconverting",
+      "execution_engine": "DuckDB",
+      "authored_sql": "SELECT CAST(COUNT(DISTINCT session_id) FILTER (WHERE order_status = 'paid') AS DOUBLE) / NULLIF(COUNT(DISTINCT session_id), 0) AS conversion_rate FROM (SELECT s.session_id, s.session_date, s.sales_channel, s.is_eligible,\n       o.order_id, o.order_date, o.amount_eur, o.order_status\nFROM demo.semantic_interop.sessions AS s\nLEFT JOIN demo.semantic_interop.orders AS o\n  ON s.session_id = o.session_id\n AND o.order_date < DATE '2026-03-01'\nWHERE s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01'\n) authored_source WHERE is_eligible = true AND session_date = DATE '2026-01-20'",
+      "oracle_sql": "SELECT  COUNT(DISTINCT CASE WHEN EXISTS (\n    SELECT 1 FROM raw_orders o WHERE o.session_id = s.session_id\n      AND o.order_status = 'paid' AND o.order_date < DATE '2026-03-01'\n  ) THEN s.session_id END)::DOUBLE / NULLIF(COUNT(DISTINCT s.session_id), 0) AS conversion_rate\nFROM raw_sessions s\nWHERE s.is_eligible AND s.session_date >= DATE '2026-01-01'\n  AND s.session_date < DATE '2026-03-01' AND (s.session_date = DATE '2026-01-20')\n\n",
+      "observed": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      },
+      "reference": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.0"
+            }
+          ]
+        ]
+      },
+      "comparison": {
+        "equal": true,
+        "diagnostics": [],
+        "differences": [
+          {
+            "column": "conversion_rate",
+            "keys": [],
+            "expected": {
+              "type": "float",
+              "value": "0.0"
+            },
+            "observed": {
+              "type": "float",
+              "value": "0.0"
+            },
+            "equal": true,
+            "absolute": "0.0",
+            "relative": null
+          }
+        ]
+      }
+    }
+  ],
+  "boundary": "Databricks YAML source body and measure expressions execute here in DuckDB only. This does not certify Databricks syntax, analysis, runtime results or converter output.",
+  "input_sha256": {
+    "labs/semantic_interop/fixtures/conversion_demo/targets/databricks/metric_view.yaml": "dd3dd44f1b817f0aefaa5c67267fdfa6422521a7968fba06682d3cdeb1866dd1"
+  },
+  "power_bi_static_contract_inspection": {
+    "execution_engine": null,
+    "runtime": "NOT_EXECUTED",
+    "checks": {
+      "both_raw_csvs_used": true,
+      "cohort_and_eligibility_intersect_context": true,
+      "distinct_session_denominator": true,
+      "distinct_session_numerator": true,
+      "paid_status_and_exclusive_order_cutoff": true,
+      "counts_coalesce_zero": true,
+      "sum_revenue_not_coalesced": true,
+      "aggregate_ratio_without_alternate": true,
+      "session_cohort_month": true,
+      "active_many_to_one_single_direction": true,
+      "orders_filter_from_originating_sessions": true
+    },
+    "dax": {
+      "Eligible Sessions": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Sessions[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+      "Converted Sessions": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Orders[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n        KEEPFILTERS(Orders[order_status] = \"paid\"),\n        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+      "Conversion Rate": "DIVIDE([Converted Sessions], [Eligible Sessions])",
+      "Paid Revenue": "CALCULATE(\n    SUM(Orders[amount_eur]),\n    KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n    KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n    KEEPFILTERS(Orders[order_status] = \"paid\"),\n    KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n)"
+    },
+    "boundary": "Text and metadata inspection support equivalently authored intent, not DAX validity, refresh or numerical results."
+  },
+  "databricks_duckdb_matches": 11,
+  "power_bi_static_checks_passed": 11
+}

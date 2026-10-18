@@ -1,0 +1,592 @@
+{
+  "metrics": [
+    {
+      "config": null,
+      "datatype": null,
+      "description": "",
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "revenue",
+      "time_granularity": null,
+      "type": "simple",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": null,
+        "expr": "amount",
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": {
+          "agg": "sum",
+          "agg_params": null,
+          "agg_time_dimension": null,
+          "non_additive_dimension": null,
+          "semantic_model": "items"
+        },
+        "metrics": null,
+        "numerator": null,
+        "window": null
+      }
+    },
+    {
+      "config": null,
+      "datatype": null,
+      "description": "",
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "order_count",
+      "time_granularity": null,
+      "type": "simple",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": null,
+        "expr": "order_id",
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": {
+          "agg": "count_distinct",
+          "agg_params": null,
+          "agg_time_dimension": null,
+          "non_additive_dimension": null,
+          "semantic_model": "orders"
+        },
+        "metrics": null,
+        "numerator": null,
+        "window": null
+      }
+    },
+    {
+      "config": null,
+      "datatype": null,
+      "description": "",
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "purchasing_customers",
+      "time_granularity": null,
+      "type": "simple",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": null,
+        "expr": "customer_id",
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": {
+          "agg": "count_distinct",
+          "agg_params": null,
+          "agg_time_dimension": null,
+          "non_additive_dimension": null,
+          "semantic_model": "orders"
+        },
+        "metrics": null,
+        "numerator": null,
+        "window": null
+      }
+    },
+    {
+      "config": null,
+      "datatype": null,
+      "description": "",
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "completed_revenue",
+      "time_granularity": null,
+      "type": "simple",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": null,
+        "expr": "SUM(CASE WHEN item__status = 'completed' THEN items.amount END)",
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": {
+          "agg": "sum",
+          "agg_params": null,
+          "agg_time_dimension": null,
+          "non_additive_dimension": null,
+          "semantic_model": "orders"
+        },
+        "metrics": null,
+        "numerator": null,
+        "window": null
+      }
+    },
+    {
+      "config": null,
+      "datatype": null,
+      "description": null,
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "average_order_value__numerator",
+      "time_granularity": null,
+      "type": "simple",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": null,
+        "expr": "amount",
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": {
+          "agg": "sum",
+          "agg_params": null,
+          "agg_time_dimension": null,
+          "non_additive_dimension": null,
+          "semantic_model": "items"
+        },
+        "metrics": null,
+        "numerator": null,
+        "window": null
+      }
+    },
+    {
+      "config": null,
+      "datatype": null,
+      "description": null,
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "average_order_value__denominator",
+      "time_granularity": null,
+      "type": "simple",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": null,
+        "expr": "order_id",
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": {
+          "agg": "count_distinct",
+          "agg_params": null,
+          "agg_time_dimension": null,
+          "non_additive_dimension": null,
+          "semantic_model": "orders"
+        },
+        "metrics": null,
+        "numerator": null,
+        "window": null
+      }
+    },
+    {
+      "config": null,
+      "datatype": null,
+      "description": "",
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "average_order_value",
+      "time_granularity": null,
+      "type": "ratio",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": {
+          "alias": null,
+          "filter": null,
+          "name": "average_order_value__denominator",
+          "offset_to_grain": null,
+          "offset_window": null
+        },
+        "expr": null,
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": null,
+        "metrics": null,
+        "numerator": {
+          "alias": null,
+          "filter": null,
+          "name": "average_order_value__numerator",
+          "offset_to_grain": null,
+          "offset_window": null
+        },
+        "window": null
+      }
+    },
+    {
+      "config": null,
+      "datatype": null,
+      "description": null,
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "completed_revenue_share__numerator",
+      "time_granularity": null,
+      "type": "simple",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": null,
+        "expr": "SUM(CASE WHEN item__status = 'completed' THEN items.amount END)",
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": {
+          "agg": "sum",
+          "agg_params": null,
+          "agg_time_dimension": null,
+          "non_additive_dimension": null,
+          "semantic_model": "orders"
+        },
+        "metrics": null,
+        "numerator": null,
+        "window": null
+      }
+    },
+    {
+      "config": null,
+      "datatype": null,
+      "description": null,
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "completed_revenue_share__denominator",
+      "time_granularity": null,
+      "type": "simple",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": null,
+        "expr": "amount",
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": {
+          "agg": "sum",
+          "agg_params": null,
+          "agg_time_dimension": null,
+          "non_additive_dimension": null,
+          "semantic_model": "items"
+        },
+        "metrics": null,
+        "numerator": null,
+        "window": null
+      }
+    },
+    {
+      "config": null,
+      "datatype": null,
+      "description": "",
+      "filter": null,
+      "label": null,
+      "metadata": null,
+      "name": "completed_revenue_share",
+      "time_granularity": null,
+      "type": "ratio",
+      "type_params": {
+        "conversion_type_params": null,
+        "cumulative_type_params": null,
+        "denominator": {
+          "alias": null,
+          "filter": null,
+          "name": "completed_revenue_share__denominator",
+          "offset_to_grain": null,
+          "offset_window": null
+        },
+        "expr": null,
+        "fill_nulls_with": null,
+        "grain_to_date": null,
+        "input_measures": [],
+        "is_private": false,
+        "join_to_timespine": false,
+        "measure": null,
+        "metric_aggregation_params": null,
+        "metrics": null,
+        "numerator": {
+          "alias": null,
+          "filter": null,
+          "name": "completed_revenue_share__numerator",
+          "offset_to_grain": null,
+          "offset_window": null
+        },
+        "window": null
+      }
+    }
+  ],
+  "project_configuration": {
+    "dsi_package_version": {
+      "major_version": "0",
+      "minor_version": "213",
+      "patch_version": "0"
+    },
+    "metadata": null,
+    "time_spine_table_configurations": [],
+    "time_spines": [
+      {
+        "custom_granularities": [],
+        "node_relation": {
+          "alias": "time_spine",
+          "database": "benchmark",
+          "relation_name": "\"benchmark\".\"main\".\"time_spine\"",
+          "schema_name": "main"
+        },
+        "primary_column": {
+          "name": "date_day",
+          "time_granularity": "day"
+        }
+      }
+    ]
+  },
+  "saved_queries": [],
+  "semantic_models": [
+    {
+      "config": null,
+      "defaults": null,
+      "description": null,
+      "dimensions": [
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": "order_id",
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "order",
+          "type": "categorical",
+          "type_params": null
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": null,
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "order_date",
+          "type": "time",
+          "type_params": {
+            "time_granularity": "day",
+            "validity_params": null
+          }
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": null,
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "status",
+          "type": "categorical",
+          "type_params": null
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": "order_id",
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "order_count_measure",
+          "type": "categorical",
+          "type_params": null
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": "customer_id",
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "customers_measure",
+          "type": "categorical",
+          "type_params": null
+        }
+      ],
+      "entities": [],
+      "label": null,
+      "measures": [],
+      "metadata": null,
+      "name": "orders",
+      "node_relation": {
+        "alias": "\"orders\"",
+        "database": "\"benchmark\"",
+        "relation_name": "\"benchmark\".\"main\".\"orders\"",
+        "schema_name": "\"main\""
+      },
+      "primary_entity": null
+    },
+    {
+      "config": null,
+      "defaults": null,
+      "description": null,
+      "dimensions": [
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": "item_id",
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "item",
+          "type": "categorical",
+          "type_params": null
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": "order_id",
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "order",
+          "type": "categorical",
+          "type_params": null
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": "product_id",
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "product",
+          "type": "categorical",
+          "type_params": null
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": null,
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "order_date",
+          "type": "time",
+          "type_params": {
+            "time_granularity": "day",
+            "validity_params": null
+          }
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": null,
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "status",
+          "type": "categorical",
+          "type_params": null
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": "amount",
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "revenue_measure",
+          "type": "categorical",
+          "type_params": null
+        }
+      ],
+      "entities": [],
+      "label": null,
+      "measures": [],
+      "metadata": null,
+      "name": "items",
+      "node_relation": {
+        "alias": "\"items\"",
+        "database": "\"benchmark\"",
+        "relation_name": "\"benchmark\".\"main\".\"items\"",
+        "schema_name": "\"main\""
+      },
+      "primary_entity": null
+    },
+    {
+      "config": null,
+      "defaults": null,
+      "description": null,
+      "dimensions": [
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": "product_id",
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "product",
+          "type": "categorical",
+          "type_params": null
+        },
+        {
+          "config": null,
+          "datatype": null,
+          "description": null,
+          "expr": null,
+          "is_partition": false,
+          "label": null,
+          "metadata": null,
+          "name": "category",
+          "type": "categorical",
+          "type_params": null
+        }
+      ],
+      "entities": [],
+      "label": null,
+      "measures": [],
+      "metadata": null,
+      "name": "products",
+      "node_relation": {
+        "alias": "\"products\"",
+        "database": "\"benchmark\"",
+        "relation_name": "\"benchmark\".\"main\".\"products\"",
+        "schema_name": "\"main\""
+      },
+      "primary_entity": null
+    }
+  ]
+}

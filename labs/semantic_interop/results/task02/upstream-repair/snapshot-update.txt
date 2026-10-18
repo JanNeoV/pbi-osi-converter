@@ -1,0 +1,4 @@
+.                                                                        [100%]
+--------------------------- snapshot report summary ---------------------------
+1 snapshot updated.
+1 passed in 0.62s

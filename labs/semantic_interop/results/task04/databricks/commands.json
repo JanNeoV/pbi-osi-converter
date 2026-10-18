@@ -1,0 +1,61 @@
+[
+  {
+    "label": "java-version",
+    "command": [
+      "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+      "-version"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "maven-version",
+    "command": [
+      "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\apache-maven-3.9.11\\bin\\mvn.cmd",
+      "-version"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "build",
+    "command": [
+      "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\apache-maven-3.9.11\\bin\\mvn.cmd",
+      "-B",
+      "-f",
+      "<repository>\\.tmp\\task04-databricks\\build\\pom.xml",
+      "-Dmaven.repo.local=<repository>\\.tmp\\task04-databricks\\maven-cache",
+      "clean",
+      "package"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "export",
+    "command": [
+      "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+      "-jar",
+      "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+      "export",
+      "<repository>\\labs\\semantic_interop\\results\\task04\\databricks\\input.ossie.yml",
+      "-o",
+      "<repository>\\labs\\semantic_interop\\results\\task04\\databricks\\generated.metric-view.yml",
+      "--source",
+      "sessions"
+    ],
+    "exit_code": 0
+  },
+  {
+    "label": "import",
+    "command": [
+      "<repository>\\.tmp\\task04-databricks\\tools\\extracted\\jdk-21.0.12.1+1\\bin\\java.exe",
+      "-jar",
+      "<repository>\\.tmp\\task04-databricks\\build\\target\\ossie-databricks-converter-0.1.0-SNAPSHOT.jar",
+      "import",
+      "<repository>\\labs\\semantic_interop\\results\\task04\\databricks\\generated.metric-view.yml",
+      "-o",
+      "<repository>\\labs\\semantic_interop\\results\\task04\\databricks\\reimported.ossie.yml",
+      "--name",
+      "conversion_demo_databricks"
+    ],
+    "exit_code": 0
+  }
+]

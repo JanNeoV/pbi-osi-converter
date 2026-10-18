@@ -1,0 +1,34 @@
+version: 0.2.0.dev0
+name: semantic_model
+datasets:
+- name: items
+  source: '"benchmark"."main"."regression_items"'
+  primary_key:
+  - item_id
+  fields:
+  - name: item
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: item_id
+  - name: order_date
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: order_date
+    dimension:
+      is_time: true
+  - name: status
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: status
+    dimension:
+      is_time: false
+metrics:
+- name: revenue
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(items.amount)
+  description: ''

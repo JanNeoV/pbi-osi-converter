@@ -1,0 +1,64 @@
+{
+  "baseline_archive_reverified": true,
+  "baseline_package_count": 75,
+  "baseline_package_versions_unchanged": true,
+  "baseline_provenance": "../baseline.json",
+  "branch": "research/semantic-interoperability-lab",
+  "commit": "d44aabfd196a57b56afef4debec64bcc37a95c8a",
+  "date": "2026-10-17",
+  "final_patch_checks": "../upstream-repair-v2/provenance.json",
+  "intentional_original_changes": [
+    ".github/workflows/semantic-lab.yml",
+    "labs/semantic_interop/README.md",
+    "labs/semantic_interop/docs/report.schema.json",
+    "labs/semantic_interop/src/semantic_lab/__main__.py",
+    "labs/semantic_interop/src/semantic_lab/integrations.py"
+  ],
+  "lab_tests_passed": 34,
+  "linux_validation": "NOT_EXECUTED; no installed WSL distribution or Docker runtime",
+  "local_platform": "Windows / Python 3.12.10",
+  "microsoft_runtime": "NOT_EXECUTED",
+  "offline_determinism": "offline-check.json",
+  "original_benchmark": "original-benchmark.json",
+  "original_files": 418,
+  "patch_formatting_did_not_change_runtime_modules_or_case_results": true,
+  "published_or_submitted": false,
+  "remote_ci": "NOT_EXECUTED",
+  "repository_checks": "repository-checks.json",
+  "repository_tests_passed": 153,
+  "repository_tests_skipped": 1,
+  "schema_version": 1,
+  "sealed_artifact_hashes_verified": 305,
+  "sealed_report": "../verified-003/report.json",
+  "sealed_report_sha256": "10638cff4ed0c8c9e6347f4b2b411338f7dda66cd54979b13618013fe02b8735",
+  "standalone_reproducer_runs": [
+    {
+      "local_result": ".tmp/semantic-counterexample-6bhslaiq/result.json",
+      "native_matches_oracle": true,
+      "returned_executed": true,
+      "returned_matches_oracle": true,
+      "sha256": "4a55830a63bc96a0573089253be300c1057704096789e0a3ff3aa54a17d0809c"
+    },
+    {
+      "local_result": ".tmp/semantic-counterexample-n3mv5y5j/result.json",
+      "native_matches_oracle": true,
+      "returned_executed": false,
+      "returned_matches_oracle": false,
+      "sha256": "b143b1dd9fe9ecb05cfbb7bf91bf60c8dcbb46434c1a063e1359f5d55163b82b"
+    },
+    {
+      "local_result": ".tmp/semantic-counterexample-q756qp1f/result.json",
+      "native_matches_oracle": true,
+      "returned_executed": false,
+      "returned_matches_oracle": false,
+      "sha256": "32ce0f354550d7c36bcc1a405b2c7f62071856e970d30800955dde3ef8ad91ff"
+    }
+  ],
+  "tom_validation": "NOT_EXECUTED",
+  "tracked_git_changes": [],
+  "unchanged_original_files": 413,
+  "upstream_current_tests_passed": 176,
+  "upstream_pr437_tests_passed": 185,
+  "upstream_repair_tests_passed": 179,
+  "upstream_snapshots_each": 5
+}
