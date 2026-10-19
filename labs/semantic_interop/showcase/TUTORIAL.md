@@ -382,9 +382,11 @@ def selector(doc):
     return next(m for t in doc["model"]["tables"] if t["name"] == "Sessions"
                 for m in t.get("measures", []) if m["name"] == "Selected KPI")
 a, b = selector(source), selector(returned)
-assert a["expression"] == b["expression"], "DAX selector expression changed"
-assert a["formatStringDefinition"] == b["formatStringDefinition"], "Dynamic format changed"
-print("Selector DAX and dynamic-format definitions retained (static only)")
+def norm(v):
+    return "\\n".join(v) if isinstance(v, list) else v
+assert norm(a["expression"]) == norm(b["expression"]), "DAX selector expression changed"
+assert norm(a["formatStringDefinition"]["expression"]) == norm(b["formatStringDefinition"]["expression"]), "Dynamic format changed"
+print("Selector DAX and dynamic-format expressions retained (static only)")
 PYCODE
 done
 ```
