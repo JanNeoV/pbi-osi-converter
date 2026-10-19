@@ -360,6 +360,42 @@ $target = Get-Content "$work/roundtrip.model.bim" -Raw | ConvertFrom-Json
 $target.model.relationships | ConvertTo-Json -Depth 20
 ```
 
+**macOS/Linux (offline candidate, no Desktop):** After the pinned setup in
+[QUICKSTART](QUICKSTART.md#setup-and-run), run the official pinned converters on
+**both supplied candidate files**. Each input is kept intact; the difference is
+the `SELECTEDVALUE` alternate result in the measure and dynamic format.
+The shell commands use fresh work directories and fail rather than overwrite
+existing evidence:
+
+```sh
+PY=.tmp/semantic-lab-venv/bin/python
+for variant in baseline changed-default; do
+  WORK=".tmp/pbi-selector-${variant}"
+  mkdir "$WORK" || exit 1
+  cp "labs/semantic_interop/showcase/powerbi-task05/${variant}.model.bim" "$WORK/source.model.bim"
+  "$PY" -m ossie_microsoft.cli import -i "$WORK/source.model.bim" -o "$WORK/output.ossie.yml" >"$WORK/import.stdout.log" 2>"$WORK/import.stderr.log" || exit 1
+  "$PY" -m ossie_microsoft.cli export -i "$WORK/output.ossie.yml" -o "$WORK/roundtrip.model.bim" >"$WORK/export.stdout.log" 2>"$WORK/export.stderr.log" || exit 1
+  "$PY" - "$WORK/source.model.bim" "$WORK/roundtrip.model.bim" <<'PYCODE'
+import json, sys
+source, returned = [json.load(open(p, encoding="utf-8")) for p in sys.argv[1:]]
+def selector(doc):
+    return next(m for t in doc["model"]["tables"] if t["name"] == "Sessions"
+                for m in t.get("measures", []) if m["name"] == "Selected KPI")
+a, b = selector(source), selector(returned)
+assert a["expression"] == b["expression"], "DAX selector expression changed"
+assert a["formatStringDefinition"] == b["formatStringDefinition"], "Dynamic format changed"
+print("Selector DAX and dynamic-format definitions retained (static only)")
+PYCODE
+done
+```
+
+For the full normalized-document, relationship and dependency comparison,
+consult the [existing captured baseline/edited checks](../results/task05-minimal/powerbi/report.json).
+The short snippet above verifies **only** the two selector expressions; it does
+not assert Desktop loadability or numeric equivalence. The supplied
+`changed-default.model.bim` is an authored example, not output from editing
+the model in a live Desktop session.
+
 Repeat in another directory without changing the defaults to compare the baseline.
 [Actual candidate evidence](../results/task05-minimal/powerbi/report.json) shows both versions
 returned the complete normalized model unchanged: DAX, dependencies, literal M rows,
