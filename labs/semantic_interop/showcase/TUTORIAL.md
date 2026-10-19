@@ -383,7 +383,7 @@ def selector(doc):
                 for m in t.get("measures", []) if m["name"] == "Selected KPI")
 a, b = selector(source), selector(returned)
 def norm(v):
-    return "\\n".join(v) if isinstance(v, list) else v
+    return chr(10).join(v) if isinstance(v, list) else v
 assert norm(a["expression"]) == norm(b["expression"]), "DAX selector expression changed"
 assert norm(a["formatStringDefinition"]["expression"]) == norm(b["formatStringDefinition"]["expression"]), "Dynamic format changed"
 print("Selector DAX and dynamic-format expressions retained (static only)")
