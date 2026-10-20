@@ -80,3 +80,45 @@ The two private publication files are ignored and untracked. The three older
 editorial files (`ARTICLE_DRAFT.md`, `ARTICLE_OUTLINE.md`, and
 `CONVERSION_ARTICLE_DRAFT.md`) were already present on remote `main` at `6bb0457`;
 they remain unchanged. New publication advice is kept in ignored local storage.
+
+## Addendum — 2026-10-19
+
+**Subsequent CI evidence, not a retroactive change to the 2026-10-18 local record:**
+
+The focused [three-experiment GitHub Actions run](https://github.com/JanNeoV/pbi-osi-converter/actions/runs/39160283961)
+for `main` at `6f342299380d5ba6940d5429c98015de39e146dc`
+completed successfully on **Windows, macOS, and Ubuntu**. This is positive
+evidence for the executable, focused quickstart in all three hosted runners;
+it is not a claim of additional manual Desktop testing or support for all
+developer machines and architectures.
+
+The separate [Semantic interoperability lab workflow](https://github.com/JanNeoV/pbi-osi-converter/actions/runs/39160284146)
+passed its Windows job but **failed its historical Task 02 replay on Ubuntu**.
+The recorded error is `current diagnostic worker failed: ... No module named
+semantic_lab`. The historical replay script resolves a virtual-environment
+Python executable through `Path.resolve()`, which can redirect a Linux
+virtual-environment symlink to system Python, bypassing the isolated editable
+package. This is a source-supported diagnosis, not a repaired or rerun
+historical benchmark. The original Task 02 code and artifacts remain untouched.
+
+The linked [publication review](../docs/PUBLICATION_READINESS.md) distinguishes
+verified CI and prior sealed evidence from any new execution. Power BI Desktop,
+DAX queries, selector interaction, card rendering, and numerical agreement of
+converted targets remain **NOT_EXECUTED / unverified**.
+
+### Fresh publication closeout
+
+The 2026-10-19 closeout used a clean local clone and a new locked Python 3.12.10
+environment on Windows (package download cache reused). The focused command
+reproduced 31 source matches, five detected controls and the three documented
+target classifications. All **92 lab tests** and **27 public/checker regression
+tests** passed. The refund exercise passed four source comparisons before and
+after; the unchanged returned MetricFlow model remained blocked. Both selector
+variants passed all 11 bounded checks in PowerShell and Git Bash. Git Bash used
+the Windows Python executable path; no new native Linux/macOS run is claimed.
+
+The [closeout report](../docs/PUBLICATION_READINESS.md) records evidence locations,
+hash preservation and the nonrequired historical Ubuntu failure. GitHub reports
+no enforced required checks or rulesets on `main`; merge acceptance still requires
+the focused three-OS and public offline workflows on the final PR head. The entire
+repository must not be described as green. No Desktop execution was performed.

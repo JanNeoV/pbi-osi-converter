@@ -113,6 +113,23 @@ and [converted BIM](../results/task04-showcase/to-powerbi/metricflow/output.mode
 show the observed changes. The generated report compares original and converted
 definitions directly; it does not infer numerical failure from `BLANK()`.
 
+## Optional: reproduce the Power BI SWITCH selector without Desktop
+
+The standard three-route demo includes the authored Power BI **core** model. The
+disconnected `KPI Selector` and the `SWITCH(SELECTEDVALUE(...))` measure are a
+**separate Power BI → Ossie → Power BI diagnostic**, not a fourth route and not
+an executed DAX result. For an actual editable selector example, follow
+[Exercise B3](TUTORIAL.md#b3-export-model-metadata-and-run-power-bi--ossie--power-bi)
+using the supplied `baseline.model.bim` and `changed-default.model.bim`.
+The exercise supplies Windows PowerShell and macOS/Linux shell commands and
+compares both the measure expression and its dynamic-format expression.
+
+The local candidate round trip requires no Power BI credentials. Desktop
+validation of selection behavior, channel filtering, and rendered formatting
+remains a [separate manual exercise](TUTORIAL.md#b2-add-and-test-the-dynamic-selector).
+A passing static comparison must **not** be reported as a working selector in
+Power BI Desktop.
+
 ## Optional: include refunded revenue
 
 Use a disposable source copy. The existing EUR 50 refund changes source revenue
@@ -188,9 +205,15 @@ retain this distinction. Start another fresh work directory to reset.
   evidence or repair generated models to obtain a passing run.
 - **Missing spine / BLANK():** these are expected observed converter boundaries,
   not installation fixes. Unexpected errors fail demo acceptance.
-- **Platform coverage:** Windows is locally validated; Linux/macOS commands are
-  reviewed and CI is configured, but execution remains unverified until actual
-  CI results are available. See the [acceptance record](ACCEPTANCE.md).
+- **Platform coverage:** Windows was validated locally in the recorded 2026-10-18
+  acceptance run. The focused [GitHub Actions run](https://github.com/JanNeoV/pbi-osi-converter/actions/runs/39160283961)
+  subsequently passed on **Windows, Ubuntu and macOS** at commit `6f342299`.
+  These are CI executions, not fresh manual runs on each platform. See the
+  dated [acceptance addendum](ACCEPTANCE.md#addendum--2026-10-19).
+- **Separate historical CI failure:** the older full-lab Ubuntu job fails in its
+  Task 02 replay environment. That job is not a required merge check; it does not
+  negate the passing focused three-experiment CI. See the
+  [closeout report](../docs/PUBLICATION_READINESS.md#ci-status-and-merge-policy).
 
 This fixture is a bounded teaching example, not a general equivalence proof.
 No converted target has verified numerical agreement. No Power BI Desktop/DAX
