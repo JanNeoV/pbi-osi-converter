@@ -375,7 +375,7 @@ for variant in baseline changed-default; do
   cp "labs/semantic_interop/showcase/powerbi-task05/${variant}.model.bim" "$WORK/source.model.bim"
   "$PY" -m ossie_microsoft.cli import -i "$WORK/source.model.bim" -o "$WORK/output.ossie.yml" >"$WORK/import.stdout.log" 2>"$WORK/import.stderr.log" || exit 1
   "$PY" -m ossie_microsoft.cli export -i "$WORK/output.ossie.yml" -o "$WORK/roundtrip.model.bim" >"$WORK/export.stdout.log" 2>"$WORK/export.stderr.log" || exit 1
-  "$PY" - "$WORK/source.model.bim" "$WORK/roundtrip.model.bim" <<'PYCODE'
+  "$PY" - "$WORK/source.model.bim" "$WORK/roundtrip.model.bim" <<'PYCODE' || exit 1
 import json, sys
 source, returned = [json.load(open(p, encoding="utf-8")) for p in sys.argv[1:]]
 def selector(doc):

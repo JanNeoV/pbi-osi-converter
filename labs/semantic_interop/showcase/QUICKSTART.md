@@ -209,7 +209,11 @@ retain this distinction. Start another fresh work directory to reset.
   acceptance run. The focused [GitHub Actions run](https://github.com/JanNeoV/pbi-osi-converter/actions/runs/39160283961)
   subsequently passed on **Windows, Ubuntu and macOS** at commit `6f342299`.
   These are CI executions, not fresh manual runs on each platform. See the
-  dated [acceptance addendum](ACCEPTANCE.md#addendum-2026-10-19).
+  dated [acceptance addendum](ACCEPTANCE.md#addendum--2026-10-19).
+- **Separate historical CI failure:** the older full-lab Ubuntu job fails in its
+  Task 02 replay environment. That job is not a required merge check; it does not
+  negate the passing focused three-experiment CI. See the
+  [closeout report](../docs/PUBLICATION_READINESS.md#ci-status-and-merge-policy).
 
 This fixture is a bounded teaching example, not a general equivalence proof.
 No converted target has verified numerical agreement. No Power BI Desktop/DAX

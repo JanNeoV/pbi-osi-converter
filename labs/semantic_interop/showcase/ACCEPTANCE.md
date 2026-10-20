@@ -105,3 +105,20 @@ The linked [publication review](../docs/PUBLICATION_READINESS.md) distinguishes
 verified CI and prior sealed evidence from any new execution. Power BI Desktop,
 DAX queries, selector interaction, card rendering, and numerical agreement of
 converted targets remain **NOT_EXECUTED / unverified**.
+
+### Fresh publication closeout
+
+The 2026-10-19 closeout used a clean local clone and a new locked Python 3.12.10
+environment on Windows (package download cache reused). The focused command
+reproduced 31 source matches, five detected controls and the three documented
+target classifications. All **92 lab tests** and **27 public/checker regression
+tests** passed. The refund exercise passed four source comparisons before and
+after; the unchanged returned MetricFlow model remained blocked. Both selector
+variants passed all 11 bounded checks in PowerShell and Git Bash. Git Bash used
+the Windows Python executable path; no new native Linux/macOS run is claimed.
+
+The [closeout report](../docs/PUBLICATION_READINESS.md) records evidence locations,
+hash preservation and the nonrequired historical Ubuntu failure. GitHub reports
+no enforced required checks or rulesets on `main`; merge acceptance still requires
+the focused three-OS and public offline workflows on the final PR head. The entire
+repository must not be described as green. No Desktop execution was performed.

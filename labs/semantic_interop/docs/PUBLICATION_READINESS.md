@@ -1,122 +1,107 @@
-# Publication readiness review — 2026-10-19
+# Publication readiness closeout - 2026-10-20
 
-**Verdict: READY WITH MINOR FIXES (bounded, evidence-led article).**
+**Verdict: READY for the bounded article.** The three documented experiments and
+both existing edit exercises were reproduced in a clean Python 3.12 environment.
+No converted target has verified numerical equivalence. The article and private
+publication notes remain ignored and untracked.
 
-The proposed 600–800-word article is editorially scoped to Conversion Rate and
-the Power BI `SWITCH` selector, and distinguishes conversion, static
-preservation, actual runtime, and numerical equivalence. The article is **not
-tracked in this repository**. It remains a separate private Markdown draft.
+## Fresh local verification
 
-## Baseline and reproduction provenance
+A clean local Git clone of review branch `b73b3519` was installed with Python
+3.12.10 and `uv==0.12.17` on Windows. The new virtual environment used the frozen
+lockfile; dependency downloads reused the package cache. No environment or private
+draft was copied into the clone. Official Ossie adapters remain pinned to
+`6ebc5e5612467dac405985f44ea078b39c891bee`; no converter or returned model was repaired.
 
-- Reviewed public default branch: `main` at
-  `6f342299380d5ba6940d5429c98015de39e146dc` (19 October 2026).
-- [Three-experiment CI run](https://github.com/JanNeoV/pbi-osi-converter/actions/runs/39160283961):
-  **success**, Windows, macOS and Ubuntu, for that SHA. Focused CI runs the
-  pinned setup, three-route runner and offline tests on each host. This is
-  **previously recorded GitHub CI execution**, not a fresh run performed during
-  this publication review.
-- Previous [local acceptance record](../showcase/ACCEPTANCE.md): Windows Python
-  3.12.10, 92 lab tests, 173 parent tests with one skip, 31 matching source
-  oracle comparisons, five injected mistakes caught, and the documented
-  refund exercise. Those are historical local measurements, not new results.
-- The reviewer environment for this addendum has Python 3.13 and no functional
-  outbound git/PyPI access. It cannot run a fresh Python 3.12 checkout,
-  isolated install or official converters. Fresh-clone execution, fresh
-  dependency provenance, fresh hash custody and a new entire-suite regression
-  **have not been performed**. Never treat the prior CI result as a fresh
-  Windows manual run.
+| Experiment or edit | Executed result | Static preservation | Target runtime / numerical agreement |
+|---|---|---|---|
+| MetricFlow -> Ossie -> MetricFlow | Both conversions PASS; source 31/31 oracle matches | MISMATCH: missing time spine, entities and aggregation-time defaults; ratio dependencies rewritten | 11 attempts BLOCKED first at missing-spine initialization; no target values |
+| Power BI -> Ossie -> Power BI (core) | Both converters PASS | All nine bounded checks PASS, including DAX, dependencies, relationships, columns, partitions, M and formats | Desktop NOT_EXECUTED; numerical agreement unverified |
+| MetricFlow -> Ossie -> Power BI | Both converters PASS | Nine annotated `BLANK()` substitutions, including Conversion Rate; 20 warnings including a skipped relationship | Desktop NOT_EXECUTED; definition mismatch, not an observed numerical failure |
+| MetricFlow refund edit | Four source comparisons PASS before and after: revenue 390 -> 440 EUR, channels 300/90 -> 300/140; conversion remains 40%, channels 50%/25% | Expanded predicate retained in Ossie; Power BI export still has nine annotated blanks | Unchanged MetricFlow return BLOCKED at missing spine; no converted-target values |
+| Power BI selector default edit | Baseline and changed candidates each complete official import/export in PowerShell and Git Bash | All 11 bounded checks PASS in each run, including dependencies and dynamic formatting; only the two alternate-result defaults differ | Desktop NOT_EXECUTED; selection and card behavior remain manual acceptance criteria |
 
-## Five-row verification matrix
+The source oracle is independently written SQL over raw fixture data. Both source
+and oracle queries execute in DuckDB. The five deliberately injected SQL faults
+were detected; they are controls, not observed converter output. The hypothetical
+37.5% channel-rate average is not an observed target result.
 
-| Scope | Conversion / source result | Static definition check | Target execution | Target numerical agreement | Evidence type |
-|---|---|---|---|---|---|
-| MetricFlow → Ossie → MetricFlow | PASS; original 31/31 source comparisons | MISMATCH: time spine, entity declarations and aggregation defaults lost | BLOCKED: 11 attempted headline queries stop at initialization | BLOCKED | Sealed captures, prior focused CI |
-| Power BI → Ossie → Power BI (core) | PASS | Bounded PASS: normalized DAX, relations, columns, partitions, M and formats retained | NOT_EXECUTED in Desktop | BLOCKED | Sealed captures, prior focused CI |
-| MetricFlow → Ossie → Power BI | PASS | MISMATCH: nine annotated `BLANK()` measures incl. headlines, skipped relationship | NOT_EXECUTED in Desktop | BLOCKED | Sealed captures, prior focused CI |
-| MetricFlow refund edit | Source revenue 390 → 440 EUR, Direct 300 → 300, Indirect 90 → 140, Conversion Rate 40% unchanged | Changed predicate retained in Ossie text; unchanged return remains blocked; Power BI still annotated `BLANK()` | Source measured in DuckDB; returned target BLOCKED; Power BI NOT_EXECUTED | Source oracle PASS; converted target BLOCKED | Previously recorded Task 05, tutorial |
-| Power BI selector default edit | Authored `SELECTEDVALUE` alternate changed from Conversion Rate to Paid Revenue in numeric and dynamic-format expressions | Baseline and edited Power BI round trips both pass bounded normalized definition comparisons | NOT_EXECUTED in Desktop | BLOCKED | Previously recorded Task 05; supplied candidate files |
+Fresh commands/checks:
 
-Direct evidence: [three-path results](../showcase/RESULTS.md),
-[source oracle](../results/task04-showcase/native/report.json),
-[returned MetricFlow attempts](../results/task04-showcase/to-metricflow/metricflow/execution.json),
-[Power BI native structural report](../results/task04-showcase/powerbi/core/report.json),
-[MetricFlow-to-Power BI warnings](../results/task04-showcase/to-powerbi/metricflow/warnings.json),
-[MetricFlow edit before](../results/task05-minimal/metricflow/baseline/source/execution.json),
-[after](../results/task05-minimal/metricflow/include-refunded/source/execution.json),
-and [selector before/after round-trip report](../results/task05-minimal/powerbi/report.json).
+- Frozen setup and `run_showcase.py --scope three --check --output .tmp/three-demo`:
+  PASS, 31 source matches and five detected controls.
+- `python -m pytest -q labs/semantic_interop/tests --basetemp .tmp/closeout-tests`:
+  **92 passed**, including focused offline tests (109.41 seconds).
+- `python -m pytest -q tests/test_readme_revision.py tests/test_public_contract.py`:
+  **27 passed** (51.47 seconds).
+- Documented refund init/build/execute, official outbound/return conversion,
+  unchanged returned execution attempt, and Power BI export: results above.
+- Documented selector import/export: both variants in PowerShell and Git Bash;
+  full normalized model comparisons passed for all four runs.
+- All four POSIX shell blocks pass `bash -n`. The selector loop executed in Git
+  Bash on Windows with only `bin/python` changed to `Scripts/python.exe`.
+  This is not fresh execution on Linux or macOS; WSL has no installed distribution.
+- Public repository/link checker, changed-document anchors, generated-report
+  links, article URLs and Git whitespace checks: PASS. All 18 local links in the
+  freshly generated three-experiment report resolve.
 
-## Five tutorial usability findings
+Fresh evidence is retained locally under `.tmp/publication-closeout/checkout/.tmp/`:
+`three-demo/`, `refund-exercise/`, `pbi-powershell-{baseline,changed-default}/`,
+`pbi-selector-{baseline,changed-default}/`, test logs, and
+`closeout-verification.json`. These ignored files do not replace sealed evidence.
+Readers can generate their own records using the [quickstart](../showcase/QUICKSTART.md).
 
-1. **Selector discoverability:** The default quickstart covered the Power BI
-   **core** model, not its optional disconnected selector. The quickstart now
-   points readers directly to the separate `SWITCH` exercise, explicitly
-   distinguishing it from the three core paths.
-2. **POSIX selector reproduction:** Tutorial B3 originally offered only
-   PowerShell. It now includes macOS/Linux shell commands for both supplied
-   candidate model versions with no Desktop requirements, retaining stdout,
-   stderr, and static selector assertions. This added shell snippet has **not
-   been independently executed** in this review.
-3. **Acceptance versus semantic equivalence:** The quickstart explicitly
-   notes that exit 0 means successful evidence checks and may include
-   expected BLOCKED or NOT_EXECUTED targets; it does **not** demonstrate
-   lossless conversion. This boundary remains highlighted.
-4. **Platform coverage:** Historical acceptance text was stale after the
-   three-OS GitHub workflow passed. The quickstart now links verified CI; the
-   acceptance record has a dated addendum rather than retroactively changing
-   its original platform claims.
-5. **Desktop reproducibility:** The supplied TMSL models can be converted
-   offline, but there is no verified ready-to-open PBIP/PBIX and no automatic
-   real DAX runtime. Tutorial B describes manual setup, all/no/multiple KPI
-   selections, channel filtering, and format checks; these remain expected
-   cases, **not measured Desktop results**.
+## Five tutorial findings and disposition
 
-## Legacy Ubuntu CI diagnosis
+1. **Selector discovery:** the quickstart now links the separate offline selector
+   diagnostic; the standard three-route command uses the core Power BI model.
+2. **POSIX commands:** the two candidate variants now have shell commands. The
+   assertion step exits on failure, preventing a later variant from masking it.
+   Windows shell execution is verified; native macOS/Linux coverage is CI only.
+3. **Report interpretation:** exit 0 means the evidence checks passed, including
+   the expected blocked target. It does not mean lossless conversion.
+4. **Platform coverage:** the dated acceptance addendum distinguishes the passing
+   focused three-OS workflow from the failing historical Ubuntu replay.
+5. **Desktop boundary:** Desktop is installed locally but was not launched or
+   tested in this closeout. No source/returned refresh, DAX query, slicer, or card
+   result is claimed. [Tutorial B2/B3](../showcase/TUTORIAL.md#b2-add-and-test-the-dynamic-selector)
+   supplies no/single/multiple selection, channel-filter and formatting checks.
 
-[Older full lab workflow](https://github.com/JanNeoV/pbi-osi-converter/actions/runs/39160284146)
-failed at `Verify Task 02 offline and deterministic` on Ubuntu; its Windows job
-passed. GitHub job logs report `No module named semantic_lab` in the current
-diagnostic worker. `scripts/check_task02.py` passes
-`str(args.upstream_python.resolve())` into the worker. Linux `venv` executables
-may be symlinks to base Python; resolving before execution can bypass the
-target virtual environment and its editable installation. The diagnosis is
-plausible and directly matches the captured error, but the repair has **not**
-been applied or verified. This old lane should not be conflated with the
-successful three-OS focused demo.
+## CI status and merge policy
 
-## Link, custody, and review boundaries
+The [focused three-experiment workflow](https://github.com/JanNeoV/pbi-osi-converter/actions/runs/39160283961)
+passed on Windows, macOS and Ubuntu for base `6f342299`. This is historical CI,
+not a fresh manual run on those operating systems.
 
-The GitHub connector was used to read the named repository files on `main`
-and the edited documentation on the dedicated review branch. The review
-confirmed the central evidence and TMSL specimen paths. It did **not** perform
-a complete site-wide HTTP link crawl or rehash all 2,170 protected files.
-Only review documents were changed on this branch; no canonical fixture,
-converter, dependency-pin or sealed-evidence path was intentionally edited.
-A complete local `git diff` custody check is still required before merge.
+The [older full lab workflow](https://github.com/JanNeoV/pbi-osi-converter/actions/runs/39160284146)
+failed only its Ubuntu Task 02 replay; Windows passed. Logs show the base Python
+interpreter failing to import `semantic_lab`. The replay wrapper and diagnostic
+worker resolve virtual-environment executable symlinks before launching them,
+which bypasses the installed environment on Linux. No historical repair or replay
+is included here. The review-branch [Ubuntu job](https://github.com/JanNeoV/pbi-osi-converter/actions/runs/39203682765/job/117901805453)
+also passed the regression step and failed at that historical replay.
 
-The earlier article,
-[Maintaining Power BI Semantic Models as Snowflake Semantic Views](https://medium.com/@jan.busse/maintaining-power-bi-semantic-models-as-snowflake-semantic-views-36cb4bcd9d56),
-uses a targeted two-platform translation with explicit decisions on supported
-semantics. This article examines a common interchange format and why adapter
-round trips do not imply cross-platform numerical equivalence. The claims
-are complementary; no general correctness claim for the older converter is
-inferred here.
+Authenticated GitHub branch metadata reports `main` as unprotected, with status
+check enforcement off and no required contexts; the repository ruleset listing,
+including inherited rulesets, is empty. Thus the historical replay is not a
+required merge check. **The whole repository is not green.** Closeout nevertheless
+requires the focused three-OS workflow and public offline proof to pass on the
+final PR head. Their final results belong to the PR checks, not the older runs.
 
-## Before publishing or merging
+## Preservation and editorial boundaries
 
-- Execute the new POSIX selector commands or have CI validate them. For
-  Windows, verify the documented PowerShell version in a fresh checkout if
-  newly claiming such a run.
-- If a Desktop session is available, record actual source and returned model
-  loading, query values, selector defaults, filters, and card formats. If not,
-  retain the `NOT_EXECUTED` disclosure in the article.
-- Execute regression, public repository/link, whitespace and hash-custody
-  checks in a Python 3.12 checkout, then resolve any findings. A clean CI
-  result for the existing focused workflow does not retroactively certify
-  these new documentation changes.
-- The article is private. Do not publish or merge automatically.
+All 2,169 tracked fixture/evidence/pin paths checked against `main` are unchanged;
+the fresh hash inventory is retained in the local verification JSON. Of 1,860
+portable entries in the older Task 05 snapshot, 1,858 still match. The two other
+entries are `showcase.py` and `showcase_powerbi.py`, changed by the already-merged
+three-experiment implementation (`019ac8b`); both match current `main` exactly.
+No new historical mismatch was introduced, and no snapshot was regenerated.
+The three older tracked editorial files and both private ignore rules are unchanged.
 
-**Editorial conclusion:** The bounded article is defensible based on
-existing reproducible CI and historical evidence. The outstanding actions are
-verification of new tutorial commands and a final repository hygiene pass,
-not a requirement for new semantic-model research.
+The private article is approximately 700 words and uses only Conversion Rate and
+`SWITCH` as its examples. The earlier
+[Snowflake Semantic Views article](https://medium.com/@jan.busse/maintaining-power-bi-semantic-models-as-snowflake-semantic-views-36cb4bcd9d56)
+describes targeted translation rules and explicit business decisions. The new
+article examines interchange and adapter boundaries; structural preservation is
+not a claim that vendor-specific expressions translate into executable equivalents.
+Article text and private notes must remain outside commits, PRs and CI artifacts.
