@@ -212,5 +212,6 @@ The [Task 03 validation record](docs/TASK03_VALIDATION.md) retains the accepted
 benchmark and links the Task 04 continuation. Use the
 [walkthrough](docs/CONVERSION_DEMO.md) for current showcase results and official
 round-trip boundaries; generated outputs and authored target candidates have
-separate provenance. Power BI and Databricks numerical execution remains
-`NOT_EXECUTED` unless actual target-engine results are retained.
+separate provenance. The later [Power BI runtime supplement](showcase/POWERBI_RUNTIME_VALIDATION.md)
+retains actual DAX results for one unmodified core roundtrip. Historical records
+remain unchanged; Databricks target execution is still unverified.

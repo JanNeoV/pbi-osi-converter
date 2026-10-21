@@ -538,7 +538,7 @@ Databricks permission/version/analyzer error is a runtime blocker, not an observ
 number. Record actual SQL, versions, generated/bound YAML hashes and results in
 [`runtime-results-template.json`](databricks-task05/runtime-results-template.json).
 
-## What these exercises establish
+## What these exercises established at their historical cutoff
 
 | Exercise | Measured source/control result | Official native return | Target runtime |
 |---|---|---|---|
@@ -546,7 +546,11 @@ number. Record actual SQL, versions, generated/bound YAML hashes and results in
 | B: Power BI default edit | DuckDB reference 40% / 390 EUR; DAX values unmeasured | Inspected candidate metadata retained | NOT_EXECUTED; candidate NOT_VERIFIED |
 | C: Databricks revenue edit | DuckDB oracle 390 → 440 EUR; conversion stays 40% | Inspected YAML values retained | NOT_EXECUTED |
 
-There is **no numerically verified unchanged conversion happy path** in these results.
+These edit-exercise records retain their historical runtime classifications.
+The later [Desktop runtime supplement](POWERBI_RUNTIME_VALIDATION.md) verifies
+the separate unmodified **core** roundtrip against the oracle. Original selector
+candidates fail loading; corrected copies are a separate **REPAIRED / EXPERIMENTAL**
+result and do not upgrade the as-generated selector evidence.
 Use the [nine-path results matrix](RESULTS.md) and [diagnosis](TASK05_DIAGNOSIS.md) for supporting cross-platform evidence,
 including unresolved MetricFlow filters, altered aggregate semantics, annotated `BLANK()`
 substitutions and conversion failures. The [Task 05 validation record](../results/task05-minimal/validation.json)

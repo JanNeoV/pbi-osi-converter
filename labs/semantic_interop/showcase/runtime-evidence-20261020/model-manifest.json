@@ -1,0 +1,27 @@
+{
+  "native": {
+    "source": ".tmp/powerbi-runtime-20261020/source.model.bim",
+    "sha256": "696a4a0871056cc6825eb1a610d5e9185430dc3d5eda283b0d1a43257323ce5d",
+    "copy_identical": true
+  },
+  "roundtrip": {
+    "source": ".tmp/powerbi-runtime-20261020/from-ossie/output.model.bim",
+    "sha256": "fcc9ced198b83065be019627eef771e01e46bd4a21814ab3b7cdf5d8c9b7fcba",
+    "copy_identical": true
+  },
+  "metricflow": {
+    "source": "labs/semantic_interop/results/task04-showcase/to-powerbi/metricflow/output.model.bim",
+    "sha256": "9f55bc36cd8703cb8d23aaa0440aff3f1e02110557ca5a92d87a1ee3ee559be0",
+    "copy_identical": true
+  },
+  "native-core": {
+    "source": "labs/semantic_interop/results/task04-showcase/powerbi/core/source.model.bim",
+    "sha256": "10aadb5bc1d2b3f75fda23ed45bca5ca77647ba2271f980e5ea0015bb17c9ad6",
+    "copy_identical": true
+  },
+  "roundtrip-core": {
+    "source": ".tmp/powerbi-runtime-20261020/core-from-ossie/output.model.bim",
+    "sha256": "c899fe77ed1a15fc97ce5eeba44442b25600af83e39d39a5396129fe6ac67eff",
+    "copy_identical": true
+  }
+}

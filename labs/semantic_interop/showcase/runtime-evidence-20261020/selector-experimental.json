@@ -1,0 +1,1286 @@
+{
+  "classification": "REPAIRED / EXPERIMENTAL",
+  "as_generated_baseline_native_and_returned": "FAIL: conflicting FormatString and FormatStringDefinition; unchanged historical inputs",
+  "executions": {
+    "native-selector": {
+      "variant": "native-selector",
+      "utc": "2026-10-21T05:10:43.6790326Z",
+      "desktopVersion": "2.159.883.0",
+      "engineFileVersion": "2025.0170.0093.23 ((releases/2026/09.4).260909-0937)",
+      "clientFileVersion": "17.0.93.23",
+      "serverVersion": "17.0.93.23",
+      "load": "PASS",
+      "refresh": "PASS",
+      "queries": [
+        {
+          "name": "counts",
+          "query": "EVALUATE ROW(\"Sessions\", COUNTROWS(Sessions), \"Orders\", COUNTROWS(Orders))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Sessions]",
+            "[Orders]"
+          ],
+          "rows": [
+            {
+              "[Sessions]": 12,
+              "[Orders]": 6
+            }
+          ]
+        },
+        {
+          "name": "Overall-none",
+          "query": "EVALUATE ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI])",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 0.4
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-none",
+          "query": "EVALUATE ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Overall-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 0.4
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Overall-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 390
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Overall-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 0.4
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Direct-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 0.5
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Direct-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 0.5
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Direct-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 300
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Direct-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 0.5
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Indirect-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 0.25
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Indirect-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 0.25
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Indirect-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 90
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Indirect-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 0.25
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        }
+      ],
+      "live_measures": [
+        {
+          "Name": "Eligible Sessions",
+          "Expression": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Sessions[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+          "FormatString": "#,0"
+        },
+        {
+          "Name": "Converted Sessions",
+          "Expression": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Orders[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n        KEEPFILTERS(Orders[order_status] = \"paid\"),\n        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+          "FormatString": "#,0"
+        },
+        {
+          "Name": "Conversion Rate",
+          "Expression": "DIVIDE([Converted Sessions], [Eligible Sessions])",
+          "FormatString": "0.0%"
+        },
+        {
+          "Name": "Paid Revenue",
+          "Expression": "CALCULATE(\n    SUM(Orders[amount_eur]),\n    KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n    KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n    KEEPFILTERS(Orders[order_status] = \"paid\"),\n    KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n)",
+          "FormatString": "#,0.00 \"EUR\""
+        },
+        {
+          "Name": "Selected KPI",
+          "Expression": "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\n    \"Conversion Rate\", [Conversion Rate],\n    \"Paid Revenue\", [Paid Revenue],\n    BLANK()\n)",
+          "FormatString": null
+        }
+      ],
+      "live_dynamic_format_expressions": [
+        "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\n    \"Conversion Rate\", \"0.0%\",\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\n    \"General Number\"\n)"
+      ],
+      "source_capture_sha256": "b91e9020b60e1521f2378178c613c0c86daa5caa43a0e68f85bb42959d54631a",
+      "dynamic_format_metadata_matches_submitted": true,
+      "live_business_dax_matches_submitted": true
+    },
+    "roundtrip-selector": {
+      "variant": "roundtrip-selector",
+      "utc": "2026-10-21T05:12:09.9037402Z",
+      "desktopVersion": "2.159.883.0",
+      "engineFileVersion": "2025.0170.0093.23 ((releases/2026/09.4).260909-0937)",
+      "clientFileVersion": "17.0.93.23",
+      "serverVersion": "17.0.93.23",
+      "load": "PASS",
+      "refresh": "PASS",
+      "queries": [
+        {
+          "name": "counts",
+          "query": "EVALUATE ROW(\"Sessions\", COUNTROWS(Sessions), \"Orders\", COUNTROWS(Orders))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Sessions]",
+            "[Orders]"
+          ],
+          "rows": [
+            {
+              "[Sessions]": 12,
+              "[Orders]": 6
+            }
+          ]
+        },
+        {
+          "name": "Overall-none",
+          "query": "EVALUATE ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI])",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 0.4
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-none",
+          "query": "EVALUATE ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Overall-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 0.4
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Overall-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 390
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Overall-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 0.4
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Direct-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 0.5
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Direct-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 0.5
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Direct-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 300
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Direct-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 0.5
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Indirect-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 0.25
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Indirect-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 0.25
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Indirect-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 90
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Indirect-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 0.25
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        }
+      ],
+      "live_measures": [
+        {
+          "Name": "Eligible Sessions",
+          "Expression": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Sessions[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+          "FormatString": "#,0"
+        },
+        {
+          "Name": "Converted Sessions",
+          "Expression": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Orders[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n        KEEPFILTERS(Orders[order_status] = \"paid\"),\n        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+          "FormatString": "#,0"
+        },
+        {
+          "Name": "Conversion Rate",
+          "Expression": "DIVIDE([Converted Sessions], [Eligible Sessions])",
+          "FormatString": "0.0%"
+        },
+        {
+          "Name": "Paid Revenue",
+          "Expression": "CALCULATE(\n    SUM(Orders[amount_eur]),\n    KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n    KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n    KEEPFILTERS(Orders[order_status] = \"paid\"),\n    KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n)",
+          "FormatString": "#,0.00 \"EUR\""
+        },
+        {
+          "Name": "Selected KPI",
+          "Expression": "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\n    \"Conversion Rate\", [Conversion Rate],\n    \"Paid Revenue\", [Paid Revenue],\n    BLANK()\n)",
+          "FormatString": null
+        }
+      ],
+      "live_dynamic_format_expressions": [
+        "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Conversion Rate\"),\n    \"Conversion Rate\", \"0.0%\",\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\n    \"General Number\"\n)"
+      ],
+      "source_capture_sha256": "f556324f127ac0fd9dd88648536da83f9957cfda7c43fa4c05bdb5965e7ac5d7",
+      "dynamic_format_metadata_matches_submitted": true,
+      "live_business_dax_matches_submitted": true
+    },
+    "roundtrip-changed-default": {
+      "variant": "roundtrip-changed-default",
+      "utc": "2026-10-21T05:14:02.3317449Z",
+      "desktopVersion": "2.159.883.0",
+      "engineFileVersion": "2025.0170.0093.23 ((releases/2026/09.4).260909-0937)",
+      "clientFileVersion": "17.0.93.23",
+      "serverVersion": "17.0.93.23",
+      "load": "PASS",
+      "refresh": "PASS",
+      "queries": [
+        {
+          "name": "counts",
+          "query": "EVALUATE ROW(\"Sessions\", COUNTROWS(Sessions), \"Orders\", COUNTROWS(Orders))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Sessions]",
+            "[Orders]"
+          ],
+          "rows": [
+            {
+              "[Sessions]": 12,
+              "[Orders]": 6
+            }
+          ]
+        },
+        {
+          "name": "Overall-none",
+          "query": "EVALUATE ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI])",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 390
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-none",
+          "query": "EVALUATE ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Overall-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 0.4
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Overall-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 390
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Overall-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.4,
+              "[Paid Revenue]": 390,
+              "[Selected KPI]": 390
+            }
+          ]
+        },
+        {
+          "name": "format-Overall-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Direct-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 300
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Direct-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 0.5
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Direct-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 300
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Direct-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.5,
+              "[Paid Revenue]": 300,
+              "[Selected KPI]": 300
+            }
+          ]
+        },
+        {
+          "name": "format-Direct-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Direct\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Indirect-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 90
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-none",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Indirect-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 0.25
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-rate",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "0.0%"
+            }
+          ]
+        },
+        {
+          "name": "Indirect-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 90
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-revenue",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        },
+        {
+          "name": "Indirect-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue], \"Selected KPI\", [Selected KPI]), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Conversion Rate]",
+            "[Paid Revenue]",
+            "[Selected KPI]"
+          ],
+          "rows": [
+            {
+              "[Conversion Rate]": 0.25,
+              "[Paid Revenue]": 90,
+              "[Selected KPI]": 90
+            }
+          ]
+        },
+        {
+          "name": "format-Indirect-multiple",
+          "query": "EVALUATE CALCULATETABLE(ROW(\"Format expression\", SWITCH(\r\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\r\n    \"Conversion Rate\", \"0.0%\",\r\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\r\n    \"General Number\"\r\n)), TREATAS({\"Indirect\"}, 'Sales Channel'[sales_channel]), TREATAS({\"Conversion Rate\", \"Paid Revenue\"}, 'KPI Selector'[KPI]))",
+          "status": "EXECUTED",
+          "columns": [
+            "[Format expression]"
+          ],
+          "rows": [
+            {
+              "[Format expression]": "#,0.00 \"EUR\""
+            }
+          ]
+        }
+      ],
+      "live_measures": [
+        {
+          "Name": "Eligible Sessions",
+          "Expression": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Sessions[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+          "FormatString": "#,0"
+        },
+        {
+          "Name": "Converted Sessions",
+          "Expression": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Orders[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n        KEEPFILTERS(Orders[order_status] = \"paid\"),\n        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+          "FormatString": "#,0"
+        },
+        {
+          "Name": "Conversion Rate",
+          "Expression": "DIVIDE([Converted Sessions], [Eligible Sessions])",
+          "FormatString": "0.0%"
+        },
+        {
+          "Name": "Paid Revenue",
+          "Expression": "CALCULATE(\n    SUM(Orders[amount_eur]),\n    KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n    KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n    KEEPFILTERS(Orders[order_status] = \"paid\"),\n    KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n)",
+          "FormatString": "#,0.00 \"EUR\""
+        },
+        {
+          "Name": "Selected KPI",
+          "Expression": "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\n    \"Conversion Rate\", [Conversion Rate],\n    \"Paid Revenue\", [Paid Revenue],\n    BLANK()\n)",
+          "FormatString": null
+        }
+      ],
+      "live_dynamic_format_expressions": [
+        "SWITCH(\n    SELECTEDVALUE('KPI Selector'[KPI], \"Paid Revenue\"),\n    \"Conversion Rate\", \"0.0%\",\n    \"Paid Revenue\", \"#,0.00 \"\"EUR\"\"\",\n    \"General Number\"\n)"
+      ],
+      "source_capture_sha256": "2c572ef21ff9956e8ff2b9338fb813f7bba62992db359b07f6f41753b8bfbbba",
+      "dynamic_format_metadata_matches_submitted": true,
+      "live_business_dax_matches_submitted": true
+    }
+  },
+  "attempts": [
+    {
+      "variant": "native-changed-default",
+      "load": "PASS",
+      "refresh": "FAIL",
+      "error": "Sessions: A cyclic reference was encountered during evaluation. Three queries blocked.",
+      "dax_acceptance": "NOT_EXECUTED",
+      "error_capture_sha256": "c4411a239cbb8d519a8dc35c3688058e104a61ad7a2838bcf532f0c49441c771",
+      "followup": "No additional model repair. A UI dismissal retry was blocked by window targeting; stopped UI input."
+    },
+    {
+      "variant": "roundtrip-selector",
+      "stage": "before refresh completed",
+      "observation": "Early query returned empty-model blanks; retained locally and excluded from acceptance. Accepted capture verifies row counts after completed refresh.",
+      "source_capture_sha256": "d6622deef1274ba393917bb9e174a53b342e30149639a2f8f78dcc9df1b6892b"
+    }
+  ],
+  "rendered_cards": "NOT_EXECUTED",
+  "interactive_slicer_behavior": "NOT_EXECUTED",
+  "format_test_scope": "Dynamic format DMV expression preserved; same expression evaluated separately as DAX. Does not prove rendered card formatting."
+}

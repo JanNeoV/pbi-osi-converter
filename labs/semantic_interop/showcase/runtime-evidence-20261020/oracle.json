@@ -1,0 +1,105 @@
+{
+  "engine": "DuckDB",
+  "execution": "EXECUTED",
+  "headline_queries": {
+    "conversion_rate__channel": {
+      "execution": "EXECUTED",
+      "sql": "oracle/conversion_rate__channel.sql",
+      "typed_result": {
+        "columns": [
+          "sales_channel",
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "float",
+              "value": "0.5"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "float",
+              "value": "0.25"
+            }
+          ]
+        ]
+      }
+    },
+    "conversion_rate__overall": {
+      "execution": "EXECUTED",
+      "sql": "oracle/conversion_rate__overall.sql",
+      "typed_result": {
+        "columns": [
+          "conversion_rate"
+        ],
+        "rows": [
+          [
+            {
+              "type": "float",
+              "value": "0.4"
+            }
+          ]
+        ]
+      }
+    },
+    "paid_revenue__channel": {
+      "execution": "EXECUTED",
+      "sql": "oracle/paid_revenue__channel.sql",
+      "typed_result": {
+        "columns": [
+          "sales_channel",
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "string",
+              "value": "Direct"
+            },
+            {
+              "type": "decimal",
+              "value": "300.00"
+            }
+          ],
+          [
+            {
+              "type": "string",
+              "value": "Indirect"
+            },
+            {
+              "type": "decimal",
+              "value": "90.00"
+            }
+          ]
+        ]
+      }
+    },
+    "paid_revenue__overall": {
+      "execution": "EXECUTED",
+      "sql": "oracle/paid_revenue__overall.sql",
+      "typed_result": {
+        "columns": [
+          "paid_revenue"
+        ],
+        "rows": [
+          [
+            {
+              "type": "decimal",
+              "value": "390.00"
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "version": "1.5.6"
+}

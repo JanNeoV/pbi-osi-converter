@@ -1,0 +1,18 @@
+{
+  "comparison.json": "873bc753d1123ecdee21aad9041549ba620c058f8628a0fb765662eaf1df9ea4",
+  "converter-provenance.json": "3a28081e4047f974ba0b11dfa1652a2ffd5f4f585dff9f955d9b6524dae66b3a",
+  "model-manifest.json": "7dd918d1005939e40a67d54f284c5e7d034577cd4266fff7c8163cf3a55de6a5",
+  "native-core.json": "c3fded2f9f4f1f4426803fbcf945c00ca880794060a2c38808fe290ce80f7171",
+  "oracle/conversion_rate__channel.sql": "0e5d5acc691fb520cc54d574e9c9c411b815c66c0381645b60d921208d0b3fbd",
+  "oracle/conversion_rate__overall.sql": "ce2fa63189d66bd13a274c5c6f81563e1e5cacc458dabb77341fd38624a03fe6",
+  "oracle/paid_revenue__channel.sql": "59a14eb777e093315272297a3e8e80eedb6f406d4fd01327d847772c6854e5ee",
+  "oracle/paid_revenue__overall.sql": "370161ead16643b44c73096dd2456e6541f330bd17f29a7b6ed42b45261ea5cf",
+  "oracle.json": "1670b4da8248026de14a801392caf46e1ad7eb79475da7bb1c00cdbb368a1b63",
+  "provenance.json": "52cbbe2f672ae84016bc4880b3dd635af6a91ebe84251c1bf6d6a9b32ab86b3e",
+  "query.ps1": "21abefdf449f00d5ba18d0071f2a9669f919ce7f4dc0fefd805e90ec8ec58761",
+  "repair-manifest.json": "051edeebd98998ccdd6f1f77fd62129a403ce044c4d0095e7361de0eeb147b44",
+  "roundtrip-core.json": "f962ed71c06d761ae8a0d95370b10386704edb84dcaa88cb6f6bada6972e42a9",
+  "selector-experimental.json": "02dfa1ce983adafc00e548b01d9fbb0f77ff4d91df73edb418e317c1521e4b3e",
+  "tooling.json": "272268a2e71d7598d83319b250fb0093a09bd3ee072a5b1b42f855a8db6d538c",
+  "verify.py": "7e1b11a00ae4ff398aae22efff13a4959f150776491d99989e5f2d2f1c7c07f9"
+}

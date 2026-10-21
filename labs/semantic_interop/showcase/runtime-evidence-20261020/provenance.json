@@ -1,0 +1,64 @@
+{
+  "base_commit": "461b415b945cd6cf23e4025a788b96a015bc8454",
+  "capture_date": "2026-10-20",
+  "verification_date": "2026-10-21",
+  "raw_inventory": {
+    "checked": 159,
+    "mismatches": [],
+    "manifest_sha256": "505b8910acfd48835f93ece966393d2a670594b9248a22cb305653941afbb0dc"
+  },
+  "raw_retention": "Ignored .tmp/powerbi-runtime-20261020 remains unchanged locally; raw screenshots, machine paths, ports, PIDs, catalog identities and full DMV metadata are not published. Public files are extracts, not byte-identical raw captures.",
+  "extracts": {
+    "native-core.json": {
+      "source": ".tmp/powerbi-runtime-20261020/native-core-execution.json",
+      "source_sha256": "a82eaa96b26cf6d71722006de33a955d443b82aa5389c4f5f1c91cae72308b3a",
+      "transformation": "Allowlisted versions, UTC, count/headline/channel query objects and measure Name/Expression/FormatString; catalog reduced to compatibility. Query text, columns and numerical rows unchanged."
+    },
+    "roundtrip-core.json": {
+      "source": ".tmp/powerbi-runtime-20261020/roundtrip-core-execution.json",
+      "source_sha256": "19a83a268e0b7d73fc0342d26b75fcda0079b28e31cbc2ca825c378b369315dc",
+      "transformation": "Allowlisted versions, UTC, count/headline/channel query objects and measure Name/Expression/FormatString; catalog reduced to compatibility. Query text, columns and numerical rows unchanged."
+    }
+  },
+  "other_sources": {
+    "oracle.json": "4f67800b520e209887bc10ede1ee88a65744302facf588b3c7b94e69279b39dc",
+    "verification.json": "4fe71267d2aed59b122cf174bdecf458a653550c6f85688c6148caa91ee8e011",
+    "model-manifest.json": "b07602894a2669196a3d4a9e19ad6ace1e2ede106bbe880ec958abeb82876204",
+    "converter-provenance.json": "3a28081e4047f974ba0b11dfa1652a2ffd5f4f585dff9f955d9b6524dae66b3a"
+  },
+  "load_failures": {
+    "native-selector-error.txt": {
+      "source_sha256": "91d9057476823157f8def6a50015bcf9c589fd849b56d43866e58da04331a05d",
+      "error": "The Measure 'Sessions'[Selected KPI] has both FormatString property and FormatStringDefinition property defined which is not supported scenario.",
+      "dax_execution": "NOT_EXECUTED"
+    },
+    "roundtrip-selector-error.txt": {
+      "source_sha256": "91d9057476823157f8def6a50015bcf9c589fd849b56d43866e58da04331a05d",
+      "error": "The Measure 'Sessions'[Selected KPI] has both FormatString property and FormatStringDefinition property defined which is not supported scenario.",
+      "dax_execution": "NOT_EXECUTED"
+    },
+    "metricflow-error.txt": {
+      "source_sha256": "67f0d4dae1b129148f532dbb74e7c0bbf54b2d196f4f1d65232b8eeda3b7072b",
+      "error": "Unable to open document\nNo eligible workspace found from PowerBI Service.",
+      "dax_execution": "NOT_EXECUTED"
+    }
+  },
+  "oracle_sql_extracts": {
+    "oracle/conversion_rate__channel.sql": {
+      "source_sha256": "49b73311f00248130c10be463984bbaea1665fd40cf3acc1bb089aa1015eb850",
+      "transformation": "Line endings normalized to LF; trailing whitespace and final blank lines removed only."
+    },
+    "oracle/conversion_rate__overall.sql": {
+      "source_sha256": "c6aea307045cc5c9b0209929a2bef983f9fa863ee1d0e0cde14c854506bc57c5",
+      "transformation": "Line endings normalized to LF; trailing whitespace and final blank lines removed only."
+    },
+    "oracle/paid_revenue__channel.sql": {
+      "source_sha256": "5da801325782211f97be53bad72f06f3553a243c1996c99e8db6899ac58d732b",
+      "transformation": "Line endings normalized to LF; trailing whitespace and final blank lines removed only."
+    },
+    "oracle/paid_revenue__overall.sql": {
+      "source_sha256": "cf074c4d17631995355ecff94862d00f338d88470c42aadcb2a7ae1e422b1442",
+      "transformation": "Line endings normalized to LF; trailing whitespace and final blank lines removed only."
+    }
+  }
+}
