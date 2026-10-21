@@ -79,9 +79,12 @@ These are [executed MetricFlow/DuckDB source results](labs/semantic_interop/resu
 Successful file conversion does not guarantee the same calculation. The
 [nine investigated paths](labs/semantic_interop/showcase/RESULTS.md) produced
 eight outputs and one converter failure. Two native round trips preserve inspected
-definitions; six paths have static semantic mismatches. **No unchanged conversion
-has a numerically verified target result.** Power BI and Databricks runtime execution
-remains unverified; returned MetricFlow models stop at missing configuration.
+definitions; six paths have static semantic mismatches. **One bounded, unmodified
+Power BI roundtrip now has verified DAX/oracle agreement:** 40% / 390 EUR overall,
+50% / 300 EUR Direct, and 25% / 90 EUR Indirect. See the
+[runtime evidence](labs/semantic_interop/showcase/POWERBI_RUNTIME_VALIDATION.md).
+MetricFlow returns still stop at initialization; its Power BI export fails opening
+and its nine annotated blanks remain unexecuted. Databricks runtime is unverified.
 
 Start with the three-experiment quickstart, then explore the supporting evidence:
 

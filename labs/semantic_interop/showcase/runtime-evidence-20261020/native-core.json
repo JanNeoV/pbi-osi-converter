@@ -1,0 +1,86 @@
+{
+  "variant": "native-core",
+  "utc": "2026-10-20T16:58:23.1983151Z",
+  "desktopVersion": "2.159.883.0",
+  "engineFileVersion": "2025.0170.0093.23 ((releases/2026/09.4).260909-0937)",
+  "clientFileVersion": "17.0.93.23",
+  "serverVersion": "17.0.93.23",
+  "queries": [
+    {
+      "name": "counts",
+      "query": "EVALUATE ROW(\"Sessions\", COUNTROWS(Sessions), \"Orders\", COUNTROWS(Orders))",
+      "status": "EXECUTED",
+      "columns": [
+        "[Sessions]",
+        "[Orders]"
+      ],
+      "rows": [
+        {
+          "[Sessions]": 12,
+          "[Orders]": 6
+        }
+      ]
+    },
+    {
+      "name": "headline",
+      "query": "EVALUATE ROW(\"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue])",
+      "status": "EXECUTED",
+      "columns": [
+        "[Conversion Rate]",
+        "[Paid Revenue]"
+      ],
+      "rows": [
+        {
+          "[Conversion Rate]": 0.4,
+          "[Paid Revenue]": 390
+        }
+      ]
+    },
+    {
+      "name": "channels",
+      "query": "EVALUATE SUMMARIZECOLUMNS('Sales Channel'[sales_channel], \"Conversion Rate\", [Conversion Rate], \"Paid Revenue\", [Paid Revenue])",
+      "status": "EXECUTED",
+      "columns": [
+        "Sales Channel[sales_channel]",
+        "[Conversion Rate]",
+        "[Paid Revenue]"
+      ],
+      "rows": [
+        {
+          "Sales Channel[sales_channel]": "Direct",
+          "[Conversion Rate]": 0.5,
+          "[Paid Revenue]": 300
+        },
+        {
+          "Sales Channel[sales_channel]": "Indirect",
+          "[Conversion Rate]": 0.25,
+          "[Paid Revenue]": 90
+        }
+      ]
+    }
+  ],
+  "live_measures": [
+    {
+      "Name": "Eligible Sessions",
+      "Expression": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Sessions[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+      "FormatString": "#,0"
+    },
+    {
+      "Name": "Converted Sessions",
+      "Expression": "COALESCE(\n    CALCULATE(\n        DISTINCTCOUNT(Orders[session_id]),\n        KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n        KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n        KEEPFILTERS(Orders[order_status] = \"paid\"),\n        KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n    ),\n    0\n)",
+      "FormatString": "#,0"
+    },
+    {
+      "Name": "Conversion Rate",
+      "Expression": "DIVIDE([Converted Sessions], [Eligible Sessions])",
+      "FormatString": "0.0%"
+    },
+    {
+      "Name": "Paid Revenue",
+      "Expression": "CALCULATE(\n    SUM(Orders[amount_eur]),\n    KEEPFILTERS(Sessions[is_eligible] = TRUE()),\n    KEEPFILTERS(Sessions[session_date] >= DATE(2026, 1, 1)),\n        KEEPFILTERS(Sessions[session_date] < DATE(2026, 3, 1)),\n    KEEPFILTERS(Orders[order_status] = \"paid\"),\n    KEEPFILTERS(Orders[order_date] < DATE(2026, 3, 1))\n)",
+      "FormatString": "#,0.00 \"EUR\""
+    }
+  ],
+  "runtime_compatibility": 1606,
+  "source_capture_sha256": "a82eaa96b26cf6d71722006de33a955d443b82aa5389c4f5f1c91cae72308b3a"
+}

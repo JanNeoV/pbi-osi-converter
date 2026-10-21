@@ -25,7 +25,7 @@ flowchart LR
   R --> A[Attempt unchanged target execution]
   E --> Q
   A --> Q
-  B --> S[Static comparison; Desktop execution unverified]
+  B --> S[Static demo; separate bounded Desktop runtime evidence]
 ```
 
 ## Setup and run
@@ -84,13 +84,16 @@ Existing sealed examples: [inventory](../results/task04-showcase/to-metricflow/m
 
 ## 2. Power BI → Apache Ossie → Power BI
 
-Expected: **conversion PASS; bounded static PASS; target execution NOT_EXECUTED;
+Expected from the offline command: **conversion PASS; bounded static PASS; target execution NOT_EXECUTED;
 target oracle agreement BLOCKED**.
 
 The authored fixture's normalized DAX, relationships, columns, partitions, M and
 formatting metadata survive this round trip. That is a model comparison, not a
 Power BI Desktop refresh or DAX query. Optional TOM deserialization is also not
-runtime execution. The source fixture itself is not Desktop-verified.
+runtime execution. A separate [Desktop run](POWERBI_RUNTIME_VALIDATION.md)
+loaded and refreshed the native core and unmodified return, then verified six
+DAX values per model against DuckDB. The command above remains an offline/static
+demo and therefore still emits NOT_EXECUTED runtime fields.
 
 Inspect `powerbi/core/source.model.bim`, `powerbi/core/from-ossie/output.model.bim`,
 and `powerbi/core/report.json`. Existing sealed
@@ -112,6 +115,8 @@ Existing sealed [warnings](../results/task04-showcase/to-powerbi/metricflow/warn
 and [converted BIM](../results/task04-showcase/to-powerbi/metricflow/output.model.bim)
 show the observed changes. The generated report compares original and converted
 definitions directly; it does not infer numerical failure from `BLANK()`.
+The separate Desktop attempt failed opening because no eligible Service workspace
+was available for its Direct Lake source. No DAX values were obtained.
 
 ## Optional: reproduce the Power BI SWITCH selector without Desktop
 
@@ -216,6 +221,6 @@ retain this distinction. Start another fresh work directory to reset.
   [closeout report](../docs/PUBLICATION_READINESS.md#ci-status-and-merge-policy).
 
 This fixture is a bounded teaching example, not a general equivalence proof.
-No converted target has verified numerical agreement. No Power BI Desktop/DAX
-runtime is exercised. The Python socket guard used in tests is not an OS firewall.
+One separate bounded Power BI roundtrip has [verified numerical agreement](POWERBI_RUNTIME_VALIDATION.md).
+The offline command itself exercises no Power BI Desktop/DAX runtime. The Python socket guard used in tests is not an OS firewall.
 The [wider nine-path results](RESULTS.md) and [tutorial](TUTORIAL.md) remain available.

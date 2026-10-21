@@ -1,5 +1,7 @@
 # Two business metrics across semantic platforms
 
+> Runtime update (2026-10-21): the separate [Desktop supplement](../showcase/POWERBI_RUNTIME_VALIDATION.md) verifies the unmodified Power BI core roundtrip. Runtime statements below describe the original static showcase; selector repairs are separate experimental evidence.
+
 This is the supporting technical explanation for the canonical
 [`conversion_demo`](../fixtures/conversion_demo/) fixture: 12 sessions, six orders,
 and two headline metrics. Counts, AOV, empty groups and other slices remain internal

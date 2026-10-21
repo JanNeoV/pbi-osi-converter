@@ -1,0 +1,58 @@
+{
+  "native-selector": {
+    "source": "labs/semantic_interop/showcase/powerbi-task05/baseline.model.bim",
+    "source_sha256": "696a4a0871056cc6825eb1a610d5e9185430dc3d5eda283b0d1a43257323ce5d",
+    "repaired_sha256": "4d52e15d7542a44c3419a0ae7b83d0c3ab2257506084a899015070d1383100ef",
+    "classification": "REPAIRED / EXPERIMENTAL",
+    "patch": [
+      {
+        "op": "remove",
+        "path": "/model/tables/0/measures/4/formatString",
+        "old": "0.0%"
+      }
+    ],
+    "other_properties_unchanged": true
+  },
+  "roundtrip-selector": {
+    "source": ".tmp/powerbi-runtime-20261020/from-ossie/output.model.bim",
+    "source_sha256": "fcc9ced198b83065be019627eef771e01e46bd4a21814ab3b7cdf5d8c9b7fcba",
+    "repaired_sha256": "cf5ac3efdb9e84227a24b010b98562c75586762032fb3d1d92dbcf77f3c7791c",
+    "classification": "REPAIRED / EXPERIMENTAL",
+    "patch": [
+      {
+        "op": "remove",
+        "path": "/model/tables/0/measures/4/formatString",
+        "old": "0.0%"
+      }
+    ],
+    "other_properties_unchanged": true
+  },
+  "native-changed-default": {
+    "source": "labs/semantic_interop/showcase/powerbi-task05/changed-default.model.bim",
+    "source_sha256": "08768c458ebf6c2bf4d8487350016fc405d2f3f42e5bb7b32bbd30ba2450f7fe",
+    "repaired_sha256": "21c2a19057b6fe8dfeb711aa264d55b76d8fbd1c2b608800e9b89ba90da3180d",
+    "classification": "REPAIRED / EXPERIMENTAL",
+    "patch": [
+      {
+        "op": "remove",
+        "path": "/model/tables/0/measures/4/formatString",
+        "old": "0.0%"
+      }
+    ],
+    "other_properties_unchanged": true
+  },
+  "roundtrip-changed-default": {
+    "source": ".tmp/runtime-closeout/changed-from-ossie/output.model.bim",
+    "source_sha256": "138953e4fcea9250a7bf4527a04f6080b0b71c2b8032032efd8c3eab8fa70931",
+    "repaired_sha256": "19e785736c9816082eff57079454891cbf097a20765ded8955c1a7623de3a628",
+    "classification": "REPAIRED / EXPERIMENTAL",
+    "patch": [
+      {
+        "op": "remove",
+        "path": "/model/tables/0/measures/4/formatString",
+        "old": "0.0%"
+      }
+    ],
+    "other_properties_unchanged": true
+  }
+}

@@ -1,8 +1,8 @@
 {
   "README.md": {
     "base_sha256": "4d69f847c711b476ff8db437a4013f94f1bbd808c3d5d42b5460b6ff9f38c076",
-    "sha256": "8d2e154cfb812baadab3e31989ee4c36dc8d33478514a76e83831c985956fcdc",
-    "reason": "Three-experiment quickstart and acceptance navigation; original export provenance remains immutable."
+    "sha256": "0c62b63c5bbae1f572d41755d68a3f1bb7a72a0e5e285f4a1170663ff64c4ff0",
+    "reason": "Document the bounded unmodified Power BI DAX roundtrip and link sanitized runtime evidence; preserve original export provenance."
   },
   "scripts/check_public_repository.py": {
     "base_sha256": "4299af8d5558aba058d8f033fec4f8a4f83fd3acee6e7a15fb1d47f018e16589",

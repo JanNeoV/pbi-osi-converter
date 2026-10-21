@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-21",
+  "te": {
+    "status": "UNAVAILABLE",
+    "probe": "te --help",
+    "observed": "CommandNotFoundException",
+    "version": null,
+    "help_syntax_verified": false,
+    "capability_tests": "NOT_EXECUTED",
+    "conflict_detection": "NOT_EXECUTED"
+  },
+  "TE2": {
+    "status": "NOT_FOUND_IN_CHECKED_LOCATIONS"
+  },
+  "TE3": {
+    "status": "NOT_FOUND_IN_CHECKED_LOCATIONS"
+  },
+  "search_scope": [
+    "PATH",
+    "Program Files and Program Files (x86) Tabular Editor directories",
+    "user Programs",
+    "Downloads",
+    "user-local bin and WinGet links",
+    "Windows uninstall registrations"
+  ],
+  "fallback": "Installed Power BI Desktop 2.159.883.0 bundled ADOMD.NET 17.0.93.23; actual connection, DAX and DMV execution",
+  "new_dependency": false
+}

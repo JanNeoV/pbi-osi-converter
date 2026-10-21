@@ -1,0 +1,122 @@
+{
+  "model_bytes_unchanged": {
+    "native": true,
+    "roundtrip": true,
+    "metricflow": true,
+    "native-core": true,
+    "roundtrip-core": true
+  },
+  "static": {
+    "core": {
+      "table_names_equal": true,
+      "measure_names_equal": true,
+      "dax_expressions_equal": true,
+      "complete_measure_properties_equal": true,
+      "relationships_equal_including_filter_direction": true,
+      "columns_equal": true,
+      "partitions_equal": true,
+      "m_expressions_equal": true,
+      "complete_normalized_document_equal": true
+    },
+    "selector": {
+      "table_names_equal": true,
+      "measure_names_equal": true,
+      "dax_expressions_equal": true,
+      "complete_measure_properties_equal": true,
+      "relationships_equal_including_filter_direction": true,
+      "columns_equal": true,
+      "partitions_equal": true,
+      "m_expressions_equal": true,
+      "complete_normalized_document_equal": true,
+      "selector_disconnected": true,
+      "exactly_two_selector_choices": true
+    }
+  },
+  "runtime": {
+    "native-core": {
+      "all_queries_executed": true,
+      "counts": [
+        {
+          "[Sessions]": 12,
+          "[Orders]": 6
+        }
+      ],
+      "actual": {
+        "overall": {
+          "[Conversion Rate]": 0.4,
+          "[Paid Revenue]": 390
+        },
+        "Direct": {
+          "[Conversion Rate]": 0.5,
+          "[Paid Revenue]": 300
+        },
+        "Indirect": {
+          "[Conversion Rate]": 0.25,
+          "[Paid Revenue]": 90
+        }
+      },
+      "oracle": {
+        "overall": {
+          "[Conversion Rate]": 0.4,
+          "[Paid Revenue]": 390.0
+        },
+        "Direct": {
+          "[Conversion Rate]": 0.5,
+          "[Paid Revenue]": 300.0
+        },
+        "Indirect": {
+          "[Conversion Rate]": 0.25,
+          "[Paid Revenue]": 90.0
+        }
+      },
+      "equal": true,
+      "live_dax_equal": true,
+      "live_format_strings_equal": true,
+      "engine_compatibility": 1606,
+      "submitted_compatibility": 1601
+    },
+    "roundtrip-core": {
+      "all_queries_executed": true,
+      "counts": [
+        {
+          "[Sessions]": 12,
+          "[Orders]": 6
+        }
+      ],
+      "actual": {
+        "overall": {
+          "[Conversion Rate]": 0.4,
+          "[Paid Revenue]": 390
+        },
+        "Direct": {
+          "[Conversion Rate]": 0.5,
+          "[Paid Revenue]": 300
+        },
+        "Indirect": {
+          "[Conversion Rate]": 0.25,
+          "[Paid Revenue]": 90
+        }
+      },
+      "oracle": {
+        "overall": {
+          "[Conversion Rate]": 0.4,
+          "[Paid Revenue]": 390.0
+        },
+        "Direct": {
+          "[Conversion Rate]": 0.5,
+          "[Paid Revenue]": 300.0
+        },
+        "Indirect": {
+          "[Conversion Rate]": 0.25,
+          "[Paid Revenue]": 90.0
+        }
+      },
+      "equal": true,
+      "live_dax_equal": true,
+      "live_format_strings_equal": true,
+      "engine_compatibility": 1606,
+      "submitted_compatibility": 1601
+    }
+  },
+  "metricflow_warning_count": 20
+}

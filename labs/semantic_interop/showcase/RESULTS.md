@@ -1,8 +1,16 @@
 # Verified results and limitations
 
-**The original MetricFlow model matches the independent DuckDB oracle. In this lab, no unchanged converted model has a numerically verified happy path.** Overall results are **40% Conversion Rate and 390 EUR Paid Revenue**; Direct **50% / 300 EUR**, Indirect **25% / 90 EUR**. [Executed source SQL, typed results and oracle](../results/task04-showcase/native/report.json) support these values.
+**The original MetricFlow model matches the independent DuckDB oracle. The native Power BI core and its unmodified Ossie return now also match that oracle in real Desktop DAX execution.** Overall results are **40% Conversion Rate and 390 EUR Paid Revenue**; Direct **50% / 300 EUR**, Indirect **25% / 90 EUR**. [Executed source SQL, typed results and oracle](../results/task04-showcase/native/report.json) support these values.
 
-This matrix summarizes the nine investigated Task 04 routes through Apache Ossie. It preserves the classifications in the sealed [machine-readable paths](../results/task04-showcase/paths.json) and [validation record](../results/task04-showcase/validation.json). Each row separates four claims; a conversion PASS does not imply a static or numerical PASS.
+The [2026-10-20 runtime supplement](POWERBI_RUNTIME_VALIDATION.md) establishes
+one bounded unmodified Power BI roundtrip: six numerical values per model, with
+load and refresh passing. Selector originals failed loading; the separate minimal
+repair experiment is explicitly **REPAIRED / EXPERIMENTAL**. MetricFlow's Power BI
+export failed opening at its Service/Direct Lake boundary; its nine `BLANK()`
+measures were never executed.
+
+The matrix below is the **historical Task 04 snapshot**, not the current runtime status.
+It summarizes the nine investigated Task 04 routes through Apache Ossie. It preserves the classifications in the sealed [machine-readable paths](../results/task04-showcase/paths.json) and [validation record](../results/task04-showcase/validation.json). Each row separates four claims; a conversion PASS does not imply a static or numerical PASS.
 
 | Status | Meaning in the relevant column |
 |---|---|
@@ -13,7 +21,7 @@ This matrix summarizes the nine investigated Task 04 routes through Apache Ossie
 | NOT_EXECUTED | The target query did not run; no target result is implied. |
 | UNKNOWN | Evidence cannot establish the stated claim. |
 
-In **Native target queries**, BLOCKED means MetricFlow initialization was attempted but no requested query could execute; the underlying case records say `execution_status: NOT_EXECUTED`. For Power BI and Databricks no native target runtime was exercised. **Oracle agreement** concerns the converted target, independently of the source's measured agreement.
+In **Native target queries**, BLOCKED means MetricFlow initialization was attempted but no requested query could execute; the underlying case records say `execution_status: NOT_EXECUTED`. At that historical cutoff, no Power BI or Databricks target runtime was exercised. **Oracle agreement** concerns the converted target, independently of the source's measured agreement.
 
 | Direction through Ossie | Conversion completed | Static semantic preservation | Native target queries | Numerical oracle agreement | Observed boundary and direct evidence |
 |---|---|---|---|---|---|
@@ -27,7 +35,7 @@ In **Native target queries**, BLOCKED means MetricFlow initialization was attemp
 | Power BI → Databricks | FAIL | UNKNOWN | NOT_EXECUTED | BLOCKED | Export rejects logical source `Sessions`: requires three-part name or SELECT/WITH source. No target file; expression translation is not reached. [Actual stderr](../results/task04-showcase/databricks/powerbi-to-databricks/from-ossie.stderr.log), [failed leg](../results/task04-showcase/databricks/powerbi-to-databricks/from-ossie.leg.json). |
 | Databricks → Power BI | PASS | MISMATCH | NOT_EXECUTED | BLOCKED | All six measures and computed month become `BLANK()`; eligibility extension dropped; SQL source lacks runnable import binding. [Warnings](../results/task04-showcase/to-powerbi/databricks/warnings.json), [BIM](../results/task04-showcase/to-powerbi/databricks/output.model.bim). |
 
-Totals describe different checks: **8 conversions emitted output, 1 converter failed; 6 static MISMATCH, 2 bounded static PASS, 1 UNKNOWN; 0 converted numerical PASS**. These are not an overall converter pass rate. Parseable artifacts do not establish correct execution.
+Historical Task 04 totals describe different checks: **8 conversions emitted output, 1 converter failed; 6 static MISMATCH, 2 bounded static PASS, 1 UNKNOWN; 0 converted numerical PASS**. These are not an overall converter pass rate. Parseable artifacts do not establish correct execution.
 
 ## Historical evidence
 

@@ -1,8 +1,33 @@
-# Publication readiness closeout - 2026-10-20
+# Publication readiness — runtime closeout, 2026-10-21
+
+**READY for the bounded runtime claim.** The native Power BI core and unmodified
+official Ossie return loaded, refreshed and executed in Desktop 2.159.883.0.
+Both match independent DuckDB SQL: overall **0.4 / 390 EUR**, Direct **0.5 / 300 EUR**,
+Indirect **0.25 / 90 EUR**. Actual queries, numerical rows, versions, hashes and
+reproduction steps are in the [runtime report](../showcase/POWERBI_RUNTIME_VALIDATION.md)
+and its [public evidence package](../showcase/runtime-evidence-20261020/provenance.json).
+All 159 retained raw capture hashes matched; originals remain local and unchanged.
+
+This adds one bounded unmodified Power BI roundtrip to the verified native
+MetricFlow source result. It does not establish cross-platform portability.
+MetricFlow's native return still fails initialization; MetricFlow → Power BI
+has a static definition mismatch and an observed opening failure, with nine
+`BLANK()` measures unexecuted. Selector originals remain FAIL; minimal corrected
+copies are separately labeled REPAIRED / EXPERIMENTAL. Both baseline repairs and
+the returned changed-default repair passed DAX checks; the native changed-default
+repair loaded but failed refresh with a cyclic-reference error. Card rendering
+is untested.
+
+The `te --help` probe failed because no CLI was found. No preview dependency was
+introduced. See the runtime report for the tooling assessment and selector limits.
+Private editorial files remain ignored; historical snapshots and converter pins
+are preserved. The dated offline closeout below is retained as historical context.
+
+## Offline publication closeout - 2026-10-20
 
 **Verdict: READY for the bounded article.** The three documented experiments and
 both existing edit exercises were reproduced in a clean Python 3.12 environment.
-No converted target has verified numerical equivalence. The article and private
+At that offline closeout, no converted target had verified numerical equivalence. The article and private
 publication notes remain ignored and untracked.
 
 ## Fresh local verification
